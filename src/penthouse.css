@@ -51,7 +51,7 @@ a { color: inherit; }
 .ph-hotspot--audio { left: 72.85%; top: 55.05%; width: 3%; height: 8%; transform: translate(-50%, -50%); }
 .ph-hotspot--pen { left: 61.1%; top: 59.65%; width: 4%; height: 3%; transform: translate(-50%, -50%); }
 .ph-hotspot--monitor { left: 49.7%; top: 44.5%; width: 10.2%; height: 11.5%; }
-.ph-hotspot--lamp { left: 62.2%; top: 48%; width: 6.5%; height: 10.5%; }
+.ph-hotspot--lamp { left: 67.85%; top: 55.9%; width: 6%; height: 8.4%; transform: translate(-50%, -50%); }
 .ph-hotspot--book { left: 34%; top: 54.5%; width: 4.5%; height: 4.5%; }
 .ph-hotspot i { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid #e2d8c880; border-radius: 50%; color: #fff; font: 18px Georgia, serif; background: #0e101b66; opacity: 0; transition: opacity .2s; }
 .ph-hotspot span { position: absolute; bottom: 100%; font-size: 8px; letter-spacing: .12em; white-space: nowrap; background: #151719e6; padding: 8px; border-radius: 2px; opacity: 0; transition: opacity .2s; pointer-events: none; }

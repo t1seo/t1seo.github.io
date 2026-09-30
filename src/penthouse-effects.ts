@@ -79,8 +79,8 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
         ctx!.lineWidth = .7; ctx!.beginPath(); ctx!.moveTo(x,y); ctx!.lineTo(x + 3 + (i % 4),y); ctx!.stroke();
       }
       ctx!.restore();
-      // A faint task-light reflection belongs to the same pane as the desk.
-      if (workspace.lamp) glow(1098,380,20,57,'#f1d7ac',p.night * .035);
+      // A small warm reflection sits above the low dome in the same pane.
+      if (workspace.lamp) glow(1137,455,30,16,'#f1d7ac',p.night * .035);
     }
     if (p.stars) {
       ctx!.save(); ctx!.beginPath(); path(SKY_EDGE); ctx!.clip();
@@ -137,12 +137,14 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   function drawWorkspace() {
     const night = atmosphereProfile(state).night;
     if (workspace.lamp) {
-      ctx!.save(); ctx!.beginPath(); path([[1007,552],[1215,552],[1254,573],[1003,573]]); ctx!.clip();
-      glow(1090,560,120,15,'#ffdf9d',.42); ctx!.restore();
-      glow(1078,516,27,44,'#ffe9bd',.075);
-      // The Kelvin head varies subtly with each lighting plate; a soft emission
-      // avoids a detached hard-coded bulb over the softly painted metal edge.
-      glow(1060,466,31,5,'#fff0c8',.44);
+      // Light leaves the underside of the sloped shade toward the left desktop.
+      ctx!.save(); ctx!.beginPath(); path([[991,550],[1144,550],[1158,574],[982,574]]); ctx!.clip();
+      glow(1086,561,114,15,'#ffdda0',.4); ctx!.restore();
+      ctx!.save(); ctx!.beginPath(); path([[1094,518],[1141,529],[1128,564],[1017,566]]); ctx!.clip();
+      glow(1114,537,63,35,'#ffe9bd',.075); ctx!.restore();
+      // Keep the black dome dark: only its narrow lower lip emits light.
+      ctx!.save(); ctx!.beginPath(); path([[1093,515],[1140,526],[1139,529],[1094,519]]); ctx!.clip();
+      glow(1116,523,27,5,'#fff0c6',.55); ctx!.restore();
     }
     if (workspace.monitor) {
       glow(916,562,86,12,'#bad4e9',.08 + night * .09);
