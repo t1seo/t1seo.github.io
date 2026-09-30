@@ -2,7 +2,7 @@
   "id": "penthouse-objects",
   "schemaVersion": 1,
   "createdAt": "2026-09-30T17:25:47.717Z",
-  "scope": "User-requested replacement of one desktop lamp with a low black dome and warm-white stone pedestal, preserving the illustrated room and existing light-toggle UI.",
+  "scope": "User-requested redesign and relocation of the desktop speaker into unused desk space left of the monitor, preserving the existing room style and music controls.",
   "sources": [
     {
       "provider": "studio",
@@ -135,6 +135,27 @@
       "facts": "Official product page and technical sheet describe a tilted enamelled reflector and white Carrara marble base.",
       "adopt": "Compact black dome over short pale stone pedestal, translated into the existing matte illustration.",
       "limits": "Illustrated interpretation, not a dimensionally exact product rendering. Official PDF screenshot fetch timed out; text was read. No photo inspection claimed."
+    },
+    {
+      "source": "Bang & Olufsen Beosound Level",
+      "url": "https://www.bang-olufsen.com/en/int/speakers/beosound-level",
+      "specificationUrl": "https://assets.ctfassets.net/8cd2csgvqd3m/2m1fms8MS2rLL1dfVImQjh/0485fadc2dc65c0fd6789091b8e2a9a4/Beosound_Level_Product_Sheet_EN_Dec2023.pdf",
+      "retrieval": {
+        "method": "web",
+        "date": "2026-10-01",
+        "queries": [
+          "site.bang-olufsen.com beosound level natural oak horizontal speaker"
+        ],
+        "results": [
+          "turn14search0",
+          "turn15view0",
+          "turn15view1"
+        ],
+        "inspected": "Official product page and PDF text. PDF screenshot failed with TimeoutError (turn16view0); no product-image inspection claimed."
+      },
+      "facts": "Official sheet describes light oak cover with gold-tone aluminium frame, plus a natural aluminium / dark-gray fabric variant and standing or flat placement.",
+      "adopt": "Wood-slat front, thin restrained frame, low landscape silhouette adapted to the painted desktop.",
+      "reject": "Exact physical proportions and photographic product insertion; this is an original illustrated interpretation."
     }
   ],
   "history": [
@@ -225,40 +246,80 @@
         "review": "Independent review confirms overlapping tree/shade masks remain closed and desk lamp registration/glow/click handling are unchanged.",
         "preserved": "Milky, red ball, small desk objects, monitor renderer, background music engine; previous chair-free source art retained."
       }
+    },
+    {
+      "scope": "User-requested replacement of one desktop lamp with a low black dome and warm-white stone pedestal, preserving the illustrated room and existing light-toggle UI.",
+      "revision": {
+        "date": "2026-10-01",
+        "kind": "explicit-user-desktop-object-replacement",
+        "baselineCommit": "8212882b5ccff78cdade2ef143ed410dc87d593a",
+        "research": {
+          "reuse": {
+            "priorDesignHash": "79597a69901c10b600170e317c1f2e2e0c7e49377e1dc097bba9aefed82f5c75",
+            "priorResearchHash": "9e593ec97fadc581c36d0bec0c90ecd5eac9091ce329c8b4ee445887d91bda73",
+            "reason": "Same audience, platform, room style and native controls. Reuse inspected Studio neutral tokens, Mobbin Apple/Square/adidas product imagery treatment, 21st Tooltip/MP3 Player interaction accessibility. Revisit only the lamp silhouette using official Flos material; no new UI component or navigation."
+          }
+        },
+        "decisions": [
+          "Use a low black dome and warm-white marble pedestal inspired by Flos Snoopy.",
+          "Reject another articulated arm as too similar to the lamp being replaced.",
+          "Retain the hand-painted room style and all other furniture; preserve left reading lamp.",
+          "Keep source bulb off and register the runtime glow, rain mask and click area to the new shape."
+        ]
+      },
+      "qa": {
+        "status": "passed",
+        "baselineCommit": "8212882b5ccff78cdade2ef143ed410dc87d593a",
+        "tests": 192,
+        "chrome": [
+          "All 20 season/time plates decode and switch at 1672×941.",
+          "1920×1080 full-room evening and 1440×1000 noon/night/rain screenshots inspected.",
+          "Desk-lamp toggle changes the warm desktop light; OFF clears its glow.",
+          "Dome canvas sample identical in clear/rain; union mask accounts for painted position offsets.",
+          "390×844 mobile and 912×540 monitor detail checked.",
+          "Pen hotspot, shared music controls and minimum 44px object targets pass.",
+          "No page errors, failed responses or horizontal overflow."
+        ],
+        "review": "Independent image review caught obsolete lamp fragments in three plates, removed through built-in image editing; seasonal position offsets covered by revised mask and softened glow.",
+        "preserved": "Left floor reading lamp and illuminated black lounge, Milky, red ball, small desk objects, monitor renderer and background music engine; all earlier source art retained."
+      }
     }
   ],
   "revision": {
     "date": "2026-10-01",
-    "kind": "explicit-user-desktop-object-replacement",
-    "baselineCommit": "8212882b5ccff78cdade2ef143ed410dc87d593a",
+    "kind": "explicit-user-speaker-design-and-placement",
+    "baselineCommit": "58db85b62a5f8e4525a588a572de9672b45774d6",
     "research": {
       "reuse": {
-        "priorDesignHash": "79597a69901c10b600170e317c1f2e2e0c7e49377e1dc097bba9aefed82f5c75",
-        "priorResearchHash": "9e593ec97fadc581c36d0bec0c90ecd5eac9091ce329c8b4ee445887d91bda73",
-        "reason": "Same audience, platform, room style and native controls. Reuse inspected Studio neutral tokens, Mobbin Apple/Square/adidas product imagery treatment, 21st Tooltip/MP3 Player interaction accessibility. Revisit only the lamp silhouette using official Flos material; no new UI component or navigation."
+        "priorDesignHash": "11f6f81136db4561b5d61b5c1fc27080b236ec8076aa6f4973b6f874123024bb",
+        "priorResearchHash": "ab3fa48e8aaf41531e92f5a6a0401e60bd470f2c9c69cc7cddacfb4417ec5af6",
+        "reason": "Same web audience, room composition, native object interactions and material palette. Reuse inspected Studio neutral theme, Mobbin Apple/Square/adidas images and 21st Tooltip/MP3 Player source. Only the speaker silhouette and placement change, informed by official B&O Level material descriptions."
       }
     },
     "decisions": [
-      "Use a low black dome and warm-white marble pedestal inspired by Flos Snoopy.",
-      "Reject another articulated arm as too similar to the lamp being replaced.",
-      "Retain the hand-painted room style and all other furniture; preserve left reading lamp.",
-      "Keep source bulb off and register the runtime glow, rain mask and click area to the new shape."
+      "Adopt a low landscape oak-slat speaker with matte charcoal frame, centered in empty desktop space between books and monitor.",
+      "Reject another tall cylinder because it repeats the rejected silhouette and crowds the right lamp.",
+      "Reject a stereo pair because one small object leaves more useful desk space.",
+      "Keep all full room plates byte-identical and replace only the transparent speaker sprite, weather mask and hotspot."
     ]
   },
   "qa": {
     "status": "passed",
-    "baselineCommit": "8212882b5ccff78cdade2ef143ed410dc87d593a",
     "tests": 192,
+    "baselineCommit": "58db85b62a5f8e4525a588a572de9672b45774d6",
     "chrome": [
-      "All 20 season/time plates decode and switch at 1672×941.",
-      "1920×1080 full-room evening and 1440×1000 noon/night/rain screenshots inspected.",
-      "Desk-lamp toggle changes the warm desktop light; OFF clears its glow.",
-      "Dome canvas sample identical in clear/rain; union mask accounts for painted position offsets.",
-      "390×844 mobile and 912×540 monitor detail checked.",
-      "Pen hotspot, shared music controls and minimum 44px object targets pass.",
-      "No page errors, failed responses or horizontal overflow."
+      "All20 seasonal/time plates switch and decode. Background file hashes unchanged.",
+      "1920×1080 evening and 1440×1000 night/noon/rain reviewed: speaker occupies clear left desktop space with grounded feet.",
+      "New speaker hotspot center maps to source743,543 and measures118×44px at1440×1000.",
+      "Keyboard-initiated music, shared Desk controls and audio progress after switching to another tab pass.",
+      "Clear/rain speaker sample unchanged; old right-side speaker mask removed.",
+      "390×844 mobile, monitor detail912×540, no page errors, failed responses or horizontal overflow."
     ],
-    "review": "Independent image review caught obsolete lamp fragments in three plates, removed through built-in image editing; seasonal position offsets covered by revised mask and softened glow.",
-    "preserved": "Left floor reading lamp and illuminated black lounge, Milky, red ball, small desk objects, monitor renderer and background music engine; all earlier source art retained."
+    "review": "Independent code review mapped sprite-only replacement, mask and hotspot. Prior artwork and audio engine are unchanged."
+  },
+  "providersCurrentRefinement": {
+    "studio": "research_check called; same legacy DESIGN.md frontmatter schema errors, personal project unconnected.",
+    "mobbin": "No search_screens/search_flows/search_sections tool exposed in current discovery; reuse prior inspected MCP images for unchanged UI.",
+    "21st": "search/get_component currently exposed; reuse prior inspected Tooltip and MP3 Player source for unchanged interactions."
   }
 }
