@@ -142,9 +142,9 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
       glow(1086,561,114,15,'#ffdda0',.4); ctx!.restore();
       ctx!.save(); ctx!.beginPath(); path([[1094,518],[1141,529],[1128,564],[1017,566]]); ctx!.clip();
       glow(1114,537,63,35,'#ffe9bd',.075); ctx!.restore();
-      // Keep the black dome dark: only its narrow lower lip emits light.
-      ctx!.save(); ctx!.beginPath(); path([[1093,515],[1140,526],[1139,529],[1094,519]]); ctx!.clip();
-      glow(1116,523,27,5,'#fff0c6',.55); ctx!.restore();
+      // A soft underside glow tolerates the small painted shifts between plates.
+      // The broad pool on the desk remains the main light, rather than a hard rim.
+      glow(1110.5,526,14,3,'#fff0c6',.28);
     }
     if (workspace.monitor) {
       glow(916,562,86,12,'#bad4e9',.08 + night * .09);
