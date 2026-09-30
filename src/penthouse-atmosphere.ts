@@ -2,18 +2,26 @@ import type { ClimateState } from './cyber-climate.ts';
 
 export type Point = readonly [number, number];
 export const ROOM_SIZE = [1672, 941] as const;
-// Measured on the workspace master. Intersect these panes with the sofa silhouette.
+// Registered on the frontal Seoul master. These conservative visible regions
+// exclude the mullions, tree, lounge, chair, Studio Display and task lamp.
 export const GLASS_PANES: readonly (readonly Point[])[] = [
-  [[0,0],[68,0],[68,550],[0,563]],
-  [[89,0],[199,79],[199,483],[89,544]],
-  [[215,92],[273,133],[273,475],[215,479]],
-  [[289,145],[333,176],[333,462],[289,469]],
-  [[350,187],[367,198],[367,457],[350,459]],
-  [[389,170],[627,150],[627,480],[389,459]],
-  [[641,149],[873,129],[873,501],[641,486]],
-  [[888,128],[1066,113],[1066,501],[888,501]],
+  [[191,42],[495,42],[495,487],[336,487],[336,433],[228,433],[228,173],[191,173]],
+  [[515,42],[1163,42],[1163,306],[515,306]],
+  [[515,306],[829,306],[829,366],[641,366],[641,406],[585,406],[585,428],[515,428]],
+  [[1005,306],[1029,306],[1029,403],[1005,403]],
+  [[1029,306],[1151,306],[1151,322],[1029,322]],
+  [[1099,323],[1163,323],[1163,350],[1148,350],[1148,355],[1099,337]],
+  [[1030,379],[1129,379],[1129,405],[1030,405]],
+  [[855,416],[1029,416],[1029,426],[855,426]],
+  [[1151,307],[1163,307],[1163,426],[1151,426]],
+  [[1181,42],[1486,42],[1486,487],[1274,487],[1274,429],[1181,429]],
 ];
-export const GLASS_EDGE: readonly Point[] = [[0,0],[376,155],[1070,118],[1070,501],[874,501],[874,489],[705,461],[705,456],[507,442],[492,437],[301,461],[201,468],[100,494],[100,539],[0,555]];
+export const GLASS_EDGE: readonly Point[] = [[191,42],[1486,42],[1486,487],[191,487]];
+// Keep stars and meteors above Namsan, including the two tower silhouettes.
+export const SKY_EDGE: readonly Point[] = [[191,42],[1486,42],[1486,168],[365,168],[365,55],[336,55],[336,168],[312,168],[312,118],[298,118],[298,168],[191,168]];
+export const WORKSPACE_CROP = [515,290,770,355] as const;
+export const MONITOR_SCREEN: readonly Point[] = [[840,319],[991,319],[991,404],[840,404]];
+export const MILKY_STUDY_FLOOR = { left: .35, right: .66, top: .84, bottom: .955, footerInset: 0 };
 export function inPolygon(x: number, y: number, polygon: readonly Point[]): boolean {
   let inside = false;
   for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
@@ -23,7 +31,7 @@ export function inPolygon(x: number, y: number, polygon: readonly Point[]): bool
   return inside;
 }
 export const isGlass = (x: number, y: number) => inPolygon(x, y, GLASS_EDGE) && GLASS_PANES.some(p => inPolygon(x, y, p));
-export const isSky = (x: number, y: number) => isGlass(x,y) && y < 293;
+export const isSky = (x: number, y: number) => isGlass(x,y) && inPolygon(x,y,SKY_EDGE);
 export function seededRandom(seed: number) {
   return () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
 }
@@ -54,7 +62,7 @@ export class AtmosphereSimulation {
   private newDrop(moving: boolean): Drop {
     let x = 0, y = 0;
     for (let tries = 0; tries < 100; tries++) {
-      x = this.random() * 1060; y = 130 + this.random() * 375;
+      x = 191 + this.random() * 1295; y = 42 + this.random() * 445;
       if (isGlass(x,y)) break;
     }
     return { x,y,radius: moving ? 2.2 + this.random() * 1.5 : .8 + this.random() * 1.7,
@@ -91,7 +99,7 @@ export class AtmosphereSimulation {
     if (!this.wasClearNight) { this.meteorWait = 12 + this.random() * 8; this.wasClearNight = true; }
     this.meteorWait -= dt;
     if (this.meteorWait <= 0 && !this.meteor) {
-      this.meteor = { x: 435 + this.random() * 400, y: 183 + this.random() * 32, age: 0, duration: 1.05 };
+      this.meteor = { x: 575 + this.random() * 430, y: 55 + this.random() * 24, age: 0, duration: 1.05 };
       this.meteorWait = 28 + this.random() * 28;
     }
     if (this.meteor) { this.meteor.age += dt; if (this.meteor.age >= this.meteor.duration) this.meteor = null; }

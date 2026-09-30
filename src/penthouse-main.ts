@@ -3,6 +3,7 @@ import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type Cli
 import { createCyberSound, type CyberPlaybackState } from './cyber-sound';
 import { mountCyberPet } from './cyber-pet';
 import { mountPenthouseScene } from './penthouse-scene';
+import { MILKY_STUDY_FLOOR, GLASS_PANES, ROOM_SIZE } from './penthouse-atmosphere';
 
 const root = document.querySelector<HTMLDivElement>('#app')!;
 const icon = (path: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
@@ -14,31 +15,32 @@ const glyphs = {
   pet: icon('<path d="M7 13c-1 1-3 3-2 5s4 0 7 0 6 2 7 0-1-4-2-5c-2-2-8-2-10 0Z"/><ellipse cx="5" cy="8" rx="2" ry="3"/><ellipse cx="11" cy="5" rx="2" ry="3"/><ellipse cx="17" cy="7" rx="2" ry="3"/>'),
 };
 root.innerHTML = `
-<main class="ph-studio night-studio" data-intro="hidden" data-focus="false" aria-label="Taewon Seo's penthouse">
+<main class="ph-studio night-studio" data-intro="hidden" data-focus="false" aria-label="Taewon Seo's Seoul studio">
   <div class="ph-stage night-scene">
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><clipPath id="ph-glass" clipPathUnits="objectBoundingBox">${GLASS_PANES.map(p => `<polygon points="${p.map(([x,y]) => `${x/ROOM_SIZE[0]},${y/ROOM_SIZE[1]}`).join(" ")}"/>`).join("")}</clipPath></defs></svg>
     <div class="ph-room" data-time="night" data-season="autumn" data-weather="clear">
-      <div class="ph-plates" data-plates role="img" aria-label="A luminous limestone penthouse with corner windows, black leather sofa, ivory stone table and a walnut computer desk, aluminum chair and task lamp."><img class="ph-plate" src="/assets/penthouse/workspace/night.webp" alt="" fetchpriority="high" draggable="false"></div>
-      <div class="ph-season" data-season-wash aria-hidden="true"></div>
+      <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and task lamp; a lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/interior/night.webp" alt="" fetchpriority="high" draggable="false"><img class="ph-plate ph-exterior" src="/assets/penthouse/seoul/autumn/night.webp" alt="" draggable="false" style="clip-path:url(#ph-glass)"></div>
       <div class="ph-weather" data-weather-wash aria-hidden="true"></div>
       <canvas class="ph-weather-canvas" aria-hidden="true"></canvas>
+      <img class="ph-floor-lamp" src="/assets/penthouse/seoul/interior/floor-lamp.webp" alt="A silver articulated floor lamp with an ivory fabric shade beside the lounge" draggable="false">
       <div class="ph-pet" data-pet></div>
       <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn on the computer monitor" aria-pressed="false"><span>THE WORKSPACE</span><i aria-hidden="true">+</i></button>
       <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"><span>DESK LIGHT</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music at the turntable" aria-pressed="false"><span>THE LISTENING CORNER</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--book" data-action="about" aria-label="Open the book about this residence"><span>THE RESIDENCE</span><i aria-hidden="true">+</i></button>
+      <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music in the listening corner" aria-pressed="false"><span>THE LISTENING CORNER</span><i aria-hidden="true">+</i></button>
+      <button class="ph-hotspot ph-hotspot--book" data-action="about" aria-label="Read about this studio"><span>THE STUDIO</span><i aria-hidden="true">+</i></button>
     </div>
   </div>
   <div class="ph-shade" aria-hidden="true"></div>
   <header class="ph-header">
-    <a class="ph-wordmark" href="/" aria-label="Taewon Seo home">TAEWON SEO<span>PRIVATE RESIDENCE</span></a>
-    <span class="ph-edition">THE PENTHOUSE &nbsp; / &nbsp; 01</span>
-    <button class="ph-about" data-action="about" aria-haspopup="dialog">Inside the residence <span aria-hidden="true">↗</span></button>
+    <a class="ph-wordmark" href="/" aria-label="Taewon Seo home">TAEWON SEO<span>PRIVATE STUDIO</span></a>
+    <span class="ph-edition">SEOUL, THROUGH THE WINDOW &nbsp; / &nbsp; 03</span>
+    <button class="ph-about" data-action="about" aria-haspopup="dialog">Inside the studio <span aria-hidden="true">↗</span></button>
   </header>
-  <section class="ph-intro" aria-label="Welcome"><p>ANOTHER SIDE OF AFTER HOURS</p><h1>Above it all.</h1><div>A quiet place.<br>A little company.</div></section>
+  <section class="ph-intro" aria-label="Welcome"><p>A LITTLE LIGHT. A LATE IDEA.</p><h1>After hours.</h1><div>A quiet place.<br>A little company.</div></section>
   <div class="ph-live-climate"><span data-clock></span><span data-summary></span></div>
   <footer class="ph-footer">
     <div class="ph-caption"><span class="ph-status-dot"></span><span>MILKY IS HOME</span></div>
-    <nav class="ph-controls" aria-label="Residence controls">
+    <nav class="ph-controls" aria-label="Studio controls">
       <button data-action="climate" aria-haspopup="dialog">${glyphs.sun}<span>Atmosphere</span></button>
       <button data-action="music" aria-pressed="false">${glyphs.music}<span data-music-label>Music</span></button>
       <button data-action="workspace" aria-haspopup="dialog">${glyphs.desk}<span>Desk</span></button>
@@ -64,7 +66,7 @@ let toastTimer: ReturnType<typeof setTimeout> | undefined;
 let destroyed = false;
 let playing: CyberPlaybackState | undefined;
 let animated = true;
-const workspace = { monitor: false, lamp: false };
+const workspace = { monitor: false, lamp: true };
 const pretty = (value: string) => value[0].toUpperCase() + value.slice(1);
 function toast(message: string) {
   clearTimeout(toastTimer);
@@ -74,7 +76,7 @@ function toast(message: string) {
 const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view could not load. Your current view is still here.'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/workspace/ball.webp', anchor: [256.204, 407.885] },
-});
+}, MILKY_STUDY_FLOOR);
 const sound = createCyberSound({ onTrackChange: updatePlayback });
 const climate = createCyberClimate(applyClimate);
 
@@ -97,7 +99,7 @@ function applyClimate(state: ClimateState) {
 const localCopy = (info: LocalClimateInfo) => ({
   device: 'Your device sets the clock. Enable location for local weather.',
   locating: 'Finding your approximate location…', loading: 'Checking the local weather…',
-  live: 'Local weather is connected. The city is an illustration.',
+  live: 'Local weather is connected. The illustrated view remains Seoul.',
   denied: 'Location is blocked. You can still choose the atmosphere below.',
   unavailable: 'Live weather is unavailable. Your last view is preserved; you can retry.',
 })[info.status];
@@ -117,13 +119,13 @@ function openPanel(name: string, trigger: HTMLElement) {
     content.innerHTML = `<p class="ph-overline">SET THE SCENE</p><h2 id="ph-dialog-title">Atmosphere</h2><p data-local></p><div class="ph-auto"><label><input type="checkbox" name="auto"> Follow my local time</label><button data-action="location">Use my location</button></div>${group('season', CYBER_SEASONS)}${group('time', CYBER_TIMES)}${group('weather', CYBER_WEATHER)}<div class="ph-auto"><label><input type="checkbox" name="animated"> Animate the view</label></div><p class="ph-panel-note">Clear nights bring slow city lights and an occasional shooting star. Rain leaves beads on the glass that dry gradually. Reduced motion keeps the scene still.</p><p class="ph-panel-note">A manual choice pauses Auto. Location is requested only with your permission. Approximate coordinates stay in memory.</p>`;
     updateClimatePanel();
   } else if (name === 'workspace') {
-    content.innerHTML = `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">At the desk.</h2><p>Smoked walnut, brushed metal and a little warm light.</p><canvas class="ph-desk-preview" aria-label="Close-up of the computer desk and lighting"></canvas><div class="ph-pet-actions"><button data-action="monitor" aria-pressed="false"><span data-monitor-label>Turn on monitor</span><span aria-hidden="true">↗</span></button><button data-action="lamp" aria-pressed="false"><span data-lamp-label>Turn on desk light</span><span aria-hidden="true">↗</span></button></div><p class="ph-panel-note">The monitor starts a quiet coding sketch when you turn it on. The desk light adds a warm pool beside the screen.</p><p class="ph-workspace-status" role="status" data-workspace-status></p>`;
+    content.innerHTML = `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">Facing Seoul.</h2><p>A walnut desk, an Apple Studio Display and a Happy Hacking Keyboard (HHKB). A Herman Miller Aeron chair, refined task light and silver floor lamp complete the room.</p><canvas class="ph-desk-preview" aria-label="Close-up of the Apple Studio Display, HHKB keyboard and desk lighting"></canvas><div class="ph-pet-actions"><button data-action="monitor" aria-pressed="false"><span data-monitor-label>Turn on monitor</span><span aria-hidden="true">↗</span></button><button data-action="lamp" aria-pressed="false"><span data-lamp-label>Turn on desk light</span><span aria-hidden="true">↗</span></button></div><p class="ph-panel-note">The monitor starts a quiet coding sketch when you turn it on. The desk light adds a warm pool beside the screen.</p><p class="ph-workspace-status" role="status" data-workspace-status></p>`;
     scene.setPreview(content.querySelector<HTMLCanvasElement>('canvas'));
     updateWorkspace();
   } else if (name === 'milky') {
     content.innerHTML = `<p class="ph-overline">THE ONE WARM EXCEPTION</p><h2 id="ph-dialog-title">Meet Milky.</h2><p>A little Maltese, with the run of the place.</p><div class="ph-pet-actions">${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([action,label])=>`<button data-action="${action}">${label}<span aria-hidden="true">↗</span></button>`).join('')}</div><p class="ph-panel-note">You can also click Milky in the room. When focused, arrow keys walk, S sits and N naps.</p>`;
   } else {
-    content.innerHTML = `<p class="ph-overline">TAEWON SEO / THE PENTHOUSE</p><h2 id="ph-dialog-title">A room of restraint.</h2><p>Corner windows. Black leather. Warm limestone. A desk for late ideas. A city held at a distance — and Milky, making it a home.</p><p>This residence was drawn from the ground up. Its light follows your local clock; permitted location adds local weather. The skyline is an imagined setting.</p><div class="ph-about-links"><a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">The workspace & living weather research <span>↗</span></a><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
+    content.innerHTML = `<p class="ph-overline">TAEWON SEO / THE SEOUL STUDIO</p><h2 id="ph-dialog-title">Seoul, in view.</h2><p>A wide window straight ahead. A desk facing the Han River, with N Seoul Tower on the horizon. A quiet lounge, warm shelves and Milky nearby.</p><p>Four seasons and five times of day change the illustrated Seoul view. Auto follows your local clock; permitted location adds your local weather. Choose any season, time or weather in Atmosphere.</p><div class="ph-about-links"><a href="/design/research/penthouse-layout/report.html" target="_blank" rel="noopener">Compare the new room layout <span>↗</span></a><a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">The workspace & living weather research <span>↗</span></a><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
   }
   if (!dialog.open) dialog.showModal();
   pet.setActive(false);
@@ -199,6 +201,7 @@ document.addEventListener('keydown', event => {
 }, options);
 
 applyClimate(climate.getState());
+updateWorkspace();
 if (!playing) $('[data-track-title]').textContent = 'Make yourself at home.';
 // Clock is automatic immediately; location is an explicit, understandable action.
 function destroy() {

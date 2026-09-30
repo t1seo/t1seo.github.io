@@ -3,20 +3,26 @@ import assert from 'node:assert/strict';
 import { AtmosphereSimulation, atmosphereProfile, isGlass, isSky } from './penthouse-atmosphere.ts';
 import { mountPenthouseEffects } from './penthouse-effects.ts';
 import { penthousePlate } from './penthouse-scene.ts';
-import type { ClimateState } from './cyber-climate.ts';
+import { CYBER_SEASONS, type ClimateState } from './cyber-climate.ts';
 
-const state = (weather: ClimateState['weather'] = 'clear', time: ClimateState['time'] = 'night'): ClimateState => ({ weather,time,season:'autumn',auto:false });
+const state = (weather: ClimateState['weather'] = 'clear', time: ClimateState['time'] = 'night', season: ClimateState['season'] = 'autumn'): ClimateState => ({ weather,time,season,auto:false });
 const step = (s: AtmosphereSimulation, seconds: number, climate: ClimateState) => { for (let i = 0; i < seconds * 30; i++) s.advance(1/30,climate); };
 
-test('glass excludes mullions, sofa, floor, ceiling and the computer wall', () => {
-  for (const [x,y] of [[40,300],[250,350],[450,250],[700,280],[950,330]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
-  for (const [x,y] of [[78,300],[207,300],[282,300],[340,300],[376,300],[634,300],[880,300],[700,600],[800,520],[1230,320],[500,60]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
-  assert.equal(isSky(457,320),false); // tower facade
+test('frontal glazing excludes mullions, chair, lounge, tree, Studio Display, lamp and desk', () => {
+  for (const [x,y] of [[250,350],[450,250],[700,280],[900,200],[1400,400],[550,410],[1020,360]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
+  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,460],[750,420],[915,365],[1074,350],[1140,399],[900,440],[1250,475],[700,650],[1600,150]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
+  assert.equal(isSky(457,250),false); // city facade
+  assert.equal(isSky(350,100),false); // N Seoul Tower
+  assert.equal(isSky(305,150),false); // neighboring mast
+  assert.equal(isSky(700,200),false); // Namsan hills
+  assert.equal(isSky(470,100),true);
+  assert.equal(isSky(1300,100),true);
 });
-test('meteors require clear night, and cloud weather uses diffuse daytime plates', () => {
-  for (const time of ['morning','noon','afternoon','evening','night'] as const) for (const weather of ['clear','rain','snow','mist','cloudy'] as const) {
-    assert.equal(atmosphereProfile(state(weather,time)).stars,time === 'night' && weather === 'clear');
-    if (time === 'morning' || time === 'afternoon') assert.equal(penthousePlate(time,weather),penthousePlate(weather === 'clear' ? time : 'noon'));
+test('meteors require clear night, and adverse weather keeps each seasons diffuse daylight', () => {
+  for (const season of CYBER_SEASONS) for (const time of ['morning','noon','afternoon','evening','night'] as const) for (const weather of ['clear','rain','snow','mist','cloudy'] as const) {
+    assert.equal(atmosphereProfile(state(weather,time,season)).stars,time === 'night' && weather === 'clear');
+    if (time === 'morning' || time === 'afternoon') assert.equal(penthousePlate(time,weather,season),penthousePlate(weather === 'clear' ? time : 'noon','clear',season));
+    else assert.equal(penthousePlate(time,weather,season),penthousePlate(time,'clear',season));
   }
   assert.equal(new Set(['morning','noon','afternoon','evening','night'].map(t => penthousePlate(t as ClimateState['time']))).size,5);
 });
@@ -26,6 +32,8 @@ test('rain beads accumulate with bounded density and dry after the rain stops', 
   assert.equal(sim.wetness,1); assert.ok(sim.drops.length <= 76);
   assert.ok(sim.drops.some(d => d.speed > 0));
   assert.ok(sim.drops.every(d => isGlass(d.x,d.y) && d.radius <= 5.5 && d.speed <= 45));
+  assert.ok(sim.drops.some(d => d.x < 495), 'rain reaches the left pane');
+  assert.ok(sim.drops.some(d => d.x > 1181), 'rain reaches the right pane');
   step(sim,10,state()); assert.ok(sim.wetness > .5 && sim.wetness < .6);
   step(sim,13,state()); assert.equal(sim.wetness,0);
 });
@@ -39,7 +47,12 @@ test('clear-night meteors are sparse and precipitation removes one immediately o
   const sim = new AtmosphereSimulation(); let starts = 0, previous = false;
   for (let i = 0; i < 120 * 30; i++) {
     sim.advance(1/30,state());
-    if (sim.meteor && !previous) starts++;
+    if (sim.meteor && !previous) {
+      starts++;
+      for (const progress of [0,.25,.5,.75,1]) {
+        assert.equal(isSky(sim.meteor.x + progress * 125,sim.meteor.y + progress * 67),true,'the meteor stays above Namsan and clear of the towers');
+      }
+    }
     previous = Boolean(sim.meteor);
   }
   assert.ok(starts >= 2 && starts <= 4,`starts: ${starts}`);
@@ -72,12 +85,12 @@ function compositor(t: TestContext, reducedMotion = false) {
   t.after(() => { effects.destroy(); for (const [key,value] of originals) { if (value) Object.defineProperty(globalThis,key,value); else Reflect.deleteProperty(globalThis,key); } });
   return {effects,page,media,frames,text,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
 }
-test('all 25 weather/time combinations render finite canvas geometry', t => {
+test('all 100 season, weather and time combinations render finite canvas geometry', t => {
   const f = compositor(t);
-  for (const time of ['morning','noon','afternoon','evening','night'] as const) for (const weather of ['clear','cloudy','rain','snow','mist'] as const) {
-    f.effects.update(state(weather,time)); f.run(1000); f.run(1040);
+  for (const season of CYBER_SEASONS) for (const time of ['morning','noon','afternoon','evening','night'] as const) for (const weather of ['clear','cloudy','rain','snow','mist'] as const) {
+    f.effects.update(state(weather,time,season)); f.run(1000); f.run(1040);
   }
-  assert.ok(f.draws() >= 50); assert.equal(f.frames.size,1);
+  assert.ok(f.draws() >= 200); assert.equal(f.frames.size,1);
 });
 test('hidden tabs stop all scene frames and resume with one loop; destroy removes listeners', t => {
   const f = compositor(t); f.effects.update(state('rain'));

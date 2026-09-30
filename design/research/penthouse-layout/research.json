@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "id": "penthouse-layout",
+  "projectId": "taewon-after-hours",
+  "createdAt": "2026-09-30T15:13:35.405Z",
+  "scope": "Frontal Seoul studio: desk facing full-width front glazing, Apple Studio Display and HHKB, 4 seasons × 5 times, weather effects.",
+  "backup": {
+    "branch": "backup/workspace-before-layout-20261001",
+    "commit": "7dd1446"
+  },
+  "sources": [
+    {
+      "id": "606b2d9e-300a-49ab-ac77-eb379a75d398",
+      "provider": "mobbin",
+      "product": "Magnific",
+      "title": "Magnific",
+      "url": "https://mobbin.com/screens/606b2d9e-300a-49ab-ac77-eb379a75d398",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Interior room design canvas with a large scene preview and floating editing tools"
+      },
+      "capture": {
+        "locator": "images/606b2d9e-300a-49ab-ac77-eb379a75d398.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/7ZpOLW5w"
+      },
+      "observation": "Large scene canvas with tools pushed to the edge; keep the central architectural sightline open. This is a desert scene editor, not an interior planning application."
+    },
+    {
+      "id": "8a88f7f3-3d5f-41dc-8a41-5e7f97bfb579",
+      "provider": "mobbin",
+      "product": "Framer",
+      "title": "Framer",
+      "url": "https://mobbin.com/screens/8a88f7f3-3d5f-41dc-8a41-5e7f97bfb579",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Interior room design canvas with a large scene preview and floating editing tools"
+      },
+      "capture": {
+        "locator": "images/8a88f7f3-3d5f-41dc-8a41-5e7f97bfb579.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/oHFvSUBb"
+      },
+      "observation": "Framer shows desktop and narrow previews beside each other; use explicit old/new and responsive comparisons to expose structural changes."
+    },
+    {
+      "id": "4feed372-c440-49f4-bf9f-0df586dccde6",
+      "provider": "mobbin",
+      "product": "Grok",
+      "title": "Grok",
+      "url": "https://mobbin.com/screens/4feed372-c440-49f4-bf9f-0df586dccde6",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Interior room design canvas with a large scene preview and floating editing tools"
+      },
+      "capture": {
+        "locator": "images/4feed372-c440-49f4-bf9f-0df586dccde6.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/qY0vPUKZ"
+      },
+      "observation": "Grok places room imagery in a clear bounded stage with tools outside it; use whole-room preview, reject the busy decorative room styling."
+    },
+    {
+      "id": "user-reference-1",
+      "provider": "user",
+      "observation": "User-provided riverfront office image inspected: amber task light, blue night, warm walnut and layered room depth. Board rejected by later explicit user instruction."
+    },
+    {
+      "id": "user-reference-2",
+      "provider": "user",
+      "observation": "User-provided close-city office image inspected: large window and clear computer station. Corner glazing rejected by later explicit request for frontal window. Originals not bundled."
+    },
+    {
+      "id": "web-theme/vercel",
+      "provider": "studio",
+      "retrieval": {
+        "method": "cli",
+        "query": "studio show --asset web-theme/vercel --json"
+      },
+      "observation": "Inspected neutral light surface #fff/muted #525252 and dark surface #090909/muted #a4a4a4. Apply restrained neutral control chrome, preserve personal identity."
+    },
+    {
+      "id": "1466",
+      "provider": "21st",
+      "url": "https://21st.dev/@ibelick/components/image-comparison",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "before after image comparison"
+      },
+      "inspected": [
+        "component source",
+        "demo source"
+      ],
+      "observation": "React/framer-motion clip-path drag comparison. Adopt image comparison intent, implement native accessible range without copying source or adding dependency."
+    },
+    {
+      "id": "18095",
+      "provider": "21st",
+      "url": "https://21st.dev/@unlumen/components/side-by-side-slide",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "before after image comparison"
+      },
+      "inspected": [
+        "component source",
+        "demo source"
+      ],
+      "observation": "Hover-following motion/react spring divider; reject hover-only interaction and hidden cursor for touch/keyboard. Static side-by-side plus native range used."
+    },
+    {
+      "id": "studio-display",
+      "provider": "apple",
+      "url": "https://www.apple.com/studio-display/",
+      "retrieval": {
+        "method": "web"
+      },
+      "observation": "27-inch display, slim black bezel, silver aluminum pedestal. User explicitly requests this product silhouette."
+    },
+    {
+      "id": "hhkb-professional",
+      "provider": "hhkb",
+      "url": "https://www.hhkeyboard.com/uk/support/faqs-professional",
+      "retrieval": {
+        "method": "web"
+      },
+      "observation": "Compact 60-key keyboard; no separate numpad or function row. User explicitly requests Happy Hacking."
+    },
+    {
+      "id": "user-reference-3",
+      "provider": "user",
+      "observation": "Inspected supplied floor lamp photograph: long silver articulated arm reaching left, tapered ivory fabric shade, narrow vertical stem and roundbase. Generated transparent asset; original not bundled."
+    },
+    {
+      "id": "aeron",
+      "provider": "herman-miller",
+      "url": "https://store.hermanmiller.com/office-chairs-aeron/aeron-chair/100103200.html?lang=en_US",
+      "retrieval": {
+        "method": "web"
+      },
+      "observation": "Aeron mesh profile and graphite/polished-aluminum material combination."
+    },
+    {
+      "id": "kelvin",
+      "provider": "flos",
+      "url": "https://professional.flos.com/en-US/us/model/kelvin-edge-model320/",
+      "retrieval": {
+        "method": "web"
+      },
+      "observation": "Refined small task head and articulated metallic arms."
+    }
+  ],
+  "decisions": [
+    {
+      "target": "Architecture",
+      "adopt": "User-approved frontal single window wall; outward-facing walnut desk; set camera back to show adjacent lounge, shelves and open Milky floor. No board."
+    },
+    {
+      "target": "Location",
+      "adopt": "Illustrated Seoul with Han River, Namsan and N Seoul Tower. It is artwork, not a live camera or the visitor location."
+    },
+    {
+      "target": "Climate",
+      "adopt": "20 separate seasonal/time plates: spring blossoms, summer green, autumn leaves, winter bare/snow-covered landscape. Dynamic rain, snow, mist, cloudy haze, stars and reflected lights registered to the new glass."
+    },
+    {
+      "target": "Interaction",
+      "adopt": "Native edge controls; keyboard-accessible comparison report inspired by 21st examples. Milky and red ball unchanged; existing device/local-weather and background audio behavior retained."
+    },
+    {
+      "target": "Rejected",
+      "reject": "Left corner window, side-facing desk, glass diagram board, unchanged old room architecture and seasonal tint-only treatment."
+    },
+    {
+      "target": "Final user feedback",
+      "adopt": "Crop about15% lower floor, preserve full front window on desktop, Herman Miller Aeron, refined Kelvin-style desk light, separate silver articulated ivory fabric-shade floor lamp based on user reference3."
+    }
+  ],
+  "synchronization": {
+    "status": "pending",
+    "reason": "Personal project is unconnected. Research check reports independent DESIGN.md schema mismatch; no gate pass claimed."
+  },
+  "providers": {
+    "studio": "Token asset inspected. Project unconnected; synchronization pending; no research gate pass claimed.",
+    "mobbin": "3 actual MCP screen images across 3 products inspected.",
+    "21st": "2 component/demo sources retrieved and inspected via MCP. No copied runtime source."
+  },
+  "implementation": {
+    "exteriorPlates": 20,
+    "interiorPlates": 5,
+    "composition": "Synchronized decoded interior/exterior layers, clipped outside furniture, independent transparent floor lamp.",
+    "qa": "188 tests pass; TypeScript/Vite build pass. Real Chrome1440x900,390x844,320x568 screenshots inspected: season/time changes, rain/snow, monitor+Desk preview, redball, floorlamp, report selector. Playback advanced across second-tab action; Chrome automation reported document.hidden=false, so actual visibility pause prevention relies on tested audio regressions, not a claimed hidden-tab browser observation. Report favicon404 fixed."
+  }
+}

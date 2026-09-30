@@ -1,0 +1,131 @@
+{
+  "tool": "built-in image_gen",
+  "size": [
+    1672,
+    941
+  ],
+  "prompts": {
+    "autumn/night": "Create a new 1672x941 wide cinematic semi-photoreal 2.5D illustrated luxury home office background for interactive website. Authoritative composition: camera is INSIDE the room looking STRAIGHT FORWARD, LEVEL, one-point perspective toward a gigantic FLAT FRONT WINDOW WALL across the middle 80% width, not corner glazing, not a side window, not diagonal camera. Seoul South Korea beyond: Han River, Hannam riverside apartment buildings, Namsan hill and recognizable N Seoul Tower toward left background; believable dense Seoul skyline, no generic Manhattan towers. Night with deep luminous blue sky and warm city reflections. Center a long refined walnut desk PARALLEL to the frontal glass, desk faces OUT the window. We see its usable desktop, monitor SCREEN facing camera and a compact keyboard below; sitting at this desk would look straight through window. Place workstation centered slightly RIGHT at 62% width, 27-inch Apple Studio Display with slim black bezel silver aluminum frame and distinct silver rectangular pedestal foot, screen OFF blank dark, no Apple iMac chin. HHKB Professional Classic ivory 60-key compact keyboard with dark gray modifiers, no number pad, no arrows, no function row; keyboard clearly visible on desktop. Black refined ergonomic chair behind desk near center-left shifted aside so keyboard and monitor visible. Small articulated black task lamp on desk RIGHT, lamp OFF (interactive light added later). Monitor at around x1050 y480, desktoparoundy650. Warm shelf LEDs on narrow right wall; low lounge chair and stone side table on left; small potted tree left edge. NO blackboard, whiteboard, glass board, diagrams or wall monitor. Greige stone walls, walnut, brushed silver, soft black leather; sophisticated restrained, blue exterior vs warm amber indirect lighting, readable materials not crushed black. Full room shown, entire desk and surrounding furniture visible. Bottom 24% is EMPTY foreground warm gray stone floor for existing pet animation, no dog or animal generated, no objects at center foreground. Thin mullions and horizontal sill, flat large front windows with straight verticals/horizontals. No typography, UI, captions, watermark. Fine architectural photograph-like craft with subtle illustrated finish. Autumn city foliage visible near river. Important: straight-ahead centered window, office desk against that window facing outward, uncluttered open floor.",
+    "autumn/afternoon": "Edit lighting ONLY for afternoon autumn version of this exact supplied 1672x941 Seoul studio illustration. Late afternoon golden warm sky, soft slanting warm daylight, warm beige reflections on floor, all building windows unlit, no sun disk. Preserve PIXEL-IDENTICAL perspective, crop, flat frontal window, mullions, Seoul skyline silhouettes, river, foliage locations, desk/seat/props, HHKB ivory compact keyboard and silver Apple Studio Display, screen dark OFF, task lamp OFF. All architecture edges and object coordinates invariant. No dog. Only lighting/exterior sky/color may change; autumn riverside foliage golden orange. No sun disk, no rain, no snow, no lettering. Daylight indirect shelf lighting is subtle. Output 1672x941.",
+    "autumn/noon": "Edit lighting ONLY for noon autumn version of this exact supplied 1672x941 Seoul studio illustration. Bright soft neutral mid-day, pale blue overcast-friendly sky, daylight reveals natural walnut, pale greige stone, daylight city with tower windows unlit. No direct sun disk. Preserve PIXEL-IDENTICAL perspective, crop, flat frontal window, mullions, Seoul skyline silhouettes, river, foliage locations, desk/seat/props, HHKB ivory compact keyboard and silver Apple Studio Display, screen dark OFF, task lamp OFF. All architecture edges and object coordinates invariant. No dog. Only lighting/exterior sky/color may change; autumn riverside foliage golden orange. No sun disk, no rain, no snow, no lettering. Daylight indirect shelf lighting is subtle. Output 1672x941.",
+    "autumn/morning": "Edit lighting ONLY for morning autumn version of this exact supplied 1672x941 Seoul studio illustration. Early cool fresh dawn, pale peach and blue sky, gentle diffuse early sunlight, subtle warm horizon reflected in Han River. Preserve PIXEL-IDENTICAL perspective, crop, flat frontal window, mullions, Seoul skyline silhouettes, river, foliage locations, desk/seat/props, HHKB ivory compact keyboard and silver Apple Studio Display, screen dark OFF, task lamp OFF. All architecture edges and object coordinates invariant. No dog. Only lighting/exterior sky/color may change; autumn riverside foliage golden orange. No sun disk, no rain, no snow, no lettering. Daylight indirect shelf lighting is subtle. Output 1672x941.",
+    "autumn/evening": "Edit lighting ONLY for evening autumn version of this exact supplied 1672x941 Seoul studio illustration. Blue hour sunset, dusty rose lavender sky and amber horizon, city windows begin lighting, river sunset reflection, interior amber LEDs. Preserve PIXEL-IDENTICAL perspective, crop, flat frontal window, mullions, Seoul skyline silhouettes, river, foliage locations, desk/seat/props, HHKB ivory compact keyboard and silver Apple Studio Display, screen dark OFF, task lamp OFF. All architecture edges and object coordinates invariant. No dog. Only lighting/exterior sky/color may change; autumn riverside foliage golden orange. No sun disk, no rain, no snow, no lettering. Daylight indirect shelf lighting is subtle. Output 1672x941.",
+    "spring/morning": "Seasonal edit ONLY of this exact supplied morning Seoul studio 1672x941. SPRING: riverside park trees with soft white and pink cherry blossoms mixed with fresh pale green foliage; Namsan hill tender spring green. Distinct flowering canopies in existing tree positions, no leaves or petals inside room. Preserve exactly the existing morning time-of-day lighting, sky, river, buildings, frontal flat window frame and every INTERIOR pixel/geometry: desk, chair, lamp, HHKB keyboard, Studio Display SCREEN OFF and lamp OFF. Change only OUTSIDE foliage/seasonal landscape. Night blossoms naturally dim, no day-bright plants at night. Preserve camera crop, object coordinates, no dog, no text. 1672x941.",
+    "spring/noon": "Seasonal edit ONLY of this exact supplied noon Seoul studio 1672x941. SPRING: riverside park trees with soft white and pink cherry blossoms mixed with fresh pale green foliage; Namsan hill tender spring green. Distinct flowering canopies in existing tree positions, no leaves or petals inside room. Preserve exactly the existing noon time-of-day lighting, sky, river, buildings, frontal flat window frame and every INTERIOR pixel/geometry: desk, chair, lamp, HHKB keyboard, Studio Display SCREEN OFF and lamp OFF. Change only OUTSIDE foliage/seasonal landscape. Night blossoms naturally dim, no day-bright plants at night. Preserve camera crop, object coordinates, no dog, no text. 1672x941.",
+    "spring/evening": "Seasonal edit ONLY of this exact supplied evening Seoul studio 1672x941. SPRING: riverside park trees with soft white and pink cherry blossoms mixed with fresh pale green foliage; Namsan hill tender spring green. Distinct flowering canopies in existing tree positions, no leaves or petals inside room. Preserve exactly the existing evening time-of-day lighting, sky, river, buildings, frontal flat window frame and every INTERIOR pixel/geometry: desk, chair, lamp, HHKB keyboard, Studio Display SCREEN OFF and lamp OFF. Change only OUTSIDE foliage/seasonal landscape. Night blossoms naturally dim, no day-bright plants at night. Preserve camera crop, object coordinates, no dog, no text. 1672x941.",
+    "spring/afternoon": "Seasonal edit ONLY of this exact supplied afternoon Seoul studio 1672x941. SPRING: riverside park trees with soft white and pink cherry blossoms mixed with fresh pale green foliage; Namsan hill tender spring green. Distinct flowering canopies in existing tree positions, no leaves or petals inside room. Preserve exactly the existing afternoon time-of-day lighting, sky, river, buildings, frontal flat window frame and every INTERIOR pixel/geometry: desk, chair, lamp, HHKB keyboard, Studio Display SCREEN OFF and lamp OFF. Change only OUTSIDE foliage/seasonal landscape. Night blossoms naturally dim, no day-bright plants at night. Preserve camera crop, object coordinates, no dog, no text. 1672x941.",
+    "spring/night": "Seasonal edit ONLY of this exact supplied night Seoul studio 1672x941. SPRING: riverside park trees with soft white and pink cherry blossoms mixed with fresh pale green foliage; Namsan hill tender spring green. Distinct flowering canopies in existing tree positions, no leaves or petals inside room. Preserve exactly the existing night time-of-day lighting, sky, river, buildings, frontal flat window frame and every INTERIOR pixel/geometry: desk, chair, lamp, HHKB keyboard, Studio Display SCREEN OFF and lamp OFF. Change only OUTSIDE foliage/seasonal landscape. Night blossoms naturally dim, no day-bright plants at night. Preserve camera crop, object coordinates, no dog, no text. 1672x941.",
+    "summer/afternoon": "Seasonal edit ONLY of this exact supplied afternoon Seoul studio 1672x941. SUMMER: dense lush emerald/deep green deciduous foliage in riverside park and Namsan hill; remove all orange autumn leaves, no flowers, full leafy crowns. Summer humid distance haze subtle on far hills only. Preserve exactly existing afternoon sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior foliage/seasonal landscape; keep all original window frames and furniture at exact coordinates. Night trees naturally dark, no day-bright greenery at night. No text, dog or rain. Output1672x941.",
+    "summer/noon": "Seasonal edit ONLY of this exact supplied noon Seoul studio 1672x941. SUMMER: dense lush emerald/deep green deciduous foliage in riverside park and Namsan hill; remove all orange autumn leaves, no flowers, full leafy crowns. Summer humid distance haze subtle on far hills only. Preserve exactly existing noon sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior foliage/seasonal landscape; keep all original window frames and furniture at exact coordinates. Night trees naturally dark, no day-bright greenery at night. No text, dog or rain. Output1672x941.",
+    "summer/evening": "Seasonal edit ONLY of this exact supplied evening Seoul studio 1672x941. SUMMER: dense lush emerald/deep green deciduous foliage in riverside park and Namsan hill; remove all orange autumn leaves, no flowers, full leafy crowns. Summer humid distance haze subtle on far hills only. Preserve exactly existing evening sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior foliage/seasonal landscape; keep all original window frames and furniture at exact coordinates. Night trees naturally dark, no day-bright greenery at night. No text, dog or rain. Output1672x941.",
+    "summer/morning": "Seasonal edit ONLY of this exact supplied morning Seoul studio 1672x941. SUMMER: dense lush emerald/deep green deciduous foliage in riverside park and Namsan hill; remove all orange autumn leaves, no flowers, full leafy crowns. Summer humid distance haze subtle on far hills only. Preserve exactly existing morning sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior foliage/seasonal landscape; keep all original window frames and furniture at exact coordinates. Night trees naturally dark, no day-bright greenery at night. No text, dog or rain. Output1672x941.",
+    "summer/night": "Seasonal edit ONLY of this exact supplied night Seoul studio 1672x941. SUMMER: dense lush emerald/deep green deciduous foliage in riverside park and Namsan hill; remove all orange autumn leaves, no flowers, full leafy crowns. Summer humid distance haze subtle on far hills only. Preserve exactly existing night sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior foliage/seasonal landscape; keep all original window frames and furniture at exact coordinates. Night trees naturally dark, no day-bright greenery at night. No text, dog or rain. Output1672x941.",
+    "winter/morning": "Seasonal edit ONLY of this exact supplied morning Seoul studio 1672x941. WINTER: Seoul riverside park and Namsan have leafless deciduous branches, sparse dark evergreens, a delicate layer of settled snow on park ground, tree branches and far hill, bare wintry trees in exact existing positions. Han River still liquid (not frozen), no actively falling snow (added interactively later). Preserve exactly existing morning sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior seasonal landscape. All snow OUTSIDE; warm interior absolutely unchanged, no winterdecor. Night snow naturally dark blue under streetlights. Keep window frames/furniture exact original coordinates. No text, dog or rain. Output1672x941.",
+    "winter/noon": "Seasonal edit ONLY of this exact supplied noon Seoul studio 1672x941. WINTER: Seoul riverside park and Namsan have leafless deciduous branches, sparse dark evergreens, a delicate layer of settled snow on park ground, tree branches and far hill, bare wintry trees in exact existing positions. Han River still liquid (not frozen), no actively falling snow (added interactively later). Preserve exactly existing noon sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior seasonal landscape. All snow OUTSIDE; warm interior absolutely unchanged, no winterdecor. Night snow naturally dark blue under streetlights. Keep window frames/furniture exact original coordinates. No text, dog or rain. Output1672x941.",
+    "winter/afternoon": "Seasonal edit ONLY of this exact supplied afternoon Seoul studio 1672x941. WINTER: Seoul riverside park and Namsan have leafless deciduous branches, sparse dark evergreens, a delicate layer of settled snow on park ground, tree branches and far hill, bare wintry trees in exact existing positions. Han River still liquid (not frozen), no actively falling snow (added interactively later). Preserve exactly existing afternoon sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior seasonal landscape. All snow OUTSIDE; warm interior absolutely unchanged, no winterdecor. Night snow naturally dark blue under streetlights. Keep window frames/furniture exact original coordinates. No text, dog or rain. Output1672x941.",
+    "winter/evening": "Seasonal edit ONLY of this exact supplied evening Seoul studio 1672x941. WINTER: Seoul riverside park and Namsan have leafless deciduous branches, sparse dark evergreens, a delicate layer of settled snow on park ground, tree branches and far hill, bare wintry trees in exact existing positions. Han River still liquid (not frozen), no actively falling snow (added interactively later). Preserve exactly existing evening sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior seasonal landscape. All snow OUTSIDE; warm interior absolutely unchanged, no winterdecor. Night snow naturally dark blue under streetlights. Keep window frames/furniture exact original coordinates. No text, dog or rain. Output1672x941.",
+    "winter/night": "Seasonal edit ONLY of this exact supplied night Seoul studio 1672x941. WINTER: Seoul riverside park and Namsan have leafless deciduous branches, sparse dark evergreens, a delicate layer of settled snow on park ground, tree branches and far hill, bare wintry trees in exact existing positions. Han River still liquid (not frozen), no actively falling snow (added interactively later). Preserve exactly existing night sky and lighting, river, city architecture and ALL interior pixels/geometry: desk, seat, tasklamp OFF, HHKB ivory compact keyboard, AppleStudioDisplay SCREEN OFF, walls/floor/materials. Change only exterior seasonal landscape. All snow OUTSIDE; warm interior absolutely unchanged, no winterdecor. Night snow naturally dark blue under streetlights. Keep window frames/furniture exact original coordinates. No text, dog or rain. Output1672x941."
+  },
+  "assets": {
+    "autumn/night": {
+      "source": "autumn/night.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/night.webp",
+      "sha256": "fb78a9e6544230735af5fdcbe6b3743b98d625509d6fdbfef15a037cc62dcd40"
+    },
+    "autumn/afternoon": {
+      "source": "autumn/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+      "sha256": "0f7a3b770de1782cd1c5a3ce219577a81eb72637e73986c6c2348a08bab8a5f7"
+    },
+    "autumn/noon": {
+      "source": "autumn/noon.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/noon.webp",
+      "sha256": "7b80674859c616af9a0bd24b88d8e26793f93bb552e38e2069c650184140c4b1"
+    },
+    "autumn/morning": {
+      "source": "autumn/morning.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/morning.webp",
+      "sha256": "be97b5b85e363de94590cce078ea034185d3d7c7f28017c9697f504c7fecb839"
+    },
+    "autumn/evening": {
+      "source": "autumn/evening.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/evening.webp",
+      "sha256": "c362dba99caaa808d8e654d503e2eff371d1ee22d6e37b3f97e58c90b6db5384"
+    },
+    "spring/morning": {
+      "source": "spring/morning.png",
+      "runtime": "public/assets/penthouse/seoul/spring/morning.webp",
+      "sha256": "4bf7d7ecb9c8897cd38b258d255a0cc939023c0ae9bd3faf287b37a841d34d16"
+    },
+    "spring/noon": {
+      "source": "spring/noon.png",
+      "runtime": "public/assets/penthouse/seoul/spring/noon.webp",
+      "sha256": "633657c589b5227c78546c5d1fcd103ab428802c65f5c71bca2aee7c3de72939"
+    },
+    "spring/evening": {
+      "source": "spring/evening.png",
+      "runtime": "public/assets/penthouse/seoul/spring/evening.webp",
+      "sha256": "7cec38ba5dbd14bd8d56ad920a5a0f4b14967baa58c439e8c6b4f162c5465c54"
+    },
+    "spring/afternoon": {
+      "source": "spring/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "sha256": "dd54d85cd74465ce7e4fc83f408029ab1956a90e49d9658b06c18672f2db3c5f"
+    },
+    "spring/night": {
+      "source": "spring/night.png",
+      "runtime": "public/assets/penthouse/seoul/spring/night.webp",
+      "sha256": "7cd21decd3b6f6f05265ae978b8b66070d475a6fa3ff7258ae3b310d2f66b2d8"
+    },
+    "summer/afternoon": {
+      "source": "summer/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "sha256": "1ae7b6f996e466920e75f2c39538ddcf6ac3c437cca5139f3eed87fb67cf21fc"
+    },
+    "summer/noon": {
+      "source": "summer/noon.png",
+      "runtime": "public/assets/penthouse/seoul/summer/noon.webp",
+      "sha256": "0cd466da7d3da46b409339c89023c365630f211108a33fe1a23db302015e34f5"
+    },
+    "summer/evening": {
+      "source": "summer/evening.png",
+      "runtime": "public/assets/penthouse/seoul/summer/evening.webp",
+      "sha256": "0285460582e04194a1af3310a0de387fbeeb2d00948645e8b2572dfa57c4260c"
+    },
+    "summer/morning": {
+      "source": "summer/morning.png",
+      "runtime": "public/assets/penthouse/seoul/summer/morning.webp",
+      "sha256": "ba488634e77977067c41496cda11425955fd031a74fca87c123357513cda1efa"
+    },
+    "summer/night": {
+      "source": "summer/night.png",
+      "runtime": "public/assets/penthouse/seoul/summer/night.webp",
+      "sha256": "c9adbf72edfeeed9f51ac00567f4f0257dc7c6f468513e5e0545b5111159b950"
+    },
+    "winter/morning": {
+      "source": "winter/morning.png",
+      "runtime": "public/assets/penthouse/seoul/winter/morning.webp",
+      "sha256": "1c2c60005c597a066a1c7ab2e35ccc9cb5216393a0a51f2a5e9137d23233474e"
+    },
+    "winter/noon": {
+      "source": "winter/noon.png",
+      "runtime": "public/assets/penthouse/seoul/winter/noon.webp",
+      "sha256": "0c911aee9ed6c0d75991d98bba6bb5e94b8dff25d8fe2ab9abe64c2250df99ab"
+    },
+    "winter/afternoon": {
+      "source": "winter/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "sha256": "928830d14b7cb379e498585eb1435ac02161f57d784c47a6d225d1d18cd0c5e0"
+    },
+    "winter/evening": {
+      "source": "winter/evening.png",
+      "runtime": "public/assets/penthouse/seoul/winter/evening.webp",
+      "sha256": "322379c3357693583cef9dc75d8acff34832cea626854baf9d8d56c87dba327a"
+    },
+    "winter/night": {
+      "source": "winter/night.png",
+      "runtime": "public/assets/penthouse/seoul/winter/night.webp",
+      "sha256": "b3bc1a6cc751be49625b1caa8745f6272f8ea13afcbe00a1c3f5eb299c1d99c8"
+    }
+  }
+}

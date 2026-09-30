@@ -1,5 +1,5 @@
 import './cyber-pet.css';
-import { placeMilky, milkyHasVisibleFloor, type MilkyPoint } from './cyber-pet-geometry';
+import { placeMilky, milkyHasVisibleFloor, DEFAULT_MILKY_FLOOR, type MilkyPoint } from './cyber-pet-geometry';
 import { createMilkyWalk, sampleMilkyWalk, milkyCanContinue, milkyDepthScale, milkyDistance, milkyStride, milkyGaitStride, milkyGaitFrame, type MilkyWalk } from './cyber-pet-motion';
 import { chooseMilkyDestination, milkyKeyboardDestination, milkyRoamPause, type MilkyHeading } from './cyber-pet-roam';
 import { planMilkyIdleMoment, milkySniffHold, milkyGreetHold, MILKY_BLINK_GAP, type MilkyIdleMoment } from './cyber-pet-life';
@@ -119,6 +119,7 @@ export function mountCyberPet(
   shippedForward: boolean = MILKY_SHIPPED_FORWARD,
   shippedTrot: boolean = MILKY_SHIPPED_TROT,
   propOverrides: Partial<Record<'ball' | 'bowl', { src: string; anchor: readonly [number, number] }>> = {},
+  floorBounds = DEFAULT_MILKY_FLOOR,
 ): CyberPetController {
   const page = host.ownerDocument;
   const view = page.defaultView!;
@@ -261,7 +262,7 @@ export function mountCyberPet(
   const available = () => active && !destroyed && !page.hidden && floorVisible && displayReady();
   const canWalk = () => available() && primaryArtwork && gaitReady && !reducedMotion.matches;
   const passiveAvailable = () => canWalk() && !keyboardFocused && studio?.dataset.intro !== 'visible';
-  const bound = (point: MilkyPoint) => placeMilky(host.getBoundingClientRect(), scene.getBoundingClientRect(), point);
+  const bound = (point: MilkyPoint) => placeMilky(host.getBoundingClientRect(), scene.getBoundingClientRect(), point, floorBounds);
   const poseReady = (name: MilkyPoseName) => version === 'v4' && (poses.find((entry) => entry.name === name)?.ready ?? false);
   const restReady = (name: MilkyRestPoseName) => version === 'v4' && (rests.find((entry) => entry.name === name)?.ready ?? false);
   const activityReady = (name: MilkyActivityPoseName) => version === 'v4' && (activities.find((entry) => entry.name === name)?.ready ?? false);
@@ -1035,7 +1036,7 @@ export function mountCyberPet(
     width = host.clientWidth || room.width;
     height = host.clientHeight || room.height;
     portrait = viewport.width / viewport.height < 4 / 3;
-    floorVisible = milkyHasVisibleFloor(room, viewport);
+    floorVisible = milkyHasVisibleFloor(room, viewport, floorBounds);
     button.dataset.portrait = String(portrait);
     propsLayer.dataset.portrait = String(portrait);
     if (!placed) {

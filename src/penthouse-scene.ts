@@ -1,15 +1,18 @@
 import type { ClimateState } from './cyber-climate.ts';
 import { mountPenthouseEffects } from './penthouse-effects.ts';
+import { GLASS_EDGE, ROOM_SIZE } from './penthouse-atmosphere.ts';
 
-export function penthousePlate(time: ClimateState['time'], weather: ClimateState['weather'] = 'clear'): string {
+export function penthousePlate(time: ClimateState['time'], weather: ClimateState['weather'] = 'clear', season: ClimateState['season'] = 'autumn'): string {
   // Diffuse daylight for precipitation: do not leave a painted sun behind rain.
   const diffuse = weather !== 'clear' && ['morning', 'noon', 'afternoon'].includes(time);
-  return `/assets/penthouse/workspace/${diffuse ? 'noon' : time}.webp`;
+  return `/assets/penthouse/seoul/${season}/${diffuse ? 'noon' : time}.webp`;
 }
 
-// Coordinates measured against the NEW 1672 × 941 illustration. The lower edge
-// follows the sofa silhouette, so rain/snow never paints across the furniture.
-export const PENTHOUSE_WINDOW = 'polygon(0 0, 22.5% 16.5%, 64% 12.5%, 64% 53.3%, 52.2% 53.3%, 52.2% 52%, 42.2% 49%, 42.2% 48.5%, 30.3% 47%, 29.4% 46.5%, 18% 49%, 12% 49.7%, 6% 52.5%, 6% 57.3%, 0 59%)';
+export const penthouseInterior = (source: string) => `/assets/penthouse/seoul/interior/${source.split('/').at(-1)}`;
+
+// Coordinates measured against the frontal 1672 × 941 Seoul illustration.
+// Individual visible panes in the compositor also subtract foreground furniture.
+export const PENTHOUSE_WINDOW = `polygon(${GLASS_EDGE.map(([x,y]) => `${x / ROOM_SIZE[0] * 100}% ${y / ROOM_SIZE[1] * 100}%`).join(', ')})`;
 
 export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
   const layers = room.querySelector<HTMLElement>('[data-plates]')!;
@@ -20,35 +23,38 @@ export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
   let dead = false;
   let displayed = penthousePlate('night');
   let requested = displayed;
-  let loaded: HTMLImageElement | null = null;
+  const loaded = new Set<HTMLImageElement>();
   room.querySelector<HTMLElement>('[data-weather-wash]')!.style.clipPath = PENTHOUSE_WINDOW;
-  room.querySelector<HTMLElement>('[data-season-wash]')!.style.clipPath = PENTHOUSE_WINDOW;
   async function changePlate(source: string) {
     requested = source;
     const token = ++revision;
     if (source === displayed) return;
     const image = new Image();
-    loaded = image;
+    const interior = new Image();
+    loaded.add(image); loaded.add(interior);
+    interior.alt = ''; interior.className = 'ph-plate'; interior.draggable = false;
+    interior.src = penthouseInterior(source);
     image.alt = '';
-    image.className = 'ph-plate';
+    image.className = 'ph-plate ph-exterior';
+    image.style.clipPath = 'url(#ph-glass)';
     image.draggable = false;
     image.src = source;
     try {
-      await image.decode();
+      await Promise.all([image.decode(), interior.decode()]);
       if (dead || token !== revision) return;
       // Image stays visible until its replacement has decoded; no blank flashes.
-      layers.replaceChildren(image);
-      effects.setPlate(image);
+      layers.replaceChildren(interior, image);
+      effects.setPlate(interior, image);
       displayed = source;
     } catch {
       if (!dead && token === revision) { requested = displayed; onError(); }
-    } finally { if (loaded === image) loaded = null; }
+    } finally { loaded.delete(image); loaded.delete(interior); }
   }
   return {
     update(next: ClimateState) {
       state = next;
       for (const key of ['season', 'time', 'weather'] as const) room.dataset[key] = state[key];
-      const source = penthousePlate(state.time, state.weather);
+      const source = penthousePlate(state.time, state.weather, state.season);
       if (source !== requested) void changePlate(source);
       effects.update(state);
     },
@@ -57,7 +63,8 @@ export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
     setPreview: effects.setPreview,
     destroy() {
       dead = true; revision++; effects.destroy();
-      if (loaded) { loaded.src = ''; loaded = null; }
+      for (const image of loaded) image.src = '';
+      loaded.clear();
     },
   };
 }

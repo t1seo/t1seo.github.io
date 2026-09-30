@@ -1,8 +1,8 @@
 import type { ClimateState } from './cyber-climate.ts';
-import { AtmosphereSimulation, GLASS_EDGE, GLASS_PANES, ROOM_SIZE, atmosphereProfile, isGlass, isSky, seededRandom, type Point } from './penthouse-atmosphere.ts';
+import { AtmosphereSimulation, GLASS_EDGE, GLASS_PANES, SKY_EDGE, WORKSPACE_CROP, MONITOR_SCREEN, ROOM_SIZE, atmosphereProfile, isGlass, isSky, seededRandom, type Point } from './penthouse-atmosphere.ts';
 
 export interface WorkspaceState { monitor: boolean; lamp: boolean }
-const CODE = ['// AFTER HOURS', 'const home = {', '  companion: "Milky",', '  city: "asleep",', '  ideas: Infinity', '};', '', 'makeSomethingGood();'];
+const CODE = ['// AFTER HOURS / SEOUL', 'const home = {', '  companion: "Milky",', '  city: "Seoul",', '  ideas: Infinity', '};', '', 'makeSomethingGood();'];
 
 /** One bounded 30 fps compositor. Glass, skyline and workspace have separate masks. */
 export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: HTMLImageElement | null) {
@@ -11,17 +11,18 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   const abort = new AbortController();
   const sim = new AtmosphereSimulation();
   const random = seededRandom(310730);
-  const dust = Array.from({length: 180}, () => ({ x: random() * 1150, y: random() * 600, speed: .55 + random(), phase: random() * 6.28 }));
-  const stars = Array.from({length: 48}, () => ({ x: random() * 1050, y: 70 + random() * 215, phase: random() * 6.28, r: .35 + random() * .5 })).filter(p => isSky(p.x,p.y));
+  const dust = Array.from({length: 180}, () => ({ x: random() * 1295, y: random() * 490, speed: .55 + random(), phase: random() * 6.28 }));
+  const stars = Array.from({length: 48}, () => ({ x: 191 + random() * 1295, y: 48 + random() * 115, phase: random() * 6.28, r: .35 + random() * .5 })).filter(p => isSky(p.x,p.y));
   // Small facade zones measured on the actual illustrated buildings, not the sky.
-  const facades = [[450,316,20,89],[510,316,18,89],[20,379,43,126],[245,389,23,66],[910,382,16,70],[997,369,20,88],[1026,375,22,83]];
-  const lights = facades.flatMap(([x,y,w,h]) => Array.from({length: 20}, () => ({
+  const facades = [[244,260,28,45],[320,254,37,48],[419,258,30,50],[554,248,36,59],[718,214,20,90],[964,244,29,60],[1205,260,35,47],[1280,211,25,92],[1358,244,32,63],[1439,245,27,60]];
+  const lights = facades.flatMap(([x,y,w,h]) => Array.from({length: 16}, () => ({
     x: x + Math.floor(random() * w / 4) * 4, y: y + Math.floor(random() * h / 6) * 6,
     phase: random() * 6.28, period: 9 + random() * 24, width: 1 + random() * 1.2,
   }))).filter(p => isGlass(p.x,p.y));
   let state: ClimateState = { season: 'autumn', time: 'night', weather: 'clear', auto: true };
   let workspace: WorkspaceState = { monitor: false, lamp: false };
   let plate = initialPlate;
+  let exterior = initialPlate;
   let preview: HTMLCanvasElement | null = null;
   let animateView = true;
   let frame = 0, last = 0, painted = 0, typing = 0;
@@ -45,10 +46,10 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     ctx!.save(); clipGlass();
     // Clouds build up over the sky; river/facades retain depth through the lower haze.
     if (p.clouds) {
-      const g = ctx!.createLinearGradient(0,120,0,540);
+      const g = ctx!.createLinearGradient(0,42,0,460);
       g.addColorStop(0, p.night ? '#242c3e' : '#8e9ca7'); g.addColorStop(.65,p.night ? '#38434d' : '#b3bdc3'); g.addColorStop(1,'transparent');
-      ctx!.globalAlpha = p.clouds; ctx!.fillStyle = g; ctx!.fillRect(0,0,1100,570);
-      for (let i = 0; i < 5; i++) glow(120 + i * 230 + Math.sin(t * .025 + i) * 55, 230 + i % 2 * 48, 235,55,p.night ? '#66727f' : '#e2e5e4',p.clouds * .13);
+      ctx!.globalAlpha = p.clouds; ctx!.fillStyle = g; ctx!.fillRect(191,42,1295,445);
+      for (let i = 0; i < 5; i++) glow(290 + i * 265 + Math.sin(t * .025 + i) * 40, 110 + i % 2 * 40, 255,43,p.night ? '#66727f' : '#e2e5e4',p.clouds * .13);
     }
     ctx!.globalAlpha = 1;
     if (p.night) {
@@ -56,21 +57,20 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
         const a = (.35 + Math.sin(t / l.period * 6.28 + l.phase) * .23) * p.night;
         ctx!.fillStyle = `rgba(255,220,163,${a})`; ctx!.fillRect(l.x,l.y,l.width,2.2);
       }
-      // Narrow reflections follow the river's perspective and exclude the near bank.
-      ctx!.save(); ctx!.beginPath(); path([[643,429],[719,421],[868,449],[1066,489],[1066,500],[794,469],[704,458],[643,450]]); ctx!.clip();
-      for (let i = 0; i < 60; i++) {
-        const y = 424 + i * 1.4, x = 650 + i * 6.5 + Math.sin(t * .32 + i) * 3;
-        ctx!.fillStyle = `rgba(246,209,151,${(.12 + .12 * Math.sin(t + i)) * p.night})`;
-        ctx!.fillRect(x,y,5 + i % 9, .65);
+      // Short horizontal glints ripple within the Han River, below the far bank.
+      ctx!.save(); ctx!.beginPath(); path([[228,342],[1486,342],[1486,401],[228,401]]); ctx!.clip();
+      for (let i = 0; i < 26; i++) {
+        const x = 242 + i * 47 + Math.sin(t * .35 + i) * 2;
+        const y = 345 + (i * 17 % 51);
+        ctx!.strokeStyle = `rgba(255,219,155,${p.night * (.13 + .08 * Math.sin(t * .65 + i))})`;
+        ctx!.lineWidth = .7; ctx!.beginPath(); ctx!.moveTo(x,y); ctx!.lineTo(x + 3 + (i % 4),y); ctx!.stroke();
       }
       ctx!.restore();
-      // Faint room-light reflections in the glass, strongest after sunset.
-      ctx!.save(); ctx!.globalAlpha = p.night * .12; ctx!.lineWidth = 1.2; ctx!.strokeStyle = '#f1d7ac';
-      ctx!.beginPath(); ctx!.moveTo(4,128); ctx!.lineTo(336,158); ctx!.moveTo(403,182); ctx!.lineTo(483,254); ctx!.stroke(); ctx!.restore();
-      glow(480,307,29,123,'#d7cfbf',p.night * .035);
+      // A faint task-light reflection belongs to the same pane as the desk.
+      if (workspace.lamp) glow(1098,270,20,57,'#f1d7ac',p.night * .035);
     }
     if (p.stars) {
-      ctx!.save(); ctx!.beginPath(); ctx!.rect(0,0,1100,293); ctx!.clip();
+      ctx!.save(); ctx!.beginPath(); path(SKY_EDGE); ctx!.clip();
       for (const s of stars) {
         ctx!.fillStyle = `rgba(220,228,239,${.15 + .12 * Math.sin(t * .4 + s.phase)})`;
         ctx!.beginPath(); ctx!.arc(s.x,s.y,s.r,0,6.28); ctx!.fill();
@@ -84,12 +84,12 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
       }
       ctx!.restore();
     }
-    if (p.mist) for (let i = 0; i < 4; i++) glow(230 + i * 210 + Math.sin(t * .022 + i) * 65, 370 + i * 23,390,68,p.night ? '#a5b1be' : '#e8e7df',.18);
+    if (p.mist) for (let i = 0; i < 4; i++) glow(320 + i * 320 + Math.sin(t * .022 + i) * 45, 268 + i * 21,390,68,p.night ? '#a5b1be' : '#e8e7df',.18);
     if (p.rain || p.snow) {
       for (let i = 0; i < dust.length; i++) {
         const d = dust[i], near = i % 3 === 0;
-        const y = (d.y + t * d.speed * (p.snow ? 19 : near ? 480 : 300)) % 620 - 20;
-        const x = (d.x + (p.snow ? Math.sin(t * .35 + d.phase) * 15 : y * .11)) % 1120;
+        const y = 22 + (d.y + t * d.speed * (p.snow ? 19 : near ? 480 : 300)) % 490;
+        const x = 191 + (d.x + (p.snow ? Math.sin(t * .35 + d.phase) * 15 : y * .11) + 1295) % 1295;
         ctx!.beginPath();
         if (p.snow) {
           ctx!.fillStyle = `rgba(241,244,246,${near ? .7 : .34})`; ctx!.arc(x,y,near ? 1.9 : .85,0,6.28); ctx!.fill();
@@ -111,9 +111,9 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
         }
         ctx!.beginPath(); ctx!.ellipse(d.x,d.y,r,moving ? r * 1.7 : r * 1.2,0,0,6.28);
         ctx!.save(); ctx!.clip();
-        if (plate?.complete && plate.naturalWidth) {
+        if (exterior?.complete && exterior.naturalWidth) {
           // Local plate sample magnified inside each bead: actual optical distortion.
-          ctx!.drawImage(plate,(d.x-r*.7) / 1672 * plate.naturalWidth,(d.y-r*.8) / 941 * plate.naturalHeight,r*1.4 / 1672 * plate.naturalWidth,r*1.6 / 941 * plate.naturalHeight,d.x-r,d.y-r*1.7,r*2,r*3.4);
+          ctx!.drawImage(exterior,(d.x-r*.7) / 1672 * exterior.naturalWidth,(d.y-r*.8) / 941 * exterior.naturalHeight,r*1.4 / 1672 * exterior.naturalWidth,r*1.6 / 941 * exterior.naturalHeight,d.x-r,d.y-r*1.7,r*2,r*3.4);
         }
         ctx!.fillStyle = '#a1c0d321'; ctx!.fill(); ctx!.restore();
         ctx!.strokeStyle = '#12223488'; ctx!.lineWidth = .65; ctx!.stroke();
@@ -125,27 +125,26 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   function drawWorkspace() {
     const night = atmosphereProfile(state).night;
     if (workspace.lamp) {
-      // Desk top receives the pool; the chair and monitor do not get painted over.
-      ctx!.save(); ctx!.beginPath(); path([[1415,461],[1588,478],[1590,496],[1408,478]]); ctx!.clip();
-      glow(1493,470,100,25,'#ffe0a3',.52); ctx!.restore();
-      glow(1484,423,36,49,'#ffe9bd',.13);
-      ctx!.strokeStyle = '#fff1ce'; ctx!.lineWidth = 2; ctx!.beginPath(); ctx!.moveTo(1462,382); ctx!.lineTo(1513,381); ctx!.stroke();
-      glow(1487,383,37,7,'#ffe0a3',.28);
+      ctx!.save(); ctx!.beginPath(); path([[1007,441],[1215,441],[1254,454],[1003,454]]); ctx!.clip();
+      glow(1090,447,120,15,'#ffdf9d',.42); ctx!.restore();
+      glow(1078,397,27,44,'#ffe9bd',.075);
+      // The Kelvin head varies subtly with each lighting plate; a soft emission
+      // avoids a detached hard-coded bulb over the photographic metal edge.
+      glow(1064,341,31,5,'#fff0c8',.44);
     }
     if (workspace.monitor) {
-      glow(1383,471,72,16,'#bad4e9',.09 + night * .1);
-      ctx!.save(); ctx!.beginPath(); path([[1331,369],[1431,362],[1428,440],[1328,435]]); ctx!.clip();
-      ctx!.fillStyle = '#152432'; ctx!.fillRect(1320,357,115,90);
-      // Register a gently sloping display plane to the illustrated monitor bezel.
-      ctx!.transform(1,-.055,-.035,1,1334,373);
-      ctx!.font = '3.6px ui-monospace, monospace';
+      glow(916,443,86,12,'#bad4e9',.08 + night * .09);
+      ctx!.save(); ctx!.beginPath(); path(MONITOR_SCREEN); ctx!.clip();
+      ctx!.fillStyle = '#142635'; ctx!.fillRect(840,319,151,85);
+      ctx!.translate(848,325);
+      ctx!.font = '6px ui-monospace, monospace';
       const total = reduced.matches || !animateView ? 500 : Math.floor(typing * 22);
       let remaining = total;
       CODE.forEach((line,i) => {
         ctx!.fillStyle = i === 0 ? '#99afa9' : i < 6 ? '#d0dce2' : '#d6bea0';
         const visible = line.slice(0,Math.max(0,remaining)); remaining -= line.length;
-        ctx!.fillText(visible,1,5 + i * 6.7);
-        if (remaining >= -line.length && remaining <= 0 && Math.floor(typing * 2) % 2 === 0 && animateView && !reduced.matches) ctx!.fillRect(1 + ctx!.measureText(visible).width,1 + i*6.7,1.8,4);
+        ctx!.fillText(visible,1,6 + i * 9);
+        if (remaining >= -line.length && remaining <= 0 && Math.floor(typing * 2) % 2 === 0 && animateView && !reduced.matches) ctx!.fillRect(1 + ctx!.measureText(visible).width,1 + i*9,2.5,6);
       });
       ctx!.restore();
     }
@@ -153,8 +152,9 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   function drawPreview() {
     const c = preview?.getContext('2d'); if (!c || !preview) return;
     c.clearRect(0,0,preview.width,preview.height);
-    if (plate?.complete && plate.naturalWidth) c.drawImage(plate,1140 / 1672 * plate.naturalWidth,320 / 941 * plate.naturalHeight,530 / 1672 * plate.naturalWidth,330 / 941 * plate.naturalHeight,0,0,530,330);
-    c.drawImage(canvas,1140,320,530,330,0,0,530,330);
+    const [x,y,width,height] = WORKSPACE_CROP;
+    if (plate?.complete && plate.naturalWidth) c.drawImage(plate,x / 1672 * plate.naturalWidth,y / 941 * plate.naturalHeight,width / 1672 * plate.naturalWidth,height / 941 * plate.naturalHeight,0,0,width,height);
+    c.drawImage(canvas,x,y,width,height,0,0,width,height);
   }
   function render() {
     if (!ctx || dead) return;
@@ -185,10 +185,10 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   initialPlate?.addEventListener?.('load', restart, { signal: abort.signal });
   return {
     update(next: ClimateState) { state = next; if (state.weather !== 'clear' || state.time !== 'night') sim.meteor = null; restart(); },
-    setPlate(image: HTMLImageElement) { plate = image; restart(); },
+    setPlate(image: HTMLImageElement, outside: HTMLImageElement = image) { plate = image; exterior = outside; restart(); },
     setWorkspace(next: WorkspaceState) { if (!workspace.monitor && next.monitor) typing = 0; workspace = next; restart(); },
     setAnimated(enabled: boolean) { animateView = enabled; sim.meteor = null; restart(); },
-    setPreview(next: HTMLCanvasElement | null) { preview = next; if (preview) { preview.width = 530; preview.height = 330; } render(); },
-    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); frame = 0; preview = null; plate = null; },
+    setPreview(next: HTMLCanvasElement | null) { preview = next; if (preview) { preview.width = WORKSPACE_CROP[2]; preview.height = WORKSPACE_CROP[3]; } render(); },
+    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); frame = 0; preview = null; plate = null; exterior = null; },
   };
 }
