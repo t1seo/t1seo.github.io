@@ -1,0 +1,15 @@
+{
+  "canvas": [1672, 941],
+  "runtimeDirectory": "/assets/penthouse/workspace/",
+  "ball": {
+    "sourceCanvas": [1254, 1254],
+    "alphaThreshold": 100,
+    "visibleBounds": [252, 255, 1003, 999],
+    "normalizedContactAnchor512": [256.204, 407.885],
+    "note": "New default-only prop override. Original green archive sprite and every Milky pose remain unchanged."
+  },
+  "monitorScreen": [[1331, 369], [1431, 362], [1428, 440], [1328, 435]],
+  "taskLampEmitter": [[1462, 382], [1513, 381]],
+  "previewCrop": [1140, 320, 530, 330],
+  "note": "Generated matching time plates are not CAD-identical; overlays use the night master's measured safe inner bounds."
+}

@@ -7,6 +7,7 @@ export default defineConfig({
     name: 'publish-design-research',
     closeBundle() {
       cpSync(resolve('design/research/penthouse-rebuild'), resolve('dist/design/research/penthouse-rebuild'), { recursive: true });
+      cpSync(resolve('design/research/penthouse-atmosphere'), resolve('dist/design/research/penthouse-atmosphere'), { recursive: true });
     },
   }],
 });

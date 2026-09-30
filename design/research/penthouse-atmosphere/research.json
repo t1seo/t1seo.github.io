@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "id": "penthouse-atmosphere",
+  "projectId": "taewon-after-hours",
+  "title": "Luminous penthouse, workspace and living weather",
+  "createdAt": "2026-09-30T14:45:37.853Z",
+  "scope": "Red felt ball, lighter warm-minimal materials, computer workstation and detailed time/weather animation",
+  "backup": {
+    "branch": "backup/penthouse-before-workspace-20260930",
+    "commit": "cf48a436cea30482fa70afe174335930760c6532"
+  },
+  "sources": [
+    {
+      "id": "ba85cb38-81ba-4877-acab-008ef31eb3e5",
+      "provider": "mobbin",
+      "title": "Stitch",
+      "product": "Stitch",
+      "url": "https://mobbin.com/screens/ba85cb38-81ba-4877-acab-008ef31eb3e5",
+      "kind": "screen",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Weather dashboard showing current conditions with an atmospheric sky background and time of day controls",
+        "resultId": "ba85cb38-81ba-4877-acab-008ef31eb3e5",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "capture": {
+        "locator": "images/ba85cb38-81ba-4877-acab-008ef31eb3e5.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/6FCC43L3"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Stitch editor contains a pale-blue weather mockup: readable condition/time labels; use clear labels, do not treat mockup as observed real forecast functionality."
+    },
+    {
+      "id": "3d02d9ec-583d-4af8-9508-3b67ff59fa73",
+      "provider": "mobbin",
+      "title": "Emergent",
+      "product": "Emergent",
+      "url": "https://mobbin.com/screens/3d02d9ec-583d-4af8-9508-3b67ff59fa73",
+      "kind": "screen",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Weather dashboard showing current conditions with an atmospheric sky background and time of day controls",
+        "resultId": "3d02d9ec-583d-4af8-9508-3b67ff59fa73",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "capture": {
+        "locator": "images/3d02d9ec-583d-4af8-9508-3b67ff59fa73.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/upVjkljQ"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Emergent has a sky-photo backdrop fading into a pale workspace; adopt separation between atmospheric backdrop and readable controls, reject saturated blue."
+    },
+    {
+      "id": "25cf4b6b-55f7-454c-b830-30c419456a9f",
+      "provider": "mobbin",
+      "title": "Headspace",
+      "product": "Headspace",
+      "url": "https://mobbin.com/screens/25cf4b6b-55f7-454c-b830-30c419456a9f",
+      "kind": "screen",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Weather dashboard showing current conditions with an atmospheric sky background and time of day controls",
+        "resultId": "25cf4b6b-55f7-454c-b830-30c419456a9f",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "capture": {
+        "locator": "images/25cf4b6b-55f7-454c-b830-30c419456a9f.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/bLNXMU36"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Headspace mood check-in uses weather pictograms with visible labels and distinct choices; use clear state naming, not its mood/forecast semantics."
+    },
+    {
+      "id": "21st-924",
+      "provider": "21st",
+      "title": "Shooting Stars",
+      "product": "21st.dev",
+      "url": "https://21st.dev/@manuarora700/components/shooting-stars",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "shooting stars rain background animation",
+        "resultId": "924",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "capture": {
+        "excerpt": "Gradient trail; randomized delay; useEffect schedules recursive timeout with no cancellation"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Full component and demo source read. Adopt fading tail and bounded frame loop concept. Reject frequent neon/pixel effects; independently implement elapsed-time movement, weather gating, hidden/reduced-motion behavior and complete timer cleanup. No source copied."
+    },
+    {
+      "id": "21st-18484",
+      "provider": "21st",
+      "title": "Background Pixel Stars",
+      "product": "21st.dev",
+      "url": "https://21st.dev/@uicapsule/components/background-pixel-stars",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "shooting stars rain background animation",
+        "resultId": "18484",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "capture": {
+        "excerpt": "Canvas frame throttling; animation frame cancellation; interval cleanup"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Full component and demo source read. Adopt fading tail and bounded frame loop concept. Reject frequent neon/pixel effects; independently implement elapsed-time movement, weather gating, hidden/reduced-motion behavior and complete timer cleanup. No source copied."
+    },
+    {
+      "id": "studio-vercel",
+      "provider": "studio",
+      "title": "Vercel neutral tokens",
+      "product": "Hail Mary Studio",
+      "url": "https://product.hailmary-studio.com/playground/",
+      "retrieval": {
+        "method": "cli",
+        "tool": "studio show",
+        "query": "web-theme/vercel",
+        "resultId": "web-theme/vercel@0.1.0",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "capture": {
+        "excerpt": "light surface #ffffff; muted #525252; dark surface #090909; muted #a4a4a4"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Keep neutral UI hierarchy; light stone/palette is a spatial design choice, not a wholesale theme import."
+    },
+    {
+      "id": "norm-kolon",
+      "provider": "web",
+      "title": "Kolon x Anour Showroom",
+      "product": "Kolon x Anour Showroom",
+      "url": "https://normcph.com/project/kolon-x-anour-showroom/",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://normcph.com/project/kolon-x-anour-showroom/",
+        "resultId": "norm-kolon",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Primary text: warm neutrals, soft textures, brushed metal and gentle light/shadow contrast; adopt middle-value range. Retrieved photo 17 was facade, not interior evidence."
+    },
+    {
+      "id": "norm-nagano",
+      "provider": "web",
+      "title": "Nagano HQ",
+      "product": "Nagano HQ",
+      "url": "https://normcph.com/project/nagano-hq/",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://normcph.com/project/nagano-hq/",
+        "resultId": "norm-nagano",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Primary text and actual Lowres33 photo inspected: pale porous stone beside soft taupe textile and reflective glass. Adopt light honed stone, keep black leather as anchor."
+    },
+    {
+      "id": "herman-miller",
+      "provider": "web",
+      "title": "Eames Aluminum Group",
+      "product": "Eames Aluminum Group",
+      "url": "https://www.hermanmiller.com/products/seating/office-chairs/eames-aluminum-group-chairs/design-story/",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://www.hermanmiller.com/products/seating/office-chairs/eames-aluminum-group-chairs/design-story/",
+        "resultId": "herman-miller",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Primary design story and product sheet: slim cast-aluminum frame and suspended seat. Adopt light silhouette and low back; use original unbranded illustration."
+    },
+    {
+      "id": "flos",
+      "provider": "web",
+      "title": "Kelvin Edge",
+      "product": "Kelvin Edge",
+      "url": "https://professional.flos.com/en/global/model/kelvin-edge-model320/",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://professional.flos.com/en/global/model/kelvin-edge-model320/",
+        "resultId": "flos",
+        "retrievedAt": "2026-09-30T14:45:37.853Z"
+      },
+      "inspectedAt": "2026-09-30T14:45:37.853Z",
+      "observation": "Primary manufacturer describes adjustable direct task light, black/white options, 2700–3200K. Adopt slender articulated head and independent local light pool."
+    }
+  ],
+  "decisions": [
+    {
+      "target": "Palette",
+      "outcome": "adopt",
+      "reason": "Warm grey limestone floor, ivory travertine table, greige wall with black leather anchor. Clearer material contrast preserves the luxury concept."
+    },
+    {
+      "target": "Workspace",
+      "outcome": "adopt",
+      "reason": "Right-side smoked walnut/aluminum desk, silver monitor, low-back black chair, articulated task light, under-desk indirect glow. Preserve foreground for Milky."
+    },
+    {
+      "target": "Night",
+      "outcome": "adopt",
+      "reason": "Slow independent facade lights, distant water glints, dim interior reflection, sparse clear-night meteors with tails."
+    },
+    {
+      "target": "Rain",
+      "outcome": "adopt",
+      "reason": "Far/near rain, refractive stationary drops and coalescing rivulets on individual panes; smooth drying after rain."
+    },
+    {
+      "target": "Motion",
+      "outcome": "adopt",
+      "reason": "Elapsed-time updates, bounded particles, no hidden-tab rendering, reduced-motion still frame, manual effects toggle; music unaffected."
+    }
+  ],
+  "synchronization": {
+    "status": "pending",
+    "reason": "Project has no connected Studio project; current DESIGN.md is independent and is not a valid connected Studio schema. Gate not passed; real MCP sources recorded locally.",
+    "lastResult": "studio_research_sync: Connect the project before synchronizing research"
+  },
+  "qa": {
+    "status": "automated checks complete; Chrome visual verification blocked",
+    "browserError": "failed to start codex app-server: No such file or directory (os error 2)",
+    "note": "No browser screenshot or browser interaction pass claimed. No fallback browser launched.",
+    "tests": {
+      "passed": 178,
+      "failed": 0
+    },
+    "build": "TypeScript and Vite passed",
+    "details": "verification.md"
+  }
+}

@@ -16,8 +16,7 @@ a { color: inherit; }
 .ph-plates, .ph-plate, .ph-pet, .ph-season, .ph-weather, .ph-weather-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ph-plate { object-fit: fill; pointer-events: none; }
 .ph-plates { transition: filter 1.3s ease; }
-.ph-room[data-time='morning'] .ph-plates { filter: sepia(.11) brightness(.94); }
-.ph-room[data-time='afternoon'] .ph-plates { filter: sepia(.14) brightness(.98); }
+.ph-room[data-weather='rain'] .ph-plates, .ph-room[data-weather='cloudy'] .ph-plates { filter: saturate(.8) brightness(.9); }
 .ph-season, .ph-weather, .ph-weather-canvas { pointer-events: none; }
 .ph-season { mix-blend-mode: soft-light; opacity: .15; transition: background 1.5s; }
 .ph-room[data-season='spring'] .ph-season { background: #ccabab; }
@@ -25,10 +24,6 @@ a { color: inherit; }
 .ph-room[data-season='autumn'] .ph-season { background: #b39a71; }
 .ph-room[data-season='winter'] .ph-season { background: #abc6df; opacity: .26; }
 .ph-weather { opacity: 0; transition: opacity 1s, background 1s; }
-.ph-room[data-weather='cloudy'] .ph-weather { background: #626872; opacity: .35; }
-.ph-room[data-weather='rain'] .ph-weather { background: #252e3c; opacity: .38; }
-.ph-room[data-weather='snow'] .ph-weather { background: #bccbd2; opacity: .27; }
-.ph-room[data-weather='mist'] .ph-weather { background: linear-gradient(transparent, #c5c9cb 65%); opacity: .7; }
 .ph-pet { z-index: 3; pointer-events: none; }
 .ph-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(#08090d94, transparent 18%, transparent 72%, #08090db0), linear-gradient(90deg, #0c0d1033, transparent 45%); }
 .ph-header { position: absolute; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 42px; }
@@ -37,11 +32,11 @@ a { color: inherit; }
 .ph-edition { font-size: 9px; letter-spacing: .19em; color: #dedbda; }
 .ph-about { padding: 10px 0 10px 15px; min-height: 44px; border: 0; background: none; font-size: 12px; }
 .ph-about span { margin-left: 24px; }
-.ph-intro { position: absolute; left: 42px; bottom: 142px; pointer-events: none; text-shadow: 0 2px 24px #0008; }
-.ph-intro p { font-size: 8px; letter-spacing: .18em; margin: 0 0 12px; color: #d0ccca; }
+.ph-intro { position: absolute; left: 42px; bottom: 142px; pointer-events: none; color: #292725; text-shadow: 0 1px 18px #f2e7d570; }
+.ph-intro p { font-size: 8px; letter-spacing: .18em; margin: 0 0 12px; color: #48413b; }
 .ph-intro h1 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: clamp(40px, 4.3vw, 70px); letter-spacing: -.045em; line-height: 1; margin: 0 0 18px; }
-.ph-intro div { font-size: 12px; line-height: 1.65; color: #d0ccca; }
-.ph-live-climate { position: absolute; right: 42px; top: 116px; display: grid; gap: 7px; text-align: right; font-size: 10px; letter-spacing: .03em; text-shadow: 0 1px 10px #000; }
+.ph-intro div { font-size: 12px; line-height: 1.65; color: #48413b; }
+.ph-live-climate { position: absolute; right: 42px; top: 116px; display: grid; gap: 7px; text-align: right; font-size: 10px; letter-spacing: .03em; text-shadow: 0 1px 4px #000, 0 0 12px #000; }
 .ph-live-climate span:last-child { color: #c0bfbe; font-size: 9px; }
 .ph-footer { position: absolute; inset: auto 42px 25px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; border-top: 1px solid #f0ede72b; padding-top: 18px; }
 .ph-caption { display: flex; gap: 10px; align-items: center; font-size: 8px; letter-spacing: .13em; }
@@ -54,7 +49,9 @@ a { color: inherit; }
 .ph-track span:first-child { font-size: 7px; letter-spacing: .17em; color: #c4c0bc; }
 .ph-track span:last-child { font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ph-hotspot { position: absolute; z-index: 4; border: 0; background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
-.ph-hotspot--audio { left: 88%; top: 53%; width: 6%; height: 7%; }
+.ph-hotspot--audio { left: 89%; top: 48%; width: 7%; height: 5%; }
+.ph-hotspot--monitor { left: 79%; top: 38%; width: 7%; height: 10%; }
+.ph-hotspot--lamp { left: 87%; top: 39%; width: 6%; height: 10%; }
 .ph-hotspot--book { left: 42%; top: 54%; width: 7%; height: 8%; }
 .ph-hotspot i { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid #e2d8c880; border-radius: 50%; color: #fff; font: 18px Georgia, serif; background: #0e101b66; opacity: 0; transition: opacity .2s; }
 .ph-hotspot span { position: absolute; bottom: 100%; font-size: 8px; letter-spacing: .12em; white-space: nowrap; background: #151719e6; padding: 8px; border-radius: 2px; opacity: 0; transition: opacity .2s; pointer-events: none; }
@@ -87,6 +84,8 @@ a { color: inherit; }
 .ph-pet-actions, .ph-about-links { display: grid; margin-top: 30px; }
 .ph-pet-actions button, .ph-about-links a { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 57px; padding: 16px 0; font-size: 13px; border: 0; border-bottom: 1px solid #45474a; background: none; text-decoration: none; }
 .ph-pet-actions button:hover, .ph-about-links a:hover { color: #e2c797; }
+.ph-desk-preview { display: block; width: 100%; height: auto; aspect-ratio: 530 / 330; border: 1px solid #55514a; background: #292725; margin-top: 26px; }
+.ph-workspace-status { font-size: 11px !important; }
 @media (max-width: 1000px) { .ph-track { display: none; } .ph-footer { grid-template-columns: 1fr auto; } .ph-intro h1 { font-size: 46px; } .ph-controls button { padding-inline: 12px; } }
 @media (max-width: 650px) {
   .ph-header { padding: 23px 22px; gap: 16px; }
@@ -103,7 +102,7 @@ a { color: inherit; }
   .ph-footer { left: 16px; right: 16px; bottom: max(15px, env(safe-area-inset-bottom)); display: block; padding-top: 11px; }
   .ph-caption { display: none; }
   .ph-controls { justify-content: space-between; gap: 0; }
-  .ph-controls button { flex-direction: column; gap: 7px; min-height: 57px; padding: 8px; flex: 1; font-size: 9px; }
+  .ph-controls button { flex-direction: column; gap: 7px; min-width: 44px; min-height: 57px; padding: 8px 5px; flex: 1; font-size: 9px; }
   .ph-hotspot { display: none; }
   .ph-dialog { padding: 80px 26px 30px; }
 }

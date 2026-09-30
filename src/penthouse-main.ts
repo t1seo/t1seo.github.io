@@ -7,6 +7,7 @@ import { mountPenthouseScene } from './penthouse-scene';
 const root = document.querySelector<HTMLDivElement>('#app')!;
 const icon = (path: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
 const glyphs = {
+  desk: icon('<rect x="3" y="3" width="18" height="13" rx="1"/><path d="M12 16v5m-5 0h10"/>'),
   sun: icon('<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/>'),
   music: icon('<path d="M9 18V5l11-2v13M9 8l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/>'),
   focus: icon('<path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/>'),
@@ -16,11 +17,13 @@ root.innerHTML = `
 <main class="ph-studio night-studio" data-intro="hidden" data-focus="false" aria-label="Taewon Seo's penthouse">
   <div class="ph-stage night-scene">
     <div class="ph-room" data-time="night" data-season="autumn" data-weather="clear">
-      <div class="ph-plates" data-plates role="img" aria-label="A charcoal stone penthouse with corner windows, a low black leather sofa and a monolithic coffee table above the city."><img class="ph-plate" src="/assets/penthouse/night.webp" alt="" fetchpriority="high" draggable="false"></div>
+      <div class="ph-plates" data-plates role="img" aria-label="A luminous limestone penthouse with corner windows, black leather sofa, ivory stone table and a walnut computer desk, aluminum chair and task lamp."><img class="ph-plate" src="/assets/penthouse/workspace/night.webp" alt="" fetchpriority="high" draggable="false"></div>
       <div class="ph-season" data-season-wash aria-hidden="true"></div>
       <div class="ph-weather" data-weather-wash aria-hidden="true"></div>
       <canvas class="ph-weather-canvas" aria-hidden="true"></canvas>
       <div class="ph-pet" data-pet></div>
+      <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn on the computer monitor" aria-pressed="false"><span>THE WORKSPACE</span><i aria-hidden="true">+</i></button>
+      <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"><span>DESK LIGHT</span><i aria-hidden="true">+</i></button>
       <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music at the turntable" aria-pressed="false"><span>THE LISTENING CORNER</span><i aria-hidden="true">+</i></button>
       <button class="ph-hotspot ph-hotspot--book" data-action="about" aria-label="Open the book about this residence"><span>THE RESIDENCE</span><i aria-hidden="true">+</i></button>
     </div>
@@ -38,6 +41,7 @@ root.innerHTML = `
     <nav class="ph-controls" aria-label="Residence controls">
       <button data-action="climate" aria-haspopup="dialog">${glyphs.sun}<span>Atmosphere</span></button>
       <button data-action="music" aria-pressed="false">${glyphs.music}<span data-music-label>Music</span></button>
+      <button data-action="workspace" aria-haspopup="dialog">${glyphs.desk}<span>Desk</span></button>
       <button data-action="milky" aria-haspopup="dialog">${glyphs.pet}<span>Milky</span></button>
       <button data-action="focus" aria-pressed="false" aria-label="Hide room interface">${glyphs.focus}<span>Immerse</span></button>
     </nav>
@@ -59,6 +63,8 @@ let opener: HTMLElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | undefined;
 let destroyed = false;
 let playing: CyberPlaybackState | undefined;
+let animated = true;
+const workspace = { monitor: false, lamp: false };
 const pretty = (value: string) => value[0].toUpperCase() + value.slice(1);
 function toast(message: string) {
   clearTimeout(toastTimer);
@@ -66,7 +72,9 @@ function toast(message: string) {
   toastTimer = setTimeout(() => { $('.ph-toast').textContent = ''; }, 4500);
 }
 const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view could not load. Your current view is still here.'));
-const pet = mountCyberPet($('[data-pet]'));
+const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
+  ball: { src: '/assets/penthouse/workspace/ball.webp', anchor: [256.204, 407.885] },
+});
 const sound = createCyberSound({ onTrackChange: updatePlayback });
 const climate = createCyberClimate(applyClimate);
 
@@ -101,16 +109,21 @@ const stopInfo = climate.subscribeLocalInfo(updateLocalInfo);
 updateLocalInfo(climate.getLocalInfo());
 
 function openPanel(name: string, trigger: HTMLElement) {
+  scene.setPreview(null);
   panel = name;
   opener = trigger;
   if (name === 'climate') {
     const group = (key: string, values: readonly string[]) => `<fieldset><legend>${pretty(key)}</legend><div class="ph-options">${values.map(value => `<label><input type="radio" name="${key}" value="${value}"><span>${pretty(value)}</span></label>`).join('')}</div></fieldset>`;
-    content.innerHTML = `<p class="ph-overline">SET THE SCENE</p><h2 id="ph-dialog-title">Atmosphere</h2><p data-local></p><div class="ph-auto"><label><input type="checkbox" name="auto"> Follow my local time</label><button data-action="location">Use my location</button></div>${group('season', CYBER_SEASONS)}${group('time', CYBER_TIMES)}${group('weather', CYBER_WEATHER)}<p class="ph-panel-note">A manual choice pauses Auto. Location is requested only with your permission. Approximate coordinates stay in memory.</p>`;
+    content.innerHTML = `<p class="ph-overline">SET THE SCENE</p><h2 id="ph-dialog-title">Atmosphere</h2><p data-local></p><div class="ph-auto"><label><input type="checkbox" name="auto"> Follow my local time</label><button data-action="location">Use my location</button></div>${group('season', CYBER_SEASONS)}${group('time', CYBER_TIMES)}${group('weather', CYBER_WEATHER)}<div class="ph-auto"><label><input type="checkbox" name="animated"> Animate the view</label></div><p class="ph-panel-note">Clear nights bring slow city lights and an occasional shooting star. Rain leaves beads on the glass that dry gradually. Reduced motion keeps the scene still.</p><p class="ph-panel-note">A manual choice pauses Auto. Location is requested only with your permission. Approximate coordinates stay in memory.</p>`;
     updateClimatePanel();
+  } else if (name === 'workspace') {
+    content.innerHTML = `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">At the desk.</h2><p>Smoked walnut, brushed metal and a little warm light.</p><canvas class="ph-desk-preview" aria-label="Close-up of the computer desk and lighting"></canvas><div class="ph-pet-actions"><button data-action="monitor" aria-pressed="false"><span data-monitor-label>Turn on monitor</span><span aria-hidden="true">↗</span></button><button data-action="lamp" aria-pressed="false"><span data-lamp-label>Turn on desk light</span><span aria-hidden="true">↗</span></button></div><p class="ph-panel-note">The monitor starts a quiet coding sketch when you turn it on. The desk light adds a warm pool beside the screen.</p><p class="ph-workspace-status" role="status" data-workspace-status></p>`;
+    scene.setPreview(content.querySelector<HTMLCanvasElement>('canvas'));
+    updateWorkspace();
   } else if (name === 'milky') {
     content.innerHTML = `<p class="ph-overline">THE ONE WARM EXCEPTION</p><h2 id="ph-dialog-title">Meet Milky.</h2><p>A little Maltese, with the run of the place.</p><div class="ph-pet-actions">${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([action,label])=>`<button data-action="${action}">${label}<span aria-hidden="true">↗</span></button>`).join('')}</div><p class="ph-panel-note">You can also click Milky in the room. When focused, arrow keys walk, S sits and N naps.</p>`;
   } else {
-    content.innerHTML = `<p class="ph-overline">TAEWON SEO / THE PENTHOUSE</p><h2 id="ph-dialog-title">A room of restraint.</h2><p>Corner windows. Black leather. Quiet stone. A city held at a distance — and Milky, making it a home.</p><p>This residence was drawn from the ground up. Its light follows your local clock; permitted location adds local weather. The skyline is an imagined setting.</p><div class="ph-about-links"><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
+    content.innerHTML = `<p class="ph-overline">TAEWON SEO / THE PENTHOUSE</p><h2 id="ph-dialog-title">A room of restraint.</h2><p>Corner windows. Black leather. Warm limestone. A desk for late ideas. A city held at a distance — and Milky, making it a home.</p><p>This residence was drawn from the ground up. Its light follows your local clock; permitted location adds local weather. The skyline is an imagined setting.</p><div class="ph-about-links"><a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">The workspace & living weather research <span>↗</span></a><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
   }
   if (!dialog.open) dialog.showModal();
   pet.setActive(false);
@@ -123,7 +136,7 @@ function updateClimatePanel() {
   const status = content.querySelector('[data-local]');
   if (status) status.textContent = `${info.localDateTime} · ${info.timeZone}. ${localCopy(info)}`;
   content.querySelectorAll<HTMLInputElement>('input').forEach(input => {
-    input.checked = input.name === 'auto' ? state.auto : state[input.name as 'season'|'time'|'weather'] === input.value;
+    input.checked = input.name === 'animated' ? animated : input.name === 'auto' ? state.auto : state[input.name as 'season'|'time'|'weather'] === input.value;
   });
   const button = content.querySelector<HTMLButtonElement>('[data-action="location"]');
   if (button) {
@@ -132,11 +145,26 @@ function updateClimatePanel() {
   }
 }
 
+function updateWorkspace() {
+  scene.setWorkspace(workspace);
+  for (const key of ['monitor', 'lamp'] as const) {
+    root.querySelectorAll(`[data-action="${key}"]`).forEach(button => {
+      button.setAttribute('aria-pressed', String(workspace[key]));
+      button.setAttribute('aria-label', `Turn ${workspace[key] ? 'off' : 'on'} the ${key === 'monitor' ? 'computer monitor' : 'desk light'}`);
+    });
+    const label = content.querySelector(`[data-${key}-label]`);
+    if (label) label.textContent = `Turn ${workspace[key] ? 'off' : 'on'} ${key === 'monitor' ? 'monitor' : 'desk light'}`;
+  }
+  const status = content.querySelector('[data-workspace-status]');
+  if (status) status.textContent = `Monitor ${workspace.monitor ? 'on' : 'off'} · Desk light ${workspace.lamp ? 'on' : 'off'}`;
+}
+
 root.addEventListener('click', event => {
   const button = (event.target as Element).closest<HTMLElement>('[data-action]');
   if (!button) return;
   const action = button.dataset.action;
-  if (action === 'climate' || action === 'milky' || action === 'about') openPanel(action, button);
+  if (action === 'climate' || action === 'milky' || action === 'about' || action === 'workspace') openPanel(action, button);
+  else if (action === 'monitor' || action === 'lamp') { workspace[action] = !workspace[action]; updateWorkspace(); }
   else if (action === 'music') void sound.setEnabled(!sound.isEnabled());
   else if (action === 'location') void climate.useLocation();
   else if (action === 'focus') {
@@ -154,12 +182,13 @@ root.addEventListener('click', event => {
 }, options);
 content.addEventListener('change', event => {
   const input = event.target as HTMLInputElement;
+  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); }
   if (input.name === 'auto') climate.setAuto(input.checked);
   if (input.name === 'season') climate.setSeason(input.value as ClimateState['season']);
   if (input.name === 'time') climate.setTime(input.value as ClimateState['time']);
   if (input.name === 'weather') climate.setWeather(input.value as ClimateState['weather']);
 }, options);
-dialog.addEventListener('close', () => { panel = ''; pet.setActive(true); opener?.focus(); }, options);
+dialog.addEventListener('close', () => { panel = ''; scene.setPreview(null); pet.setActive(true); opener?.focus(); }, options);
 dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const r = dialog.getBoundingClientRect();

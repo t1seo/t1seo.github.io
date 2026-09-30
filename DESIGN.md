@@ -3,7 +3,7 @@ project: taewon-after-hours
 platform: web
 research:
   policy: studio-mobbin-21st
-  ids: [penthouse-rebuild]
+  ids: [penthouse-rebuild, penthouse-atmosphere]
 ---
 
 # Taewon Seo — The Penthouse
@@ -14,11 +14,14 @@ New default: src/penthouse-main.ts, selected by src/entry.ts.
 
 ## Spatial contract
 
-Tall corner glazing, diagonal depth, low black leather sectional, monolithic stone
-table, flush charcoal storage/audio wall, clear foreground for Milky. No frontal
-desk, office chair, bookshelf, plants, patterned rug, RGB, chandelier or gold palace.
-Palette: #111214, #292b2e, #62656a, #a9abad, #f0ede7. Material contrast and readable
-shadows, not crushed blacks. Never apply scene filters to Milky.
+Latest user direction: keep the concept but relieve the overly dark palette and add
+a computer workspace. Tall corner glazing, low black leather sectional, ivory
+travertine table, warm grey limestone floor and greige wall. A thin walnut/aluminum
+desk occupies the right wall, with a silver monitor, low-back black leather chair,
+articulated task lamp and warm cove/under-desk lighting. Keep the foreground clear
+for Milky. No gaming furniture, RGB, plants or gold palace ornament.
+Palette: #242527, #81766b, #a69a89, #d5c5ad, #efe4d1. Milky is unchanged; only the
+ball has a new coral-red asset and measured contact anchor. Archived props stay intact.
 New 1672×941 geometry is independent of the archived desk. Bottom-anchor the room
 so the foreground floor remains visible on narrow screens.
 
@@ -29,9 +32,17 @@ dialogs, English settings. Use system sans/Georgia instead of old font assets.
 Controls at least 44px, visible keyboard focus, native radios/checkboxes, dialog
 focus restoration, Immerse with Return/Escape. Reduced motion disables animation;
 hidden tabs stop visual animation while music continues.
-Three original plates supply day/sunset/night; morning/afternoon adapt daylight.
+Five independently generated matching plates supply morning/noon/afternoon/evening/night.
+Overcast daytime uses diffuse noon art to avoid a painted sun behind precipitation.
 Seasons tint the glass view and select music without interior decorations. New
-weather clipping excludes furniture and floor. Failed loads retain the current room.
+weather clipping intersects eight measured panes with the sofa silhouette, excluding
+mullions, furniture and floor. Night has slow facade lights, river glints, reflections
+and sparse clear-night meteors. Rain has two depths, refractive glass beads, coalescing
+rivulets and 22-second drying. Snow drifts at two scales; mist/clouds drift softly.
+The compositor is capped at 30 fps and stops for hidden tabs or still/reduced-motion
+mode; clear static daylight does not run a frame loop. Failed loads retain the room.
+Monitor coding begins only on click. Desk light has a separate switch and a registered
+light pool. A Desk dialog includes a live close-up so mobile can access the workstation.
 
 Device-local clock by default; an explicit location action adds browser-permitted
 approximate location, hemisphere, sunrise/sunset and Open-Meteo weather. Manual
@@ -41,6 +52,16 @@ after a gesture and continues in background tabs. Existing licensed audio and
 climate logic are functional carry-overs. Milky keeps hello/sit/nap/feed/play/run.
 
 ## Research
+
+[Workspace & atmosphere report](design/research/penthouse-atmosphere/report.html) ·
+[New queries, IDs and decisions](design/research/penthouse-atmosphere/research.json)
+
+Current-session MCP images: Stitch, Emergent and Headspace. Full 21st sources and demos:
+Shooting Stars (924), Background Pixel Stars (18484). Studio neutral tokens inspected.
+Norm Architects primary material research, Herman Miller chair construction and Flos
+task-light specifications inform the new room. Nagano material photograph inspected;
+the Kolon facade photograph is not interior evidence. Original TS canvas implementation;
+no reference component code copied. Unconnected Studio synchronization remains pending.
 
 [Detailed report](design/research/penthouse-rebuild/report.html) ·
 [Queries, IDs and decisions](design/research/penthouse-rebuild/research.json)
@@ -61,3 +82,7 @@ Explicit ?interior=original and ?interior=noir load the older composition. Backu
 are pushed: original 924c42e on backup/original-interior-20260930; rejected restyle
 caef110 on backup/noir-restyle-20260930. Older research remains in local-climate and
 noir-interior directories for those scopes only.
+Pre-workspace penthouse cf48a43 is also pushed on backup/penthouse-before-workspace-20260930.
+Its art remains in asset-sources/penthouse and public/assets/penthouse. New master art,
+prompts and ball registration are in asset-sources/penthouse-workspace; delivered files
+are in public/assets/penthouse/workspace.

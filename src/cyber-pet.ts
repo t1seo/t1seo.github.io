@@ -118,6 +118,7 @@ export function mountCyberPet(
   shippedActivity: readonly MilkyActivityAsset[] = MILKY_SHIPPED_ACTIVITY,
   shippedForward: boolean = MILKY_SHIPPED_FORWARD,
   shippedTrot: boolean = MILKY_SHIPPED_TROT,
+  propOverrides: Partial<Record<'ball' | 'bowl', { src: string; anchor: readonly [number, number] }>> = {},
 ): CyberPetController {
   const page = host.ownerDocument;
   const view = page.defaultView!;
@@ -213,7 +214,7 @@ export function mountCyberPet(
     image.width = 512;
     image.height = 512;
     image.setAttribute('aria-hidden', 'true');
-    const [anchorX, anchorY] = PROP_ANCHOR[name];
+    const [anchorX, anchorY] = propOverrides[name]?.anchor ?? PROP_ANCHOR[name];
     image.style.setProperty('--milky-prop-anchor-x', `${((256 - anchorX) / 512 * 100).toFixed(2)}%`);
     image.style.setProperty('--milky-prop-anchor-y', `${((512 - anchorY) / 512 * 100).toFixed(2)}%`);
     wrap.append(propShadow, image);
@@ -1076,7 +1077,7 @@ export function mountCyberPet(
     registerArt(entry.image, undefined, `${v4.y + 28 / 1024 * v4.scale * 100}%`);
     entry.image.src = `${ASSET_ROOT}milky-trot-${index}.webp`;
   });
-  for (const entry of propItems) entry.image.src = `${ASSET_ROOT}milky-prop-${entry.name}.webp`;
+  for (const entry of propItems) entry.image.src = propOverrides[entry.name]?.src ?? `${ASSET_ROOT}milky-prop-${entry.name}.webp`;
   applyArtVersion();
   resize();
   return {
