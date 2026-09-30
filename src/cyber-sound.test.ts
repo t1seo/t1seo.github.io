@@ -116,8 +116,10 @@ type AudioMock = { src: string; paused: boolean; plays: number; loads: number; r
 type ContextMock = { state: string; nodes: AudioNodeMock[]; finishResume?: () => void };
 
 test('mount and climate changes while off never create audio or make a media request', async () => {
-  await withAudio(async ({ sound, elements, contexts, states }) => {
+  await withAudio(async ({ sound, page, elements, contexts, states }) => {
     sound.setClimate({ season: 'summer', time: 'noon', weather: 'rain' });
+    page.visibility(true);
+    page.visibility(false);
     assert.equal(elements.length, 0);
     assert.equal(contexts.length, 0);
     assert.equal(sound.isEnabled(), false);
@@ -173,21 +175,95 @@ test('rapid climate changes accept only the newest song, including an old reject
   });
 });
 
-test('hidden tabs pause, retain consent, and resume without creating a duplicate deck', async () => {
+test('switching tabs keeps music playing without pausing or restarting the track', async () => {
   await withAudio(async ({ sound, page, elements, contexts, states }) => {
     await sound.setEnabled(true);
     page.visibility(true);
     assert.equal(sound.isEnabled(), true);
-    assert.equal(elements[0].paused, true);
-    assert.equal(contexts[0].state, 'suspended');
-    assert.equal(states.at(-1)?.playing, false);
+    assert.equal(elements[0].paused, false);
+    assert.equal(contexts[0].state, 'running');
+    assert.equal(states.at(-1)?.playing, true);
     page.visibility(false);
     await flush();
     assert.equal(elements.length, 1);
-    assert.equal(elements[0].plays, 2);
+    assert.equal(elements[0].plays, 1);
     assert.equal(states.at(-1)?.playing, true);
     elements[0].dispatchEvent(new Event('error'));
-    assert.equal(sound.isEnabled(), false, 'errors after resuming are still handled');
+    assert.equal(sound.isEnabled(), false, 'errors after switching tabs are still handled');
+  });
+});
+
+test('music finishes buffering and resuming even if the listener switches tabs first', async () => {
+  await withAudio(async ({ sound, page, elements, contexts, states, deferNext, deferResume }) => {
+    deferNext();
+    deferResume();
+    const pending = sound.setEnabled(true);
+    page.visibility(true);
+    assert.equal(states.at(-1)?.loading, true);
+    contexts[0].finishResume?.();
+    elements[0].resolve?.();
+    assert.equal(await pending, true);
+    assert.equal(contexts[0].state, 'running');
+    assert.equal(elements[0].paused, false);
+    assert.equal(states.at(-1)?.playing, true);
+    assert.equal(states.at(-1)?.loading, false);
+    page.visibility(false);
+    await flush();
+    assert.equal(elements[0].plays, 1);
+  });
+});
+
+test('background climate changes crossfade music and keep rain audible', async () => {
+  await withAudio(async ({ sound, page, elements, contexts, states, deferNext }) => {
+    await sound.setEnabled(true);
+    page.visibility(true);
+    deferNext();
+    sound.setClimate({ season: 'spring', time: 'morning', weather: 'rain' });
+    assert.equal(elements.length, 2);
+    assert.equal(elements[0].paused, false);
+    elements[1].resolve?.();
+    await flush();
+    assert.equal(contexts[0].state, 'running');
+    assert.equal(elements[1].paused, false);
+    assert.equal(states.at(-1)?.playing, true);
+    const rainGain = contexts[0].nodes.find(node => node.gain.targets.includes(0.014));
+    assert.ok(rainGain);
+    assert.equal(rainGain.gain.targets.at(-1), 0.014);
+    page.visibility(false);
+    await flush();
+    assert.equal(elements.length, 2);
+    assert.equal(elements[1].plays, 1);
+  });
+});
+
+test('turning music off in the background releases audio and returning does not restart it', async () => {
+  await withAudio(async ({ sound, page, elements, contexts, states }) => {
+    await sound.setEnabled(true);
+    page.visibility(true);
+    await sound.setEnabled(false);
+    await new Promise(resolve => setTimeout(resolve, 320));
+    assert.equal(elements[0].paused, true);
+    assert.equal(elements[0].src, '');
+    assert.equal(contexts[0].state, 'suspended');
+    page.visibility(false);
+    await flush();
+    assert.equal(elements[0].plays, 1);
+    assert.equal(sound.isEnabled(), false);
+    assert.equal(states.at(-1)?.playing, false);
+  });
+});
+
+test('switching tabs stops object resonances without interrupting enabled background music', async () => {
+  await withAudio(async ({ sound, page, elements, contexts }) => {
+    await sound.setEnabled(true);
+    await sound.playBowl();
+    const oscillators = contexts[0].nodes.filter(node => node.starts > 0);
+    assert.equal(oscillators.length, 5);
+    page.visibility(true);
+    assert.ok(oscillators.every(node => node.disconnected));
+    assert.equal(elements[0].paused, false);
+    assert.equal(contexts[0].state, 'running');
+    assert.equal(sound.isEnabled(), true);
   });
 });
 

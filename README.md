@@ -34,6 +34,13 @@ weather choice pauses Auto and persists across visits. Re-enable Auto to resume.
 Coordinates are rounded to two decimal places, sent only to Open-Meteo after
 browser permission, and kept in memory only. No API key or backend is needed.
 
+## Background music
+
+Click Music or a speaker to start playback. Music and the rain ambience continue
+when switching browser tabs; returning to the studio does not restart the track.
+Use Music again to stop playback. Object sounds remain tied to the visible scene,
+and opening the site never starts audio automatically.
+
 ## Imported files
 
 - `src/`, `public/`, and `asset-sources/`: original source and site assets.

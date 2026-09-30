@@ -2,7 +2,7 @@ import { getCyberMusicTrack, type CyberMusicTrack, type MusicClimate } from './c
 
 export interface CyberPlaybackState {
   track: CyberMusicTrack;
-  /** User choice, retained while a background tab is paused. */
+  /** User choice: enabled music continues in background tabs. */
   enabled: boolean;
   playing: boolean;
   loading: boolean;
@@ -71,13 +71,13 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
   }
 
   function resumeContext(audio: AudioContext): Promise<void> {
-    // Reconcile the resume promise itself: a pending media play may reject
-    // before resume finishes, and a hidden tab must never be woken by that race.
+    // Reconcile late resumes after failure or teardown. Background music stays
+    // running; a delayed object gesture must not wake an otherwise silent tab.
     return audio.resume().then(async () => {
       if (audio.state === 'closed') return;
       if (destroyed || audio !== context) {
         await audio.close().catch(() => {});
-      } else if (document.hidden) {
+      } else if (document.hidden && !enabled) {
         await audio.suspend().catch(() => {});
       } else if (!enabled && tones.size === 0) {
         suspendWhenIdle();
@@ -143,7 +143,7 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
       source.start();
       rain = { source, gain, nodes: [source, filter, gain] };
     }
-    if (rain) fade(rain.gain.gain, rainEnabled && playing && enabled && !document.hidden ? 0.014 : 0, 0.6);
+    if (rain) fade(rain.gain.gain, rainEnabled && playing && enabled ? 0.014 : 0, 0.6);
   }
 
   function fail(token: number): void {
@@ -185,7 +185,7 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
 
   async function startSelected(): Promise<boolean> {
     const token = ++revision;
-    if (destroyed || !enabled || document.hidden) return false;
+    if (destroyed || !enabled) return false;
     clearIdle();
     if (pendingDeck) retire(pendingDeck);
     loading = true;
@@ -201,7 +201,7 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
       pendingDeck = next;
       const started = next.element.play();
       await Promise.all([resumed, started]);
-      if (destroyed || token !== revision || !enabled || document.hidden) {
+      if (destroyed || token !== revision || !enabled) {
         if (next !== activeDeck) retire(next);
         return false;
       }
@@ -228,20 +228,13 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
     }
   }
 
-  function stopMusic(immediate: boolean): void {
+  function stopMusic(): void {
     revision++;
     playing = false;
     loading = false;
     if (pendingDeck && pendingDeck !== activeDeck) retire(pendingDeck);
     pendingDeck = null;
-    for (const deck of decks) {
-      if (immediate) {
-        deck.element.pause();
-        fade(deck.gain.gain, 0, 0);
-        // Preserve only the active track's position while the tab is hidden.
-        if (deck !== activeDeck) retire(deck);
-      } else retireAfterFade(deck, 0.2);
-    }
+    for (const deck of decks) retireAfterFade(deck, 0.2);
     updateRain();
     if (!enabled) suspendWhenIdle();
   }
@@ -296,13 +289,10 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
     if (destroyed) return;
     visibilityRevision++;
     if (document.hidden) {
-      stopMusic(true);
+      // Object sounds belong to the visible scene. Music and rain keep playing
+      // until the listener turns them off, regardless of the selected tab.
       for (const tone of tones) disposeTone(tone);
-      if (context && context.state !== 'closed') void context.suspend().catch(() => {});
-      publish();
-    } else if (enabled) {
-      // Never creates permission: enabled is set only by a previous user gesture.
-      void startSelected();
+      if (!enabled && context && context.state !== 'closed') void context.suspend().catch(() => {});
     }
   }
 
@@ -316,7 +306,7 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
       enabled = value;
       error = null;
       if (!value) {
-        stopMusic(false);
+        stopMusic();
         publish();
         return false;
       }
@@ -330,7 +320,7 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
       selected = next;
       rainEnabled = climate.weather === 'rain';
       updateRain();
-      if (changed && enabled && !document.hidden) void startSelected();
+      if (changed && enabled) void startSelected();
       else publish();
     },
     setRain(value): void {
