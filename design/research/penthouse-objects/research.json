@@ -2,7 +2,7 @@
   "id": "penthouse-objects",
   "schemaVersion": 1,
   "createdAt": "2026-09-30T17:25:47.717Z",
-  "scope": "Mechanical revision requested by the user: remove the office chair and floor A9; place a small standless pen and compact desktop speaker; preserve existing monitor and controls.",
+  "scope": "Mechanical user-requested relocation of the existing floor lamp to the viewer’s left of the black lounge, illuminating its back and seat across all 20 seasonal/time plates.",
   "sources": [
     {
       "provider": "studio",
@@ -139,38 +139,72 @@
         "baselineCommit": "bd6b4ea6073e92512d5fedc776f7cd39de0cbf0f",
         "preserved": "All 20 room plates and Milky/ball untouched."
       }
+    },
+    {
+      "scope": "Mechanical revision requested by the user: remove the office chair and floor A9; place a small standless pen and compact desktop speaker; preserve existing monitor and controls.",
+      "revision": {
+        "date": "2026-10-01",
+        "kind": "explicit-user-object-removal-and-rescale",
+        "baselineCommit": "8b33ecad4d4283ab494d3f9b7d09d9d717d0fe80",
+        "reusedEvidenceSha256": "7427d91a74a5c7be9078448d0851509c6faf43ede72cb82c0ce87dac4eb69586",
+        "priorDesignSha256": "c0cbd71146fe655aa01cd5c592e2c1f7e7ec4c42f65029d43534e408ab0eff6d",
+        "reason": "Existing inspected material/silhouette, accessible detail and audio/monitor references still apply. No new brand recommendation, UI component, style or layout research is necessary. Earlier decisions below are retained as historical evidence, not current product selection.",
+        "decisions": [
+          "Remove the central Herman Miller chair from all 20 plates; preserve the left lounge chair.",
+          "Remove A9 sprite and old weather mask.",
+          "Remove pen rest; draw one small capped fountain pen directly on the desktop.",
+          "Reuse existing illustrated Balance-inspired wood/fabric geometry at a deliberately compact desktop scale, without real-product dimensions.",
+          "Keep existing monitor code, scene-first controls and gesture-initiated music."
+        ]
+      },
+      "qa": {
+        "status": "passed",
+        "tests": 190,
+        "chrome": [
+          "All20season/time plates decode and switch at1672×941",
+          "1440×1000 night/noon/rain scene screenshots inspected",
+          "390×844 mobile room and Desk preview inspected",
+          "No central office chair or floorstanding speaker in any generated room",
+          "Compact speaker rain-mask pixel sample identical in clear and rain",
+          "Pen hotspot opens Desk; audio hotspot and panel playback share state",
+          "912×540 monitor detail preserved; no page errors, failed responses or horizontal overflow",
+          "Clickable desktop objects retain at least44px targets"
+        ],
+        "baselineCommit": "8b33ecad4d4283ab494d3f9b7d09d9d717d0fe80",
+        "preserved": "Milky/red-ball files, monitor renderer, background music engine and other furniture; source PNGs from before this revision retained.",
+        "build": "passed"
+      }
     }
   ],
   "revision": {
     "date": "2026-10-01",
-    "kind": "explicit-user-object-removal-and-rescale",
-    "baselineCommit": "8b33ecad4d4283ab494d3f9b7d09d9d717d0fe80",
-    "reusedEvidenceSha256": "7427d91a74a5c7be9078448d0851509c6faf43ede72cb82c0ce87dac4eb69586",
-    "priorDesignSha256": "c0cbd71146fe655aa01cd5c592e2c1f7e7ec4c42f65029d43534e408ab0eff6d",
-    "reason": "Existing inspected material/silhouette, accessible detail and audio/monitor references still apply. No new brand recommendation, UI component, style or layout research is necessary. Earlier decisions below are retained as historical evidence, not current product selection.",
+    "kind": "explicit-user-existing-lamp-relocation",
+    "baselineCommit": "d1668a1703a824c69ba9dc467bb00530c7b3b2d6",
+    "reusedEvidenceSha256": "bd5495ace024353c15d67915bde3462fbdf1ded4749c0276e083337d2baabe2a",
+    "priorDesignSha256": "6bbb4d19b5d9f5062bf4c8974eecf71ceb6e1cd4149556d005b5ac2ecc2d0bec",
+    "reason": "Reuse inspected project evidence for a mechanical placement and lighting refinement of an existing object. Preserve the same art direction, product silhouette, UI controls and interactions. No new component or recommendation.",
     "decisions": [
-      "Remove the central Herman Miller chair from all 20 plates; preserve the left lounge chair.",
-      "Remove A9 sprite and old weather mask.",
-      "Remove pen rest; draw one small capped fountain pen directly on the desktop.",
-      "Reuse existing illustrated Balance-inspired wood/fabric geometry at a deliberately compact desktop scale, without real-product dimensions.",
-      "Keep existing monitor code, scene-first controls and gesture-initiated music."
+      "Move the existing articulated ivory-shade lamp left of the black lounge, reaching right over the chair.",
+      "Paint a gentle warm light on the black back cushion, inner arm and seat in all 20 room plates.",
+      "Reconstruct the old desk-side lamp location as scenery and floor.",
+      "Update the glass mask only for the relocated shade; keep desk lighting and monitor registration.",
+      "Retain the prior small desk speaker, standless pen, Milky, red ball and background audio."
     ]
   },
   "qa": {
     "status": "passed",
+    "baselineCommit": "d1668a1703a824c69ba9dc467bb00530c7b3b2d6",
     "tests": 190,
     "chrome": [
-      "All20season/time plates decode and switch at1672×941",
-      "1440×1000 night/noon/rain scene screenshots inspected",
-      "390×844 mobile room and Desk preview inspected",
-      "No central office chair or floorstanding speaker in any generated room",
-      "Compact speaker rain-mask pixel sample identical in clear and rain",
-      "Pen hotspot opens Desk; audio hotspot and panel playback share state",
-      "912×540 monitor detail preserved; no page errors, failed responses or horizontal overflow",
-      "Clickable desktop objects retain at least44px targets"
+      "All 20 season/time plates decode and switch at 1672×941.",
+      "1920×1080 full-room evening and 1440×1000 night/noon/rain screenshots inspected.",
+      "Warm highlights on lounge back and seat; old desk-side lamp absent.",
+      "Relocated floor-lamp shade canvas sample identical in clear/rain.",
+      "390×844 mobile and 912×540 monitor detail checked.",
+      "Pen hotspot, shared music controls and 44px minimum object targets pass.",
+      "No page errors, failed responses or horizontal overflow."
     ],
-    "baselineCommit": "8b33ecad4d4283ab494d3f9b7d09d9d717d0fe80",
-    "preserved": "Milky/red-ball files, monitor renderer, background music engine and other furniture; source PNGs from before this revision retained.",
-    "build": "passed"
+    "review": "Independent review confirms overlapping tree/shade masks remain closed and desk lamp registration/glow/click handling are unchanged.",
+    "preserved": "Milky, red ball, small desk objects, monitor renderer, background music engine; previous chair-free source art retained."
   }
 }

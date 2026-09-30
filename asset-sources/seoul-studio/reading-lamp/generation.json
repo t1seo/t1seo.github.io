@@ -1,0 +1,468 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-01",
+  "baselineCommit": "d1668a1703a824c69ba9dc467bb00530c7b3b2d6",
+  "backupBranch": "backup/seoul-before-reading-lamp-20261001",
+  "purpose": "Move the articulated floor lamp to the viewer's left of the black lounge and illuminate its back and seat.",
+  "assets": [
+    {
+      "season": "spring",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-da6156e3-2a97-40e3-b748-13b0ae2e127b.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is spring morning.",
+      "source": "asset-sources/seoul-studio/reading-lamp/spring/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/spring/morning.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "8fad378f767cd6fa5635ec40f653d6a31c2e826532d9a0f43d3faf44bdc5ce5e",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "d5d904ed298ddb5742b88b1e04e25c14ee088ee2f16d583e79c64c7c9261214e",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-7b4e170b-74c9-412d-a057-9c755a28d222.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is spring noon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/spring/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/spring/noon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "2d29e9b7aecfa47a9d6e0382b491f18372f22f86b0c8b4f2d465aef1a75a8b4b",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "c3a980804babe081dae989f07ca3372ff7234580f32f07c26768622274bb8a85",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-d90663d7-e59f-47b7-9464-93c501057247.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is spring afternoon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/spring/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/spring/afternoon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "b891af575f7f9586482379fe4d224fd006c3f6ad6f3d8ffb449eea750633a682",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "dd51f2457389726c13c0333aa308f44ce462c8ca6e298e02d1af845825750eae",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-b599e3ec-cb81-4c35-9c43-e612bf91e35e.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is spring evening.",
+      "source": "asset-sources/seoul-studio/reading-lamp/spring/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/spring/evening.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "761e36fccbced3ed524426f9b4e14e70094a5e48b651f8e4097d7c6e20906f18",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "d667108367e64cdc54be6acd39dbbe59949810ca11592966fc9ba1f225ab05c6",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-043ce157-09e3-4d1a-82b5-cd40164a4118.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is spring night.",
+      "source": "asset-sources/seoul-studio/reading-lamp/spring/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/spring/night.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "6fbf33aca35d817ecb169de420068ccda249e2068664bf578d3baa3bc1bb12c5",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "378cd7c57dc0261fe48e4284790b03f7bc67df94bce1b8bea2e6b8b13c0b3bf0",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-5c2d8b8a-e687-4ea8-a6a7-e4038be00378.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is summer morning.",
+      "source": "asset-sources/seoul-studio/reading-lamp/summer/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/summer/morning.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "98c7dcc95e5657c4d890ac565131410607194fead3a75ad22c3f8e02bb5c3621",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "6b0b089457b7b8b0d0a00c872a0a6459323a370fba2e0dc32606125a611f6acc",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-c75cb194-29bc-4746-9035-1873c404be0d.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is summer noon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/summer/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/summer/noon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "3671956bb39484e9a83c9f9f3803154eef1df674854c8103ba7ec6b20dc1e317",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "8e394594fb92a5435fb5d3649b910e30db2f4f7e5dbc418da81a31fd462f2da6",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-b35ce728-1769-4854-9cba-36b5ff5aa7eb.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is summer afternoon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/summer/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/summer/afternoon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "a5f81298f984e4386082168c98dfa573521e3d2ef998b17d94a83d47355aba52",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "f540ee81cb7b6657ce92665bc997760a74bc3153dbd2cf882b54a776053bb9fd",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-ffdf90e8-bace-4de4-9940-bef8bd70e6ac.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is summer evening.",
+      "source": "asset-sources/seoul-studio/reading-lamp/summer/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/summer/evening.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "20719799b606954c9e21abb4d838074735b33bc121702c45477c28a6e2b3e328",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "9aaeb72d0ca6b4e49458f2f155bc362386d7a25650ad3ac6f1895ef4a9fbc097",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-2b647d50-4bcf-4206-961c-5def889b0a28.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is summer night.",
+      "source": "asset-sources/seoul-studio/reading-lamp/summer/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/summer/night.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/night.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "b6c3eaa161e29e2d073d0234c1b59b8d89dd58b235cad89e029482d65c85ea84",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "366866bcb7f9673191d8e2f716c006499f321669ff2b4e551110cbba7727e5d4",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-1d1d9934-0bdb-4c5b-aa69-7525fe0ab250.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is autumn morning.",
+      "source": "asset-sources/seoul-studio/reading-lamp/autumn/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/autumn/morning.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/morning.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "17403f3f0d8ff17a9e17af9615f3bc72d9e4f324f41404fc45f5a9f2bc4dab0c",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "3c11060fb2691191a340663bd7bf1cfe985a282afb697b088b17fa46f346ffdb",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-d84da96f-7bd9-48be-bd38-b5356fd17f3e.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is autumn noon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/autumn/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/autumn/noon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "f9b0ce72ea9445670311835db77270dd1cd6fc528dee174cdbef645f4fb3abf5",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "48a0db0c90ae6f83cf30ecddc9ab042e7b8fe585f437a2ac7889ab507182fe40",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-94e0d9a4-a507-4a13-b7e6-8f47ba0fa5f5.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is autumn afternoon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/autumn/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/autumn/afternoon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "c3ac42d51d565c44aa2edf0cd3231ab197b4b00334e64425c623244eb2dbafab",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "5985b07c73a0692e61d42379b401d8f6118181f810fd765f4c670c065fde1940",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-2fd0119b-753d-4f40-9c5a-f509e428e6d6.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is autumn evening.",
+      "source": "asset-sources/seoul-studio/reading-lamp/autumn/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/autumn/evening.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "f71b59f8476295fb6763f78f9fdda2ca10cecd5aed75c977d47d1dbe1524f70b",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "93c9fe2492afb0789299cbdf6bd8f7ed17d5756f554a4d539c944eea892748ff",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-bc66d8f1-e245-4ec9-9d3d-67dd45597508.png",
+      "prompt": "Use case: precise-object-edit, illustrated interior. EDIT this exact full 1672x941 landscape Seoul studio artwork. Move ONLY the existing articulated ivory-shade metal floor lamp from beside the desk to the VIEWER'S LEFT of the black lounge armchair at the far left. Remove its ENTIRE old form at x420..585 y305..680, including shade, arms, upright pole and floor base. Reconstruct the original city, Han River, window mullion and floor that were behind it, keeping that area clear.\nRelocate the SAME lamp design beside the LEFT side of the existing black lounge chair, between the plant and chair: its slim metal upright and low round foot stand near x65..85, with the foot grounded near y740. Articulated arm reaches RIGHT over the lounge seat; ivory tapered shade approximately x165..270 y410..485, centered above the chair. It must read unmistakably as a reading lamp to the LEFT of the chair, not to its right, not beside the desk. The lamp can naturally overlap a few plant branches and be partly hidden behind the chair. The black lounge chair and round pale side table keep their EXACT locations, shape, color and scale.\nLIGHTING: angle the lamp toward the lounge chair, casting a gentle warm amber pool down and right onto its upper back cushion, inner armrest and seat cushion. A softly lit leather surface and subtle shadow under the chair, no theatrical visible cone, no laser beam, no blown-out white patch. Keep the chair distinctly black. Preserve the illustration's soft hand-painted matte shading and muted silver metal, not photographic chrome.\nPreserve EVERY other element: frontal full-width window, exact Seoul skyline and N Seoul Tower, season/night lighting, floor perspective, tall plant, chair/table, desk with empty knee space, keyboard, black monitor, desk task lamp, shelves. No office chair. No dog. No additional lamp. No camera/zoom/crop/layout changes. Full original landscape output with the same registration.",
+      "source": "asset-sources/seoul-studio/reading-lamp/autumn/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "626992b529e1f69e87b6e8556cb8d277d0ca6f9b4139f41fa5e28cbec1f8d31b",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "9c2f5fd6b37c6b503a621c076f4fc7cf184c7c2ca44e1783b676cb3b766a3f26",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-56a9c259-cf1b-4ad2-8b36-231351bb60ca.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is winter morning.",
+      "source": "asset-sources/seoul-studio/reading-lamp/winter/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/winter/morning.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "f6738c06f7bca72ad918c339a6695571ad4f2420293d6c7d6fb307151216088c",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "1a252a2ce83944c240b4fd8348e6100e002e31186aa396347bab91ad8957faad",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-9af35c8a-f87e-44d9-898b-35484c24c326.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is winter noon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/winter/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/winter/noon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/noon.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "3ad8b40a9c3e99b4fd114a03c35bd00b153b67d03c7d1b07463548bdecfcb19e",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "14061d7a05745efabf16761bb1ae35742082aa4210ba3ef6d79b246db7007afc",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-7c2bc8b0-499c-439c-9fa3-9b0d2426e501.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is winter afternoon.",
+      "source": "asset-sources/seoul-studio/reading-lamp/winter/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/winter/afternoon.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "0af53e240d1da03b1a1ef535b73e488ead1a64f1ac18d4b7c62657199f03c69b",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "64c936311098bb1dd9f0543a236b0c4654a0b066037926782c07975426b5f7bc",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-90850665-e97f-4b0e-9222-486a41fa0127.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is winter evening.",
+      "source": "asset-sources/seoul-studio/reading-lamp/winter/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/winter/evening.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "bdc8ab8d0148dd9539bce86cba7418781367ddecc09a93a77838b8abdb3d5191",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "1bc5a9c097c445004ab145790f79907f56311c2ef1b44132f9daec77a6b27cf1",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-2f66301c-c9f6-4430-bd05-693a1a04966f.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact original full 1672x941 Seoul room to edit. INPUT2 is an approved lamp relocation reference. Reproduce ONLY the relocated reading-lamp geometry and warm chair illumination from INPUT2, preserving INPUT1's original season, skyline, daylight/night colors, other furniture and pixel framing. In INPUT1 completely remove the old floor lamp at x420..585 y305..680, reconstructing the window skyline/river, mullion and floor. Copy INPUT2's new SAME articulated metal lamp to the far LEFT of the black lounge chair: thin upright near x60, shade at approximately x153..252/y389..449, reaching right above the chair. Warm light from that shade falls on the black chair's upper back and seat; subtle amber highlights, the chair stays black. Daylight images should still have visibly warm local reading light, but ambient daylight stays EXACTLY as INPUT1. Do not change the positions or silhouettes of the black lounge chair, round pale side table, desk, monitor, keyboard, desk lamp, tree, shelves, or windows. Empty desk knee space: NO office chair. NO dog. No additional or duplicate lamps. Remove all remains of the old floor lamp to the right of the lounge chair. Keep the same soft painted matte 2.5D illustration, subdued metal, no photo-real chrome. Preserve INPUT1's exact landscape canvas registration; full original scene, no crop or zoom. Do not copy the reference's autumn trees or night lighting onto another season/time.\nINPUT1's season/time is winter night.",
+      "source": "asset-sources/seoul-studio/reading-lamp/winter/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/decluttered/winter/night.png",
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "c5c8635042c06442ff48ee08e15ca561dac5f62c7afac0a05436d97b12f0a668",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "e82f7f4898209656e1d4efb7d25b28237a714150b7b44161b0d2c12432ea0ed8",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    }
+  ]
+}
