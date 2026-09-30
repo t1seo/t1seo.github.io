@@ -1,0 +1,422 @@
+{
+  "date": "2026-10-01",
+  "baselineCommit": "8b33ecad4d4283ab494d3f9b7d09d9d717d0fe80",
+  "tool": "built-in image_gen.imagegen",
+  "purpose": "Remove only the central office chair in every complete room plate; keep left lounge and other furniture. Remove pen stand and shrink desktop objects.",
+  "rooms": [
+    {
+      "season": "spring",
+      "time": "morning",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor spring foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the spring morning edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/spring/morning.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/spring/morning.png",
+      "runtime": "public/assets/penthouse/seoul/spring/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "85bcb99042b95e606cc1a0865836a410c22f73a6e8ac482422ed6faae513df9d",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "75c4281a2c84c2ee07b89f6ab8bc7ab657d575872353d3cd6cb3cbf58c13236d"
+    },
+    {
+      "season": "spring",
+      "time": "noon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor spring foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the spring noon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/spring/noon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/spring/noon.png",
+      "runtime": "public/assets/penthouse/seoul/spring/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "4ebe8dbb49ac141888cc41e4617db6d37b0acf7ded0d2810864f34dfa818e952",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "ccc9fdf97e4f6040c59c571afc78283f30fc01bc9df5c6998054eeb0f791f8a5"
+    },
+    {
+      "season": "spring",
+      "time": "afternoon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor spring foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the spring afternoon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/spring/afternoon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/spring/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "5df1554eee5a63bbfc7b1a329197173a4861251baf1bd357f4bbf6e5e03e2f62",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "56b81007c498467a7368eaa299e5b431c606d3b4e2ca9572714c59ba0448800d"
+    },
+    {
+      "season": "spring",
+      "time": "evening",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor spring foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the spring evening edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/spring/evening.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/spring/evening.png",
+      "runtime": "public/assets/penthouse/seoul/spring/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "8b32c7fa0d5226cea4ddcf12fc092af1802bbd76935b8228bbcb711ad161077b",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "b845598c6a15c57e59159f8f15c8ee3fc1bedc0ab2fff5f63016d15753c7a0ca"
+    },
+    {
+      "season": "spring",
+      "time": "night",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor spring foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the spring night edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/spring/night.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/spring/night.png",
+      "runtime": "public/assets/penthouse/seoul/spring/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "187f2aa2e071e1ba9d9f1747945e545a557ef91fe4565cc2cecbd8747b590da8",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "f57da0c336b66578f47961d101a0e850c27e8624960512ed9e164d9741c21415"
+    },
+    {
+      "season": "summer",
+      "time": "morning",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor summer foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the summer morning edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/summer/morning.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/summer/morning.png",
+      "runtime": "public/assets/penthouse/seoul/summer/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "8381c6825ac57763eaebf20517533086488911e70d42d9f2da643ea5a4e0dc23",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "62317c5d4fe7d2b9d52c0355685c4c0f93726a1ddd969dffab0b751e2b7bd0fe"
+    },
+    {
+      "season": "summer",
+      "time": "noon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor summer foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the summer noon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/summer/noon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/summer/noon.png",
+      "runtime": "public/assets/penthouse/seoul/summer/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "be55ff217711c0b0118395c922e615c0758fae8916dec4fab1a65f3d0ec67b4f",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "67716d86674ce9b84ec125e8b453184824f502e6f135db9fefdb02777817babd"
+    },
+    {
+      "season": "summer",
+      "time": "afternoon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor summer foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the summer afternoon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/summer/afternoon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/summer/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "7a6f42add5f225eb3b8d0eac1aa0de55378396983b1951904c67f236bf44cb7b",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "864164abccdd3964acf853fea4a77bc0645c1d0fde29087e0fdef616c0e81bf8"
+    },
+    {
+      "season": "summer",
+      "time": "evening",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor summer foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the summer evening edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/summer/evening.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/summer/evening.png",
+      "runtime": "public/assets/penthouse/seoul/summer/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "5af55c81a71b3cdf9814bc25f15e69056075be59a16c35dbcb12a4866a9b098f",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "f901ba562097b8bd6f3fd0173f83a698dfef6cc95be35e893f42c57debd7d810"
+    },
+    {
+      "season": "summer",
+      "time": "night",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor summer foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the summer night edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/summer/night.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/summer/night.png",
+      "runtime": "public/assets/penthouse/seoul/summer/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "7b730bd6fbbaaf33a3b1c473e77e393ee21d3e5b5efed55cdcd2fdb0689a04c0",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "07bcab8c65f0cdfb8cb6f3e46963e07c5c41b9acc4a063f9cba7d627e5666406"
+    },
+    {
+      "season": "autumn",
+      "time": "morning",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor autumn foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the autumn morning edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting.",
+      "input": "asset-sources/seoul-studio/reframed/morning.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/autumn/morning.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "9321c58a1a9221cf2ed5879a35bce5462f5e3bdfbce60898d1a45b4a4532ee01",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "eba0f0d2daf47e47fc3339d2b120d13b770892612ce6b3880ac7a3e17ec10b8f"
+    },
+    {
+      "season": "autumn",
+      "time": "noon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor autumn foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the autumn noon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting.",
+      "input": "asset-sources/seoul-studio/reframed/noon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/autumn/noon.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "8963ce46fcc9d4b4bcfebf39f24f14282021b96e0ca00b2cf670502b15b24457",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "6e4088a46fc73e67a0dce6d79386f4c0a1a761bcfbffdba6fc049d4b6cb37515"
+    },
+    {
+      "season": "autumn",
+      "time": "afternoon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor autumn foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the autumn afternoon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting.",
+      "input": "asset-sources/seoul-studio/reframed/afternoon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/autumn/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "8663f882cbe3d90104b8a0c60d919ac2f0e616c3730448c46be4573509fd506e",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "40c61752e9153159a066161b35585a13ac034f268ad87c4d2c9f656c1a212f52"
+    },
+    {
+      "season": "autumn",
+      "time": "evening",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor autumn foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the autumn evening edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting.",
+      "input": "asset-sources/seoul-studio/reframed/evening.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/autumn/evening.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "1c8c03c1b27bd0f62014fc86a82226be6778a6a1d87e49ede2ba72e5dd7de3b6",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "4f42c3135916c4c2032e525b19928321033b57af642fb23a4d86d274ef0e64b3"
+    },
+    {
+      "season": "autumn",
+      "time": "night",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor autumn foliage visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.",
+      "input": "asset-sources/seoul-studio/reframed/night.png",
+      "geometryReference": null,
+      "source": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "dcb2bc1857d0d8baf731fa95008eb390abcc7c853677abf4c72f007a4d866617",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "c31502628f00a0b161afeeef2a59c73909a81bca6c1d95555c22e7f5bb6d4411"
+    },
+    {
+      "season": "winter",
+      "time": "morning",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor winter snowy bare trees visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the winter morning edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/winter/morning.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/winter/morning.png",
+      "runtime": "public/assets/penthouse/seoul/winter/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "456abd1c61cdc6c00cf9d7ba310bd8d0ba8c02a9c658a5a16eeafbf4e9ee50a4",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "a5394599f4e674d8a924906de5165c53e205249d285b6110be6957d9513065df"
+    },
+    {
+      "season": "winter",
+      "time": "noon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor winter snowy bare trees visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the winter noon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/winter/noon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/winter/noon.png",
+      "runtime": "public/assets/penthouse/seoul/winter/noon.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "6ae9996fc2b392d6a9dcaf13568ba2330a0a8a3b92b9248f68f8456966114e0e",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "6216dd7217dd233f28f77e7f6d9086c599001ec4a58616a81c2a2a9b6b85df15"
+    },
+    {
+      "season": "winter",
+      "time": "afternoon",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor winter snowy bare trees visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the winter afternoon edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/winter/afternoon.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/winter/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "d24b9efa280cf2f18eab2117b49337e6a6cbd762cc1e3e6298f774607a5a2081",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "e1e96ddb16e5ced3440c770b0189805e1c9622641bee7aac2e917a3d094c29f0"
+    },
+    {
+      "season": "winter",
+      "time": "evening",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor winter snowy bare trees visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the winter evening edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/winter/evening.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/winter/evening.png",
+      "runtime": "public/assets/penthouse/seoul/winter/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "64bbf8ced9c30c39d7dd9ebeb57b2f141b4c181bbfe377b5466b0c38a95e5cd5",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "17e39f06a1b4b9ef78c6ff8c1b5ca763714c7c6fb51176e0eab7ab423cc20570"
+    },
+    {
+      "season": "winter",
+      "time": "night",
+      "prompt": "Use case: precise-object-edit. Edit this exact 1672x941 illustrated Seoul studio. Remove ONLY the central Herman Miller black mesh rolling OFFICE CHAIR completely, including its back, seat, arms, wheelbase, casters and its cast shadow, currently approximately x630..860 y490..775. Carefully reconstruct the walnut DESK front rail and apron, the open knee space under the desk, small amount of existing outdoor winter snowy bare trees visible above the desk behind the old chair, and the existing rug weave where the chair was. There must be NO chair or stool in front of the desk. IMPORTANT preserve the LEFT lounge armchair unchanged! Also preserve the entire desk, monitor (same position and blank screen), keyboard, lamps, left lounge, right shelves, floor, glass mullions, original N Seoul Tower skyline and sky pixel registration. Do not change framing/camera/zoom/perspective, lighting, season or any other object. Keep the same soft painted style. Output the full original landscape composition at the same dimensions. No new objects, no dog.\nThis first image is the winter night edit target; preserve its exact colors and light. The SECOND image demonstrates the correct chair-free desk opening and rug; use only its geometry, NEVER copy its night lighting or autumn foliage.",
+      "input": "asset-sources/seoul-studio/reframed/winter/night.png",
+      "geometryReference": "asset-sources/seoul-studio/decluttered/autumn/night.png",
+      "source": "asset-sources/seoul-studio/decluttered/winter/night.png",
+      "runtime": "public/assets/penthouse/seoul/winter/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "c7f4cb02b0d9ebb59389855e2b5a130d31a60d66841562eccb20723430e48544",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "5b3f5b939a9166e45076e75885dc10d680b4d270fb8524432ae38c99bd0386f7"
+    }
+  ],
+  "objects": [
+    {
+      "source": "asset-sources/seoul-studio/decluttered/fountain-pen.png",
+      "runtime": "public/assets/penthouse/objects/fountain-pen.webp",
+      "prompt": "Use case: precise-object-edit / transparent extraction. Take ONLY the capped black and gold fountain pen from this illustration and remove the entire silver metal tray/stand beneath it. Output ONE isolated horizontal pen with genuinely transparent background. Preserve the black torpedo-shaped capped barrel, subtle gold cap bands, gold clip, tiny pale cap-end dot, and the soft hand-painted 2.5D shading. The pen lies flat left-to-right on an imaginary desktop, viewed from slightly above. NO pen stand, no base, no tray, no case, no floor or desktop, no text. Include only a very subtle tight soft contact shadow directly beneath the pen. Make the pen large across 85% of a wide landscape canvas, keep its real slender length-to-thickness ratio (about12:1). It will be placed SMALL (about45px long) on the existing walnut desk.",
+      "input": "asset-sources/seoul-studio/objects/pen-rest.png",
+      "sourceDimensions": [
+        1981,
+        794
+      ],
+      "sourceSha256": "47df96fd10ccb638af200edd1b62ad62b8a7f64b9d852f4be3a9dae6a4a9058c",
+      "runtimeDimensions": [
+        1024,
+        411
+      ],
+      "runtimeSha256": "1daa96d3f647dbb6b89772df886f3b2251bcab892af6f66fe9c1a40d6017ea1c"
+    },
+    {
+      "source": "asset-sources/seoul-studio/objects/balance.png",
+      "runtime": "public/assets/penthouse/objects/compact-speaker.webp",
+      "operation": "Reuse existing painted transparent source; webp conversion and runtime shrink only.",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "sourceSha256": "7ac4e9c2e8bf5ec24dbdffaddf7948fd3cb937cd8d389d9b350a0203d804a0b1",
+      "runtimeDimensions": [
+        512,
+        768
+      ],
+      "runtimeSha256": "3caa4737b1b74e85527e1c8a29e25157936915337e13c9e02fbca5f0c2857a50"
+    }
+  ],
+  "encoding": "WebP quality88. Two generated winter originals were1671px wide; normalized to1672\u00d7941 on encoding. Source PNGs preserved unchanged."
+}

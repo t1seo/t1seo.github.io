@@ -2,7 +2,7 @@
   "id": "penthouse-objects",
   "schemaVersion": 1,
   "createdAt": "2026-09-30T17:25:47.717Z",
-  "scope": "El Casco pen rest with a Montblanc-style pen, independent floorstanding Beosound A9, and a refined monitor workspace.",
+  "scope": "Mechanical revision requested by the user: remove the office chair and floor A9; place a small standless pen and compact desktop speaker; preserve existing monitor and controls.",
   "sources": [
     {
       "provider": "studio",
@@ -120,20 +120,57 @@
       "adopt": "Handwritten canvas composition with fixed typed sketch, file list, syntax colors and current Seoul view. Same vector drawing rendered at 912×540 in the Desk detail for legibility. No React dependency or source copying."
     }
   ],
+  "history": [
+    {
+      "scope": "El Casco pen rest with a Montblanc-style pen, independent floorstanding Beosound A9, and a refined monitor workspace.",
+      "qa": {
+        "status": "passed",
+        "tests": 190,
+        "build": "passed",
+        "chrome": [
+          "1440×1000 day/night/rain",
+          "390×844 room and monitor detail",
+          "A9 rain-mask sample identical between clear and rain",
+          "Music hotspot and Desk button state synchronized; playback time advanced while other tab activated (automation reported document.hidden=false; hidden-tab handling separately covered by unit suite)",
+          "912×540 vector screen detail",
+          "No page errors, no mobile horizontal overflow"
+        ],
+        "review": "Independent static review; adjusted Desk preview label to exclude out-of-crop A9.",
+        "baselineCommit": "bd6b4ea6073e92512d5fedc776f7cd39de0cbf0f",
+        "preserved": "All 20 room plates and Milky/ball untouched."
+      }
+    }
+  ],
+  "revision": {
+    "date": "2026-10-01",
+    "kind": "explicit-user-object-removal-and-rescale",
+    "baselineCommit": "8b33ecad4d4283ab494d3f9b7d09d9d717d0fe80",
+    "reusedEvidenceSha256": "7427d91a74a5c7be9078448d0851509c6faf43ede72cb82c0ce87dac4eb69586",
+    "priorDesignSha256": "c0cbd71146fe655aa01cd5c592e2c1f7e7ec4c42f65029d43534e408ab0eff6d",
+    "reason": "Existing inspected material/silhouette, accessible detail and audio/monitor references still apply. No new brand recommendation, UI component, style or layout research is necessary. Earlier decisions below are retained as historical evidence, not current product selection.",
+    "decisions": [
+      "Remove the central Herman Miller chair from all 20 plates; preserve the left lounge chair.",
+      "Remove A9 sprite and old weather mask.",
+      "Remove pen rest; draw one small capped fountain pen directly on the desktop.",
+      "Reuse existing illustrated Balance-inspired wood/fabric geometry at a deliberately compact desktop scale, without real-product dimensions.",
+      "Keep existing monitor code, scene-first controls and gesture-initiated music."
+    ]
+  },
   "qa": {
     "status": "passed",
     "tests": 190,
-    "build": "passed",
     "chrome": [
-      "1440×1000 day/night/rain",
-      "390×844 room and monitor detail",
-      "A9 rain-mask sample identical between clear and rain",
-      "Music hotspot and Desk button state synchronized; playback time advanced while other tab activated (automation reported document.hidden=false; hidden-tab handling separately covered by unit suite)",
-      "912×540 vector screen detail",
-      "No page errors, no mobile horizontal overflow"
+      "All20season/time plates decode and switch at1672×941",
+      "1440×1000 night/noon/rain scene screenshots inspected",
+      "390×844 mobile room and Desk preview inspected",
+      "No central office chair or floorstanding speaker in any generated room",
+      "Compact speaker rain-mask pixel sample identical in clear and rain",
+      "Pen hotspot opens Desk; audio hotspot and panel playback share state",
+      "912×540 monitor detail preserved; no page errors, failed responses or horizontal overflow",
+      "Clickable desktop objects retain at least44px targets"
     ],
-    "review": "Independent static review; adjusted Desk preview label to exclude out-of-crop A9.",
-    "baselineCommit": "bd6b4ea6073e92512d5fedc776f7cd39de0cbf0f",
-    "preserved": "All 20 room plates and Milky/ball untouched."
+    "baselineCommit": "8b33ecad4d4283ab494d3f9b7d09d9d717d0fe80",
+    "preserved": "Milky/red-ball files, monitor renderer, background music engine and other furniture; source PNGs from before this revision retained.",
+    "build": "passed"
   }
 }
