@@ -1,0 +1,497 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-01",
+  "baselineCommit": "8212882b5ccff78cdade2ef143ed410dc87d593a",
+  "backupBranch": "backup/seoul-before-desk-lamp-20261001",
+  "purpose": "Replace the angular desktop lamp with a low black dome and warm-white marble pedestal, preserving the painted room and left reading lamp.",
+  "assets": [
+    {
+      "season": "spring",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-d1e41c32-48ff-48d9-90d9-6a8b6adc6120.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is spring morning.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/spring/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/spring/morning.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "d3316fa8e8d203c0e5bc7791f362d09a712fcd6d7656291a8d063e7246cc78fc",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "75e00a0bf743a473ac89cacd6c7799e10f5c546e25995f1754eaff230652b128",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-97cc07f8-cd2d-4a22-aaee-0dd9b13b1449.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is spring noon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/spring/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/spring/noon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "a772dc357f16fb29415637a09990f7b1904072ff95e1f7d65a861cbc63e94710",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "432ab41950decc9442ad0bee9017b7c1e5be318d771728bf645a6287e6884d92",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-7ce5c95d-4b60-4050-aacb-60cdf6fd1b77.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is spring afternoon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/spring/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/spring/afternoon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "8e6fabc8fc4b2c2a0dd9a6dd96db1176750fed4796cfad25a796bedb5bd3683c",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "37c1fde2b7800d061775c8ecac452f821309d21678f43d6ee13689fbc97988ee",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-7609a60c-d6a5-47df-8c3c-168fc3487f15.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is spring evening.",
+      "repair": {
+        "source": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-94d14f6a-d76f-431f-84e8-31d9bbd44389.png",
+        "prompt": "Precise local cleanup of this exact 1672x941 illustration, spring evening. KEEP the new black curved dome desk lamp with its short pale marble pedestal, on the right side of the desk, in exactly its current position. REMOVE ONLY the leftover pieces of the OLD thin angular desk lamp floating ABOVE it: the tiny horizontal metallic light bar at x1040..1080 y463..470, the thin diagonal bronze arm from x1077 y461 to x1143 y487, and the tiny joint/nub at x1142 y488..495. Reconstruct clean Han River water and its vertical city-light reflections where these stray parts were. There must be NO thin arm, pole, joint or horizontal LED bar above the black dome. Keep every other pixel/shape/composition as close to input as possible: new unlit black dome, pale pedestal, monitor, HHKB, pens, bowl, left ivory floor lamp and black lounge, entire spring skyline/river/blossoms, exact evening lighting. SAME hand-painted style. No relighting, no crop, no zoom. Only erase those obsolete metal fragments."
+      },
+      "source": "asset-sources/seoul-studio/dome-lamp/spring/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/spring/evening.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "04c2ef1034fe9f3245371681391bb4fed754ef037106c9a2050e4662e62b9925",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "323c2a0c916b16f8f8f94fe763545036a7dd0af276c77d957cb43722c5e588b9",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "spring",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-bae6b6c8-5220-4775-a1a6-7a269bdd0206.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is spring night.",
+      "repair": {
+        "source": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-08e6cbb6-48b1-4012-b45b-313b7c69964e.png",
+        "prompt": "Precise local cleanup of this exact 1672x941 illustration, spring night. KEEP the new black curved dome desk lamp with its short pale marble pedestal, on the right side of the desk, in exactly its current position. REMOVE ONLY the leftover pieces of the OLD thin angular desk lamp floating ABOVE it: the tiny horizontal metallic light bar at x1040..1080 y463..470, the thin diagonal bronze arm from x1077 y461 to x1143 y487, and the tiny joint/nub at x1142 y488..495. Reconstruct clean Han River water and its vertical city-light reflections where these stray parts were. There must be NO thin arm, pole, joint or horizontal LED bar above the black dome. Keep every other pixel/shape/composition as close to input as possible: new unlit black dome, pale pedestal, monitor, HHKB, pens, bowl, left ivory floor lamp and black lounge, entire spring skyline/river/blossoms, exact night lighting. SAME hand-painted style. No relighting, no crop, no zoom. Only erase those obsolete metal fragments."
+      },
+      "source": "asset-sources/seoul-studio/dome-lamp/spring/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/spring/night.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "2d478db5eeac42c616b051187cc982de13bc2cfa0e3583c0d3186bdfec78e62d",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "9fb6115776f1626c6ad43412d8d034377dc203fd7fd2db04d6a0fbd855c0feb2",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-a664b907-19df-4148-81fb-5a1ff665114c.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is summer morning.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/summer/morning.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/morning.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "9b2318650ce7befa9e0dbad276dc210b3b2264313baa3c170388603303ac8b79",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "51315d4eb77ec8b37e8c30e0d99143f34dad59a4720f4ae0cffa20d8b8627509",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-e194b7bf-de07-4c30-924a-7e7d7cfaf7b8.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is summer noon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/summer/noon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/noon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "728fc43e040dd577f9324264abf92088752855d5985777f19c6a4d9f2a6d5ca3",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "a4530be75be26281c0e81ac76bf7874da443a5b81898050be4d7e230575a3de7",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-10465c90-ee3a-46a7-a1e3-fc041884628d.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is summer afternoon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/summer/afternoon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "0f32d61ce33b66eb77753a3d71c2510933290ee9cc4b888561f4df43c25cfb85",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "0921538132b4c0412167bde628fba0eea96609ad3947f7a4490d7337c99e6caa",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-eed5e367-962e-4a83-8d49-c0c467485f00.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is summer evening.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/summer/evening.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "011f8f6d17ca45036fd15e6e2e8b560deda3f1e5dee9b4cba2fe3e173b813de7",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "20e9249ec95a140f5bc85124747ca90923edf65f8c737257fefaa5e21b4f351d",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "summer",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-ab24a14b-fb86-4837-bc8a-31ea4773ec2e.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is summer night.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/summer/night.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/night.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "400c7715799a1a9ad81193c08728bc39516b9d4e7b88f654aa6bb754333479bd",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "e7709126a741a5a74d0736a7ac3c7c9a8070daee47e65b50f903e992ebb04f3f",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-cd2f6f69-da18-4aaf-827d-a5ad58721223.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is autumn morning.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/autumn/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/autumn/morning.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/morning.webp",
+      "sourceDimensions": [
+        1670,
+        942
+      ],
+      "sourceSha256": "6f9fb7c5bf0bc6307c68e1b21f10e626cd2b3ef982fbbeebc657427607448c38",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "69a051ad6b49c641690c442f02ec968396b7ad7ac825d62afa4e1e5a77545973",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-35d4703a-1e5c-47c6-9319-892519c2f978.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is autumn noon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/autumn/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/autumn/noon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/noon.webp",
+      "sourceDimensions": [
+        1670,
+        941
+      ],
+      "sourceSha256": "1809a31f3046fbc8b558654bd2598759d404176c32b92a064b3c6885bccda02f",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "5832f2ae5ac0725cb117480f9f55a8db9e2a235076c7fb730ede6497c1f032a7",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-4debd204-ead3-4c06-a631-55d98c84b237.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is autumn afternoon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/autumn/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/autumn/afternoon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "030d150674eb4144af111d23978cd44d19d1179106108ff912d2e3875b5adca9",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "cca66a5b6ba68cc82808464c4410a806e5a5c1069b63cca8ade119fbefe42ceb",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-9b57aefa-402b-4786-95db-7391b47c0df1.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is autumn evening.",
+      "repair": {
+        "source": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-29e20d93-bcbd-447d-8120-30314349b672.png",
+        "prompt": "Precise local cleanup of this exact 1672x941 autumn evening illustration. KEEP the new black curved dome desk lamp with short pale marble pedestal on the right side of the desk, exactly as it is. REMOVE ONLY the obsolete thin metallic desk-lamp fragments floating ABOVE the dome: the horizontal light bar at x1040..1080 y463..470, the diagonal bronze arm from x1077 y461 to x1143 y487, and joint/nub at x1142 y488..495. Paint clean unobstructed Han River water with existing vertical city-light reflections in their place. No thin arm, pole, hinge, horizontal LED bar or floating metal at all above the dome. Leave the dome's black curved surface and pale base unchanged. Preserve every other detail, exactly the same autumn evening light/colors, monitor, desk, left reading lamp, illuminated lounge, floor, trees, Seoul skyline, framing and composition. Same hand-painted matte style, no crop/zoom, no extra objects. Tiny selective erasure only."
+      },
+      "source": "asset-sources/seoul-studio/dome-lamp/autumn/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/autumn/evening.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "cbf3e0f1f9d6e8294048b72498ab4bfe8df94271d6c44f80a40d7a9e11c89ee5",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "afb68017d93a2d270ba600848dd28efdd966438d692978cfaf8d7968c9a97cc2",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "autumn",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-054b9743-63c0-4ba7-adf1-0968aee16ed7.png",
+      "prompt": "Use case: precise-object-edit. Edit this exact full 1672x941 Seoul studio illustration. Replace ONLY the slender angular metal DESKTOP task lamp to the RIGHT of the monitor (old shape x1037..1160, y455..560) with a compact sculptural Snoopy-inspired table lamp: a low wide rounded asymmetric satin-black dome/oval shade, supported by a short gently tilted warm-white Carrara-marble cylinder pedestal. No thin long arms. Dome spans approximately x1100..1192,y477..511, pedestal approximately x1140..1172,y508..553. Base rests solidly on the existing desktop at y552. The curved black dome overhangs gently LEFT toward the writing area. Tiny understated gray marble veining. Paint it as part of the SAME soft hand-painted matte 2.5D artwork, NOT a pasted product photo, no shiny photo-real reflections. Its bulb is OFF: no lit diffuser, NO glow or light beam on the desk; ambient room illumination only, because runtime will switch its warm light on/off. Remove the ENTIRE previous desktop lamp including its horizontal LED bar near x1040,y465, diagonal arms, upright and thin oval base, reconstructing the skyline and foliage underneath. Keep the pencil cup and bowl in their exact current positions, with no overlap by the new lamp. Keep the new dome below the top of the monitor. IMPORTANT preserve the ivory-shade FLOOR READING LAMP at far LEFT and its warm-lit black lounge chair absolutely unchanged. Preserve all other scene details, black monitor/Studio Display, HHKB keyboard, desk, empty knee space, books, window, Seoul city, autumn night colors, shelving, floor perspective. Full landscape scene, identical framing and registration, NO crop, NO zoom, NO added dog or chair, no text or logo.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/autumn/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "4fbf85b199ce811658d71b0364e4f440403e772def17e38cf28e9c5bf1c22541",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "58146847193831f9cbf020fed4632c055e80f871e25ee9822942de2b9666e08d",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "morning",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-c647542c-b0bd-4944-aece-ae7416355668.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is winter morning.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/winter/morning.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/winter/morning.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/morning.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "a58c2ddeaf314e5ddf108a48f457a459743f5f55223ea11a64835cd71b5a8222",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "7b2e76fe01e58e50288820470b0ecb1c45534f28f4f08a5b3f9d360b09bd7c38",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "noon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-900edf8e-ff81-4c86-8872-6d453d62341e.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is winter noon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/winter/noon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/winter/noon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/noon.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "b3fe0d322cf99ab59c117c476722a56b046f00980607673c17630d105aaa53fc",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "62219d2823b28adcc28e8753813c8887bd0dde79017d83918612e1448691f5a4",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "afternoon",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-6960c557-f272-4e88-90e6-f5f641d79bb2.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is winter afternoon.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/winter/afternoon.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/winter/afternoon.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "sourceDimensions": [
+        1671,
+        941
+      ],
+      "sourceSha256": "587c1c00758dda29cfb5d51cda95717b85c55486da8265ebf9a026598e47ad8e",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "29fc50719c10ca533a635600c4fe3bde532d4f2f8b7fb80a9418002f77923012",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "evening",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-3b41ebb7-f176-4e22-aeac-607f76a72854.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is winter evening.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/winter/evening.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/winter/evening.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/evening.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "dea0978b51dc1742bdc823ad5efe8a1064b9da9721dbf95241d05b111b4d34ae",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "18425f9e3b8de14e589bdf79b1965ce1efc0e87d7311e3b75e768ff9a591d1dd",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    },
+    {
+      "season": "winter",
+      "time": "night",
+      "toolOutput": "/Users/cillian/.codex/generated_images/01a0f354-ef18-73a3-9e2b-bfd5d892ddd5/exec-31cddb13-42f9-4ce4-951c-ebd6df48ffaa.png",
+      "prompt": "Use case: precise-object-edit. INPUT1 is the exact full 1672x941 illustrated Seoul room to edit. INPUT2 is an approved new DESKTOP lamp design/position reference. Replace ONLY the old thin angular metal desktop lamp to the RIGHT of the monitor in INPUT1 with the identical compact black dome / pale marble-base lamp from INPUT2. Copy its precise silhouette, position and scale: low asymmetric rounded satin-black shade at approximately x1087..1183 y491..533; short tilted warm-white Carrara marble pedestal x1127..1164 y524..565, planted on the desk. No thin arm or metal upright. Keep new lamp OFF, with no glowing diffuser or emitted light or desk light pool: ambient colors/shading should match INPUT1's time of day. Remove every part of the OLD desktop lamp x1037..1160 y455..560 including LED bar, arms, pole and thin base; reconstruct its surrounding window scenery/foliage. Preserve every other item and INPUT1's exact season, sky, outdoor trees, day/night colors, room lighting, framing, camera, desk, keyboard, black monitor, pencil cup and bowl, shelf, floor and empty knee space. In particular retain the entire ivory-shade FLOOR lamp on the far LEFT of the lounge chair and its warm chair highlights without any change. Do not copy INPUT2's autumn foliage or night colors onto INPUT1. The new desktop lamp must have the SAME soft hand-painted matte 2.5D style as the room, not a photograph. No crop/zoom, no new chair, dog, text or logo. Full original landscape canvas.\nINPUT1's season/time is winter night.",
+      "repair": null,
+      "source": "asset-sources/seoul-studio/dome-lamp/winter/night.png",
+      "inputs": [
+        "asset-sources/seoul-studio/reading-lamp/winter/night.png",
+        "asset-sources/seoul-studio/dome-lamp/autumn/night.png"
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/night.webp",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "sourceSha256": "ce0a58b80e4fea2e839c97cfc5a090964c1d463a79cf52e2a2f178b4f71d078e",
+      "runtimeDimensions": [
+        1672,
+        941
+      ],
+      "runtimeSha256": "fe10854721997056a76d11dce75fd9db083589e686eb226e8be455e62188eef3",
+      "encoding": "cwebp -q 88 -resize 1672 941"
+    }
+  ]
+}

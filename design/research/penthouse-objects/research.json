@@ -2,7 +2,7 @@
   "id": "penthouse-objects",
   "schemaVersion": 1,
   "createdAt": "2026-09-30T17:25:47.717Z",
-  "scope": "Mechanical user-requested relocation of the existing floor lamp to the viewer’s left of the black lounge, illuminating its back and seat across all 20 seasonal/time plates.",
+  "scope": "User-requested replacement of one desktop lamp with a low black dome and warm-white stone pedestal, preserving the illustrated room and existing light-toggle UI.",
   "sources": [
     {
       "provider": "studio",
@@ -118,6 +118,23 @@
       "url": "https://21st.dev/@edwinvakayil/components/code-block",
       "inspection": "MCP component and demo source read; filename tab, semantic syntax colors, line numbers and status bar.",
       "adopt": "Handwritten canvas composition with fixed typed sketch, file list, syntax colors and current Seoul view. Same vector drawing rendered at 912×540 in the Desk detail for legibility. No React dependency or source copying."
+    },
+    {
+      "source": "Flos Snoopy F6380030",
+      "url": "https://professional.flos.com/en/global/product/snoopy-f6380030/",
+      "retrieval": {
+        "method": "web",
+        "date": "2026-10-01",
+        "query": "site:flos.com Snoopy table lamp black marble Castiglioni dimensions",
+        "resultIds": [
+          "turn10search1",
+          "turn11view0",
+          "turn11view1"
+        ]
+      },
+      "facts": "Official product page and technical sheet describe a tilted enamelled reflector and white Carrara marble base.",
+      "adopt": "Compact black dome over short pale stone pedestal, translated into the existing matte illustration.",
+      "limits": "Illustrated interpretation, not a dimensionally exact product rendering. Official PDF screenshot fetch timed out; text was read. No photo inspection claimed."
     }
   ],
   "history": [
@@ -174,37 +191,74 @@
         "preserved": "Milky/red-ball files, monitor renderer, background music engine and other furniture; source PNGs from before this revision retained.",
         "build": "passed"
       }
+    },
+    {
+      "scope": "Mechanical user-requested relocation of the existing floor lamp to the viewer’s left of the black lounge, illuminating its back and seat across all 20 seasonal/time plates.",
+      "revision": {
+        "date": "2026-10-01",
+        "kind": "explicit-user-existing-lamp-relocation",
+        "baselineCommit": "d1668a1703a824c69ba9dc467bb00530c7b3b2d6",
+        "reusedEvidenceSha256": "bd5495ace024353c15d67915bde3462fbdf1ded4749c0276e083337d2baabe2a",
+        "priorDesignSha256": "6bbb4d19b5d9f5062bf4c8974eecf71ceb6e1cd4149556d005b5ac2ecc2d0bec",
+        "reason": "Reuse inspected project evidence for a mechanical placement and lighting refinement of an existing object. Preserve the same art direction, product silhouette, UI controls and interactions. No new component or recommendation.",
+        "decisions": [
+          "Move the existing articulated ivory-shade lamp left of the black lounge, reaching right over the chair.",
+          "Paint a gentle warm light on the black back cushion, inner arm and seat in all 20 room plates.",
+          "Reconstruct the old desk-side lamp location as scenery and floor.",
+          "Update the glass mask only for the relocated shade; keep desk lighting and monitor registration.",
+          "Retain the prior small desk speaker, standless pen, Milky, red ball and background audio."
+        ]
+      },
+      "qa": {
+        "status": "passed",
+        "baselineCommit": "d1668a1703a824c69ba9dc467bb00530c7b3b2d6",
+        "tests": 190,
+        "chrome": [
+          "All 20 season/time plates decode and switch at 1672×941.",
+          "1920×1080 full-room evening and 1440×1000 night/noon/rain screenshots inspected.",
+          "Warm highlights on lounge back and seat; old desk-side lamp absent.",
+          "Relocated floor-lamp shade canvas sample identical in clear/rain.",
+          "390×844 mobile and 912×540 monitor detail checked.",
+          "Pen hotspot, shared music controls and 44px minimum object targets pass.",
+          "No page errors, failed responses or horizontal overflow."
+        ],
+        "review": "Independent review confirms overlapping tree/shade masks remain closed and desk lamp registration/glow/click handling are unchanged.",
+        "preserved": "Milky, red ball, small desk objects, monitor renderer, background music engine; previous chair-free source art retained."
+      }
     }
   ],
   "revision": {
     "date": "2026-10-01",
-    "kind": "explicit-user-existing-lamp-relocation",
-    "baselineCommit": "d1668a1703a824c69ba9dc467bb00530c7b3b2d6",
-    "reusedEvidenceSha256": "bd5495ace024353c15d67915bde3462fbdf1ded4749c0276e083337d2baabe2a",
-    "priorDesignSha256": "6bbb4d19b5d9f5062bf4c8974eecf71ceb6e1cd4149556d005b5ac2ecc2d0bec",
-    "reason": "Reuse inspected project evidence for a mechanical placement and lighting refinement of an existing object. Preserve the same art direction, product silhouette, UI controls and interactions. No new component or recommendation.",
+    "kind": "explicit-user-desktop-object-replacement",
+    "baselineCommit": "8212882b5ccff78cdade2ef143ed410dc87d593a",
+    "research": {
+      "reuse": {
+        "priorDesignHash": "79597a69901c10b600170e317c1f2e2e0c7e49377e1dc097bba9aefed82f5c75",
+        "priorResearchHash": "9e593ec97fadc581c36d0bec0c90ecd5eac9091ce329c8b4ee445887d91bda73",
+        "reason": "Same audience, platform, room style and native controls. Reuse inspected Studio neutral tokens, Mobbin Apple/Square/adidas product imagery treatment, 21st Tooltip/MP3 Player interaction accessibility. Revisit only the lamp silhouette using official Flos material; no new UI component or navigation."
+      }
+    },
     "decisions": [
-      "Move the existing articulated ivory-shade lamp left of the black lounge, reaching right over the chair.",
-      "Paint a gentle warm light on the black back cushion, inner arm and seat in all 20 room plates.",
-      "Reconstruct the old desk-side lamp location as scenery and floor.",
-      "Update the glass mask only for the relocated shade; keep desk lighting and monitor registration.",
-      "Retain the prior small desk speaker, standless pen, Milky, red ball and background audio."
+      "Use a low black dome and warm-white marble pedestal inspired by Flos Snoopy.",
+      "Reject another articulated arm as too similar to the lamp being replaced.",
+      "Retain the hand-painted room style and all other furniture; preserve left reading lamp.",
+      "Keep source bulb off and register the runtime glow, rain mask and click area to the new shape."
     ]
   },
   "qa": {
     "status": "passed",
-    "baselineCommit": "d1668a1703a824c69ba9dc467bb00530c7b3b2d6",
-    "tests": 190,
+    "baselineCommit": "8212882b5ccff78cdade2ef143ed410dc87d593a",
+    "tests": 192,
     "chrome": [
       "All 20 season/time plates decode and switch at 1672×941.",
-      "1920×1080 full-room evening and 1440×1000 night/noon/rain screenshots inspected.",
-      "Warm highlights on lounge back and seat; old desk-side lamp absent.",
-      "Relocated floor-lamp shade canvas sample identical in clear/rain.",
+      "1920×1080 full-room evening and 1440×1000 noon/night/rain screenshots inspected.",
+      "Desk-lamp toggle changes the warm desktop light; OFF clears its glow.",
+      "Dome canvas sample identical in clear/rain; union mask accounts for painted position offsets.",
       "390×844 mobile and 912×540 monitor detail checked.",
-      "Pen hotspot, shared music controls and 44px minimum object targets pass.",
+      "Pen hotspot, shared music controls and minimum 44px object targets pass.",
       "No page errors, failed responses or horizontal overflow."
     ],
-    "review": "Independent review confirms overlapping tree/shade masks remain closed and desk lamp registration/glow/click handling are unchanged.",
-    "preserved": "Milky, red ball, small desk objects, monitor renderer, background music engine; previous chair-free source art retained."
+    "review": "Independent image review caught obsolete lamp fragments in three plates, removed through built-in image editing; seasonal position offsets covered by revised mask and softened glow.",
+    "preserved": "Left floor reading lamp and illuminated black lounge, Milky, red ball, small desk objects, monitor renderer and background music engine; all earlier source art retained."
   }
 }
