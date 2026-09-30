@@ -1,0 +1,231 @@
+.studio-props {
+  --prop-leaf-light: #8da673;
+  --prop-leaf-dark: #3f654c;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  isolation: isolate;
+}
+
+.studio-prop {
+  position: absolute;
+  display: block;
+  appearance: none;
+  padding: 0;
+  border: 0;
+  border-radius: 22%;
+  background: transparent;
+  color: inherit;
+  pointer-events: auto;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  transform-origin: 50% 88%;
+}
+
+.studio-prop > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(1px 2px 1.5px rgb(74 46 21 / 10%));
+  transition: filter 220ms ease;
+}
+
+.studio-prop--lamp {
+  left: var(--prop-lamp-left, 29%);
+  top: var(--prop-lamp-top, 62%);
+  width: var(--prop-lamp-width, 10%);
+  height: var(--prop-lamp-height, 19%);
+}
+
+.studio-prop--plant {
+  left: var(--prop-plant-left, 40%);
+  top: var(--prop-plant-top, 62%);
+  width: var(--prop-plant-width, 8%);
+  height: var(--prop-plant-height, 19%);
+}
+
+.studio-prop--monitor {
+  left: var(--prop-monitor-left, 52%);
+  top: var(--prop-monitor-top, 53%);
+  width: var(--prop-monitor-width, 24%);
+  height: var(--prop-monitor-height, 28%);
+}
+
+.studio-prop--cup {
+  left: var(--prop-cup-left, 78%);
+  top: var(--prop-cup-top, 73%);
+  width: var(--prop-cup-width, 6%);
+  height: var(--prop-cup-height, 9%);
+}
+
+.studio-prop--book {
+  left: var(--prop-book-left, 17%);
+  top: var(--prop-book-top, 75%);
+  width: var(--prop-book-width, 12%);
+  height: var(--prop-book-height, 7%);
+}
+
+.studio-prop-shadow {
+  fill: #563e25;
+  opacity: .19;
+  filter: blur(3px);
+}
+
+.studio-prop-label {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 5px);
+  z-index: 5;
+  width: max-content;
+  max-width: 230px;
+  padding: 7px 11px;
+  border: 1px solid rgb(126 107 77 / 16%);
+  border-radius: 9px;
+  background: rgb(255 250 236 / 96%);
+  box-shadow: 0 3px 15px rgb(63 48 30 / 9%);
+  color: #665947;
+  font: 500 11px/1.4 system-ui, sans-serif;
+  white-space: normal;
+  opacity: 0;
+  transform: translate(-50%, 4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+.studio-prop:focus-visible {
+  outline: 2px solid #ead79e;
+  outline-offset: 5px;
+  filter: drop-shadow(0 0 4px rgb(99 72 34 / 35%));
+}
+
+.studio-prop:focus-visible .studio-prop-label {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+[data-discover="true"] .studio-prop > svg {
+  filter: drop-shadow(0 0 3px #ffedb3) drop-shadow(0 0 8px rgb(255 239 182 / 65%));
+}
+
+@media (hover: hover) {
+  .studio-prop:hover > svg {
+    filter: drop-shadow(0 0 2px rgb(255 249 224 / 80%)) drop-shadow(1px 3px 2px rgb(74 46 21 / 16%));
+  }
+
+  .studio-prop:hover .studio-prop-label {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    transition-delay: 200ms;
+  }
+}
+
+.studio-prop-lamp-pool,
+.studio-prop-lamp-inner,
+.studio-prop-monitor-screen,
+.studio-prop-monitor-led {
+  transition: opacity 650ms ease, filter 650ms ease;
+}
+
+.studio-prop-lamp-inner { opacity: .16; }
+.studio-prop-lamp-pool { opacity: 0; }
+.studio-props[data-lamp="true"] .studio-prop-lamp-inner {
+  opacity: 1;
+  filter: drop-shadow(0 3px 6px rgb(255 226 145 / 70%));
+}
+.studio-props[data-lamp="true"] .studio-prop-lamp-pool { opacity: 1; }
+.studio-props[data-lamp="true"] .studio-prop-lamp-switch { fill: #b38a3d; }
+.studio-prop-monitor-screen { opacity: 0; }
+.studio-prop-monitor-led { opacity: .1; }
+.studio-props[data-monitor="true"] .studio-prop-monitor-screen,
+.studio-props[data-monitor="true"] .studio-prop-monitor-led { opacity: 1; }
+
+.studio-prop-leaf-light { stop-color: var(--prop-leaf-light); }
+.studio-prop-leaf-dark { stop-color: var(--prop-leaf-dark); }
+.studio-props[data-season="summer"] { --prop-leaf-light: #83a468; --prop-leaf-dark: #365c45; }
+.studio-props[data-season="autumn"] { --prop-leaf-light: #9caa73; --prop-leaf-dark: #566d48; }
+.studio-props[data-season="winter"] { --prop-leaf-light: #8ea17f; --prop-leaf-dark: #4a6957; }
+.studio-prop-new-leaf { opacity: 0; transition: opacity 700ms ease; }
+.studio-props[data-season="spring"] .studio-prop-new-leaf { opacity: 1; }
+.studio-prop-foliage { transform-origin: 70px 146px; }
+
+.studio-prop-iced-cup { display: none; }
+.studio-props[data-season="summer"] .studio-prop-iced-cup { display: block; }
+.studio-props[data-season="summer"] .studio-prop-hot-cup { display: none; }
+.studio-prop-steam { opacity: 0; }
+.studio-prop-ice { transform-origin: 68px 60px; }
+.studio-prop-top-book { transform-origin: 34px 60px; }
+.studio-prop-bookmark { transform-origin: 159px 60px; }
+
+.studio-props[data-motion="true"][data-monitor="true"] .studio-prop-cursor {
+  animation: studio-prop-cursor 1.6s step-end infinite;
+}
+.studio-props[data-motion="true"] .studio-prop--cup.is-reacting .studio-prop-steam {
+  animation: studio-prop-steam 2.4s ease-out both;
+}
+.studio-props[data-motion="true"] .studio-prop--cup.is-reacting .studio-prop-ice {
+  animation: studio-prop-ice 1.1s ease-out both;
+}
+.studio-props[data-motion="true"] .studio-prop--plant.is-reacting .studio-prop-foliage {
+  animation: studio-prop-leaves 1.6s ease-in-out both;
+}
+.studio-props[data-motion="true"] .studio-prop--book.is-reacting .studio-prop-top-book {
+  animation: studio-prop-book 1.6s ease both;
+}
+.studio-props[data-motion="true"] .studio-prop--book.is-reacting .studio-prop-bookmark {
+  animation: studio-prop-bookmark 1.6s ease both;
+}
+
+.studio-props[data-motion="false"] .studio-prop--cup.is-reacting .studio-prop-steam {
+  opacity: .65;
+}
+.studio-props[data-motion="false"] .studio-prop--plant.is-reacting .studio-prop-foliage {
+  filter: brightness(1.1);
+}
+.studio-props[data-motion="false"] .studio-prop--book.is-reacting .studio-prop-bookmark {
+  fill: #efc576;
+}
+
+@keyframes studio-prop-cursor { 0%, 49% { opacity: .8; } 50%, 100% { opacity: 0; } }
+@keyframes studio-prop-steam {
+  0% { opacity: 0; transform: translateY(9px) scaleX(.8); }
+  22% { opacity: .7; }
+  100% { opacity: 0; transform: translateY(-18px) scaleX(1.13); }
+}
+@keyframes studio-prop-ice {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  22% { transform: translate(2px, -3px) rotate(7deg); }
+  45% { transform: translate(-2px, 1px) rotate(-5deg); }
+  70% { transform: translate(1px, -1px) rotate(2deg); }
+}
+@keyframes studio-prop-leaves {
+  0%, 100% { transform: rotate(0); }
+  18% { transform: rotate(5deg); }
+  40% { transform: rotate(-4deg); }
+  65% { transform: rotate(2.5deg); }
+  82% { transform: rotate(-1deg); }
+}
+@keyframes studio-prop-book {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  22%, 60% { transform: translateY(-7px) rotate(-3deg); }
+}
+@keyframes studio-prop-bookmark {
+  0%, 100% { transform: rotate(0); }
+  30% { transform: rotate(10deg); }
+  55% { transform: rotate(-8deg); }
+  80% { transform: rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .studio-props *,
+  .studio-props *::before,
+  .studio-props *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .studio-prop--cup.is-reacting .studio-prop-steam { opacity: .65; }
+  .studio-prop--plant.is-reacting .studio-prop-foliage { filter: brightness(1.1); }
+  .studio-prop--book.is-reacting .studio-prop-bookmark { fill: #efc576; }
+}

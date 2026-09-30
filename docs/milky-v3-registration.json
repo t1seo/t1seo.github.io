@@ -1,0 +1,695 @@
+{
+  "coordinateSpace": "exported 768x512; multiply by 2 for native generated source",
+  "registration": "Keep a common body anchor; do not center per-frame silhouette or snap every paw to floor.",
+  "pawMethod": "Read-only alpha occupancy measured within manually selected paw inspection windows. Windows and near/far identities were selected by visual frame review, not automated anatomical segmentation.",
+  "frames": [
+    {
+      "frame": 0,
+      "width": 768,
+      "height": 512,
+      "bytes": 80296,
+      "sha256": "2eedbd1165ffd531d3241d2451d0eb3fc1884d4e83f54a7a1c143488fd1b50e6",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        74,
+        42,
+        714,
+        478
+      ],
+      "noseDarkCentroid": [
+        586.21,
+        198.97
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 16205,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            325,
+            430,
+            415,
+            485
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            325,
+            430,
+            410,
+            478
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            70,
+            405,
+            132,
+            462
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            74,
+            405,
+            132,
+            457
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            445,
+            440,
+            540,
+            483
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            451,
+            440,
+            535,
+            477
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            625,
+            437,
+            715,
+            485
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            625,
+            437,
+            704,
+            477
+          ]
+        }
+      }
+    },
+    {
+      "frame": 1,
+      "width": 768,
+      "height": 512,
+      "bytes": 82262,
+      "sha256": "d8e500a047e0edcc165bb84fd75f69ff1e913eef222a294eec7049b7fc327537",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        91,
+        38,
+        715,
+        475
+      ],
+      "noseDarkCentroid": [
+        586.08,
+        198.68
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 22727,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            296,
+            430,
+            390,
+            483
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            296,
+            430,
+            380,
+            474
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            89,
+            385,
+            150,
+            446
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            91,
+            385,
+            149,
+            439
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            450,
+            435,
+            530,
+            482
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            450,
+            435,
+            528,
+            474
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            620,
+            433,
+            715,
+            483
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            620,
+            433,
+            695,
+            475
+          ]
+        }
+      }
+    },
+    {
+      "frame": 2,
+      "width": 768,
+      "height": 512,
+      "bytes": 76664,
+      "sha256": "64944bf5f8010f253002e3c8703f53c93dcb9c28eb47a24ecad3f14ba0de7b70",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        89,
+        40,
+        714,
+        478
+      ],
+      "noseDarkCentroid": [
+        586.19,
+        198.85
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 21967,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            235,
+            437,
+            340,
+            482
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            235,
+            437,
+            332,
+            477
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            87,
+            394,
+            159,
+            457
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            89,
+            394,
+            157,
+            451
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            465,
+            395,
+            525,
+            442
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            468,
+            395,
+            525,
+            440
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            600,
+            441,
+            680,
+            484
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            600,
+            441,
+            672,
+            478
+          ]
+        }
+      }
+    },
+    {
+      "frame": 3,
+      "width": 768,
+      "height": 512,
+      "bytes": 75190,
+      "sha256": "e5efd3053b27503fece26242eb6015dd28d09c58a555c0a9863a364a05f2e1aa",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        100,
+        42,
+        715,
+        479
+      ],
+      "noseDarkCentroid": [
+        586.41,
+        198.88
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 19871,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            193,
+            435,
+            288,
+            484
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            202,
+            435,
+            283,
+            478
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            312,
+            372,
+            370,
+            420
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            312,
+            372,
+            367,
+            414
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            635,
+            437,
+            717,
+            486
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            635,
+            437,
+            712,
+            479
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            505,
+            426,
+            582,
+            467
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            505,
+            426,
+            579,
+            464
+          ]
+        }
+      }
+    },
+    {
+      "frame": 4,
+      "width": 768,
+      "height": 512,
+      "bytes": 83930,
+      "sha256": "e573cebcc0f3c53a7e033e120035fe650999393802f403b8cdb0de6cb66dbfbf",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        90,
+        42,
+        717,
+        480
+      ],
+      "noseDarkCentroid": [
+        588.88,
+        199.22
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 24654,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            125,
+            437,
+            215,
+            482
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            127,
+            437,
+            213,
+            476
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            320,
+            410,
+            410,
+            460
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            320,
+            410,
+            402,
+            450
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            620,
+            440,
+            712,
+            487
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            620,
+            440,
+            707,
+            480
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            437,
+            420,
+            530,
+            462
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            437,
+            420,
+            529,
+            461
+          ]
+        }
+      }
+    },
+    {
+      "frame": 5,
+      "width": 768,
+      "height": 512,
+      "bytes": 76676,
+      "sha256": "cc4de189d07fa43863c511dea8d2b9dc7a0f390923f695fd9f3ec4fd19e2867d",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        107,
+        43,
+        714,
+        478
+      ],
+      "noseDarkCentroid": [
+        587.11,
+        199.32
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 18425,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            145,
+            424,
+            216,
+            468
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            148,
+            424,
+            210,
+            461
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            243,
+            428,
+            328,
+            477
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            246,
+            428,
+            324,
+            471
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            525,
+            437,
+            615,
+            485
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            535,
+            437,
+            610,
+            478
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            449,
+            409,
+            520,
+            465
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            449,
+            409,
+            502,
+            458
+          ]
+        }
+      }
+    },
+    {
+      "frame": 6,
+      "width": 768,
+      "height": 512,
+      "bytes": 79930,
+      "sha256": "3c7a7f5fe011df0f8ac51ba4ca457e61cb0fffffd1ff5e95132f8ff3177101e9",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        104,
+        44,
+        714,
+        493
+      ],
+      "noseDarkCentroid": [
+        587.47,
+        198.84
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 15183,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            185,
+            370,
+            244,
+            422
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            188,
+            370,
+            244,
+            422
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            205,
+            432,
+            280,
+            476
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            207,
+            432,
+            275,
+            469
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            520,
+            445,
+            617,
+            499
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            520,
+            445,
+            612,
+            493
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            570,
+            373,
+            635,
+            434
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            570,
+            373,
+            634,
+            428
+          ]
+        }
+      }
+    },
+    {
+      "frame": 7,
+      "width": 768,
+      "height": 512,
+      "bytes": 78694,
+      "sha256": "93e502acf7bc9d9513ecb997860c853a71d2a371abc8a67a8a306f607dc10252",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        103,
+        43,
+        715,
+        489
+      ],
+      "noseDarkCentroid": [
+        587.02,
+        199.15
+      ],
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "partialAlphaPixels1To199": 18858,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            327,
+            401,
+            412,
+            448
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            327,
+            401,
+            407,
+            442
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            115,
+            436,
+            191,
+            482
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            115,
+            436,
+            184,
+            477
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            475,
+            455,
+            558,
+            499
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            479,
+            455,
+            558,
+            489
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            630,
+            437,
+            713,
+            486
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            630,
+            437,
+            712,
+            480
+          ]
+        }
+      }
+    }
+  ]
+}

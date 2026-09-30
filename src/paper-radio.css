@@ -1,0 +1,112 @@
+/* A small walnut radio, dressed with the same public paper fibres as the room. */
+.paper-world .paper-radio {
+  top: 55.3%;
+  width: 6.5%;
+  height: 5.2%;
+  box-sizing: border-box;
+  border: .15cqw solid #6b4930;
+  border-top-color: #b18a5f;
+  border-left-color: #96704b;
+  border-radius: .37cqw .37cqw .22cqw .22cqw;
+  background-color: #89623f;
+  background-image:
+    linear-gradient(90deg, #c7b581, #817347),
+    repeating-linear-gradient(90deg, #443c2e 0 1px, transparent 1px 4px),
+    linear-gradient(180deg, #242823, #33372d),
+    url('/assets/paper/paper-fibers.webp'),
+    repeating-linear-gradient(2deg, #50351f18 0 1px, transparent 1px 4px),
+    linear-gradient(100deg, #aa7a4c, #765135 58%, #976e46);
+  background-size: 1% 11%, 23% 17%, 26% 23%, 120px 120px, 100% 100%, 100% 100%;
+  background-position: 83% 21%, 91% 17%, 92% 14%, center, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat, no-repeat;
+  background-blend-mode: normal, normal, normal, multiply, multiply, normal;
+  box-shadow:
+    inset 0 .08cqw .04cqw #f3d2a560,
+    inset -.12cqw -.11cqw .12cqw #33221980,
+    inset .08cqw 0 .05cqw #e3bd8055,
+    .1cqw .12cqw 0 #60432e,
+    .06cqw .25cqw .17cqw #37291f65,
+    .24cqw .4cqw .38cqw #392b203d;
+  transform-origin: 50% 100%;
+}
+
+.paper-world .paper-radio > img {
+  display: none;
+}
+
+.paper-world .paper-radio::before {
+  content: '';
+  position: absolute;
+  left: 5.5%;
+  top: 10%;
+  width: 60%;
+  height: 78%;
+  border: .06cqw solid #514535;
+  border-radius: .19cqw;
+  background-color: #b5a788;
+  background-image:
+    repeating-linear-gradient(0deg, #302d2373 0 .6px, transparent .6px 2.2px),
+    repeating-linear-gradient(90deg, #e3d7b8a1 0 .6px, #514c3e52 .6px 1.3px, transparent 1.3px 2.7px),
+    url('/assets/paper/paper-fibers.webp'),
+    radial-gradient(ellipse at 40% 37%, #c7b995, #8c816b);
+  background-size: auto, auto, 100px, auto;
+  background-blend-mode: multiply, normal, multiply, normal;
+  box-shadow:
+    inset .05cqw .08cqw .15cqw #28271e6b,
+    inset -.025cqw -.035cqw 0 #ded0ac,
+    0 .035cqw 0 #b89462;
+  transition: filter .7s ease;
+}
+
+.paper-world .paper-radio::after {
+  content: '';
+  position: absolute;
+  right: 7%;
+  top: 47%;
+  width: 18%;
+  aspect-ratio: 1;
+  border: .055cqw solid #d1bb81;
+  border-radius: 50%;
+  background:
+    linear-gradient(#e8d399, #e8d399) center 15% / 6% 18% no-repeat,
+    radial-gradient(circle, #a88954 48%, transparent 50%),
+    conic-gradient(from -45deg, #e5d2a0, #9e824c 24%, #e6c98d 48%, #766039 74%, #e5d2a0);
+  box-shadow:
+    inset .035cqw .025cqw .05cqw #ffefd37d,
+    inset -.045cqw -.055cqw .075cqw #4c371e5e,
+    .06cqw .09cqw .09cqw #30241da1;
+  transform: rotate(-24deg);
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+}
+
+.paper-world .paper-radio > i {
+  right: 4%;
+  top: 21%;
+  width: 3%;
+  background: #705039;
+  box-shadow: inset 0 1px 1px #32281890;
+}
+
+.paper-world[data-music=true] .paper-radio > i {
+  background: #f2ca82;
+  box-shadow: 0 0 .18cqw #f1bd70c2;
+}
+
+.paper-world[data-music=true] .paper-radio::before {
+  filter: brightness(1.035);
+}
+
+.paper-world[data-music=true] .paper-radio::after {
+  transform: rotate(18deg);
+}
+
+.paper-world .paper-radio > span {
+  top: -10%;
+  color: #c9b28b;
+  text-shadow: 0 1px 2px #382c2870;
+}
+
+.paper-world[data-motion=off] .paper-radio::before,
+.paper-world[data-motion=off] .paper-radio::after {
+  transition: none;
+}

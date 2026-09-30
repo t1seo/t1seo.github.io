@@ -1,0 +1,14 @@
+{
+  "title": "Free Valley Background",
+  "author": "Franco Giachetti / LudicArts",
+  "source": "https://opengameart.org/content/free-valley-background",
+  "license": "CC-BY-4.0",
+  "sourceCanvas": { "width": 4500, "height": 3600 },
+  "layersBackToFront": [
+    { "file": "valley-layer-05.webp", "role": "distant-mountains-and-sky", "width": 1920, "height": 1237, "originalY": 0, "originalHeight": 2899, "topPercent": 0, "heightPercent": 80.527778 },
+    { "file": "valley-layer-04.webp", "role": "rocky-valley", "width": 1920, "height": 804, "originalY": 1001, "originalHeight": 1883, "topPercent": 27.805556, "heightPercent": 52.305556 },
+    { "file": "valley-layer-03.webp", "role": "pine-trees", "width": 1920, "height": 463, "originalY": 1404, "originalHeight": 1083, "topPercent": 39, "heightPercent": 30.083333 },
+    { "file": "valley-layer-02.webp", "role": "meadow", "width": 1920, "height": 631, "originalY": 2123, "originalHeight": 1477, "topPercent": 58.972222, "heightPercent": 41.027778 },
+    { "file": "valley-layer-01.webp", "role": "foreground-plants", "width": 1920, "height": 407, "originalY": 2646, "originalHeight": 952, "topPercent": 73.5, "heightPercent": 26.444444 }
+  ]
+}

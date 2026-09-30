@@ -1,0 +1,56 @@
+{
+  "origin": "Built-in image_gen tool, generated for this project",
+  "reference": "/assets/paper/studio-interior-v1.webp",
+  "date": "2026-09-29",
+  "conversion": "Whole-image cwebp -q 92 -alpha_q 100 -m 6; transparency preserved; no crop or retouch",
+  "assets": [
+    {
+      "file": "autumn-pumpkins.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 309138,
+      "sha256": "b787e0950a7b1b9bdce3d0bcc92c913cd420c72803a1a0c31ea9822f39d04ea2",
+      "alpha": true
+    },
+    {
+      "file": "sleeping-cat.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 383512,
+      "sha256": "c1cea229ac312e88923fbcdd93e8e949ea02bc76619d5aef9411309a3cccec14",
+      "alpha": true
+    },
+    {
+      "file": "sparrow.webp",
+      "width": 1341,
+      "height": 1173,
+      "bytes": 328500,
+      "sha256": "68bc7ba59b72ae58b2dece711e414bbca66f9904a4da979d70d45d6aeb129c3c",
+      "alpha": true
+    },
+    {
+      "file": "spring-flowers.webp",
+      "width": 1147,
+      "height": 1372,
+      "bytes": 359344,
+      "sha256": "89617d0b721ce7cfe6577b77d2d31bbfab07851ef87398ff7be294c9f5e1d8f4",
+      "alpha": true
+    },
+    {
+      "file": "winter-tree.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 455396,
+      "sha256": "75a5208c2f3b70fd5e9162076a984c5c321d3ecdba71eb3c80cd1dcf20960242",
+      "alpha": true
+    },
+    {
+      "file": "winter-wreath.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 565902,
+      "sha256": "58bef1e4432743b1529690d0abfc3739b69b0e630d47d42fa63362884bbee126",
+      "alpha": true
+    }
+  ]
+}

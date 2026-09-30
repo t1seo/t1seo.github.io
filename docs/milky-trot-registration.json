@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "canvas": [
+    768,
+    512
+  ],
+  "generation_canvas": [
+    1536,
+    1024
+  ],
+  "master": "milky-forward-idle.webp",
+  "tool": "built-in image_gen",
+  "postprocessing": "Whole-image cwebp resize to768x512, quality92, alpha_quality100; no pixel edits/masks/collage",
+  "requested_virtual_floor_y": 485,
+  "observed_common_contact_floor_y": 471,
+  "center_x": 397.5,
+  "registration_guidance": "Use one shared floor anchor for all four frames; preserve airborne clearance. No per-frame bottom alignment, nose-matching translations, scaling or warping. Measured contact floor471 differs from requested485. If integration chooses floor alignment, use one set-wide +14 delivered pixels (+28 on1536 canvas) for every frame, never individual offsets. Source assets themselves are not shifted.",
+  "review": "Independent static frame review approved final four and separately alpha-clean final1; actual Chrome cadence playback not verified.",
+  "frames": [
+    {
+      "file": "public/assets/cyberpunk/milky-trot-0.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0c5-b5ea-7013-a151-696d816efad8/exec-f86c144e-f0fe-4318-991e-26bd5f2d879f.png",
+      "phase": "near fore + far hind contact; near hind lifted forward; far fore lifted back",
+      "size": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "zero_alpha_fraction": 0.6332677205403646,
+      "alpha_bounds": [
+        101,
+        55,
+        703,
+        474
+      ],
+      "body_bounds_alpha_gt200": [
+        109,
+        61,
+        698,
+        472
+      ],
+      "lowest_body_pixel_y": 471,
+      "clearance_from_common_floor": 0,
+      "ground_contacts": [
+        "near_fore",
+        "far_hind"
+      ],
+      "landmarks": {
+        "nose": [
+          684,
+          160
+        ],
+        "near_fore_paw": [
+          641,
+          471
+        ],
+        "far_fore_paw": [
+          466,
+          424
+        ],
+        "near_hind_paw": [
+          328,
+          412
+        ],
+        "far_hind_paw": [
+          153,
+          453
+        ]
+      },
+      "bytes": 70796,
+      "sha256": "b43f1903abedaa91594eea8878e7bad42d56b0bc9ef469354d39a752d8c3f8ee"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-trot-1.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0c5-b5ea-7013-a151-696d816efad8/exec-b05063ea-6256-4893-b567-a9addd9a09e0.png",
+      "phase": "low suspension: near fore back and near hind forward; far fore forward and far hind back",
+      "size": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "zero_alpha_fraction": 0.6355565388997396,
+      "alpha_bounds": [
+        62,
+        51,
+        713,
+        432
+      ],
+      "body_bounds_alpha_gt200": [
+        64,
+        55,
+        711,
+        430
+      ],
+      "lowest_body_pixel_y": 429,
+      "clearance_from_common_floor": 42,
+      "ground_contacts": [],
+      "landmarks": {
+        "nose": [
+          685,
+          151
+        ],
+        "near_fore_paw": [
+          493,
+          410
+        ],
+        "far_fore_paw": [
+          678,
+          429
+        ],
+        "near_hind_paw": [
+          342,
+          423
+        ],
+        "far_hind_paw": [
+          84,
+          418
+        ]
+      },
+      "bytes": 72376,
+      "sha256": "ecabd1040b7c505322d068ffc43a7f453c9b3826e315f3250eb1a31790d176d1"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-trot-2.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0c5-b5ea-7013-a151-696d816efad8/exec-fc6bf186-877d-4dbf-9f3f-3ad4c3bca0f9.png",
+      "phase": "far fore + near hind contact; near fore lifted back; far hind lifted forward",
+      "size": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "zero_alpha_fraction": 0.6132888793945312,
+      "alpha_bounds": [
+        96,
+        54,
+        705,
+        512
+      ],
+      "body_bounds_alpha_gt200": [
+        102,
+        60,
+        699,
+        470
+      ],
+      "lowest_body_pixel_y": 469,
+      "clearance_from_common_floor": 2,
+      "ground_contacts": [
+        "far_fore",
+        "near_hind"
+      ],
+      "landmarks": {
+        "nose": [
+          684,
+          160
+        ],
+        "near_fore_paw": [
+          520,
+          428
+        ],
+        "far_fore_paw": [
+          641,
+          469
+        ],
+        "near_hind_paw": [
+          140,
+          469
+        ],
+        "far_hind_paw": [
+          345,
+          436
+        ]
+      },
+      "bytes": 71368,
+      "sha256": "4ab5d879fea40e7a0aa1916ec44a73a357842aa87eff80e4a0ea2b646f782709"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-trot-3.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0c5-b5ea-7013-a151-696d816efad8/exec-a61bef78-892c-44de-8b19-4fc6bb0dcb79.png",
+      "phase": "low suspension: near fore forward and near hind back; far fore back and far hind forward",
+      "size": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "zero_alpha_fraction": 0.615325927734375,
+      "alpha_bounds": [
+        96,
+        54,
+        704,
+        476
+      ],
+      "body_bounds_alpha_gt200": [
+        104,
+        60,
+        698,
+        447
+      ],
+      "lowest_body_pixel_y": 446,
+      "clearance_from_common_floor": 25,
+      "ground_contacts": [],
+      "landmarks": {
+        "nose": [
+          684,
+          160
+        ],
+        "near_fore_paw": [
+          652,
+          445
+        ],
+        "far_fore_paw": [
+          468,
+          446
+        ],
+        "near_hind_paw": [
+          135,
+          433
+        ],
+        "far_hind_paw": [
+          340,
+          435
+        ]
+      },
+      "bytes": 70680,
+      "sha256": "105ed5bf52ce6f95abb5617f33639253e31e374dfbd2058d6a1023bcafa65ea4"
+    }
+  ],
+  "total_bytes": 285220
+}

@@ -1,0 +1,402 @@
+{
+  "coordinateSpace": "Native exported pixels, common 1536x1024 canvas. Bounds use exclusive right/bottom; lowest contact rows and landmark points are inclusive.",
+  "commonTargetAnchor": {
+    "x": 795,
+    "y": 970,
+    "source": "Fable MILKY-FABLE-REST-ASSET-BRIEF.md and existing v4 runtime registration"
+  },
+  "renderScale": "Use the existing v4 physical render scale (.847). Do not normalize poses by silhouette height.",
+  "supportFootprintMethod": "Manually reviewed horizontal extent of grounded folded hindquarters, belly where applicable, and both forepaws; excludes tail. Center is extent midpoint. Perspective causes different paws to contact at different rows. Do not use the lowest occupied row alone for horizontal centering.",
+  "landmarkMethod": "Paw and torso centers are approximate visual anatomical landmarks, not segmented joints or guarantees of pixel-perfect pose continuity. Torso X is approximately +/-25px. Alpha-weighted and bbox centers are measured diagnostics, not registration anchors.",
+  "alphaHaloMethod": "Read-only scipy distance_transform_edt from alpha>200 pixels. Report pixels farther than40 native px; this does not alter transparency.",
+  "legacyProbeWarning": "Legacy probe (900,360) is inside the sit/drowsy head. Its nonzero alpha is expected; exteriorSamples are guaranteed outside all three silhouettes.",
+  "generationLimit": "Sleep refinement fixed body size but ignored requested ground row; a +55 native-pixel vertical runtime registration correction is needed. Verify held pose changes in Chrome.",
+  "assets": [
+    {
+      "pose": "sit",
+      "file": "milky-rest-sit.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 194564,
+      "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3",
+      "nativeSource": "/Users/cillian/.codex/generated_images/01a0f0a4-a1c1-7873-9fcd-12762774855b/exec-eb93f8b7-1401-47dc-bbc5-9516aea2a1cc.png",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAboveThreshold": {
+        "0": [
+          65,
+          42,
+          1329,
+          984
+        ],
+        "15": [
+          326,
+          48,
+          1318,
+          978
+        ],
+        "32": [
+          329,
+          49,
+          1317,
+          978
+        ],
+        "127": [
+          334,
+          53,
+          1313,
+          977
+        ],
+        "200": [
+          339,
+          56,
+          1312,
+          977
+        ]
+      },
+      "alphaBoundsAbove32": [
+        329,
+        49,
+        1317,
+        978
+      ],
+      "alphaPreservedExactlyFromSource": true,
+      "partialAlphaPixels1To199": 57782,
+      "nonzeroAlphaFartherThan40PxFromOpaqueFur": 22,
+      "alphaAbove32FartherThan40PxFromOpaqueFur": 0,
+      "lowestGroundContactRow": 977,
+      "supportFootprintExtentX": [
+        532,
+        1246
+      ],
+      "supportFootprintCenterX": 889.0,
+      "groundPoint": [
+        889.0,
+        977
+      ],
+      "translationToContractAnchor": {
+        "x": -94.0,
+        "y": -7
+      },
+      "approximateTorsoCenter": [
+        805,
+        670
+      ],
+      "approximatePawGroundLandmarks": {
+        "nearHind": [
+          700,
+          944
+        ],
+        "farHind": [
+          870,
+          911
+        ],
+        "nearFront": [
+          1030,
+          973
+        ],
+        "farFront": [
+          1180,
+          943
+        ]
+      },
+      "alphaBoundsCenter": [
+        823.0,
+        513.5
+      ],
+      "alphaWeightedSubjectCenter": [
+        885.96,
+        583.27
+      ],
+      "legacyV4Samples": {
+        "0,0": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "768,200": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "768,980": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "100,500": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "1500,500": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "900,360": {
+          "alpha": 252,
+          "expected": "occupied head"
+        }
+      },
+      "exteriorSamples": {
+        "0,0": 0,
+        "768,20": 0,
+        "20,500": 0,
+        "1515,500": 0,
+        "768,1010": 0,
+        "1525,1000": 0
+      }
+    },
+    {
+      "pose": "drowsy",
+      "file": "milky-rest-drowsy.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 202736,
+      "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6",
+      "nativeSource": "/Users/cillian/.codex/generated_images/01a0f0a4-a1c1-7873-9fcd-12762774855b/exec-2c670665-a68e-4762-b761-a6d53f01df6f.png",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAboveThreshold": {
+        "0": [
+          134,
+          203,
+          1526,
+          960
+        ],
+        "15": [
+          144,
+          239,
+          1485,
+          952
+        ],
+        "32": [
+          146,
+          240,
+          1484,
+          952
+        ],
+        "127": [
+          151,
+          241,
+          1481,
+          951
+        ],
+        "200": [
+          159,
+          245,
+          1479,
+          951
+        ]
+      },
+      "alphaBoundsAbove32": [
+        146,
+        240,
+        1484,
+        952
+      ],
+      "alphaPreservedExactlyFromSource": true,
+      "partialAlphaPixels1To199": 57874,
+      "nonzeroAlphaFartherThan40PxFromOpaqueFur": 30,
+      "alphaAbove32FartherThan40PxFromOpaqueFur": 0,
+      "lowestGroundContactRow": 951,
+      "supportFootprintExtentX": [
+        380,
+        1484
+      ],
+      "supportFootprintCenterX": 932.0,
+      "groundPoint": [
+        932.0,
+        951
+      ],
+      "translationToContractAnchor": {
+        "x": -137.0,
+        "y": 19
+      },
+      "approximateTorsoCenter": [
+        785,
+        750
+      ],
+      "approximatePawGroundLandmarks": {
+        "foldedHind": [
+          600,
+          909
+        ],
+        "nearFront": [
+          1230,
+          947
+        ],
+        "farFront": [
+          1405,
+          921
+        ]
+      },
+      "alphaBoundsCenter": [
+        815.0,
+        596.0
+      ],
+      "alphaWeightedSubjectCenter": [
+        850.86,
+        668.98
+      ],
+      "legacyV4Samples": {
+        "0,0": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "768,200": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "768,980": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "100,500": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "1500,500": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "900,360": {
+          "alpha": 253,
+          "expected": "occupied head"
+        }
+      },
+      "exteriorSamples": {
+        "0,0": 0,
+        "768,20": 0,
+        "20,500": 0,
+        "1515,500": 0,
+        "768,1010": 0,
+        "1525,1000": 0
+      }
+    },
+    {
+      "pose": "sleep",
+      "file": "milky-rest-sleep.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 138606,
+      "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b",
+      "nativeSource": "/Users/cillian/.codex/generated_images/01a0f0a4-a1c1-7873-9fcd-12762774855b/exec-fec2ccc4-d97b-43fe-a56a-26dd528a20c6.png",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAboveThreshold": {
+        "0": [
+          0,
+          327,
+          1442,
+          1000
+        ],
+        "15": [
+          111,
+          474,
+          1440,
+          916
+        ],
+        "32": [
+          112,
+          475,
+          1439,
+          916
+        ],
+        "127": [
+          116,
+          480,
+          1438,
+          915
+        ],
+        "200": [
+          119,
+          485,
+          1437,
+          914
+        ]
+      },
+      "alphaBoundsAbove32": [
+        112,
+        475,
+        1439,
+        916
+      ],
+      "alphaPreservedExactlyFromSource": true,
+      "partialAlphaPixels1To199": 34778,
+      "nonzeroAlphaFartherThan40PxFromOpaqueFur": 18,
+      "alphaAbove32FartherThan40PxFromOpaqueFur": 0,
+      "lowestGroundContactRow": 915,
+      "supportFootprintExtentX": [
+        358,
+        1438
+      ],
+      "supportFootprintCenterX": 898.0,
+      "groundPoint": [
+        898.0,
+        915
+      ],
+      "translationToContractAnchor": {
+        "x": -103.0,
+        "y": 55
+      },
+      "approximateTorsoCenter": [
+        760,
+        730
+      ],
+      "approximatePawGroundLandmarks": {
+        "foldedHind": [
+          580,
+          878
+        ],
+        "nearFront": [
+          1240,
+          912
+        ],
+        "farFront": [
+          1380,
+          885
+        ]
+      },
+      "alphaBoundsCenter": [
+        775.5,
+        695.5
+      ],
+      "alphaWeightedSubjectCenter": [
+        770.9,
+        718.11
+      ],
+      "legacyV4Samples": {
+        "0,0": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "768,200": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "768,980": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "100,500": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "1500,500": {
+          "alpha": 0,
+          "expected": "clear"
+        },
+        "900,360": {
+          "alpha": 0,
+          "expected": "clear"
+        }
+      },
+      "exteriorSamples": {
+        "0,0": 0,
+        "768,20": 0,
+        "20,500": 0,
+        "1515,500": 0,
+        "768,1010": 0,
+        "1525,1000": 0
+      }
+    }
+  ],
+  "totalBytes": 535906
+}

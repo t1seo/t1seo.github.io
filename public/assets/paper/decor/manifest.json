@@ -1,0 +1,145 @@
+{
+  "library": "Kitbitz",
+  "revision": "c67532ddf21cef61827de203344282cc9c2cecae",
+  "license": "CC0-1.0",
+  "assets": [
+    {
+      "file": "christmas-tree.svg",
+      "assetId": "winter-kit:Christmas tree inside",
+      "name": "Festive Christmas Tree",
+      "dimensions": {
+        "width": 1127,
+        "height": 2114
+      },
+      "source": "https://kitbitz.art/illustrations/winter-kit/festive-christmas-tree-9df1043b",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/winter-kit/Christmas%20tree%20inside.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "christmas-wreath.svg",
+      "assetId": "winter-kit:Christmas wreath",
+      "name": "Holiday Wreath",
+      "dimensions": {
+        "width": 376,
+        "height": 398
+      },
+      "source": "https://kitbitz.art/illustrations/winter-kit/holiday-wreath-db95db3e",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/winter-kit/Christmas%20wreath.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "candy-cane.svg",
+      "assetId": "winter-kit:Candy cane single",
+      "name": "Candy Cane",
+      "dimensions": {
+        "width": 194,
+        "height": 370
+      },
+      "source": "https://kitbitz.art/illustrations/winter-kit/candy-cane-cbc15f39",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/winter-kit/Candy%20cane%20single.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "spring-flowers.svg",
+      "assetId": "interior-kit:OrganicCeramic-H-M-Teal400@2x",
+      "name": "Flower Planter",
+      "dimensions": {
+        "width": 218,
+        "height": 252
+      },
+      "source": "https://kitbitz.art/illustrations/interior-kit/flower-planter-1a7e244d",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/interior-kit/OrganicCeramic-H-M-Teal400.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "summer-monstera.svg",
+      "assetId": "interior-kit:OrganicCeramic-V-M-Grass600@2x",
+      "name": "Potted Monstera Plant",
+      "dimensions": {
+        "width": 650,
+        "height": 740
+      },
+      "source": "https://kitbitz.art/illustrations/interior-kit/potted-monstera-plant-7453374f",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/interior-kit/OrganicCeramic-V-M-Grass600.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "rose-vase.svg",
+      "assetId": "interior-kit:Plant pots@2x",
+      "name": "Rose in Vase",
+      "dimensions": {
+        "width": 169,
+        "height": 358
+      },
+      "source": "https://kitbitz.art/illustrations/interior-kit/rose-in-vase-e8a939bd",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/interior-kit/Plant%20pots.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "autumn-pumpkin.svg",
+      "assetId": "medieval-kit:Pumpkin2-Organic-H-M-Orange500@2x",
+      "name": "Pumpkin",
+      "dimensions": {
+        "width": 333,
+        "height": 273
+      },
+      "source": "https://kitbitz.art/illustrations/medieval-kit/pumpkin-b7e06798",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/medieval-kit/Pumpkin2-Organic-H-M-Orange500.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "book-stack.svg",
+      "assetId": "interior-kit:Books Stacked@2x",
+      "name": "Stacked Books",
+      "dimensions": {
+        "width": 205,
+        "height": 327
+      },
+      "source": "https://kitbitz.art/illustrations/interior-kit/stacked-books-347d21ad",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/interior-kit/Books%20Stacked.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "resting-cat.svg",
+      "assetId": "halloween-kit:Black cat",
+      "name": "Lounging Cat",
+      "dimensions": {
+        "width": 379,
+        "height": 246
+      },
+      "source": "https://kitbitz.art/illustrations/halloween-kit/lounging-cat-fbd31a3c",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/halloween-kit/Black%20cat.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "little-bird.svg",
+      "assetId": "pirate-kit:SeagullLeft-Organic-H-M-Slate100@2x",
+      "name": "Seagull",
+      "dimensions": {
+        "width": 325,
+        "height": 310
+      },
+      "source": "https://kitbitz.art/illustrations/pirate-kit/seagull-441747a1",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/pirate-kit/SeagullLeft-Organic-H-M-Slate100.svg",
+      "license": "CC0-1.0"
+    },
+    {
+      "file": "speaker.svg",
+      "assetId": "interior-kit:SpeakerA-Plastic-V-M-Slate600@2x",
+      "name": "Audio Speaker",
+      "dimensions": {
+        "width": 278,
+        "height": 532
+      },
+      "source": "https://kitbitz.art/illustrations/interior-kit/audio-speaker-6098ff56",
+      "download": "https://raw.githubusercontent.com/CaptExcellent/kits-library-assets/c67532ddf21cef61827de203344282cc9c2cecae/kits/interior-kit/SpeakerA-Plastic-V-M-Slate600.svg",
+      "license": "CC0-1.0"
+    }
+  ],
+  "adaptedAssets": {
+    "directory": "adapted",
+    "manifest": "adapted/manifest.json",
+    "license": "CC0-1.0",
+    "changes": "Original paths and viewBoxes retained. Colors remapped to paper palette; original gloss/inner-shadow filters replaced by matte paper grain and fine edge shadows. See adapted manifest for file-level mappings."
+  }
+}

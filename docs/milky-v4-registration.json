@@ -1,0 +1,943 @@
+{
+  "coordinateSpace": "Native exported pixels: idle/blink1536x1024; steps768x512. Multiply step positions by2 for shared source coordinates.",
+  "noseMethod": "Largest connected component with max(R,G,B)<100 and alpha>200 within the recorded nose inspection window; this isolates the nose from the smiling mouth and eyes. This differs from the older v3 all-dark-pixel ROI mean, so do not compare the centroids as if the methods were identical.",
+  "registrationWarning": "Generated head-only edits also slightly changed torso contours. These are preserved four-legged pose approximations, not pixel-locked v3 bodies or motion capture. Do not translate whole bodies aggressively to align nose landmarks.",
+  "pawMethod": "Read-only alpha occupancy in expanded v3 manually labelled inspection windows; these boxes may include neighboring lower-limb fur and are not anatomical segmentation.",
+  "idleMinusTwoTimesStepNoseX": [
+    -38.33,
+    -33.69,
+    -30.33,
+    -43.75,
+    -18.35,
+    -40.25,
+    -3.05,
+    -16.93
+  ],
+  "stepNoseRange": {
+    "x": 20.35,
+    "y": 7.28
+  },
+  "assets": [
+    {
+      "file": "milky-v4-blink.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 187208,
+      "sha256": "fcc6072c982c6f0367780c611a241f4c725589ed2a4ca0fe3414e16df45716ab",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        200,
+        96,
+        1394,
+        970
+      ],
+      "noseDarkCentroid": [
+        1146.53,
+        352.79
+      ],
+      "noseInspectionWindow": [
+        1090,
+        290,
+        1270,
+        380
+      ],
+      "partialAlphaPixels1To199": 69381,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 95,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(768, 200)": 0,
+        "(768, 980)": 0,
+        "(100, 500)": 0,
+        "(1500, 500)": 0,
+        "(900, 360)": 0
+      }
+    },
+    {
+      "file": "milky-v4-idle.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 212856,
+      "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        197,
+        95,
+        1393,
+        970
+      ],
+      "noseDarkCentroid": [
+        1145.39,
+        353.34
+      ],
+      "noseInspectionWindow": [
+        1090,
+        290,
+        1270,
+        380
+      ],
+      "partialAlphaPixels1To199": 79434,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 11,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(768, 200)": 0,
+        "(768, 980)": 0,
+        "(100, 500)": 0,
+        "(1500, 500)": 0,
+        "(900, 360)": 0
+      }
+    },
+    {
+      "file": "milky-v4-step-0.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 85768,
+      "sha256": "36e6c3524b2bd38192edf81682ed1f84bedb767a59b19d94347153499825581d",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        68,
+        42,
+        721,
+        472
+      ],
+      "noseDarkCentroid": [
+        591.86,
+        168.09
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 17043,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 191,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 0,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            310,
+            410,
+            430,
+            495
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            310,
+            410,
+            417,
+            472
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            55,
+            385,
+            147,
+            472
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            68,
+            385,
+            143,
+            450
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            430,
+            420,
+            555,
+            493
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            458,
+            420,
+            546,
+            471
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            610,
+            417,
+            730,
+            495
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            610,
+            417,
+            721,
+            471
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 171,
+        "360": 177,
+        "400": 186,
+        "440": 193
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 181.5
+      }
+    },
+    {
+      "file": "milky-v4-step-1.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 92546,
+      "sha256": "9d35fb615f6643b1628dad231d73ee236fd912d9ec740ea19c61efa3e0d57bd9",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        68,
+        39,
+        725,
+        481
+      ],
+      "noseDarkCentroid": [
+        589.54,
+        171.17
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 17952,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 30,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 1,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            281,
+            410,
+            405,
+            493
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            281,
+            410,
+            382,
+            481
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            74,
+            365,
+            165,
+            456
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            74,
+            365,
+            158,
+            445
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            435,
+            415,
+            545,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            450,
+            415,
+            543,
+            479
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            605,
+            413,
+            730,
+            493
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            605,
+            413,
+            725,
+            481
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 175,
+        "360": 183,
+        "400": 192,
+        "440": 201
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 187.5
+      }
+    },
+    {
+      "file": "milky-v4-step-2.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 83718,
+      "sha256": "8fe1f89cd5142d5e1a4450c556c6fde704cf0729f0a608440cda0bf006830856",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        77,
+        41,
+        712,
+        475
+      ],
+      "noseDarkCentroid": [
+        587.86,
+        170.76
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 13184,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 1,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 2,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            220,
+            417,
+            355,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            220,
+            417,
+            332,
+            472
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            72,
+            374,
+            174,
+            467
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            77,
+            374,
+            153,
+            446
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            450,
+            375,
+            540,
+            452
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            480,
+            375,
+            539,
+            433
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            585,
+            421,
+            695,
+            494
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            585,
+            421,
+            694,
+            475
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 173,
+        "360": 178,
+        "400": 184,
+        "440": 191
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 181.0
+      }
+    },
+    {
+      "file": "milky-v4-step-3.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 75848,
+      "sha256": "cab83bfd91a749494fd1b838b32e3946f3d15e01326503a3ab79f78622c388c1",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        103,
+        55,
+        721,
+        469
+      ],
+      "noseDarkCentroid": [
+        594.57,
+        173.34
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 14638,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 3,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 3,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            178,
+            415,
+            303,
+            494
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            198,
+            415,
+            282,
+            468
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            297,
+            352,
+            385,
+            430
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            297,
+            352,
+            367,
+            404
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            620,
+            417,
+            732,
+            496
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            620,
+            417,
+            721,
+            469
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            490,
+            406,
+            597,
+            477
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            507,
+            406,
+            596,
+            454
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 178,
+        "360": 184,
+        "400": 192,
+        "440": 199
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 188.0
+      }
+    },
+    {
+      "file": "milky-v4-step-4.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 79818,
+      "sha256": "e30b70423237a12778d6fcc21763050567ecc682c624cb7853b6f4cd519c5586",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        91,
+        38,
+        715,
+        470
+      ],
+      "noseDarkCentroid": [
+        581.87,
+        170.77
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 16296,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 1,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 4,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            110,
+            417,
+            230,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            126,
+            417,
+            210,
+            465
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            305,
+            390,
+            425,
+            470
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            305,
+            390,
+            399,
+            439
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            605,
+            420,
+            727,
+            497
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            605,
+            420,
+            705,
+            470
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            422,
+            400,
+            545,
+            472
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            436,
+            400,
+            527,
+            450
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 182,
+        "360": 188,
+        "400": 193,
+        "440": 200
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 190.5
+      }
+    },
+    {
+      "file": "milky-v4-step-5.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 88076,
+      "sha256": "09f81704102a30093269931a6f275e3eb34f2ed32366921509f078b8ed72764e",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        89,
+        35,
+        719,
+        478
+      ],
+      "noseDarkCentroid": [
+        592.82,
+        166.06
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 18437,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 23,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 5,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            130,
+            404,
+            231,
+            478
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            131,
+            404,
+            230,
+            459
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            228,
+            408,
+            343,
+            487
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            233,
+            408,
+            328,
+            470
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            510,
+            417,
+            630,
+            495
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            510,
+            417,
+            629,
+            478
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            434,
+            389,
+            535,
+            475
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            450,
+            389,
+            534,
+            455
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 163,
+        "360": 172,
+        "400": 183,
+        "440": 192
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 177.5
+      }
+    },
+    {
+      "file": "milky-v4-step-6.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 79892,
+      "sha256": "93161b5b23093fa156a85615f5e635eede8c26a6f2477dbb3c36a79bb2aa4c7a",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        97,
+        46,
+        701,
+        490
+      ],
+      "noseDarkCentroid": [
+        574.22,
+        172.83
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 13629,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 5,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 6,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            170,
+            350,
+            259,
+            432
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            170,
+            350,
+            258,
+            431
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            190,
+            412,
+            295,
+            486
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            200,
+            412,
+            269,
+            465
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            505,
+            425,
+            632,
+            509
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            507,
+            425,
+            606,
+            490
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            555,
+            353,
+            650,
+            444
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            555,
+            353,
+            628,
+            443
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 181,
+        "360": 187,
+        "400": 195,
+        "440": 201
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 191.0
+      }
+    },
+    {
+      "file": "milky-v4-step-7.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 85016,
+      "sha256": "4dc9361f3b6cfa66c4ce5b816ca9a1c2b9a3056c11d2e4feaf7f8f6792d69a0f",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        103,
+        42,
+        714,
+        476
+      ],
+      "noseDarkCentroid": [
+        581.16,
+        168.67
+      ],
+      "noseInspectionWindow": [
+        545,
+        145,
+        635,
+        190
+      ],
+      "partialAlphaPixels1To199": 18849,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 41,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "frame": 7,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            312,
+            381,
+            427,
+            458
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            312,
+            381,
+            408,
+            428
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            100,
+            416,
+            206,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            115,
+            416,
+            183,
+            464
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            460,
+            435,
+            573,
+            509
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            481,
+            435,
+            560,
+            476
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            615,
+            417,
+            728,
+            496
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            617,
+            417,
+            714,
+            467
+          ]
+        }
+      },
+      "backTopAlphaAbove200": {
+        "320": 176,
+        "360": 182,
+        "400": 190,
+        "440": 196
+      },
+      "torsoAnchor": {
+        "method": "Median of opaque dorsal contour y at fixed x320,360,400,440; read-only stable-body inspection landmark, not an automatic full-body translation command.",
+        "x": 380,
+        "y": 186.0
+      }
+    }
+  ],
+  "runtimeRegistrationGuidance": "Keep a common body-space transform and floor contact. The nose table is diagnostic; applying its full x offsets to the whole dog would shift the torso and stance feet to compensate for separately redrawn heads. Prefer zero or deliberately bounded per-frame global offsets and inspect live playback."
+}

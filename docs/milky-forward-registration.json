@@ -1,0 +1,1288 @@
+{
+  "coordinateSpace": "Native exported pixels: idle1536x1024; steps768x512. Multiply step positions by2 for shared source coordinates. Bounds are inclusive xMin,yMin,xMax,yMax. Inspection windows use exclusive xMax,yMax.",
+  "canonicalSourceRegistration": {
+    "width": 1536,
+    "height": 1024,
+    "centerX": 795,
+    "floorY": 970,
+    "perFrameGlobalOffsets": "None: preserve shared body transform; do not align by nose/bounds."
+  },
+  "noseMethod": "Largest 4-connected component with max(R,G,B)<100 and alpha>200 within recorded nose window. This finds the side-facing nose, not the face center. Different orientation means v4 front-facing nose landmarks are not comparable as body translations.",
+  "pawMethod": "Read-only alpha occupancy in inherited v4 inspection windows. Windows may include adjacent lower-leg fur; not anatomical segmentation.",
+  "torsoMethod": "Median of opaque dorsal contour y at fixed exported x320,360,400,440 (doubled for idle). Diagnostic, not an automatic translation command.",
+  "registrationWarning": "Native imagegen edited heads and slightly redrew bodies. Four-leg gait phases survive, but these are approximations and not pixel-locked bodies or motion capture. Never shift whole sprites to chase separately drawn noses.",
+  "stepNoseRange": {
+    "x": 19.01,
+    "y": 15.77
+  },
+  "stepTorsoMedianYRange": 24.0,
+  "stepDorsalDeltaFromV4Range": {
+    "min": -10,
+    "max": 11
+  },
+  "totalBytes": 840410,
+  "assets": [
+    {
+      "file": "milky-forward-idle.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 202964,
+      "sha256": "f307a34a832cc82136d8b768d30f09abe3d1e2b2208f970308c3aafb1193610d",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        200,
+        114,
+        1402,
+        970
+      ],
+      "originalFile": "milky-v4-idle.webp",
+      "originalAlphaBoundsAbove32": [
+        197,
+        95,
+        1393,
+        970
+      ],
+      "noseDarkCentroid": [
+        1371.82,
+        325.77
+      ],
+      "noseInspectionWindow": [
+        1330,
+        280,
+        1410,
+        365
+      ],
+      "partialAlphaPixels1To199": 72679,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 92,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(768, 200)": 0,
+        "(768, 980)": 0,
+        "(100, 500)": 0,
+        "(1500, 500)": 0,
+        "(900, 360)": 0
+      },
+      "backTopAlphaAbove200": {
+        "640": 370,
+        "720": 383,
+        "800": 397,
+        "880": 409
+      },
+      "originalBackTopAlphaAbove200": {
+        "640": 371,
+        "720": 382,
+        "800": 397,
+        "880": 410
+      },
+      "dorsalDeltaFromV4": [
+        -1,
+        1,
+        0,
+        -1
+      ],
+      "torsoAnchor": {
+        "x": 760.0,
+        "y": 390.0
+      }
+    },
+    {
+      "file": "milky-forward-step-0.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 82234,
+      "sha256": "8773613547811a7a6643c96743d3b6f8218161ff0ea70f9151ed59fddf6d21ef",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        68,
+        54,
+        728,
+        465
+      ],
+      "originalFile": "milky-v4-step-0.webp",
+      "originalAlphaBoundsAbove32": [
+        68,
+        42,
+        721,
+        472
+      ],
+      "noseDarkCentroid": [
+        698.43,
+        166.18
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 15670,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 429,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 162,
+        "360": 169,
+        "400": 176,
+        "440": 183
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 171,
+        "360": 177,
+        "400": 186,
+        "440": 193
+      },
+      "dorsalDeltaFromV4": [
+        -9,
+        -8,
+        -10,
+        -10
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 172.5
+      },
+      "frame": 0,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            310,
+            410,
+            430,
+            495
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            310,
+            410,
+            421,
+            465
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            310,
+            410,
+            417,
+            472
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            55,
+            385,
+            147,
+            472
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            68,
+            385,
+            138,
+            442
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            68,
+            385,
+            143,
+            450
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            430,
+            420,
+            555,
+            493
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            463,
+            420,
+            551,
+            465
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            458,
+            420,
+            546,
+            471
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            610,
+            417,
+            730,
+            495
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            619,
+            417,
+            728,
+            465
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            610,
+            417,
+            721,
+            471
+          ]
+        }
+      }
+    },
+    {
+      "file": "milky-forward-step-1.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 85904,
+      "sha256": "1bc97d00cacc40c21fab8fbe895fedea3762a4a54588cd0bf5ccec2d34a54576",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        73,
+        62,
+        727,
+        478
+      ],
+      "originalFile": "milky-v4-step-1.webp",
+      "originalAlphaBoundsAbove32": [
+        68,
+        39,
+        725,
+        481
+      ],
+      "noseDarkCentroid": [
+        705.37,
+        172.54
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 16613,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 127,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 184,
+        "360": 192,
+        "400": 200,
+        "440": 210
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 175,
+        "360": 183,
+        "400": 192,
+        "440": 201
+      },
+      "dorsalDeltaFromV4": [
+        9,
+        9,
+        8,
+        9
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 196.0
+      },
+      "frame": 1,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            281,
+            410,
+            405,
+            493
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            281,
+            410,
+            384,
+            478
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            281,
+            410,
+            382,
+            481
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            74,
+            365,
+            165,
+            456
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            74,
+            365,
+            160,
+            443
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            74,
+            365,
+            158,
+            445
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            435,
+            415,
+            545,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            455,
+            415,
+            544,
+            478
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            450,
+            415,
+            543,
+            479
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            605,
+            413,
+            730,
+            493
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            605,
+            413,
+            727,
+            477
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            605,
+            413,
+            725,
+            481
+          ]
+        }
+      }
+    },
+    {
+      "file": "milky-forward-step-2.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 85376,
+      "sha256": "49ac6e2173dc6890dd829dc1771dea4007259846ca72ae8edbe28027fd4836f7",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        72,
+        39,
+        725,
+        476
+      ],
+      "originalFile": "milky-v4-step-2.webp",
+      "originalAlphaBoundsAbove32": [
+        77,
+        41,
+        712,
+        475
+      ],
+      "noseDarkCentroid": [
+        711.9,
+        158.55
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 14345,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 8,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 163,
+        "360": 169,
+        "400": 175,
+        "440": 182
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 173,
+        "360": 178,
+        "400": 184,
+        "440": 191
+      },
+      "dorsalDeltaFromV4": [
+        -10,
+        -9,
+        -9,
+        -9
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 172.0
+      },
+      "frame": 2,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            220,
+            417,
+            355,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            220,
+            417,
+            337,
+            473
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            220,
+            417,
+            332,
+            472
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            72,
+            374,
+            174,
+            467
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            72,
+            374,
+            149,
+            447
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            77,
+            374,
+            153,
+            446
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            450,
+            375,
+            540,
+            452
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            484,
+            375,
+            539,
+            433
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            480,
+            375,
+            539,
+            433
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            585,
+            421,
+            695,
+            494
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            587,
+            421,
+            694,
+            476
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            585,
+            421,
+            694,
+            475
+          ]
+        }
+      }
+    },
+    {
+      "file": "milky-forward-step-3.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 76230,
+      "sha256": "2140f0a638d5a9214f5dbaed852d28368ccf7a5109666fbf62cefc8162d85f43",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        101,
+        59,
+        727,
+        472
+      ],
+      "originalFile": "milky-v4-step-3.webp",
+      "originalAlphaBoundsAbove32": [
+        103,
+        55,
+        721,
+        469
+      ],
+      "noseDarkCentroid": [
+        700.8,
+        165.16
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 12751,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 26,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 186,
+        "360": 192,
+        "400": 200,
+        "440": 204
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 178,
+        "360": 184,
+        "400": 192,
+        "440": 199
+      },
+      "dorsalDeltaFromV4": [
+        8,
+        8,
+        8,
+        5
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 196.0
+      },
+      "frame": 3,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            178,
+            415,
+            303,
+            494
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            187,
+            415,
+            273,
+            469
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            198,
+            415,
+            282,
+            468
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            297,
+            352,
+            385,
+            430
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            297,
+            352,
+            366,
+            407
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            297,
+            352,
+            367,
+            404
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            620,
+            417,
+            732,
+            496
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            620,
+            417,
+            727,
+            472
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            620,
+            417,
+            721,
+            469
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            490,
+            406,
+            597,
+            477
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            502,
+            406,
+            596,
+            456
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            507,
+            406,
+            596,
+            454
+          ]
+        }
+      }
+    },
+    {
+      "file": "milky-forward-step-4.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 77094,
+      "sha256": "1eb75ecfb05c6e27d126c089a4c942e843dfb861c659329de59d3032a47da670",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        91,
+        55,
+        712,
+        469
+      ],
+      "originalFile": "milky-v4-step-4.webp",
+      "originalAlphaBoundsAbove32": [
+        91,
+        38,
+        715,
+        470
+      ],
+      "noseDarkCentroid": [
+        699.76,
+        162.93
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 15296,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 7,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 184,
+        "360": 191,
+        "400": 196,
+        "440": 203
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 182,
+        "360": 188,
+        "400": 193,
+        "440": 200
+      },
+      "dorsalDeltaFromV4": [
+        2,
+        3,
+        3,
+        3
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 193.5
+      },
+      "frame": 4,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            110,
+            417,
+            230,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            124,
+            417,
+            209,
+            463
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            126,
+            417,
+            210,
+            465
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            305,
+            390,
+            425,
+            470
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            305,
+            390,
+            398,
+            437
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            305,
+            390,
+            399,
+            439
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            605,
+            420,
+            727,
+            497
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            605,
+            420,
+            704,
+            469
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            605,
+            420,
+            705,
+            470
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            422,
+            400,
+            545,
+            472
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            433,
+            400,
+            525,
+            450
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            436,
+            400,
+            527,
+            450
+          ]
+        }
+      }
+    },
+    {
+      "file": "milky-forward-step-5.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 78086,
+      "sha256": "c5fc8de847378b74ff211aae486ad6f38cd24a841764b69043717dca83ad8129",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        91,
+        53,
+        711,
+        478
+      ],
+      "originalFile": "milky-v4-step-5.webp",
+      "originalAlphaBoundsAbove32": [
+        89,
+        35,
+        719,
+        478
+      ],
+      "noseDarkCentroid": [
+        698.77,
+        164.96
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 14187,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 3,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 174,
+        "360": 183,
+        "400": 193,
+        "440": 202
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 163,
+        "360": 172,
+        "400": 183,
+        "440": 192
+      },
+      "dorsalDeltaFromV4": [
+        11,
+        11,
+        10,
+        10
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 188.0
+      },
+      "frame": 5,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            130,
+            404,
+            231,
+            478
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            131,
+            404,
+            230,
+            464
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            131,
+            404,
+            230,
+            459
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            228,
+            408,
+            343,
+            487
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            231,
+            408,
+            331,
+            476
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            233,
+            408,
+            328,
+            470
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            510,
+            417,
+            630,
+            495
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            510,
+            417,
+            629,
+            478
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            510,
+            417,
+            629,
+            478
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            434,
+            389,
+            535,
+            475
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            451,
+            389,
+            534,
+            461
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            450,
+            389,
+            534,
+            455
+          ]
+        }
+      }
+    },
+    {
+      "file": "milky-forward-step-6.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 74004,
+      "sha256": "e84c75d57094eaff76115f68c7ec19dccfdd5de51f6bc09859d2a952c895d18b",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        102,
+        56,
+        717,
+        484
+      ],
+      "originalFile": "milky-v4-step-6.webp",
+      "originalAlphaBoundsAbove32": [
+        97,
+        46,
+        701,
+        490
+      ],
+      "noseDarkCentroid": [
+        705.66,
+        156.77
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 12698,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 11,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 180,
+        "360": 187,
+        "400": 194,
+        "440": 200
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 181,
+        "360": 187,
+        "400": 195,
+        "440": 201
+      },
+      "dorsalDeltaFromV4": [
+        -1,
+        0,
+        -1,
+        -1
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 190.5
+      },
+      "frame": 6,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            170,
+            350,
+            259,
+            432
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            178,
+            350,
+            258,
+            431
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            170,
+            350,
+            258,
+            431
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            190,
+            412,
+            295,
+            486
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            204,
+            412,
+            274,
+            458
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            200,
+            412,
+            269,
+            465
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            505,
+            425,
+            632,
+            509
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            513,
+            425,
+            610,
+            484
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            507,
+            425,
+            606,
+            490
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            555,
+            353,
+            650,
+            444
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            555,
+            353,
+            634,
+            443
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            555,
+            353,
+            628,
+            443
+          ]
+        }
+      }
+    },
+    {
+      "file": "milky-forward-step-7.webp",
+      "width": 768,
+      "height": 512,
+      "bytes": 78518,
+      "sha256": "4743560a460ae7a83f05fc123c3a5ef3157fcad766e9953c3362b38e3a0bd7d8",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        106,
+        53,
+        719,
+        471
+      ],
+      "originalFile": "milky-v4-step-7.webp",
+      "originalAlphaBoundsAbove32": [
+        103,
+        42,
+        714,
+        476
+      ],
+      "noseDarkCentroid": [
+        692.89,
+        158.99
+      ],
+      "noseInspectionWindow": [
+        665,
+        130,
+        737,
+        190
+      ],
+      "partialAlphaPixels1To199": 13379,
+      "nonzeroAlphaFartherThan20ScaledPxFromOpaqueFur": 3,
+      "alphaAbove32FartherThan20ScaledPxFromOpaqueFur": 0,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(384, 100)": 0,
+        "(384, 490)": 0,
+        "(50, 250)": 0,
+        "(750, 250)": 0,
+        "(450, 180)": 0
+      },
+      "backTopAlphaAbove200": {
+        "320": 171,
+        "360": 178,
+        "400": 185,
+        "440": 193
+      },
+      "originalBackTopAlphaAbove200": {
+        "320": 176,
+        "360": 182,
+        "400": 190,
+        "440": 196
+      },
+      "dorsalDeltaFromV4": [
+        -5,
+        -4,
+        -5,
+        -3
+      ],
+      "torsoAnchor": {
+        "x": 380.0,
+        "y": 181.5
+      },
+      "frame": 7,
+      "pawInspection": {
+        "nearHind": {
+          "inspectionWindow": [
+            312,
+            381,
+            427,
+            458
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            312,
+            381,
+            409,
+            423
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            312,
+            381,
+            408,
+            428
+          ]
+        },
+        "farHind": {
+          "inspectionWindow": [
+            100,
+            416,
+            206,
+            492
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            113,
+            416,
+            184,
+            458
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            115,
+            416,
+            183,
+            464
+          ]
+        },
+        "nearFront": {
+          "inspectionWindow": [
+            460,
+            435,
+            573,
+            509
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            484,
+            435,
+            563,
+            471
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            481,
+            435,
+            560,
+            476
+          ]
+        },
+        "farFront": {
+          "inspectionWindow": [
+            615,
+            417,
+            728,
+            496
+          ],
+          "occupiedBoundsAboveAlpha32": [
+            623,
+            417,
+            719,
+            461
+          ],
+          "originalOccupiedBoundsAboveAlpha32": [
+            617,
+            417,
+            714,
+            467
+          ]
+        }
+      }
+    }
+  ],
+  "runtimeRegistrationGuidance": "Use original v4 happy idle for greeting, this forward idle for anticipation/quiet side-looking, and all eight forward frames for travel after atomic decoding. Keep shared center795/floor970 with zero per-frame whole-body translation initially. Inspect live Chrome playback for remaining jitter; never recenter by bounding box or snap each lowest paw to ground.",
+  "nativeGenerationSources": {
+    "directory": "/Users/cillian/.codex/generated_images/01a0f0af-4879-73e2-bcdf-1a3d84502307/",
+    "idle": "exec-eb4bb063-6f12-465c-be66-a13ca87a4875.png",
+    "step-0": "exec-1c02420a-b437-4550-a6ed-697c147b004a.png",
+    "step-1": "exec-38848238-4002-4ca5-b041-8d55834c88c7.png",
+    "step-2": "exec-7bbc20c4-6b79-4a27-978a-127f12a7d59a.png",
+    "step-3": "exec-938ec6b2-402b-48c6-a5e9-520c1a448c4c.png",
+    "step-4": "exec-7d94e18c-b2bc-4014-a8ec-de82a18fa0b2.png",
+    "step-5": "exec-b9714db0-e32b-44d7-8c30-703ca4923972.png",
+    "step-6": "exec-59bbadf9-5322-4639-8756-f6c8f09832d6.png",
+    "step-7": "exec-e8d52016-c900-4dc5-9dde-fbab388c1833.png"
+  }
+}

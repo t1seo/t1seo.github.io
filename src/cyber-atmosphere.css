@@ -1,0 +1,72 @@
+.cyber-atmosphere,
+.cyber-weather-reflection {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The canvas already clips fog, traffic and particles to the window. Normal
+   compositing lets cloudy weather gently shade a bright daytime plate too. */
+.cyber-atmosphere { mix-blend-mode: normal; }
+
+/* A separate, unmasked light wash reaches the desk and floor. It contains no
+   particles, shapes or pseudo-objects that could float in front of the room. */
+.cyber-weather-reflection {
+  opacity: var(--weather-light-strength, .46);
+  mix-blend-mode: soft-light;
+  background: none;
+  --flow-color: 181, 212, 235;
+}
+.cyber-weather-reflection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 73% 83%, rgba(var(--flow-color), .72), transparent 37%),
+    radial-gradient(ellipse at 90% 67%, rgba(var(--flow-color), .46), transparent 24%);
+  /* This is only soft reflected light on the desk/floor, never a new object. */
+  clip-path: polygon(28% 63%, 100% 61%, 100% 100%, 22% 100%);
+  opacity: var(--room-flow-strength, .17);
+  transform-origin: 73% 80%;
+  animation: cyber-room-light-flow 17s ease-in-out infinite alternate;
+}
+.cyber-weather-reflection[data-weather='clear'][data-time='morning'],
+.cyber-weather-reflection[data-weather='clear'][data-time='noon'],
+.cyber-weather-reflection[data-weather='clear'][data-time='afternoon'] {
+  --flow-color: 255, 233, 185;
+}
+.cyber-weather-reflection[data-time='evening'] { --flow-color: 233, 188, 164; }
+.cyber-weather-reflection[data-weather='snow'] { --flow-color: 219, 241, 250; }
+.cyber-weather-reflection[data-weather='mist'],
+.cyber-weather-reflection[data-weather='cloudy'] { --flow-color: 209, 222, 219; }
+.cyber-weather-reflection[data-active='false']::before { animation-play-state: paused; }
+.cyber-weather-reflection[hidden] { display: none; }
+.cyber-weather-reflection[data-weather='rain'] {
+  background:
+    radial-gradient(ellipse at 71% 78%, #456a8866, transparent 48%),
+    linear-gradient(125deg, transparent 25%, #6d96b36b 71%, transparent);
+}
+.cyber-weather-reflection[data-weather='snow'] {
+  background:
+    radial-gradient(ellipse at 70% 80%, #e9f8ff80, transparent 50%),
+    linear-gradient(126deg, transparent 25%, #c6dbe466 70%, transparent);
+}
+.cyber-weather-reflection[data-weather='cloudy'] {
+  background: linear-gradient(128deg, transparent 23%, #53657366 65%, transparent 100%);
+}
+.cyber-weather-reflection[data-weather='mist'] {
+  background: radial-gradient(ellipse at 68% 42%, #dededb70, #c4d3ce40 47%, transparent 76%);
+}
+
+@keyframes cyber-room-light-flow {
+  from { opacity: calc(var(--room-flow-strength, .17) * .55); transform: translate3d(-1.2%, 0, 0) scale(.97); }
+  to { opacity: var(--room-flow-strength, .17); transform: translate3d(1.1%, .5%, 0) scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyber-weather-reflection::before { animation: none; transform: none; }
+}

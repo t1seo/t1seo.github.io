@@ -1,0 +1,181 @@
+{
+  "schema_version": 2,
+  "session_id": "milky",
+  "revision": 10,
+  "exported_at": "2026-09-30T01:32:49.691067Z",
+  "image_file": "logo.png",
+  "source": {
+    "id": "a-v3",
+    "path": "artifacts/a-v3.png",
+    "sha256": "5ed9278a3c64318451beedd91880b86189760369c5ca6d6c1bfc28a029dc01ab",
+    "image": {
+      "format": "PNG",
+      "width": 1254,
+      "height": 1254,
+      "alpha_min": 0,
+      "alpha_max": 255,
+      "transparent_pixels": 1571552,
+      "visible_pixels": 371834
+    },
+    "prompt": "Edit the supplied parent logo a-v2; do not recreate an unrelated logo.\nParent requested background: transparent; preserve it unless the latest requested changes specify another background.\nLatest requested changes (authoritative): Keep this simple six-piece paper face design, ivory and gray colors, small solid eyes, broad solid charcoal nose and the same two floppy ears. Improve only two things: shrink the WHOLE head so every part fits comfortably inside the central 76 percent of a square canvas, leaving at least 12 percent truly transparent clear margin on ALL FOUR sides including ears; and shorten the tall top wisps by about 30 percent so the crown is flatter and has three small characteristic Milky tufts. Retain all facial spacing, ear proportions, muzzle and matte paper surface. No added text, background, shadow or other objects. Edges must be clean anti-aliased RGBA cutout, alpha zero in the exterior. Return a 1024 square transparent PNG.. Preserve all unrequested text, geometry, layout, silhouette, and brand identity from that parent, including its letter shapes, counters, spacing and ligatures. Requested changes override conflicting parent intent and fields in the following original brief context; its type, lettering, styles and background are historical, not new requests. Do not restore historical text or apply new logo-type defaults. Use explicitly requested replacement lettering verbatim; otherwise preserve the parent's visible text and slogan.\nOriginal brief logo type (historical intent): mascot. Original brand context: Taewon Seo / Milky. Initial brief exact text (historical intent): ''. Initial brief slogan (historical intent): ''.\nIndustry: Personal software-engineer portfolio. Audience: Visitors to a warm premium modern-city paper studio.\nStyles: restrained handmade paper-cut mark, compact recognizable silhouette, mature calm friendly. Original brief palette context: warm ivory dominant fur, muted charcoal facial details, small warm-gray folded-ear shading.\nAvoid: lettering, initials, slogans, oversized glossy eyes, plastic 3D emoji, photorealistic individual fur strands, extra objects. Use cases: 36–40px header mark on dark room, 16–32px browser favicon variant.\nInitial brief background (historical intent): transparent. Produce a real PNG raster image. Use clean, readable shapes at small sizes; leave safe margins. Do not draw a transparency checkerboard, mockup, watermarks, or a concept grid.\nConcept direction: Final compact Milky paper face mark with generous clear space. Assumptions: The user delegated selection of the strongest suitable direction., The familiar Maltese Milky is the identity; no initials are necessary., The photo references guide likeness, not photographic rendering..\nLettering fidelity: preserve every Unicode character, capitalization, punctuation, space and reading order in the applicable text. Keep Hangul syllable blocks intact; do not translate, romanize, abbreviate or substitute lookalike glyphs. Shape changes must keep required text readable, including counters and joins at the intended size.",
+    "parent_id": "a-v2",
+    "created_at": "2026-09-30T01:30:08.170412Z",
+    "requested_background": "transparent",
+    "palette_id": null,
+    "lockup": null,
+    "review": {
+      "reviewer": "Codex visual inspection",
+      "notes": "Inspected original 1254 square and whole-frame 40px and 48px previews. The cream face, short floppy ears, three dark facial marks and irregular wispy crown remain recognizable at 40px; 48–52px header box is recommended because the opaque face occupies about 69 percent of source width. The 48px preview showed a clean readable silhouette on the viewer dark background, without a conspicuous halo. Exact empty text preserved. Smaller eyes and solid broad nose improved legibility versus detailed a-v1. No neck or body. True alpha min 0 max 255; visible body uses opaque pixels. Small low-alpha edge residue exists in original transparent exterior; no painted checkerboard. Browser/UI light-and-dark compositing not verified because Chrome automation service is unavailable. Colors are advisory visual roles, not exact HEX conformance.",
+      "text_correct": true,
+      "composition_ok": true,
+      "small_size_ok": true,
+      "preservation_ok": true,
+      "background_checked": true
+    },
+    "reviewed_at": "2026-09-30T01:32:49.368636Z"
+  },
+  "brief": {
+    "brand_name": "Taewon Seo / Milky",
+    "exact_text": "",
+    "industry": "Personal software-engineer portfolio",
+    "audience": "Visitors to a warm premium modern-city paper studio",
+    "slogan": "",
+    "logo_type": "mascot",
+    "styles": [
+      "restrained handmade paper-cut mark",
+      "compact recognizable silhouette",
+      "mature calm friendly"
+    ],
+    "palette": [
+      "warm ivory dominant fur",
+      "muted charcoal facial details",
+      "small warm-gray folded-ear shading"
+    ],
+    "forbidden": [
+      "lettering",
+      "initials",
+      "slogans",
+      "oversized glossy eyes",
+      "plastic 3D emoji",
+      "photorealistic individual fur strands",
+      "extra objects"
+    ],
+    "use_cases": [
+      "36–40px header mark on dark room",
+      "16–32px browser favicon variant"
+    ],
+    "assumptions": [
+      "The user delegated selection of the strongest suitable direction.",
+      "The familiar Maltese Milky is the identity; no initials are necessary.",
+      "The photo references guide likeness, not photographic rendering."
+    ],
+    "lockup": null,
+    "background": "transparent",
+    "concept_count": 3
+  },
+  "media_kind": "raster",
+  "requested_background": "transparent",
+  "transparency_verified": true,
+  "intended_palette": null,
+  "color_report": {
+    "id": "export-b8eb4a5eadfd47aab2c593d27bd8b8bd",
+    "artifact_id": "a-v3",
+    "artifact_sha256": "5ed9278a3c64318451beedd91880b86189760369c5ca6d6c1bfc28a029dc01ab",
+    "palette_id": null,
+    "palette_digest": null,
+    "analysis_policy": "logo-color-v1",
+    "color_engine_version": "not_used",
+    "pillow_version": "12.3.0",
+    "profile_treatment": "assumed_srgb",
+    "sampling": {
+      "width": 1254,
+      "height": 1254,
+      "roi": null,
+      "scope": "full_image",
+      "coordinate_policy": "grid_128_pixel_centers",
+      "sampled_positions": 16384,
+      "sampled_fraction": 0.010418971889634192,
+      "visible_samples": 3880,
+      "core_samples": 3704,
+      "partial_alpha_samples": 176
+    },
+    "status": "unverified",
+    "reasons": [
+      "No structured palette intent is recorded for this artifact"
+    ],
+    "measured_swatches": [
+      {
+        "hex": "#F6F0E7",
+        "samples": 652,
+        "share": 0.17602591792656588
+      },
+      {
+        "hex": "#F7F1E8",
+        "samples": 624,
+        "share": 0.16846652267818574
+      },
+      {
+        "hex": "#F7F2E9",
+        "samples": 476,
+        "share": 0.1285097192224622
+      },
+      {
+        "hex": "#F4EEE5",
+        "samples": 474,
+        "share": 0.12796976241900648
+      },
+      {
+        "hex": "#F5EFE6",
+        "samples": 464,
+        "share": 0.12526997840172785
+      },
+      {
+        "hex": "#B0A8A0",
+        "samples": 437,
+        "share": 0.1179805615550756
+      },
+      {
+        "hex": "#FAF5EE",
+        "samples": 400,
+        "share": 0.1079913606911447
+      },
+      {
+        "hex": "#F5F0E7",
+        "samples": 177,
+        "share": 0.04778617710583153
+      }
+    ],
+    "targets": [],
+    "matched_fraction": null,
+    "unmatched_fraction": null,
+    "observed_colors": null,
+    "minor_swatches": [],
+    "contrasts": [],
+    "delta_e_threshold": 5.0,
+    "created_at": "2026-09-30T01:32:49.691067Z"
+  },
+  "color_policy": "unverified",
+  "warnings": [
+    "Color-unverified: no structured palette intent is bound to this artifact.",
+    "No structured palette intent is recorded for this artifact",
+    "Untagged PNG colors are assumed sRGB; no embedded profile confirms this."
+  ],
+  "color_method": "sRGB to Lab D50; CIEDE2000, ColorAide method=2000",
+  "color_limits": [
+    "Sampled raster evidence, not an exact-pixel, Pantone, or print-proof guarantee.",
+    "At most 16384 original-coordinate samples; small accents may be missed.",
+    "Alpha-zero pixels are excluded; conformance uses alpha >=250 and preserves white.",
+    "Strict evidence needs 128 core samples and at most 10% partial-alpha visible samples.",
+    "Restricted fit requires 99% core coverage within delta-E00 <=5; design colors need 1% share.",
+    "Locks/required colors need 32 matching core samples and 0.5% core share.",
+    "Quantized measured swatches are estimates; conformance uses original sampled colors.",
+    "Color roles, lettering, and placement require visual review; histograms cannot prove them.",
+    "ROI evidence covers only the stated region; opaque full-image evidence includes background.",
+    "Contrast ratios on explicit composited surfaces are guidance, not logo AA certification."
+  ],
+  "lockup_intent": null,
+  "font_reference_usage": "appearance-reference-only",
+  "app_icon": null,
+  "artwork_limitations": null,
+  "asset_report": null
+}

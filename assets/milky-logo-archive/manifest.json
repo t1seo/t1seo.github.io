@@ -1,0 +1,90 @@
+{
+  "A-happy-milky-white-ears.png": {
+    "bytes": 735333,
+    "sha256": "96e1da5a28600bb7cf9a17d650e2f8ef90a82daba2dbd88ea1cb8c1dcc3ce3f7",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  "A-happy-milky-white-ears.webp": {
+    "bytes": 17866,
+    "sha256": "081d0ed181ccc78ad1f49892e8e82c74f23ca753d1e95a78d7289d63fd209fd5",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  "B-paper-smile-white.png": {
+    "bytes": 1488763,
+    "sha256": "b0dc4d04f3be55fbc3c72132ccff4caf3af25b65b287139bee27ebbf6c9562ee",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  "B-paper-smile-white.webp": {
+    "bytes": 49078,
+    "sha256": "60b4517d59ec3548bf521af1930becd76bf1d3adc4ae5f9461326c25d67c72cc",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  "C-hello-milky-white.png": {
+    "bytes": 847835,
+    "sha256": "ce962cff0ed417b60f07b98814d790ba1b1fe9c7e724f33d41c2c497972051b7",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  "C-hello-milky-white.webp": {
+    "bytes": 32434,
+    "sha256": "716580ba33a967c4c63fd9a60a7f442c5d0c49b03d5239da67ab2940467ac290",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  "B-paper-smile.png": {
+    "bytes": 1680074,
+    "sha256": "95172cbb554f40ee93ed2355eddec432b2905c1bc0e5eaf4ee9217c6fee27f56",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  "B-paper-smile.webp": {
+    "bytes": 60970,
+    "sha256": "ad4e812345f7c0959b073b8475414e0669c949b300c48b5b320bbd580ceef2bc",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  "C-hello-milky.png": {
+    "bytes": 898983,
+    "sha256": "e99bc8ae2763fa1791005fd1b50de6e91412e4091b8974fc21d73f1985aad69c",
+    "dimensions": [
+      1254,
+      1254
+    ]
+  },
+  "C-hello-milky.webp": {
+    "bytes": 34280,
+    "sha256": "bc26cdc1f5c943f90edaae892e28f89b0e7fa3b5540cb5baf5df42bc7f7fbf0a",
+    "dimensions": [
+      512,
+      512
+    ]
+  },
+  "README.txt": {
+    "bytes": 1306,
+    "sha256": "f36c987a0cfc09b0828f107d925467617b8a6827de405f8a95894f8628e2d8ba"
+  },
+  "index.html": {
+    "bytes": 4638,
+    "sha256": "49a52b312658503782a08cf7ddd8566af54854ea1f9bf28db539787428532665"
+  }
+}

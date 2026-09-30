@@ -1,0 +1,116 @@
+{
+  "collection": "Public Domain Pictures seasonal decor",
+  "license": "CC0-1.0",
+  "assets": [
+    {
+      "file": "winter-tree.webp",
+      "title": "Vintage Christmas Tree",
+      "author": "Dorothe Wouters",
+      "sourcePage": "https://www.publicdomainpictures.net/en/view-image.php?image=547868&picture=vintage-christmas-tree",
+      "freeDownloadPage": "https://www.publicdomainpictures.net/en/free-download.php?id=547868&image=vintage-christmas-tree",
+      "originalDownloadUrl": "https://www.publicdomainpictures.net/pictures/550000/velka/image-1700206861VqW.png",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "dimensions": {
+        "width": 1392,
+        "height": 1920
+      },
+      "sourceSha256": "4ee0a5f445285c0c72279dd41c9146e4dac8947feda70b927594daede7635005",
+      "outputSha256": "4903ae0524de4374eced0f6cea3012d9774a94d5dd188886e6da614842af35f4",
+      "sourceBytes": 2727170,
+      "outputBytes": 1949128,
+      "conversion": "cwebp -near_lossless 80 -q 100 -m 6 -exact",
+      "alphaPreservedExactly": true,
+      "modifications": "Format conversion only; no cropping, resizing, repainting, recoloring or geometry changes.",
+      "downloadedAt": "2026-09-29"
+    },
+    {
+      "file": "winter-wreath.webp",
+      "title": "Christmas Wreath Transparent Png",
+      "author": "freddy dendoktoor",
+      "sourcePage": "https://www.publicdomainpictures.net/en/view-image.php?image=739892&picture=christmas-wreath-transparent-png",
+      "freeDownloadPage": "https://www.publicdomainpictures.net/en/free-download.php?id=739892&image=christmas-wreath-transparent-png",
+      "originalDownloadUrl": "https://www.publicdomainpictures.net/pictures/740000/velka/christmas-wreath-transparent-png.png",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "dimensions": {
+        "width": 1834,
+        "height": 1920
+      },
+      "sourceSha256": "8cb440ab268da2d6722a0f03c3d6b3a4b8bac4a59230f26ac87df08877981122",
+      "outputSha256": "44d7a0a139aa18e95e251706f7ffe48742f6eb5ef0ca5b3b83af27eed1dd0d47",
+      "sourceBytes": 4567568,
+      "outputBytes": 3242030,
+      "conversion": "cwebp -near_lossless 80 -q 100 -m 6 -exact",
+      "alphaPreservedExactly": true,
+      "modifications": "Format conversion only; no cropping, resizing, repainting, recoloring or geometry changes.",
+      "downloadedAt": "2026-09-29"
+    },
+    {
+      "file": "autumn-pumpkin.webp",
+      "title": "Pumpkin",
+      "author": "Ashira Shalom",
+      "sourcePage": "https://www.publicdomainpictures.net/en/view-image.php?image=470830&picture=pumpkin",
+      "freeDownloadPage": "https://www.publicdomainpictures.net/en/free-download.php?id=470830&image=pumpkin",
+      "originalDownloadUrl": "https://www.publicdomainpictures.net/pictures/480000/velka/pumpkin.png",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "dimensions": {
+        "width": 1920,
+        "height": 1920
+      },
+      "sourceSha256": "e2ab544420dd7c6b0f2d3428e805b0f08c0cb14292cd3f39fd43e208e8a41f30",
+      "outputSha256": "3cf6c6302f25979a7a6f38f7018cb05f274544b8fcd36b68815e30db95483051",
+      "sourceBytes": 3410913,
+      "outputBytes": 2393108,
+      "conversion": "cwebp -near_lossless 80 -q 100 -m 6 -exact",
+      "alphaPreservedExactly": true,
+      "modifications": "Format conversion only; no cropping, resizing, repainting, recoloring or geometry changes.",
+      "downloadedAt": "2026-09-29"
+    },
+    {
+      "file": "summer-palm.webp",
+      "title": "Palm Plant Vintage Transparent",
+      "author": "Andrea Stöckel",
+      "sourcePage": "https://www.publicdomainpictures.net/en/view-image.php?image=377052&picture=palm-plant-vintage-transparent",
+      "freeDownloadPage": "https://www.publicdomainpictures.net/en/free-download.php?id=377052&image=palm-plant-vintage-transparent",
+      "originalDownloadUrl": "https://www.publicdomainpictures.net/pictures/380000/velka/palme-pflanze-vintage-transparent.png",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "dimensions": {
+        "width": 1573,
+        "height": 1920
+      },
+      "sourceSha256": "0c97915df420715c0459b6a12077d530bde5db117f1bc90199095102087aad3d",
+      "outputSha256": "a3de0ef9fb6f9014ecb8e0db18a4e783dbde6cbaede25ddc638b6e601c2be946",
+      "sourceBytes": 2628867,
+      "outputBytes": 2299574,
+      "conversion": "cwebp -near_lossless 80 -q 100 -m 6 -exact",
+      "alphaPreservedExactly": true,
+      "modifications": "Format conversion only; no cropping, resizing, repainting, recoloring or geometry changes.",
+      "downloadedAt": "2026-09-29"
+    },
+    {
+      "file": "spring-roses.webp",
+      "title": "Teacup, Roses Vintage Clipart",
+      "author": "Karen Arnold",
+      "sourcePage": "https://www.publicdomainpictures.net/en/view-image.php?image=402121&picture=teacup-roses-vintage-clipart",
+      "freeDownloadPage": "https://www.publicdomainpictures.net/en/free-download.php?id=402121&image=teacup-roses-vintage-clipart",
+      "originalDownloadUrl": "https://www.publicdomainpictures.net/pictures/410000/velka/teacup-roses-vintage-clipart.png",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "dimensions": {
+        "width": 1799,
+        "height": 1920
+      },
+      "sourceSha256": "b9697cee5b405317676147d5cff5132c4a1c1d8ee3c3393698ab9d2ef78a7f7a",
+      "outputSha256": "961a1a1e5e5e71eb451deb8789202bc1a294ef46d4cf12f90a4e76baec72ec7a",
+      "sourceBytes": 1885368,
+      "outputBytes": 1249460,
+      "conversion": "cwebp -near_lossless 80 -q 100 -m 6 -exact",
+      "alphaPreservedExactly": true,
+      "modifications": "Format conversion only; no cropping, resizing, repainting, recoloring or geometry changes.",
+      "downloadedAt": "2026-09-29"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "license": "CC0-1.0",
+  "sourceManifest": "../manifest.json",
+  "adaptation": "Original path geometry and viewBox preserved. Original gloss/inner-shadow filters removed, colors remapped to moss/sage/terracotta/dull gold/cream, highlight opacity reduced, fine monochrome paper noise and thin edge shadows added.",
+  "assets": [
+    {
+      "file": "autumn-pumpkin.svg",
+      "sourceFile": "../autumn-pumpkin.svg",
+      "originalViewBox": "0 0 167 137",
+      "originalFinishFiltersRemoved": 14,
+      "highlightShapesReduced": 3,
+      "paletteMapping": {
+        "#F97316\u2192#B76B50": 5,
+        "#FB923C\u2192#D3936A": 1,
+        "#15803D\u2192#607651": 2,
+        "#16A34A\u2192#81916A": 1
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "book-stack.svg",
+      "sourceFile": "../book-stack.svg",
+      "originalViewBox": "0 0 103 164",
+      "originalFinishFiltersRemoved": 17,
+      "highlightShapesReduced": 2,
+      "paletteMapping": {
+        "#0D9488\u2192#778A70": 1,
+        "#0F766E\u2192#5F735A": 1,
+        "#A16207\u2192#A78B5C": 1,
+        "#E4CEB8\u2192#E9DEC6": 3,
+        "#CA8A04\u2192#C4A564": 1,
+        "#9333EA\u2192#AC9190": 1,
+        "#6B21A8\u2192#8D7477": 1,
+        "#B91C1C\u2192#A96754": 1,
+        "#991B1B\u2192#965D4C": 2,
+        "#C2410C\u2192#AF7456": 1,
+        "#9A3412\u2192#96654E": 2
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "candy-cane.svg",
+      "sourceFile": "../candy-cane.svg",
+      "originalViewBox": "0 0 97 185",
+      "originalFinishFiltersRemoved": 1,
+      "highlightShapesReduced": 0,
+      "paletteMapping": {
+        "#CBD5E1\u2192#E9DEC6": 2,
+        "#DC2626\u2192#B76B50": 7
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "christmas-tree.svg",
+      "sourceFile": "../christmas-tree.svg",
+      "originalViewBox": "0 0 564 1057",
+      "originalFinishFiltersRemoved": 37,
+      "highlightShapesReduced": 39,
+      "paletteMapping": {
+        "#F1F5F9\u2192#E9DEC6": 10,
+        "#82644D\u2192#92765C": 1,
+        "#7E22CE\u2192#C39B87": 4,
+        "#15803D\u2192#607651": 1,
+        "#EF4444\u2192#B76B50": 7,
+        "#EAB308\u2192#C4A564": 5,
+        "#15803D\u2192#6A7F59": 1,
+        "#2563EB\u2192#91A396": 6,
+        "#15803D\u2192#748663": 1,
+        "#15803D\u2192#81916A": 1
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "christmas-wreath.svg",
+      "sourceFile": "../christmas-wreath.svg",
+      "originalViewBox": "0 0 188 199",
+      "originalFinishFiltersRemoved": 26,
+      "highlightShapesReduced": 15,
+      "paletteMapping": {
+        "#0D9488\u2192#778A70": 1,
+        "#991B1B\u2192#965D4C": 14,
+        "#82644D\u2192#92765C": 6,
+        "#DC2626\u2192#B76B50": 4,
+        "#B91C1C\u2192#A96754": 1
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "little-bird.svg",
+      "sourceFile": "../little-bird.svg",
+      "originalViewBox": "0 0 163 155",
+      "originalFinishFiltersRemoved": 20,
+      "highlightShapesReduced": 0,
+      "paletteMapping": {
+        "#EAB308\u2192#C4A564": 6,
+        "#FACC15\u2192#C4A564": 1,
+        "#64748B\u2192#8B9A90": 2,
+        "#1E293B\u2192#685B4A": 3,
+        "#F1F5F9\u2192#E9DEC6": 7,
+        "#1C1917\u2192#443D32": 1
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "resting-cat.svg",
+      "sourceFile": "../resting-cat.svg",
+      "originalViewBox": "0 0 190 123",
+      "originalFinishFiltersRemoved": 10,
+      "highlightShapesReduced": 0,
+      "paletteMapping": {
+        "#44403C\u2192#706B5B": 6,
+        "#FCA5A5\u2192#C08D79": 3,
+        "#FACC15\u2192#D2BE86": 2,
+        "#1C1917\u2192#443D32": 2,
+        "#E7E5E4\u2192#E9DEC6": 4
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "rose-vase.svg",
+      "sourceFile": "../rose-vase.svg",
+      "originalViewBox": "0 0 85 179",
+      "originalFinishFiltersRemoved": 40,
+      "highlightShapesReduced": 18,
+      "paletteMapping": {
+        "#78716C\u2192#A29079": 2,
+        "#57534E\u2192#7B6958": 1,
+        "#A8A29E\u2192#CABDA6": 1,
+        "#292524\u2192#5A4B3B": 1,
+        "#D9D9D9\u2192#E9DEC6": 1,
+        "#61A560\u2192#81916A": 2,
+        "#579858\u2192#74845F": 2,
+        "#427A42\u2192#607651": 2,
+        "#B91C1C\u2192#A96754": 8,
+        "#7F1D1D\u2192#8E5746": 1
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "speaker.svg",
+      "sourceFile": "../speaker.svg",
+      "originalViewBox": "0 0 139 266",
+      "originalFinishFiltersRemoved": 17,
+      "highlightShapesReduced": 0,
+      "paletteMapping": {
+        "#334155\u2192#9D8C72": 10,
+        "#64748B\u2192#8B9A90": 1,
+        "#475569\u2192#827863": 3,
+        "#E2E8F0\u2192#E9DEC6": 1,
+        "#1E293B\u2192#685B4A": 1,
+        "#0F172A\u2192#574F43": 2
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "spring-flowers.svg",
+      "sourceFile": "../spring-flowers.svg",
+      "originalViewBox": "0 0 109 126",
+      "originalFinishFiltersRemoved": 28,
+      "highlightShapesReduced": 0,
+      "paletteMapping": {
+        "#2DD4BF\u2192#80968A": 1,
+        "#334155\u2192#9D8C72": 1,
+        "#5EEAD4\u2192#ADBBAB": 1,
+        "#C2410C\u2192#AF7456": 1,
+        "#EA580C\u2192#BC7654": 1,
+        "#FB923C\u2192#D3936A": 1,
+        "#61A560\u2192#81916A": 5,
+        "#579858\u2192#74845F": 1,
+        "#FACC15\u2192#C4A564": 3
+      },
+      "geometryPreserved": true
+    },
+    {
+      "file": "summer-monstera.svg",
+      "sourceFile": "../summer-monstera.svg",
+      "originalViewBox": "0 0 325 370",
+      "originalFinishFiltersRemoved": 16,
+      "highlightShapesReduced": 4,
+      "paletteMapping": {
+        "#A8A29E\u2192#CABDA6": 1,
+        "#334155\u2192#9D8C72": 1,
+        "#D6D3D1\u2192#E9DEC6": 1,
+        "#C2410C\u2192#AF7456": 1,
+        "#9A7858\u2192#92765C": 1,
+        "#427A42\u2192#607651": 3,
+        "#579858\u2192#74845F": 2,
+        "#61A560\u2192#81916A": 2
+      },
+      "geometryPreserved": true
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+html:has(.paper-immersive), body:has(.paper-immersive) { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #e6ddc9; }
+.paper-immersive {
+  --ui-text: #30372f;
+  --ui-muted: #626653;
+  --ui-accent: #506044;
+  --ui-border: #b7ae976e;
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  color: #30372f;
+  background: #e6ddc9;
+  font: 400 14px / 1.5 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.paper-immersive *, .paper-immersive *::before, .paper-immersive *::after { box-sizing: border-box; }
+.paper-immersive[hidden] { display: none; }
+.paper-portfolio-page { width: 100%; height: 100svh; animation: paper-page-arrive 380ms ease both; }
+.paper-portfolio-page[data-motion='off'] { animation: none; }
+@keyframes paper-page-arrive { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .paper-portfolio-page { animation: none; } }
+.paper-immersive-scene { position: absolute; inset: 0; overflow: hidden; }
+.paper-immersive-badge { position: absolute; z-index: 6; top: 0; left: clamp(24px, 4vw, 90px); width: clamp(145px, 12vw, 200px); filter: brightness(var(--badge-light, 1)) drop-shadow(5px 15px 10px #503a2021); transition: filter 1.4s; }
+.paper-immersive[data-time='evening'] { --badge-light: .93; }
+.paper-immersive[data-time='night'] { --badge-light: .8; }
+.paper-immersive-badge .id-badge-hint { display: none; }
+.paper-immersive-badge .id-badge-face { box-shadow: 0 11cqw 19cqw -6cqw #493b2d55, 0 3cqw 6cqw -2cqw #49322133, inset 0 .42cqw 0 #fff9, inset 0 0 0 1px #0000000d; }
+.paper-immersive-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; white-space: nowrap; clip: rect(0, 0, 0, 0); clip-path: inset(50%); border: 0; }
+.paper-immersive-settings-shortcut { position: absolute; z-index: 20; top: 14px; right: 14px; width: 1px; height: 1px; overflow: hidden; padding: 0; margin: -1px; border: 0; clip-path: inset(50%); white-space: nowrap; }
+.paper-immersive-settings-shortcut:focus-visible { width: auto; height: auto; padding: 11px 15px; margin: 0; clip-path: none; border: 1px solid #8d927a; background: #f3eedf; color: #30372f; box-shadow: 0 3px 12px #33281922; font: inherit; outline: 2px solid #506044; outline-offset: 3px; }
+.paper-immersive-dialog {
+  width: min(460px, calc(100vw - 36px));
+  max-height: calc(100svh - 40px);
+  padding: 27px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #a39a816b;
+  border-radius: 3px;
+  color: #30372f;
+  background: #f3edde url('/assets/paper/paper-fibers.webp') repeat 0 0 / 440px 440px;
+  background-blend-mode: multiply;
+  box-shadow: 0 30px 90px #30241945, 0 3px 8px #33281926;
+}
+.paper-immersive-dialog::backdrop { background: #26271f52; backdrop-filter: blur(3px); }
+.paper-immersive-dialog-top { display: flex; align-items: center; gap: 18px; justify-content: space-between; padding-bottom: 23px; }
+.paper-immersive-dialog h2 { margin: 0; font: 500 21px / 1.4 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; letter-spacing: -.045em; }
+.paper-immersive-close { flex-shrink: 0; width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 1px solid #b7ae9770; border-radius: 50%; color: #626653; background: #ffffff26; cursor: pointer; }
+.paper-immersive-dialog button:focus-visible, .paper-immersive-dialog a:focus-visible, .paper-immersive-dialog summary:focus-visible { outline: 2px solid #506044; outline-offset: 3px; }
+.paper-immersive-dialog .env-panel { width: 100%; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.paper-immersive-dialog .env-heading { padding: 0 0 12px; }
+.paper-immersive-dialog .env-heading-title { font-size: 13px; }
+.paper-immersive-dialog .env-auto { min-width: 59px; min-height: 32px; border-radius: 3px; font-size: 12px !important; }
+.paper-immersive-dialog .env-times { gap: 5px; }
+.paper-immersive-dialog .env-time { min-height: 63px; border-radius: 3px; gap: 7px; }
+.paper-immersive-dialog .env-time > span { font-size: 13px; }
+.paper-immersive-dialog .env-time[aria-pressed='true'] { border-color: #a8ad9877; background: #fffcf299; color: #394831; box-shadow: 0 1px 2px #59482b0f; }
+.paper-immersive-dialog .env-bottom { margin-top: 13px; padding-top: 10px; gap: 6px; }
+.paper-immersive-dialog .env-season { min-height: 43px; border-radius: 3px; gap: 6px; }
+.paper-immersive-dialog .env-season > span { font-size: 13px; }
+.paper-immersive-dialog .env-season[aria-pressed='true'] { color: #394831; background: #dbe0cd88; }
+.paper-immersive-dialog .env-motion { width: 36px; height: 43px; border-radius: 3px; }
+.paper-immersive-objects { margin-top: 23px; border-top: 1px solid #b7ae9770; border-bottom: 1px solid #b7ae9770; }
+.paper-immersive-objects summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 1px; list-style: none; cursor: pointer; color: #58614e; font-size: 13px; user-select: none; }
+.paper-immersive-objects summary::-webkit-details-marker { display: none; }
+.paper-immersive-objects summary > span { font: 300 20px / 1 system-ui, sans-serif; transition: transform 180ms ease; }
+.paper-immersive-objects[open] summary > span { transform: rotate(45deg); }
+.paper-immersive-object-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; padding: 1px 0 16px; }
+.paper-immersive-object-grid button { min-height: 42px; padding: 7px 3px; border: 1px solid #b7ae9766; border-radius: 2px; background: #ffffff26; color: #536048; font: inherit; font-size: 12px; cursor: pointer; }
+.paper-immersive-object-grid button[aria-pressed='true'] { border-color: #a3b18f88; background: #dbe0cd88; color: #35452d; }
+.paper-immersive-object-grid button:disabled { opacity: .44; cursor: not-allowed; }
+.paper-immersive-credits { display: table; margin: 19px 0 0 auto; color: #626653; font: 400 11px / 1.5 'Badge Mono', monospace; text-decoration: none; text-underline-offset: 4px; }
+.paper-immersive-credits > span { margin-left: 5px; }
+.paper-immersive-credit-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 20px; }
+.paper-immersive-credit-links .paper-immersive-credits { margin-left: 0; }
+.paper-immersive-track { margin: 17px 0 0; color: #59624f; font: 400 11px / 1.65 'Badge Mono', monospace; }
+.paper-immersive-track[hidden] { display: none; }
+.paper-immersive-portfolio-link { display: flex; width: 100%; align-items: center; justify-content: space-between; min-height: 49px; margin-top: 17px; padding: 11px 13px; border: 1px solid #b7ae9770; border-radius: 2px; background: #faf8ed65; color: #35482f; font: inherit; cursor: pointer; }
+.paper-immersive-portfolio-link:hover { background: #dbe0cd88; }
+.paper-immersive[data-motion='off'] *, .paper-immersive[data-motion='off'] *::before, .paper-immersive[data-motion='off'] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+@media (hover: hover) {
+  .paper-immersive-close:hover { background: #e4e2d3; color: #30372f; }
+  .paper-immersive-object-grid button:not(:disabled):hover { background: #e4e2d3; color: #30372f; }
+  .paper-immersive-credits:hover { text-decoration: underline; }
+}
+@media (max-width: 760px) {
+  .paper-immersive-badge { left: max(17px, env(safe-area-inset-left)); width: 110px; }
+  .paper-immersive-dialog { width: calc(100vw - 32px); padding: 22px; }
+  .paper-immersive-dialog-top { padding-bottom: 21px; }
+  .paper-immersive-dialog h2 { font-size: 20px; }
+}
+@media (max-width: 360px) {
+  .paper-immersive-dialog { padding: 18px; }
+  .paper-immersive-dialog .env-season { gap: 4px; }
+  .paper-immersive-object-grid { gap: 5px; }
+}

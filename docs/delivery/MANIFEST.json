@@ -1,0 +1,3676 @@
+{
+  "build_note": "dist is supplied by the final npm run build; this packager does not rebuild it.",
+  "exclusions": [],
+  "files": [
+    {
+      "bytes": 3445,
+      "group": "instructions",
+      "path": "START-HERE.md",
+      "sha256": "644ec330ec5feeb20c5130e733ca0f552643b4fbb18fc8002994800ad558473f"
+    },
+    {
+      "bytes": 735333,
+      "group": "logos",
+      "path": "logos/A-happy-milky-white-ears.png",
+      "sha256": "96e1da5a28600bb7cf9a17d650e2f8ef90a82daba2dbd88ea1cb8c1dcc3ce3f7"
+    },
+    {
+      "bytes": 17866,
+      "group": "logos",
+      "path": "logos/A-happy-milky-white-ears.webp",
+      "sha256": "081d0ed181ccc78ad1f49892e8e82c74f23ca753d1e95a78d7289d63fd209fd5"
+    },
+    {
+      "bytes": 1488763,
+      "group": "logos",
+      "path": "logos/B-paper-smile-white.png",
+      "sha256": "b0dc4d04f3be55fbc3c72132ccff4caf3af25b65b287139bee27ebbf6c9562ee"
+    },
+    {
+      "bytes": 49078,
+      "group": "logos",
+      "path": "logos/B-paper-smile-white.webp",
+      "sha256": "60b4517d59ec3548bf521af1930becd76bf1d3adc4ae5f9461326c25d67c72cc"
+    },
+    {
+      "bytes": 1680074,
+      "group": "logos",
+      "path": "logos/B-paper-smile.png",
+      "sha256": "95172cbb554f40ee93ed2355eddec432b2905c1bc0e5eaf4ee9217c6fee27f56"
+    },
+    {
+      "bytes": 60970,
+      "group": "logos",
+      "path": "logos/B-paper-smile.webp",
+      "sha256": "ad4e812345f7c0959b073b8475414e0669c949b300c48b5b320bbd580ceef2bc"
+    },
+    {
+      "bytes": 847835,
+      "group": "logos",
+      "path": "logos/C-hello-milky-white.png",
+      "sha256": "ce962cff0ed417b60f07b98814d790ba1b1fe9c7e724f33d41c2c497972051b7"
+    },
+    {
+      "bytes": 32434,
+      "group": "logos",
+      "path": "logos/C-hello-milky-white.webp",
+      "sha256": "716580ba33a967c4c63fd9a60a7f442c5d0c49b03d5239da67ab2940467ac290"
+    },
+    {
+      "bytes": 898983,
+      "group": "logos",
+      "path": "logos/C-hello-milky.png",
+      "sha256": "e99bc8ae2763fa1791005fd1b50de6e91412e4091b8974fc21d73f1985aad69c"
+    },
+    {
+      "bytes": 34280,
+      "group": "logos",
+      "path": "logos/C-hello-milky.webp",
+      "sha256": "bc26cdc1f5c943f90edaae892e28f89b0e7fa3b5540cb5baf5df42bc7f7fbf0a"
+    },
+    {
+      "bytes": 1306,
+      "group": "logos",
+      "path": "logos/README.txt",
+      "sha256": "f36c987a0cfc09b0828f107d925467617b8a6827de405f8a95894f8628e2d8ba"
+    },
+    {
+      "bytes": 21438,
+      "group": "active-icons",
+      "path": "logos/active-icons/milky-a-apple-touch.png",
+      "sha256": "d3c93d874c701b83376db0398838110b29bb0dfda3725b3630ebfe315027904b"
+    },
+    {
+      "bytes": 3902,
+      "group": "active-icons",
+      "path": "logos/active-icons/milky-a-favicon.png",
+      "sha256": "68fd9345155e87ff510c8bbcf9d29bdf2fe3d5770a3ebe71d7117877c4a5d6e1"
+    },
+    {
+      "bytes": 4638,
+      "group": "logos",
+      "path": "logos/index.html",
+      "sha256": "49a52b312658503782a08cf7ddd8566af54854ea1f9bf28db539787428532665"
+    },
+    {
+      "bytes": 2107,
+      "group": "logos",
+      "path": "logos/manifest.json",
+      "sha256": "58e49dddba73eed4db479343831c4acae03fd49932fc83e2eebf20a167cd9c68"
+    },
+    {
+      "bytes": 61,
+      "group": "source",
+      "path": "project/.gitignore",
+      "sha256": "e5f881afcfa116ef8129db48aa30fc7154c253bb6466df58decd0258701fa027"
+    },
+    {
+      "bytes": 3013,
+      "group": "source",
+      "path": "project/AGENTS.md",
+      "sha256": "8571d3db7a96508e378bf9cb9207c53863ed4404e729356980874ba8fde0d162"
+    },
+    {
+      "bytes": 3461,
+      "group": "source",
+      "path": "project/IMPLEMENTATION.md",
+      "sha256": "0de0abd2492a50b118484da387bf3dd630858cb67b8e793f1512f2003bb27007"
+    },
+    {
+      "bytes": 4684,
+      "group": "source",
+      "path": "project/README-DELIVERY.md",
+      "sha256": "d37f839e775e96afdfe1828e51496fb71bd9a9fd5a246961157b4262ebd1aab4"
+    },
+    {
+      "bytes": 9672,
+      "group": "source",
+      "path": "project/README.md",
+      "sha256": "79086abfd237eb811ad97e5a438a8f30ae8bf4bfd2c6c8df942ed4b0267913fe"
+    },
+    {
+      "bytes": 3445,
+      "group": "source",
+      "path": "project/START-HERE.md",
+      "sha256": "644ec330ec5feeb20c5130e733ca0f552643b4fbb18fc8002994800ad558473f"
+    },
+    {
+      "bytes": 3684106,
+      "group": "source",
+      "path": "project/asset-sources/paper/Paper001_4K-JPG_Color.jpg",
+      "sha256": "3aaed6c30f8bc7ea98628ccd75acb852e75d910f32f384f6193169214ab4bec1"
+    },
+    {
+      "bytes": 1528149,
+      "group": "source",
+      "path": "project/asset-sources/paper/Paper003_4K-JPG_Color.jpg",
+      "sha256": "066df92cae749d81b09cb3ffd1d9582a4db32fa293985c972bb34a10303ccdca"
+    },
+    {
+      "bytes": 19883380,
+      "group": "source",
+      "path": "project/asset-sources/paper/Paper006_4K-JPG_Color.jpg",
+      "sha256": "11091674deee444f07193cc647005ad930d3b47aa43e2952b65b56524972d4ea"
+    },
+    {
+      "bytes": 1942,
+      "group": "build",
+      "path": "project/dist/assets/badge/QA.md",
+      "sha256": "dcc6f4ba9f9a592414678f46732dfbf1db11d2ed26e40eae3ba753923f64c224"
+    },
+    {
+      "bytes": 595,
+      "group": "build",
+      "path": "project/dist/assets/badge/SOURCES.md",
+      "sha256": "66f1165dc271a4b9d5f190bb32df67ed011ba915dabfb88b918717813e519e69"
+    },
+    {
+      "bytes": 3119,
+      "group": "build",
+      "path": "project/dist/assets/badge/ai-class-qr.svg",
+      "sha256": "84d6e47313ffe0dbfe90190c048056f2fd5bd0880487a621d83b5deb1402ff73"
+    },
+    {
+      "bytes": 9736,
+      "group": "build",
+      "path": "project/dist/assets/badge/archivo-800.woff",
+      "sha256": "d00b995aecb4506ad9a2b50a8c5467ee62e2b61d16fd3376e0fb156f138d48ab"
+    },
+    {
+      "bytes": 4388,
+      "group": "build",
+      "path": "project/dist/assets/badge/archivo-OFL.txt",
+      "sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b"
+    },
+    {
+      "bytes": 50244,
+      "group": "build",
+      "path": "project/dist/assets/badge/caveat-600.woff",
+      "sha256": "c80b909a3ff802fafcb236348627eb2be97bb5f81d8799d95bac4994f64d4fb5"
+    },
+    {
+      "bytes": 4385,
+      "group": "build",
+      "path": "project/dist/assets/badge/caveat-OFL.txt",
+      "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b"
+    },
+    {
+      "bytes": 21164,
+      "group": "build",
+      "path": "project/dist/assets/badge/jetbrains-mono-400.woff",
+      "sha256": "5379f3f859efe74204bd078c71e637bfe8ee40e41f6e31c804ed33111fc92aea"
+    },
+    {
+      "bytes": 4399,
+      "group": "build",
+      "path": "project/dist/assets/badge/jetbrainsmono-OFL.txt",
+      "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d"
+    },
+    {
+      "bytes": 659886,
+      "group": "build",
+      "path": "project/dist/assets/badge/jieun-mark.svg",
+      "sha256": "67c7551862c2336c5f0c1bef5d07a310ba1e310b23fd09084625ed69d1389735"
+    },
+    {
+      "bytes": 13988,
+      "group": "build",
+      "path": "project/dist/assets/badge/work-sans-600.woff",
+      "sha256": "27ff9d9db74822a2864d31c9a90ffd6df59c9c4c13ca7090687448bcf6e9d90b"
+    },
+    {
+      "bytes": 4396,
+      "group": "build",
+      "path": "project/dist/assets/badge/worksans-OFL.txt",
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "bytes": 4892,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/ART-DIRECTION.md",
+      "sha256": "8cce6da436f92e79bb2120a7079c07f5250ed2ea9da232323b288acace5b7696"
+    },
+    {
+      "bytes": 17764,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/MILKY-VIDEO.md",
+      "sha256": "8e10b2389d946641102f49a27665fd1b636e5f8675d5257b6e3e93caaad677a1"
+    },
+    {
+      "bytes": 8570,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/MILKY.md",
+      "sha256": "0a61da3ce470fde06924b180fc867f8b2c6008d324e66ec1282f884c2eae3866"
+    },
+    {
+      "bytes": 9586,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/MODERN-ILLUSTRATION.md",
+      "sha256": "2b879134e27adaceb1c451fbec0bd4e8c4f55c9aaff6819b7e24322c97446981"
+    },
+    {
+      "bytes": 4401,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/SpaceGrotesk-OFL.txt",
+      "sha256": "18a4de52385f6b988782639d5d0cc1326e5a8c2de9a7f01d7b20d9aedcc60943"
+    },
+    {
+      "bytes": 19301,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/AUTUMN-WINTER.md",
+      "sha256": "3fb07b031520580222d18c1eb1e6535a2ff9ff0d1141a629ab962bc3a0a28360"
+    },
+    {
+      "bytes": 20898,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/SPRING-SUMMER.md",
+      "sha256": "22c0b294d69dfa8a0566e3d98452134973bc77c908acc9f06750d97318b83012"
+    },
+    {
+      "bytes": 464978,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/autumn-afternoon.webp",
+      "sha256": "2f2106dd36193e4271db67bf983bb4237532d28374f5aeaac1b1e57ea1db6834"
+    },
+    {
+      "bytes": 458262,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/autumn-evening.webp",
+      "sha256": "7dfe36f72d5b3118c794260ba07d18c205824c3e5e3b8cc43751b9ba7869c2f7"
+    },
+    {
+      "bytes": 410116,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/autumn-morning.webp",
+      "sha256": "267977bafc974b70798de53f4dea13f348b89a7130b9ea2241a64a1a958ce92e"
+    },
+    {
+      "bytes": 433876,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/autumn-night.webp",
+      "sha256": "d1717d3ac46c0ba4ccf2a4a85f79ba325b75cce873bb78cd8576e49e95cc7f50"
+    },
+    {
+      "bytes": 471032,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/autumn-noon.webp",
+      "sha256": "254455ed6bc329946904f81b1dc7e28acfc48e5a70a592df5b342a5e74ed32b1"
+    },
+    {
+      "bytes": 544740,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/spring-afternoon.webp",
+      "sha256": "e06e1f2026f46e5954bfb15b297f720934f3af15208b7db9f45ee2790e5e0e2b"
+    },
+    {
+      "bytes": 522118,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/spring-evening.webp",
+      "sha256": "3c06d6e619fc69d67f0df0cb57b01b689e1febcc2ba873367d67693d69e5e43b"
+    },
+    {
+      "bytes": 462778,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/spring-morning.webp",
+      "sha256": "522aa12da4baf641cca7fb9ca1156fe08bad6f3efce3b89e2a3438072fb02bc2"
+    },
+    {
+      "bytes": 514426,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/spring-night.webp",
+      "sha256": "c1048eda17dc34a17960328a002317e29c9116bf6ab7e70f6c995141786d8fd3"
+    },
+    {
+      "bytes": 473168,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/spring-noon.webp",
+      "sha256": "fcbc4a48cbc1112d38a9e1a27ab82e762e3b841a8cdfe1a3d3afc8c14a16b45b"
+    },
+    {
+      "bytes": 517522,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/summer-afternoon.webp",
+      "sha256": "5639732c3212f6b0edb289684ed284fcdd9871465893db80f1f73df33450fbee"
+    },
+    {
+      "bytes": 524908,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/summer-evening.webp",
+      "sha256": "6d60bc7bcc017852a75aa0d2d1358100f2264d5fff8e24b9deeb2898ca41d88a"
+    },
+    {
+      "bytes": 498910,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/summer-morning.webp",
+      "sha256": "b9761a470fc371c41bb3620c169d8d8e11b3fd8c8bedc2c49dfcd87395fa1cb6"
+    },
+    {
+      "bytes": 486246,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/summer-night.webp",
+      "sha256": "5ac3c7463b4957704b0fc69b7a871aecb15dbee17f01d0b9fb891e77c5502c30"
+    },
+    {
+      "bytes": 423518,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/summer-noon.webp",
+      "sha256": "106997af96d1df3961c8a2fc6179ad82c37cbb874e5c226b412447751d236816"
+    },
+    {
+      "bytes": 595102,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/winter-afternoon.webp",
+      "sha256": "462881fa73462252e7651759e27cdf243be4af67b39e39359e49e8aceaced8ed"
+    },
+    {
+      "bytes": 601636,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/winter-evening.webp",
+      "sha256": "46be12f2380070ec4b138c93ee95c9199ed94cf1aaa16cfdaceb06cd0ae88f8d"
+    },
+    {
+      "bytes": 584996,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/winter-morning.webp",
+      "sha256": "f653c97e6d7aef8f040243646a011cd3fe259d10a3e00d03f114cf32ff888e00"
+    },
+    {
+      "bytes": 560890,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/winter-night.webp",
+      "sha256": "277cb7ed635951b029a8c55b7333c999933ecd553cdf6ac24aede9cd9ec5901f"
+    },
+    {
+      "bytes": 587152,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/climate/winter-noon.webp",
+      "sha256": "57e7a62d055687d3e68438cf746a3aee7057a765f94931f0b33194d01853c057"
+    },
+    {
+      "bytes": 423518,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/desk-height-reference.webp",
+      "sha256": "106997af96d1df3961c8a2fc6179ad82c37cbb874e5c226b412447751d236816"
+    },
+    {
+      "bytes": 511274,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/desk-reference.webp",
+      "sha256": "2f081332a5d67bef968bf036a2654c927af1be267ee287a228ec0fbfa963f88d"
+    },
+    {
+      "bytes": 164162,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/maltese-alert.webp",
+      "sha256": "ef6bd74a4b0fcc7a83686dcc8e6a1d69dfb0b2d802cbe2d16b7705325ee8426f"
+    },
+    {
+      "bytes": 225124,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/maltese-rest.webp",
+      "sha256": "b24c1bfad33f0b9f67f00fb7acd0840680e27e07f6f5196924109973809e5ba9"
+    },
+    {
+      "bytes": 289230,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-awake.webp",
+      "sha256": "f76c83f52c3633fe3489508be9bcf0c20c27d1b2860d4991a41bc9a2b080f42c"
+    },
+    {
+      "bytes": 195780,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-eat-lift.webp",
+      "sha256": "904d87102f7ee1b1372ee43b10a28c6c0d5774ae9296d8e9705f1c273820d2e8"
+    },
+    {
+      "bytes": 217910,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-eat-low.webp",
+      "sha256": "036648574e441ffcfaf7a01b37e4ba8d9272cab649bc26b3c8199db57ab5d147"
+    },
+    {
+      "bytes": 202964,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-idle.webp",
+      "sha256": "f307a34a832cc82136d8b768d30f09abe3d1e2b2208f970308c3aafb1193610d"
+    },
+    {
+      "bytes": 82234,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-0.webp",
+      "sha256": "8773613547811a7a6643c96743d3b6f8218161ff0ea70f9151ed59fddf6d21ef"
+    },
+    {
+      "bytes": 85904,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-1.webp",
+      "sha256": "1bc97d00cacc40c21fab8fbe895fedea3762a4a54588cd0bf5ccec2d34a54576"
+    },
+    {
+      "bytes": 85376,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-2.webp",
+      "sha256": "49ac6e2173dc6890dd829dc1771dea4007259846ca72ae8edbe28027fd4836f7"
+    },
+    {
+      "bytes": 76230,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-3.webp",
+      "sha256": "2140f0a638d5a9214f5dbaed852d28368ccf7a5109666fbf62cefc8162d85f43"
+    },
+    {
+      "bytes": 77094,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-4.webp",
+      "sha256": "1eb75ecfb05c6e27d126c089a4c942e843dfb861c659329de59d3032a47da670"
+    },
+    {
+      "bytes": 78086,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-5.webp",
+      "sha256": "c5fc8de847378b74ff211aae486ad6f38cd24a841764b69043717dca83ad8129"
+    },
+    {
+      "bytes": 74004,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-6.webp",
+      "sha256": "e84c75d57094eaff76115f68c7ec19dccfdd5de51f6bc09859d2a952c895d18b"
+    },
+    {
+      "bytes": 78518,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-forward-step-7.webp",
+      "sha256": "4743560a460ae7a83f05fc123c3a5ef3157fcad766e9953c3362b38e3a0bd7d8"
+    },
+    {
+      "bytes": 6855,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo-favicon-guide.md",
+      "sha256": "51a6c654ab9cfbf701dc22d3a51dcb9ef8a5ef2df8ab3705aea171b090691650"
+    },
+    {
+      "bytes": 9339,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo-favicon-manifest.json",
+      "sha256": "5a2fd27c0f26eedd5bf358e60dbb558843aebc10064874d72828bcce3aa35455"
+    },
+    {
+      "bytes": 1150214,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo-favicon-package.zip",
+      "sha256": "edf91060e01878f640df74b43fa50f415a4cd26ca7dee1fcfb1c374b23a46ec4"
+    },
+    {
+      "bytes": 6859,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo-header-guide.md",
+      "sha256": "b31cc0a86772f93c8be79b7fad3b9167c783eebe5e3f73f22d67f8b2408ea33e"
+    },
+    {
+      "bytes": 9611,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo-header-manifest.json",
+      "sha256": "106a622625221094aa1a4088c2a6b23fe5dd4cbef2bac33f94342014c71ebab8"
+    },
+    {
+      "bytes": 490901,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo-header-package.zip",
+      "sha256": "b604fb403fa6d82bc4476a5344f9fecf41fd38e7477853c29407539fa5372489"
+    },
+    {
+      "bytes": 6685561,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo-process.zip",
+      "sha256": "317a1c168fc2549e6a8dbd19d329be277b7198c92e94ae20b8af4ab50fd1f405"
+    },
+    {
+      "bytes": 502381,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo.png",
+      "sha256": "5ed9278a3c64318451beedd91880b86189760369c5ca6d6c1bfc28a029dc01ab"
+    },
+    {
+      "bytes": 5408,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-logo.webp",
+      "sha256": "ba6308742255b50f6fcf64e76b8d87fb2cce1a476877bbbaaabfa16e6783cca6"
+    },
+    {
+      "bytes": 204000,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-play-bow.webp",
+      "sha256": "7bd7108d9d40e3ab933de99263e151e861172753f175197627f3711d7c6f68ac"
+    },
+    {
+      "bytes": 219038,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-play-reach.webp",
+      "sha256": "5f1ba886841ee0fd67cc700d22bfa7145e94ca196d09d63a5a0a00c57c874d82"
+    },
+    {
+      "bytes": 35022,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-prop-ball.webp",
+      "sha256": "73a7d21c109fc0cdedc88069b4b0284f31dc7391f3bcd665574b8d2536db743c"
+    },
+    {
+      "bytes": 22770,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-prop-bowl.webp",
+      "sha256": "0d975444d6c5f527f422e06e803ca85b46dffb48b07b5b07ffa0f57a5a090c53"
+    },
+    {
+      "bytes": 202736,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-rest-drowsy.webp",
+      "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6"
+    },
+    {
+      "bytes": 194564,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-rest-sit.webp",
+      "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+    },
+    {
+      "bytes": 138606,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-rest-sleep.webp",
+      "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b"
+    },
+    {
+      "bytes": 230668,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-rest.webp",
+      "sha256": "896b203bbbed2d0e7bc067eefe4a95d2c5e85002c870c43fd9854c778ff6b17d"
+    },
+    {
+      "bytes": 70796,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-trot-0.webp",
+      "sha256": "b43f1903abedaa91594eea8878e7bad42d56b0bc9ef469354d39a752d8c3f8ee"
+    },
+    {
+      "bytes": 72376,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-trot-1.webp",
+      "sha256": "ecabd1040b7c505322d068ffc43a7f453c9b3826e315f3250eb1a31790d176d1"
+    },
+    {
+      "bytes": 71368,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-trot-2.webp",
+      "sha256": "4ab5d879fea40e7a0aa1916ec44a73a357842aa87eff80e4a0ea2b646f782709"
+    },
+    {
+      "bytes": 70680,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-trot-3.webp",
+      "sha256": "105ed5bf52ce6f95abb5617f33639253e31e374dfbd2058d6a1023bcafa65ea4"
+    },
+    {
+      "bytes": 301376,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v2-behavior.webp",
+      "sha256": "0427b0ce46d4c402625a76799c523bcea370d3ce95cea60409bc4b6fa1a581d7"
+    },
+    {
+      "bytes": 179054,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v2-frontwalk.webp",
+      "sha256": "4a813299eab62e0e883064d1a5d7b626cfe8413acf78cb975facfe51a6270836"
+    },
+    {
+      "bytes": 206400,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v2-idle.webp",
+      "sha256": "3cde447a0d862b0319d2858988c25c1ac1a681a1997d11d5b28f617965f6c49b"
+    },
+    {
+      "bytes": 334712,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v2-walk.webp",
+      "sha256": "d010f20c4d21a3229d72d2f4de311ce8cb8b91ce5ee7d73ac5df9728e8d15163"
+    },
+    {
+      "bytes": 80296,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-0.webp",
+      "sha256": "2eedbd1165ffd531d3241d2451d0eb3fc1884d4e83f54a7a1c143488fd1b50e6"
+    },
+    {
+      "bytes": 82262,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-1.webp",
+      "sha256": "d8e500a047e0edcc165bb84fd75f69ff1e913eef222a294eec7049b7fc327537"
+    },
+    {
+      "bytes": 76664,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-2.webp",
+      "sha256": "64944bf5f8010f253002e3c8703f53c93dcb9c28eb47a24ecad3f14ba0de7b70"
+    },
+    {
+      "bytes": 75190,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-3.webp",
+      "sha256": "e5efd3053b27503fece26242eb6015dd28d09c58a555c0a9863a364a05f2e1aa"
+    },
+    {
+      "bytes": 83930,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-4.webp",
+      "sha256": "e573cebcc0f3c53a7e033e120035fe650999393802f403b8cdb0de6cb66dbfbf"
+    },
+    {
+      "bytes": 76676,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-5.webp",
+      "sha256": "cc4de189d07fa43863c511dea8d2b9dc7a0f390923f695fd9f3ec4fd19e2867d"
+    },
+    {
+      "bytes": 79930,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-6.webp",
+      "sha256": "3c7a7f5fe011df0f8ac51ba4ca457e61cb0fffffd1ff5e95132f8ff3177101e9"
+    },
+    {
+      "bytes": 78694,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v3-step-7.webp",
+      "sha256": "93e502acf7bc9d9513ecb997860c853a71d2a371abc8a67a8a306f607dc10252"
+    },
+    {
+      "bytes": 187208,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-blink.webp",
+      "sha256": "fcc6072c982c6f0367780c611a241f4c725589ed2a4ca0fe3414e16df45716ab"
+    },
+    {
+      "bytes": 212856,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-idle.webp",
+      "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+    },
+    {
+      "bytes": 85768,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-0.webp",
+      "sha256": "36e6c3524b2bd38192edf81682ed1f84bedb767a59b19d94347153499825581d"
+    },
+    {
+      "bytes": 92546,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-1.webp",
+      "sha256": "9d35fb615f6643b1628dad231d73ee236fd912d9ec740ea19c61efa3e0d57bd9"
+    },
+    {
+      "bytes": 83718,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-2.webp",
+      "sha256": "8fe1f89cd5142d5e1a4450c556c6fde704cf0729f0a608440cda0bf006830856"
+    },
+    {
+      "bytes": 75848,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-3.webp",
+      "sha256": "cab83bfd91a749494fd1b838b32e3946f3d15e01326503a3ab79f78622c388c1"
+    },
+    {
+      "bytes": 79818,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-4.webp",
+      "sha256": "e30b70423237a12778d6fcc21763050567ecc682c624cb7853b6f4cd519c5586"
+    },
+    {
+      "bytes": 88076,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-5.webp",
+      "sha256": "09f81704102a30093269931a6f275e3eb34f2ed32366921509f078b8ed72764e"
+    },
+    {
+      "bytes": 79892,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-6.webp",
+      "sha256": "93161b5b23093fa156a85615f5e635eede8c26a6f2477dbb3c36a79bb2aa4c7a"
+    },
+    {
+      "bytes": 85016,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-v4-step-7.webp",
+      "sha256": "4dc9361f3b6cfa66c4ce5b816ca9a1c2b9a3056c11d2e4feaf7f8f6792d69a0f"
+    },
+    {
+      "bytes": 438084,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/milky-walk.webp",
+      "sha256": "f4af5a200c65bdbb9c800359f283327ca468e2c8479c4ec1120b705706323966"
+    },
+    {
+      "bytes": 335436,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/modern-studio-unlit.webp",
+      "sha256": "72befe3528b98f982be325798687ebffb0a4dbe999e2faa4e6668b0fdfe8ba24"
+    },
+    {
+      "bytes": 377096,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/modern-studio.webp",
+      "sha256": "91e7fce3ccf6b7f9dbcebc5ff7e50450292ae31cdfbe661c9f4027e98fe28690"
+    },
+    {
+      "bytes": 259540,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/night-studio-unlit.webp",
+      "sha256": "f7f3464304d1245c42ee2e02fea93a9e867755ad617e31fdaa172c7a797822da"
+    },
+    {
+      "bytes": 306198,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/night-studio.webp",
+      "sha256": "d478065dcb79e32865e244220ec17070d8a4ad4090704e629a9dc5672b166aad"
+    },
+    {
+      "bytes": 63324,
+      "group": "build",
+      "path": "project/dist/assets/cyberpunk/space-grotesk.woff",
+      "sha256": "600405ea46c98ab91e6edafaf0e6c3c0198fa9db2b2fb5f06b9c309011fdf19b"
+    },
+    {
+      "bytes": 4387,
+      "group": "build",
+      "path": "project/dist/assets/fonts/CormorantGaramond-OFL.txt",
+      "sha256": "60700d351cac4650c51f3f9db318d2a420f8b45052dba2715eb5fec41f0f6956"
+    },
+    {
+      "bytes": 23660,
+      "group": "build",
+      "path": "project/dist/assets/fonts/cormorant-garamond-latin-italic.woff2",
+      "sha256": "c80b489f34b4bb27a716682b8f8a5c3efec50fb8156e1088a43ed206003b6951"
+    },
+    {
+      "bytes": 37776,
+      "group": "build",
+      "path": "project/dist/assets/fonts/cormorant-garamond-latin.woff2",
+      "sha256": "5d618c462b7a5b74f442e1548880086af71764d9cc7d35c16ab45353da934621"
+    },
+    {
+      "bytes": 88602,
+      "group": "build",
+      "path": "project/dist/assets/index-0xaycvzH.js",
+      "sha256": "577bb8335c6564b51d31c450df02527d481080665a4ed3ac9e09325a06af2309"
+    },
+    {
+      "bytes": 36224,
+      "group": "build",
+      "path": "project/dist/assets/index-BEOldjwO.css",
+      "sha256": "e800b07aca40eee37ef83745e2db9d04e687ed8bb05973cf10b5b11d4ed8d87e"
+    },
+    {
+      "bytes": 19920,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/direct-01.webp",
+      "sha256": "ed5540338234a374a6edcc19f3a5115f10dfdefe095bc17f097c3a21c41a945c"
+    },
+    {
+      "bytes": 21800,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/direct-02.webp",
+      "sha256": "3a7d65b74ed6537cc7571200c10f18fa7c375217e240b45fac746f92746cd83d"
+    },
+    {
+      "bytes": 57376,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/direct-03.webp",
+      "sha256": "e247b0811a540c748524196a4edc368fa1ca1f27e28d996d62b66ac9b5c2433c"
+    },
+    {
+      "bytes": 941029,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/logopia-01.png",
+      "sha256": "9f3e974ecb4e842d1142ccff83246edd24ae6bf8b95fea5a59cfb1d73f265c1d"
+    },
+    {
+      "bytes": 32064,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/logopia-01.webp",
+      "sha256": "8726198c1450e70fa8018280a540f9bf7be84c46f4abd04d3fc674896c48423a"
+    },
+    {
+      "bytes": 1056645,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/logopia-02.png",
+      "sha256": "c451751ae3a49c3a3451f72a49d8318c0650005dd85c29c54a23281c45b7a09d"
+    },
+    {
+      "bytes": 41050,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/logopia-02.webp",
+      "sha256": "6340f80ea46b3532ee429ab8c99101fa2620c70e26a966d68b5e4fb24a0a7c74"
+    },
+    {
+      "bytes": 1889447,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/logopia-03.png",
+      "sha256": "8d4573b7da7a2fa3f05cc6f084b467c526ed21791d40335b0df46db0883fb6fa"
+    },
+    {
+      "bytes": 65164,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/logopia-03.webp",
+      "sha256": "697af93766dc819e3783ca91efc46ae04951955ba3374086cec5a6e07671056b"
+    },
+    {
+      "bytes": 5763788,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/milky-logo-pack.zip",
+      "sha256": "99d00745976710f24ac579a3179408d265d58a3ca54d13485ff943f5e44ebe94"
+    },
+    {
+      "bytes": 735333,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-01-white-ears.png",
+      "sha256": "96e1da5a28600bb7cf9a17d650e2f8ef90a82daba2dbd88ea1cb8c1dcc3ce3f7"
+    },
+    {
+      "bytes": 17866,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-01-white-ears.webp",
+      "sha256": "081d0ed181ccc78ad1f49892e8e82c74f23ca753d1e95a78d7289d63fd209fd5"
+    },
+    {
+      "bytes": 16636,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-01.webp",
+      "sha256": "9caadaa4c037ada126fcb626de02d8d9af335c0747d2cbd247bb0c03ece9ee89"
+    },
+    {
+      "bytes": 1488763,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-02-white.png",
+      "sha256": "b0dc4d04f3be55fbc3c72132ccff4caf3af25b65b287139bee27ebbf6c9562ee"
+    },
+    {
+      "bytes": 49078,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-02-white.webp",
+      "sha256": "60b4517d59ec3548bf521af1930becd76bf1d3adc4ae5f9461326c25d67c72cc"
+    },
+    {
+      "bytes": 1680074,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-02.png",
+      "sha256": "95172cbb554f40ee93ed2355eddec432b2905c1bc0e5eaf4ee9217c6fee27f56"
+    },
+    {
+      "bytes": 60970,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-02.webp",
+      "sha256": "ad4e812345f7c0959b073b8475414e0669c949b300c48b5b320bbd580ceef2bc"
+    },
+    {
+      "bytes": 847835,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-03-white.png",
+      "sha256": "ce962cff0ed417b60f07b98814d790ba1b1fe9c7e724f33d41c2c497972051b7"
+    },
+    {
+      "bytes": 32434,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-03-white.webp",
+      "sha256": "716580ba33a967c4c63fd9a60a7f442c5d0c49b03d5239da67ab2940467ac290"
+    },
+    {
+      "bytes": 898983,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-03.png",
+      "sha256": "e99bc8ae2763fa1791005fd1b50de6e91412e4091b8974fc21d73f1985aad69c"
+    },
+    {
+      "bytes": 34280,
+      "group": "build",
+      "path": "project/dist/assets/logo-options/smile-03.webp",
+      "sha256": "bc26cdc1f5c943f90edaae892e28f89b0e7fa3b5540cb5baf5df42bc7f7fbf0a"
+    },
+    {
+      "bytes": 18657,
+      "group": "build",
+      "path": "project/dist/assets/music/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "bytes": 7994,
+      "group": "build",
+      "path": "project/dist/assets/music/CREDITS.html",
+      "sha256": "f88cf2d23c12cc6a7d922cf22814623d35f31ab66048d666da26a96e32dd05be"
+    },
+    {
+      "bytes": 5205,
+      "group": "build",
+      "path": "project/dist/assets/music/CREDITS.txt",
+      "sha256": "c3fe4965936f1b3f8a5aa7d070cf6d1459abdce215a15dab54422c8287487c58"
+    },
+    {
+      "bytes": 17787,
+      "group": "build",
+      "path": "project/dist/assets/music/SOURCES.json",
+      "sha256": "1da06e2a52c038e8a4ae12567ccb671dd8e35f8b994ca8b8c0ca3d8637829da3"
+    },
+    {
+      "bytes": 3757178,
+      "group": "build",
+      "path": "project/dist/assets/music/autumn-afternoon.mp3",
+      "sha256": "93c186fd621e488d83d2cdf9aa580dfc5b2f1b0a6eef9f743f48b698ae3c01df"
+    },
+    {
+      "bytes": 4989962,
+      "group": "build",
+      "path": "project/dist/assets/music/autumn-evening.mp3",
+      "sha256": "10a84b1e0d66d09ff5ce54d8bd71170799f831a1993838e856b8918c3846f0fe"
+    },
+    {
+      "bytes": 4797612,
+      "group": "build",
+      "path": "project/dist/assets/music/autumn-morning.mp3",
+      "sha256": "7e7dddd0e4b4bc6fada83ccf606e82645dbd83511bae0925aba5d69371ec2d98"
+    },
+    {
+      "bytes": 4847701,
+      "group": "build",
+      "path": "project/dist/assets/music/autumn-night.mp3",
+      "sha256": "a01be2c62132a7bfaa339ace6967e13be5f683575f7ab064a263e2d343f5227a"
+    },
+    {
+      "bytes": 2705738,
+      "group": "build",
+      "path": "project/dist/assets/music/autumn-noon.mp3",
+      "sha256": "f918dd82305fdb00f2485c63c690283ae63da4c1ce677b9c1db6e6c1a9e7d8ec"
+    },
+    {
+      "bytes": 1920162,
+      "group": "build",
+      "path": "project/dist/assets/music/spring-afternoon.mp3",
+      "sha256": "5604bc529b1ac017b7523a98546e6e0010c14d7f7ca481d43036de867d73b3d4"
+    },
+    {
+      "bytes": 2017830,
+      "group": "build",
+      "path": "project/dist/assets/music/spring-evening.mp3",
+      "sha256": "448026ae4f0dc323185b8fb81b92158b36f9ffc6306c9ee6f2892713b7666f57"
+    },
+    {
+      "bytes": 1818154,
+      "group": "build",
+      "path": "project/dist/assets/music/spring-morning.mp3",
+      "sha256": "c81126cef9e8dd488ae79b42f25cf37ddddba141d86c569caf1abec3d5c308ff"
+    },
+    {
+      "bytes": 3132501,
+      "group": "build",
+      "path": "project/dist/assets/music/spring-night.mp3",
+      "sha256": "a7fed21cfb59f15147824267a52f6ade7c998bb3370cc973bbf079e4e4de145b"
+    },
+    {
+      "bytes": 1770241,
+      "group": "build",
+      "path": "project/dist/assets/music/spring-noon.mp3",
+      "sha256": "15d32fc752527362a6e0f26dccc10112df280681f38669b13d045f0133a7454a"
+    },
+    {
+      "bytes": 2872868,
+      "group": "build",
+      "path": "project/dist/assets/music/summer-afternoon.mp3",
+      "sha256": "6eb4921319c32ddb5f67ab1aaac4a9443cc9a5d0d52703aa7c9b161c6bd72897"
+    },
+    {
+      "bytes": 3561853,
+      "group": "build",
+      "path": "project/dist/assets/music/summer-evening.mp3",
+      "sha256": "78ab0200f0fa52262cbe230759927041af74b6cb1c918e6e3f0a33d6729a67fd"
+    },
+    {
+      "bytes": 3417791,
+      "group": "build",
+      "path": "project/dist/assets/music/summer-morning.mp3",
+      "sha256": "28d9ffbd0c09be40a21d45841c16cad09c4c7690b01d001b2d792ea7b4b0aa89"
+    },
+    {
+      "bytes": 2582110,
+      "group": "build",
+      "path": "project/dist/assets/music/summer-night.mp3",
+      "sha256": "65b7de8664dfd80338900a04c871e23a035d5f3ba316576710897c023aff4bc7"
+    },
+    {
+      "bytes": 3967821,
+      "group": "build",
+      "path": "project/dist/assets/music/summer-noon.mp3",
+      "sha256": "35e72723b00c3cb575b688e87f0dc0d1b1b98be362d268972cefb5356ca2ecf5"
+    },
+    {
+      "bytes": 3465699,
+      "group": "build",
+      "path": "project/dist/assets/music/winter-afternoon.mp3",
+      "sha256": "d7c19f43a0ceb098b42e544629c49bdb35532e260bae89fde05235023a771bec"
+    },
+    {
+      "bytes": 3718786,
+      "group": "build",
+      "path": "project/dist/assets/music/winter-evening.mp3",
+      "sha256": "569134adbb036235bc048df6f3369feec9c5558562168503b54ee29967859621"
+    },
+    {
+      "bytes": 2214221,
+      "group": "build",
+      "path": "project/dist/assets/music/winter-morning.mp3",
+      "sha256": "f3742d0ac7e783d3d3b4f51c93f996964df9914fb7bc3f3fe5bc49b43b7e9a4f"
+    },
+    {
+      "bytes": 1837900,
+      "group": "build",
+      "path": "project/dist/assets/music/winter-night.mp3",
+      "sha256": "fc09b1cc9ba4de0445d63e9877939e1549e344cf989a901f6221e40c3e288074"
+    },
+    {
+      "bytes": 2677216,
+      "group": "build",
+      "path": "project/dist/assets/music/winter-noon.mp3",
+      "sha256": "945ac4aef152bfacf45e0191a73c3cc0b8d269912424e7269fc5618f39c70856"
+    },
+    {
+      "bytes": 8742,
+      "group": "build",
+      "path": "project/dist/assets/paper/CREDITS.html",
+      "sha256": "12c757cfbb3b0cfe4b7be6fcb326017aaed79b890158508d2066ff7350ef4577"
+    },
+    {
+      "bytes": 909,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/LICENSE.md",
+      "sha256": "7cfb8c6a24d6c335c25e35ca1623159e6e9abe33704559aca3c1122a89e09ea3"
+    },
+    {
+      "bytes": 7028,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/autumn-pumpkin.svg",
+      "sha256": "7a1cfe2f92b12beafbb1521470afe63e08f531213683b9b4da9031e09d50beb8"
+    },
+    {
+      "bytes": 8016,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/book-stack.svg",
+      "sha256": "0c1f555cb3a3729a99974b631aead5e4758ac6c6298cc3c6bed14324c8b11ac0"
+    },
+    {
+      "bytes": 4335,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/candy-cane.svg",
+      "sha256": "3464bf0fa4a7425d28753d5a521a74a121ce5148686da25194ca67163fa3d7ad"
+    },
+    {
+      "bytes": 21471,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/christmas-tree.svg",
+      "sha256": "a527b2b1a003e31c8523b4819c7d5cd2941286f6b978ed7d094a7d41603c3d60"
+    },
+    {
+      "bytes": 21394,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/christmas-wreath.svg",
+      "sha256": "0504c72b29b85bfc07dc4b1ef0866ede6e79e34d332e853dbd2f5c462fc030b9"
+    },
+    {
+      "bytes": 8482,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/little-bird.svg",
+      "sha256": "fe7f6d07ce5f7657672f5927c3fc58defa5acfe354fa1245872790cb8d73e60d"
+    },
+    {
+      "bytes": 6001,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/manifest.json",
+      "sha256": "edd96dbe37edc1bc6e4a7f6c189fa77f4dace9d39397c9095d7f7b6aee53cbda"
+    },
+    {
+      "bytes": 6685,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/resting-cat.svg",
+      "sha256": "52be23b1712f7225d39b288488508cca115ed721b11ee5d8963f9f136eb88b8f"
+    },
+    {
+      "bytes": 23044,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/rose-vase.svg",
+      "sha256": "f6011eb73b14b546069d174a3a481e1afceceaa780ddfe369f479eb9a5063f6e"
+    },
+    {
+      "bytes": 14894,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/speaker.svg",
+      "sha256": "4233719e78b12fa40d07e8e2309f5304a6d928b662455ffff82ce27ec8b5a505"
+    },
+    {
+      "bytes": 10813,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/spring-flowers.svg",
+      "sha256": "26abcde439b569b75176040ed3b5876352b6f1054c7aeb8f03bde4144db08236"
+    },
+    {
+      "bytes": 20463,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/adapted/summer-monstera.svg",
+      "sha256": "d9d842156cb9959a87ea81244c5278108736c546c1e7562f67d79d329caf216f"
+    },
+    {
+      "bytes": 21118,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/autumn-pumpkin.svg",
+      "sha256": "42b19640386225ec20e05a4500a0ea68f0175c9e98adc8ccef9a4c985bcb7627"
+    },
+    {
+      "bytes": 24852,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/book-stack.svg",
+      "sha256": "ea4e26417515640af7e45ae7691041f35499526da7701ef5d1cbe3762855ccec"
+    },
+    {
+      "bytes": 4159,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/candy-cane.svg",
+      "sha256": "a4fbab372adb8f7a346362e2d16e3567ce174fcab7412bb3c7a7e77c014a6953"
+    },
+    {
+      "bytes": 1093,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/characters-rich/ATTRIBUTION.txt",
+      "sha256": "09ad166b09b24b51fcebc34bfbd7bf6700d7071d6d9ce6e81caf0ad22a921dc5"
+    },
+    {
+      "bytes": 1897411,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/characters-rich/blue-tit-bird.png",
+      "sha256": "317896a9eb3db4f340afff602f379ca690e0840bd1d2724dd06e151c7115826c"
+    },
+    {
+      "bytes": 357464,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/characters-rich/blue-tit-bird.webp",
+      "sha256": "9cfd38f28b5ff9582420bb8a24160e12be2c6661259afec152ec559345851158"
+    },
+    {
+      "bytes": 2185,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/characters-rich/manifest.json",
+      "sha256": "87d4e95f29ef51cc2a3819d9b11969c744b2483eeb99912cf45699b94a7a47ae"
+    },
+    {
+      "bytes": 1391770,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/characters-rich/sleeping-cat-ornament.png",
+      "sha256": "4890e8508524ec1efdf81b528edddf73208d0984f9d82fbca51a302305402faf"
+    },
+    {
+      "bytes": 146058,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/characters-rich/sleeping-cat-ornament.webp",
+      "sha256": "b99468f24c40f281b2ae950060a67a704d45afee47edaf7fb4e0f8dd62911f9f"
+    },
+    {
+      "bytes": 61692,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/christmas-tree.svg",
+      "sha256": "3b3dd76cc170c369645abedd16674abfca63a81c251c3e5941726d1809e2ee12"
+    },
+    {
+      "bytes": 47187,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/christmas-wreath.svg",
+      "sha256": "6eab67e5bc8bd78815db15fa9194e2ea21bacd5e9e34c9e5be07808aca7c4141"
+    },
+    {
+      "bytes": 27894,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/little-bird.svg",
+      "sha256": "29eb4c101c623b5fa592055a5ede1c6cf51e30240f6d88abf3245dc1e41920f0"
+    },
+    {
+      "bytes": 5970,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/manifest.json",
+      "sha256": "1622063b0a9cee9d5046c2e6c75a8bb84fd519b8ff48583a588b7ea13905990a"
+    },
+    {
+      "bytes": 19411,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/resting-cat.svg",
+      "sha256": "967723945dbe5a5f0d92cea788c5b738389c2477705c67aa4465c619dbb689a4"
+    },
+    {
+      "bytes": 3848,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rich/NOTICE.md",
+      "sha256": "c798a9b82c288441a0ca54f49eb1a30b6b935a62a218e54e3710c0522dbc115e"
+    },
+    {
+      "bytes": 2393108,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rich/autumn-pumpkin.webp",
+      "sha256": "3cf6c6302f25979a7a6f38f7018cb05f274544b8fcd36b68815e30db95483051"
+    },
+    {
+      "bytes": 5957,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rich/manifest.json",
+      "sha256": "b9ef01ce3743241f2ebc36786e03d4b55007f933f93b1a9d13731329e4eb879c"
+    },
+    {
+      "bytes": 1249460,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rich/spring-roses.webp",
+      "sha256": "961a1a1e5e5e71eb451deb8789202bc1a294ef46d4cf12f90a4e76baec72ec7a"
+    },
+    {
+      "bytes": 2299574,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rich/summer-palm.webp",
+      "sha256": "a3de0ef9fb6f9014ecb8e0db18a4e783dbde6cbaede25ddc638b6e601c2be946"
+    },
+    {
+      "bytes": 1949128,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rich/winter-tree.webp",
+      "sha256": "4903ae0524de4374eced0f6cea3012d9774a94d5dd188886e6da614842af35f4"
+    },
+    {
+      "bytes": 3242030,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rich/winter-wreath.webp",
+      "sha256": "44d7a0a139aa18e95e251706f7ffe48742f6eb5ef0ca5b3b83af27eed1dd0d47"
+    },
+    {
+      "bytes": 54469,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/rose-vase.svg",
+      "sha256": "74813397bddabfc42bd792170cbbaab28cb82c5a9b59f2237326aa43e1c38ac2"
+    },
+    {
+      "bytes": 31258,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/speaker.svg",
+      "sha256": "b059c1eacc8b3bca0fea0df001236990e5c7f1b8482c3589ca47da37de3e5ace"
+    },
+    {
+      "bytes": 33077,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/spring-flowers.svg",
+      "sha256": "4d47e5589284fe0de06127253af7294c317f00b4449b0594a90c612f1b74af08"
+    },
+    {
+      "bytes": 3320,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/NOTICE.md",
+      "sha256": "a869e0bca3112e8588630e933373f50e1c36322d5ba3928c26cd3d01c3aebbcb"
+    },
+    {
+      "bytes": 309138,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/autumn-pumpkins.webp",
+      "sha256": "b787e0950a7b1b9bdce3d0bcc92c913cd420c72803a1a0c31ea9822f39d04ea2"
+    },
+    {
+      "bytes": 1581,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/manifest.json",
+      "sha256": "215a3a89865ac17b68a33c89e7f487ba42805b0755f7353416e96d6677105776"
+    },
+    {
+      "bytes": 383512,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/sleeping-cat.webp",
+      "sha256": "c1cea229ac312e88923fbcdd93e8e949ea02bc76619d5aef9411309a3cccec14"
+    },
+    {
+      "bytes": 328500,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/sparrow.webp",
+      "sha256": "68bc7ba59b72ae58b2dece711e414bbca66f9904a4da979d70d45d6aeb129c3c"
+    },
+    {
+      "bytes": 359344,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/spring-flowers.webp",
+      "sha256": "89617d0b721ce7cfe6577b77d2d31bbfab07851ef87398ff7be294c9f5e1d8f4"
+    },
+    {
+      "bytes": 455396,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/winter-tree.webp",
+      "sha256": "75a5208c2f3b70fd5e9162076a984c5c321d3ecdba71eb3c80cd1dcf20960242"
+    },
+    {
+      "bytes": 565902,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/studio-matched/winter-wreath.webp",
+      "sha256": "58bef1e4432743b1529690d0abfc3739b69b0e630d47d42fa63362884bbee126"
+    },
+    {
+      "bytes": 32100,
+      "group": "build",
+      "path": "project/dist/assets/paper/decor/summer-monstera.svg",
+      "sha256": "b8e6067949d371606f5c0971e5e69e9d7cea9d781d92334292b24ddb5912e818"
+    },
+    {
+      "bytes": 1009,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/ATTRIBUTION.txt",
+      "sha256": "633fd36830a2ab17814075cd7488608969180edf24e086a94b6b349a9c3c88ca"
+    },
+    {
+      "bytes": 371,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/AUTHOR-original.txt",
+      "sha256": "21f32ca61d71183e48be3eb5e199824993be100375686524491d2368aaa0b12d"
+    },
+    {
+      "bytes": 18657,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "bytes": 1199,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/layers.json",
+      "sha256": "b12738c472a49dbb7ecb4b794d883b20597fd2f1545f427093c295f94f7f691e"
+    },
+    {
+      "bytes": 63114,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/valley-layer-01.webp",
+      "sha256": "3abe985c6c441b0f162255a52e465e393f21e94beb3ef8ba837abd31ffb07ed6"
+    },
+    {
+      "bytes": 178988,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/valley-layer-02.webp",
+      "sha256": "814ea7442b8104f9462ea1431aad223a11a1af3bb98e6af72b1b62ed98c9640b"
+    },
+    {
+      "bytes": 90374,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/valley-layer-03.webp",
+      "sha256": "5758fadac3ae2c8c37fc2acc65345330c7680d15bb4e86a3cb463b2c3c6a4006"
+    },
+    {
+      "bytes": 104804,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/valley-layer-04.webp",
+      "sha256": "dc76db64f4039b74bf692f78109d05fa3f1dfb4e93c7c62a2e74ee25c967177b"
+    },
+    {
+      "bytes": 22344,
+      "group": "build",
+      "path": "project/dist/assets/paper/landscape/valley-layer-05.webp",
+      "sha256": "000eafe3fd3ba1057f9d2d2727416d4d4be7602abe19d6afcfd06e9c0c9a00a6"
+    },
+    {
+      "bytes": 8022,
+      "group": "build",
+      "path": "project/dist/assets/paper/paper-creased.webp",
+      "sha256": "8fa77182a6b468c1f23c6eb38a1c9d5b4be22f602291b07387b2b1b12b6e254c"
+    },
+    {
+      "bytes": 64728,
+      "group": "build",
+      "path": "project/dist/assets/paper/paper-fibers.webp",
+      "sha256": "9c62ac407b985618fb840d38566d379b823d76ad4e8656d9f27655efc01d47b7"
+    },
+    {
+      "bytes": 100686,
+      "group": "build",
+      "path": "project/dist/assets/paper/paper-warm.webp",
+      "sha256": "c2e76274ba1cd4829e91dccdc7b847b8d8fe3cd2bb4fc652c1b293ad675151f1"
+    },
+    {
+      "bytes": 3031650,
+      "group": "build",
+      "path": "project/dist/assets/paper/studio-interior-v1.png",
+      "sha256": "00519ee961e5e4a1da27da126387596a7da439741cafc8095ebb57043ec1efdf"
+    },
+    {
+      "bytes": 557920,
+      "group": "build",
+      "path": "project/dist/assets/paper/studio-interior-v1.webp",
+      "sha256": "d9c86952ea3ba0de1b603357dc2c5d38d8c9c78294089dc993579339613358f0"
+    },
+    {
+      "bytes": 75460,
+      "group": "build",
+      "path": "project/dist/assets/studio/room.webp",
+      "sha256": "45d87329190c5135316da7d61c8d8a8b1c5908b23835edd56467b1b30e02f62e"
+    },
+    {
+      "bytes": 493248,
+      "group": "build",
+      "path": "project/dist/assets/studio/seasons.webp",
+      "sha256": "d73a50119d2b0f6a51cfbd79f8409856845c6b9467e10096bb65458931fe0419"
+    },
+    {
+      "bytes": 270,
+      "group": "build",
+      "path": "project/dist/cyber-favicon.svg",
+      "sha256": "a38a689834915e1b9690aea250de5d8e12a31a70cfd0d6f0fc98fee0e5c743b4"
+    },
+    {
+      "bytes": 461,
+      "group": "build",
+      "path": "project/dist/favicon.svg",
+      "sha256": "5cbf51054fa5ec4df246dece60125a943e3fff41878736600c0cb32b998f695d"
+    },
+    {
+      "bytes": 1105,
+      "group": "build",
+      "path": "project/dist/index.html",
+      "sha256": "7879df901050540b6afab310387ef087d6939aad9d3d5db973330a928fd198b3"
+    },
+    {
+      "bytes": 21438,
+      "group": "build",
+      "path": "project/dist/milky-a-apple-touch.png",
+      "sha256": "d3c93d874c701b83376db0398838110b29bb0dfda3725b3630ebfe315027904b"
+    },
+    {
+      "bytes": 3902,
+      "group": "build",
+      "path": "project/dist/milky-a-favicon.png",
+      "sha256": "68fd9345155e87ff510c8bbcf9d29bdf2fe3d5770a3ebe71d7117877c4a5d6e1"
+    },
+    {
+      "bytes": 4031,
+      "group": "build",
+      "path": "project/dist/milky-favicon.png",
+      "sha256": "6a0edd49dda5b0ecd4bac304088ce9ff0fa033686bb2d9bb4e777d827f79e783"
+    },
+    {
+      "bytes": 33891,
+      "group": "build",
+      "path": "project/dist/milky-logo-options-archive.html",
+      "sha256": "8b278a7ed4e2d6699a65544560c544aaaa4427a5e0b2c63a424220aea938d64c"
+    },
+    {
+      "bytes": 34747,
+      "group": "build",
+      "path": "project/dist/milky-logo-options.html",
+      "sha256": "3dc10130f591b51e12f2d1f767d5fc7e6c55842f378f4a642a85c8ad4a3071d5"
+    },
+    {
+      "bytes": 5122,
+      "group": "source",
+      "path": "project/docs/ART-PROMPTS.md",
+      "sha256": "c9b4616396ab1e032966dc3ca5207b9852c4425d79fc1ad643acf063efa0f263"
+    },
+    {
+      "bytes": 3814,
+      "group": "source",
+      "path": "project/docs/CINEMATIC-NAME.md",
+      "sha256": "2c56cad4ae40e474bb536328ff1013606b4fe18d8293aaf64aed16bab7137548"
+    },
+    {
+      "bytes": 4255,
+      "group": "source",
+      "path": "project/docs/CITY-WEATHER-DETAIL.md",
+      "sha256": "636c0acca1ad03de48c50422fdaec1590775a3694014ff386de068fddfc320a1"
+    },
+    {
+      "bytes": 5441,
+      "group": "source",
+      "path": "project/docs/CYBER-MUSIC.md",
+      "sha256": "0126b0d5c17119e82d084c986220b712cb7e40547e2af7c204852bb36d182bcb"
+    },
+    {
+      "bytes": 27091,
+      "group": "source",
+      "path": "project/docs/CYBERPUNK-CHECKS.md",
+      "sha256": "5a7b2f852a4121967c2baee5a3a54ca8e8ffc2366a263e0a81376eb5ed29a0d9"
+    },
+    {
+      "bytes": 1970,
+      "group": "source",
+      "path": "project/docs/DELIVERY-CHECKS.md",
+      "sha256": "0077d68797110d615982c3f1b7097e21a5380ef9e0550b834748e305bbee4bd9"
+    },
+    {
+      "bytes": 5364,
+      "group": "source",
+      "path": "project/docs/DELIVERY.md",
+      "sha256": "b204c6f12de9f3adb7e9ff8f9dd1af7d8561df7935f7eeb319b5ee248d0c4800"
+    },
+    {
+      "bytes": 6235,
+      "group": "source",
+      "path": "project/docs/DESK-AUTUMN.md",
+      "sha256": "ee9b936c167b7d625f02e6bf85202a3754596820ab372f01633a9c36a77571fb"
+    },
+    {
+      "bytes": 4394,
+      "group": "source",
+      "path": "project/docs/DESK-EFFECTS.md",
+      "sha256": "72e78ddd405156353a615f653c6d37edb0e195e7b0b696bf147fb6e4febef90d"
+    },
+    {
+      "bytes": 12762,
+      "group": "source",
+      "path": "project/docs/DESK-HEIGHT-AUTUMN.md",
+      "sha256": "33cf9c76aab6269a77768e2c672b67f3e25c8c03df28695d7d3f95b960813fc4"
+    },
+    {
+      "bytes": 15820,
+      "group": "source",
+      "path": "project/docs/DESK-HEIGHT-SPRING.md",
+      "sha256": "88fdba708db45c8b4e324cab1f930728944d5da82ff6da7815bbb8eac2e29c51"
+    },
+    {
+      "bytes": 7587,
+      "group": "source",
+      "path": "project/docs/DESK-HEIGHT-SUMMER.md",
+      "sha256": "da916495c113177cdfe5f5ab6c062f7c5e28e7dc72e76613d81ef4e2f630c4d9"
+    },
+    {
+      "bytes": 24137,
+      "group": "source",
+      "path": "project/docs/DESK-HEIGHT-WINTER.md",
+      "sha256": "ddd0a1ead2c20fccc33a7bebe28f2e76b6a600b1b4da2c8c07327fa34217285a"
+    },
+    {
+      "bytes": 6308,
+      "group": "source",
+      "path": "project/docs/DESK-HEIGHT.md",
+      "sha256": "213be724059b1ac2c26250e97405ce1280a0da60e65b17113c910c793a12affe"
+    },
+    {
+      "bytes": 4675,
+      "group": "source",
+      "path": "project/docs/DESK-MASTER.md",
+      "sha256": "f1d9efa9c6c70c85beb0b953e5fec4f4cc56c4d8741fab0cafff3ab916ded012"
+    },
+    {
+      "bytes": 15493,
+      "group": "source",
+      "path": "project/docs/DESK-SPRING.md",
+      "sha256": "c7b212df2c285282400de9dea7dbf9bca8fc14933ced4900069f066e1c3c87c9"
+    },
+    {
+      "bytes": 5534,
+      "group": "source",
+      "path": "project/docs/DESK-SUMMER.md",
+      "sha256": "b3fec9e54122f3b55a3dd5fd610608faabf2e8037523d19f722e7e14f9d7cafb"
+    },
+    {
+      "bytes": 7058,
+      "group": "source",
+      "path": "project/docs/DESK-WINTER.md",
+      "sha256": "551a8d9cfcd6dc7dc2818ff82fc08432b34d41d2568d1b8d5eca294728e58b0b"
+    },
+    {
+      "bytes": 7229,
+      "group": "source",
+      "path": "project/docs/LOGO-DIRECT-OPTIONS.md",
+      "sha256": "3025de0753fc8ce2da322497dd4c52e3d20ba481680702ca71442414c23b7905"
+    },
+    {
+      "bytes": 3420,
+      "group": "source",
+      "path": "project/docs/LOGO-GALLERY.md",
+      "sha256": "c62e58246260f705108ff2b7f0737507996a9b0324753d18aa9c3cdc82d0b729"
+    },
+    {
+      "bytes": 26396,
+      "group": "source",
+      "path": "project/docs/LOGO-LOGOPIA-OPTIONS.md",
+      "sha256": "2ef5ec0e9dafbb7689e48d32829864c122a5396aa935325fb5331f4185a6d943"
+    },
+    {
+      "bytes": 7264,
+      "group": "source",
+      "path": "project/docs/LOGOPIA-MILKY.md",
+      "sha256": "97dd9873ce41867994114df96111ba1e25547b881dc992389949654207364809"
+    },
+    {
+      "bytes": 20667,
+      "group": "source",
+      "path": "project/docs/MILKY-ACTIVITY-ART.md",
+      "sha256": "20a2f563ae4a4e0a2726d715fb6d6ab40a44cfeae3a7ea088f7d4ba60d10a176"
+    },
+    {
+      "bytes": 5494,
+      "group": "source",
+      "path": "project/docs/MILKY-FABLE-ACTIVITY-ASSET-BRIEF.md",
+      "sha256": "92269cd7bf55b6cbba776424d37375bd6493bda8122212125ae5b0ea5d5341f9"
+    },
+    {
+      "bytes": 7342,
+      "group": "source",
+      "path": "project/docs/MILKY-FABLE-ACTIVITY.md",
+      "sha256": "586ad0aec50a047d9195041f798a0e6ba1603f11287b34446ebfd96dea4e78bd"
+    },
+    {
+      "bytes": 6495,
+      "group": "source",
+      "path": "project/docs/MILKY-FABLE-ASSET-BRIEF.md",
+      "sha256": "3fa95a18e648ef2c29df2b9ab5a65cfc44f746e7ca5519b30d59ac8b77a837e9"
+    },
+    {
+      "bytes": 4687,
+      "group": "source",
+      "path": "project/docs/MILKY-FABLE-REST-ASSET-BRIEF.md",
+      "sha256": "ffeb67c88022e0aab0dc900238f0e0097150f2519aa8d4b058b909fc45b87603"
+    },
+    {
+      "bytes": 4094,
+      "group": "source",
+      "path": "project/docs/MILKY-FABLE-REST.md",
+      "sha256": "8894f21be6730138469b09358f0831fe0de15dfbda87b0eb836e358aff6c3559"
+    },
+    {
+      "bytes": 6160,
+      "group": "source",
+      "path": "project/docs/MILKY-FABLE-SMILE.md",
+      "sha256": "f82670711beb353e6c59adfa7c27e115fddae355e3db170533f2d1cc8b90be8d"
+    },
+    {
+      "bytes": 8090,
+      "group": "source",
+      "path": "project/docs/MILKY-FORWARD-ART.md",
+      "sha256": "74c5ef9f5906168b33b342d110a2ac61d9c9fef0646d148e9a7a83bca1aa66c8"
+    },
+    {
+      "bytes": 3339,
+      "group": "source",
+      "path": "project/docs/MILKY-LOGO-EXPORT-BC.md",
+      "sha256": "f6dd5acee9a97839ffe9f8bcbabcc48700da589926d6e844b669d032ed58581b"
+    },
+    {
+      "bytes": 2676,
+      "group": "source",
+      "path": "project/docs/MILKY-LOGO-PACK.md",
+      "sha256": "912cd1b0273fc7a6a6d9e250a53037126dec1b8dcb7c20de8e8d0befceed9982"
+    },
+    {
+      "bytes": 7227,
+      "group": "source",
+      "path": "project/docs/MILKY-PHOTO-GAIT.md",
+      "sha256": "2194cfc0209ecdba83bc7ef1b25dce960921939abf6df426cd283e00d3765785"
+    },
+    {
+      "bytes": 13263,
+      "group": "source",
+      "path": "project/docs/MILKY-REST-ART.md",
+      "sha256": "44d591174cf3eb0159e3caeb716c3e4b10374eeb7ce1baa55de6b2ed2632866b"
+    },
+    {
+      "bytes": 4706,
+      "group": "source",
+      "path": "project/docs/MILKY-ROAM.md",
+      "sha256": "640e8ad3453a84006bca2dff9fa87af696fa40c0b2c67f7133d056c2eff581f6"
+    },
+    {
+      "bytes": 7294,
+      "group": "source",
+      "path": "project/docs/MILKY-SMILE-ART.md",
+      "sha256": "b96a44d169ce0cc54e0f45277b9ac7de410fef00e8926245c9c7a151b3d8ad60"
+    },
+    {
+      "bytes": 8908,
+      "group": "source",
+      "path": "project/docs/MILKY-SMILE-LOGOS.md",
+      "sha256": "dbddf3b564fd02d3c42e7632ca7e902c50575ff5fcb8dc302d8b09ee858e0d96"
+    },
+    {
+      "bytes": 7005,
+      "group": "source",
+      "path": "project/docs/MILKY-TROT-ART.md",
+      "sha256": "8ef27259ba8cb10b83c04f92993b851bb57f31f462afcdd9aad8f0b456ad8c49"
+    },
+    {
+      "bytes": 6232,
+      "group": "source",
+      "path": "project/docs/MILKY-WHITE-BC.md",
+      "sha256": "0f9ad2564b2bdc1334a5a61e72507f645f846e0fa78194859e7c07107cedb6ff"
+    },
+    {
+      "bytes": 2881,
+      "group": "source",
+      "path": "project/docs/MILKY-WHITE-EARS.md",
+      "sha256": "7829274e5a3a9e7e923f612d8fe1f987f0d60f0ee4afb30d64ea739dd9c681b8"
+    },
+    {
+      "bytes": 2736,
+      "group": "source",
+      "path": "project/docs/PAPER-CHARACTER-RICH.md",
+      "sha256": "b9eaf765e837518a1e673fcacf64923fcf56a069f212cb761d852113dc339e09"
+    },
+    {
+      "bytes": 6244,
+      "group": "source",
+      "path": "project/docs/PAPER-DECOR-SOURCES.md",
+      "sha256": "fc6bd1c67bc02d85e1f7f5bb9e148dd08ce85ead1d7f24dbc30184c7e6a89064"
+    },
+    {
+      "bytes": 5148,
+      "group": "source",
+      "path": "project/docs/PAPER-LANDSCAPE-SOURCES.md",
+      "sha256": "5b30d274c6ffbf80608be37dcc391fe759905f151f444b2cd53fe42c4c08720a"
+    },
+    {
+      "bytes": 8196,
+      "group": "source",
+      "path": "project/docs/PAPER-MUSIC.md",
+      "sha256": "b7770b98c8a9d85f9c3391186c1f1a8299c9d5926743de2e5f799891ca27d35a"
+    },
+    {
+      "bytes": 4441,
+      "group": "source",
+      "path": "project/docs/PAPER-RICH-ASSETS.md",
+      "sha256": "66c1e0f6e8ea25b71c993657d520904d80afe825880b5c8b8891cf5b06bedb68"
+    },
+    {
+      "bytes": 11126,
+      "group": "source",
+      "path": "project/docs/PAPER-STUDIO.md",
+      "sha256": "d5f4ad6e4bb90b92d1b184c08eb35b5ccca5be2d4a3733e49c1dfbe0bd2a3bf2"
+    },
+    {
+      "bytes": 4370,
+      "group": "source",
+      "path": "project/docs/REDESIGN-3D.md",
+      "sha256": "3b864bde64a9f736ee66bf4dbdb6512fd48b3f1f3b888fdb1fbb4160ce513cae"
+    },
+    {
+      "bytes": 10009,
+      "group": "source",
+      "path": "project/docs/REFERENCE-DIRECTION.md",
+      "sha256": "c2f54c195f2337721f75f8ffbb22b936da71ce47235d6f878813b2e47a4d7b19"
+    },
+    {
+      "bytes": 3262,
+      "group": "source",
+      "path": "project/docs/SCENE-WEATHER-SYNC.md",
+      "sha256": "cf3eb838759c6c6d3ee6caf7c8460eb0b046ea86f63b8610bece126b03474423"
+    },
+    {
+      "bytes": 12713,
+      "group": "source",
+      "path": "project/docs/milky-activity-registration.json",
+      "sha256": "d63eb51a77ae0dba93e445b8472a677131a5d5a2793e46c437e3668b58e9fead"
+    },
+    {
+      "bytes": 28071,
+      "group": "source",
+      "path": "project/docs/milky-forward-registration.json",
+      "sha256": "46dbdcd1d7f9769bee465805a06a6f6f3b4d914bfb12441b498e90d5d55b2398"
+    },
+    {
+      "bytes": 9546,
+      "group": "source",
+      "path": "project/docs/milky-rest-registration.json",
+      "sha256": "179b14b26523df4198cb901b2843322ac0cffce90ac165d26fa5d72342a837cf"
+    },
+    {
+      "bytes": 6021,
+      "group": "source",
+      "path": "project/docs/milky-trot-registration.json",
+      "sha256": "c2a0d841cafcdc3e32559743b273b6fc85a3943ec58e27469fd8866711375c52"
+    },
+    {
+      "bytes": 14001,
+      "group": "source",
+      "path": "project/docs/milky-v3-registration.json",
+      "sha256": "acf2d4cfef14d66c00d044ffe13ee61439f96b4bd2dc7e38f57afcc5df49d68b"
+    },
+    {
+      "bytes": 21570,
+      "group": "source",
+      "path": "project/docs/milky-v4-registration.json",
+      "sha256": "4106d5407365508f2cfcb3d7ec886a8a6d8d2de9332f3e0dc28e31ce19188f94"
+    },
+    {
+      "bytes": 1012,
+      "group": "source",
+      "path": "project/index.html",
+      "sha256": "1339b35b8abbcb8beef9d2288780e4af78525248c1e023f1cde0d9830b6e5869"
+    },
+    {
+      "bytes": 41235,
+      "group": "source",
+      "path": "project/package-lock.json",
+      "sha256": "71e22da1bf68602ed9592cf4c260f6a8e620748679db2f95d86eadb883a8f78c"
+    },
+    {
+      "bytes": 498,
+      "group": "source",
+      "path": "project/package.json",
+      "sha256": "1ceb31b91f8084ab938ed648d9505734b1f17195d7f777eca511c1144bdd3b50"
+    },
+    {
+      "bytes": 1942,
+      "group": "source",
+      "path": "project/public/assets/badge/QA.md",
+      "sha256": "dcc6f4ba9f9a592414678f46732dfbf1db11d2ed26e40eae3ba753923f64c224"
+    },
+    {
+      "bytes": 595,
+      "group": "source",
+      "path": "project/public/assets/badge/SOURCES.md",
+      "sha256": "66f1165dc271a4b9d5f190bb32df67ed011ba915dabfb88b918717813e519e69"
+    },
+    {
+      "bytes": 3119,
+      "group": "source",
+      "path": "project/public/assets/badge/ai-class-qr.svg",
+      "sha256": "84d6e47313ffe0dbfe90190c048056f2fd5bd0880487a621d83b5deb1402ff73"
+    },
+    {
+      "bytes": 9736,
+      "group": "source",
+      "path": "project/public/assets/badge/archivo-800.woff",
+      "sha256": "d00b995aecb4506ad9a2b50a8c5467ee62e2b61d16fd3376e0fb156f138d48ab"
+    },
+    {
+      "bytes": 4388,
+      "group": "source",
+      "path": "project/public/assets/badge/archivo-OFL.txt",
+      "sha256": "108b4e57c9c796d3d38d0428ca7ee39de47ad93187302718d9b2d8864b9b716b"
+    },
+    {
+      "bytes": 50244,
+      "group": "source",
+      "path": "project/public/assets/badge/caveat-600.woff",
+      "sha256": "c80b909a3ff802fafcb236348627eb2be97bb5f81d8799d95bac4994f64d4fb5"
+    },
+    {
+      "bytes": 4385,
+      "group": "source",
+      "path": "project/public/assets/badge/caveat-OFL.txt",
+      "sha256": "1f9d81d094273d82f3898a1ee8b598a717d050ecbf5ff7bede105b704880157b"
+    },
+    {
+      "bytes": 21164,
+      "group": "source",
+      "path": "project/public/assets/badge/jetbrains-mono-400.woff",
+      "sha256": "5379f3f859efe74204bd078c71e637bfe8ee40e41f6e31c804ed33111fc92aea"
+    },
+    {
+      "bytes": 4399,
+      "group": "source",
+      "path": "project/public/assets/badge/jetbrainsmono-OFL.txt",
+      "sha256": "b2fe5e8987594e9ffd1d2ca52a2f5d73eb8335243893c5d6254b5ad69269591d"
+    },
+    {
+      "bytes": 659886,
+      "group": "source",
+      "path": "project/public/assets/badge/jieun-mark.svg",
+      "sha256": "67c7551862c2336c5f0c1bef5d07a310ba1e310b23fd09084625ed69d1389735"
+    },
+    {
+      "bytes": 13988,
+      "group": "source",
+      "path": "project/public/assets/badge/work-sans-600.woff",
+      "sha256": "27ff9d9db74822a2864d31c9a90ffd6df59c9c4c13ca7090687448bcf6e9d90b"
+    },
+    {
+      "bytes": 4396,
+      "group": "source",
+      "path": "project/public/assets/badge/worksans-OFL.txt",
+      "sha256": "749aca05078664ce682dce1b1b10096ac397cb088c1a6df4e1bb56f0092a9272"
+    },
+    {
+      "bytes": 4892,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/ART-DIRECTION.md",
+      "sha256": "8cce6da436f92e79bb2120a7079c07f5250ed2ea9da232323b288acace5b7696"
+    },
+    {
+      "bytes": 17764,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/MILKY-VIDEO.md",
+      "sha256": "8e10b2389d946641102f49a27665fd1b636e5f8675d5257b6e3e93caaad677a1"
+    },
+    {
+      "bytes": 8570,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/MILKY.md",
+      "sha256": "0a61da3ce470fde06924b180fc867f8b2c6008d324e66ec1282f884c2eae3866"
+    },
+    {
+      "bytes": 9586,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/MODERN-ILLUSTRATION.md",
+      "sha256": "2b879134e27adaceb1c451fbec0bd4e8c4f55c9aaff6819b7e24322c97446981"
+    },
+    {
+      "bytes": 4401,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/SpaceGrotesk-OFL.txt",
+      "sha256": "18a4de52385f6b988782639d5d0cc1326e5a8c2de9a7f01d7b20d9aedcc60943"
+    },
+    {
+      "bytes": 19301,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/AUTUMN-WINTER.md",
+      "sha256": "3fb07b031520580222d18c1eb1e6535a2ff9ff0d1141a629ab962bc3a0a28360"
+    },
+    {
+      "bytes": 20898,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/SPRING-SUMMER.md",
+      "sha256": "22c0b294d69dfa8a0566e3d98452134973bc77c908acc9f06750d97318b83012"
+    },
+    {
+      "bytes": 464978,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/autumn-afternoon.webp",
+      "sha256": "2f2106dd36193e4271db67bf983bb4237532d28374f5aeaac1b1e57ea1db6834"
+    },
+    {
+      "bytes": 458262,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/autumn-evening.webp",
+      "sha256": "7dfe36f72d5b3118c794260ba07d18c205824c3e5e3b8cc43751b9ba7869c2f7"
+    },
+    {
+      "bytes": 410116,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/autumn-morning.webp",
+      "sha256": "267977bafc974b70798de53f4dea13f348b89a7130b9ea2241a64a1a958ce92e"
+    },
+    {
+      "bytes": 433876,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/autumn-night.webp",
+      "sha256": "d1717d3ac46c0ba4ccf2a4a85f79ba325b75cce873bb78cd8576e49e95cc7f50"
+    },
+    {
+      "bytes": 471032,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/autumn-noon.webp",
+      "sha256": "254455ed6bc329946904f81b1dc7e28acfc48e5a70a592df5b342a5e74ed32b1"
+    },
+    {
+      "bytes": 544740,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/spring-afternoon.webp",
+      "sha256": "e06e1f2026f46e5954bfb15b297f720934f3af15208b7db9f45ee2790e5e0e2b"
+    },
+    {
+      "bytes": 522118,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/spring-evening.webp",
+      "sha256": "3c06d6e619fc69d67f0df0cb57b01b689e1febcc2ba873367d67693d69e5e43b"
+    },
+    {
+      "bytes": 462778,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/spring-morning.webp",
+      "sha256": "522aa12da4baf641cca7fb9ca1156fe08bad6f3efce3b89e2a3438072fb02bc2"
+    },
+    {
+      "bytes": 514426,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/spring-night.webp",
+      "sha256": "c1048eda17dc34a17960328a002317e29c9116bf6ab7e70f6c995141786d8fd3"
+    },
+    {
+      "bytes": 473168,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/spring-noon.webp",
+      "sha256": "fcbc4a48cbc1112d38a9e1a27ab82e762e3b841a8cdfe1a3d3afc8c14a16b45b"
+    },
+    {
+      "bytes": 517522,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/summer-afternoon.webp",
+      "sha256": "5639732c3212f6b0edb289684ed284fcdd9871465893db80f1f73df33450fbee"
+    },
+    {
+      "bytes": 524908,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/summer-evening.webp",
+      "sha256": "6d60bc7bcc017852a75aa0d2d1358100f2264d5fff8e24b9deeb2898ca41d88a"
+    },
+    {
+      "bytes": 498910,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/summer-morning.webp",
+      "sha256": "b9761a470fc371c41bb3620c169d8d8e11b3fd8c8bedc2c49dfcd87395fa1cb6"
+    },
+    {
+      "bytes": 486246,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/summer-night.webp",
+      "sha256": "5ac3c7463b4957704b0fc69b7a871aecb15dbee17f01d0b9fb891e77c5502c30"
+    },
+    {
+      "bytes": 423518,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/summer-noon.webp",
+      "sha256": "106997af96d1df3961c8a2fc6179ad82c37cbb874e5c226b412447751d236816"
+    },
+    {
+      "bytes": 595102,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/winter-afternoon.webp",
+      "sha256": "462881fa73462252e7651759e27cdf243be4af67b39e39359e49e8aceaced8ed"
+    },
+    {
+      "bytes": 601636,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/winter-evening.webp",
+      "sha256": "46be12f2380070ec4b138c93ee95c9199ed94cf1aaa16cfdaceb06cd0ae88f8d"
+    },
+    {
+      "bytes": 584996,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/winter-morning.webp",
+      "sha256": "f653c97e6d7aef8f040243646a011cd3fe259d10a3e00d03f114cf32ff888e00"
+    },
+    {
+      "bytes": 560890,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/winter-night.webp",
+      "sha256": "277cb7ed635951b029a8c55b7333c999933ecd553cdf6ac24aede9cd9ec5901f"
+    },
+    {
+      "bytes": 587152,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/climate/winter-noon.webp",
+      "sha256": "57e7a62d055687d3e68438cf746a3aee7057a765f94931f0b33194d01853c057"
+    },
+    {
+      "bytes": 423518,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/desk-height-reference.webp",
+      "sha256": "106997af96d1df3961c8a2fc6179ad82c37cbb874e5c226b412447751d236816"
+    },
+    {
+      "bytes": 511274,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/desk-reference.webp",
+      "sha256": "2f081332a5d67bef968bf036a2654c927af1be267ee287a228ec0fbfa963f88d"
+    },
+    {
+      "bytes": 164162,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/maltese-alert.webp",
+      "sha256": "ef6bd74a4b0fcc7a83686dcc8e6a1d69dfb0b2d802cbe2d16b7705325ee8426f"
+    },
+    {
+      "bytes": 225124,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/maltese-rest.webp",
+      "sha256": "b24c1bfad33f0b9f67f00fb7acd0840680e27e07f6f5196924109973809e5ba9"
+    },
+    {
+      "bytes": 289230,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-awake.webp",
+      "sha256": "f76c83f52c3633fe3489508be9bcf0c20c27d1b2860d4991a41bc9a2b080f42c"
+    },
+    {
+      "bytes": 195780,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-eat-lift.webp",
+      "sha256": "904d87102f7ee1b1372ee43b10a28c6c0d5774ae9296d8e9705f1c273820d2e8"
+    },
+    {
+      "bytes": 217910,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-eat-low.webp",
+      "sha256": "036648574e441ffcfaf7a01b37e4ba8d9272cab649bc26b3c8199db57ab5d147"
+    },
+    {
+      "bytes": 202964,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-idle.webp",
+      "sha256": "f307a34a832cc82136d8b768d30f09abe3d1e2b2208f970308c3aafb1193610d"
+    },
+    {
+      "bytes": 82234,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-0.webp",
+      "sha256": "8773613547811a7a6643c96743d3b6f8218161ff0ea70f9151ed59fddf6d21ef"
+    },
+    {
+      "bytes": 85904,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-1.webp",
+      "sha256": "1bc97d00cacc40c21fab8fbe895fedea3762a4a54588cd0bf5ccec2d34a54576"
+    },
+    {
+      "bytes": 85376,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-2.webp",
+      "sha256": "49ac6e2173dc6890dd829dc1771dea4007259846ca72ae8edbe28027fd4836f7"
+    },
+    {
+      "bytes": 76230,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-3.webp",
+      "sha256": "2140f0a638d5a9214f5dbaed852d28368ccf7a5109666fbf62cefc8162d85f43"
+    },
+    {
+      "bytes": 77094,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-4.webp",
+      "sha256": "1eb75ecfb05c6e27d126c089a4c942e843dfb861c659329de59d3032a47da670"
+    },
+    {
+      "bytes": 78086,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-5.webp",
+      "sha256": "c5fc8de847378b74ff211aae486ad6f38cd24a841764b69043717dca83ad8129"
+    },
+    {
+      "bytes": 74004,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-6.webp",
+      "sha256": "e84c75d57094eaff76115f68c7ec19dccfdd5de51f6bc09859d2a952c895d18b"
+    },
+    {
+      "bytes": 78518,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-forward-step-7.webp",
+      "sha256": "4743560a460ae7a83f05fc123c3a5ef3157fcad766e9953c3362b38e3a0bd7d8"
+    },
+    {
+      "bytes": 6855,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo-favicon-guide.md",
+      "sha256": "51a6c654ab9cfbf701dc22d3a51dcb9ef8a5ef2df8ab3705aea171b090691650"
+    },
+    {
+      "bytes": 9339,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo-favicon-manifest.json",
+      "sha256": "5a2fd27c0f26eedd5bf358e60dbb558843aebc10064874d72828bcce3aa35455"
+    },
+    {
+      "bytes": 1150214,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo-favicon-package.zip",
+      "sha256": "edf91060e01878f640df74b43fa50f415a4cd26ca7dee1fcfb1c374b23a46ec4"
+    },
+    {
+      "bytes": 6859,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo-header-guide.md",
+      "sha256": "b31cc0a86772f93c8be79b7fad3b9167c783eebe5e3f73f22d67f8b2408ea33e"
+    },
+    {
+      "bytes": 9611,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo-header-manifest.json",
+      "sha256": "106a622625221094aa1a4088c2a6b23fe5dd4cbef2bac33f94342014c71ebab8"
+    },
+    {
+      "bytes": 490901,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo-header-package.zip",
+      "sha256": "b604fb403fa6d82bc4476a5344f9fecf41fd38e7477853c29407539fa5372489"
+    },
+    {
+      "bytes": 6685561,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo-process.zip",
+      "sha256": "317a1c168fc2549e6a8dbd19d329be277b7198c92e94ae20b8af4ab50fd1f405"
+    },
+    {
+      "bytes": 502381,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo.png",
+      "sha256": "5ed9278a3c64318451beedd91880b86189760369c5ca6d6c1bfc28a029dc01ab"
+    },
+    {
+      "bytes": 5408,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-logo.webp",
+      "sha256": "ba6308742255b50f6fcf64e76b8d87fb2cce1a476877bbbaaabfa16e6783cca6"
+    },
+    {
+      "bytes": 204000,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-play-bow.webp",
+      "sha256": "7bd7108d9d40e3ab933de99263e151e861172753f175197627f3711d7c6f68ac"
+    },
+    {
+      "bytes": 219038,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-play-reach.webp",
+      "sha256": "5f1ba886841ee0fd67cc700d22bfa7145e94ca196d09d63a5a0a00c57c874d82"
+    },
+    {
+      "bytes": 35022,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-prop-ball.webp",
+      "sha256": "73a7d21c109fc0cdedc88069b4b0284f31dc7391f3bcd665574b8d2536db743c"
+    },
+    {
+      "bytes": 22770,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-prop-bowl.webp",
+      "sha256": "0d975444d6c5f527f422e06e803ca85b46dffb48b07b5b07ffa0f57a5a090c53"
+    },
+    {
+      "bytes": 202736,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-rest-drowsy.webp",
+      "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6"
+    },
+    {
+      "bytes": 194564,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-rest-sit.webp",
+      "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+    },
+    {
+      "bytes": 138606,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-rest-sleep.webp",
+      "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b"
+    },
+    {
+      "bytes": 230668,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-rest.webp",
+      "sha256": "896b203bbbed2d0e7bc067eefe4a95d2c5e85002c870c43fd9854c778ff6b17d"
+    },
+    {
+      "bytes": 70796,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-trot-0.webp",
+      "sha256": "b43f1903abedaa91594eea8878e7bad42d56b0bc9ef469354d39a752d8c3f8ee"
+    },
+    {
+      "bytes": 72376,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-trot-1.webp",
+      "sha256": "ecabd1040b7c505322d068ffc43a7f453c9b3826e315f3250eb1a31790d176d1"
+    },
+    {
+      "bytes": 71368,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-trot-2.webp",
+      "sha256": "4ab5d879fea40e7a0aa1916ec44a73a357842aa87eff80e4a0ea2b646f782709"
+    },
+    {
+      "bytes": 70680,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-trot-3.webp",
+      "sha256": "105ed5bf52ce6f95abb5617f33639253e31e374dfbd2058d6a1023bcafa65ea4"
+    },
+    {
+      "bytes": 301376,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v2-behavior.webp",
+      "sha256": "0427b0ce46d4c402625a76799c523bcea370d3ce95cea60409bc4b6fa1a581d7"
+    },
+    {
+      "bytes": 179054,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v2-frontwalk.webp",
+      "sha256": "4a813299eab62e0e883064d1a5d7b626cfe8413acf78cb975facfe51a6270836"
+    },
+    {
+      "bytes": 206400,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v2-idle.webp",
+      "sha256": "3cde447a0d862b0319d2858988c25c1ac1a681a1997d11d5b28f617965f6c49b"
+    },
+    {
+      "bytes": 334712,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v2-walk.webp",
+      "sha256": "d010f20c4d21a3229d72d2f4de311ce8cb8b91ce5ee7d73ac5df9728e8d15163"
+    },
+    {
+      "bytes": 80296,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-0.webp",
+      "sha256": "2eedbd1165ffd531d3241d2451d0eb3fc1884d4e83f54a7a1c143488fd1b50e6"
+    },
+    {
+      "bytes": 82262,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-1.webp",
+      "sha256": "d8e500a047e0edcc165bb84fd75f69ff1e913eef222a294eec7049b7fc327537"
+    },
+    {
+      "bytes": 76664,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-2.webp",
+      "sha256": "64944bf5f8010f253002e3c8703f53c93dcb9c28eb47a24ecad3f14ba0de7b70"
+    },
+    {
+      "bytes": 75190,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-3.webp",
+      "sha256": "e5efd3053b27503fece26242eb6015dd28d09c58a555c0a9863a364a05f2e1aa"
+    },
+    {
+      "bytes": 83930,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-4.webp",
+      "sha256": "e573cebcc0f3c53a7e033e120035fe650999393802f403b8cdb0de6cb66dbfbf"
+    },
+    {
+      "bytes": 76676,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-5.webp",
+      "sha256": "cc4de189d07fa43863c511dea8d2b9dc7a0f390923f695fd9f3ec4fd19e2867d"
+    },
+    {
+      "bytes": 79930,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-6.webp",
+      "sha256": "3c7a7f5fe011df0f8ac51ba4ca457e61cb0fffffd1ff5e95132f8ff3177101e9"
+    },
+    {
+      "bytes": 78694,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v3-step-7.webp",
+      "sha256": "93e502acf7bc9d9513ecb997860c853a71d2a371abc8a67a8a306f607dc10252"
+    },
+    {
+      "bytes": 187208,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-blink.webp",
+      "sha256": "fcc6072c982c6f0367780c611a241f4c725589ed2a4ca0fe3414e16df45716ab"
+    },
+    {
+      "bytes": 212856,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-idle.webp",
+      "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+    },
+    {
+      "bytes": 85768,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-0.webp",
+      "sha256": "36e6c3524b2bd38192edf81682ed1f84bedb767a59b19d94347153499825581d"
+    },
+    {
+      "bytes": 92546,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-1.webp",
+      "sha256": "9d35fb615f6643b1628dad231d73ee236fd912d9ec740ea19c61efa3e0d57bd9"
+    },
+    {
+      "bytes": 83718,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-2.webp",
+      "sha256": "8fe1f89cd5142d5e1a4450c556c6fde704cf0729f0a608440cda0bf006830856"
+    },
+    {
+      "bytes": 75848,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-3.webp",
+      "sha256": "cab83bfd91a749494fd1b838b32e3946f3d15e01326503a3ab79f78622c388c1"
+    },
+    {
+      "bytes": 79818,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-4.webp",
+      "sha256": "e30b70423237a12778d6fcc21763050567ecc682c624cb7853b6f4cd519c5586"
+    },
+    {
+      "bytes": 88076,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-5.webp",
+      "sha256": "09f81704102a30093269931a6f275e3eb34f2ed32366921509f078b8ed72764e"
+    },
+    {
+      "bytes": 79892,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-6.webp",
+      "sha256": "93161b5b23093fa156a85615f5e635eede8c26a6f2477dbb3c36a79bb2aa4c7a"
+    },
+    {
+      "bytes": 85016,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-v4-step-7.webp",
+      "sha256": "4dc9361f3b6cfa66c4ce5b816ca9a1c2b9a3056c11d2e4feaf7f8f6792d69a0f"
+    },
+    {
+      "bytes": 438084,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/milky-walk.webp",
+      "sha256": "f4af5a200c65bdbb9c800359f283327ca468e2c8479c4ec1120b705706323966"
+    },
+    {
+      "bytes": 335436,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/modern-studio-unlit.webp",
+      "sha256": "72befe3528b98f982be325798687ebffb0a4dbe999e2faa4e6668b0fdfe8ba24"
+    },
+    {
+      "bytes": 377096,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/modern-studio.webp",
+      "sha256": "91e7fce3ccf6b7f9dbcebc5ff7e50450292ae31cdfbe661c9f4027e98fe28690"
+    },
+    {
+      "bytes": 259540,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/night-studio-unlit.webp",
+      "sha256": "f7f3464304d1245c42ee2e02fea93a9e867755ad617e31fdaa172c7a797822da"
+    },
+    {
+      "bytes": 306198,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/night-studio.webp",
+      "sha256": "d478065dcb79e32865e244220ec17070d8a4ad4090704e629a9dc5672b166aad"
+    },
+    {
+      "bytes": 63324,
+      "group": "source",
+      "path": "project/public/assets/cyberpunk/space-grotesk.woff",
+      "sha256": "600405ea46c98ab91e6edafaf0e6c3c0198fa9db2b2fb5f06b9c309011fdf19b"
+    },
+    {
+      "bytes": 4387,
+      "group": "source",
+      "path": "project/public/assets/fonts/CormorantGaramond-OFL.txt",
+      "sha256": "60700d351cac4650c51f3f9db318d2a420f8b45052dba2715eb5fec41f0f6956"
+    },
+    {
+      "bytes": 23660,
+      "group": "source",
+      "path": "project/public/assets/fonts/cormorant-garamond-latin-italic.woff2",
+      "sha256": "c80b489f34b4bb27a716682b8f8a5c3efec50fb8156e1088a43ed206003b6951"
+    },
+    {
+      "bytes": 37776,
+      "group": "source",
+      "path": "project/public/assets/fonts/cormorant-garamond-latin.woff2",
+      "sha256": "5d618c462b7a5b74f442e1548880086af71764d9cc7d35c16ab45353da934621"
+    },
+    {
+      "bytes": 19920,
+      "group": "source",
+      "path": "project/public/assets/logo-options/direct-01.webp",
+      "sha256": "ed5540338234a374a6edcc19f3a5115f10dfdefe095bc17f097c3a21c41a945c"
+    },
+    {
+      "bytes": 21800,
+      "group": "source",
+      "path": "project/public/assets/logo-options/direct-02.webp",
+      "sha256": "3a7d65b74ed6537cc7571200c10f18fa7c375217e240b45fac746f92746cd83d"
+    },
+    {
+      "bytes": 57376,
+      "group": "source",
+      "path": "project/public/assets/logo-options/direct-03.webp",
+      "sha256": "e247b0811a540c748524196a4edc368fa1ca1f27e28d996d62b66ac9b5c2433c"
+    },
+    {
+      "bytes": 941029,
+      "group": "source",
+      "path": "project/public/assets/logo-options/logopia-01.png",
+      "sha256": "9f3e974ecb4e842d1142ccff83246edd24ae6bf8b95fea5a59cfb1d73f265c1d"
+    },
+    {
+      "bytes": 32064,
+      "group": "source",
+      "path": "project/public/assets/logo-options/logopia-01.webp",
+      "sha256": "8726198c1450e70fa8018280a540f9bf7be84c46f4abd04d3fc674896c48423a"
+    },
+    {
+      "bytes": 1056645,
+      "group": "source",
+      "path": "project/public/assets/logo-options/logopia-02.png",
+      "sha256": "c451751ae3a49c3a3451f72a49d8318c0650005dd85c29c54a23281c45b7a09d"
+    },
+    {
+      "bytes": 41050,
+      "group": "source",
+      "path": "project/public/assets/logo-options/logopia-02.webp",
+      "sha256": "6340f80ea46b3532ee429ab8c99101fa2620c70e26a966d68b5e4fb24a0a7c74"
+    },
+    {
+      "bytes": 1889447,
+      "group": "source",
+      "path": "project/public/assets/logo-options/logopia-03.png",
+      "sha256": "8d4573b7da7a2fa3f05cc6f084b467c526ed21791d40335b0df46db0883fb6fa"
+    },
+    {
+      "bytes": 65164,
+      "group": "source",
+      "path": "project/public/assets/logo-options/logopia-03.webp",
+      "sha256": "697af93766dc819e3783ca91efc46ae04951955ba3374086cec5a6e07671056b"
+    },
+    {
+      "bytes": 5763788,
+      "group": "source",
+      "path": "project/public/assets/logo-options/milky-logo-pack.zip",
+      "sha256": "99d00745976710f24ac579a3179408d265d58a3ca54d13485ff943f5e44ebe94"
+    },
+    {
+      "bytes": 735333,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-01-white-ears.png",
+      "sha256": "96e1da5a28600bb7cf9a17d650e2f8ef90a82daba2dbd88ea1cb8c1dcc3ce3f7"
+    },
+    {
+      "bytes": 17866,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-01-white-ears.webp",
+      "sha256": "081d0ed181ccc78ad1f49892e8e82c74f23ca753d1e95a78d7289d63fd209fd5"
+    },
+    {
+      "bytes": 16636,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-01.webp",
+      "sha256": "9caadaa4c037ada126fcb626de02d8d9af335c0747d2cbd247bb0c03ece9ee89"
+    },
+    {
+      "bytes": 1488763,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-02-white.png",
+      "sha256": "b0dc4d04f3be55fbc3c72132ccff4caf3af25b65b287139bee27ebbf6c9562ee"
+    },
+    {
+      "bytes": 49078,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-02-white.webp",
+      "sha256": "60b4517d59ec3548bf521af1930becd76bf1d3adc4ae5f9461326c25d67c72cc"
+    },
+    {
+      "bytes": 1680074,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-02.png",
+      "sha256": "95172cbb554f40ee93ed2355eddec432b2905c1bc0e5eaf4ee9217c6fee27f56"
+    },
+    {
+      "bytes": 60970,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-02.webp",
+      "sha256": "ad4e812345f7c0959b073b8475414e0669c949b300c48b5b320bbd580ceef2bc"
+    },
+    {
+      "bytes": 847835,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-03-white.png",
+      "sha256": "ce962cff0ed417b60f07b98814d790ba1b1fe9c7e724f33d41c2c497972051b7"
+    },
+    {
+      "bytes": 32434,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-03-white.webp",
+      "sha256": "716580ba33a967c4c63fd9a60a7f442c5d0c49b03d5239da67ab2940467ac290"
+    },
+    {
+      "bytes": 898983,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-03.png",
+      "sha256": "e99bc8ae2763fa1791005fd1b50de6e91412e4091b8974fc21d73f1985aad69c"
+    },
+    {
+      "bytes": 34280,
+      "group": "source",
+      "path": "project/public/assets/logo-options/smile-03.webp",
+      "sha256": "bc26cdc1f5c943f90edaae892e28f89b0e7fa3b5540cb5baf5df42bc7f7fbf0a"
+    },
+    {
+      "bytes": 18657,
+      "group": "source",
+      "path": "project/public/assets/music/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "bytes": 7994,
+      "group": "source",
+      "path": "project/public/assets/music/CREDITS.html",
+      "sha256": "f88cf2d23c12cc6a7d922cf22814623d35f31ab66048d666da26a96e32dd05be"
+    },
+    {
+      "bytes": 5205,
+      "group": "source",
+      "path": "project/public/assets/music/CREDITS.txt",
+      "sha256": "c3fe4965936f1b3f8a5aa7d070cf6d1459abdce215a15dab54422c8287487c58"
+    },
+    {
+      "bytes": 17787,
+      "group": "source",
+      "path": "project/public/assets/music/SOURCES.json",
+      "sha256": "1da06e2a52c038e8a4ae12567ccb671dd8e35f8b994ca8b8c0ca3d8637829da3"
+    },
+    {
+      "bytes": 3757178,
+      "group": "source",
+      "path": "project/public/assets/music/autumn-afternoon.mp3",
+      "sha256": "93c186fd621e488d83d2cdf9aa580dfc5b2f1b0a6eef9f743f48b698ae3c01df"
+    },
+    {
+      "bytes": 4989962,
+      "group": "source",
+      "path": "project/public/assets/music/autumn-evening.mp3",
+      "sha256": "10a84b1e0d66d09ff5ce54d8bd71170799f831a1993838e856b8918c3846f0fe"
+    },
+    {
+      "bytes": 4797612,
+      "group": "source",
+      "path": "project/public/assets/music/autumn-morning.mp3",
+      "sha256": "7e7dddd0e4b4bc6fada83ccf606e82645dbd83511bae0925aba5d69371ec2d98"
+    },
+    {
+      "bytes": 4847701,
+      "group": "source",
+      "path": "project/public/assets/music/autumn-night.mp3",
+      "sha256": "a01be2c62132a7bfaa339ace6967e13be5f683575f7ab064a263e2d343f5227a"
+    },
+    {
+      "bytes": 2705738,
+      "group": "source",
+      "path": "project/public/assets/music/autumn-noon.mp3",
+      "sha256": "f918dd82305fdb00f2485c63c690283ae63da4c1ce677b9c1db6e6c1a9e7d8ec"
+    },
+    {
+      "bytes": 1920162,
+      "group": "source",
+      "path": "project/public/assets/music/spring-afternoon.mp3",
+      "sha256": "5604bc529b1ac017b7523a98546e6e0010c14d7f7ca481d43036de867d73b3d4"
+    },
+    {
+      "bytes": 2017830,
+      "group": "source",
+      "path": "project/public/assets/music/spring-evening.mp3",
+      "sha256": "448026ae4f0dc323185b8fb81b92158b36f9ffc6306c9ee6f2892713b7666f57"
+    },
+    {
+      "bytes": 1818154,
+      "group": "source",
+      "path": "project/public/assets/music/spring-morning.mp3",
+      "sha256": "c81126cef9e8dd488ae79b42f25cf37ddddba141d86c569caf1abec3d5c308ff"
+    },
+    {
+      "bytes": 3132501,
+      "group": "source",
+      "path": "project/public/assets/music/spring-night.mp3",
+      "sha256": "a7fed21cfb59f15147824267a52f6ade7c998bb3370cc973bbf079e4e4de145b"
+    },
+    {
+      "bytes": 1770241,
+      "group": "source",
+      "path": "project/public/assets/music/spring-noon.mp3",
+      "sha256": "15d32fc752527362a6e0f26dccc10112df280681f38669b13d045f0133a7454a"
+    },
+    {
+      "bytes": 2872868,
+      "group": "source",
+      "path": "project/public/assets/music/summer-afternoon.mp3",
+      "sha256": "6eb4921319c32ddb5f67ab1aaac4a9443cc9a5d0d52703aa7c9b161c6bd72897"
+    },
+    {
+      "bytes": 3561853,
+      "group": "source",
+      "path": "project/public/assets/music/summer-evening.mp3",
+      "sha256": "78ab0200f0fa52262cbe230759927041af74b6cb1c918e6e3f0a33d6729a67fd"
+    },
+    {
+      "bytes": 3417791,
+      "group": "source",
+      "path": "project/public/assets/music/summer-morning.mp3",
+      "sha256": "28d9ffbd0c09be40a21d45841c16cad09c4c7690b01d001b2d792ea7b4b0aa89"
+    },
+    {
+      "bytes": 2582110,
+      "group": "source",
+      "path": "project/public/assets/music/summer-night.mp3",
+      "sha256": "65b7de8664dfd80338900a04c871e23a035d5f3ba316576710897c023aff4bc7"
+    },
+    {
+      "bytes": 3967821,
+      "group": "source",
+      "path": "project/public/assets/music/summer-noon.mp3",
+      "sha256": "35e72723b00c3cb575b688e87f0dc0d1b1b98be362d268972cefb5356ca2ecf5"
+    },
+    {
+      "bytes": 3465699,
+      "group": "source",
+      "path": "project/public/assets/music/winter-afternoon.mp3",
+      "sha256": "d7c19f43a0ceb098b42e544629c49bdb35532e260bae89fde05235023a771bec"
+    },
+    {
+      "bytes": 3718786,
+      "group": "source",
+      "path": "project/public/assets/music/winter-evening.mp3",
+      "sha256": "569134adbb036235bc048df6f3369feec9c5558562168503b54ee29967859621"
+    },
+    {
+      "bytes": 2214221,
+      "group": "source",
+      "path": "project/public/assets/music/winter-morning.mp3",
+      "sha256": "f3742d0ac7e783d3d3b4f51c93f996964df9914fb7bc3f3fe5bc49b43b7e9a4f"
+    },
+    {
+      "bytes": 1837900,
+      "group": "source",
+      "path": "project/public/assets/music/winter-night.mp3",
+      "sha256": "fc09b1cc9ba4de0445d63e9877939e1549e344cf989a901f6221e40c3e288074"
+    },
+    {
+      "bytes": 2677216,
+      "group": "source",
+      "path": "project/public/assets/music/winter-noon.mp3",
+      "sha256": "945ac4aef152bfacf45e0191a73c3cc0b8d269912424e7269fc5618f39c70856"
+    },
+    {
+      "bytes": 8742,
+      "group": "source",
+      "path": "project/public/assets/paper/CREDITS.html",
+      "sha256": "12c757cfbb3b0cfe4b7be6fcb326017aaed79b890158508d2066ff7350ef4577"
+    },
+    {
+      "bytes": 909,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/LICENSE.md",
+      "sha256": "7cfb8c6a24d6c335c25e35ca1623159e6e9abe33704559aca3c1122a89e09ea3"
+    },
+    {
+      "bytes": 7028,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/autumn-pumpkin.svg",
+      "sha256": "7a1cfe2f92b12beafbb1521470afe63e08f531213683b9b4da9031e09d50beb8"
+    },
+    {
+      "bytes": 8016,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/book-stack.svg",
+      "sha256": "0c1f555cb3a3729a99974b631aead5e4758ac6c6298cc3c6bed14324c8b11ac0"
+    },
+    {
+      "bytes": 4335,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/candy-cane.svg",
+      "sha256": "3464bf0fa4a7425d28753d5a521a74a121ce5148686da25194ca67163fa3d7ad"
+    },
+    {
+      "bytes": 21471,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/christmas-tree.svg",
+      "sha256": "a527b2b1a003e31c8523b4819c7d5cd2941286f6b978ed7d094a7d41603c3d60"
+    },
+    {
+      "bytes": 21394,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/christmas-wreath.svg",
+      "sha256": "0504c72b29b85bfc07dc4b1ef0866ede6e79e34d332e853dbd2f5c462fc030b9"
+    },
+    {
+      "bytes": 8482,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/little-bird.svg",
+      "sha256": "fe7f6d07ce5f7657672f5927c3fc58defa5acfe354fa1245872790cb8d73e60d"
+    },
+    {
+      "bytes": 6001,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/manifest.json",
+      "sha256": "edd96dbe37edc1bc6e4a7f6c189fa77f4dace9d39397c9095d7f7b6aee53cbda"
+    },
+    {
+      "bytes": 6685,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/resting-cat.svg",
+      "sha256": "52be23b1712f7225d39b288488508cca115ed721b11ee5d8963f9f136eb88b8f"
+    },
+    {
+      "bytes": 23044,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/rose-vase.svg",
+      "sha256": "f6011eb73b14b546069d174a3a481e1afceceaa780ddfe369f479eb9a5063f6e"
+    },
+    {
+      "bytes": 14894,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/speaker.svg",
+      "sha256": "4233719e78b12fa40d07e8e2309f5304a6d928b662455ffff82ce27ec8b5a505"
+    },
+    {
+      "bytes": 10813,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/spring-flowers.svg",
+      "sha256": "26abcde439b569b75176040ed3b5876352b6f1054c7aeb8f03bde4144db08236"
+    },
+    {
+      "bytes": 20463,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/adapted/summer-monstera.svg",
+      "sha256": "d9d842156cb9959a87ea81244c5278108736c546c1e7562f67d79d329caf216f"
+    },
+    {
+      "bytes": 21118,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/autumn-pumpkin.svg",
+      "sha256": "42b19640386225ec20e05a4500a0ea68f0175c9e98adc8ccef9a4c985bcb7627"
+    },
+    {
+      "bytes": 24852,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/book-stack.svg",
+      "sha256": "ea4e26417515640af7e45ae7691041f35499526da7701ef5d1cbe3762855ccec"
+    },
+    {
+      "bytes": 4159,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/candy-cane.svg",
+      "sha256": "a4fbab372adb8f7a346362e2d16e3567ce174fcab7412bb3c7a7e77c014a6953"
+    },
+    {
+      "bytes": 1093,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/characters-rich/ATTRIBUTION.txt",
+      "sha256": "09ad166b09b24b51fcebc34bfbd7bf6700d7071d6d9ce6e81caf0ad22a921dc5"
+    },
+    {
+      "bytes": 1897411,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/characters-rich/blue-tit-bird.png",
+      "sha256": "317896a9eb3db4f340afff602f379ca690e0840bd1d2724dd06e151c7115826c"
+    },
+    {
+      "bytes": 357464,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/characters-rich/blue-tit-bird.webp",
+      "sha256": "9cfd38f28b5ff9582420bb8a24160e12be2c6661259afec152ec559345851158"
+    },
+    {
+      "bytes": 2185,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/characters-rich/manifest.json",
+      "sha256": "87d4e95f29ef51cc2a3819d9b11969c744b2483eeb99912cf45699b94a7a47ae"
+    },
+    {
+      "bytes": 1391770,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/characters-rich/sleeping-cat-ornament.png",
+      "sha256": "4890e8508524ec1efdf81b528edddf73208d0984f9d82fbca51a302305402faf"
+    },
+    {
+      "bytes": 146058,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/characters-rich/sleeping-cat-ornament.webp",
+      "sha256": "b99468f24c40f281b2ae950060a67a704d45afee47edaf7fb4e0f8dd62911f9f"
+    },
+    {
+      "bytes": 61692,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/christmas-tree.svg",
+      "sha256": "3b3dd76cc170c369645abedd16674abfca63a81c251c3e5941726d1809e2ee12"
+    },
+    {
+      "bytes": 47187,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/christmas-wreath.svg",
+      "sha256": "6eab67e5bc8bd78815db15fa9194e2ea21bacd5e9e34c9e5be07808aca7c4141"
+    },
+    {
+      "bytes": 27894,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/little-bird.svg",
+      "sha256": "29eb4c101c623b5fa592055a5ede1c6cf51e30240f6d88abf3245dc1e41920f0"
+    },
+    {
+      "bytes": 5970,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/manifest.json",
+      "sha256": "1622063b0a9cee9d5046c2e6c75a8bb84fd519b8ff48583a588b7ea13905990a"
+    },
+    {
+      "bytes": 19411,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/resting-cat.svg",
+      "sha256": "967723945dbe5a5f0d92cea788c5b738389c2477705c67aa4465c619dbb689a4"
+    },
+    {
+      "bytes": 3848,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rich/NOTICE.md",
+      "sha256": "c798a9b82c288441a0ca54f49eb1a30b6b935a62a218e54e3710c0522dbc115e"
+    },
+    {
+      "bytes": 2393108,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rich/autumn-pumpkin.webp",
+      "sha256": "3cf6c6302f25979a7a6f38f7018cb05f274544b8fcd36b68815e30db95483051"
+    },
+    {
+      "bytes": 5957,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rich/manifest.json",
+      "sha256": "b9ef01ce3743241f2ebc36786e03d4b55007f933f93b1a9d13731329e4eb879c"
+    },
+    {
+      "bytes": 1249460,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rich/spring-roses.webp",
+      "sha256": "961a1a1e5e5e71eb451deb8789202bc1a294ef46d4cf12f90a4e76baec72ec7a"
+    },
+    {
+      "bytes": 2299574,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rich/summer-palm.webp",
+      "sha256": "a3de0ef9fb6f9014ecb8e0db18a4e783dbde6cbaede25ddc638b6e601c2be946"
+    },
+    {
+      "bytes": 1949128,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rich/winter-tree.webp",
+      "sha256": "4903ae0524de4374eced0f6cea3012d9774a94d5dd188886e6da614842af35f4"
+    },
+    {
+      "bytes": 3242030,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rich/winter-wreath.webp",
+      "sha256": "44d7a0a139aa18e95e251706f7ffe48742f6eb5ef0ca5b3b83af27eed1dd0d47"
+    },
+    {
+      "bytes": 54469,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/rose-vase.svg",
+      "sha256": "74813397bddabfc42bd792170cbbaab28cb82c5a9b59f2237326aa43e1c38ac2"
+    },
+    {
+      "bytes": 31258,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/speaker.svg",
+      "sha256": "b059c1eacc8b3bca0fea0df001236990e5c7f1b8482c3589ca47da37de3e5ace"
+    },
+    {
+      "bytes": 33077,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/spring-flowers.svg",
+      "sha256": "4d47e5589284fe0de06127253af7294c317f00b4449b0594a90c612f1b74af08"
+    },
+    {
+      "bytes": 3320,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/NOTICE.md",
+      "sha256": "a869e0bca3112e8588630e933373f50e1c36322d5ba3928c26cd3d01c3aebbcb"
+    },
+    {
+      "bytes": 309138,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/autumn-pumpkins.webp",
+      "sha256": "b787e0950a7b1b9bdce3d0bcc92c913cd420c72803a1a0c31ea9822f39d04ea2"
+    },
+    {
+      "bytes": 1581,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/manifest.json",
+      "sha256": "215a3a89865ac17b68a33c89e7f487ba42805b0755f7353416e96d6677105776"
+    },
+    {
+      "bytes": 383512,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/sleeping-cat.webp",
+      "sha256": "c1cea229ac312e88923fbcdd93e8e949ea02bc76619d5aef9411309a3cccec14"
+    },
+    {
+      "bytes": 328500,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/sparrow.webp",
+      "sha256": "68bc7ba59b72ae58b2dece711e414bbca66f9904a4da979d70d45d6aeb129c3c"
+    },
+    {
+      "bytes": 359344,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/spring-flowers.webp",
+      "sha256": "89617d0b721ce7cfe6577b77d2d31bbfab07851ef87398ff7be294c9f5e1d8f4"
+    },
+    {
+      "bytes": 455396,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/winter-tree.webp",
+      "sha256": "75a5208c2f3b70fd5e9162076a984c5c321d3ecdba71eb3c80cd1dcf20960242"
+    },
+    {
+      "bytes": 565902,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/studio-matched/winter-wreath.webp",
+      "sha256": "58bef1e4432743b1529690d0abfc3739b69b0e630d47d42fa63362884bbee126"
+    },
+    {
+      "bytes": 32100,
+      "group": "source",
+      "path": "project/public/assets/paper/decor/summer-monstera.svg",
+      "sha256": "b8e6067949d371606f5c0971e5e69e9d7cea9d781d92334292b24ddb5912e818"
+    },
+    {
+      "bytes": 1009,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/ATTRIBUTION.txt",
+      "sha256": "633fd36830a2ab17814075cd7488608969180edf24e086a94b6b349a9c3c88ca"
+    },
+    {
+      "bytes": 371,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/AUTHOR-original.txt",
+      "sha256": "21f32ca61d71183e48be3eb5e199824993be100375686524491d2368aaa0b12d"
+    },
+    {
+      "bytes": 18657,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/CC-BY-4.0.txt",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+    },
+    {
+      "bytes": 1199,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/layers.json",
+      "sha256": "b12738c472a49dbb7ecb4b794d883b20597fd2f1545f427093c295f94f7f691e"
+    },
+    {
+      "bytes": 63114,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/valley-layer-01.webp",
+      "sha256": "3abe985c6c441b0f162255a52e465e393f21e94beb3ef8ba837abd31ffb07ed6"
+    },
+    {
+      "bytes": 178988,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/valley-layer-02.webp",
+      "sha256": "814ea7442b8104f9462ea1431aad223a11a1af3bb98e6af72b1b62ed98c9640b"
+    },
+    {
+      "bytes": 90374,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/valley-layer-03.webp",
+      "sha256": "5758fadac3ae2c8c37fc2acc65345330c7680d15bb4e86a3cb463b2c3c6a4006"
+    },
+    {
+      "bytes": 104804,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/valley-layer-04.webp",
+      "sha256": "dc76db64f4039b74bf692f78109d05fa3f1dfb4e93c7c62a2e74ee25c967177b"
+    },
+    {
+      "bytes": 22344,
+      "group": "source",
+      "path": "project/public/assets/paper/landscape/valley-layer-05.webp",
+      "sha256": "000eafe3fd3ba1057f9d2d2727416d4d4be7602abe19d6afcfd06e9c0c9a00a6"
+    },
+    {
+      "bytes": 8022,
+      "group": "source",
+      "path": "project/public/assets/paper/paper-creased.webp",
+      "sha256": "8fa77182a6b468c1f23c6eb38a1c9d5b4be22f602291b07387b2b1b12b6e254c"
+    },
+    {
+      "bytes": 64728,
+      "group": "source",
+      "path": "project/public/assets/paper/paper-fibers.webp",
+      "sha256": "9c62ac407b985618fb840d38566d379b823d76ad4e8656d9f27655efc01d47b7"
+    },
+    {
+      "bytes": 100686,
+      "group": "source",
+      "path": "project/public/assets/paper/paper-warm.webp",
+      "sha256": "c2e76274ba1cd4829e91dccdc7b847b8d8fe3cd2bb4fc652c1b293ad675151f1"
+    },
+    {
+      "bytes": 3031650,
+      "group": "source",
+      "path": "project/public/assets/paper/studio-interior-v1.png",
+      "sha256": "00519ee961e5e4a1da27da126387596a7da439741cafc8095ebb57043ec1efdf"
+    },
+    {
+      "bytes": 557920,
+      "group": "source",
+      "path": "project/public/assets/paper/studio-interior-v1.webp",
+      "sha256": "d9c86952ea3ba0de1b603357dc2c5d38d8c9c78294089dc993579339613358f0"
+    },
+    {
+      "bytes": 75460,
+      "group": "source",
+      "path": "project/public/assets/studio/room.webp",
+      "sha256": "45d87329190c5135316da7d61c8d8a8b1c5908b23835edd56467b1b30e02f62e"
+    },
+    {
+      "bytes": 493248,
+      "group": "source",
+      "path": "project/public/assets/studio/seasons.webp",
+      "sha256": "d73a50119d2b0f6a51cfbd79f8409856845c6b9467e10096bb65458931fe0419"
+    },
+    {
+      "bytes": 270,
+      "group": "source",
+      "path": "project/public/cyber-favicon.svg",
+      "sha256": "a38a689834915e1b9690aea250de5d8e12a31a70cfd0d6f0fc98fee0e5c743b4"
+    },
+    {
+      "bytes": 461,
+      "group": "source",
+      "path": "project/public/favicon.svg",
+      "sha256": "5cbf51054fa5ec4df246dece60125a943e3fff41878736600c0cb32b998f695d"
+    },
+    {
+      "bytes": 21438,
+      "group": "source",
+      "path": "project/public/milky-a-apple-touch.png",
+      "sha256": "d3c93d874c701b83376db0398838110b29bb0dfda3725b3630ebfe315027904b"
+    },
+    {
+      "bytes": 3902,
+      "group": "source",
+      "path": "project/public/milky-a-favicon.png",
+      "sha256": "68fd9345155e87ff510c8bbcf9d29bdf2fe3d5770a3ebe71d7117877c4a5d6e1"
+    },
+    {
+      "bytes": 4031,
+      "group": "source",
+      "path": "project/public/milky-favicon.png",
+      "sha256": "6a0edd49dda5b0ecd4bac304088ce9ff0fa033686bb2d9bb4e777d827f79e783"
+    },
+    {
+      "bytes": 33891,
+      "group": "source",
+      "path": "project/public/milky-logo-options-archive.html",
+      "sha256": "8b278a7ed4e2d6699a65544560c544aaaa4427a5e0b2c63a424220aea938d64c"
+    },
+    {
+      "bytes": 34747,
+      "group": "source",
+      "path": "project/public/milky-logo-options.html",
+      "sha256": "3dc10130f591b51e12f2d1f767d5fc7e6c55842f378f4a642a85c8ad4a3071d5"
+    },
+    {
+      "bytes": 12108,
+      "group": "source",
+      "path": "project/scripts/package-studio.py",
+      "sha256": "6a682b1fe0d18fe331e9fad90aae70882b5c0cc3bbe93de660f12c07f87985ba"
+    },
+    {
+      "bytes": 9855,
+      "group": "source",
+      "path": "project/src/badge.css",
+      "sha256": "191d5f8f1d459335d75dfeff5d68b7c117be549035007e791aac9323a1334800"
+    },
+    {
+      "bytes": 11888,
+      "group": "source",
+      "path": "project/src/badge.ts",
+      "sha256": "d642fde6c7c73d94cff54132d172a1ec87153acc215756b65346a6847a0b19ec"
+    },
+    {
+      "bytes": 3835,
+      "group": "source",
+      "path": "project/src/cyber-ambient-paths.test.ts",
+      "sha256": "6d3b776ef88bf7c0f8fc3f7fce3b759b6ed1621e91431a658cd48547cb98b4d9"
+    },
+    {
+      "bytes": 4255,
+      "group": "source",
+      "path": "project/src/cyber-ambient-paths.ts",
+      "sha256": "d73010289327d379b30c95c8d67bdfa3bb86d04e8201915b040853db34463476"
+    },
+    {
+      "bytes": 3008,
+      "group": "source",
+      "path": "project/src/cyber-atmosphere.css",
+      "sha256": "bdcc2ec6c77cf935ee2a10a1a248ddd6f2a1ff24091b0fb8566cd74585a40639"
+    },
+    {
+      "bytes": 15194,
+      "group": "source",
+      "path": "project/src/cyber-atmosphere.test.ts",
+      "sha256": "1535c7c68d881436cf9e8aa35e1a54c42e00de3ccb06a4a2fb063b84d13f06c3"
+    },
+    {
+      "bytes": 21456,
+      "group": "source",
+      "path": "project/src/cyber-atmosphere.ts",
+      "sha256": "ecbd1e017620dfd3acf22c9b7b322e332942812d3e5abf43e73611b80bf678ef"
+    },
+    {
+      "bytes": 2939,
+      "group": "source",
+      "path": "project/src/cyber-climate-controls.css",
+      "sha256": "d3832dd68052baa17aaf1dcd5f06c826d239923704c98565585e829beba7b5f9"
+    },
+    {
+      "bytes": 3399,
+      "group": "source",
+      "path": "project/src/cyber-climate-controls.ts",
+      "sha256": "1677829fc44c9f319073366219a033cbe59cbdff6776237ccbb0390c694028c0"
+    },
+    {
+      "bytes": 7617,
+      "group": "source",
+      "path": "project/src/cyber-climate.test.ts",
+      "sha256": "1a93fb08e21d8211fa255253f5505760b1e50fde727363db8cc997a255b57b8a"
+    },
+    {
+      "bytes": 4348,
+      "group": "source",
+      "path": "project/src/cyber-climate.ts",
+      "sha256": "bc3f9f2b480bd2dcead8489c815e10edaebbfa810bb99472b0455b0895c6e661"
+    },
+    {
+      "bytes": 3714,
+      "group": "source",
+      "path": "project/src/cyber-desk-effects.css",
+      "sha256": "78de8cab4657b34ae45baf6e99a83a1d6cfb0341a4b725098ce5b3c9845c876d"
+    },
+    {
+      "bytes": 6365,
+      "group": "source",
+      "path": "project/src/cyber-desk-effects.ts",
+      "sha256": "7aad0fb30d588a862e21694e14e8a537e75a477aad657e9c38f88696d6eb5744"
+    },
+    {
+      "bytes": 5913,
+      "group": "source",
+      "path": "project/src/cyber-desk-layout.ts",
+      "sha256": "1ee6160838a7eb60d823f0a328889baec30b098cfecaba31b8ecfa3e0ed84995"
+    },
+    {
+      "bytes": 11606,
+      "group": "source",
+      "path": "project/src/cyber-intro.test.ts",
+      "sha256": "73520dbd7c6d7462f90f535c65063e87b5d822977ba48e443ab67e2f585d9614"
+    },
+    {
+      "bytes": 6680,
+      "group": "source",
+      "path": "project/src/cyber-intro.ts",
+      "sha256": "38727cedc1ba2276160a48773c861692f0603dd0a856d791109a14e471547dd9"
+    },
+    {
+      "bytes": 25670,
+      "group": "source",
+      "path": "project/src/cyber-main.ts",
+      "sha256": "850970ec8f66bc84c2ab8eacbcc0a346be21dd7a44a98f3f6d9f6fc2ba86b540"
+    },
+    {
+      "bytes": 2312,
+      "group": "source",
+      "path": "project/src/cyber-music-catalog.test.ts",
+      "sha256": "1e7791b0b596ce73607cd51d449019d0d04f510033bb698d611da418ab518722"
+    },
+    {
+      "bytes": 1758,
+      "group": "source",
+      "path": "project/src/cyber-music-catalog.ts",
+      "sha256": "0a3663f2ac83fb74625396959ab186b2caac53b45cd338c56113d562ada0af76"
+    },
+    {
+      "bytes": 3670,
+      "group": "source",
+      "path": "project/src/cyber-pet-activity.test.ts",
+      "sha256": "56921933d30e7b8331102b60abeaef48bfea0297b2de42ff4af43ff86f4a4893"
+    },
+    {
+      "bytes": 4656,
+      "group": "source",
+      "path": "project/src/cyber-pet-activity.ts",
+      "sha256": "675ff296aa51dbdef25b4cf3178a7819bbd134259e9ff2a50f9db637b91b4503"
+    },
+    {
+      "bytes": 2506,
+      "group": "source",
+      "path": "project/src/cyber-pet-geometry.test.ts",
+      "sha256": "17a5a3fd1b5d5e034aff461e79155c1b5f89cb00f924512b0ad137d947c64f0d"
+    },
+    {
+      "bytes": 2180,
+      "group": "source",
+      "path": "project/src/cyber-pet-geometry.ts",
+      "sha256": "cac261a0698ab9b8fd3d6e55a2b92b77080acaa2375ddf02999d49070f1dcfdd"
+    },
+    {
+      "bytes": 2214,
+      "group": "source",
+      "path": "project/src/cyber-pet-life.test.ts",
+      "sha256": "1ba40f4481b24c368bcb9a67e84d9d8475bd8c8fb46454444c53923f5784fe46"
+    },
+    {
+      "bytes": 2423,
+      "group": "source",
+      "path": "project/src/cyber-pet-life.ts",
+      "sha256": "5b2d19f776bbe63ccb1a899357820f9290f96e0824fb654878ac07e47b1df548"
+    },
+    {
+      "bytes": 4614,
+      "group": "source",
+      "path": "project/src/cyber-pet-motion.test.ts",
+      "sha256": "c09003e0c766e48c136e92a4be3560d174cb114ba8608097c2ef5ee8ca6095f8"
+    },
+    {
+      "bytes": 4583,
+      "group": "source",
+      "path": "project/src/cyber-pet-motion.ts",
+      "sha256": "a633fd26d93eddc097a49323bda8e5a8dd64677af9225abb6707ef17b0b444c6"
+    },
+    {
+      "bytes": 2844,
+      "group": "source",
+      "path": "project/src/cyber-pet-rest.test.ts",
+      "sha256": "949a107e9bb60fbb7c42d85786079a5933bd095f702bc61253331dab66b0b00f"
+    },
+    {
+      "bytes": 2636,
+      "group": "source",
+      "path": "project/src/cyber-pet-rest.ts",
+      "sha256": "ccafb00193ed82fb4266bc59075283d4a2e1d1eb80d1b3466b9e48902778052e"
+    },
+    {
+      "bytes": 4298,
+      "group": "source",
+      "path": "project/src/cyber-pet-roam.test.ts",
+      "sha256": "639b0d896fd2bc8eee24d697092e958d2a8cf0031e9d01f79ad241c0e35886a6"
+    },
+    {
+      "bytes": 3300,
+      "group": "source",
+      "path": "project/src/cyber-pet-roam.ts",
+      "sha256": "20da9c965a189cece1e35b9e67bd476585dd882766eb90516602ae1fee687c45"
+    },
+    {
+      "bytes": 6183,
+      "group": "source",
+      "path": "project/src/cyber-pet.css",
+      "sha256": "5c9efc7fc6c405a9b0714626d2ee4048918b391bf49f5b8c1c4bcab15a8c3447"
+    },
+    {
+      "bytes": 50307,
+      "group": "source",
+      "path": "project/src/cyber-pet.test.ts",
+      "sha256": "94f7800f95f2d43546af282afe1fedb9c8db418c4837e9d0ca9a6d261672c483"
+    },
+    {
+      "bytes": 55053,
+      "group": "source",
+      "path": "project/src/cyber-pet.ts",
+      "sha256": "f14f80ed37e64ba6fe73f1815259d0e586b8c716107b3cc840b5053bffcbeec5"
+    },
+    {
+      "bytes": 10819,
+      "group": "source",
+      "path": "project/src/cyber-scene-plates-mount.test.ts",
+      "sha256": "8d81b6d31291dffcc7ad791a26f83a94ac85a818f185611a6e8258482cd3c297"
+    },
+    {
+      "bytes": 2605,
+      "group": "source",
+      "path": "project/src/cyber-scene-plates.test.ts",
+      "sha256": "a507f956217368807a374bdb79cda4e16998d1aba5ce3c9c3df3193aabf8b2ec"
+    },
+    {
+      "bytes": 4144,
+      "group": "source",
+      "path": "project/src/cyber-scene-plates.ts",
+      "sha256": "f45ea7eff9c497599a14273c4997989cf5ae879621f2475d21929cb5e2458055"
+    },
+    {
+      "bytes": 11491,
+      "group": "source",
+      "path": "project/src/cyber-sound.test.ts",
+      "sha256": "da612f9ff75a1f44eec784ec7673c3a9bbb99d89afaad2ae0aed3bd0ef7d127b"
+    },
+    {
+      "bytes": 12922,
+      "group": "source",
+      "path": "project/src/cyber-sound.ts",
+      "sha256": "675916b3aa3ce182dcdbdf29f9c1b19546b5475dd182e99c6767a2291cc26db3"
+    },
+    {
+      "bytes": 20692,
+      "group": "source",
+      "path": "project/src/cyber-studio.css",
+      "sha256": "3cda55b6793d851566b5fc1c2356585fe34f2efca6d1f015fffbc0fc63095d6f"
+    },
+    {
+      "bytes": 3797,
+      "group": "source",
+      "path": "project/src/cyber-terminal.css",
+      "sha256": "e00aab45ee73e82464b5444f4972ed3f189224624515c67555dea7dd0afc56ab"
+    },
+    {
+      "bytes": 8240,
+      "group": "source",
+      "path": "project/src/cyber-terminal.ts",
+      "sha256": "a9e0b63abd515af8abfb8f1c39b2d8fb528327bb82eca14a51a2f631e19c26dc"
+    },
+    {
+      "bytes": 3264,
+      "group": "source",
+      "path": "project/src/cyber-weather-motion.test.ts",
+      "sha256": "199b34a130575ff1ba7adefa5c2f1a50f230a19e0702ae94a1c04e43ea949dd5"
+    },
+    {
+      "bytes": 3917,
+      "group": "source",
+      "path": "project/src/cyber-weather-motion.ts",
+      "sha256": "8f34b7ea2c19752bda40aaa008bb1519be755340b76b63e75ee6b03a530f7d26"
+    },
+    {
+      "bytes": 4427,
+      "group": "source",
+      "path": "project/src/environment-controls.css",
+      "sha256": "ff3ad15f01a560752c4b446e7ce3738f21b4e7e1230322032102e0d3296d5983"
+    },
+    {
+      "bytes": 7282,
+      "group": "source",
+      "path": "project/src/environment-controls.ts",
+      "sha256": "3e2f196a376ea1163c17968b87a38d2a58b82670929c1c38066e4322fd9ff0a2"
+    },
+    {
+      "bytes": 10286,
+      "group": "source",
+      "path": "project/src/environment.test.ts",
+      "sha256": "9acf1610e7d0dba396f852b7dd7dfbf2a55efa958eef5360aac0d3618b521d49"
+    },
+    {
+      "bytes": 8452,
+      "group": "source",
+      "path": "project/src/environment.ts",
+      "sha256": "5ee1a789598fca1446d10e368f804cb02b223d83d8f28763af09cd1f0ab0413c"
+    },
+    {
+      "bytes": 16751,
+      "group": "source",
+      "path": "project/src/main.ts",
+      "sha256": "f4417909139cc032df08e949eed721d16d9dc7a9502255fd3a8c6fc1d805cb86"
+    },
+    {
+      "bytes": 7816,
+      "group": "source",
+      "path": "project/src/paper-audio.ts",
+      "sha256": "897621dad7ef105bc89926b87bc2bf12d9563ac5f58d4391c4a9d5d3fefa077e"
+    },
+    {
+      "bytes": 3843,
+      "group": "source",
+      "path": "project/src/paper-desk.css",
+      "sha256": "a8de833123202c8782726cd375d96e057746741f7d964c6bd6920e463d315c19"
+    },
+    {
+      "bytes": 5019,
+      "group": "source",
+      "path": "project/src/paper-desk.ts",
+      "sha256": "8d2351fcbb0174f3f4590ff4b5f7e83e4b3b0a09eaa6f2c2a93a7865e2b33c94"
+    },
+    {
+      "bytes": 7865,
+      "group": "source",
+      "path": "project/src/paper-immersive-shell.css",
+      "sha256": "cfbfd910d77a5df33b33c635de78c2b879f717004c81817229c5598897020405"
+    },
+    {
+      "bytes": 9416,
+      "group": "source",
+      "path": "project/src/paper-immersive-shell.ts",
+      "sha256": "a2e26c342b79e40e11130689bf02e65b8cd7a70b7009df3f96fec4770d2bb9dd"
+    },
+    {
+      "bytes": 3833,
+      "group": "source",
+      "path": "project/src/paper-intro.css",
+      "sha256": "22b31b793e515ab9bbf07a6b12bb30e333f9795cb47548156b32f6dca143deff"
+    },
+    {
+      "bytes": 8163,
+      "group": "source",
+      "path": "project/src/paper-intro.ts",
+      "sha256": "52d0389efe03e782235b9f926fdea391c9deddc3017273bdf789ee2aeb08492d"
+    },
+    {
+      "bytes": 6572,
+      "group": "source",
+      "path": "project/src/paper-main.ts",
+      "sha256": "b7eb37917b6ec07fef53f29d99b054f5f2a739740d000ab50c2e6c0e0e7cb46b"
+    },
+    {
+      "bytes": 10511,
+      "group": "source",
+      "path": "project/src/paper-music-catalog.ts",
+      "sha256": "c09b96a2ad4d8778e3253ba9f4557fe8de3bc6ea4fc4bda86ad91ec923b6bb3b"
+    },
+    {
+      "bytes": 7337,
+      "group": "source",
+      "path": "project/src/paper-music.ts",
+      "sha256": "d7d1dc0980409b3fd45b83943315c83f5aef94caa4000c9f8260280ba1f655c0"
+    },
+    {
+      "bytes": 11724,
+      "group": "source",
+      "path": "project/src/paper-portfolio.css",
+      "sha256": "251f1bf91251cb203d7d116d84d43fae5773fa7028f0b7d7ec2a6d04e42ea2e3"
+    },
+    {
+      "bytes": 9576,
+      "group": "source",
+      "path": "project/src/paper-portfolio.ts",
+      "sha256": "13280a837d4525802fede075efa6ddcbf0f7462c7a7cc4bacb3513b7a67f600d"
+    },
+    {
+      "bytes": 3418,
+      "group": "source",
+      "path": "project/src/paper-radio.css",
+      "sha256": "0ec8bb5bf2164f3e74d52affc999237b7ef9d9d7cb9868e5715fd115ef0f1711"
+    },
+    {
+      "bytes": 23562,
+      "group": "source",
+      "path": "project/src/paper-scene.css",
+      "sha256": "df71fba8b009db754262e886a1cb003ee773c44b84e6008e33fa68866b923adc"
+    },
+    {
+      "bytes": 20027,
+      "group": "source",
+      "path": "project/src/paper-scene.ts",
+      "sha256": "a70c394c7deff4cbdc0f212296cdc6532bc464f3a6f8bd239586831cfe37f810"
+    },
+    {
+      "bytes": 16846,
+      "group": "source",
+      "path": "project/src/paper-shell.css",
+      "sha256": "f959593e748b3d8f4873e8a87bd057acdaff51fdb081b0b96499eb9bc6d16510"
+    },
+    {
+      "bytes": 11788,
+      "group": "source",
+      "path": "project/src/paper-shell.ts",
+      "sha256": "7ebc3185c7f10e5440e0d841beba5be90f174cf0ba3fa36d6d942b82388e2edf"
+    },
+    {
+      "bytes": 679,
+      "group": "source",
+      "path": "project/src/paper-terminal.css",
+      "sha256": "b8b72b365646d5e667b37496f3304b6bf2354dcd6c0ff5489a68ef44c1231948"
+    },
+    {
+      "bytes": 5618,
+      "group": "source",
+      "path": "project/src/paper-terminal.ts",
+      "sha256": "3c505f89ce34fa6d110be0c8663436643969f6ccdf788faae891459e94c581fd"
+    },
+    {
+      "bytes": 207,
+      "group": "source",
+      "path": "project/src/paper-types.ts",
+      "sha256": "b5ab64b8af5fd081cfd909c5a25fefda1054f1c367b701f4655e83c764b0ffb6"
+    },
+    {
+      "bytes": 7194,
+      "group": "source",
+      "path": "project/src/props.css",
+      "sha256": "ca1594767f1582682b8643a4a99f391932a4a8b765a5fe3e21f994c116b4b2ef"
+    },
+    {
+      "bytes": 18152,
+      "group": "source",
+      "path": "project/src/props.ts",
+      "sha256": "d2a64bf5f0e70ab0a7264924a5ad4aefedb7cc30eefde187dd19a997d87fea76"
+    },
+    {
+      "bytes": 10234,
+      "group": "source",
+      "path": "project/src/studio-v2.css",
+      "sha256": "5d6ac6039271f7a0d3c3cd11136977d85313b2d82103278669280460432470bb"
+    },
+    {
+      "bytes": 10171,
+      "group": "source",
+      "path": "project/src/studio-v2.ts",
+      "sha256": "d358a6f5189e99b85ed65e22ca143a963afc7437b09a73f76bf44917491c17de"
+    },
+    {
+      "bytes": 20144,
+      "group": "source",
+      "path": "project/src/style.css",
+      "sha256": "bb93dc0e2e661a2f0a00b6092a0b1b5910bfe5523841785625fcefc1f7ebd4d7"
+    },
+    {
+      "bytes": 38552,
+      "group": "source",
+      "path": "project/src/world/exterior.ts",
+      "sha256": "f1cd6db51430fb7e64bab701a09510f48eadcb72356e07881ebad937ab91a0c8"
+    },
+    {
+      "bytes": 63310,
+      "group": "source",
+      "path": "project/src/world/interior.ts",
+      "sha256": "40dc5edb0b547656bce912703960d268886260aebedf3bcc44effb9370afb522"
+    },
+    {
+      "bytes": 11444,
+      "group": "source",
+      "path": "project/src/world/renderer.ts",
+      "sha256": "369673a2b65ccace3bc81c8dc03341c8d4693aebf0d802cb3a08c9090d83c086"
+    },
+    {
+      "bytes": 527,
+      "group": "source",
+      "path": "project/src/world/types.ts",
+      "sha256": "50ce71e4a93f184694a7004f61a767cc5eeeed43eee4eba29d4967440e6cd0cd"
+    },
+    {
+      "bytes": 325,
+      "group": "source",
+      "path": "project/tsconfig.json",
+      "sha256": "f581a7e1f158f1f0b44214cda51dec36c5afefb20a03108d08245d13394bdfeb"
+    }
+  ],
+  "format": 1,
+  "hash_algorithm": "SHA-256",
+  "manifest_note": "File hashes cover every payload file, including dist. MANIFEST.json excludes its own hash.",
+  "payload_bytes": 291440229,
+  "payload_file_count": 610,
+  "policy": "Tracked project files plus dist and the logo folder only. No symlinks, dependencies, local agent settings, env files, private camera originals, or untracked research logs.",
+  "primary_logo": "A — happy Milky, white ears",
+  "project": "Taewon Seo — After Hours / Milky Studio",
+  "source_commit": "94fb118f4c8916a68095390481c088bd779912ee",
+  "source_commit_utc": "2026-09-30T05:50:58+00:00"
+}

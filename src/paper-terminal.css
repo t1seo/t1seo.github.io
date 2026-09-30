@@ -1,0 +1,30 @@
+/* Keep the existing screen's b / em / span syntax colors and dimensions. */
+.screen-code.paper-terminal {
+  white-space: pre;
+  min-height: 10.8em;
+  tab-size: 2;
+}
+
+.paper-terminal-caret {
+  display: inline-block;
+  width: 0.56em;
+  height: 1.02em;
+  margin-left: 0.1em;
+  vertical-align: -0.13em;
+  border-radius: 0.08em;
+  background: #b9c6a3;
+  opacity: 0.88;
+}
+
+.paper-terminal[data-terminal='typing'] .paper-terminal-caret {
+  animation: paper-terminal-caret 900ms steps(1, end) infinite;
+}
+
+.paper-terminal[data-terminal='paused'] .paper-terminal-caret {
+  opacity: 0.35;
+}
+
+@keyframes paper-terminal-caret {
+  0%, 55% { opacity: 0.88; }
+  56%, 100% { opacity: 0.12; }
+}

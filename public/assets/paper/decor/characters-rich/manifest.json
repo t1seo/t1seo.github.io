@@ -1,0 +1,54 @@
+[
+  {
+    "file": "sleeping-cat-ornament.webp",
+    "originalFile": "sleeping-cat-ornament.png",
+    "title": "Sleeping Cat Porcelain Ornament",
+    "contributor": "Karen Arnold",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.publicdomainpictures.net/en/view-image.php?image=355289&picture=sleeping-cat-porcelain-ornament",
+    "downloadPage": "https://www.publicdomainpictures.net/en/free-download.php?id=355289&image=sleeping-cat-porcelain-ornament",
+    "downloadUrl": "https://www.publicdomainpictures.net/pictures/360000/velka/sleeping-cat-porcelain-ornament.png",
+    "checkedOn": "2026-09-29",
+    "modifications": "Whole-image WebP encoding at quality 90, lossless alpha; no crop, redraw, or generation.",
+    "sha256": "4890e8508524ec1efdf81b528edddf73208d0984f9d82fbca51a302305402faf",
+    "width": 1920,
+    "height": 1193,
+    "visibleBounds": [
+      129,
+      376,
+      1535,
+      1068
+    ],
+    "transparentFraction": 0.6595395885722268,
+    "pngBytes": 1391770,
+    "webpBytes": 146058,
+    "alphaUnchanged": true
+  },
+  {
+    "file": "blue-tit-bird.webp",
+    "originalFile": "blue-tit-bird.png",
+    "title": "Blue Tit Bird Vintage",
+    "contributor": "Karen Arnold",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://www.publicdomainpictures.net/en/view-image.php?image=443206&picture=blue-tit-bird-vintage",
+    "downloadPage": "https://www.publicdomainpictures.net/en/free-download.php?id=443206&image=blue-tit-bird-vintage",
+    "downloadUrl": "https://www.publicdomainpictures.net/pictures/450000/velka/blue-tit-bird-vintage.png",
+    "checkedOn": "2026-09-29",
+    "modifications": "Whole-image WebP encoding at quality 90, lossless alpha; no crop, redraw, or generation.",
+    "sha256": "317896a9eb3db4f340afff602f379ca690e0840bd1d2724dd06e151c7115826c",
+    "width": 1769,
+    "height": 1920,
+    "visibleBounds": [
+      292,
+      191,
+      1525,
+      1617
+    ],
+    "transparentFraction": 0.8004878580177125,
+    "pngBytes": 1897411,
+    "webpBytes": 357464,
+    "alphaUnchanged": true
+  }
+]

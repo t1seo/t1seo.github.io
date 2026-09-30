@@ -1,0 +1,427 @@
+{
+  "coordinateSpace": "Native exported pixels; dogs1536x1024, props512x512. Bounds are left/top inclusive, right/bottom exclusive.",
+  "sharedDogAnchor": [
+    795,
+    970
+  ],
+  "runtimeScale": 0.847,
+  "methods": {
+    "supportFootprint": "Independent visual anatomical labeling with read-only alpha>32 scan of grounded paws. Horizontal span includes near/far support paws in perspective, not silhouette or belly bounds; hand labeling uncertainty approximately5px. Raised paw excluded from reach support.",
+    "muzzleTip": "Hand-labelled functional nose/muzzle interaction point, approximately5px uncertainty. Separate automated noseDarkCentroid is diagnostic, not the muzzle-tip anchor.",
+    "noseDarkCentroid": "Largest connected component with max(R,G,B)<100 and alpha>200 inside noseInspectionWindow.",
+    "alpha": "Read-only Pillow/SciPy. Opaque fur for distance test is alpha>200. Transparent-space samples are chosen outside all four activity poses; old v4 sample(900,360) overlaps changed activity fur and is not a valid universal clear-space point.",
+    "imageProduction": "Built-in imagegen with transparent_background:true, then whole-image cwebp q92/alpha_q100/m6. No Python image editing. Props used whole-image resize512x512 during cwebp conversion."
+  },
+  "dogs": [
+    {
+      "file": "milky-eat-low.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0ae-2647-7893-a6a3-a302744b7169/exec-648983ca-a889-4309-925f-b30002d8b716.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 217910,
+      "sha256": "036648574e441ffcfaf7a01b37e4ba8d9272cab649bc26b3c8199db57ab5d147",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        118,
+        86,
+        1471,
+        952
+      ],
+      "alphaMatchesGeneratedSourceExactly": true,
+      "alphaAbove32ConnectedComponents": 32,
+      "alphaAbove32OutsideLargestComponent": 43,
+      "alphaAbove32FartherThan40pxFromOpaqueFur": 0,
+      "nonzeroAlphaFartherThan40pxFromOpaqueFur": 54,
+      "maxAlphaFartherThan40pxFromOpaqueFur": 1,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(768, 100)": 0,
+        "(768, 1000)": 0,
+        "(75, 500)": 0,
+        "(1500, 500)": 0,
+        "(900, 200)": 0
+      },
+      "supportFootprintX": [
+        193,
+        1189
+      ],
+      "supportFootprintCenterX": 691,
+      "lowestGroundContactRow": 951,
+      "offsetToSharedAnchor": [
+        104,
+        19
+      ],
+      "muzzleTip": [
+        1370,
+        891
+      ],
+      "registeredMuzzleTip": [
+        1474,
+        910
+      ],
+      "noseDarkCentroid": [
+        1366.62,
+        890.82
+      ],
+      "noseInspectionWindow": [
+        1300,
+        840,
+        1410,
+        930
+      ],
+      "gaze": "down/right toward food",
+      "notes": "Four planted legs; reference body for the eating pair."
+    },
+    {
+      "file": "milky-eat-lift.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0ae-2647-7893-a6a3-a302744b7169/exec-f37535aa-84ce-442a-a397-ed5bb76c2833.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 195780,
+      "sha256": "904d87102f7ee1b1372ee43b10a28c6c0d5774ae9296d8e9705f1c273820d2e8",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        112,
+        73,
+        1460,
+        954
+      ],
+      "alphaMatchesGeneratedSourceExactly": true,
+      "alphaAbove32ConnectedComponents": 34,
+      "alphaAbove32OutsideLargestComponent": 47,
+      "alphaAbove32FartherThan40pxFromOpaqueFur": 0,
+      "nonzeroAlphaFartherThan40pxFromOpaqueFur": 169,
+      "maxAlphaFartherThan40pxFromOpaqueFur": 1,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(768, 100)": 0,
+        "(768, 1000)": 0,
+        "(75, 500)": 0,
+        "(1500, 500)": 0,
+        "(900, 200)": 0
+      },
+      "supportFootprintX": [
+        196,
+        1191
+      ],
+      "supportFootprintCenterX": 693.5,
+      "lowestGroundContactRow": 953,
+      "offsetToSharedAnchor": [
+        101.5,
+        17
+      ],
+      "muzzleTip": [
+        1373,
+        812
+      ],
+      "registeredMuzzleTip": [
+        1474.5,
+        829
+      ],
+      "noseDarkCentroid": [
+        1370.43,
+        814.32
+      ],
+      "noseInspectionWindow": [
+        1300,
+        770,
+        1430,
+        858
+      ],
+      "gaze": "down/right toward the same food",
+      "notes": "Muzzle x is 33px beyond the requested upper limit1340; stable low/lift body and near-identical registered muzzle x were preferred to whole-body displacement."
+    },
+    {
+      "file": "milky-play-bow.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0ae-2647-7893-a6a3-a302744b7169/exec-3cae7e50-59aa-439f-bd1a-bd9b99a97ce8.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 204000,
+      "sha256": "7bd7108d9d40e3ab933de99263e151e861172753f175197627f3711d7c6f68ac",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        115,
+        44,
+        1436,
+        969
+      ],
+      "alphaMatchesGeneratedSourceExactly": true,
+      "alphaAbove32ConnectedComponents": 23,
+      "alphaAbove32OutsideLargestComponent": 22,
+      "alphaAbove32FartherThan40pxFromOpaqueFur": 0,
+      "nonzeroAlphaFartherThan40pxFromOpaqueFur": 279,
+      "maxAlphaFartherThan40pxFromOpaqueFur": 1,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(768, 100)": 0,
+        "(768, 1000)": 0,
+        "(75, 500)": 0,
+        "(1500, 500)": 0,
+        "(900, 200)": 0
+      },
+      "supportFootprintX": [
+        199,
+        1435
+      ],
+      "supportFootprintCenterX": 817,
+      "lowestGroundContactRow": 968,
+      "offsetToSharedAnchor": [
+        -22,
+        2
+      ],
+      "muzzleTip": [
+        1349,
+        717
+      ],
+      "registeredMuzzleTip": [
+        1327,
+        719
+      ],
+      "noseDarkCentroid": [
+        1343.79,
+        721.78
+      ],
+      "noseInspectionWindow": [
+        1290,
+        670,
+        1410,
+        750
+      ],
+      "gaze": "profile down/right toward ground ball",
+      "notes": "Four legs; lowered chest/forelegs, raised hindquarters and tail."
+    },
+    {
+      "file": "milky-play-reach.webp",
+      "source": "/Users/cillian/.codex/generated_images/01a0f0ae-2647-7893-a6a3-a302744b7169/exec-06a36f15-ce63-4a30-b769-6a8c2a99ddd7.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "bytes": 219038,
+      "sha256": "5f1ba886841ee0fd67cc700d22bfa7145e94ca196d09d63a5a0a00c57c874d82",
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaBoundsAbove32": [
+        128,
+        93,
+        1445,
+        939
+      ],
+      "alphaMatchesGeneratedSourceExactly": true,
+      "alphaAbove32ConnectedComponents": 32,
+      "alphaAbove32OutsideLargestComponent": 43,
+      "alphaAbove32FartherThan40pxFromOpaqueFur": 0,
+      "nonzeroAlphaFartherThan40pxFromOpaqueFur": 1353,
+      "maxAlphaFartherThan40pxFromOpaqueFur": 1,
+      "clearAlphaSamples": {
+        "(0, 0)": 0,
+        "(768, 100)": 0,
+        "(768, 1000)": 0,
+        "(75, 500)": 0,
+        "(1500, 500)": 0,
+        "(900, 200)": 0
+      },
+      "supportFootprintX": [
+        205,
+        1134
+      ],
+      "supportFootprintCenterX": 669.5,
+      "lowestGroundContactRow": 938,
+      "offsetToSharedAnchor": [
+        125.5,
+        32
+      ],
+      "muzzleTip": [
+        1357,
+        521
+      ],
+      "registeredMuzzleTip": [
+        1482.5,
+        553
+      ],
+      "noseDarkCentroid": [
+        1354.53,
+        524.43
+      ],
+      "noseInspectionWindow": [
+        1300,
+        470,
+        1420,
+        570
+      ],
+      "gaze": "profile down/right toward ground ball",
+      "notes": "Three planted legs and one reaching forepaw. Functional front-toe point1386,780 is within contract; furthest alpha edge at x1400,y745..751 extends10px beyond the upper x aim.",
+      "raisedPawTip": [
+        1386,
+        780
+      ],
+      "registeredRaisedPawTip": [
+        1511.5,
+        812
+      ]
+    }
+  ],
+  "props": [
+    {
+      "file": "public/assets/cyberpunk/milky-prop-bowl.webp",
+      "canvas": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "bytes": 22770,
+      "sha256": "0d975444d6c5f527f422e06e803ca85b46dffb48b07b5b07ffa0f57a5a090c53",
+      "alphaBoundsGT32": [
+        66,
+        277,
+        446,
+        507
+      ],
+      "drawnSizeGT32": [
+        380,
+        230
+      ],
+      "bodyCenter": [
+        256,
+        392
+      ],
+      "groundAnchor": [
+        257.5,
+        506
+      ],
+      "lowestContactRow": 506,
+      "bottomContactRangeX": [
+        247,
+        268
+      ],
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaGT32Components": 1,
+      "alphaGT32OutsideLargestComponent": 0,
+      "alphaGT32Beyond10pxFromOpaque": 0,
+      "maxAlphaTop96": 1,
+      "maxAlphaOuter16": 0,
+      "independentReviewDistantAlpha1Pixels": 1
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-prop-ball.webp",
+      "canvas": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "bytes": 35022,
+      "sha256": "73a7d21c109fc0cdedc88069b4b0284f31dc7391f3bcd665574b8d2536db743c",
+      "alphaBoundsGT32": [
+        104,
+        104,
+        408,
+        407
+      ],
+      "drawnSizeGT32": [
+        304,
+        303
+      ],
+      "bodyCenter": [
+        256,
+        255.5
+      ],
+      "groundAnchor": [
+        255,
+        406
+      ],
+      "lowestContactRow": 406,
+      "bottomContactRangeX": [
+        239,
+        271
+      ],
+      "alphaMin": 0,
+      "alphaMax": 254,
+      "alphaGT32Components": 1,
+      "alphaGT32OutsideLargestComponent": 0,
+      "alphaGT32Beyond10pxFromOpaque": 0,
+      "maxAlphaTop96": 1,
+      "maxAlphaOuter16": 0,
+      "independentReviewDistantAlpha1Pixels": 6
+    }
+  ],
+  "propChecks": {
+    "clearSamples": {
+      "locations": [
+        [
+          0,
+          0
+        ],
+        [
+          256,
+          0
+        ],
+        [
+          511,
+          0
+        ],
+        [
+          0,
+          256
+        ],
+        [
+          511,
+          256
+        ],
+        [
+          0,
+          511
+        ],
+        [
+          511,
+          511
+        ]
+      ],
+      "alpha": 0,
+      "appliesTo": "both final assets"
+    },
+    "geometry": "Bounds are alpha > 32, right/bottom exclusive. Bowl actual width 380px is 5% below approximate 400px contract; base(257.5,506) meets explicit (256,500) \u00b112. Ball 304\u00d7303, center(256,255.5), bottom406 meets approximate300px diameter contract.",
+    "visual": "Direct final WebP inspection and independent read-only reviewer approved both. Realistic ceramic with kibble, matte dusty-sage felt ball, no floor or cast/contact shadow. Gray preview edge blocks were sampled by reviewer and had alpha0; distant residual 1/255 alpha is not a visible blocker.",
+    "git": "git diff --check passed; commit contains exactly two scoped WebP files; worktree clean.",
+    "limitations": "No live Chrome runtime playback performed in this image-only task. Root owns integrated composition, physical size, and behavior checks. Bowl is approximately400px rather than exactly400px."
+  },
+  "eatingPair": {
+    "registeredMuzzleDeltaLowToLift": [
+      0.5,
+      -81
+    ],
+    "pawContactRowsLowThenLift": {
+      "nearHind": [
+        939,
+        940
+      ],
+      "farHind": [
+        893,
+        895
+      ],
+      "nearFront": [
+        951,
+        953
+      ],
+      "farFront": [
+        913,
+        915
+      ]
+    },
+    "verification": "Independent static review: approximately1-3px paw-position difference; similar body/coat scale. Generated bodies are closely registered, not pixel-identical. Keep bowl at low-pose target while head lifts; never align each whole body by nose."
+  },
+  "limitations": [
+    "Four held action poses only, not continuous anatomical eating or play motion capture.",
+    "eat-lift muzzle x1373 is33px beyond the brief upper aim1340; nearly identical registered low/lift muzzle x supports fixed-bowl interaction.",
+    "reach functional raised paw1386,780 is within requested aim; outer fur reaches x1400,10px beyond brief upper x1390.",
+    "All dog distant-alpha residuals are at most1/255; no alpha>32 exists farther40px from opaque fur. No visible baked floor, cast shadow or broad halo.",
+    "Bowl actual width380px is5% below approximate400px target; measured base anchor remains within stated12px tolerance.",
+    "No authored trot frames supplied; faster existing walk cadence must not be described as newly authored running anatomy.",
+    "Static artwork/alpha/registration reviewed. Live Chrome composition and continuous playback remain integration checks."
+  ]
+}

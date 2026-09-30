@@ -1,0 +1,135 @@
+/* Coordinates refer to the 1672 × 941 illustration, not the viewport. */
+.cyber-desk-effects {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  --desk-warm-light: 231 190 118;
+  --desk-vapor: 230 237 232;
+  --desk-response: .72;
+}
+.cyber-desk-effects[data-time='evening'],
+.cyber-desk-effects[data-time='night'] { --desk-response: 1; }
+.cyber-desk-effects[data-season='winter'] { --desk-vapor: 237 239 231; }
+.cyber-desk-effects[data-weather='rain'],
+.cyber-desk-effects[data-weather='mist'] { --desk-response: .9; }
+.cyber-desk-effects[data-active='false'] { visibility: hidden; }
+
+.cyber-bowl-shimmer {
+  position: absolute;
+  left: 41.39%;
+  top: 62.36%;
+  width: 2.83%;
+  height: .98%;
+  opacity: var(--desk-response);
+}
+.cyber-bowl-shimmer i,
+.cyber-bowl-shimmer b {
+  position: absolute;
+  inset: 0;
+  border: .75px solid rgb(var(--desk-warm-light) / .75);
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 3px rgb(var(--desk-warm-light) / .2);
+}
+.cyber-bowl-shimmer b {
+  border-color: transparent;
+  border-top-color: rgb(255 226 170 / .9);
+  border-bottom-color: rgb(255 226 170 / .45);
+  filter: blur(.35px);
+}
+.cyber-desk-effects[data-bowl='still'] .cyber-bowl-shimmer b { opacity: .7; }
+
+.cyber-coffee-surface {
+  position: absolute;
+  left: 80.92%;
+  top: 62.36%;
+  width: 2.43%;
+  height: .86%;
+  overflow: hidden;
+  border-radius: 50%;
+  opacity: var(--desk-response);
+}
+.cyber-coffee-surface i {
+  position: absolute;
+  inset: 6% 1%;
+  border: .7px solid rgb(225 204 170 / .75);
+  border-radius: 50%;
+  opacity: 0;
+}
+.cyber-desk-effects[data-coffee='still'] .cyber-coffee-surface i:first-child { opacity: .45; }
+.cyber-coffee-steam {
+  position: absolute;
+  left: 80.66%;
+  top: 56.2%;
+  width: 3.03%;
+  height: 6.75%;
+  opacity: var(--desk-response);
+  contain: layout style;
+}
+.cyber-steam-wisp {
+  position: absolute;
+  bottom: 0;
+  left: calc(14% + var(--wisp) * 6%);
+  width: 55%;
+  height: 100%;
+  opacity: 0;
+  overflow: visible;
+  transform-origin: 50% 95%;
+}
+.cyber-steam-wisp path {
+  stroke: rgb(var(--desk-vapor) / .75);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  filter: blur(1.1px);
+}
+.cyber-steam-wisp path + path {
+  stroke-width: 4;
+  stroke-opacity: .24;
+  filter: blur(2.6px);
+}
+
+.cyber-speaker-presence {
+  position: absolute;
+  top: 56.93%;
+  width: 2.86%;
+  height: 7.78%;
+  opacity: 0;
+  transition: opacity 240ms ease-out;
+}
+.cyber-speaker-presence--left { left: 49.32%; top: 56.25%; width: 3.12%; height: 8.35%; }
+.cyber-speaker-presence--right { left: 76.11%; --speaker-delay: -.32s; }
+.cyber-speaker-presence i {
+  position: absolute;
+  inset: 8% 18% 18%;
+  border-radius: 35%;
+  background: radial-gradient(ellipse, rgb(195 207 184 / .12), transparent 70%);
+  opacity: .16;
+}
+.cyber-speaker-presence b {
+  position: absolute;
+  bottom: 4%;
+  left: 48%;
+  width: 3%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #b9d9c4;
+  box-shadow: 0 0 3px #9dcaba80;
+}
+.cyber-desk-effects[data-music='true'] .cyber-speaker-presence { opacity: var(--desk-response); }
+.cyber-desk-effects[data-music='true'][data-active='true'][data-reduced-motion='false'] .cyber-speaker-presence i {
+  animation: cyber-speaker-presence 2.8s cubic-bezier(.45,0,.55,1) infinite;
+  animation-delay: var(--speaker-delay, 0s);
+}
+@keyframes cyber-speaker-presence {
+  0%, 100% { opacity: .15; transform: scale(.96); }
+  38% { opacity: .6; transform: scale(1.02); }
+  60% { opacity: .3; transform: scale(.99); }
+  77% { opacity: .43; transform: scale(1.01); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cyber-desk-effects *, .cyber-desk-effects *::before, .cyber-desk-effects *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

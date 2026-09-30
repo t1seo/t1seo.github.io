@@ -1,0 +1,120 @@
+.cyber-pet-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* Milky paints above her props: the lowered face eats over the bowl rim, never behind it. */
+  z-index: 1;
+  display: block;
+  width: 14%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  transform-origin: 50% 94%;
+  padding: 0;
+  border: 0;
+  border-radius: 42%;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  appearance: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  pointer-events: auto;
+  contain: layout style;
+}
+.cyber-pet-button[data-portrait='true'] { width: 11%; }
+.cyber-pet-button:focus-visible { outline: 2px solid #f0ddbd; outline-offset: 3px; }
+.cyber-pet-button:disabled { cursor: default; }
+.cyber-pet-button[hidden] { display: none; }
+.cyber-pet-shadow {
+  position: absolute;
+  left: 21%;
+  top: 91%;
+  width: 58%;
+  height: 5%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(9 13 17 / .24), rgb(9 13 17 / .12) 38%, transparent 72%);
+  filter: blur(1.4px);
+  pointer-events: none;
+}
+.cyber-pet-figure { position: absolute; inset: 0; pointer-events: none; transform-origin: 50% 94%; }
+.cyber-pet-image, .cyber-pet-step, .cyber-pet-pose, .cyber-pet-rest, .cyber-pet-activity {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  pointer-events: none;
+  transform-origin: 50% 94%;
+  visibility: hidden;
+  transform: scaleX(var(--milky-facing, 1)) translate(var(--milky-frame-x, 0%), var(--milky-frame-y, 0%)) scale(var(--milky-art-scale, 1));
+}
+.cyber-pet-button[data-facing='left'] .cyber-pet-image,
+.cyber-pet-button[data-facing='left'] .cyber-pet-step,
+.cyber-pet-button[data-facing='left'] .cyber-pet-pose,
+.cyber-pet-button[data-facing='left'] .cyber-pet-rest,
+.cyber-pet-button[data-facing='left'] .cyber-pet-activity { --milky-facing: -1; }
+/* The idle face follows the gaze: forward-looking at quiet rest, camera-look on greeting. */
+.cyber-pet-button[data-pose='idle']:not([data-gaze='forward']) .cyber-pet-image[data-look='camera'],
+.cyber-pet-button[data-pose='idle'][data-gaze='forward'] .cyber-pet-image[data-look='forward'],
+.cyber-pet-button[data-pose='side'] .cyber-pet-step[data-visible='true'],
+.cyber-pet-button[data-pose='blink'] .cyber-pet-pose[data-variant='blink'],
+.cyber-pet-button[data-pose='attend'] .cyber-pet-pose[data-variant='attend'],
+.cyber-pet-button[data-pose='sniff'] .cyber-pet-pose[data-variant='sniff'],
+.cyber-pet-button[data-pose='sit'] .cyber-pet-rest[data-variant='sit'],
+.cyber-pet-button[data-pose='drowsy'] .cyber-pet-rest[data-variant='drowsy'],
+.cyber-pet-button[data-pose='sleep'] .cyber-pet-rest[data-variant='sleep'],
+.cyber-pet-button[data-pose='sitdown'] .cyber-pet-rest[data-variant='sitdown'],
+.cyber-pet-button[data-pose='wake'] .cyber-pet-rest[data-variant='wake'],
+.cyber-pet-button[data-pose='eat-low'] .cyber-pet-activity[data-variant='eat-low'],
+.cyber-pet-button[data-pose='eat-lift'] .cyber-pet-activity[data-variant='eat-lift'],
+.cyber-pet-button[data-pose='play-bow'] .cyber-pet-activity[data-variant='play-bow'],
+.cyber-pet-button[data-pose='play-reach'] .cyber-pet-activity[data-variant='play-reach'] { visibility: visible; }
+/* Props are separate floor-anchored art: a stable bowl, a really rolling ball whose
+   contact shadow stays grounded while the ball itself lifts. */
+.cyber-pet-props { position: absolute; inset: 0; z-index: 0; pointer-events: none; contain: layout style; }
+.cyber-pet-prop { position: absolute; left: 0; top: 0; display: block; visibility: hidden; transform-origin: 50% 100%; }
+.cyber-pet-prop[data-visible='true'] { visibility: visible; }
+/* Wrapper widths account for the measured drawn extents (bowl 380/512, ball 304/512), so
+   the VISIBLE bowl reads ≈.30 and the ball ≈.16 of Milky's body length. Portrait scales
+   the dog's button from 14% to 11%, so props carry the same 11/14 factor to keep the
+   room's physical scale coherent. */
+.cyber-pet-prop[data-prop='bowl'] { width: 3.7%; }
+.cyber-pet-prop[data-prop='ball'] { width: 2.6%; }
+.cyber-pet-props[data-portrait='true'] .cyber-pet-prop[data-prop='bowl'] { width: 2.907%; }
+.cyber-pet-props[data-portrait='true'] .cyber-pet-prop[data-prop='ball'] { width: 2.043%; }
+.cyber-pet-prop-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translate(var(--milky-prop-anchor-x, 0%), var(--milky-prop-anchor-y, 0%)) translateY(var(--milky-prop-lift, 0px)) scaleX(var(--milky-prop-facing, 1));
+}
+.cyber-pet-prop[data-prop='ball'] .cyber-pet-prop-shadow { left: 22%; width: 56%; }
+.cyber-pet-prop[data-facing='left'] { --milky-prop-facing: -1; }
+.cyber-pet-prop-shadow {
+  position: absolute;
+  left: 10%;
+  bottom: -3%;
+  width: 80%;
+  height: 16%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgb(9 13 17 / .26), rgb(9 13 17 / .12) 40%, transparent 72%);
+  filter: blur(1px);
+  opacity: var(--milky-prop-shadow, 1);
+}
+/* Ribcage movement is almost imperceptible; paws remain planted at the same floor point. */
+@keyframes milky-breathing { 0%, 100% { transform: scaleY(1); } 48% { transform: scaleY(1.003); } }
+/* Sleep breathing is a touch deeper and slower, still anchored at the floor line. */
+@keyframes milky-sleep-breathing { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.006); } }
+@media (prefers-reduced-motion: no-preference) {
+  /* Micro- and rest poses keep breathing on the same clock so a swap cannot restart it. */
+  .cyber-pet-button:is([data-pose='idle'], [data-pose='blink'], [data-pose='attend'], [data-pose='sniff'], [data-pose='sit'], [data-pose='drowsy'], [data-pose='sitdown'], [data-pose='wake'], [data-pose='eat-low'], [data-pose='eat-lift'], [data-pose='play-bow'], [data-pose='play-reach'])[data-active='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-breathing 5.4s ease-in-out infinite; }
+  .cyber-pet-button[data-pose='sleep'][data-active='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-sleep-breathing 4.2s ease-in-out infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cyber-pet-figure { animation: none; }
+}

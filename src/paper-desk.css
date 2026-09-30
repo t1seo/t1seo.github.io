@@ -1,0 +1,39 @@
+/* One pointer-transparent visual layer, below the scene's interactive buttons. */
+.paper-desk-fx{position:absolute;inset:0;z-index:7;pointer-events:none;overflow:visible}
+.paper-theatre:has(>.paper-desk-fx)>.paper-steam{display:none}
+/* The SVG's lower center lands on the original cup opening at (53.4%,57.8%). */
+.desk-aroma{position:absolute;left:49.9%;top:41.75%;width:7%;height:16.5%;overflow:visible;pointer-events:none}
+.desk-idle-steam path,.desk-sip-steam path{fill:none;stroke:#fff4db;stroke-linecap:round;stroke-linejoin:round;transform-origin:70px 173px}
+.desk-idle-steam path{stroke-width:1.35;opacity:0;animation:desk-idle-aroma 6s ease-in-out infinite}
+.desk-idle-steam path:nth-child(2){animation-delay:-2s;stroke-width:1.15}
+.desk-idle-steam path:nth-child(3){animation-delay:-4s;stroke-width:1}
+@keyframes desk-idle-aroma{0%{opacity:0;transform:translateY(8px)}30%{opacity:.22}75%{opacity:.1}100%{opacity:0;transform:translateY(-16px)}}
+.desk-sip-steam path{stroke-width:2;opacity:0;stroke-dasharray:240;stroke-dashoffset:240}
+.desk-sip-steam path:nth-child(2){stroke-width:1.65}
+.desk-sip-steam path:nth-child(3){stroke-width:1.35}
+.paper-desk-fx[data-sip=flow] .desk-sip-steam path{animation:desk-sip-aroma 3.25s cubic-bezier(.25,.45,.3,1) both}
+.paper-desk-fx[data-sip=flow] .desk-sip-steam path:nth-child(2){animation-delay:.18s}
+.paper-desk-fx[data-sip=flow] .desk-sip-steam path:nth-child(3){animation-delay:.4s}
+@keyframes desk-sip-aroma{0%{opacity:0;stroke-dashoffset:240;transform:translateY(4px) scaleX(.75)}22%{opacity:.65}65%{opacity:.48;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:-25;transform:translateY(-24px) scaleX(1.08)}}
+.desk-aroma-heart{fill:#ede2bf;opacity:0;transform-origin:71px 98px}
+.paper-desk-fx[data-sip=flow] .desk-aroma-heart{animation:desk-aroma-heart 2.9s .45s ease-out both}
+@keyframes desk-aroma-heart{0%{opacity:0;transform:translate(0,28px) scale(.5) rotate(-8deg)}30%{opacity:.48}65%{opacity:.36}100%{opacity:0;transform:translate(5px,-27px) scale(.75) rotate(7deg)}}
+.desk-cool-sip{display:none;fill:none;stroke:#b9d8cc;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.desk-cool-sip>*{opacity:0}
+.desk-cool-ripple{transform-origin:70px 172px}
+.desk-cool-drop{fill:#c7ddd020;transform-box:fill-box;transform-origin:center}
+.paper-world[data-season=summer] .desk-idle-steam,.paper-world[data-season=summer] .desk-sip-steam,.paper-world[data-season=summer] .desk-aroma-heart{display:none}
+.paper-world[data-season=summer] .desk-cool-sip{display:block}
+.paper-desk-fx[data-sip=flow] .desk-cool-ripple{animation:desk-cool-ripple 1.2s ease-out 3}
+.paper-desk-fx[data-sip=flow] .desk-cool-drop{animation:desk-cool-drop 2.3s ease-out both}
+.paper-desk-fx[data-sip=flow] .desk-cool-drop:nth-child(3){animation-delay:.3s}
+.paper-desk-fx[data-sip=flow] .desk-cool-drop:nth-child(4){animation-delay:.6s}
+@keyframes desk-cool-ripple{0%{opacity:0;transform:scale(.6)}20%{opacity:.7}100%{opacity:0;transform:scale(1.25)}}
+@keyframes desk-cool-drop{0%{opacity:0;transform:translateY(8px) scale(.8)}25%{opacity:.75}100%{opacity:0;transform:translateY(-18px) scale(.55)}}
+/* Exact illustrated key field: about 149×26px in the 1536×1024 source. */
+.desk-keyboard-feedback{position:absolute;left:39.85%;top:57.99%;width:9.7%;height:2.57%;overflow:visible;pointer-events:none}
+.desk-keyboard-feedback rect{fill:#f8dc9a;fill-opacity:.48;stroke:#f8e9bf;stroke-opacity:.75;stroke-width:.55;filter:drop-shadow(0 .65px .3px #715c353d)}
+.paper-world[data-motion=off] .desk-idle-steam{display:none}
+.paper-desk-fx[data-sip=still] .desk-sip-steam path:first-child{opacity:.48;stroke-dasharray:none;stroke-dashoffset:0}
+.paper-desk-fx[data-sip=still] .desk-aroma-heart{opacity:.45}
+.paper-desk-fx[data-sip=still] .desk-cool-ripple,.paper-desk-fx[data-sip=still] .desk-cool-drop{opacity:.5}

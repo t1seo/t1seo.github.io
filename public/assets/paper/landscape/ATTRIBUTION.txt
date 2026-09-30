@@ -1,0 +1,20 @@
+Free Valley Background
+Artist: Franco Giachetti / LudicArts
+Original work: https://www.ludicarts.com/free-valley-background/
+Artist-published download and license declaration:
+https://opengameart.org/content/free-valley-background
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+Adaptation in this project: original PNG layers resized to 1920 pixels wide
+and encoded as WebP, retaining transparent edges. The application's color,
+lighting, texture, and parallax treatments may further adapt the display.
+
+Required public attribution example:
+Landscape: “Free Valley Background” by LudicArts / Franco Giachetti,
+CC BY 4.0. Resized and adapted for this website.
+Link the title to the original work and the license to its URL above.
+
+The source archive includes an old Licence.url pointing to another LudicArts
+asset. This project uses the explicit CC BY 4.0 declaration on the artist's
+OpenGameArt Free Valley page, not that stale shortcut.

@@ -1,0 +1,50 @@
+.env-panel {
+  width: min(100%, 390px);
+  box-sizing: border-box;
+  padding: 13px 14px 11px;
+  border: 1px solid var(--ui-border, rgba(115, 92, 62, .17));
+  border-radius: 21px;
+  background: var(--ui-surface, rgba(255, 251, 241, .9));
+  color: var(--ui-text, #504535);
+  box-shadow: 0 12px 36px rgba(56, 39, 21, .09), inset 0 1px 0 rgba(255, 255, 255, .66);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-family: inherit;
+  user-select: none;
+}
+
+.env-panel *, .env-panel *::before, .env-panel *::after { box-sizing: border-box; }
+.env-panel button { -webkit-tap-highlight-color: transparent; font: inherit; cursor: pointer; }
+.env-panel button:focus-visible { outline: 2px solid var(--ui-accent, #617857); outline-offset: 3px; }
+.env-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 3px 9px; }
+.env-heading-title { display: flex; align-items: center; gap: 7px; color: var(--ui-muted, #776f60); font-size: 10px; line-height: 1.4; letter-spacing: .025em; }
+.env-status-dot { width: 5px; height: 5px; flex-shrink: 0; border-radius: 50%; background: #a7b397; }
+.env-auto { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-width: 58px; min-height: 26px; padding: 3px 8px; border: 1px solid var(--ui-border, rgba(115, 92, 62, .17)); border-radius: 20px; color: var(--ui-muted, #776f60); background: transparent; font-size: 10px !important; line-height: 1; transition: background-color .2s, color .2s; }
+.env-auto[aria-pressed="true"] { color: var(--ui-accent, #617857); background: color-mix(in srgb, var(--ui-accent, #617857) 9%, transparent); }
+.env-auto-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; opacity: .4; }
+.env-auto[aria-pressed="true"] .env-auto-dot { opacity: 1; }
+.env-times { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 3px; }
+.env-time { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; min-width: 0; min-height: 57px; border: 1px solid transparent; border-radius: 12px; padding: 7px 0; color: var(--ui-muted, #776f60); background: transparent; transition: background-color .2s, color .2s, border-color .2s; }
+.env-time > span { font-size: 10px; line-height: 1.25; }
+.env-time[aria-pressed="true"] { background: rgba(255, 255, 255, .65); color: var(--ui-text, #504535); border-color: var(--ui-border, rgba(115, 92, 62, .17)); box-shadow: 0 2px 4px rgba(64, 48, 30, .025); }
+.env-icon { display: block; width: 20px; height: 20px; flex: 0 0 auto; }
+.env-bottom { display: flex; align-items: center; gap: 7px; border-top: 1px solid var(--ui-border, rgba(115, 92, 62, .17)); margin-top: 9px; padding-top: 7px; }
+.env-seasons { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px; flex: 1; min-width: 0; }
+.env-season { display: flex; align-items: center; justify-content: center; gap: 4px; min-width: 0; min-height: 34px; padding: 5px 3px; border: 0; border-radius: 8px; color: var(--ui-muted, #776f60); background: transparent; transition: background-color .2s, color .2s; }
+.env-season .env-icon { width: 14px; height: 14px; }
+.env-season > span { font-size: 9px; line-height: 1.25; }
+.env-season[aria-pressed="true"] { color: var(--ui-accent, #617857); background: color-mix(in srgb, var(--ui-accent, #617857) 10%, transparent); }
+.env-divider { width: 1px; height: 17px; background: var(--ui-border, rgba(115, 92, 62, .17)); }
+.env-motion { display: grid; place-items: center; width: 32px; height: 34px; border: 0; border-radius: 8px; padding: 0; background: transparent; color: var(--ui-muted, #776f60); }
+.env-motion .env-icon { width: 17px; height: 17px; }
+.env-motion[aria-pressed="true"] { color: var(--ui-accent, #617857); }
+.env-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; padding: 0; border: 0; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+@media (hover: hover) { .env-panel button:hover { background: color-mix(in srgb, var(--ui-accent, #617857) 10%, transparent); } }
+@media (max-width: 360px) {
+  .env-panel { padding: 11px 10px 9px; border-radius: 17px; }
+  .env-heading-title { font-size: 9px; gap: 5px; }
+  .env-bottom { gap: 4px; }
+  .env-season { gap: 3px; padding-inline: 1px; }
+  .env-season > span { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { .env-panel button { transition: none; } }
