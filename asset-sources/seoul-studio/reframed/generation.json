@@ -1,0 +1,60 @@
+{
+  "method": "built-in image_gen; cwebp q88 delivery encoding",
+  "master": "night.png",
+  "masterPrompts": [
+    "master-prompt.txt",
+    "refinement-prompt.txt"
+  ],
+  "variantPrompts": [
+    "time-prompts.json",
+    "season-prompts.json"
+  ],
+  "nativeSize": [
+    1672,
+    941
+  ],
+  "sourcesSha256": {
+    "asset-sources/seoul-studio/reframed/afternoon.png": "0985b46fb8213a2f8f1e954fc1f726ff4f5a9705fb5ac93f407a95fe0d90eaeb",
+    "asset-sources/seoul-studio/reframed/evening.png": "e681d5055b407ee633eae3d63ed545806a94166d00d0eada8febfc610e71eb87",
+    "asset-sources/seoul-studio/reframed/morning.png": "fc425be7f6d5b226d24e90e9c0624338ca0aba6ad92191b1090be2f670fe7390",
+    "asset-sources/seoul-studio/reframed/night.png": "f328a64078614acb093d4ae4b04bba5c7aca42dd4033690b51d1c713a04602f1",
+    "asset-sources/seoul-studio/reframed/noon.png": "f84c6bef34908e04cbafdd6b45dea573f62f9b9359cebd6d41821ab475d7b55e",
+    "asset-sources/seoul-studio/reframed/spring/afternoon.png": "55c06b9ca83533a2ef27c66fe868e8110b871b6cc445307e8402e537ee96d867",
+    "asset-sources/seoul-studio/reframed/spring/evening.png": "d00fa71bd5f0657f74464a996e8f99f8b9a76365ea59f7284bcf12d921507ed2",
+    "asset-sources/seoul-studio/reframed/spring/morning.png": "13a2972531dc4773d1381bd73e898f8a22a77a976b81db6035ab78167c3e94fc",
+    "asset-sources/seoul-studio/reframed/spring/night.png": "937b0a052f55c2380ad47d0f1c836734b74effceb7d7ec3e7f778c2fc53dfda4",
+    "asset-sources/seoul-studio/reframed/spring/noon.png": "cd5655372a7a377e493867e6ea7f6115de3e173b199a5800cb49357aa6b5cb89",
+    "asset-sources/seoul-studio/reframed/summer/afternoon.png": "5817e28dd85c01d90c607f8b3ae3032e4086b453627e04bb12fcb9b9d098c1d7",
+    "asset-sources/seoul-studio/reframed/summer/evening.png": "39161bf5229552116f3dba504153dcd79e8fde9cd1ba9b8a016705d31229c526",
+    "asset-sources/seoul-studio/reframed/summer/morning.png": "223920b3805730928ed16ba88c22ab6abe2f0e44e421495d34e7c2f50d4f1b98",
+    "asset-sources/seoul-studio/reframed/summer/night.png": "49c006c41ecd3b286cb96e01b29580a1721fc9b4f669fb837f46dcfd45408ee9",
+    "asset-sources/seoul-studio/reframed/summer/noon.png": "540ffce3ba0acc6f2066b577c0b0f5f01174f89dc17542d1d60cff4495f75209",
+    "asset-sources/seoul-studio/reframed/winter/afternoon.png": "736aba86c7feb0d7feee507697e4306ffbfaf449a758e77109d1c0caca9667e0",
+    "asset-sources/seoul-studio/reframed/winter/evening.png": "f3fe2ed9a326c619b54d57187833d3d6f7ae81a00dc90dddd2c0182587a3ba03",
+    "asset-sources/seoul-studio/reframed/winter/morning.png": "746024167e1b4c2f57feb2eb87ca314cc0466ab12dc3c96d995b603e868445b8",
+    "asset-sources/seoul-studio/reframed/winter/night.png": "2776056ac9ab4fe01bd7d6019eafbf7cc5954f04ef3ddcef5095daf0623cf3fb",
+    "asset-sources/seoul-studio/reframed/winter/noon.png": "d8b5cf03a54c0ce69abb5d29a28465c202a194e730cfe94b7a779204e7a24ff9"
+  },
+  "runtimeSha256": {
+    "public/assets/penthouse/seoul/autumn/afternoon.webp": "f5c11f2c5210fbde6a8e93868be1f681b32e881ede7f632bc8844b78917aa8a6",
+    "public/assets/penthouse/seoul/autumn/evening.webp": "f5aab051e204ef50cf87357e848d0d3ab8e95cac8f821779e2cb16b8620ddd29",
+    "public/assets/penthouse/seoul/autumn/morning.webp": "c91d51e1a79b01c5cd36e2edfb957792a8c1bec8d1bee6d120bffb157489cf3f",
+    "public/assets/penthouse/seoul/autumn/night.webp": "b550d5e7e3d9cd527ecaca0efe5ae850ba6ec73f5783a18eb748b2782326dc2e",
+    "public/assets/penthouse/seoul/autumn/noon.webp": "5f155a623595b85807326cc22fad57c286884eb06f92a59fa08b821cc41194b0",
+    "public/assets/penthouse/seoul/spring/afternoon.webp": "8933dfe626eed0cd6b737e7337b2e368e945242be549a2d3823145a0e40ef254",
+    "public/assets/penthouse/seoul/spring/evening.webp": "de583d73a57c18cf6f33fb5bca24cb50b43a99ec7a1cf5ccf32f34da0831e82a",
+    "public/assets/penthouse/seoul/spring/morning.webp": "3258c2ab22b5983233898bbda7fa8e593bb246f66aba33f35783073216348b52",
+    "public/assets/penthouse/seoul/spring/night.webp": "4614cc7656cb79008cc68dc0a21bad905fd52c125b0e1db4de0136fdc0cb5555",
+    "public/assets/penthouse/seoul/spring/noon.webp": "57d2f02b4bb4713e66578b0b6212028aec0c8fa32e0efea069119621a701c87d",
+    "public/assets/penthouse/seoul/summer/afternoon.webp": "905e3fb4b76b493c5aa7034daf82b4a5a9cbb4dc3a49471ec8dabaf284ad3782",
+    "public/assets/penthouse/seoul/summer/evening.webp": "2021b6ec13d17140a1d2841077254fad64002326abbcc5da1c1223bf44164600",
+    "public/assets/penthouse/seoul/summer/morning.webp": "f5eefc1ba36dacc4725dcbcb0aa03f989c01103f4cdf117e24e2aac488622802",
+    "public/assets/penthouse/seoul/summer/night.webp": "e1ead55bec02bb710e2ea44ef587bde77da8bc7d06dd185a557abc8f55f74a4f",
+    "public/assets/penthouse/seoul/summer/noon.webp": "8b27bf30173ad28cf5faaaa9bb812fa99047a5da177a69bbfaf0a4c8cb2e7312",
+    "public/assets/penthouse/seoul/winter/afternoon.webp": "5e610c3be0c5c6c211d55a76809e1f4e4195453f548c82c3b3fc39d8d9690a7c",
+    "public/assets/penthouse/seoul/winter/evening.webp": "f3c63175286f23a31484fd962ef5987878b04e1e3b4f71bd4126fe09986ad77c",
+    "public/assets/penthouse/seoul/winter/morning.webp": "719e5a52684b60243200e9f5ab7ef8b0387234d29a4ae0d40e6c705f36ff4c70",
+    "public/assets/penthouse/seoul/winter/night.webp": "cb4a4839aa1c41e6c610f867ee25f003c56d28fddd3ce203bc3532e36b05ae5f",
+    "public/assets/penthouse/seoul/winter/noon.webp": "bd308b786404a5d3ba8f4afa81796577753a2b8a9ba1aa4ccdfc776792d0ede3"
+  }
+}

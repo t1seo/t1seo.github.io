@@ -21,7 +21,7 @@ const RESTS = ['sit', 'drowsy', 'sleep', 'sitdown', 'wake'] as const;
 
 // Tests mount with every optional pose enabled to exercise the full behavior; production
 // defaults request only what root confirmed shipped (MILKY_SHIPPED_POSES/_REST).
-function fixture(seed = 7829, shipped: readonly string[] | null = POSES, shippedRest: readonly string[] = RESTS, shippedTrot = true) {
+function fixture(seed = 7829, shipped: readonly string[] | null = POSES, shippedRest: readonly string[] = RESTS, shippedTrot = true, floorBounds?: Parameters<typeof mountCyberPet>[7]) {
   let now = 0;
   let nextId = 1;
   const tasks = new Map<number, Task>();
@@ -100,7 +100,7 @@ function fixture(seed = 7829, shipped: readonly string[] | null = POSES, shipped
   globalThis.ResizeObserver = ResizeObserverFake as unknown as typeof ResizeObserver;
   globalThis.MutationObserver = MutationObserverFake as unknown as typeof MutationObserver;
   const controller = shipped
-    ? mountCyberPet(host as unknown as HTMLElement, shipped as never, shippedRest as never, undefined, undefined, shippedTrot)
+    ? mountCyberPet(host as unknown as HTMLElement, shipped as never, shippedRest as never, undefined, undefined, shippedTrot, undefined, floorBounds)
     : mountCyberPet(host as unknown as HTMLElement);
   // The props layer paints beneath the pet button so the lowered face eats over the bowl.
   const button = host.children.find((child) => child.className === 'cyber-pet-button')!;
@@ -1114,6 +1114,55 @@ test('the bowl paints beneath the lowered face and every nudge happens at true p
       f.advance(16);
     }
     assert.ok(contacts >= 1, 'a verified contact nudge occurred');
+    assert.equal(f.button.dataset.motion, 'idle');
+  } finally { f.restore(); }
+});
+
+test('a smaller Seoul Milky keeps props proportional and the bowl at her actual muzzle', async () => {
+  const floor = { left: .35, right: .66, top: .965, bottom: .99, footerInset: 0, desktopWidth: .12, portraitWidth: .11 };
+  const f = fixture(7829, POSES, RESTS, true, floor);
+  try {
+    await f.loadAll();
+    await f.loadActivity();
+    assert.equal(f.button.style['--milky-desktop-width'], '12%');
+    assert.equal(f.button.style['--milky-portrait-width'], '11%');
+    const props = f.propsLayer().style;
+    assert.ok(Math.abs(parseFloat(String(props['--milky-bowl-width'])) / 3.7 - 12 / 14) < .000001);
+    assert.ok(Math.abs(parseFloat(String(props['--milky-ball-width'])) / 2.6 - 12 / 14) < .000001);
+    assert.equal(props['--milky-bowl-portrait-width'], '2.907%');
+    assert.equal(props['--milky-ball-portrait-width'], '2.043%');
+    f.media.matches = true;
+    f.media.dispatchEvent(new Event('change'));
+    f.controller.feed();
+    assert.equal(f.button.dataset.pose, 'eat-low');
+    const x = (transform: unknown) => Number(String(transform).match(/translate3d\(([-.0-9]+)px/)![1]);
+    const gap = Math.abs(x(f.propEl('bowl').style.transform) - x(f.button.style.transform));
+    const muzzleReach = .12 * .847 * (679 / 1536) * 1672;
+    assert.ok(Math.abs(gap - muzzleReach) < .02, `bowl gap ${gap} follows the smaller muzzle reach ${muzzleReach}`);
+  } finally { f.restore(); }
+});
+
+test('the smaller Seoul sprite only nudges the ball at its resized paw contact', async () => {
+  const floor = { left: .35, right: .66, top: .965, bottom: .99, footerInset: 0, desktopWidth: .12, portraitWidth: .11 };
+  const f = fixture(7829, POSES, RESTS, true, floor);
+  try {
+    await f.loadAll();
+    await f.loadActivity();
+    f.controller.play();
+    const x = (transform: unknown) => Number(String(transform).match(/translate3d\(([-.0-9]+)px/)![1]);
+    let previousPose = '';
+    let contacts = 0;
+    for (let i = 0; i < 3000 && f.button.dataset.motion !== 'idle'; i++) {
+      if (f.button.dataset.pose === 'play-reach' && previousPose !== 'play-reach') {
+        contacts++;
+        const gap = Math.abs(x(f.propEl('ball').style.transform) - x(f.button.style.transform));
+        const pawReach = .12 * .847 * (716.5 / 1536) * 1672;
+        assert.ok(Math.abs(gap - pawReach) < 1, `ball gap ${gap} follows the smaller paw reach ${pawReach}`);
+      }
+      previousPose = f.button.dataset.pose;
+      f.advance(16);
+    }
+    assert.ok(contacts > 0, 'the resized dog completes a real ball contact');
     assert.equal(f.button.dataset.motion, 'idle');
   } finally { f.restore(); }
 });

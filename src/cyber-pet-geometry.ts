@@ -4,8 +4,14 @@ export interface MilkyFloorBounds {
   left: number; right: number; top: number; bottom: number;
   /** Set to zero when the scene already ends above a separate control strip. */
   footerInset?: number;
+  /** Sprite width as a fraction of the room; props and contact distances follow it. */
+  desktopWidth?: number;
+  portraitWidth?: number;
 }
 export const DEFAULT_MILKY_FLOOR: MilkyFloorBounds = { left: .40, right: .745, top: .83, bottom: .955 };
+
+export const milkyWidthRatio = (floor: MilkyFloorBounds, portrait: boolean): number =>
+  portrait ? floor.portraitWidth ?? .11 : floor.desktopWidth ?? .14;
 
 const clamp = (value: number, min: number, max: number) =>
   max < min ? (min + max) / 2 : Math.max(min, Math.min(max, value));
@@ -25,7 +31,7 @@ export function milkyHasVisibleFloor(scene: MilkyRect, viewport: MilkyRect, floo
 export function placeMilky(scene: MilkyRect, viewport: MilkyRect, requested: MilkyPoint, floor = DEFAULT_MILKY_FLOOR): MilkyPoint {
   if (scene.width <= 0 || scene.height <= 0) return requested;
   const portrait = viewport.width / viewport.height < 4 / 3;
-  const halfWidth = scene.width * (portrait ? 0.11 : 0.14) * 0.43;
+  const halfWidth = scene.width * milkyWidthRatio(floor, portrait) * 0.43;
   const left = (viewport.left + halfWidth + 16 - scene.left) / scene.width;
   const right = (viewport.left + viewport.width - halfWidth - 16 - scene.left) / scene.width;
   const floorBottom = (viewport.top + viewport.height - footerSpace(viewport,floor) - scene.top) / scene.height;

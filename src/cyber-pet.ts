@@ -1,5 +1,5 @@
 import './cyber-pet.css';
-import { placeMilky, milkyHasVisibleFloor, DEFAULT_MILKY_FLOOR, type MilkyPoint } from './cyber-pet-geometry';
+import { placeMilky, milkyHasVisibleFloor, milkyWidthRatio, DEFAULT_MILKY_FLOOR, type MilkyPoint } from './cyber-pet-geometry';
 import { createMilkyWalk, sampleMilkyWalk, milkyCanContinue, milkyDepthScale, milkyDistance, milkyStride, milkyGaitStride, milkyGaitFrame, type MilkyWalk } from './cyber-pet-motion';
 import { chooseMilkyDestination, milkyKeyboardDestination, milkyRoamPause, type MilkyHeading } from './cyber-pet-roam';
 import { planMilkyIdleMoment, milkySniffHold, milkyGreetHold, MILKY_BLINK_GAP, type MilkyIdleMoment } from './cyber-pet-life';
@@ -134,6 +134,11 @@ export function mountCyberPet(
   button.dataset.pose = 'idle';
   button.dataset.facing = 'right';
   button.dataset.motion = 'idle';
+  const desktopWidth = milkyWidthRatio(floorBounds, false);
+  const portraitWidth = milkyWidthRatio(floorBounds, true);
+  const percent = (value: number) => `${Number(value.toFixed(6))}%`;
+  button.style.setProperty('--milky-desktop-width', percent(desktopWidth * 100));
+  button.style.setProperty('--milky-portrait-width', percent(portraitWidth * 100));
   const shadow = page.createElement('span');
   shadow.className = 'cyber-pet-shadow';
   shadow.setAttribute('aria-hidden', 'true');
@@ -200,6 +205,11 @@ export function mountCyberPet(
   const propsLayer = page.createElement('span');
   propsLayer.className = 'cyber-pet-props';
   propsLayer.setAttribute('aria-hidden', 'true');
+  // Preserve the archived prop registration, scaling each with its matching dog width.
+  propsLayer.style.setProperty('--milky-bowl-width', percent(3.7 * desktopWidth / .14));
+  propsLayer.style.setProperty('--milky-ball-width', percent(2.6 * desktopWidth / .14));
+  propsLayer.style.setProperty('--milky-bowl-portrait-width', percent(2.907 * portraitWidth / .11));
+  propsLayer.style.setProperty('--milky-ball-portrait-width', percent(2.043 * portraitWidth / .11));
   const propItems = PROP_NAMES.filter((name) => shippedActivity.includes(`prop-${name}` as MilkyActivityAsset)).map((name) => {
     const wrap = page.createElement('span');
     wrap.className = 'cyber-pet-prop';
@@ -556,7 +566,7 @@ export function mountCyberPet(
   function startWalk(target: MilkyPoint, autonomous: boolean, initialSpeed = 0, opts?: { cadence?: number; onDone?: () => void }) {
     if (!canWalk() || (autonomous && !passiveAvailable())) { settle(); return; }
     if (milkyDistance(position, target) < .002 || Math.abs(target.x - position.x) < .008) { settle(); return; }
-    const bodyWidth = (portrait ? .11 : .14) * .66 * milkyDepthScale(position.y);
+    const bodyWidth = milkyWidthRatio(floorBounds, portrait) * .66 * milkyDepthScale(position.y);
     // Phase 4 begins from the planted hind-paw position closest to the standing photo.
     // A same-heading continuation keeps its accumulated phase so no limb jumps.
     if (initialSpeed === 0) gaitPhase = .5;
@@ -646,7 +656,7 @@ export function mountCyberPet(
   }
   /** A registered native landmark distance ahead of the anchor, in room units at a depth. */
   const reachAhead = (nativeAhead: number, depthY: number) =>
-    (portrait ? .11 : .14) * .847 * (nativeAhead / 1536) * milkyDepthScale(depthY);
+    milkyWidthRatio(floorBounds, portrait) * .847 * (nativeAhead / 1536) * milkyDepthScale(depthY);
   function beginFeed() {
     cancelAction();
     clearSession();

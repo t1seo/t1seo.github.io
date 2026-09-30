@@ -191,5 +191,38 @@
     "interiorPlates": 5,
     "composition": "Synchronized decoded interior/exterior layers, clipped outside furniture, independent transparent floor lamp.",
     "qa": "188 tests pass; TypeScript/Vite build pass. Real Chrome1440x900,390x844,320x568 screenshots inspected: season/time changes, rain/snow, monitor+Desk preview, redball, floorlamp, report selector. Playback advanced across second-tab action; Chrome automation reported document.hidden=false, so actual visibility pause prevention relies on tested audio regressions, not a claimed hidden-tab browser observation. Report favicon404 fixed."
+  },
+  "refinement20261001": {
+    "scope": "Mechanical continuation of the approved frontal Seoul illustration: taller window, less foreground, softer illustrated furniture, articulated lamp behind left of work chair.",
+    "backup": {
+      "branch": "backup/seoul-before-taller-window-20261001",
+      "commit": "65d78fdd2c31d0c86c79018148182ff51fddd8b6"
+    },
+    "reuse": {
+      "priorDesignHash": "8adb3625c561239df646bbb9e33923306448d12c9b923b35bd554472ba094f68",
+      "reason": "Same product, web platform, layout direction and interactions; reuse inspected Studio/Mobbin/21st sources for this requested material and proportion correction."
+    },
+    "art": "asset-sources/seoul-studio/reframed",
+    "windowNative": [
+      191,
+      32,
+      1486,
+      614
+    ],
+    "visibleSourceBottom": 925,
+    "chairFeet": 772,
+    "floorLampBase": [
+      505,
+      675
+    ],
+    "runtime": "20 complete season/time plates; no separate photographic overlay",
+    "studioCheck": "Current tool returned independent DESIGN.md schema mismatch; project remains unconnected and sync pending. No connected research gate pass claimed.",
+    "qa": {
+      "tests": 189,
+      "testsPassed": 189,
+      "chrome": "20 season/time selections decoded; 1440x900,390x844,320x568,3840x1080; no overflow or console errors; Milky remains above controls; monitor and desk close-up aligned.",
+      "review": "Independent focused code review:69 relevant tests pass; no new race, mask or resource-lifecycle regression found.",
+      "screenshot": "images/final-desktop.webp"
+    }
   }
 }

@@ -8,8 +8,6 @@ export function penthousePlate(time: ClimateState['time'], weather: ClimateState
   return `/assets/penthouse/seoul/${season}/${diffuse ? 'noon' : time}.webp`;
 }
 
-export const penthouseInterior = (source: string) => `/assets/penthouse/seoul/interior/${source.split('/').at(-1)}`;
-
 // Coordinates measured against the frontal 1672 × 941 Seoul illustration.
 // Individual visible panes in the compositor also subtract foreground furniture.
 export const PENTHOUSE_WINDOW = `polygon(${GLASS_EDGE.map(([x,y]) => `${x / ROOM_SIZE[0] * 100}% ${y / ROOM_SIZE[1] * 100}%`).join(', ')})`;
@@ -30,25 +28,21 @@ export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
     const token = ++revision;
     if (source === displayed) return;
     const image = new Image();
-    const interior = new Image();
-    loaded.add(image); loaded.add(interior);
-    interior.alt = ''; interior.className = 'ph-plate'; interior.draggable = false;
-    interior.src = penthouseInterior(source);
+    loaded.add(image);
     image.alt = '';
-    image.className = 'ph-plate ph-exterior';
-    image.style.clipPath = 'url(#ph-glass)';
+    image.className = 'ph-plate';
     image.draggable = false;
     image.src = source;
     try {
-      await Promise.all([image.decode(), interior.decode()]);
+      await image.decode();
       if (dead || token !== revision) return;
       // Image stays visible until its replacement has decoded; no blank flashes.
-      layers.replaceChildren(interior, image);
-      effects.setPlate(interior, image);
+      layers.replaceChildren(image);
+      effects.setPlate(image);
       displayed = source;
     } catch {
       if (!dead && token === revision) { requested = displayed; onError(); }
-    } finally { loaded.delete(image); loaded.delete(interior); }
+    } finally { loaded.delete(image); }
   }
   return {
     update(next: ClimateState) {

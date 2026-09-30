@@ -3,7 +3,7 @@ import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type Cli
 import { createCyberSound, type CyberPlaybackState } from './cyber-sound';
 import { mountCyberPet } from './cyber-pet';
 import { mountPenthouseScene } from './penthouse-scene';
-import { MILKY_STUDY_FLOOR, GLASS_PANES, ROOM_SIZE } from './penthouse-atmosphere';
+import { MILKY_STUDY_FLOOR } from './penthouse-atmosphere';
 
 const root = document.querySelector<HTMLDivElement>('#app')!;
 const icon = (path: string) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${path}</svg>`;
@@ -17,12 +17,10 @@ const glyphs = {
 root.innerHTML = `
 <main class="ph-studio night-studio" data-intro="hidden" data-focus="false" aria-label="Taewon Seo's Seoul studio">
   <div class="ph-stage night-scene">
-    <svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><clipPath id="ph-glass" clipPathUnits="objectBoundingBox">${GLASS_PANES.map(p => `<polygon points="${p.map(([x,y]) => `${x/ROOM_SIZE[0]},${y/ROOM_SIZE[1]}`).join(" ")}"/>`).join("")}</clipPath></defs></svg>
     <div class="ph-room" data-time="night" data-season="autumn" data-weather="clear">
-      <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and task lamp; a lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/interior/night.webp" alt="" fetchpriority="high" draggable="false"><img class="ph-plate ph-exterior" src="/assets/penthouse/seoul/autumn/night.webp" alt="" draggable="false" style="clip-path:url(#ph-glass)"></div>
+      <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and task lamp; a softly illustrated Aeron chair has an ivory-shade articulated floor lamp behind it on the left. A lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/autumn/night.webp" alt="" fetchpriority="high" draggable="false"></div>
       <div class="ph-weather" data-weather-wash aria-hidden="true"></div>
       <canvas class="ph-weather-canvas" aria-hidden="true"></canvas>
-      <img class="ph-floor-lamp" src="/assets/penthouse/seoul/interior/floor-lamp.webp" alt="A silver articulated floor lamp with an ivory fabric shade beside the lounge" draggable="false">
       <div class="ph-pet" data-pet></div>
       <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn on the computer monitor" aria-pressed="false"><span>THE WORKSPACE</span><i aria-hidden="true">+</i></button>
       <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"><span>DESK LIGHT</span><i aria-hidden="true">+</i></button>

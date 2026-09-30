@@ -9,12 +9,12 @@ const state = (weather: ClimateState['weather'] = 'clear', time: ClimateState['t
 const step = (s: AtmosphereSimulation, seconds: number, climate: ClimateState) => { for (let i = 0; i < seconds * 30; i++) s.advance(1/30,climate); };
 
 test('frontal glazing excludes mullions, chair, lounge, tree, Studio Display, lamp and desk', () => {
-  for (const [x,y] of [[250,350],[450,250],[700,280],[900,200],[1400,400],[550,410],[1020,360]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
-  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,460],[750,420],[915,365],[1074,350],[1140,399],[900,440],[1250,475],[700,650],[1600,150]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
+  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1400,550],[550,410],[1020,480]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
+  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[750,520],[915,465],[1060,461],[1140,520],[900,560],[1250,570],[700,650],[1600,150],[480,360],[568,420]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
   assert.equal(isSky(457,250),false); // city facade
-  assert.equal(isSky(350,100),false); // N Seoul Tower
-  assert.equal(isSky(305,150),false); // neighboring mast
-  assert.equal(isSky(700,200),false); // Namsan hills
+  assert.equal(isSky(350,160),false); // N Seoul Tower
+  assert.equal(isSky(305,210),false); // neighboring mast
+  assert.equal(isSky(700,275),false); // Namsan hills
   assert.equal(isSky(470,100),true);
   assert.equal(isSky(1300,100),true);
 });

@@ -5,7 +5,7 @@
   /* Milky paints above her props: the lowered face eats over the bowl rim, never behind it. */
   z-index: 1;
   display: block;
-  width: 14%;
+  width: var(--milky-desktop-width, 14%);
   height: auto;
   aspect-ratio: 3 / 2;
   transform-origin: 50% 94%;
@@ -23,7 +23,7 @@
   pointer-events: auto;
   contain: layout style;
 }
-.cyber-pet-button[data-portrait='true'] { width: 11%; }
+.cyber-pet-button[data-portrait='true'] { width: var(--milky-portrait-width, 11%); }
 .cyber-pet-button:focus-visible { outline: 2px solid #f0ddbd; outline-offset: 3px; }
 .cyber-pet-button:disabled { cursor: default; }
 .cyber-pet-button[hidden] { display: none; }
@@ -80,12 +80,11 @@
 .cyber-pet-prop[data-visible='true'] { visibility: visible; }
 /* Wrapper widths account for the measured drawn extents (bowl 380/512, ball 304/512), so
    the VISIBLE bowl reads ≈.30 and the ball ≈.16 of Milky's body length. Portrait scales
-   the dog's button from 14% to 11%, so props carry the same 11/14 factor to keep the
-   room's physical scale coherent. */
-.cyber-pet-prop[data-prop='bowl'] { width: 3.7%; }
-.cyber-pet-prop[data-prop='ball'] { width: 2.6%; }
-.cyber-pet-props[data-portrait='true'] .cyber-pet-prop[data-prop='bowl'] { width: 2.907%; }
-.cyber-pet-props[data-portrait='true'] .cyber-pet-prop[data-prop='ball'] { width: 2.043%; }
+   the dog and props together; scene-specific widths preserve that physical scale. */
+.cyber-pet-prop[data-prop='bowl'] { width: var(--milky-bowl-width, 3.7%); }
+.cyber-pet-prop[data-prop='ball'] { width: var(--milky-ball-width, 2.6%); }
+.cyber-pet-props[data-portrait='true'] .cyber-pet-prop[data-prop='bowl'] { width: var(--milky-bowl-portrait-width, 2.907%); }
+.cyber-pet-props[data-portrait='true'] .cyber-pet-prop[data-prop='ball'] { width: var(--milky-ball-portrait-width, 2.043%); }
 .cyber-pet-prop-image {
   position: relative;
   display: block;
