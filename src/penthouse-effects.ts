@@ -1,8 +1,9 @@
 import type { ClimateState } from './cyber-climate.ts';
+import { drawStudioScreen, SCREEN_SIZE } from './penthouse-monitor.ts';
+import { ROOM_OBJECTS, objectLighting } from './penthouse-objects.ts';
 import { AtmosphereSimulation, GLASS_EDGE, GLASS_PANES, GLASS_OCCLUDERS, SKY_EDGE, WORKSPACE_CROP, MONITOR_SCREEN, ROOM_SIZE, atmosphereProfile, isGlass, isSky, seededRandom, type Point } from './penthouse-atmosphere.ts';
 
 export interface WorkspaceState { monitor: boolean; lamp: boolean }
-const CODE = ['// AFTER HOURS / SEOUL', 'const home = {', '  companion: "Milky",', '  city: "Seoul",', '  ideas: Infinity', '};', '', 'makeSomethingGood();'];
 
 /** One bounded 30 fps compositor. Glass, skyline and workspace have separate masks. */
 export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: HTMLImageElement | null) {
@@ -24,9 +25,16 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   let plate = initialPlate;
   let exterior = initialPlate;
   let preview: HTMLCanvasElement | null = null;
+  let screenPreview: HTMLCanvasElement | null = null;
   let animateView = true;
   let frame = 0, last = 0, painted = 0, typing = 0;
   let dead = false;
+  const objects = ctx ? ROOM_OBJECTS.map(object => {
+    const image = new Image();
+    image.addEventListener('load', restart, { signal: abort.signal });
+    image.src = object.src;
+    return { ...object, image };
+  }) : [];
   canvas.width = ROOM_SIZE[0]; canvas.height = ROOM_SIZE[1];
 
   function path(points: readonly Point[]) {
@@ -139,19 +147,18 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     if (workspace.monitor) {
       glow(916,562,86,12,'#bad4e9',.08 + night * .09);
       ctx!.save(); ctx!.beginPath(); path(MONITOR_SCREEN); ctx!.clip();
-      ctx!.fillStyle = '#142635'; ctx!.fillRect(839,429,152,90);
-      ctx!.translate(847,435);
-      ctx!.font = '6px ui-monospace, monospace';
-      const total = reduced.matches || !animateView ? 500 : Math.floor(typing * 22);
-      let remaining = total;
-      CODE.forEach((line,i) => {
-        ctx!.fillStyle = i === 0 ? '#99afa9' : i < 6 ? '#d0dce2' : '#d6bea0';
-        const visible = line.slice(0,Math.max(0,remaining)); remaining -= line.length;
-        ctx!.fillText(visible,1,6 + i * 9);
-        if (remaining >= -line.length && remaining <= 0 && Math.floor(typing * 2) % 2 === 0 && animateView && !reduced.matches) ctx!.fillRect(1 + ctx!.measureText(visible).width,1 + i*9,2.5,6);
-      });
+      ctx!.translate(839,429); ctx!.scale(152 / SCREEN_SIZE[0],90 / SCREEN_SIZE[1]);
+      drawStudioScreen(ctx!,typing,reduced.matches || !animateView,state,plate);
       ctx!.restore();
     }
+  }
+  function drawObjects() {
+    ctx!.save();
+    ctx!.filter = objectLighting(state);
+    for (const { image, rect } of objects) {
+      if (image.complete && image.naturalWidth) ctx!.drawImage(image, rect[0], rect[1], rect[2], rect[3]);
+    }
+    ctx!.restore();
   }
   function drawPreview() {
     const c = preview?.getContext('2d'); if (!c || !preview) return;
@@ -159,13 +166,18 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     const [x,y,width,height] = WORKSPACE_CROP;
     if (plate?.complete && plate.naturalWidth) c.drawImage(plate,x / 1672 * plate.naturalWidth,y / 941 * plate.naturalHeight,width / 1672 * plate.naturalWidth,height / 941 * plate.naturalHeight,0,0,width,height);
     c.drawImage(canvas,x,y,width,height,0,0,width,height);
+    if (screenPreview) {
+      screenPreview.hidden = !workspace.monitor;
+      const screenContext = screenPreview.getContext('2d');
+      if (workspace.monitor && screenContext) drawStudioScreen(screenContext,typing,reduced.matches || !animateView,state,plate);
+    }
   }
   function render() {
     if (!ctx || dead) return;
-    ctx.clearRect(0,0,...ROOM_SIZE); drawSky(); drawWorkspace(); drawPreview();
+    ctx.clearRect(0,0,...ROOM_SIZE); drawSky(); drawObjects(); drawWorkspace(); drawPreview();
   }
   function needsMotion() {
-    return atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 10);
+    return atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 12);
   }
   function loop(now: number) {
     frame = 0;
@@ -192,7 +204,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     setPlate(image: HTMLImageElement, outside: HTMLImageElement = image) { plate = image; exterior = outside; restart(); },
     setWorkspace(next: WorkspaceState) { if (!workspace.monitor && next.monitor) typing = 0; workspace = next; restart(); },
     setAnimated(enabled: boolean) { animateView = enabled; sim.meteor = null; restart(); },
-    setPreview(next: HTMLCanvasElement | null) { preview = next; if (preview) { preview.width = WORKSPACE_CROP[2]; preview.height = WORKSPACE_CROP[3]; } render(); },
-    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); frame = 0; preview = null; plate = null; exterior = null; },
+    setPreview(next: HTMLCanvasElement | null, screen: HTMLCanvasElement | null = null) { preview = next; screenPreview = screen; if (screenPreview) { screenPreview.width = SCREEN_SIZE[0]; screenPreview.height = SCREEN_SIZE[1]; } if (preview) { preview.width = WORKSPACE_CROP[2]; preview.height = WORKSPACE_CROP[3]; } render(); },
+    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const {image} of objects) image.src = ''; },
   };
 }

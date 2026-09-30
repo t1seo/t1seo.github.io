@@ -1,0 +1,139 @@
+{
+  "id": "penthouse-objects",
+  "schemaVersion": 1,
+  "createdAt": "2026-09-30T17:25:47.717Z",
+  "scope": "El Casco pen rest with a Montblanc-style pen, independent floorstanding Beosound A9, and a refined monitor workspace.",
+  "sources": [
+    {
+      "provider": "studio",
+      "id": "web-theme/vercel",
+      "retrieval": "Reuse inspected project evidence in ../penthouse-layout/research.json",
+      "observation": "Keep existing neutral controls and personal branding. No new theme or component dependency. Current session lacks catalog search/show tools; release discovery alone is not new asset research."
+    },
+    {
+      "id": "442e96ca-25af-45a7-8d8c-6401ba73f9d4",
+      "image_url": "https://mobbin.com/api/mcp/short/nqRDFYfn",
+      "mobbin_url": "https://mobbin.com/screens/442e96ca-25af-45a7-8d8c-6401ba73f9d4",
+      "app_name": "Apple",
+      "platform": "web"
+    },
+    {
+      "id": "e131bb81-95b1-4e67-8196-88ac0c8082a0",
+      "image_url": "https://mobbin.com/api/mcp/short/BwDafbi6",
+      "mobbin_url": "https://mobbin.com/screens/e131bb81-95b1-4e67-8196-88ac0c8082a0",
+      "app_name": "Square",
+      "platform": "web"
+    },
+    {
+      "id": "56ea025b-35c2-42d6-9488-def8ba2fbeee",
+      "image_url": "https://mobbin.com/api/mcp/short/KlreoFxH",
+      "mobbin_url": "https://mobbin.com/screens/56ea025b-35c2-42d6-9488-def8ba2fbeee",
+      "app_name": "adidas",
+      "platform": "web"
+    }
+  ],
+  "synchronization": {
+    "status": "pending",
+    "reason": "Personal project is unconnected; studio_research_check reports legacy independent DESIGN.md frontmatter schema errors. No gate pass claimed."
+  },
+  "decisions": [
+    {
+      "source": "El Casco M-655 CT",
+      "url": "https://el-casco.com/produkt/pen-holder-m544-ct/?lang=en",
+      "facts": "Official distributor catalog: solid brass, copper/nickel/chrome plated, hand polished, double horizontal pen rest, 219 × 95 × 30 mm.",
+      "adopt": "Low stepped chrome rest and capped black/gold fountain pen. On right front of keyboard. Illustrated silver remains subdued rather than photographic.",
+      "caution": "User's exact Montblanc model is unknown; not a guaranteed fit claim."
+    },
+    {
+      "source": "Graf von Faber-Castell Epsom",
+      "url": "https://www.graf-von-faber-castell.com/products/PenholderEpsomblack/118520",
+      "facts": "Official indexed page: black Italian calfskin, polished metal, 73.5 × 73.5 × 103.8 mm.",
+      "reject": "A cup conceals most of the fountain pen. Page open returned bot verification, not bypassed."
+    },
+    {
+      "source": "Montblanc desk accessories",
+      "url": "https://www.montblanc.com/en-us/refills-stationery/stationery/desk-accessories?page=1",
+      "facts": "Official listing includes round black leather pen holders.",
+      "reject": "Good matching-brand option, but the horizontal El Casco rest more clearly displays one pen."
+    },
+    {
+      "source": "B&O Beosound Balance Natural Oak",
+      "url": "https://www.bang-olufsen.com/en/us/speakers/beosound-balance",
+      "facts": "Official page: omnidirectional speaker; Natural Oak variant. Official September 2024 technical sheet: 38 cm high, 20 cm diameter; shelves, side tables, furniture placement.",
+      "reject": "User clarified that the audio must be an independent object in the room, not a desktop speaker. Replaced with Beosound A9; initial art retained only in source archive."
+    },
+    {
+      "source": "B&O Beosound A5",
+      "url": "https://www.bang-olufsen.com/en/gb/speakers/beosound-a5?variant=beosound-a5-oak",
+      "reject": "Portable handle and basket form are more casual than the stationary sculptural Balance. No listening-quality superiority claimed."
+    },
+    {
+      "source": "Mobbin Apple 442e96ca-25af-45a7-8d8c-6401ba73f9d4",
+      "url": "https://mobbin.com/screens/442e96ca-25af-45a7-8d8c-6401ba73f9d4",
+      "inspection": "Actual image received through Mobbin MCP and viewed.",
+      "adopt": "Clear object close-up with little chrome."
+    },
+    {
+      "source": "Mobbin Square e131bb81-95b1-4e67-8196-88ac0c8082a0",
+      "url": "https://mobbin.com/screens/e131bb81-95b1-4e67-8196-88ac0c8082a0",
+      "inspection": "Actual image received through Mobbin MCP and viewed.",
+      "adopt": "Concise product name and material context.",
+      "reject": "Commerce and checkout actions."
+    },
+    {
+      "source": "Mobbin adidas 56ea025b-35c2-42d6-9488-def8ba2fbeee",
+      "url": "https://mobbin.com/screens/56ea025b-35c2-42d6-9488-def8ba2fbeee",
+      "inspection": "Actual image received through Mobbin MCP and viewed.",
+      "adopt": "Details secondary to imagery.",
+      "reject": "Shopping and sizing controls."
+    },
+    {
+      "source": "21st Tooltip 211",
+      "url": "https://21st.dev/@originui/components/tooltip",
+      "inspection": "get_component source and demo inspected: focusable trigger, limited width, optional image and secondary text.",
+      "adopt": "Existing focusable hotspot with concise object name; additional facts in Desk panel.",
+      "reject": "React/Radix dependency and extra animations."
+    },
+    {
+      "source": "21st MP3 Player 31602",
+      "url": "https://21st.dev/@deltacomponents/components/mp3-player",
+      "inspection": "get_component source/demo inspected: explicit play/pause, playback state, Media Session handlers, cleanup.",
+      "adopt": "Use existing gesture-initiated audio and aria-pressed state.",
+      "reject": "Duplicate player, seek waveform and 60fps clock; existing sound engine already owns playback."
+    },
+    {
+      "source": "B&O Beosound A9 5th generation",
+      "url": "https://www.bang-olufsen.com/en/us/speakers/beosound-a9",
+      "facts": "Official product page and October 2025 technical sheet: 70.1 W × 90.8 H × 41.5 D cm with legs, floor/wall placement. Natural variant: light grey Kvadrat cover, natural aluminium ring, oak legs. Actual official Sienna photo inspected for silhouette; Natural material specification inspected separately.",
+      "adopt": "Independent illustrated floor speaker in the gap between the desk and right shelves. All three feet on the floor. No audio equipment on the desktop."
+    },
+    {
+      "source": "Mobbin Replit e9907998-d84f-4bb2-90cb-19db28c7d39d",
+      "url": "https://mobbin.com/screens/e9907998-d84f-4bb2-90cb-19db28c7d39d",
+      "inspection": "Actual MCP image viewed: central website preview, file tree on right, chat on left.",
+      "adopt": "A file list and rendered website preview; no chat copied."
+    },
+    {
+      "source": "21st Code Block 28695",
+      "url": "https://21st.dev/@edwinvakayil/components/code-block",
+      "inspection": "MCP component and demo source read; filename tab, semantic syntax colors, line numbers and status bar.",
+      "adopt": "Handwritten canvas composition with fixed typed sketch, file list, syntax colors and current Seoul view. Same vector drawing rendered at 912×540 in the Desk detail for legibility. No React dependency or source copying."
+    }
+  ],
+  "qa": {
+    "status": "passed",
+    "tests": 190,
+    "build": "passed",
+    "chrome": [
+      "1440×1000 day/night/rain",
+      "390×844 room and monitor detail",
+      "A9 rain-mask sample identical between clear and rain",
+      "Music hotspot and Desk button state synchronized; playback time advanced while other tab activated (automation reported document.hidden=false; hidden-tab handling separately covered by unit suite)",
+      "912×540 vector screen detail",
+      "No page errors, no mobile horizontal overflow"
+    ],
+    "review": "Independent static review; adjusted Desk preview label to exclude out-of-crop A9.",
+    "baselineCommit": "bd6b4ea6073e92512d5fedc776f7cd39de0cbf0f",
+    "preserved": "All 20 room plates and Milky/ball untouched."
+  }
+}

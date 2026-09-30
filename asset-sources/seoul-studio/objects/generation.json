@@ -1,0 +1,28 @@
+{
+  "tool": "built-in imagegen",
+  "active": [
+    "pen-rest.png",
+    "beosound-a9.png"
+  ],
+  "superseded": [
+    "balance.png"
+  ],
+  "prompts": [
+    "prompts.json",
+    "a9-prompt.txt"
+  ],
+  "runtime": [
+    {
+      "path": "public/assets/penthouse/objects/beosound-a9.webp",
+      "bytes": 182058,
+      "sha256": "0856e06a7a024c4471847473275abec65481b19011fc39385a9e4a2dbedf29d3"
+    },
+    {
+      "path": "public/assets/penthouse/objects/pen-rest.webp",
+      "bytes": 48164,
+      "sha256": "ccf7bd1de5ada38a6793629ebc12b9c454d5786a704621205d4b646b98b6a781"
+    }
+  ],
+  "unchanged": "All 20 existing room plates, all Milky sprites and red ball.",
+  "baseline": "bd6b4ea6073e92512d5fedc776f7cd39de0cbf0f"
+}

@@ -1,0 +1,4 @@
+21st MCP get_component(28695)
+Inspected source+demo receipt SHA256: cea2613c72f0cc20cd74aca17cfd679c7d1885b817011cd588477392875ab8fe
+Read component and demo: filename tab, semantic syntax tokens, line gutter, current-row emphasis, bottom status bar and reduced-motion awareness. New monitor is independent canvas implementation; no source copied.
+Source URL recorded in research.json.

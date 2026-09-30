@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [{
     name: 'publish-design-research',
     closeBundle() {
+      cpSync(resolve('design/research/penthouse-objects'), resolve('dist/design/research/penthouse-objects'), { recursive: true });
       cpSync(resolve('design/research/penthouse-layout'), resolve('dist/design/research/penthouse-layout'), { recursive: true });
       cpSync(resolve('design/research/penthouse-rebuild'), resolve('dist/design/research/penthouse-rebuild'), { recursive: true });
       cpSync(resolve('design/research/penthouse-atmosphere'), resolve('dist/design/research/penthouse-atmosphere'), { recursive: true });

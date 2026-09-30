@@ -20,6 +20,7 @@ export const GLASS_OCCLUDERS: readonly (readonly Point[])[] = [
   [[1037,455],[1083,455],[1151,479],[1151,553],[1134,553],[1134,490],[1075,473],[1037,473]], // task lamp
   [[589,510],[632,510],[632,551],[589,551]], // mug and books
   [[1027,513],[1104,513],[1104,551],[1027,551]], // pencils and planter
+  Array.from({length:24}, (_,i): Point => [1384 + 110*Math.cos(i*Math.PI/12), 531 + 113*Math.sin(i*Math.PI/12)]), // A9 disk
 ];
 export const SKY_EDGE: readonly Point[] = [[191,32],[1486,32],[1486,239],[366,239],[366,113],[332,113],[332,239],[312,239],[312,184],[296,184],[296,239],[191,239]];
 export const WORKSPACE_CROP = [422,302,870,490] as const;

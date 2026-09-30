@@ -1,0 +1,15 @@
+{
+  "tool": "Built-in imagegen",
+  "mode": "reference-based isolated illustrations",
+  "prompts": [
+    {
+      "key": "balance",
+      "prompt": "Use case: stylized-concept. Make ONE isolated illustrated Bang & Olufsen Beosound Balance Natural Oak speaker asset with a genuinely TRANSPARENT background. First image is the exact silhouette/material reference. Second image is STYLE and viewpoint reference ONLY, do not draw the room. Match the soft hand-painted 2.5D gouache texture of the room, NOT photorealistic and NOT a photo cutout. Keep recognisable proportions: a tall warm ivory woven fabric cylinder with gently rounded bottom, a small recessed brass neck above a shorter round natural oak plinth, total height 38cm to width 20cm. Front view, slight elevated viewing angle approximately 8 degrees so only a thin ellipse on top is visible, vertical sides straight. Oak grain and cloth shading should be BROAD soft painted strokes and restrained illustrative hatching, no sharp photographic weave. Neutral warm diffuse lighting from upper left and slight blue cool fill on right. Speaker centered, fills 85% of height. Transparent alpha all around, no floor, no table, no surrounding objects, no writing, no brand text, no cable loop, no hard cast shadow. Keep a small soft contact shadow immediately under the base. Intended to be composited at only 68px wide into a softly illustrated room."
+    },
+    {
+      "key": "pen-rest",
+      "prompt": "Use case: stylized-concept. Create ONE isolated soft hand-painted 2.5D illustration asset with genuine transparent background: an El Casco M-655 CT double horizontal pen rest in muted silvery chrome with ONE capped black-and-gold Montblanc-style fountain pen resting horizontally in its front groove. First image gives exact low stepped Art Deco rectangular pen-rest silhouette with two parallel long shallow grooves, width 219mm depth95mm height30mm. The second image is the ROOM STYLE reference only; DO NOT draw the room. The rest is wide left-to-right and narrow front-to-back. Camera is front-on and only slightly above the desktop (8 degrees downward), no diagonal isometric rotation, long edges horizontal. Both front edge and shallow top visible. Pen slender torpedo shape, glossy-black interpreted with broad matte painted shading, two subtle gold bands and fine gold clip, pale small cap end dot. Pen occupies about70% of rest width, sits securely in a groove. Keep entire rest and pen, centered filling85% width. Warm muted silver, subdued highlights, watercolor/gouache brush texture, softly illustrated matching room, NOT photograph/photorealism/3D product render. No words, labels, logos, extra pens, hand, table, decor. Background fully transparent. Small soft contact shadow immediately under base only. Intended final scene size about84px wide by17px tall, silhouette and pen must remain clear."
+    }
+  ],
+  "preserved": "All 20 room plates, Milky sprites and ball unchanged."
+}

@@ -48,7 +48,8 @@ a { color: inherit; }
 .ph-track span:first-child { font-size: 7px; letter-spacing: .17em; color: #c4c0bc; }
 .ph-track span:last-child { font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ph-hotspot { position: absolute; z-index: 4; border: 0; background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
-.ph-hotspot--audio { left: 5%; top: 60%; width: 13%; height: 13%; }
+.ph-hotspot--audio { left: 76.3%; top: 45%; width: 13%; height: 33%; }
+.ph-hotspot--pen { left: 58.4%; top: 59%; width: 6.3%; height: 3%; }
 .ph-hotspot--monitor { left: 49.7%; top: 44.5%; width: 10.2%; height: 11.5%; }
 .ph-hotspot--lamp { left: 62.2%; top: 48%; width: 6.5%; height: 10.5%; }
 .ph-hotspot--book { left: 34%; top: 54.5%; width: 4.5%; height: 4.5%; }
@@ -108,3 +109,16 @@ a { color: inherit; }
 @media (max-height: 650px) and (min-width: 651px) { .ph-header { padding-top: 18px; } .ph-intro { bottom: 105px; } .ph-intro h1 { font-size: 40px; } .ph-intro div { display: none; } .ph-live-climate { top: 92px; } .ph-footer { bottom: 16px; padding-top: 10px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
 @media (forced-colors: active) { .ph-options span, .ph-controls button { border: 1px solid ButtonText; } .ph-options input:checked + span { outline: 2px solid Highlight; } }
+
+.ph-objects { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; border-top: 1px solid #55514a; padding-top: 18px; }
+.ph-object-art { height: 140px; display: flex; align-items: center; justify-content: center; background: #2d2b29; border-radius: 3px; }
+.ph-object-art img { width: 100%; height: 100%; object-fit: contain; }
+.ph-objects h3 { font-size: 15px; font-weight: 500; }
+.ph-objects p { font-size: 13px; line-height: 1.65; }
+.ph-objects a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; color: #d6c5a9; }
+.ph-object-play { display: block; min-height: 44px; padding: 8px 0; color: #ded8cd; background: none; border: 0; border-bottom: 1px solid #686050; font: inherit; font-size: 12px; }
+.ph-object-play[aria-pressed='true'] { color: #e2c797; }
+@media (max-width: 420px) { .ph-objects { grid-template-columns: 1fr; } }
+
+.ph-screen-preview { display: block; width: 100%; height: auto; aspect-ratio: 912 / 540; margin: 24px 0; border: 1px solid #46525d; border-radius: 6px; }
+.ph-screen-preview[hidden] { display: none; }

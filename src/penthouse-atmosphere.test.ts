@@ -9,8 +9,8 @@ const state = (weather: ClimateState['weather'] = 'clear', time: ClimateState['t
 const step = (s: AtmosphereSimulation, seconds: number, climate: ClimateState) => { for (let i = 0; i < seconds * 30; i++) s.advance(1/30,climate); };
 
 test('frontal glazing excludes mullions, chair, lounge, tree, Studio Display, lamp and desk', () => {
-  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1400,550],[550,410],[1020,480]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
-  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[750,520],[915,465],[1060,461],[1140,520],[900,560],[1250,570],[700,650],[1600,150],[480,360],[568,420]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
+  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1470,370],[550,410],[1020,480]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
+  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[750,520],[915,465],[1060,461],[1140,520],[900,560],[1250,570],[700,650],[1600,150],[480,360],[568,420],[1400,550]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
   assert.equal(isSky(457,250),false); // city facade
   assert.equal(isSky(350,160),false); // N Seoul Tower
   assert.equal(isSky(305,210),false); // neighboring mast
@@ -78,13 +78,31 @@ function compositor(t: TestContext, reducedMotion = false) {
     return (...args: unknown[]) => { if (key === 'clearRect') draws++; for (const arg of args) if (typeof arg === 'number') assert.ok(Number.isFinite(arg)); };
   }, set: () => true });
   install('document',page); install('matchMedia',() => media);
+  const images: Array<EventTarget & { src: string; complete: boolean; naturalWidth: number }> = [];
+  install('Image', class extends EventTarget {
+    src = ''; complete = false; naturalWidth = 0;
+    constructor() { super(); images.push(this); }
+  });
   install('requestAnimationFrame',(cb: FrameRequestCallback) => { frames.set(++id,cb); return id; });
   install('cancelAnimationFrame',(n: number) => frames.delete(n));
   const canvas = { getContext: () => context } as unknown as HTMLCanvasElement;
   const effects = mountPenthouseEffects(canvas,null);
   t.after(() => { effects.destroy(); for (const [key,value] of originals) { if (value) Object.defineProperty(globalThis,key,value); else Reflect.deleteProperty(globalThis,key); } });
-  return {effects,page,media,frames,text,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
+  return {effects,page,media,frames,text,images,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
 }
+test('object images arriving in a still scene repaint once and release on teardown', t => {
+  const f = compositor(t,true);
+  f.effects.update(state('clear','noon'));
+  const before = f.draws();
+  assert.equal(f.images.length,2);
+  for (const image of f.images) { image.complete = true; image.naturalWidth = 512; image.dispatchEvent(new Event('load')); }
+  assert.equal(f.draws(),before + 2);
+  assert.equal(f.frames.size,0);
+  f.effects.destroy();
+  const after = f.draws();
+  for (const image of f.images) { assert.equal(image.src,''); image.dispatchEvent(new Event('load')); }
+  assert.equal(f.draws(),after);
+});
 test('all 100 season, weather and time combinations render finite canvas geometry', t => {
   const f = compositor(t);
   for (const season of CYBER_SEASONS) for (const time of ['morning','noon','afternoon','evening','night'] as const) for (const weather of ['clear','cloudy','rain','snow','mist'] as const) {
@@ -106,7 +124,7 @@ test('reduced motion and manual still mode render once without animation frames'
 });
 test('monitor starts off and writes code only after an explicit workspace action', t => {
   const f = compositor(t,true); f.effects.update(state()); assert.equal(f.text.length,0);
-  f.effects.setWorkspace({monitor:true,lamp:true}); assert.ok(f.text.includes('  companion: "Milky",'));
+  f.effects.setWorkspace({monitor:true,lamp:true}); assert.ok(f.text.join('').includes('  companion: "Milky",'));
   f.text.length = 0; f.effects.setWorkspace({monitor:false,lamp:false}); assert.equal(f.text.length,0);
 });
 test('clear daytime without active coding is static and uses no animation loop', t => {

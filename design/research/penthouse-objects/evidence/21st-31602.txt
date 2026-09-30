@@ -1,0 +1,4 @@
+21st MCP get_component(31602)
+Inspected source+demo receipt SHA256: 77bebcf615ee32631308a9d047f2174740af20de086333c2069dec4e4ee150c1
+Read component and demo: explicit play/pause, playback state, HTMLAudioElement, Media Session handlers, cleanup. Preserve existing audio owner and background-tab behavior; no source copied.
+Source URL recorded in research.json.

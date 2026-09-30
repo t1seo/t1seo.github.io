@@ -1,0 +1,4 @@
+21st MCP get_component(211)
+Inspected source+demo receipt SHA256: 6c281b944590f7aa6e5e5f9741b961722343469cc851c71a2f89e2eeb2f31bc4
+Read component and demo: focusable trigger, portal content, constrained width, optional image, title and secondary text. Reuse current native hotspot and Desk panel; no source copied.
+Source URL recorded in research.json.
