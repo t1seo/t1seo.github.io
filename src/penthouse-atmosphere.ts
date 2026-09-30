@@ -19,7 +19,7 @@ export const GLASS_OCCLUDERS: readonly (readonly Point[])[] = [
   [[1071,512],[1074,503],[1086,494],[1108,488],[1130,485],[1153,489],[1174,502],[1184,517],[1183,536],[1166,536],[1163,566],[1102,566],[1110,530],[1080,521]], // union of the painted dome/base positions across the seasonal plates
   [[589,510],[632,510],[632,551],[589,551]], // mug and books
   [[1027,513],[1104,513],[1104,551],[1027,551]], // pencils and planter
-  [[1205,487],[1232,487],[1234,489],[1234,546],[1231,550],[1206,550],[1203,546],[1203,489]], // compact desktop speaker
+  [[688,536],[698,528],[787,528],[799,536],[799,554],[790,558],[698,558],[688,553]], // low horizontal speaker between the books and monitor
 ];
 export const SKY_EDGE: readonly Point[] = [[191,32],[1486,32],[1486,239],[366,239],[366,113],[332,113],[332,239],[312,239],[312,184],[296,184],[296,239],[191,239]];
 export const WORKSPACE_CROP = [422,302,870,490] as const;

@@ -48,7 +48,7 @@ a { color: inherit; }
 .ph-track span:first-child { font-size: 7px; letter-spacing: .17em; color: #c4c0bc; }
 .ph-track span:last-child { font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ph-hotspot { position: absolute; z-index: 4; border: 0; background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
-.ph-hotspot--audio { left: 72.85%; top: 55.05%; width: 3%; height: 8%; transform: translate(-50%, -50%); }
+.ph-hotspot--audio { left: 44.44%; top: 57.7%; width: 7.2%; height: 4.7%; transform: translate(-50%, -50%); }
 .ph-hotspot--pen { left: 61.1%; top: 59.65%; width: 4%; height: 3%; transform: translate(-50%, -50%); }
 .ph-hotspot--monitor { left: 49.7%; top: 44.5%; width: 10.2%; height: 11.5%; }
 .ph-hotspot--lamp { left: 67.85%; top: 55.9%; width: 6%; height: 8.4%; transform: translate(-50%, -50%); }
