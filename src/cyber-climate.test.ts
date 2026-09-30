@@ -1,7 +1,12 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createCyberClimate, CYBER_CLIMATE_STORAGE_KEY } from './cyber-climate.ts';
+import { createCyberClimate as createClimate, CYBER_CLIMATE_STORAGE_KEY } from './cyber-climate.ts';
 import type { ClimateState, Season, TimeOfDay, Weather } from './cyber-climate.ts';
+
+// Keep these legacy calendar cases independent of the test machine's timezone.
+function createCyberClimate(callback: Parameters<typeof createClimate>[0], options: Parameters<typeof createClimate>[1] = {}) {
+  return createClimate(callback, { timeZone: () => 'Asia/Seoul', ...options });
+}
 
 function memoryStorage(initial: string | null = null) {
   let value = initial;
@@ -16,18 +21,18 @@ function memoryStorage(initial: string | null = null) {
 
 const springNoon = () => new Date('2026-04-01T03:00:00Z');
 
-test('new climate starts with Seoul time and chosen clear weather, without an eager callback', t => {
+test('new climate starts with the device clock and neutral weather, without an eager callback', t => {
   let notifications = 0;
   const climate = createCyberClimate(() => notifications++, { now: springNoon, storage: null });
   t.after(() => climate.destroy());
   assert.deepEqual(climate.getState(), { season: 'spring', time: 'noon', weather: 'clear', auto: true });
   assert.equal(notifications, 0, 'callers can initialize integrations safely after construction');
   climate.setWeather('rain');
-  assert.equal(climate.getState().auto, true, 'weather is independent of the calendar');
+  assert.equal(climate.getState().auto, false, 'a manual weather choice pauses automatic changes');
   assert.equal(notifications, 1);
 });
 
-test('manual scenery survives reload and Auto restores the current calendar while retaining weather', t => {
+test('manual scenery survives reload and Auto restores the current calendar with neutral weather until located', t => {
   const storage = memoryStorage();
   let now = springNoon();
   const climate = createCyberClimate(() => {}, { now: () => now, storage });
@@ -42,7 +47,7 @@ test('manual scenery survives reload and Auto restores the current calendar whil
   assert.deepEqual(restored.getState(), climate.getState());
   now = new Date('2026-07-01T11:00:00Z');
   climate.setAuto();
-  assert.deepEqual(climate.getState(), { season: 'summer', time: 'evening', weather: 'snow', auto: true });
+  assert.deepEqual(climate.getState(), { season: 'summer', time: 'evening', weather: 'clear', auto: true });
   climate.setAuto(false);
   assert.equal(climate.getState().auto, false, 'the Auto switch can freeze the current moment');
 });
@@ -85,13 +90,13 @@ test('malformed preferences fall back safely and automatic preferences ignore st
     storage: memoryStorage(JSON.stringify({ version: 1, season: 'winter', time: 'night', weather: 'mist', auto: true })),
   });
   t.after(() => stale.destroy());
-  assert.deepEqual(stale.getState(), { season: 'spring', time: 'noon', weather: 'mist', auto: true });
+  assert.deepEqual(stale.getState(), { season: 'spring', time: 'noon', weather: 'clear', auto: true });
   const partial = createCyberClimate(() => {}, {
     now: springNoon,
     storage: memoryStorage(JSON.stringify({ version: 1, season: 'winter', time: 'invalid', weather: 'cloudy', auto: false })),
   });
   t.after(() => partial.destroy());
-  assert.deepEqual(partial.getState(), { season: 'spring', time: 'noon', weather: 'cloudy', auto: true });
+  assert.deepEqual(partial.getState(), { season: 'spring', time: 'noon', weather: 'clear', auto: true });
 });
 
 test('blocked storage and invalid runtime selections cannot break scene controls', t => {

@@ -1,4 +1,5 @@
-import { getSeoulEnvironment } from './environment.ts';
+import { deviceTimeZone, fetchLocalWeather, localClock, locateVisitor, validTimeZone, WEATHER_MAX_AGE_MS, WEATHER_REFRESH_MS } from './cyber-local-weather.ts';
+import type { Coordinates, LocalWeather } from './cyber-local-weather.ts';
 
 export type Season = 'spring' | 'summer' | 'autumn' | 'winter';
 export type TimeOfDay = 'morning' | 'noon' | 'afternoon' | 'evening' | 'night';
@@ -20,10 +21,24 @@ type ClimateStorage = Pick<Storage, 'getItem' | 'setItem'>;
 interface ClimateOptions {
   now?: () => Date;
   storage?: ClimateStorage | null;
+  timeZone?: () => string;
+  locate?: (signal: AbortSignal) => Promise<Coordinates>;
+  weather?: (coords: Coordinates, signal: AbortSignal, now: Date) => Promise<LocalWeather>;
+}
+
+export interface LocalClimateInfo {
+  status: 'device' | 'locating' | 'loading' | 'live' | 'denied' | 'unavailable';
+  timeZone: string;
+  localDateTime: string;
+  updatedAt: number | null;
 }
 
 export interface CyberClimateController {
   getState(): ClimateState;
+  getLocalInfo(): LocalClimateInfo;
+  subscribeLocalInfo(listener: (info: LocalClimateInfo) => void): () => void;
+  start(): Promise<void>;
+  useLocation(): Promise<void>;
   setSeason(season: Season): void;
   setTime(time: TimeOfDay): void;
   setWeather(weather: Weather): void;
@@ -36,13 +51,8 @@ function browserStorage(): ClimateStorage | null {
   catch { return null; }
 }
 
-function clockState(date: Date): Pick<ClimateState, 'season' | 'time'> {
-  const actual = getSeoulEnvironment(date);
-  return { season: actual.season, time: actual.timeOfDay };
-}
-
-function restore(storage: ClimateStorage | null, date: Date): ClimateState {
-  const defaults: ClimateState = { ...clockState(date), weather: 'clear', auto: true };
+function restore(storage: ClimateStorage | null, clock: Pick<ClimateState, 'season' | 'time'>): ClimateState {
+  const defaults: ClimateState = { ...clock, weather: 'clear', auto: true };
   try {
     const raw: unknown = JSON.parse(storage?.getItem(CYBER_CLIMATE_STORAGE_KEY) ?? 'null');
     if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return defaults;
@@ -50,19 +60,50 @@ function restore(storage: ClimateStorage | null, date: Date): ClimateState {
     if (data.version !== 1) return defaults;
     const weather = CYBER_WEATHER.includes(data.weather as Weather) ? data.weather as Weather : 'clear';
     if (data.auto !== false || !CYBER_SEASONS.includes(data.season as Season) || !CYBER_TIMES.includes(data.time as TimeOfDay)) {
-      return { ...defaults, weather };
+      return defaults;
     }
     return { season: data.season as Season, time: data.time as TimeOfDay, weather, auto: false };
   } catch { return defaults; }
 }
 
-/** Auto follows Seoul's calendar and clock. Weather is a chosen atmosphere, not live weather. */
+/** Device-local clock immediately; permitted location adds hemisphere, sun times and current weather. */
 export function createCyberClimate(onChange: (state: ClimateState) => void, options: ClimateOptions = {}): CyberClimateController {
   const now = options.now ?? (() => new Date());
+  const getDeviceZone = () => {
+    const value = (options.timeZone ?? deviceTimeZone)();
+    return validTimeZone(value) ? value : 'UTC';
+  };
   const storage = options.storage === undefined ? browserStorage() : options.storage;
   const page = typeof document === 'undefined' ? null : document;
-  let state = restore(storage, now());
+  const locate = options.locate ?? locateVisitor;
+  const fetchWeather = options.weather ?? fetchLocalWeather;
+  let coords: Coordinates | undefined;
+  let weather: LocalWeather | undefined;
+  let state = restore(storage, localClock(now(), getDeviceZone()));
+  let status: LocalClimateInfo['status'] = 'device';
   let destroyed = false;
+  let started = false;
+  let lastAttempt = -Infinity;
+  let request: AbortController | undefined;
+  const infoListeners = new Set<(info: LocalClimateInfo) => void>();
+
+  const zone = () => weather?.timeZone ?? getDeviceZone();
+  const clockState = () => localClock(now(), zone(), coords?.latitude, weather);
+  function getLocalInfo(): LocalClimateInfo {
+    return {
+      status, timeZone: zone(), updatedAt: weather?.observedAt ?? null,
+      localDateTime: new Intl.DateTimeFormat('en', { timeZone: zone(), dateStyle: 'medium', timeStyle: 'short' }).format(now()),
+    };
+  }
+  function notifyInfo() { for (const listener of infoListeners) listener(getLocalInfo()); }
+  function cancelRequest() { request?.abort(); request = undefined; }
+  function manual(patch: Partial<ClimateState>) {
+    if (destroyed) return;
+    cancelRequest();
+    if (status === 'locating' || status === 'loading') status = weather ? 'live' : 'device';
+    update({ ...patch, auto: false });
+    notifyInfo();
+  }
 
   function update(patch: Partial<ClimateState>, save = true) {
     if (destroyed) return;
@@ -77,7 +118,55 @@ export function createCyberClimate(onChange: (state: ClimateState) => void, opti
   }
 
   function syncClock() {
-    if (!destroyed && state.auto) update(clockState(now()), false);
+    if (destroyed) return;
+    if (state.auto) {
+      update(clockState(), false);
+      if (weather && now().getTime() - weather.observedAt > WEATHER_MAX_AGE_MS && status === 'live') status = 'unavailable';
+      if (started && status !== 'denied' && page?.visibilityState !== 'hidden'
+        && now().getTime() - lastAttempt >= WEATHER_REFRESH_MS) void refreshWeather();
+    }
+    notifyInfo();
+  }
+
+  async function refreshWeather(): Promise<void> {
+    if (destroyed || !state.auto || request) return;
+    const active = new AbortController();
+    request = active;
+    lastAttempt = now().getTime();
+    status = 'locating';
+    notifyInfo();
+    try {
+      const location = await locate(active.signal);
+      if (active.signal.aborted || destroyed || !state.auto) return;
+      const moved = coords && (coords.latitude !== location.latitude || coords.longitude !== location.longitude);
+      if (moved) weather = undefined;
+      coords = location;
+      // A successful location still gives the correct hemisphere if weather is offline.
+      update({ ...clockState(), ...(moved ? { weather: 'clear' as Weather } : {}) }, false);
+      status = 'loading';
+      notifyInfo();
+      const fresh = await fetchWeather(location, active.signal, now());
+      if (active.signal.aborted || destroyed || !state.auto) return;
+      weather = fresh;
+      status = 'live';
+      update({ ...clockState(), weather: fresh.weather }, false);
+    } catch (error) {
+      if (active.signal.aborted || destroyed) return;
+      status = typeof error === 'object' && error !== null && 'code' in error && error.code === 1 ? 'denied' : 'unavailable';
+    } finally {
+      if (request === active) {
+        request = undefined;
+        if (!destroyed) notifyInfo();
+      }
+    }
+  }
+
+  function setAuto(enabled = true) {
+    if (destroyed) return;
+    if (!enabled) { manual({}); return; }
+    update({ ...clockState(), auto: true, weather: weather && now().getTime() - weather.observedAt < WEATHER_MAX_AGE_MS ? weather.weather : 'clear' });
+    notifyInfo();
+    if (started) void refreshWeather();
   }
 
   function onVisibility() {
@@ -90,22 +179,36 @@ export function createCyberClimate(onChange: (state: ClimateState) => void, opti
 
   return {
     getState() { return { ...state }; },
+    getLocalInfo,
+    subscribeLocalInfo(listener) { if (!destroyed) infoListeners.add(listener); return () => { infoListeners.delete(listener); }; },
+    async start() {
+      if (started || destroyed) return;
+      started = true;
+      if (state.auto && page?.visibilityState !== 'hidden') await refreshWeather();
+    },
+    async useLocation() {
+      if (destroyed) return;
+      started = true;
+      update({ ...clockState(), auto: true });
+      await refreshWeather();
+    },
     setSeason(season) {
-      if (CYBER_SEASONS.includes(season)) update({ season, auto: false });
+      if (CYBER_SEASONS.includes(season)) manual({ season });
     },
     setTime(time) {
-      if (CYBER_TIMES.includes(time)) update({ time, auto: false });
+      if (CYBER_TIMES.includes(time)) manual({ time });
     },
     setWeather(weather) {
-      if (CYBER_WEATHER.includes(weather)) update({ weather });
+      if (CYBER_WEATHER.includes(weather)) manual({ weather });
     },
-    setAuto(enabled = true) {
-      if (destroyed) return;
-      update(enabled ? { ...clockState(now()), auto: true } : { auto: false });
-    },
+    setAuto,
     destroy() {
       if (destroyed) return;
       destroyed = true;
+      cancelRequest();
+      infoListeners.clear();
+      coords = undefined;
+      weather = undefined;
       clearInterval(interval);
       page?.removeEventListener('visibilitychange', onVisibility);
     },

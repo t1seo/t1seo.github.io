@@ -19,6 +19,21 @@ these checks in `.github/workflows/deploy.yml`, then publishes `dist/` to GitHub
 Pages. The repository's Pages source must be **GitHub Actions**. Build outputs and
 `node_modules/` stay out of Git.
 
+## Local time and weather
+
+Auto follows each visitor's device timezone immediately. On first automatic use,
+the browser asks for location permission. With permission, the room follows the
+location's timezone, northern/southern calendar seasons, sunrise/sunset, and
+[Open-Meteo current conditions](https://open-meteo.com/en/docs). Weather updates
+every 15 minutes while the page is visible. This is modeled current weather,
+not a sensor measurement at the visitor's exact position.
+
+Denied location or unavailable weather leaves the clock and room usable; the
+Climate panel explains the state and offers a retry. A manual time, season or
+weather choice pauses Auto and persists across visits. Re-enable Auto to resume.
+Coordinates are rounded to two decimal places, sent only to Open-Meteo after
+browser permission, and kept in memory only. No API key or backend is needed.
+
 ## Imported files
 
 - `src/`, `public/`, and `asset-sources/`: original source and site assets.

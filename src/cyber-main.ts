@@ -367,6 +367,7 @@ const resizeObserver = new ResizeObserver(resize);
 resizeObserver.observe(scene);
 resize();
 applyClimate(climate.getState());
+void climate.start();
 function ready() { studio.classList.add('is-ready'); syncIntroMotion(); }
 if (plate.complete) ready(); else plate.addEventListener('load', ready, { once: true, ...options });
 plate.addEventListener('error', () => { ready(); announce('The room image could not load. Please reload the page.'); }, { once: true, ...options });

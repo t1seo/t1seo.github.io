@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "id": "local-climate",
+  "projectId": "taewon-after-hours",
+  "title": "Visitor local climate",
+  "brief": {
+    "audience": "Visitors to Taewon Seo's personal website",
+    "task": "See the room follow local date, time, season and current weather.",
+    "scope": "Extend existing Climate panel and automatic state controller; preserve artwork, typography, colors and manual choices.",
+    "platforms": [
+      "web"
+    ]
+  },
+  "summary": "Keep the existing Climate dialog. Explain device time versus located live weather, browser permission, request progress, denied/unavailable state, retry and manual overrides.",
+  "designHash": "656d3aa39a1b5a88a4d0e0f47f775101b8e46df244aba555f0ad264a8905788a",
+  "providers": {
+    "studio": {
+      "status": "ready",
+      "checkedAt": "2026-09-30T13:01:52.571Z",
+      "tools": [
+        "studio search",
+        "studio source-read",
+        "mcp__hail_mary_studio__studio_design_system_list"
+      ],
+      "note": "Inspected installed switch source and local brand/styles. No matching connected project exists."
+    },
+    "mobbin": {
+      "status": "ready",
+      "checkedAt": "2026-09-30T13:01:52.571Z",
+      "tools": [
+        "mcp__mobbin__search_screens"
+      ],
+      "note": "Three actual images inspected across SavvyCal, Rise and Midday."
+    },
+    "21st": {
+      "status": "ready",
+      "checkedAt": "2026-09-30T13:01:52.571Z",
+      "tools": [
+        "mcp__21st__search",
+        "mcp__21st__get_component"
+      ],
+      "note": "Two full component/demo bundles inspected; no external source copied."
+    }
+  },
+  "sources": [
+    {
+      "id": "studio-switch",
+      "provider": "studio",
+      "title": "Studio Switch source",
+      "product": "Hail Mary Studio",
+      "url": "https://product.hailmary-studio.com/playground/?scene=components&component=switch",
+      "kind": "component",
+      "evidence": "observed",
+      "observation": "Reusable switch entry delegates to FormExample and a library wrapper; importing its React dependencies is unnecessary for this plain TypeScript site.",
+      "capture": {
+        "locator": "platform/web/src/public/library/switch.tsx",
+        "excerpt": "<LibraryAssetFrame {...props} assetId=\"switch\"><FormExample id=\"switch\" /></LibraryAssetFrame>"
+      },
+      "retrieval": {
+        "method": "cli",
+        "tool": "studio source-read",
+        "query": "web-library/switch",
+        "resultId": "612eaa173f8467c842a6af38743d08b55741f00fe6b03cf897672d3836f5b0ba",
+        "retrievedAt": "2026-09-30T13:01:52.571Z"
+      },
+      "inspectedAt": "2026-09-30T13:01:52.571Z"
+    },
+    {
+      "id": "43fbca77-d9f6-49cd-b1c5-73f642f8195a",
+      "provider": "mobbin",
+      "title": "SavvyCal time-zone settings",
+      "product": "SavvyCal",
+      "url": "https://mobbin.com/screens/43fbca77-d9f6-49cd-b1c5-73f642f8195a",
+      "kind": "screen",
+      "evidence": "observed",
+      "imageUrl": "https://mobbin.com/api/mcp/short/xiUJhhOq",
+      "observation": "A focused timezone dialog exposes dates and a timezone selector; avoid adding a separate scheduling dialog here.",
+      "capture": {
+        "locator": "MCP inline image inspected; original downloaded to images/43fbca77-d9f6-49cd-b1c5-73f642f8195a.webp",
+        "assetId": "2bc64ff683297554ec4503772a7f93df5423cc9f0dee39c03662105a8f814503"
+      },
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Settings for automatic local time zone with a manual override",
+        "resultId": "43fbca77-d9f6-49cd-b1c5-73f642f8195a",
+        "retrievedAt": "2026-09-30T13:01:52.571Z"
+      },
+      "inspectedAt": "2026-09-30T13:01:52.571Z"
+    },
+    {
+      "id": "33daecb9-3daa-4a9c-bdd0-dcaebc484caf",
+      "provider": "mobbin",
+      "title": "Rise time-zone settings",
+      "product": "Rise",
+      "url": "https://mobbin.com/screens/33daecb9-3daa-4a9c-bdd0-dcaebc484caf",
+      "kind": "screen",
+      "evidence": "observed",
+      "imageUrl": "https://mobbin.com/api/mcp/short/ZjwRPp2L",
+      "observation": "Automatic local timezone is shown separately from its display override; retain manual atmosphere settings alongside auto.",
+      "capture": {
+        "locator": "MCP inline image inspected; original downloaded to images/33daecb9-3daa-4a9c-bdd0-dcaebc484caf.webp",
+        "uploadStatus": "Pending: Studio media upload rejected size > 88000 encoded characters. Original preserved locally."
+      },
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Settings for automatic local time zone with a manual override",
+        "resultId": "33daecb9-3daa-4a9c-bdd0-dcaebc484caf",
+        "retrievedAt": "2026-09-30T13:01:52.571Z"
+      },
+      "inspectedAt": "2026-09-30T13:01:52.571Z"
+    },
+    {
+      "id": "b4190675-4964-4434-8fad-591cf963607a",
+      "provider": "mobbin",
+      "title": "Midday time-zone settings",
+      "product": "Midday",
+      "url": "https://mobbin.com/screens/b4190675-4964-4434-8fad-591cf963607a",
+      "kind": "screen",
+      "evidence": "observed",
+      "imageUrl": "https://mobbin.com/api/mcp/short/DeXNvxAn",
+      "observation": "Device timezone switch is paired with the currently detected timezone; display actual source/status near Auto.",
+      "capture": {
+        "locator": "MCP inline image inspected; original downloaded to images/b4190675-4964-4434-8fad-591cf963607a.webp",
+        "assetId": "8547573646f2143fd1e724c7449a984df5888751a1a4f3128af0095f934c63de"
+      },
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Settings for automatic local time zone with a manual override",
+        "resultId": "b4190675-4964-4434-8fad-591cf963607a",
+        "retrievedAt": "2026-09-30T13:01:52.571Z"
+      },
+      "inspectedAt": "2026-09-30T13:01:52.571Z"
+    },
+    {
+      "id": "21st-field-26523",
+      "provider": "21st",
+      "title": "Notification Settings Field",
+      "product": "21st.dev / shadcnspace",
+      "url": "https://21st.dev/@shadcnspace/components/field-02",
+      "kind": "component",
+      "evidence": "observed",
+      "observation": "Inspected component and demo code: horizontal title/description/switch rows and separators. Adopt hierarchy using existing styles; do not copy React/Radix source. No standalone license field was returned.",
+      "capture": {
+        "locator": "componentCode and demoCode",
+        "excerpt": "<Field orientation=\"horizontal\"><FieldContent>…</FieldContent><Switch … /></Field>"
+      },
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "settings location permission status switch",
+        "resultId": "26523",
+        "retrievedAt": "2026-09-30T13:01:52.571Z"
+      },
+      "inspectedAt": "2026-09-30T13:01:52.571Z"
+    },
+    {
+      "id": "21st-toggle-24436",
+      "provider": "21st",
+      "title": "Server Settings Toggle",
+      "product": "21st.dev / cnippet-dev",
+      "url": "https://21st.dev/@cnippet-dev/components/v-toggle-14",
+      "kind": "component",
+      "evidence": "observed",
+      "observation": "Inspected component and demo code: state-dependent action label and aria-label. Adopt explicit loading/live/unavailable labels, reject icon-only toggles and extra React dependencies. License absent; no code copied.",
+      "capture": {
+        "locator": "componentCode and demoCode",
+        "excerpt": "aria-label={on ? s.offLabel : s.onLabel}"
+      },
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "settings location permission status switch",
+        "resultId": "24436",
+        "retrievedAt": "2026-09-30T13:01:52.571Z"
+      },
+      "inspectedAt": "2026-09-30T13:01:52.571Z"
+    }
+  ],
+  "directions": [
+    {
+      "id": "existing-panel",
+      "title": "Extend the existing Climate panel",
+      "description": "Use the existing switch, add a location status with retry, preserve native radio groups."
+    },
+    {
+      "id": "separate-widget",
+      "title": "Separate weather dashboard",
+      "description": "Rejected: distracts from the illustrated room and duplicates settings."
+    }
+  ],
+  "selectedDirection": "existing-panel",
+  "decisions": [
+    {
+      "sourceIds": [
+        "studio-switch"
+      ],
+      "outcome": "reject",
+      "target": "src/cyber-climate-controls.ts",
+      "reason": "Reusable switch entry delegates to FormExample and a library wrapper; importing its React dependencies is unnecessary for this plain TypeScript site."
+    },
+    {
+      "sourceIds": [
+        "43fbca77-d9f6-49cd-b1c5-73f642f8195a"
+      ],
+      "outcome": "adopt",
+      "target": "src/cyber-climate-controls.ts",
+      "reason": "A focused timezone dialog exposes dates and a timezone selector; avoid adding a separate scheduling dialog here."
+    },
+    {
+      "sourceIds": [
+        "33daecb9-3daa-4a9c-bdd0-dcaebc484caf"
+      ],
+      "outcome": "adopt",
+      "target": "src/cyber-climate-controls.ts",
+      "reason": "Automatic local timezone is shown separately from its display override; retain manual atmosphere settings alongside auto."
+    },
+    {
+      "sourceIds": [
+        "b4190675-4964-4434-8fad-591cf963607a"
+      ],
+      "outcome": "adopt",
+      "target": "src/cyber-climate-controls.ts",
+      "reason": "Device timezone switch is paired with the currently detected timezone; display actual source/status near Auto."
+    },
+    {
+      "sourceIds": [
+        "21st-field-26523"
+      ],
+      "outcome": "adopt",
+      "target": "src/cyber-climate-controls.ts",
+      "reason": "Inspected component and demo code: horizontal title/description/switch rows and separators. Adopt hierarchy using existing styles; do not copy React/Radix source. No standalone license field was returned."
+    },
+    {
+      "sourceIds": [
+        "21st-toggle-24436"
+      ],
+      "outcome": "adopt",
+      "target": "src/cyber-climate-controls.ts",
+      "reason": "Inspected component and demo code: state-dependent action label and aria-label. Adopt explicit loading/live/unavailable labels, reject icon-only toggles and extra React dependencies. License absent; no code copied."
+    }
+  ],
+  "implementation": {
+    "summary": "Implemented local clock, permission-based location, hemisphere seasons, sunrise/sunset, live modeled weather, stale/offline states, abort/race handling, visibility-aware 15-minute refresh and Climate controls. No new visual direction or third-party component source copied.",
+    "codeRevision": "5abfd1d769c9da5c05376211541d323da50266a2",
+    "files": [
+      "src/cyber-local-weather.ts",
+      "src/cyber-climate.ts",
+      "src/cyber-climate-controls.ts",
+      "src/cyber-climate-controls.css",
+      "src/cyber-main.ts"
+    ],
+    "previewUrl": ""
+  },
+  "qa": [
+    {
+      "method": "node-tests",
+      "result": "pass",
+      "tests": 150,
+      "note": "Run with TZ=UTC; timezone/DST/southern hemisphere, WMO mapping, invalid and stale data, permission denial, aborts, manual preference migration, hidden polling, movement, persistence and lifecycle."
+    },
+    {
+      "method": "jsdom",
+      "result": "pass",
+      "note": "DOM interaction tests for panel mounting, denied/loading/live state, retry, selected radio state, manual pause, Auto resume, and listener cleanup. This is not browser visual QA."
+    },
+    {
+      "method": "live-http",
+      "result": "pass",
+      "note": "Public Seoul coordinates only: Open-Meteo HTTP 200, CORS *, parsed actual timezone/current code and solar data."
+    },
+    {
+      "method": "browser",
+      "result": "not-run",
+      "note": "Chrome transport repeatedly failed: failed to start codex app-server: No such file or directory (os error 2). No actual rendered-screen or native permission flow approval is claimed."
+    }
+  ],
+  "synchronization": {
+    "status": "pending",
+    "reason": "studio_research_sync returned: Connect the project before synchronizing research. Two reference captures uploaded; Rise capture exceeds upload size. Local original and research preserved."
+  },
+  "designHashMethod": "SHA-256 of local DESIGN.md bytes; no connected registry contract hash is claimed."
+}
