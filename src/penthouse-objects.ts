@@ -1,10 +1,11 @@
 import type { ClimateState } from './cyber-climate.ts';
 
 // Full alpha-image rectangles, registered to the 1672 × 941 room. Transparent
-// margins preserve the soft painted edges; the floor speaker's feet sit around y733.
+// margins preserve the soft painted edges. The compact speaker rests on the
+// desktop at y550; the capped pen lies directly beside the keyboard.
 export const ROOM_OBJECTS = [
-  { id: 'beosound-a9', src: '/assets/penthouse/objects/beosound-a9.webp', rect: [1244,405,278,360.6] },
-  { id: 'pen-rest', src: '/assets/penthouse/objects/pen-rest.webp', rect: [978,546,100,40.08] },
+  { id: 'compact-speaker', src: '/assets/penthouse/objects/compact-speaker.webp', rect: [1194,482,49,73.5] },
+  { id: 'fountain-pen', src: '/assets/penthouse/objects/fountain-pen.webp', rect: [998,551,48,19.24] },
 ] as const;
 
 export function objectLighting(state: Pick<ClimateState, 'time' | 'weather'>): string {

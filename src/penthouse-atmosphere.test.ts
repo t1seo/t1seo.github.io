@@ -8,9 +8,9 @@ import { CYBER_SEASONS, type ClimateState } from './cyber-climate.ts';
 const state = (weather: ClimateState['weather'] = 'clear', time: ClimateState['time'] = 'night', season: ClimateState['season'] = 'autumn'): ClimateState => ({ weather,time,season,auto:false });
 const step = (s: AtmosphereSimulation, seconds: number, climate: ClimateState) => { for (let i = 0; i < seconds * 30; i++) s.advance(1/30,climate); };
 
-test('frontal glazing excludes mullions, chair, lounge, tree, Studio Display, lamp and desk', () => {
-  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1470,370],[550,410],[1020,480]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
-  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[750,520],[915,465],[1060,461],[1140,520],[900,560],[1250,570],[700,650],[1600,150],[480,360],[568,420],[1400,550]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
+test('frontal glazing excludes the remaining furniture and compact speaker, leaving removed furniture areas clear', () => {
+  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1470,370],[550,410],[1020,480],[750,520],[1400,550],[1198,518],[1239,518]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
+  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[915,465],[1060,461],[1140,520],[900,560],[1250,570],[700,650],[1600,150],[480,360],[568,420],[1218,518]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
   assert.equal(isSky(457,250),false); // city facade
   assert.equal(isSky(350,160),false); // N Seoul Tower
   assert.equal(isSky(305,210),false); // neighboring mast

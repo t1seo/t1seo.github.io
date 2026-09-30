@@ -12,7 +12,7 @@ a { color: inherit; }
 [hidden] { display: none !important; }
 .ph-studio { --ph-controls-space: max(90px, calc(76px + env(safe-area-inset-bottom, 0px))); position: relative; isolation: isolate; container-type: size; height: 100svh; min-height: 360px; overflow: hidden; background: #202329; }
 /* The taller-window art shows source y0..925: glass occupies 63% and the
-   foreground below the chair occupies 17%, down from 20% in the old art. The
+   lower foreground occupies 17%, down from 20% in the old art. The
    control strip is outside the scene, so Milky can use the remaining floor.
    Wide displays retain the complete composition within a centered matte. */
 .ph-stage { position: absolute; inset: 0 auto var(--ph-controls-space) 50%; width: min(100cqw, calc((100cqh - var(--ph-controls-space)) * 1.807567568)); transform: translateX(-50%); container-type: size; overflow: hidden; }
@@ -48,8 +48,8 @@ a { color: inherit; }
 .ph-track span:first-child { font-size: 7px; letter-spacing: .17em; color: #c4c0bc; }
 .ph-track span:last-child { font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ph-hotspot { position: absolute; z-index: 4; border: 0; background: transparent; padding: 0; display: flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
-.ph-hotspot--audio { left: 76.3%; top: 45%; width: 13%; height: 33%; }
-.ph-hotspot--pen { left: 58.4%; top: 59%; width: 6.3%; height: 3%; }
+.ph-hotspot--audio { left: 72.85%; top: 55.05%; width: 3%; height: 8%; transform: translate(-50%, -50%); }
+.ph-hotspot--pen { left: 61.1%; top: 59.65%; width: 4%; height: 3%; transform: translate(-50%, -50%); }
 .ph-hotspot--monitor { left: 49.7%; top: 44.5%; width: 10.2%; height: 11.5%; }
 .ph-hotspot--lamp { left: 62.2%; top: 48%; width: 6.5%; height: 10.5%; }
 .ph-hotspot--book { left: 34%; top: 54.5%; width: 4.5%; height: 4.5%; }
