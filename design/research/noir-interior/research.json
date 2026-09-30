@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "id": "noir-interior",
+  "projectId": "taewon-after-hours",
+  "title": "Noir interior — preserve the city and Milky",
+  "createdAt": "2026-09-30T14:01:29.173879+00:00",
+  "scope": "Personal web ambient studio interior restyle only. Keep original seasonal city assets and Milky sprites, interactions, weather and music.",
+  "backup": {
+    "branch": "backup/original-interior-20260930",
+    "commit": "924c42ec7d4587401db5765b228e121e428f044d"
+  },
+  "sources": [
+    {
+      "id": "2e073289-7c6a-4440-b471-83bdb41de138",
+      "provider": "mobbin",
+      "product": "TIDAL",
+      "url": "https://mobbin.com/screens/2e073289-7c6a-4440-b471-83bdb41de138",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Dark immersive music player with a full-screen atmospheric background and small unobtrusive playback controls",
+        "resultId": "2e073289-7c6a-4440-b471-83bdb41de138",
+        "retrievedAt": "2026-09-30T14:01:29.173879+00:00"
+      },
+      "capture": {
+        "locator": "images/2e073289-7c6a-4440-b471-83bdb41de138.webp",
+        "sha256": "79fa1b37bf250ab99cc19595fb31874d3d86bfd5feb059cb3ca3d7e783ef64ee",
+        "inspected": "MCP inline image",
+        "assetId": "79fa1b37bf250ab99cc19595fb31874d3d86bfd5feb059cb3ca3d7e783ef64ee"
+      },
+      "observation": "Art remains central; controls anchored to the edge. Reject its saturated magenta palette."
+    },
+    {
+      "id": "52fbd644-07a0-4c4f-9aad-05c42f17f5ba",
+      "provider": "mobbin",
+      "product": "Open",
+      "url": "https://mobbin.com/screens/52fbd644-07a0-4c4f-9aad-05c42f17f5ba",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Dark immersive music player with a full-screen atmospheric background and small unobtrusive playback controls",
+        "resultId": "52fbd644-07a0-4c4f-9aad-05c42f17f5ba",
+        "retrievedAt": "2026-09-30T14:01:29.173879+00:00"
+      },
+      "capture": {
+        "locator": "images/52fbd644-07a0-4c4f-9aad-05c42f17f5ba.webp",
+        "sha256": "09115b811b61192f75760a2f9720432b7c55e388c8ebd95f5c928a839ba64725",
+        "inspected": "MCP inline image",
+        "assetId": "09115b811b61192f75760a2f9720432b7c55e388c8ebd95f5c928a839ba64725"
+      },
+      "observation": "Near-black immersive canvas with small white controls. Keep the room visible instead of a blank black canvas."
+    },
+    {
+      "id": "7bd2ef54-565a-42a6-ad5d-2fa21b98f2a3",
+      "provider": "mobbin",
+      "product": "Apple Music",
+      "url": "https://mobbin.com/screens/7bd2ef54-565a-42a6-ad5d-2fa21b98f2a3",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Dark immersive music player with a full-screen atmospheric background and small unobtrusive playback controls",
+        "resultId": "7bd2ef54-565a-42a6-ad5d-2fa21b98f2a3",
+        "retrievedAt": "2026-09-30T14:01:29.173879+00:00"
+      },
+      "capture": {
+        "locator": "images/7bd2ef54-565a-42a6-ad5d-2fa21b98f2a3.webp",
+        "sha256": "1b2dd43fa988db382fac356819cc6c0b86941ba719b2eb0fa5a623835984ffbc",
+        "inspected": "MCP inline image",
+        "assetId": "3d9cb345e7fb6af318db7812fe783fcaccd8553af5ba939d8cc01b3e0bfee295",
+        "displayCopy": "images/apple-music-capture.webp",
+        "note": "Original retained; recompressed display copy uploaded after original exceeded encoded-size limit."
+      },
+      "observation": "Artwork has visual priority over transport controls. Reject animated saturated ambient UI colors."
+    },
+    {
+      "id": "studio-vercel",
+      "provider": "studio",
+      "product": "Hail Mary Studio",
+      "url": "https://product.hailmary-studio.com/playground/",
+      "retrieval": {
+        "method": "cli",
+        "tool": "studio show",
+        "query": "web-theme/vercel",
+        "resultId": "web-theme/vercel@0.1.0",
+        "retrievedAt": "2026-09-30T14:01:29.173879+00:00"
+      },
+      "observation": "Inspected theme designContext: dark surface #090909, muted #a4a4a4, border #242424. Adopt neutral charcoal family; keep existing Space Grotesk, JetBrains Mono and Milky branding. Apache-2.0 upstream; no theme source installed."
+    },
+    {
+      "id": "21st-14092",
+      "provider": "21st",
+      "product": "Toolbar Dock",
+      "url": "https://21st.dev/@ruixen.ui/components/toolbar-dock",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "minimal dark toolbar dock",
+        "resultId": "14092",
+        "retrievedAt": "2026-09-30T14:01:29.173879+00:00"
+      },
+      "observation": "Inspected full source and demo: restrained dark surface, continuous outline, focus labels. No code copied; React, Motion and Hugeicons dependencies not needed. License not provided."
+    },
+    {
+      "id": "21st-23492",
+      "provider": "21st",
+      "product": "macOS Dock",
+      "url": "https://21st.dev/@ssychui/components/macos-dock",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "minimal dark toolbar dock",
+        "resultId": "23492",
+        "retrievedAt": "2026-09-30T14:01:29.173879+00:00"
+      },
+      "observation": "Inspected full source/demo: neutral dark tray, reduced-motion handling, active state indicators. Preserve existing controls, reject icon bounce/magnification. No code copied; React and framer-motion unnecessary. License not provided."
+    }
+  ],
+  "directions": [
+    {
+      "id": "charcoal-materials",
+      "decision": "adopt",
+      "reason": "Black leather, graphite textiles, dark stone and restrained shelf lighting express the requested luxury character while preserving room geometry."
+    },
+    {
+      "id": "global-dark-filter",
+      "decision": "reject",
+      "reason": "Would alter the city and Milky, and would not change furniture materials."
+    },
+    {
+      "id": "new-room-layout",
+      "decision": "reject",
+      "reason": "Would shift the city framing and existing interactive object targets."
+    }
+  ],
+  "implementation": {
+    "status": "implemented",
+    "summary": "Two generated interior lighting plates composited over the unchanged original climate image using per-scene SVG masks; original winter tree retained; original-style URL and GitHub backup preserved. Native controls unchanged except About comparison links.",
+    "files": [
+      "src/cyber-interior.ts",
+      "src/cyber-interior.css",
+      "src/cyber-main.ts",
+      "src/cyber-scene-plates.ts",
+      "scripts/build-noir-masks.ts"
+    ],
+    "generation": "built-in image_gen; full exact prompts in asset-sources/noir-interior/README.md"
+  },
+  "synchronization": {
+    "status": "pending",
+    "reason": "Connect the project before synchronizing research"
+  },
+  "gate": {
+    "status": "not-connected",
+    "lastResponse": "DESIGN.md needs YAML frontmatter and readable guidance"
+  },
+  "qa": [
+    {
+      "method": "asset-review",
+      "status": "pass",
+      "note": "Both generated images visually inspected. Correct dark leather/stone, exact 1672x941 dimensions. This is artwork review, not a screenshot of the running site."
+    },
+    {
+      "method": "git-diff-and-sha256",
+      "status": "pass",
+      "note": "92 original artwork/assets unchanged from backup, including all city plates and Milky. Pet, climate/weather and audio modules also unchanged."
+    },
+    {
+      "method": "browser",
+      "status": "not-run",
+      "note": "Chrome transport returns: failed to start codex app-server: No such file or directory (os error 2). No live browser screenshot or native interaction QA claimed."
+    },
+    {
+      "method": "node-tests",
+      "status": "pass",
+      "tests": 161,
+      "note": "Includes unchanged original-style behavior, all 20 seasonal scene mappings, masked outdoor landmarks, winter tree retention, asset failure fallback, stale/deferred scene loads, existing music and pet tests."
+    },
+    {
+      "method": "typescript-and-vite-build",
+      "status": "pass"
+    }
+  ],
+  "providers": {
+    "studio": {
+      "status": "ready",
+      "note": "Current release inspected; Vercel theme dark tokens read via studio show. Personal brand retained."
+    },
+    "mobbin": {
+      "status": "ready",
+      "note": "Three actual images across TIDAL, Open, Apple Music inspected."
+    },
+    "21st": {
+      "status": "ready",
+      "note": "Two full component and demo sources inspected; no source copied."
+    }
+  },
+  "decisions": [
+    {
+      "sourceId": "2e073289-7c6a-4440-b471-83bdb41de138",
+      "outcome": "adopt hierarchy / reject source dependencies",
+      "reason": "Art remains central; controls anchored to the edge. Reject its saturated magenta palette."
+    },
+    {
+      "sourceId": "52fbd644-07a0-4c4f-9aad-05c42f17f5ba",
+      "outcome": "adopt hierarchy / reject source dependencies",
+      "reason": "Near-black immersive canvas with small white controls. Keep the room visible instead of a blank black canvas."
+    },
+    {
+      "sourceId": "7bd2ef54-565a-42a6-ad5d-2fa21b98f2a3",
+      "outcome": "adopt hierarchy / reject source dependencies",
+      "reason": "Artwork has visual priority over transport controls. Reject animated saturated ambient UI colors."
+    },
+    {
+      "sourceId": "studio-vercel",
+      "outcome": "adopt hierarchy / reject source dependencies",
+      "reason": "Inspected theme designContext: dark surface #090909, muted #a4a4a4, border #242424. Adopt neutral charcoal family; keep existing Space Grotesk, JetBrains Mono and Milky branding. Apache-2.0 upstream; no theme source installed."
+    },
+    {
+      "sourceId": "21st-14092",
+      "outcome": "adopt hierarchy / reject source dependencies",
+      "reason": "Inspected full source and demo: restrained dark surface, continuous outline, focus labels. No code copied; React, Motion and Hugeicons dependencies not needed. License not provided."
+    },
+    {
+      "sourceId": "21st-23492",
+      "outcome": "adopt hierarchy / reject source dependencies",
+      "reason": "Inspected full source/demo: neutral dark tray, reduced-motion handling, active state indicators. Preserve existing controls, reject icon bounce/magnification. No code copied; React and framer-motion unnecessary. License not provided."
+    }
+  ],
+  "designHash": "644d4bdf9e1e8682bdf06013d29b60c5d0ea141e6b0a2fba912940b65a6bfaf3"
+}

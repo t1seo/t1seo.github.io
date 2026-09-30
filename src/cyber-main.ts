@@ -8,6 +8,8 @@ import { mountCyberPet } from './cyber-pet';
 import { createCyberClimate, type ClimateState } from './cyber-climate';
 import { mountCyberClimateControls } from './cyber-climate-controls';
 import { mountScenePlates } from './cyber-scene-plates';
+import { createNoirDecorator, getInteriorStyle } from './cyber-interior';
+import './cyber-interior.css';
 import { mountCyberIntro } from './cyber-intro';
 
 const icons = {
@@ -23,6 +25,7 @@ const icons = {
 const svg = (key: keyof typeof icons) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[key]}</svg>`;
 
 const root = document.querySelector<HTMLDivElement>('#app')!;
+const interiorStyle = getInteriorStyle(location.search);
 root.innerHTML = `
 <main class="night-studio" data-intro="visible" data-lamp="off" data-rain="off" data-sound="off" aria-label="Taewon Seo's studio">
   <div class="night-scene" aria-label="A high-rise workspace overlooking a modern riverside city">
@@ -121,7 +124,9 @@ let climatePanel: ReturnType<typeof mountCyberClimateControls> | undefined;
 let sceneRevision = 0;
 const plates = mountScenePlates(root.querySelector<HTMLElement>('.night-plates')!, () => {
   announce('This room scene could not load. Your previous view is still available. Try another time, or reload.');
-}, seasons => atmosphere.setVisibleSeasons(seasons));
+}, seasons => atmosphere.setVisibleSeasons(seasons), interiorStyle === 'noir'
+  ? createNoirDecorator(() => announce('The noir interior could not load. The original room is still available.'))
+  : undefined);
 const climate = createCyberClimate(applyClimate);
 
 const setPressed = (action: string, value: boolean) => {
@@ -235,6 +240,12 @@ function showPanel(type: 'about' | 'note' | 'desk' | 'climate', trigger: HTMLEle
     content.innerHTML = `<p class="night-panel-kicker">THE SMALL HOURS</p><h2 id="room-dialog-title">At your desk.</h2><div class="night-desk-actions"><button data-action="code"><span>01</span> Write a little code ${svg('arrow')}</button><button data-action="coffee"><span>02</span> Take a coffee break ${svg('arrow')}</button><button data-action="bowl"><span>03</span> Ring the singing bowl ${svg('arrow')}</button><button data-action="sound" aria-pressed="${soundOn}"><span>04</span> Listen to the room ${svg('arrow')}</button><button data-action="pen"><span>05</span> Put a thought on paper ${svg('arrow')}</button></div><fieldset class="night-pet-actions"><legend>A MOMENT WITH MILKY</legend><button data-action="pet">Say hello</button><button data-action="pet-sit">Sit together</button><button data-action="pet-sleep">Take a nap</button><button data-action="pet-feed">Meal time</button><button data-action="pet-play">Play ball</button><button data-action="pet-run">A little trot</button></fieldset><span class="night-panel-foot">TAEWON SEO — AFTER HOURS</span>`;
   } else {
     content.innerHTML = `<p class="night-panel-kicker">A ROOM OF ONE'S OWN</p><h2 id="room-dialog-title">After hours.<br />Before the next idea.</h2><p>A personal space for Taewon Seo, looking out on a city that never quite goes to sleep.</p><p>Four seasons outside. Little changes inside. And Milky, keeping you company.</p><div class="night-note-rule"></div><p class="night-panel-credits">Seasonal room illustrations created for this space. Milky's appearance and movement are inspired by his real photos and video. Milky’s white-ear smile is our little signature. <a href="/milky-logo-options.html">Explore the logo collection</a>. Typography: <a href="https://github.com/floriankarsten/space-grotesk" target="_blank" rel="noopener noreferrer">Space Grotesk</a> &amp; <a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener noreferrer">JetBrains Mono</a>. Music by Kevin MacLeod and Scott Buckley, licensed under CC BY 4.0 — <a href="/assets/music/CREDITS.html" target="_blank" rel="noopener noreferrer">tracks &amp; credits</a>. Rain, singing bowl and cup sounds synthesized locally.</p><span class="night-panel-foot">TAEWON SEO — AFTER HOURS</span>`;
+  }
+  if (type === 'about') {
+    content.querySelector('.night-panel-foot')!.insertAdjacentHTML('beforebegin',
+      `<p class="night-panel-credits">Interior: ${interiorStyle === 'noir'
+        ? '<span>Noir</span> · <a href="?interior=original">View original</a>'
+        : '<a href="?interior=noir">View noir</a> · <span>Original</span>'}</p>`);
   }
   terminal.setActive(false);
   atmosphere.setActive(false);

@@ -41,6 +41,24 @@ when switching browser tabs; returning to the studio does not restart the track.
 Use Music again to stop playback. Object sounds remain tied to the visible scene,
 and opening the site never starts audio automatically.
 
+## Interior styles and backup
+
+The default **Noir** interior uses black leather, charcoal stone and restrained
+lighting. The original city/time/season images remain underneath a vector-masked
+interior layer; Milky's artwork and behavior are unchanged. Winter retains its
+original Christmas tree. Day and night have separate interior lighting plates.
+
+- [Noir interior](https://t1seo.github.io/?interior=noir)
+- [Original interior](https://t1seo.github.io/?interior=original)
+- Full pre-restyle backup: `backup/original-interior-20260930` at `924c42e` (also
+  pushed to GitHub). All original artwork remains at its original paths.
+
+The About panel links both versions. Style selection does not reset the saved
+climate preferences. Failed new-artwork loading falls back to the original room.
+Raw generated art and prompts are in `asset-sources/noir-interior/`; optimized
+runtime files are in `public/assets/cyberpunk/noir/`. Regenerate vector masks with
+`node --experimental-strip-types scripts/build-noir-masks.ts`.
+
 ## Imported files
 
 - `src/`, `public/`, and `asset-sources/`: original source and site assets.

@@ -44,6 +44,7 @@ export function mountScenePlates(
   host: HTMLElement,
   onError: () => void,
   onVisibleSeasons?: (seasons: readonly string[]) => void,
+  decoratePlate?: (image: HTMLImageElement, source: string) => Promise<HTMLElement>,
 ) {
   let disposed = false;
   const timers = new Set<ReturnType<typeof setTimeout>>();
@@ -63,7 +64,7 @@ export function mountScenePlates(
     onVisibleSeasons([...seasons]);
   };
   reportVisibleSeasons();
-  const loader = createLatestScene<HTMLImageElement>(
+  const loader = createLatestScene<HTMLElement>(
     async source => {
       const image = new Image();
       image.className = 'night-plate night-plate--climate';
@@ -74,7 +75,7 @@ export function mountScenePlates(
       const season = seasonFromSource(source);
       if (season) image.dataset.season = season;
       await image.decode();
-      return image;
+      return decoratePlate ? decoratePlate(image, source) : image;
     },
     image => {
       // The existing image stays opaque underneath until the new one is visible.

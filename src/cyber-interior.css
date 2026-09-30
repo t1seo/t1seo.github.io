@@ -1,0 +1,30 @@
+/* Only the generated interior is masked and color-adjusted. The original city
+   remains the underlying image; Milky and the interactive overlays are siblings. */
+.night-scene-background,
+.night-interior-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+.night-interior-art {
+  mask-size: 100% 100%;
+  mask-position: center;
+  mask-repeat: no-repeat;
+}
+
+.night-plate[data-time='morning'] > .night-interior-art {
+  filter: brightness(.92) sepia(.06);
+}
+
+.night-plate[data-time='afternoon'] > .night-interior-art {
+  filter: brightness(.96) sepia(.12);
+}
+
+.night-plate[data-time='evening'] > .night-interior-art {
+  filter: brightness(1.12) saturate(.86);
+}

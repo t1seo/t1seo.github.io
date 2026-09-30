@@ -42,7 +42,8 @@ class Host {
 type InitialPlate = { src: string; season?: string };
 const source = (season: string, time = 'night') => `/assets/cyberpunk/climate/${season}-${time}.webp`;
 
-function fixture(t: TestContext, initial: InitialPlate[], reducedMotion = false, report = true) {
+function fixture(t: TestContext, initial: InitialPlate[], reducedMotion = false, report = true,
+  decorate?: (image: HTMLImageElement, source: string) => Promise<HTMLElement>) {
   const host = new Host();
   for (const item of initial) {
     const image = new Plate();
@@ -74,6 +75,7 @@ function fixture(t: TestContext, initial: InitialPlate[], reducedMotion = false,
     host as unknown as HTMLElement,
     () => errors++,
     report ? seasons => updates.push([...seasons]) : undefined,
+    decorate,
   );
   t.after(() => {
     controller.destroy();
@@ -259,4 +261,25 @@ test('destroy suppresses late decode errors and supports callers without a seaso
   assert.equal(await pending.request, false);
   assert.equal(f.errors(), 0);
   assert.deepEqual(f.updates, []);
+});
+
+test('a late interior decode never replaces a newer scene or mounts after destruction', async t => {
+  const held = deferred();
+  const f = fixture(t, [{ src: source('summer') }], true, true, async (image, src) => {
+    if (src === source('winter')) await held.promise;
+    return image;
+  });
+  const winter = await f.start('winter');
+  winter.image.decoded.resolve();
+  await Promise.resolve();
+  assert.equal(f.host.children[0].src, source('summer'));
+  const spring = await f.show('spring');
+  held.resolve();
+  assert.equal(await winter.request, false);
+  assert.deepEqual(f.host.children, [spring]);
+  const pending = await f.start('autumn');
+  f.controller.destroy();
+  pending.image.decoded.resolve();
+  assert.equal(await pending.request, false);
+  assert.deepEqual(f.host.children, [spring]);
 });
