@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "id": "penthouse-rebuild",
+  "projectId": "taewon-after-hours",
+  "title": "Milky's Penthouse — zero-base Gwanggong interior",
+  "createdAt": "2026-09-30T14:20:25.554Z",
+  "scope": "Replace architecture, composition, furniture, city view and all UI. Preserve only Milky visual assets; retain functional climate/audio engines.",
+  "backup": {
+    "branch": "backup/noir-restyle-20260930",
+    "commit": "caef11011655cb196dae13c944391c0f9774d055"
+  },
+  "sources": [
+    {
+      "id": "28fa1b37-3bb0-4acc-b668-526501fcf66c",
+      "provider": "mobbin",
+      "title": "Higgsfield image viewer",
+      "product": "Higgsfield",
+      "url": "https://mobbin.com/screens/28fa1b37-3bb0-4acc-b668-526501fcf66c",
+      "kind": "screen",
+      "evidence": "Actual MCP inline image inspected",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Full-screen photograph viewer with small overlay navigation and a discreet caption",
+        "resultId": "28fa1b37-3bb0-4acc-b668-526501fcf66c",
+        "retrievedAt": "2026-09-30T14:20:25.555Z"
+      },
+      "capture": {
+        "locator": "images/28fa1b37-3bb0-4acc-b668-526501fcf66c.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/G5Wberr4",
+        "sha256": "25eb3f74c4a2bd0094ae08524f643519d13243b60f424824d039511b01d61fa2"
+      },
+      "inspectedAt": "2026-09-30T14:20:25.555Z",
+      "observation": "Black surrounding frame, large single photo, tiny edge arrows and close control; adopt spatial hierarchy, reject cozy wood/plant interior."
+    },
+    {
+      "id": "2fc2968a-f8a9-4d71-952a-90bbd0eadb1b",
+      "provider": "mobbin",
+      "title": "HoneyBook image viewer",
+      "product": "HoneyBook",
+      "url": "https://mobbin.com/screens/2fc2968a-f8a9-4d71-952a-90bbd0eadb1b",
+      "kind": "screen",
+      "evidence": "Actual MCP inline image inspected",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Full-screen photograph viewer with small overlay navigation and a discreet caption",
+        "resultId": "2fc2968a-f8a9-4d71-952a-90bbd0eadb1b",
+        "retrievedAt": "2026-09-30T14:20:25.555Z"
+      },
+      "capture": {
+        "locator": "images/2fc2968a-f8a9-4d71-952a-90bbd0eadb1b.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/7qNDEqwL",
+        "sha256": "b46f8befcc303528742b5cfb0b98af657f2d244ea07ae4cd24d2b1291244b890"
+      },
+      "inspectedAt": "2026-09-30T14:20:25.555Z",
+      "observation": "Large image below shallow dark top bar; keep controls out of subject area, reject extra sidebar."
+    },
+    {
+      "id": "cd5a98a2-ecff-4498-b593-c8c100c75a8c",
+      "provider": "mobbin",
+      "title": "Air image viewer",
+      "product": "Air",
+      "url": "https://mobbin.com/screens/cd5a98a2-ecff-4498-b593-c8c100c75a8c",
+      "kind": "screen",
+      "evidence": "Actual MCP inline image inspected",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__mobbin__search_screens",
+        "query": "Full-screen photograph viewer with small overlay navigation and a discreet caption",
+        "resultId": "cd5a98a2-ecff-4498-b593-c8c100c75a8c",
+        "retrievedAt": "2026-09-30T14:20:25.555Z"
+      },
+      "capture": {
+        "locator": "images/cd5a98a2-ecff-4498-b593-c8c100c75a8c.webp",
+        "image_url": "https://mobbin.com/api/mcp/short/1gy2aPMt",
+        "sha256": "29902de881f7c723271e5123483df53dda53f8730c034c2d2c4db5f2aeee6075"
+      },
+      "inspectedAt": "2026-09-30T14:20:25.555Z",
+      "observation": "Sparse charcoal fullscreen viewer with edge close and bottom focus control; adopt empty canvas, retain readable 44px control targets."
+    },
+    {
+      "id": "studio-vercel",
+      "provider": "studio",
+      "title": "Vercel neutral dark tokens",
+      "product": "Hail Mary Studio",
+      "url": "https://product.hailmary-studio.com/playground/",
+      "kind": "tokens",
+      "evidence": "Current CLI show designContext.theme inspected",
+      "retrieval": {
+        "method": "cli",
+        "tool": "studio show",
+        "query": "web-theme/vercel",
+        "resultId": "web-theme/vercel@0.1.0",
+        "retrievedAt": "2026-09-30T14:20:25.555Z"
+      },
+      "capture": {
+        "excerpt": "surface #090909; muted #a4a4a4; border #242424; font-serif Georgia"
+      },
+      "observation": "Adopt neutral charcoal rather than old cyan palette. Personal Taewon identity remains authoritative.",
+      "inspectedAt": "2026-09-30T14:20:25.555Z"
+    },
+    {
+      "id": "21st-19077",
+      "provider": "21st",
+      "title": "Editorial Image Hero",
+      "product": "21st.dev",
+      "url": "https://21st.dev/@felipemenezes098/components/hero-07",
+      "kind": "component",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "architecture interior editorial hero fullscreen",
+        "resultId": "19077",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "capture": {
+        "locator": "Full componentCode and demoCode returned by MCP",
+        "excerpt": "aspect-[2/1]; font-serif; useReducedMotion"
+      },
+      "evidence": "Full component and demo source inspected",
+      "observation": "Adopt generous image area, serif title and motion opt-out; no code copied.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    },
+    {
+      "id": "21st-9724",
+      "provider": "21st",
+      "title": "Experience Hero",
+      "product": "21st.dev",
+      "url": "https://21st.dev/@hardikkashiyani123456788/components/experience-hero",
+      "kind": "component",
+      "retrieval": {
+        "method": "mcp",
+        "tool": "mcp__21st__get_component",
+        "query": "architecture interior editorial hero fullscreen",
+        "resultId": "9724",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "capture": {
+        "locator": "Full componentCode and demoCode returned by MCP",
+        "excerpt": "min-h-screen; bg-[#020202]; font-mono"
+      },
+      "evidence": "Full component and demo source inspected",
+      "observation": "Adopt sparse monochrome overlay; reject giant headline, WebGL, GSAP and fabricated statistics. No code copied.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    },
+    {
+      "id": "ridi",
+      "provider": "web",
+      "title": "RIDI glossary",
+      "url": "https://ridibooks.com/blog/glossary/53",
+      "kind": "primary text",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://ridibooks.com/blog/glossary/53",
+        "resultId": "ridi",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "evidence": "Page/product text inspected; architecture photographs not inspected",
+      "observation": "BL character archetype; black-toned home is an explicit trope. This is not a formal architectural style.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    },
+    {
+      "id": "fundamental",
+      "provider": "web",
+      "title": "Black Penthouse / Fundamental Architects",
+      "url": "https://fundamental.archi/portfolio/black-penthouse/",
+      "kind": "primary text",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://fundamental.archi/portfolio/black-penthouse/",
+        "resultId": "fundamental",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "evidence": "Page/product text inspected; architecture photographs not inspected",
+      "observation": "Primary project text: open living/kitchen, kitchen hidden into wall planes. Adopt concealed storage; reject the gold island.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    },
+    {
+      "id": "pitsou",
+      "provider": "web",
+      "title": "Open and Transparent to the City / Pitsou Kedem",
+      "url": "https://www.archdaily.com/520356/open-and-transparent-to-the-city-pitsou-kedem-architects",
+      "kind": "primary text",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://www.archdaily.com/520356/open-and-transparent-to-the-city-pitsou-kedem-architects",
+        "resultId": "pitsou",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "evidence": "Page/product text inspected; architecture photographs not inspected",
+      "observation": "Architect-supplied project description: continuous glass, rooms inside shell and clear facade circulation. Adopt sightline and corner glazing, not literal project reproduction.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    },
+    {
+      "id": "minotti",
+      "provider": "web",
+      "title": "Horizonte / Minotti",
+      "url": "https://www.minotti.com/en/horizonte",
+      "kind": "primary text",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://www.minotti.com/en/horizonte",
+        "resultId": "minotti",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "evidence": "Page/product text inspected; architecture photographs not inspected",
+      "observation": "Primary product text: large cushions on thin suspended base and recessed black plinth. Adopt low horizontal massing, original unbranded furniture.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    },
+    {
+      "id": "cassina",
+      "provider": "web",
+      "title": "LC3 Grand Confort / Cassina",
+      "url": "https://www.cassina.com/ww/en/products/lc3-fauteuil-grand-confort-durable.html",
+      "kind": "primary text",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://www.cassina.com/ww/en/products/lc3-fauteuil-grand-confort-durable.html",
+        "resultId": "cassina",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "evidence": "Page/product text inspected; architecture photographs not inspected",
+      "observation": "Primary product text: separate metal frame and leather cushions. Use restrained metal details; omit extra lounge chair to avoid crowding.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    },
+    {
+      "id": "flos",
+      "provider": "web",
+      "title": "Captain Flint / Flos",
+      "url": "https://professional.flos.com/en/global/model/captain-flint-model286/",
+      "kind": "primary text",
+      "retrieval": {
+        "method": "web",
+        "tool": "web.run",
+        "query": "https://professional.flos.com/en/global/model/captain-flint-model286/",
+        "resultId": "flos",
+        "retrievedAt": "2026-09-30T14:20:25.556Z"
+      },
+      "evidence": "Page/product text inspected; architecture photographs not inspected",
+      "observation": "Anthracite / black marble finish; slender floor lamp silhouette. Adopt one small conical light, not decorative chandelier.",
+      "inspectedAt": "2026-09-30T14:20:25.556Z"
+    }
+  ],
+  "decisions": [
+    {
+      "outcome": "adopt",
+      "target": "Architecture",
+      "reason": "New diagonal open-plan corner penthouse, clear foreground and tall glazing; old frontal office explicitly rejected."
+    },
+    {
+      "outcome": "adopt",
+      "target": "Furniture",
+      "reason": "Low black leather sofa, monolithic stone table, concealed wall storage, tiny floor lamp, uncluttered stone floor."
+    },
+    {
+      "outcome": "reject",
+      "target": "Old assets",
+      "reason": "No previous room/city/furniture art loaded in default scene. Only Milky visual assets survive; legacy pages isolated behind explicit URL."
+    },
+    {
+      "outcome": "reject",
+      "target": "Visual clichés",
+      "reason": "No neon RGB, gaming chair, warm wood bookshelves, plants, patterned rug, gold palace or ornamental chandelier."
+    }
+  ],
+  "palette": [
+    "#111214",
+    "#292b2e",
+    "#62656a",
+    "#a9abad",
+    "#f0ede7"
+  ],
+  "synchronization": {
+    "status": "pending",
+    "reason": "Personal repository has no connected Studio project. Preserve local draft. Connected gate not passed."
+  },
+  "qa": {
+    "tests": {
+      "passed": 167,
+      "failed": 0
+    },
+    "build": "TypeScript and Vite passed",
+    "art": "Night, day and evening images visually inspected directly",
+    "browser": {
+      "status": "blocked",
+      "reason": "Chrome runtime: failed to start codex app-server: No such file or directory (os error 2)",
+      "diagnostics": "Chrome running; native host manifest correct; no alternate browser used",
+      "screenshots": false
+    },
+    "studio": "Local draft retained; no connected Studio gate pass"
+  },
+  "implementation": {
+    "status": "implemented",
+    "entry": "src/entry.ts",
+    "scene": "src/penthouse-main.ts",
+    "art": "public/assets/penthouse",
+    "preservedVisuals": "Milky sprites and pet props only",
+    "functionalReuse": [
+      "cyber-climate",
+      "cyber-local-weather",
+      "cyber-sound",
+      "cyber-music-catalog"
+    ],
+    "seasonScope": "Glass-view tint and music; no seasonal interior decorations"
+  }
+}

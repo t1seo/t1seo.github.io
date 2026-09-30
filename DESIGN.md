@@ -1,34 +1,63 @@
-# Taewon Seo — After Hours
+---
+project: taewon-after-hours
+platform: web
+research:
+  policy: studio-mobbin-21st
+  ids: [penthouse-rebuild]
+---
 
-Platform: web. Preserve the delivered 2.5D composition, independent Milky character, seasonal city plates and white-ear logo. The default Noir interior changes materials only; the original interior remains available by URL and Git backup.
+# Taewon Seo — The Penthouse
 
-## Existing brand
+The user rejected the material-only Noir restyle. Rebuild architecture, furniture,
+skyline, lighting, typography and UI from zero; preserve only Milky visual assets.
+New default: src/penthouse-main.ts, selected by src/entry.ts.
 
-Space Grotesk is the primary family; JetBrains Mono is used for labels. The existing dark UI uses canvas `#080f14`, text `#eee9df`, muted `#a4b1b6`, and cyan `#a9d7d7`. Climate choices retain their full thin border and filled selected state. Keep visible keyboard focus, native radio semantics, English settings, reduced motion and 44px controls.
+## Spatial contract
 
-## Local climate scope
+Tall corner glazing, diagonal depth, low black leather sectional, monolithic stone
+table, flush charcoal storage/audio wall, clear foreground for Milky. No frontal
+desk, office chair, bookshelf, plants, patterned rug, RGB, chandelier or gold palace.
+Palette: #111214, #292b2e, #62656a, #a9abad, #f0ede7. Material contrast and readable
+shadows, not crushed blacks. Never apply scene filters to Milky.
+New 1672×941 geometry is independent of the archived desk. Bottom-anchor the room
+so the foreground floor remains visible on narrow screens.
 
-Extend the existing Climate dialog with detected timezone/date, current-weather status and one location/retry action. Auto follows the visitor; manual choices freeze the scene. Browser permission is required before requesting location. Send only rounded coordinates to Open-Meteo; keep coordinates in memory and clear them on destruction. Preserve manual preferences and handle permission denial, stale data, offline requests and late responses honestly.
+## Interface and behavior
+
+Small personal wordmark, Georgia serif welcome, edge controls, native right-side
+dialogs, English settings. Use system sans/Georgia instead of old font assets.
+Controls at least 44px, visible keyboard focus, native radios/checkboxes, dialog
+focus restoration, Immerse with Return/Escape. Reduced motion disables animation;
+hidden tabs stop visual animation while music continues.
+Three original plates supply day/sunset/night; morning/afternoon adapt daylight.
+Seasons tint the glass view and select music without interior decorations. New
+weather clipping excludes furniture and floor. Failed loads retain the current room.
+
+Device-local clock by default; an explicit location action adds browser-permitted
+approximate location, hemisphere, sunrise/sunset and Open-Meteo weather. Manual
+choices pause Auto. Coordinates stay in memory. Failures offer retry. The skyline
+is an illustration, never described as the visitor's actual city. Music begins only
+after a gesture and continues in background tabs. Existing licensed audio and
+climate logic are functional carry-overs. Milky keeps hello/sit/nap/feed/play/run.
 
 ## Research
 
-research: { policy: studio-mobbin-21st, ids: [local-climate, noir-interior] }
+[Detailed report](design/research/penthouse-rebuild/report.html) ·
+[Queries, IDs and decisions](design/research/penthouse-rebuild/research.json)
 
-[Research record](design/research/local-climate/research.json) · [Readable report](design/research/local-climate/report.html)
+Current Studio neutral tokens inspected. Actual images from three Mobbin products
+(Higgsfield, HoneyBook, Air) inspected via MCP. Two 21st component/demo sources
+(19077, 9724) read via MCP. No component code copied or new runtime dependencies.
+RIDI explains the cultural trope; architect/product primary texts inform layout,
+material and furniture. Architecture photo retrieval failed and is not represented
+as inspected evidence. This is a personal Taewon site, not a Studio-branded product.
 
-Studio switch source, three Mobbin images across three products, and two 21st component/demo sources were inspected for this scope. Existing product artwork and styles remain authoritative. The repository has no Studio connection; synchronization is pending and no connected research/release gate pass is claimed.
+Studio sync returned “Connect the project before synchronizing research”. Preserve
+local evidence. No connected Studio research gate or synchronization pass is claimed.
 
-## Noir interior
+## Archives
 
-[Research record](design/research/noir-interior/research.json) · [Readable report](design/research/noir-interior/report.html)
-
-Use black leather, fine-veined graphite stone and charcoal textiles, retaining
-the original room layout and all interactive targets. Preserve the actual original
-city pixels through a vector mask, not a global darkening filter. Never recolor
-Milky or change his sprites. Each fading scene owns its interior lighting and mask
-so winter's tree stays intact during scene changes. Keep the existing controls,
-English settings, typography, accessible names and reduced-motion behavior.
-
-This is Taewon Seo's personal site; the restyle does not replace personal branding
-with Hail Mary branding. Studio is used as a research source, not installed as a
-new product design system. Connected Studio synchronization/gates remain pending.
+Explicit ?interior=original and ?interior=noir load the older composition. Backups
+are pushed: original 924c42e on backup/original-interior-20260930; rejected restyle
+caef110 on backup/noir-restyle-20260930. Older research remains in local-climate and
+noir-interior directories for those scopes only.

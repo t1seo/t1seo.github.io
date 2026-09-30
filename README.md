@@ -2,8 +2,9 @@
 
 Live site: **https://t1seo.github.io/**
 
-The 2026-09-30 Milky Studio delivery is imported into this repository. The active
-entry point is `src/cyber-main.ts`; the original site design and assets are retained.
+The default experience is **The Penthouse**, rebuilt from scratch on 2026-09-30.
+`src/entry.ts` loads `src/penthouse-main.ts`. Only explicit archive URLs load the
+earlier studio entry and styles. The imported project and logo archives remain in Git.
 
 ## Develop and deploy
 
@@ -21,43 +22,48 @@ Pages. The repository's Pages source must be **GitHub Actions**. Build outputs a
 
 ## Local time and weather
 
-Auto follows each visitor's device timezone immediately. On first automatic use,
-the browser asks for location permission. With permission, the room follows the
+Auto follows each visitor's device timezone immediately. The Atmosphere panel's
+**Use my location** action asks for browser permission. With permission, the room follows the
 location's timezone, northern/southern calendar seasons, sunrise/sunset, and
 [Open-Meteo current conditions](https://open-meteo.com/en/docs). Weather updates
 every 15 minutes while the page is visible. This is modeled current weather,
 not a sensor measurement at the visitor's exact position.
 
 Denied location or unavailable weather leaves the clock and room usable; the
-Climate panel explains the state and offers a retry. A manual time, season or
+Atmosphere panel explains the state and offers a retry. A manual time, season or
 weather choice pauses Auto and persists across visits. Re-enable Auto to resume.
 Coordinates are rounded to two decimal places, sent only to Open-Meteo after
 browser permission, and kept in memory only. No API key or backend is needed.
 
 ## Background music
 
-Click Music or a speaker to start playback. Music and the rain ambience continue
+Click Music or the turntable to start playback. Music and the rain ambience continue
 when switching browser tabs; returning to the studio does not restart the track.
 Use Music again to stop playback. Object sounds remain tied to the visible scene,
 and opening the site never starts audio automatically.
 
-## Interior styles and backup
+## The Penthouse and backups
 
-The default **Noir** interior uses black leather, charcoal stone and restrained
-lighting. The original city/time/season images remain underneath a vector-masked
-interior layer; Milky's artwork and behavior are unchanged. Winter retains its
-original Christmas tree. Day and night have separate interior lighting plates.
+New architecture, new skyline, low black leather sectional, stone block table,
+concealed storage and audio wall. Navigation, panels and weather geometry are new.
+Milky's character sprites and behavior are preserved. The default page does not
+import old room/city artwork, masks, desk effects or typography.
 
-- [Noir interior](https://t1seo.github.io/?interior=noir)
-- [Original interior](https://t1seo.github.io/?interior=original)
-- Full pre-restyle backup: `backup/original-interior-20260930` at `924c42e` (also
-  pushed to GitHub). All original artwork remains at its original paths.
+Three original plates supply day, sunset and night; morning/afternoon adapt daylight.
+Seasons subtly tint the glass view and select music, without interior decorations.
+Weather is clipped to the new windows. Failed art loading retains the current view.
 
-The About panel links both versions. Style selection does not reset the saved
-climate preferences. Failed new-artwork loading falls back to the original room.
-Raw generated art and prompts are in `asset-sources/noir-interior/`; optimized
-runtime files are in `public/assets/cyberpunk/noir/`. Regenerate vector masks with
-`node --experimental-strip-types scripts/build-noir-masks.ts`.
+- [New penthouse](https://t1seo.github.io/)
+- [Detailed design research](https://t1seo.github.io/design/research/penthouse-rebuild/report.html)
+- [First Noir restyle](https://t1seo.github.io/?interior=noir): remote backup
+  `backup/noir-restyle-20260930` at `caef110`.
+- [Original interior](https://t1seo.github.io/?interior=original): remote backup
+  `backup/original-interior-20260930` at `924c42e`.
+
+The residence panel links both archives. Style selection preserves climate choices.
+Raw new art/prompts: `asset-sources/penthouse/`. Runtime: `public/assets/penthouse/`.
+Research: `design/research/penthouse-rebuild/`; the Vite build publishes it with
+the site. Studio sync is pending because this personal project is not connected.
 
 ## Imported files
 
