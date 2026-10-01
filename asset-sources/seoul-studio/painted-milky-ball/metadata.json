@@ -1,0 +1,86 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "style-transfer",
+  "prompt": "prompt.txt",
+  "selected": "selected.png",
+  "candidate": "candidate.webp",
+  "before": {
+    "path": "public/assets/penthouse/workspace/ball.webp",
+    "bytes": 98198,
+    "sha256": "b945c4982edd25c4acf8c463f4a1c515883a8386ac6b219985c71e087e1a042b"
+  },
+  "style_reference": {
+    "path": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+    "sha256": "8ac40b167a9b3f656b3398027564a8b0ee2ceedfbe5c65aa92ac3de14d835ba9"
+  },
+  "generated_dimensions": [
+    1254,
+    1254
+  ],
+  "generated_alpha_bounds": [
+    0,
+    21,
+    1216,
+    1214
+  ],
+  "runtime_dimensions": [
+    512,
+    512
+  ],
+  "runtime_bytes": 30290,
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "generation_source": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f75b-fab2-7151-9f32-03ad2bac8d40/exec-e4c7243b-471f-42f2-90f4-f3de87fcac2e.png",
+  "runtime_alpha_bounds": [
+    36,
+    18,
+    465,
+    483
+  ],
+  "runtime_opaque_bounds_alpha128": [
+    95,
+    95,
+    417,
+    419
+  ],
+  "runtime_corners_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "measured_contact_anchor_normalized512": [
+    256,
+    419
+  ],
+  "measured_opaque_diameter_ratio": 0.62890625,
+  "selected_bytes": 946235,
+  "runtime_path": "public/assets/penthouse/objects/milky-ball.webp",
+  "runtime_sha256": "91f3e2a86bf62aaf9660048482dc8a4e03ba88541d17598482a2740ec0c6e2ec",
+  "approved": "Root approved painted vermilion and curved stitch seam; use measured anchor [256, 419].",
+  "validation": {
+    "format": "WEBP",
+    "mode": "RGBA",
+    "dimensions": [
+      512,
+      512
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "corners_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visual_checks": [
+      "Neutral greige background: matte brushwork, clean outline, no visible halo.",
+      "Composited actual Seoul autumn afternoon room at small floor size: warm red remains readable and agrees with hand-painted material."
+    ],
+    "notes": "Only format conversion and Lanczos resize applied after built-in generation. Generated alpha is preserved; outside edge trace opacity is at most3/255. Existing workspace ball file unchanged."
+  }
+}
