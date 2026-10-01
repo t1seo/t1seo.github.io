@@ -1,91 +1,134 @@
 .ph-album-dialog {
-  --album-paper: #e7decc; --album-ink: #494039; --album-gold: #c3ae87;
-  width: min(1080px, calc(100vw - 56px)); height: min(850px, calc(100dvh - 40px));
+  --album-paper: #f3eddf; --album-ink: #635a4b; --album-gold: #8d7549; --album-cloth: #bec2ac;
+  width: min(1100px, calc(100vw - 56px)); height: min(880px, calc(100dvh - 40px));
   max-width: none; max-height: none; margin: auto; padding: 0; border: 0;
   background: transparent; color: #e5ddcf; overflow: visible; color-scheme: dark;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
-.ph-album-dialog::backdrop { background: #141411e8; }
+.ph-album-dialog::backdrop { background: #1c1b17ed; }
 .ph-album-dialog [hidden] { display: none !important; }
 .ph-album-dialog button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .ph-album-dialog button:focus-visible { outline: 2px solid #e5c896; outline-offset: 5px; }
 .ph-album-dialog button:disabled { opacity: .27; cursor: default; }
-.ph-album-shell { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 18px; }
-.ph-album-header { display: flex; align-items: center; gap: 20px; min-height: 44px; padding: 0 6px; }
-.ph-album-header h1 { margin: 0 auto 0 0; font: 400 22px/1.2 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .015em; color: #d9cbb3; }
-.ph-album-cover-link { padding: 9px 4px; background: transparent; border: 0; font-size: 12px !important; color: #c0b4a1 !important; }
-.ph-album-close { display: grid; place-items: center; width: 44px; height: 44px; padding: 0 0 4px; border: 1px solid #cec2ac35; border-radius: 50%; background: #cec2ac08; font-size: 28px !important; font-weight: 200 !important; }
-.ph-album-stage { min-height: 0; position: relative; display: grid; place-items: center; padding: 5px 14px 12px; touch-action: pan-y pinch-zoom; }
+.ph-album-shell { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 20px; }
+.ph-album-header { display: flex; align-items: center; gap: 22px; min-height: 44px; padding: 0 8px; }
+.ph-album-header h1 { margin: 0 auto 0 0; font: 400 21px/1.2 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .035em; color: #cabeaa; }
+.ph-album-cover-link { min-height: 44px; padding: 10px 4px; background: transparent; border: 0; font-size: 11px !important; letter-spacing: .035em; color: #c0b4a1 !important; }
+.ph-album-close { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0 0 4px; border: 1px solid #cec2ac38; border-radius: 50%; background: #cec2ac06; font-size: 28px !important; font-weight: 200 !important; }
+.ph-album-stage { min-height: 0; position: relative; display: grid; place-items: center; padding: 8px 18px 17px; touch-action: pan-y pinch-zoom; container-type: size; }
 .ph-album-cover {
   position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  width: min(420px, 100%); height: 100%; max-height: 590px; min-height: 170px;
-  padding: 40px 35px 40px 45px; border: 1px solid #9c8d6d76; border-radius: 3px 9px 9px 3px;
-  color: #d0b995 !important; isolation: isolate;
+  width: min(490px, 84cqh, calc(100cqw - 28px)); height: auto; aspect-ratio: .94;
+  padding: 12% 9% 12% 11%; border: 1px solid #d9dac5; border-radius: 4px 7px 7px 4px;
+  isolation: isolate; color: var(--album-gold) !important; transform: rotate(-.8deg);
   background:
-    linear-gradient(90deg, #151a1761, transparent 3%, #bcab8640 4%, #10161050 5%, transparent 8%),
-    repeating-linear-gradient(92deg, #e1d2ae09 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(2deg, #151a1523 0 1px, transparent 1px 3px), #555b4d;
-  box-shadow: 1px 1px 0 #b6ad8e, 3px 3px 0 #363b32, 6px 6px 0 #b2a589, 9px 9px 0 #363b32, 16px 22px 45px #0008, inset 0 1px #d2c5a445;
-  text-shadow: 0 1px #252a22;
+    repeating-linear-gradient(3deg, #747d5815 0 .65px, #edf0d81c .65px 1.5px, transparent 1.5px 3px),
+    repeating-linear-gradient(91deg, #fbf9df33 0 .65px, #68755716 .65px 1.2px, transparent 1.2px 3px),
+    linear-gradient(108deg, #dedec4a6, #c6c9b512 26%, #a4ad9333 90%), var(--album-cloth);
+  box-shadow: inset 0 1px 1px #fcfbea9c, inset -1px -1px 2px #6e74504a, 18px 27px 38px -12px #0009, 2px 3px 8px #0003;
 }
-.ph-album-cover::before { content: ''; position: absolute; inset: 24px 22px 24px 32px; border: 1px solid #c8b59145; border-radius: 1px 5px 5px 1px; pointer-events: none; }
-.ph-album-cover::after { content: ''; position: absolute; top: 0; bottom: 0; left: 17px; width: 2px; background: #20291f33; box-shadow: 1px 0 #d6ccac17; pointer-events: none; }
-.ph-album-inscription { max-width: 240px; font: 400 clamp(34px, 4.5vw, 55px)/1.3 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .015em; text-wrap: balance; }
-.ph-album-cover-rule { width: 30px; height: 1px; background: #c3ae876e; margin-top: 28px; }
-.ph-album-invitation { position: absolute; bottom: 57px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #d6c9af; }
-.ph-album-stage--open { padding: 5px 14px 12px; }
+.ph-album-cover::before { content: ''; position: absolute; z-index: -1; inset: 7px -7px -5px auto; width: 7px; border: 1px solid #b5aa8e; border-radius: 1px 4px 4px 1px; background: repeating-linear-gradient(0deg, #f0e9d6 0 1px, #cec6af 1px 2px, #e8dfc9 2px 3px); }
+.ph-album-cover::after { content: ''; position: absolute; z-index: -2; inset: auto -10px -9px 5px; height: 7px; border-radius: 0 0 5px 4px; background: #919b7f; border: 1px solid #c1c5ad; box-shadow: 1px 2px 2px #151c1366; }
+.ph-album-binding { position: absolute; inset: -1px auto -1px -1px; width: 27px; border-radius: 5px 0 0 5px; background: linear-gradient(90deg, #727f6061, #e0e2c736 18%, #b3bba33b 44%, #6b76523b 72%, #f1f1d87d 82%, #8b987326 90%, transparent); border-right: 1px solid #65714e36; box-shadow: 2px 0 1px #f0f0d449; pointer-events: none; }
+.ph-album-cover-frame { position: absolute; inset: 30px 29px 30px 41px; border: 1px solid #98845080; border-radius: 2px; box-shadow: inset 0 1px #f1efd280, 0 1px #f1efd280; pointer-events: none; }
+.ph-album-cover-frame::before, .ph-album-cover-frame::after { content: ''; position: absolute; width: 15px; height: 15px; border: 1px solid #8d754952; }
+.ph-album-cover-frame::before { left: 5px; top: 5px; border-right: 0; border-bottom: 0; }
+.ph-album-cover-frame::after { right: 5px; bottom: 5px; border-left: 0; border-top: 0; }
+.ph-album-inscription { position: relative; display: flex; flex-direction: column; align-items: center; padding-left: 8px; color: #76603c; text-shadow: 0 1px #e8e7cbaa, 0 -1px #71755235; }
+.ph-album-cover-years { display: block; margin-bottom: 18px; color: #594b31; font-size: clamp(9px, 1.7cqh, 11px); font-weight: 500; line-height: 1.5; letter-spacing: .25em; }
+.ph-album-cover-name { display: block; font: 400 clamp(54px, 12cqh, 91px)/.9 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: -.04em; }
+.ph-album-ornament { position: relative; display: block; width: 24px; height: 43px; margin: 32px 0 0 15px; border-left: 1px solid #8d754979; transform: rotate(15deg); pointer-events: none; }
+.ph-album-ornament > span { position: absolute; width: 10px; height: 16px; left: -10px; top: 3px; border: 1px solid #8d75497d; border-radius: 1px 90% 1px 90%; transform: rotate(-17deg); box-shadow: inset 1px 0 #e6e8cb61; }
+.ph-album-ornament > span:nth-child(2) { left: 0; top: 12px; transform: scaleX(-1) rotate(-17deg); }
+.ph-album-ornament > span:nth-child(3) { top: 24px; width: 8px; height: 12px; left: -8px; }
+.ph-album-invitation { position: absolute; bottom: 52px; left: 35px; right: 24px; font-size: 9px; line-height: 1.5; letter-spacing: .17em; text-transform: uppercase; color: #554b34; text-shadow: 0 1px #e8e7cb8c; }
+.ph-album-stage--open { padding: 5px 14px 15px; }
 .ph-album-spread {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; height: 100%; max-height: 650px;
-  position: relative; border-radius: 3px 6px 6px 3px; background: #514a3c; border: 7px solid #555b4d;
-  box-shadow: 0 1px #b3a28b, 0 4px #c8bca3, 0 6px #675e4d, 0 8px #c9bfa8, 0 9px #34392e, 0 24px 45px #0007;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; height: 100%; max-width: 1040px; max-height: 655px;
+  position: relative; border-radius: 3px 5px 5px 3px; background: #aeb79c; border: 8px solid #aeb79c;
+  box-shadow: inset 0 1px #e1e3ca, 0 1px #e1e3ca, 0 3px #b4aa90, 0 4px #eee6d2, 0 6px #c6bca3, 0 8px #e6dec8, 0 10px #929d7e, 0 11px #c0c8ac, 0 26px 40px -10px #0009;
 }
-.ph-album-spread::after { content: ''; position: absolute; top: 0; bottom: 0; left: calc(50% - 13px); width: 26px; pointer-events: none; background: linear-gradient(90deg, transparent, #51452f1f 35%, #28211840 49%, #faf2de38 52%, #463a221f 65%, transparent); }
+.ph-album-spread::after { content: ''; position: absolute; z-index: 2; top: 0; bottom: 0; left: calc(50% - 21px); width: 42px; pointer-events: none; background: linear-gradient(90deg, transparent, #76674a08 17%, #5c4f3521 36%, #6653314a 48%, #fff8e657 51%, #4d412328 57%, #8b7a5710 80%, transparent); }
 .ph-album-page {
-  min-width: 0; min-height: 0; margin: 0; padding: clamp(20px, 3.3vw, 40px) clamp(17px, 2.8vw, 35px) 37px;
-  position: relative; display: grid; place-items: center; color: var(--album-ink);
-  background: repeating-linear-gradient(0deg, #a5937005 0 1px, transparent 1px 3px), linear-gradient(100deg, #f1e9d9, #e6dcc8 95%);
+  min-width: 0; min-height: 0; margin: 0; padding: clamp(30px, 5cqh, 54px) clamp(28px, 4.4cqw, 49px) clamp(47px, 7cqh, 69px);
+  position: relative; display: grid; place-items: center; color: var(--album-ink); overflow: hidden;
+  background:
+    radial-gradient(ellipse at 20% 15%, #fffdf23d, transparent 70%),
+    repeating-linear-gradient(9deg, #ae94710a 0 .6px, transparent .6px 4px),
+    repeating-linear-gradient(94deg, #90754d06 0 .5px, transparent .5px 3px),
+    linear-gradient(100deg, #f6f0e3, #f0e8d9 88%, #e7ddc9);
 }
-.ph-album-page:nth-child(2) { background: repeating-linear-gradient(0deg, #a5937005 0 1px, transparent 1px 3px), linear-gradient(85deg, #d8cdb6, #eee5d3 10%, #e9deca 100%); }
-.ph-album-photo-mount { min-width: 0; min-height: 0; width: 100%; height: 100%; display: grid; place-items: center; }
-.ph-album-photo-mount img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; user-select: none; padding: 5px; background: #f7f0e3; box-shadow: 0 1px 2px #4a392833, 0 3px 8px #4a392814; }
-.ph-album-folio { position: absolute; bottom: 13px; left: 0; right: 0; text-align: center; font: 400 11px/1 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .1em; color: #857967; }
+.ph-album-page:first-child { padding-right: clamp(35px, 5.4cqw, 61px); border-radius: 1px 0 0 2px; }
+.ph-album-page:nth-child(2) { padding-left: clamp(35px, 5.4cqw, 61px); padding-top: clamp(40px, 6.5cqh, 69px); padding-bottom: clamp(37px, 5.5cqh, 54px); background-color: var(--album-paper); background-image: repeating-linear-gradient(9deg, #ae94710a 0 .6px, transparent .6px 4px), repeating-linear-gradient(94deg, #90754d06 0 .5px, transparent .5px 3px), linear-gradient(88deg, #e5dac5, #f3ecde 13%, #f6f0e3 85%, #eee5d4); border-radius: 0 1px 2px 0; }
+.ph-album-photo-mount { min-width: 0; min-height: 0; width: 100%; height: 100%; display: grid; place-items: center; position: relative; }
+.ph-album-photo-mount img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; user-select: none; padding: 8px; border: 1px solid #b9ad9533; background: #fffaf0; box-shadow: 0 1px 2px #56442626, 1px 4px 8px -3px #54442830; }
+.ph-album-folio { position: absolute; bottom: 23px; left: 32px; margin: 0; text-align: left; font: 400 12px/1 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .12em; color: #958970; }
+.ph-album-folio::before { content: ''; display: inline-block; width: 17px; height: 1px; margin: 0 9px 3px 0; background: #ae9e7c59; }
+.ph-album-page:nth-child(2) .ph-album-folio { left: auto; right: 32px; }
+.ph-album-page:nth-child(2) .ph-album-folio::before { display: none; }
+.ph-album-page:nth-child(2) .ph-album-folio::after { content: ''; display: inline-block; width: 17px; height: 1px; margin: 0 0 3px 9px; background: #ae9e7c59; }
 .ph-album-photo-status { font: italic 17px/1.4 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; color: #776e60; text-align: center; }
-.ph-album-photo-retry { padding: 12px 14px; border: 1px solid #86765e66; border-radius: 3px; background: #fff5dc45; color: #655844 !important; font-size: 12px !important; }
-.ph-album-footer { min-height: 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 0 6px; }
-.ph-album-footer button { min-height: 44px; padding: 10px 12px; border: 1px solid #c4b79b35; border-radius: 3px; background: #d8c8aa06; font-size: 12px; width: fit-content; }
+.ph-album-photo-retry { min-height: 44px; padding: 12px 14px; border: 1px solid #86765e66; border-radius: 3px; background: #fff5dc45; color: #655844 !important; font-size: 12px !important; }
+.ph-album-footer { min-height: 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 0 8px; }
+.ph-album-footer button { min-height: 44px; padding: 10px 1px; border: 0; border-bottom: 1px solid #c4b79b40; border-radius: 0; background: transparent; font-size: 11px; letter-spacing: .025em; width: fit-content; }
 .ph-album-next { justify-self: end; }
-.ph-album-counter { margin: 0; font-size: 11px; letter-spacing: .04em; color: #b9ae9e; text-align: center; font-variant-numeric: tabular-nums; }
+.ph-album-counter { margin: 0; font-size: 10px; letter-spacing: .1em; color: #ada28e; text-align: center; font-variant-numeric: tabular-nums; }
 .ph-album-message { max-width: 290px; text-align: center; color: #c5b9a7; font-size: 14px; line-height: 1.7; }
-.ph-album-retry { border: 1px solid #c4b79b66; border-radius: 3px; background: #d8c8aa08; padding: 11px 20px; margin-top: 8px; }
+.ph-album-retry { min-height: 44px; border: 1px solid #c4b79b66; border-radius: 3px; background: #d8c8aa08; padding: 11px 20px; margin-top: 8px; }
 @media (hover: hover) {
   .ph-album-dialog button:not(:disabled):hover { color: #fff4de; }
-  .ph-album-close:hover, .ph-album-footer button:not(:disabled):hover { background: #d8c8aa12; border-color: #c4b79b66; }
-  .ph-album-cover:hover .ph-album-invitation { color: #f0e1c5; }
+  .ph-album-close:hover { background: #d8c8aa12; border-color: #c4b79b66; }
+  .ph-album-footer button:not(:disabled):hover { border-bottom-color: #d9c8a1; }
+  .ph-album-cover:hover .ph-album-invitation { color: #4f533c; }
 }
 @media (max-width: 700px), (max-height: 520px) {
   .ph-album-dialog { width: calc(100vw - 24px); height: calc(100dvh - 24px); }
   .ph-album-shell { gap: 12px; }
   .ph-album-header { gap: 14px; padding: 0 2px; }
   .ph-album-header h1 { font-size: 20px; }
-  .ph-album-stage, .ph-album-stage--open { padding: 3px 5px 12px; }
-  .ph-album-cover { width: min(380px, calc(100% - 20px)); max-height: 610px; }
-  .ph-album-spread { grid-template-columns: minmax(0, 1fr); max-width: 490px; max-height: 720px; border-width: 5px; }
-  .ph-album-spread::after { left: 0; width: 14px; background: linear-gradient(90deg, #40362033, transparent); }
-  .ph-album-page { padding: 22px 19px 35px; }
-  .ph-album-footer { gap: 5px; padding: 0 1px; }
-  .ph-album-footer button { padding: 10px 9px; font-size: 11px; }
-  .ph-album-counter { font-size: 10px; letter-spacing: 0; }
+  .ph-album-stage, .ph-album-stage--open { padding: 3px 7px 15px; }
+  .ph-album-cover { width: min(420px, 84cqh, calc(100cqw - 20px)); padding: 10% 8% 10% 12%; }
+  .ph-album-cover-frame { inset: 22px 19px 22px 31px; }
+  .ph-album-binding { width: 22px; }
+  .ph-album-cover-years { margin-bottom: 14px; }
+  .ph-album-cover-name { font-size: clamp(52px, 15cqw, 78px); }
+  .ph-album-ornament { margin-top: 23px; transform: rotate(15deg) scale(.85); }
+  .ph-album-invitation { bottom: 37px; font-size: 8px; }
+  .ph-album-spread { grid-template-columns: minmax(0, 1fr); max-width: 490px; max-height: 720px; border-width: 6px; }
+  .ph-album-spread::after { left: 0; width: 20px; background: linear-gradient(90deg, #6c5d3f29, #8b7a5710 35%, transparent); }
+  .ph-album-page, .ph-album-page:first-child { padding: 30px 24px 51px; }
+  .ph-album-photo-mount img { padding: 6px; }
+  .ph-album-folio { left: 24px; bottom: 19px; font-size: 11px; }
+  .ph-album-footer { gap: 6px; padding: 0 3px; }
+  .ph-album-footer button { padding: 10px 1px; font-size: 11px; }
+  .ph-album-counter { font-size: 10px; letter-spacing: .025em; }
 }
-@media (max-height: 470px) {
+@media (max-width: 360px) {
+  .ph-album-header h1 { font-size: 18px; }
+  .ph-album-cover-name { font-size: 57px; }
+  .ph-album-cover-years { margin-bottom: 12px; font-size: 9px; }
+  .ph-album-ornament { height: 34px; margin-top: 19px; transform: rotate(15deg) scale(.75); }
+  .ph-album-invitation { bottom: 34px; }
+  .ph-album-page, .ph-album-page:first-child { padding: 24px 18px 43px; }
+  .ph-album-folio { left: 20px; bottom: 16px; }
+}
+@media (max-height: 520px) {
   .ph-album-dialog { height: calc(100dvh - 16px); }
   .ph-album-shell { gap: 4px; }
-  .ph-album-header { min-height: 36px; }
-  .ph-album-close { width: 36px; height: 36px; }
-  .ph-album-cover { width: min(330px, 90%); padding: 20px 35px; min-height: 0; }
-  .ph-album-inscription { font-size: 30px; max-width: none; }
-  .ph-album-cover-rule { margin-top: 12px; }
-  .ph-album-invitation { bottom: 25px; font-size: 8px; }
-  .ph-album-page { padding: 12px 25px 22px; }
-  .ph-album-folio { bottom: 8px; }
-  .ph-album-footer { min-height: 36px; }
+  .ph-album-header { min-height: 44px; }
+  .ph-album-stage { padding-block: 5px 13px; }
+  .ph-album-cover { width: min(390px, 84cqh); padding: 20px; }
+  .ph-album-cover-frame { inset: 15px 12px 15px 23px; }
+  .ph-album-cover-years { font-size: 8px; margin-bottom: 9px; }
+  .ph-album-cover-name { font-size: clamp(30px, 20cqh, 61px); }
+  .ph-album-ornament { height: 21px; margin-top: 12px; transform: rotate(15deg) scale(.55); transform-origin: top center; }
+  .ph-album-invitation { bottom: 26px; font-size: 7px; }
+  .ph-album-page, .ph-album-page:first-child { padding: 17px 29px 29px; }
+  .ph-album-photo-mount img { padding: 4px; }
+  .ph-album-folio { bottom: 10px; }
+  .ph-album-footer { min-height: 44px; }
+}
+@media (forced-colors: active) {
+  .ph-album-cover, .ph-album-spread, .ph-album-photo-mount img { border: 1px solid CanvasText; }
+  .ph-album-cover::before, .ph-album-cover::after, .ph-album-binding, .ph-album-ornament { display: none; }
 }
