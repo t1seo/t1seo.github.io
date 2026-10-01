@@ -1,6 +1,7 @@
 import { CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER } from './cyber-climate';
 import { roomTimeObjectsMarkup } from './penthouse-time-objects';
 import { focusMarkup, memoMarkup, presetsMarkup } from './penthouse-personal-markup';
+import { photoMotionButtonsMarkup } from './penthouse-photo-motions-ui';
 
 const pretty = (value: string) => (value[0] ?? '').toUpperCase() + value.slice(1);
 const group = (key: string, values: readonly string[]) => `<fieldset><legend>${pretty(key)}</legend><div class="ph-options">${values.map(value => `<label><input type="radio" name="${key}" value="${value}"><span>${pretty(value)}</span></label>`).join('')}</div></fieldset>`;
@@ -60,7 +61,12 @@ export function panelMarkup(name: string): string {
     <button class="ph-album-link" data-action="album" aria-haspopup="dialog"><span class="ph-album-link-book" aria-hidden="true"></span><span><strong>Milky’s Photo Album</strong><small>Open the photo album</small></span><span aria-hidden="true">↗</span></button>
     <span class="ph-section-label">Spend a moment together</span><div class="ph-pet-actions ph-compact-actions">
       ${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['bed','Rest in the bed'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([name,label]) => action(name ?? '', label ?? '')).join('')}
-    </div><div class="ph-auto ph-milky-note"><p>Roll the red ball across the floor and Milky will follow. A short drag makes a gentle roll; a longer one invites a chase.</p><p class="ph-panel-note">You can also click Milky. With Milky focused, use the arrow keys to walk, S to sit and N to nap.</p></div>`;
+    </div>
+    <details class="ph-panel-disclosure ph-photo-moments"><summary>Little moments</summary>
+      <div class="ph-pet-actions ph-compact-actions">${photoMotionButtonsMarkup()}</div>
+      <p class="ph-panel-note" id="ph-photo-motion-status" data-photo-motion-status role="status">Small moments inspired by Milky’s photographs.</p>
+    </details>
+    <div class="ph-auto ph-milky-note"><p>Roll the red ball across the floor and Milky will follow. A short drag makes a gentle roll; a longer one invites a chase.</p><p class="ph-panel-note">You can also click Milky. With Milky focused, use the arrow keys to walk, S to sit and N to nap.</p></div>`;
   return `<p class="ph-overline">A PERSONAL SPACE BY TAEWON SEO</p><h2 id="ph-dialog-title">Seoul, in view.</h2>
     <p class="ph-panel-intro">A quiet room above the Han River. A desk facing the horizon, warm shelves, and a soft corner for Milky.</p>
     <p>Four seasons, five times of day, and weather on the glass. Stay a while, put a record on, or leave a hello in the guestbook.</p>

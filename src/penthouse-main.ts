@@ -5,6 +5,7 @@ import { mountPersonalTools } from './penthouse-personal-ui';
 import { mountFocusSession } from './penthouse-focus-ui';
 import { mountFireworksControl } from './penthouse-fireworks-ui';
 import { mountAutomaticFireworks } from './penthouse-fireworks-auto';
+import { mountPhotoMotionControls } from './penthouse-photo-motions-ui';
 import { mountSoundMixer } from './penthouse-sound-ui';
 import { createGuestbookPanel } from './penthouse-guestbook-panel';
 import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type ClimateState, type LocalClimateInfo } from './cyber-climate';
@@ -84,7 +85,15 @@ const stopFireworksCredits = scene.subscribeFireworks(updateWindowAvailability);
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
-}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true });
+}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true }, { photoMotions: true });
+const photoMoments = mountPhotoMotionControls({
+  buttons: () => content.querySelectorAll<HTMLButtonElement>('[data-photo-motion]'),
+  status: () => content.querySelector<HTMLElement>('[data-photo-motion-status]'),
+}, pet, () => animated, () => {
+  cancelAlbumLoad();
+  if (dialog.open) dialog.close();
+  pet.setActive(true);
+});
 const sound = createCyberSound({ independentMix: true, onTrackChange: updatePlayback, onMixChange: (mix, error) => mixer?.refresh(mix, error) });
 const bowlSound = createSingingBowlSound();
 const climate = createCyberClimate(applyClimate);
@@ -98,6 +107,7 @@ const personal = mountPersonalTools(root, {
     animated = snapshot.climate.animated;
     scene.setAnimated(animated);
     pet.setAnimated(animated);
+    photoMoments.refresh();
     updateWindowAvailability();
     climate.setAtmosphere(snapshot.climate);
     updateClimatePanel();
@@ -192,6 +202,7 @@ function openPanel(name: string, trigger: HTMLElement) {
     else button.removeAttribute('aria-current');
   });
   content.innerHTML = panelMarkup(name);
+  photoMoments.refresh();
   if (name === 'guestbook') void guestbook.open();
   if (panel === 'climate') updateClimatePanel();
   if (name === 'workspace') {
@@ -281,7 +292,7 @@ root.addEventListener('click', event => {
 content.addEventListener('change', event => {
   const input = event.target;
   if (!(input instanceof HTMLInputElement)) return;
-  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); pet.setAnimated(animated); updateWindowAvailability(); }
+  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); pet.setAnimated(animated); photoMoments.refresh(); updateWindowAvailability(); }
   if (input.name === 'auto') climate.setAuto(input.checked);
   const season = CYBER_SEASONS.find(value => value === input.value);
   const time = CYBER_TIMES.find(value => value === input.value);
@@ -310,7 +321,7 @@ function destroy() {
   if (destroyed) return;
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
   cancelAlbumLoad(); albumViewer?.destroy();
-  focusSession.destroy(); fireworks.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
+  focusSession.destroy(); fireworks.destroy(); photoMoments.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
   automaticFireworks.destroy(); stopFireworksCredits(); stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);
