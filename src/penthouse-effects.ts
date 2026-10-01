@@ -79,7 +79,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
         ctx!.lineWidth = .7; ctx!.beginPath(); ctx!.moveTo(x,y); ctx!.lineTo(x + 3 + (i % 4),y); ctx!.stroke();
       }
       ctx!.restore();
-      if (workspace.lamp) glow(1090,450,34,12,'#f1d7ac',p.night * .035);
+      if (workspace.lamp) glow(1153,426,29,13,'#f1d7ac',p.night * .028);
     }
     if (p.stars) {
       ctx!.save(); ctx!.beginPath(); path(SKY_EDGE); ctx!.clip();
@@ -137,11 +137,12 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     const night = atmosphereProfile(state).night;
     if (workspace.floorLamp && ctx) loungeLight.draw(ctx,night);
     if (workspace.lamp) {
-      ctx!.save(); ctx!.beginPath(); path([[982,550],[1135,550],[1148,575],[978,575]]); ctx!.clip();
-      glow(1068,561,98,15,'#ffdda0',.37); ctx!.restore();
-      ctx!.save(); ctx!.beginPath(); path([[1052,477],[1127,477],[1130,563],[998,563]]); ctx!.clip();
-      glow(1076,527,69,51,'#ffe9bd',.065); ctx!.restore();
-      glow(1090,477,37,2.1,'#fff0c6',.29);
+      ctx!.save(); ctx!.beginPath(); path([[1044,550],[1220,550],[1215,575],[1036,575]]); ctx!.clip();
+      glow(1129,559,90,14,'#ffdda0',.32); ctx!.restore();
+      ctx!.save(); ctx!.beginPath(); path([[1131,431],[1175,442],[1189,568],[1038,568]]); ctx!.clip();
+      glow(1127,520,84,67,'#ffe9bd',.045); ctx!.restore();
+      ctx!.save(); ctx!.translate(1153,431); ctx!.rotate(.28);
+      glow(0,0,20,2.2,'#fff0c6',.3); ctx!.restore();
     }
     if (workspace.monitor) {
       glow(916,562,86,12,'#bad4e9',.08 + night * .09);

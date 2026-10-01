@@ -9,6 +9,7 @@ export function compositor(t: TestContext, reducedMotion = false, textureSupport
   const media = Object.assign(new EventTarget(),{matches:reducedMotion});
   const frames = new Map<number,FrameRequestCallback>(); let id = 0, draws = 0;
   const text: string[] = [];
+  const translations: Array<readonly [number,number]> = [];
   const paintCommands: string[] = [];
   const liveFilters: string[] = [];
   const textureSizes: number[] = [];
@@ -20,6 +21,7 @@ export function compositor(t: TestContext, reducedMotion = false, textureSupport
     if (key === 'measureText') return (value: string) => ({width:value.length * 2});
     if (key === 'fillText') return (value: string) => text.push(value);
     return (...args: unknown[]) => {
+      if (key === 'translate' && typeof args[0] === 'number' && typeof args[1] === 'number') translations.push([args[0],args[1]]);
       if (key === 'clearRect') draws++;
       if (key === 'clearRect' || key === 'fillRect' || key === 'drawImage') paintCommands.push(key);
       for (const arg of args) if (typeof arg === 'number') assert.ok(Number.isFinite(arg));
@@ -49,5 +51,5 @@ export function compositor(t: TestContext, reducedMotion = false, textureSupport
   const canvas = { getContext: () => context } as unknown as HTMLCanvasElement;
   const effects = mountPenthouseEffects(canvas,null);
   t.after(() => { effects.destroy(); for (const [key,value] of originals) { if (value) Object.defineProperty(globalThis,key,value); else Reflect.deleteProperty(globalThis,key); } });
-  return {effects,canvas,page,media,frames,text,images,paintCommands,liveFilters,textureSizes,fallbackCanvases,colorFilters,gradients:()=>gradients,texturePaints:()=>texturePaints,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
+  return {effects,canvas,page,media,frames,text,translations,images,paintCommands,liveFilters,textureSizes,fallbackCanvases,colorFilters,gradients:()=>gradients,texturePaints:()=>texturePaints,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
 }

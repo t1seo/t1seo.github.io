@@ -8,9 +8,9 @@ import { CYBER_SEASONS, type ClimateState } from './cyber-climate.ts';
 const state = (weather: ClimateState['weather'] = 'clear', time: ClimateState['time'] = 'night', season: ClimateState['season'] = 'autumn'): ClimateState => ({ weather,time,season,auto:false });
 const step = (s: AtmosphereSimulation, seconds: number, climate: ClimateState) => { for (let i = 0; i < seconds * 30; i++) s.advance(1/30,climate); };
 
-test('frontal glazing excludes the remaining furniture and horizontal speaker, leaving removed furniture areas clear', () => {
-  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1470,370],[550,410],[1020,480],[750,520],[1400,550],[1198,518],[1218,518],[1239,518],[806,540],[480,360],[568,420],[270,420],[1060,461],[1126,505],[1142,538],[1188,520]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
-  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[915,465],[1140,480],[1140,520],[1134,538],[675,540],[605,520],[743,540],[900,560],[1250,570],[700,650],[1600,150],[235,420]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
+test('frontal glazing excludes the remaining furniture and petite speaker, leaving removed furniture areas clear', () => {
+  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1470,370],[550,410],[1020,480],[750,520],[1400,550],[1198,518],[1218,518],[806,540],[480,360],[568,420],[270,420],[1060,461],[1126,505],[1140,480],[1140,520],[1188,520]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
+  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[915,465],[1239,518],[1134,538],[675,540],[605,520],[743,540],[900,560],[1250,570],[700,650],[1600,150],[235,420]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
   assert.equal(isSky(457,250),false); // city facade
   assert.equal(isSky(350,160),false); // N Seoul Tower
   assert.equal(isSky(305,210),false); // neighboring mast
@@ -18,21 +18,31 @@ test('frontal glazing excludes the remaining furniture and horizontal speaker, l
   assert.equal(isSky(470,100),true);
   assert.equal(isSky(1300,100),true);
 });
-test('slim lamp bar, upright and base stay protected while the removed dome reveals glass', () => {
-  for (const [x,y] of [[1050,472],[1093,472],[1135,472],[1134,490],[1134,530],[1134,550],[1110,558],[1130,559],[1150,558]]) {
-    assert.equal(isGlass(x,y),false,`painted slim lamp ${x},${y}`);
+test('tall angled lamp shade, arm, upright and base stay protected while the old bar reveals glass', () => {
+  for (const [x,y] of [[1147,420],[1157,413],[1160,428],[1193,418],[1212,433],[1240,451],[1237,478],[1237,530],[1225,558],[1255,560]]) {
+    assert.equal(isGlass(x,y),false,`painted tall lamp ${x},${y}`);
   }
-  for (const [x,y] of [[1078,509],[1114,541],[1110,531],[1117,509],[1144,515],[1142,538],[1060,461],[1095,485],[1146,480]]) {
-    assert.equal(isGlass(x,y),true,`clear space around slim lamp ${x},${y}`);
+  for (const [x,y] of [[1050,472],[1093,472],[1135,472],[1134,490],[1134,530],[1078,509],[1114,541],[1110,531],[1117,509],[1144,515],[1225,490],[1252,510]]) {
+    assert.equal(isGlass(x,y),true,`clear space around tall lamp ${x},${y}`);
   }
 });
 test('painted calendar and digital clock exclude weather without hiding adjacent glass', () => {
-  for (const [x,y] of [[651,516],[675,540],[681,542],[1196,538],[1220,540],[1249,542]]) {
+  for (const [x,y] of [[651,516],[675,540],[681,542],[1131,538],[1155,540],[1183,542]]) {
     assert.equal(isGlass(x,y),false,`painted time object ${x},${y}`);
   }
-  for (const [x,y] of [[641,530],[686,524],[668,507],[1187,540],[1258,540],[1220,529]]) {
+  for (const [x,y] of [[641,530],[686,524],[668,507],[1122,540],[1187,540],[1196,538],[1220,540],[1249,542],[1220,529]]) {
     assert.equal(isGlass(x,y),true,`glass beside time object ${x},${y}`);
   }
+});
+test('petite speaker and singing bowl protect their own painted bodies without the former broad masks', () => {
+  for (const [x,y] of [[729,528],[748,538],[777,540],[1060,540],[1080,540],[1098,540]]) assert.equal(isGlass(x,y),false,`painted object ${x},${y}`);
+  for (const [x,y] of [[691,535],[711,540],[717,536],[787,539],[1068,527],[1096,529]]) assert.equal(isGlass(x,y),true,`clear beside object ${x},${y}`);
+});
+test('desk light originates at the tall tilted shade and pools beneath it on the right desk', t => {
+  const f = compositor(t); f.effects.update(state('clear','noon'));
+  assert.ok(f.translations.some(([x,y]) => x === 1153 && y === 431));
+  assert.ok(f.translations.some(([x,y]) => x >= 1090 && x <= 1190 && y >= 553 && y <= 565));
+  assert.ok(!f.translations.some(([x,y]) => x === 1090 && y === 477));
 });
 test('meteors require clear night, and adverse weather keeps each seasons diffuse daylight', () => {
   for (const season of CYBER_SEASONS) for (const time of ['morning','noon','afternoon','evening','night'] as const) for (const weather of ['clear','rain','snow','mist','cloudy'] as const) {
