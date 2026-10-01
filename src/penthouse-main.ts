@@ -23,8 +23,8 @@ root.innerHTML = `
       <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and a tall graphite and bronze desk lamp. An ivory-shade articulated floor lamp stands to the left of the lounge chair, casting warm light across its back and seat. A small black and gold fountain pen rests directly beside the keyboard, with a small fabric-front speaker between the books and monitor, a bronze singing bowl beside the pen, and a digital clock between the bowl and the right-hand desk lamp. A lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/autumn/night.webp" alt="" fetchpriority="high" draggable="false"></div>
       <div class="ph-weather" data-weather-wash aria-hidden="true"></div>
       <canvas class="ph-weather-canvas" aria-hidden="true"></canvas>
-      <button class="ph-bed" data-action="bed" aria-label="Invite Milky to rest in the soft dog bed"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="1040" height="568"></button>
-      <div class="ph-bed-front" aria-hidden="true"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="1040" height="568"></div>
+      <button class="ph-bed" data-action="bed" aria-label="Invite Milky to rest in the soft dog bed"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="520" height="284"></button>
+      <div class="ph-bed-front" aria-hidden="true"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="520" height="284"></div>
       <div class="ph-pet" data-pet></div>
       <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn off the computer monitor" aria-pressed="true"></button>
       <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"></button>
@@ -79,8 +79,8 @@ function toast(message: string) {
 const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view could not load. Your current view is still here.'));
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
-  ball: { src: '/assets/penthouse/workspace/ball.webp', anchor: [256.204, 407.885] },
-}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } });
+  ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
+}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 } });
 const sound = createCyberSound({ onTrackChange: updatePlayback });
 const bowlSound = createSingingBowlSound();
 const climate = createCyberClimate(applyClimate);

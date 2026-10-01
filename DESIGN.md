@@ -8,6 +8,12 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Painted Milky bed and red ball · 2026-10-01
+
+The cream donut bed uses short, softly brushed plush with a stitched lower edge, replacing the photographic long fur. Its source-space rect[1310,788,260,142], sleeping contact[1440,865] and foreground lip remain unchanged. Runtime artwork is520×284 RGBA WebP (48362bytes). Day/night occupied-bed composites preserve Milky's face and paws above the inner cushion. Original art and the exact built-in ImageGen prompt are in `asset-sources/seoul-studio/painted-milky-bed`.
+
+A small matte vermilion ball with a curved stitched seam rests on the reachable floor near[.52,.977]. Its painted512×512 sprite (30290bytes) is registered at contact[256,419] and follows the room's evening/night shading. It is the same ball Milky plays with: click or keyboard activation initiates the existing real approach, bow, paw contact, small hop/roll and chase. One persistent prop/state prevents a duplicate ball or a respawn at another location. Its accessible hit area does not enlarge the art; no caption or plus badge appears. The optional behavior is enabled only for this room, honors visibility/motion/readiness and keeps the legacy rooms unchanged. Source/prompt: `asset-sources/seoul-studio/painted-milky-ball`.
+
 ## Quiet interactions, opening credits and seasonal details · 2026-10-01
 
 Object clicks communicate through their effect, without the former coffee, fragrance, bowl or bed toast. Operational loading failures can still report an error. The desk-lamp target now covers the entire painted lamp at source[1118,386,162,191]; the higher clock layer preserves clock clicks where the rectangles overlap. Its existing warm underside and tabletop pool are stronger, with no new compositor loop or filter. Coffee steam uses soft rising curls; diffuser fragrance is wider and slower, with a gentler opacity than coffee. Both remain seven-second effects and honor still, hidden and reduced-motion behavior.
