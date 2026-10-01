@@ -6,6 +6,7 @@ import { planMilkyIdleMoment, milkySniffHold, milkyGreetHold, MILKY_BLINK_GAP, t
 import { planMilkyRestCycle, milkyRestTransitionHold, milkyStandHold, milkyExplicitRestHold, type MilkyRestPoseName } from './cyber-pet-rest';
 import { planMilkyMeal, planMilkyPlay, planMilkyRun, milkyBallAtRest, milkyNudgeBall, stepMilkyBall, type MilkyActivityPoseName, type MilkyBallState, type MilkyBallBounds } from './cyber-pet-activity';
 import { createMilkyBed, type MilkyBedOptions } from './cyber-pet-bed';
+import { createMilkyToyTarget, type MilkyToyOptions } from './cyber-pet-toy';
 
 export interface CyberPetController {
   /** Milky notices you and chooses a small walk across the visible floor. */
@@ -123,6 +124,7 @@ export function mountCyberPet(
   propOverrides: Partial<Record<'ball' | 'bowl', { src: string; anchor: readonly [number, number] }>> = {},
   floorBounds = DEFAULT_MILKY_FLOOR,
   bedOptions?: MilkyBedOptions,
+  toyOptions?: MilkyToyOptions,
 ): CyberPetController {
   const page = host.ownerDocument;
   const view = page.defaultView!;
@@ -207,7 +209,8 @@ export function mountCyberPet(
   // them on the real floor with a grounded contact shadow. Never inside the dog's figure.
   const propsLayer = page.createElement('span');
   propsLayer.className = 'cyber-pet-props';
-  propsLayer.setAttribute('aria-hidden', 'true');
+  propsLayer.setAttribute('aria-hidden', String(!toyOptions));
+  propsLayer.dataset.interactive = String(Boolean(toyOptions));
   // Preserve the archived prop registration, scaling each with its matching dog width.
   propsLayer.style.setProperty('--milky-bowl-width', percent(3.7 * desktopWidth / .14));
   propsLayer.style.setProperty('--milky-ball-width', percent(2.6 * desktopWidth / .14));
@@ -220,6 +223,7 @@ export function mountCyberPet(
     wrap.dataset.visible = 'false';
     const propShadow = page.createElement('span');
     propShadow.className = 'cyber-pet-prop-shadow';
+    propShadow.setAttribute('aria-hidden', 'true');
     const image = page.createElement('img');
     image.className = 'cyber-pet-prop-image';
     image.alt = '';
@@ -232,8 +236,9 @@ export function mountCyberPet(
     image.style.setProperty('--milky-prop-anchor-x', `${((256 - anchorX) / 512 * 100).toFixed(2)}%`);
     image.style.setProperty('--milky-prop-anchor-y', `${((512 - anchorY) / 512 * 100).toFixed(2)}%`);
     wrap.append(propShadow, image);
+    const target = name === 'ball' && toyOptions ? createMilkyToyTarget(wrap, play, listeners.signal) : undefined;
     propsLayer.append(wrap);
-    return { name, wrap, image, ready: false, disabled: false };
+    return { name, wrap, image, target, ready: false, disabled: false };
   });
 
   let active = true;
@@ -290,7 +295,7 @@ export function mountCyberPet(
     position: () => position, bound, canWalk,
     walk: (point, autonomous, onDone) => { clearSession(); walkTo(point, { autonomous, onDone, bedRoute: true }); },
     rest: (stages, autonomous, done) => startAutonomousRest(stages, autonomous, done),
-    occupied: (occupied) => { button.dataset.bed = String(occupied); }, settle: () => settle(),
+    occupied: (occupied) => { button.dataset.bed = String(occupied); syncToy(); }, settle: () => settle(),
   });
 
   function registerArt(image: HTMLImageElement, frameX?: string, frameY?: string) {
@@ -321,11 +326,11 @@ export function mountCyberPet(
     autonomousAction = false;
     currentSpeed = 0;
   }
-  /** A finished session leaves no toy or bowl behind. Called from settle and destroy. */
   function clearSession() {
-    ball = undefined;
+    ball = toyOptions && ball && !destroyed ? milkyBallAtRest(bound(ball)) : undefined;
     ballBounds = undefined;
     for (const entry of propItems) entry.wrap.dataset.visible = 'false';
+    syncToy();
   }
   function showIdle() { button.dataset.pose = 'idle'; }
   function spriteFrame(frame: number) {
@@ -358,6 +363,18 @@ export function mountCyberPet(
   function renderBall() {
     const entry = prop('ball');
     if (entry && ball) renderProp(entry, { x: ball.x, y: ball.y }, ball.h);
+  }
+  function syncToy() {
+    const entry = prop('ball');
+    if (!toyOptions || !entry?.target) return;
+    const ready = available() && !idleFailed && primaryArtwork && gaitReady && propReady('ball') && activityReady('play-bow') && activityReady('play-reach');
+    entry.target.disabled = !ready || (bed.active && reducedMotion.matches);
+    entry.target.hidden = !ready;
+    entry.wrap.dataset.visible = String(ready);
+    if (!ready) return;
+    ball ??= milkyBallAtRest(bound(toyOptions.ballHome));
+    showProp('ball', ball);
+    renderBall();
   }
   // One shared animation-frame loop drives both the distance-linked gait and the rolling
   // ball, so lifecycle control (hidden tab, reduced motion, destroy) stays in one place.
@@ -733,7 +750,9 @@ export function mountCyberPet(
     cancelAction();
     clearSession();
     // The ball lands beyond the registered paw reach so the approach is a real walk.
-    const { point: ballSpot, direction } = spotAhead(.09);
+    const { point: ballSpot, direction } = toyOptions && ball
+      ? { point: bound(ball), direction: ball.x < position.x ? -1 : 1 }
+      : spotAhead(.09);
     ball = milkyBallAtRest(ballSpot);
     ballBounds = {
       left: bound({ x: 0, y: ballSpot.y }).x,
@@ -784,6 +803,13 @@ export function mountCyberPet(
     if ((Math.abs(stand.x - position.x) < .01 && !ballInPawContact()) || offTarget(stand)) {
       const flipped = bound({ x: ball.x + approachDir * reach, y: ball.y });
       if (!offTarget(flipped)) stand = flipped;
+    }
+    if (toyOptions && !ballInPawContact() && Math.abs(stand.x - position.x) < .008 && tries < 6) {
+      const stepBack = bound({ x: stand.x - approachDir * .035, y: stand.y });
+      if (Math.abs(stepBack.x - position.x) >= .008) {
+        walkTo(stepBack, { autonomous, onDone: () => playRound(plan, round, autonomous, tries + 1) });
+        return;
+      }
     }
     walkTo(stand, { autonomous, cadence: 1.15, onDone: () => {
       if (!ball) { settle(); return; }
@@ -850,6 +876,7 @@ export function mountCyberPet(
   function play() {
     if (!available() || idleFailed || (bed.active && !canWalk())) return;
     if (!activityReady('play-bow') || !activityReady('play-reach') || !propReady('ball')) return;
+    if (toyOptions) { cancelAction(); clearSession(); }
     notify('play');
     wakeThenRun(() => beginPlay(false));
   }
@@ -884,6 +911,7 @@ export function mountCyberPet(
     button.hidden = !floorVisible || idleFailed || !displayReady();
     if (!available() || reducedMotion.matches) settle();
     else if (button.dataset.motion === 'idle' && !bed.resume()) { queueRoam(); queueLife(); }
+    syncToy();
   }
   // The whole displayed set demotes together: a v4 face on the idle photo must never
   // alternate with a v3 face inside the gait. v3 remains the verified complete fallback.
@@ -976,25 +1004,39 @@ export function mountCyberPet(
   for (const entry of [...rests, ...activities]) {
     entry.image.addEventListener('load', async () => {
       const loadedSrc = entry.image.src;
-      try { await entry.image.decode(); } catch { entry.ready = false; return; }
+      try { await entry.image.decode(); } catch (error: unknown) {
+        if (!(error instanceof Error)) throw error;
+        entry.ready = false;
+        syncToy();
+        return;
+      }
       if (destroyed || entry.disabled || entry.image.src !== loadedSrc || version !== 'v4') return;
       entry.ready = validPetRatio(entry.image);
+      syncToy();
     }, { signal: listeners.signal });
     entry.image.addEventListener('error', () => {
       entry.ready = false;
       entry.disabled = true;
+      syncToy();
     }, { signal: listeners.signal });
   }
   for (const entry of propItems) {
     entry.image.addEventListener('load', async () => {
       const loadedSrc = entry.image.src;
-      try { await entry.image.decode(); } catch { entry.ready = false; return; }
+      try { await entry.image.decode(); } catch (error: unknown) {
+        if (!(error instanceof Error)) throw error;
+        entry.ready = false;
+        syncToy();
+        return;
+      }
       if (destroyed || entry.disabled || entry.image.src !== loadedSrc || version !== 'v4') return;
       entry.ready = validPropRatio(entry.image);
+      syncToy();
     }, { signal: listeners.signal });
     entry.image.addEventListener('error', () => {
       entry.ready = false;
       entry.disabled = true;
+      syncToy();
     }, { signal: listeners.signal });
   }
   // The forward-look set is all-or-nothing: any missing, malformed or undecodable file
@@ -1028,16 +1070,18 @@ export function mountCyberPet(
   }
   button.addEventListener('click', pet, { signal: listeners.signal });
   button.addEventListener('keydown', keydown, { signal: listeners.signal });
-  button.addEventListener('pointerdown', () => { keyboardFocused = false; }, { signal: listeners.signal });
-  button.addEventListener('focus', () => {
-    keyboardFocused = button.matches(':focus-visible');
-    if (keyboardFocused) {
-      clearTimeout(roamTimer);
-      roamTimer = undefined;
-      if (autonomousAction) gentleSettle();
-    }
-  }, { signal: listeners.signal });
-  button.addEventListener('blur', () => { keyboardFocused = false; queueRoam(); queueLife(); }, { signal: listeners.signal });
+  for (const control of [button, ...propItems.flatMap((entry) => entry.target ? [entry.target] : [])]) {
+    control.addEventListener('pointerdown', () => { keyboardFocused = false; }, { signal: listeners.signal });
+    control.addEventListener('focus', () => {
+      keyboardFocused = control.matches(':focus-visible');
+      if (keyboardFocused) {
+        clearTimeout(roamTimer);
+        roamTimer = undefined;
+        if (autonomousAction) gentleSettle();
+      }
+    }, { signal: listeners.signal });
+    control.addEventListener('blur', () => { keyboardFocused = false; queueRoam(); queueLife(); }, { signal: listeners.signal });
+  }
   page.addEventListener('visibilitychange', syncActivity, { signal: listeners.signal });
   reducedMotion.addEventListener('change', syncActivity, { signal: listeners.signal });
   const introObserver = studio ? new MutationObserver(() => {
@@ -1075,6 +1119,7 @@ export function mountCyberPet(
     if (floorVisible && !bed.active) position = bound(position);
     if (visitingBed && !bed.active) button.dataset.bed = 'false';
     renderPosition();
+    if (toyOptions && ball) { ball = milkyBallAtRest(bound(ball)); renderBall(); }
     syncActivity();
   }
   for (const entry of poses) {

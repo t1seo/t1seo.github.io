@@ -10,7 +10,8 @@ const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replace("'./cyber-pet-life'", JSON.stringify(new URL('./cyber-pet-life.ts', import.meta.url).href))
   .replace("'./cyber-pet-rest'", JSON.stringify(new URL('./cyber-pet-rest.ts', import.meta.url).href))
   .replace("'./cyber-pet-activity'", JSON.stringify(new URL('./cyber-pet-activity.ts', import.meta.url).href))
-  .replace("'./cyber-pet-bed'", JSON.stringify(new URL('./cyber-pet-bed.ts', import.meta.url).href));
+  .replace("'./cyber-pet-bed'", JSON.stringify(new URL('./cyber-pet-bed.ts', import.meta.url).href))
+  .replace("'./cyber-pet-toy'", JSON.stringify(new URL('./cyber-pet-toy.ts', import.meta.url).href));
 const { mountCyberPet } = await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString('base64')}`) as typeof import('./cyber-pet');
 
 type Task = { at: number; callback: () => void; kind: 'timer' | 'frame' };
@@ -20,7 +21,7 @@ export const RESTS = ['sit', 'drowsy', 'sleep', 'sitdown', 'wake'] as const;
 
 // Tests mount with every optional pose enabled to exercise the full behavior; production
 // defaults request only what root confirmed shipped (MILKY_SHIPPED_POSES/_REST).
-export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, shippedRest: readonly string[] = RESTS, shippedTrot = true, floorBounds?: Parameters<typeof mountCyberPet>[7], bedAnchor?: Readonly<{ x: number; y: number }>) {
+export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, shippedRest: readonly string[] = RESTS, shippedTrot = true, floorBounds?: Parameters<typeof mountCyberPet>[7], bedAnchor?: Readonly<{ x: number; y: number }>, toyOptions?: Readonly<{ ballHome: Readonly<{ x: number; y: number }> }>) {
   let now = 0;
   let nextId = 1;
   const tasks = new Map<number, Task>();
@@ -39,6 +40,7 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     disabled = false;
     className = '';
     type = '';
+    tagName = '';
     alt = '';
     draggable = false;
     decoding = '';
@@ -73,6 +75,7 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     };
     createElement(tag: string) {
       const element = new Element();
+      element.tagName = tag.toUpperCase();
       element.ownerDocument = this;
       if (tag === 'img') this.images.push(element);
       return element;
@@ -102,7 +105,7 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
   globalThis.ResizeObserver = ResizeObserverFake as unknown as typeof ResizeObserver;
   globalThis.MutationObserver = MutationObserverFake as unknown as typeof MutationObserver;
   const controller = shipped
-    ? mountCyberPet(host as unknown as HTMLElement, shipped as never, shippedRest as never, undefined, undefined, shippedTrot, undefined, floorBounds, bedAnchor ? { element: bed as unknown as HTMLElement, anchor: bedAnchor } : undefined)
+    ? mountCyberPet(host as unknown as HTMLElement, shipped as never, shippedRest as never, undefined, undefined, shippedTrot, undefined, floorBounds, bedAnchor ? { element: bed as unknown as HTMLElement, anchor: bedAnchor } : undefined, toyOptions)
     : mountCyberPet(host as unknown as HTMLElement);
   // The props layer paints beneath the pet button so the lowered face eats over the bowl.
   const button = host.children.find((child) => child.className === 'cyber-pet-button')!;

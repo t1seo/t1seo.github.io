@@ -77,6 +77,29 @@
 /* Props are separate floor-anchored art: a stable bowl, a really rolling ball whose
    contact shadow stays grounded while the ball itself lifts. */
 .cyber-pet-props { position: absolute; inset: 0; z-index: 0; pointer-events: none; contain: layout style; }
+.cyber-pet-props[data-interactive='true'] { z-index: auto; contain: style; }
+.cyber-pet-props[data-interactive='true'] .cyber-pet-prop[data-prop='ball'] { z-index: 2; }
+.cyber-pet-toy {
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 44px;
+  height: 44px;
+  transform: translateX(-50%);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  outline: none;
+  background: transparent;
+  appearance: none;
+  pointer-events: auto;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.cyber-pet-toy:focus-visible { outline: 2px solid #f0ddbd; outline-offset: 2px; }
+.cyber-pet-toy:disabled { pointer-events: none; cursor: default; }
+.cyber-pet-toy[hidden] { display: none; }
 .cyber-pet-prop { position: absolute; left: 0; top: 0; display: block; visibility: hidden; transform-origin: 50% 100%; }
 .cyber-pet-prop[data-visible='true'] { visibility: visible; }
 /* Wrapper widths account for the measured drawn extents (bowl 380/512, ball 304/512), so
