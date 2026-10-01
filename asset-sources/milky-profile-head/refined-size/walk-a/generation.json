@@ -1,0 +1,54 @@
+{
+  "mode": "built-in image_gen",
+  "request": "User asked to reduce the previous oversized head to only 3\u20135% above the original walking-head proportions.",
+  "normalization": "Pillow RGBA, proportional 1536x1024 to768x512 LANCZOS and WebP95 encoding only; image content edits exclusively image_gen. Runtime replaced atomically after full encode and image validation.",
+  "rejected": [
+    "step-2-generated.png: +6.70% measured head width; slightly larger than the desired accepted-idle proportion."
+  ],
+  "selected": [
+    {
+      "frame": 0,
+      "editTarget": "asset-sources/milky-profile-head/before/milky-forward-step-0.webp",
+      "targetSHA256": "8773613547811a7a6643c96743d3b6f8218161ff0ea70f9151ed59fddf6d21ef",
+      "prompt": "asset-sources/milky-profile-head/refined-size/walk-a/step-0-prompt.txt",
+      "generatedOriginal": "asset-sources/milky-profile-head/refined-size/walk-a/step-0-generated.png",
+      "generatedSHA256": "5025c33a2dc726dec85573e40813ef3dc0d81e99353cc654c3bae63b4751a427",
+      "runtime": "public/assets/cyberpunk/milky-forward-step-0.webp",
+      "runtimeSHA256": "3638a5c3d1d04bd249e2e8b62a0b0fe19bb5c54a3a2f3aca5b360583afe38511",
+      "runtimeBytes": 100442
+    },
+    {
+      "frame": 1,
+      "editTarget": "asset-sources/milky-profile-head/before/milky-forward-step-1.webp",
+      "targetSHA256": "1bc97d00cacc40c21fab8fbe895fedea3762a4a54588cd0bf5ccec2d34a54576",
+      "prompt": "asset-sources/milky-profile-head/refined-size/walk-a/step-1-prompt.txt",
+      "generatedOriginal": "asset-sources/milky-profile-head/refined-size/walk-a/step-1-generated.png",
+      "generatedSHA256": "998149d1e432d585637b1bca1772fe4c36eee42786d0c703df39a0b61196b6de",
+      "runtime": "public/assets/cyberpunk/milky-forward-step-1.webp",
+      "runtimeSHA256": "8af7e595ef3ee35057249154b7e83f67d2fbc088488e14668dfd6e54cd4960ef",
+      "runtimeBytes": 99876
+    },
+    {
+      "frame": 2,
+      "editTarget": "asset-sources/milky-profile-head/before/milky-forward-step-2.webp",
+      "targetSHA256": "49ac6e2173dc6890dd829dc1771dea4007259846ca72ae8edbe28027fd4836f7",
+      "prompt": "asset-sources/milky-profile-head/refined-size/walk-a/step-2-prompt-2.txt",
+      "generatedOriginal": "asset-sources/milky-profile-head/refined-size/walk-a/step-2-generated-2.png",
+      "generatedSHA256": "9add1628e7993f485505a1d7ff580ab4ee7acb4528e648671ae404f377b9b7f0",
+      "runtime": "public/assets/cyberpunk/milky-forward-step-2.webp",
+      "runtimeSHA256": "42cb046f5ed23e3f9779197cd3b753b6718096d90f9ea38c3b6396a612107d84",
+      "runtimeBytes": 108830
+    },
+    {
+      "frame": 3,
+      "editTarget": "asset-sources/milky-profile-head/before/milky-forward-step-3.webp",
+      "targetSHA256": "2140f0a638d5a9214f5dbaed852d28368ccf7a5109666fbf62cefc8162d85f43",
+      "prompt": "asset-sources/milky-profile-head/refined-size/walk-a/step-3-prompt.txt",
+      "generatedOriginal": "asset-sources/milky-profile-head/refined-size/walk-a/step-3-generated.png",
+      "generatedSHA256": "f523bef6a9a81209c69649dc63d00774d7e482a91a0539e17287b6d3b9808058",
+      "runtime": "public/assets/cyberpunk/milky-forward-step-3.webp",
+      "runtimeSHA256": "8c1a03c827ed9b7088299387caf26b103996922363b84bb3ba6859f1b6ddb1f6",
+      "runtimeBytes": 90180
+    }
+  ]
+}

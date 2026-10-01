@@ -1,0 +1,238 @@
+{
+  "method": "Alpha >=128. Head ROI excludes body/neck. Board columns original / previous larger edit / accepted subtle edit. Paw floor registration measured in fixed regions.",
+  "frames": [
+    {
+      "frame": 0,
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "headROI": [
+        490,
+        0,
+        768,
+        170
+      ],
+      "headBoundsOriginalPreviousRevised": [
+        [
+          509,
+          64,
+          710,
+          170
+        ],
+        [
+          495,
+          52,
+          737,
+          170
+        ],
+        [
+          510,
+          64,
+          718,
+          170
+        ]
+      ],
+      "headWidthOriginalPreviousRevised": [
+        201,
+        242,
+        208
+      ],
+      "headWidthChangePercent": 3.48,
+      "oldPawBottoms": [
+        465,
+        465,
+        464
+      ],
+      "newPawBottoms": [
+        466,
+        466,
+        465
+      ],
+      "pawDelta": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "frame": 1,
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "headROI": [
+        490,
+        0,
+        768,
+        170
+      ],
+      "headBoundsOriginalPreviousRevised": [
+        [
+          517,
+          72,
+          717,
+          170
+        ],
+        [
+          512,
+          54,
+          751,
+          170
+        ],
+        [
+          517,
+          70,
+          726,
+          170
+        ]
+      ],
+      "headWidthOriginalPreviousRevised": [
+        200,
+        239,
+        209
+      ],
+      "headWidthChangePercent": 4.5,
+      "oldPawBottoms": [
+        478,
+        477,
+        477
+      ],
+      "newPawBottoms": [
+        478,
+        477,
+        477
+      ],
+      "pawDelta": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "frame": 2,
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "headROI": [
+        490,
+        0,
+        768,
+        165
+      ],
+      "headBoundsOriginalPreviousRevised": [
+        [
+          516,
+          49,
+          725,
+          165
+        ],
+        [
+          515,
+          44,
+          747,
+          165
+        ],
+        [
+          513,
+          45,
+          732,
+          165
+        ]
+      ],
+      "headWidthOriginalPreviousRevised": [
+        209,
+        232,
+        219
+      ],
+      "headWidthChangePercent": 4.78,
+      "oldPawBottoms": [
+        472,
+        475
+      ],
+      "newPawBottoms": [
+        473,
+        475
+      ],
+      "pawDelta": [
+        1,
+        0
+      ]
+    },
+    {
+      "frame": 3,
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "headROI": [
+        490,
+        0,
+        768,
+        170
+      ],
+      "headBoundsOriginalPreviousRevised": [
+        [
+          509,
+          60,
+          712,
+          170
+        ],
+        [
+          503,
+          47,
+          735,
+          170
+        ],
+        [
+          509,
+          60,
+          721,
+          170
+        ]
+      ],
+      "headWidthOriginalPreviousRevised": [
+        203,
+        232,
+        212
+      ],
+      "headWidthChangePercent": 4.43,
+      "oldPawBottoms": [
+        469,
+        455,
+        472
+      ],
+      "newPawBottoms": [
+        470,
+        456,
+        473
+      ],
+      "pawDelta": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}
