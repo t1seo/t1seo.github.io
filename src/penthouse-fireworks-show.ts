@@ -12,7 +12,7 @@ export const FIREWORKS_DURATION = 60;
 export const FIREWORK_CUES = [
   { at: 0, x: 740, y: 135, radius: 49, kind: 'chrysanthemum', palette: 0, seed: 103 },
   { at: 3.2, x: 1110, y: 154, radius: 43, kind: 'palm', palette: 1, seed: 211 },
-  { at: 5.9, x: 510, y: 126, radius: 56, kind: 'willow', palette: 0, seed: 307 },
+  { at: 5.9, x: 560, y: 126, radius: 56, kind: 'willow', palette: 0, seed: 307 },
   { at: 7, x: 1190, y: 164, radius: 38, kind: 'chrysanthemum', palette: 2, seed: 409 },
   { at: 10, x: 890, y: 112, radius: 61, kind: 'willow', palette: 1, seed: 503 },
   { at: 12.6, x: 590, y: 156, radius: 42, kind: 'palm', palette: 2, seed: 601 },

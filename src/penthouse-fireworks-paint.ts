@@ -5,9 +5,9 @@ type Paint = Pick<CanvasRenderingContext2D, 'save' | 'restore' | 'beginPath' | '
 type Spark = { readonly vx: number; readonly vy: number; readonly drag: number; readonly gravity: number; readonly life: number; readonly width: number; readonly phase: number; readonly drift: number };
 type Burst = { readonly cue: FireworkCue; readonly sparks: readonly Spark[]; readonly life: number };
 const PALETTES = [
-  { glow: '#dbaf74', tail: '#d9a765', head: '#fff0cd' },
-  { glow: '#d49e98', tail: '#c79186', head: '#ffe0cf' },
-  { glow: '#e8dac0', tail: '#c6b48d', head: '#fff5dd' },
+  { glow: '#edc083', tail: '#efc477', head: '#fff2d2' },
+  { glow: '#dfa99e', tail: '#dfb2a1', head: '#ffe7d7' },
+  { glow: '#eee0bd', tail: '#e2cea2', head: '#fff7e4' },
 ] as const;
 const LAUNCH = 1.45;
 const ATLAS_CELL = 48;
@@ -24,13 +24,13 @@ function burst(cue: FireworkCue): Burst {
     const angle = cue.kind === 'palm'
       ? -Math.PI + (index % 9) / 8 * Math.PI + (random() - .5) * .08
       : index * Math.PI * 2 / count + (random() - .5) * .13;
-    const layer = index % 4 === 0 ? .48 + random() * .22 : .79 + random() * .22;
-    const speed = cue.radius * (cue.kind === 'palm' ? 1.8 : 1.42) * layer;
+    const layer = .16 + Math.sqrt(random()) * .88;
+    const speed = cue.radius * (cue.kind === 'palm' ? 2.02 : 1.66) * layer;
     return {
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed * (.88 + random() * .14),
       drag: .94 + random() * .27, gravity: gravity * (.86 + random() * .26),
-      life: life * (.68 + random() * .32), width: .5 + random() * .55,
+      life: life * (.72 + random() * .28), width: .68 + random() * .6,
       phase: random() * Math.PI * 2, drift: .4 + random() * 1.8,
     };
   });
@@ -81,15 +81,15 @@ export class FireworksPaint {
   private blossom(ctx: Paint, item: Burst, age: number, density: number, night: number): void {
     const { cue, sparks } = item;
     const palette = PALETTES[cue.palette];
-    const stride = density < .5 ? 3 : density < .8 ? 2 : 1;
-    const tailLength = cue.kind === 'willow' ? .52 : cue.kind === 'palm' ? .38 : .2;
+    const stride = density < .8 ? density < .5 && cue.kind !== 'palm' ? 3 : 2 : 1;
+    const tailLength = cue.kind === 'willow' ? .95 : cue.kind === 'palm' ? .62 : .68;
     ctx.lineCap = 'round';
     for (let index = 0; index < sparks.length; index += stride) {
       const spark = sparks[index];
       if (age >= spark.life) continue;
-      const fade = Math.min(1, age / .11) * (1 - age / spark.life) ** .85;
-      const glimmer = .76 + .24 * Math.sin(age * 5.2 + spark.phase) ** 2;
-      const alpha = fade * glimmer * (.68 + night * .24);
+      const fade = Math.min(1, age / .11) * (1 - age / spark.life) ** .56;
+      const glimmer = .85 + .15 * Math.sin(age * 5.2 + spark.phase) ** 2;
+      const alpha = fade * glimmer * (.82 + night * .18);
       const travel = (1 - Math.exp(-spark.drag * age)) / spark.drag;
       const x = cue.x + spark.vx * travel + spark.drift * age ** 1.3;
       const y = cue.y + spark.vy * travel + spark.gravity * age * age;
@@ -98,13 +98,13 @@ export class FireworksPaint {
         const t1 = Math.max(0, age - tailLength * (2 - segment) / 3);
         const d0 = (1 - Math.exp(-spark.drag * t0)) / spark.drag;
         const d1 = (1 - Math.exp(-spark.drag * t1)) / spark.drag;
-        ctx.globalAlpha = alpha * (.14 + segment * .22);
-        ctx.lineWidth = spark.width * (.65 + segment * .22);
+        ctx.globalAlpha = alpha * (.17 + segment * .28);
+        ctx.lineWidth = spark.width * (.42 + segment * .28);
         ctx.strokeStyle = palette.tail; ctx.beginPath();
         ctx.moveTo(cue.x + spark.vx * d0 + spark.drift * t0 ** 1.3, cue.y + spark.vy * d0 + spark.gravity * t0 * t0);
         ctx.lineTo(cue.x + spark.vx * d1 + spark.drift * t1 ** 1.3, cue.y + spark.vy * d1 + spark.gravity * t1 * t1); ctx.stroke();
       }
-      if (index % (stride * 3) === 0) this.glow(ctx, cue.palette, x, y, 7 + spark.width * 2, alpha * .35);
+      if (index % (stride * 3) === 0) this.glow(ctx, cue.palette, x, y, 8 + spark.width * 2.5, alpha * .48);
       ctx.globalAlpha = alpha; ctx.fillStyle = palette.head;
       ctx.fillRect(x - spark.width / 2, y - spark.width / 2, spark.width, spark.width * 1.15);
     }
