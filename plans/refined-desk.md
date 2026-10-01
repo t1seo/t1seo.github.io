@@ -44,3 +44,12 @@ Latest user direction overrides the earlier monitor gesture-only and short lamp 
 - Approved desk master: lamp foot x1208..1262/y552..567, upright1235..1240/y449..557, topjoint1168/y402, shade1130..1178/y401..439; bronze bowl1058..1099/y535..562; diffuser bottle108..138/y623..663 with reeds106..140/y580..633.
 
 - Latest refinement: premium petite speaker finishing and calendar immediately left of monitor [785,510.5,38,48.5]. User accepted the current lamp design; no further lamp redesign. Remove object hover captions and plus badges while retaining accessible names and keyboard focus.
+
+## Verification evidence
+
+- `npm test`: 248 passed, 0 failed. `npm run build`: strict TypeScript and Vite passed. Main integration LSP diagnostics: no errors.
+- HappyDOM executed the actual main event integration with stubbed scene/audio/pet boundaries: monitor and both lights default on; separate floor-lamp toggle; bowl gesture sound; diffuser and coffee; Desk clock/calendar; focus restoration; cropped control/art handling; bed requests; Immerse/Escape; cleanup. This is DOM simulation, not a rendered-browser result.
+- Read-only integration review found no must-fix issue in the workspace state, caches, bowl audio or bed lifecycle.
+- Native CPU Skia diagnostic, actual compositor with decoded images, 8 warmup + 24 measured samples: median/p95 clear night 5.74/6.86 ms, static noon repaint 3.86/5.00 ms, rain night 37.04/59.11 ms, bowl + diffuser night 5.28/6.80 ms. No steady cache allocations/repaints; static noon queued no RAF; teardown removed callbacks. These numbers are not Chrome FPS. Rain remains the heaviest path.
+- Official Codex Computer Use in Chrome confirmed the initial default-on monitor and small speaker. Further final interaction/capture attempts repeatedly failed with “The user changed '/Applications/Google Chrome.app'. Re-query the latest state...”. No alternate GUI provider was used; final native Chrome interaction coverage remains incomplete.
+- All 20 active seasonal/time runtime plates decoded as 1672×941 RGB WebP; total 5008266 bytes. Reviewed full-room contact sheet and final winter night; seasonal workers inspected lamp/bowl/diffuser crops and source lamp-off state. Speaker and bed alpha assets were inspected separately.
