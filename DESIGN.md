@@ -16,7 +16,7 @@ A one-shot cinematic title appears in the upper window: A PERSONAL SPACE fades i
 
 Seasonal detail is an additive layer, not a repaint of the twenty registered room plates. A small textile drapes over the lounge chair at[236,596,88,112]; a console arrangement sits at[1530,445,52,110]. Spring uses sage linen and blossoms, summer light striped linen and greenery, autumn warm wool and dried branches, winter knit fabric and a miniature festive vignette. The active pair of alpha WebP images decodes atomically, keeps the previous pair on failure, ignores stale requests and adds no RAF or timers. Static time/weather shading keeps the accents in the room light. Inputs, exact prompts and runtime manifests are in `asset-sources/seoul-studio/seasonal-accents`.
 
-Milky's forward-facing side profile receives a modest head-only enlargement across forward idle, eight walk frames and four trot frames, matching her existing camera-facing proportions. Preserve her torso, tail, gait, paw contacts, registration and every other pose. The prior thirteen sprites and generation records are retained in `asset-sources/milky-profile-head`; no private photograph is bundled.
+After the user found the first enlargement too large, Milky's forward-facing side profile targets only about 3–5% above the original head size across forward idle, eight walk frames and four trot frames, matching her existing camera-facing proportions. Preserve her torso, tail, gait, paw contacts, registration and every other pose. The prior thirteen sprites and generation records are retained in `asset-sources/milky-profile-head`; no private photograph is bundled.
 
 ## Refined desk, lounge and Milky bed · 2026-10-01
 
