@@ -11,7 +11,10 @@ const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replace("'./cyber-pet-rest'", JSON.stringify(new URL('./cyber-pet-rest.ts', import.meta.url).href))
   .replace("'./cyber-pet-activity'", JSON.stringify(new URL('./cyber-pet-activity.ts', import.meta.url).href))
   .replace("'./cyber-pet-bed'", JSON.stringify(new URL('./cyber-pet-bed.ts', import.meta.url).href))
-  .replace("'./cyber-pet-toy'", JSON.stringify(new URL('./cyber-pet-toy.ts', import.meta.url).href));
+  .replace("'./cyber-pet-toy'", JSON.stringify(new URL('./cyber-pet-toy.ts', import.meta.url).href))
+  .replace("'./cyber-pet-drag'", JSON.stringify(new URL('./cyber-pet-drag.ts', import.meta.url).href))
+  .replace("'./cyber-pet-throw'", JSON.stringify(new URL('./cyber-pet-throw.ts', import.meta.url).href))
+  .replace("'./cyber-pet-transitions'", JSON.stringify(new URL('./cyber-pet-transitions.ts', import.meta.url).href));
 const { mountCyberPet } = await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString('base64')}`) as typeof import('./cyber-pet');
 
 type Task = { at: number; callback: () => void; kind: 'timer' | 'frame' };
@@ -21,7 +24,7 @@ export const RESTS = ['sit', 'drowsy', 'sleep', 'sitdown', 'wake'] as const;
 
 // Tests mount with every optional pose enabled to exercise the full behavior; production
 // defaults request only what root confirmed shipped (MILKY_SHIPPED_POSES/_REST).
-export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, shippedRest: readonly string[] = RESTS, shippedTrot = true, floorBounds?: Parameters<typeof mountCyberPet>[7], bedAnchor?: Readonly<{ x: number; y: number }>, toyOptions?: Readonly<{ ballHome: Readonly<{ x: number; y: number }> }>) {
+export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, shippedRest: readonly string[] = RESTS, shippedTrot = true, floorBounds?: Parameters<typeof mountCyberPet>[7], bedAnchor?: Readonly<{ x: number; y: number }>, toyOptions?: Parameters<typeof mountCyberPet>[9]) {
   let now = 0;
   let nextId = 1;
   const tasks = new Map<number, Task>();
@@ -60,6 +63,10 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     getBoundingClientRect() { return this.bounds; }
     closest(selector: string) { return selector === '.night-studio' ? studio : scene; }
     decodeFails = false;
+    capturedPointer: number | undefined;
+    setPointerCapture(id: number) { this.capturedPointer = id; }
+    hasPointerCapture(id: number) { return this.capturedPointer === id; }
+    releasePointerCapture(id: number) { if (this.capturedPointer === id) this.capturedPointer = undefined; }
     decode() { return this.decodeFails ? Promise.reject(new Error('decode failed')) : Promise.resolve(); }
     remove() { this.removed = true; }
   }

@@ -100,6 +100,8 @@
 .cyber-pet-toy:focus-visible { outline: 2px solid #f0ddbd; outline-offset: 2px; }
 .cyber-pet-toy:disabled { pointer-events: none; cursor: default; }
 .cyber-pet-toy[hidden] { display: none; }
+.cyber-pet-toy[data-draggable='true'] { touch-action: none; cursor: grab; }
+.cyber-pet-toy[data-dragging='true'] { cursor: grabbing; }
 .cyber-pet-prop { position: absolute; left: 0; top: 0; display: block; visibility: hidden; transform-origin: 50% 100%; }
 .cyber-pet-prop[data-visible='true'] { visibility: visible; }
 /* Wrapper widths account for the measured drawn extents (bowl 380/512, ball 304/512), so
