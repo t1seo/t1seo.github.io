@@ -10,7 +10,9 @@ research:
 
 ## A quiet fireworks festival and returning name · latest, 2026-10-02
 
-Remove the small procedural river boat: the user found its rendering too crude for this room. Atmosphere instead offers a deliberate one-minute fireworks festival with Watch/Stop controls. Layer fine gold and champagne sparks with occasional dusty-rose accents; use varied, falling trails and soft light rather than flat rings or hard geometric symbols. Keep the show behind the window frames, skyline and interior silhouettes, with restrained reflections on the Han River. The room’s time, weather, artwork and soundtrack remain the visitor’s choices. The effect starts only on request and stops when the tab is hidden, animation is disabled or reduced motion is requested.
+Remove the small procedural river boat: the user found its rendering too crude for this room. Atmosphere instead offers a one-minute fireworks festival with Watch/Stop controls. Layer fine gold and champagne sparks with occasional dusty-rose accents; use varied, falling trails and soft light rather than flat rings or hard geometric symbols. Keep the show behind the window frames, skyline and interior silhouettes, with restrained reflections on the Han River. The room’s time, weather, artwork and soundtrack remain the visitor’s choices. A running festival stops when the tab is hidden, animation is disabled or reduced motion is requested.
+
+During the selected Night scene, a festival can also begin after a rare random interval of 8–15 minutes. Count only uninterrupted eligible time: no settings, loading/open album or existing festival, and a visible, animated view without reduced motion. Closing those experiences or returning to the room begins a fresh full interval; never catch up on missed background time. Routine climate refreshes preserve the existing deadline. Keep one cancellable timeout and the existing bounded compositor, with no added animation loop or automatic sound. Manual Watch/Stop remains available at every time of day; a started show keeps its normal one-minute lifecycle.
 
 The existing cinematic name returns after one minute of inactivity. Preserve its Cormorant lettering, slow typing, hold and gentle fade. Interaction resets the idle interval; settings, the photo album and fireworks suppress the name and start a fresh minute when they end. Still/reduced-motion mode may show the name without animated typing. This extends the original opening credit without an always-running animation loop.
 
@@ -37,6 +39,8 @@ Each real photograph receives its own brief handwritten observation and one or t
 ## Milky’s walking and bed entry · 2026-10-02
 
 The existing eight-frame walk remains linked to distance, with speed ramps capped at 240ms and a brief turn before changing direction. Milky approaches the front of her cushion, prepares for 180ms, makes a low 480ms hop with a grounded shadow, then settles into sitting and sleep at the original (1440,865) anchor. The front cushion overlay appears only after landing; approaching feet and torso remain visible. Motion respects hidden, still, reduced-motion, modal and cancellation states without a second frame loop or new character artwork.
+
+Claude Fable 5's arrival refinement aims within the support frame, letting that stance appear while slowing before the idle pose replaces it. The distance-based phase adjustment stays within a ±35% cadence bound and preserves compatible retarget continuity. Very short walks and some carried phases receive only partial adjustment. Measured rigid translations bring the existing walk sprites' paws closer to the floor without changing head/body proportions or raster art; residual sprite-shape variation and foot slide remain. Keep the same route endpoints, bed hop, ball-contact logic and existing frame loop.
 
 ## Milky’s handmade scrapbook · latest, 2026-10-02
 

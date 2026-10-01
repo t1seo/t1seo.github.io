@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-02",
+  "tested_source_commit": "6c5520698cce0b7ddc0cb669aeab30a1627395c8",
+  "requests": [
+    "Rare random fireworks at night",
+    "Improve Milky walking using Claude Fable",
+    "Update README and deploy"
+  ],
+  "implementation": {
+    "automatic_fireworks_commit": "11cef72f531f044305877b5e6ce4cb6c2efc4c7a",
+    "gait_commit": "e1e56521bd11d5e3985ff72f492c4ca6c51049d6",
+    "readme_commit": "36a8118fe1bcd8bca5ebca557faae2d4b28efbcb",
+    "claude_model": "claude-fable-5",
+    "claude_method": "Authenticated Claude CLI in isolated worktree, implementation plus focused revision after independent review; root added bounded-phase regression and concise comments before merge."
+  },
+  "checks": {
+    "site_tests": {
+      "passed": 522,
+      "failed": 0,
+      "command": "npm test",
+      "log": "/tmp/t1seo-night-fable-final-tests.log"
+    },
+    "production_build": {
+      "passed": true,
+      "command": "VITE_GUESTBOOK_API_URL=https://taewon-guestbook.northstar-cloudflare.workers.dev npm run build",
+      "log": "/tmp/t1seo-night-fable-final-build.log"
+    },
+    "automatic_fireworks_unit_tests": 12,
+    "automatic_fireworks_main_integration": {
+      "checks": [
+        {
+          "name": "night arms one eight-minute timeout and makes no audio request",
+          "pass": true
+        },
+        {
+          "name": "daytime cancels waiting and never automatically starts",
+          "pass": true
+        },
+        {
+          "name": "equivalent per-second clock and climate refreshes preserve one existing deadline",
+          "pass": true
+        },
+        {
+          "name": "settings block automatic festival and close starts a fresh full interval",
+          "pass": true
+        },
+        {
+          "name": "pending shelf album blocks automatic festival and cancel starts a fresh interval",
+          "pass": true
+        },
+        {
+          "name": "open album blocks automatic festival and close starts a fresh interval",
+          "pass": true
+        },
+        {
+          "name": "manual festival start and stop reset automatic timing without changing playing music",
+          "pass": true
+        },
+        {
+          "name": "hidden waiting time is discarded and visibility starts a fresh interval",
+          "pass": true
+        },
+        {
+          "name": "still mode blocks automatic fireworks and restoring animation starts fresh",
+          "pass": true
+        },
+        {
+          "name": "root teardown cancels automatic timer and does not resurrect on visibility",
+          "pass": true
+        }
+      ],
+      "limits": "Actual root, automatic scheduler, credits, controls, climate and sound/session/mixer. Deterministic window clock/random. External effects scene notifications, decoder primitives and album transport controlled. No GUI, real compositor rendering or real audio asserted."
+    },
+    "gait_focused_tests": {
+      "passed": 15,
+      "failed": 0,
+      "log": "/tmp/t1seo-fable-gait-final-focused.log"
+    },
+    "independent_gait_review": [
+      "Both Seoul .066 right/left walks visibly showed support frame 4 for the final eight 16ms samples before settling",
+      "Same-heading retarget immediately preserved position and visible frame",
+      "No added timers, RAF loops, path extension or post-stop walking",
+      "Existing ball-contact, bed-hop and trot suspension handling preserved"
+    ],
+    "bounded_phase_regression": "Grid of 16 carried phases, five travel distances and two frame counts validates continuous initial phase and positive local cadence within 0.65–1.35 nominal; a clipped short route explicitly does not force the support frame.",
+    "readme": "Updated current scene, interactions, fireworks, album music, guestbook, development and deployment; six local document links checked.",
+    "diff_check": true
+  },
+  "visual_evidence": {
+    "kind": "Offline native Canvas and current sprite paw-window alpha measurements; not Chrome",
+    "files": [
+      {
+        "path": "/tmp/t1seo-fable-gait-active-contact-sheet.png",
+        "sha256": "091655e74046381fc38b92a11640eb8a8621f915fe4563e35c70305a1d1d77f6"
+      },
+      {
+        "path": "/tmp/t1seo-fable-gait-y-before-after.png",
+        "sha256": "e11aad608e12215d5444db4da8540500463b336673b1e30c93cd2d4337d104a8"
+      },
+      {
+        "path": "/tmp/t1seo-fable-active-paw-measurements.json",
+        "sha256": "2008a3d7a99522d3d430036a1aa14e18d1594de7d864f5edcd13d57af124f809"
+      }
+    ],
+    "max_support_floor_error_export_px": {
+      "forward": {
+        "before": 19,
+        "after": 5
+      },
+      "v4": {
+        "before": 16,
+        "after": 6
+      }
+    },
+    "max_adjacent_torso_displacement_export_px": {
+      "forward": {
+        "before": 25,
+        "after": 27
+      },
+      "v4": {
+        "before": 13.5,
+        "after": 19
+      }
+    },
+    "limits": "Alpha bounds include fur, not anatomical contact proof. Rigid Y registration improves paw contact height but does not remove sprite shape variation or foot slide."
+  },
+  "preservation": {
+    "new_dependencies": false,
+    "artwork_or_audio_modified": false
+  },
+  "limitations": [
+    "Official Codex Computer Use failed: Sky Computer Use native pipe startup failed. No alternative GUI provider was used; actual Chrome playback and browser frame performance remain unverified.",
+    "Short paths and some carried phases intentionally receive only partial support-frame adjustment to retain the cadence cap."
+  ],
+  "release": {
+    "target": "main",
+    "site": "https://t1seo.github.io/",
+    "verification": "Exact release SHA, Actions status and live bundle hashes checked after pushing and reported separately."
+  }
+}
