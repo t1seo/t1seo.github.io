@@ -1,0 +1,172 @@
+{
+  "generator": "Built-in image_gen.imagegen, identity-preserve; no CLI fallback.",
+  "coordinateSpace": "Logical1536x1024, runtime uniformly encoded768x512 without crop, warp or silhouette normalization.",
+  "commonTargetAnchor": [
+    795,
+    970
+  ],
+  "renderScale": 0.847,
+  "supportMethod": "Grounded paw footprint visually reviewed using alpha>127 pixels in native y>=900, excluding curled tail and elevated hocks. ContactY is lowest alpha>32 row. Approximate anatomical X footprint uncertainty +/-20logicalpixels; not a bbox or alpha centroid.",
+  "encoding": "@napi-rs/canvas uniform50% downsample, high smoothing quality, WebPquality92; generatedalpha preserved after downsampling.",
+  "assets": [
+    {
+      "name": "sitdown",
+      "source": "asset-sources/milky-photo-motions/bridges/sitdown.png",
+      "runtime": "public/assets/cyberpunk/milky-rest-sitdown.webp",
+      "prompt": "asset-sources/milky-photo-motions/bridges/sitdown-prompt.txt",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "sourceSha256": "5a5a7ef36359f02bd6a619b652edb6bb675fc8e507d599c8aee5096a5ffbb472",
+      "runtimeSha256": "8eca06687845ad1d5d9ca574f54c239663a3e1595a4c17225bec8978b213b61b",
+      "runtimeBytes": 79034,
+      "sourceGeneratorFile": "exec-c2db0e1d-eed7-4d46-acff-f0dd8bca1dd1.png",
+      "sourceAlphaMin": 0,
+      "sourceAlphaMax": 254,
+      "sourceFullyTransparentPixels": 958519,
+      "sourceAlphaBoundsAbove32": [
+        232,
+        66,
+        1379,
+        974
+      ],
+      "supportFootprintExtentX": [
+        477,
+        1276
+      ],
+      "logicalSupportAnchor": [
+        876.5,
+        973
+      ],
+      "runtimeRegistrationOffset": [
+        -81.5,
+        -3
+      ],
+      "maxAlphaDifferenceFromUniformlyDownscaledSource": 0,
+      "headMaximumAlphaRowWidth": 490,
+      "exteriorAlphaSamples": [
+        {
+          "x": 0,
+          "y": 0,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 10,
+          "alpha": 0
+        },
+        {
+          "x": 10,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 757,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 505,
+          "alpha": 0
+        },
+        {
+          "x": 762,
+          "y": 500,
+          "alpha": 0
+        }
+      ]
+    },
+    {
+      "name": "wake",
+      "source": "asset-sources/milky-photo-motions/bridges/wake.png",
+      "runtime": "public/assets/cyberpunk/milky-rest-wake.webp",
+      "prompt": "asset-sources/milky-photo-motions/bridges/wake-prompt.txt",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "sourceSha256": "2e7c54b89769496b60fb996d814cf9e70b353297e5f0a1c5a6bbab41db780850",
+      "runtimeSha256": "ee97151aec455ae3b88c0e89147ae10be18472a78967574c06483845118ee4b2",
+      "runtimeBytes": 97594,
+      "sourceGeneratorFile": "exec-bf1caf5b-f883-49bb-a1b9-78618662a743.png",
+      "sourceAlphaMin": 0,
+      "sourceAlphaMax": 254,
+      "sourceFullyTransparentPixels": 895117,
+      "sourceAlphaBoundsAbove32": [
+        109,
+        71,
+        1419,
+        973
+      ],
+      "supportFootprintExtentX": [
+        463,
+        1397
+      ],
+      "logicalSupportAnchor": [
+        930,
+        972
+      ],
+      "runtimeRegistrationOffset": [
+        -135,
+        -2
+      ],
+      "maxAlphaDifferenceFromUniformlyDownscaledSource": 0,
+      "headMaximumAlphaRowWidth": 522,
+      "exteriorAlphaSamples": [
+        {
+          "x": 0,
+          "y": 0,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 10,
+          "alpha": 0
+        },
+        {
+          "x": 10,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 757,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 505,
+          "alpha": 0
+        },
+        {
+          "x": 762,
+          "y": 500,
+          "alpha": 0
+        }
+      ]
+    }
+  ],
+  "totalRuntimeBytes": 176628,
+  "independentArtReview": {
+    "reviewer": "/root/photo_motion_art_qa",
+    "status": "accepted",
+    "checks": [
+      "sitdown genuinely bends hindquarters between standing and seated",
+      "wake pushes up through forelimbs with hindlegs still folded",
+      "physical head/body scale and four-leg anatomy",
+      "registered support contact and transparent exterior",
+      "native and approximately140px contact-sheet review"
+    ],
+    "limitations": "Static art verification only; browser playback belongs to integration QA."
+  }
+}
