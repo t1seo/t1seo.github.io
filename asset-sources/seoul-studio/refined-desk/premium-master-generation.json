@@ -1,0 +1,20 @@
+{
+  "tool": "built-in image_gen",
+  "useCase": "precise-object-edit",
+  "input": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+  "output": "asset-sources/seoul-studio/refined-desk/premium-master.png",
+  "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f721-4a99-7ed3-91cc-50d5479f4880/exec-d54b0e52-3c14-48d8-8495-2cdd684f3eb6.png",
+  "prompt": "Use case: precise-object-edit.\nEDIT TARGET: the exact 1672 x 941 approved hand-painted illustrated room. Make a VERY SMALL LOCAL QUALITY POLISH to ONLY the tall articulated desk lamp at the far RIGHT end of the desktop. Preserve the lamp's EXACT current shape, position, scale, silhouette and every contour, within 3 pixels. This is NOT a lamp replacement or repositioning. Preserve every other pixel/element of the room as closely as possible.\n\nLamp geometry must remain unchanged: small angled conical shade x1130..1178/y401..439; upper pivot around x1168/y402; diagonal arm reaching x1255/y458; upright x1235..1240/y449..557; low oval base x1208..1262/y552..567. Do not change arm angles, lamp height, shade size, foot position, or apparent thickness outside these extents.\n\nONLY improve the lamp's material craftsmanship within that existing silhouette:\n- Rich satin graphite shade with a very fine, precisely painted champagne-metal rim along the open lower edge. Bulb remains OFF; this is a physical warm metal trim, not emitted light.\n- Refined brushed champagne-bronze articulated arm, subtly varied matte highlights that suggest machined metal rather than a flat black wire.\n- Small clean realistic brass hinge details at existing joints, elegant controlled edge definition.\n- A substantial but very slim graphite-stone/bronze oval base, with restrained material depth and contact shadow on the desktop, same outline and location.\nUse nuanced hand-painted 2.5D illustration, matching the room's high quality brushwork and soft ambient noon light. Fine craftsmanship, refined proportions. Avoid photorealistic pasted-in objects, glossy CGI, thick cartoon outlines, oversized joints, gold bling, toy appearance or any new visual effect.\n\nEverything except lamp surface detailing must stay EXACTLY unchanged: approved left floor lamp OFF, reed diffuser, bronze singing bowl, desk, monitor screen black, pencil cup, keyboard, lounge chair, shelves, all city/window/river details, sky colors, architecture, room lighting, floor, crop and camera. Do not add clock, speaker, calendar, dog or text. Do not turn either lamp on. Output exact 1672 x 941 composition.",
+  "status": "unselected exploration; user accepted the existing approved lamp design",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "observations": [
+    "silhouette and placement visually retained",
+    "subtle warmer material detailing on diagonal arm and hinges",
+    "thin shade rim and clearer base highlight",
+    "improvement is subtle at full-room viewing scale",
+    "both lamps remain off; no runtime plates overwritten"
+  ]
+}
