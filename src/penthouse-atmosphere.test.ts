@@ -9,8 +9,8 @@ const state = (weather: ClimateState['weather'] = 'clear', time: ClimateState['t
 const step = (s: AtmosphereSimulation, seconds: number, climate: ClimateState) => { for (let i = 0; i < seconds * 30; i++) s.advance(1/30,climate); };
 
 test('frontal glazing excludes the remaining furniture and petite speaker, leaving removed furniture areas clear', () => {
-  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1470,370],[550,410],[1020,480],[750,520],[1400,550],[1198,518],[1218,518],[806,540],[480,360],[568,420],[270,420],[1060,461],[1126,505],[1140,480],[1140,520],[1188,520]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
-  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[915,465],[1239,518],[1134,538],[675,540],[605,520],[743,540],[900,560],[1250,570],[700,650],[1600,150],[235,420]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
+  for (const [x,y] of [[280,450],[450,250],[700,280],[900,200],[1470,370],[550,410],[1020,480],[750,520],[1400,550],[1198,518],[1218,518],[675,540],[480,360],[568,420],[270,420],[1060,461],[1126,505],[1140,480],[1140,520],[1188,520]]) assert.equal(isGlass(x,y),true,`${x},${y}`);
+  for (const [x,y] of [[505,200],[1173,200],[200,300],[250,610],[915,465],[1239,518],[1134,538],[806,540],[605,520],[743,540],[900,560],[1250,570],[700,650],[1600,150],[235,420]]) assert.equal(isGlass(x,y),false,`${x},${y}`);
   assert.equal(isSky(457,250),false); // city facade
   assert.equal(isSky(350,160),false); // N Seoul Tower
   assert.equal(isSky(305,210),false); // neighboring mast
@@ -27,10 +27,10 @@ test('tall angled lamp shade, arm, upright and base stay protected while the old
   }
 });
 test('painted calendar and digital clock exclude weather without hiding adjacent glass', () => {
-  for (const [x,y] of [[651,516],[675,540],[681,542],[1131,538],[1155,540],[1183,542]]) {
+  for (const [x,y] of [[791,519],[804,534],[818,542],[1131,538],[1155,540],[1183,542]]) {
     assert.equal(isGlass(x,y),false,`painted time object ${x},${y}`);
   }
-  for (const [x,y] of [[641,530],[686,524],[668,507],[1122,540],[1187,540],[1196,538],[1220,540],[1249,542],[1220,529]]) {
+  for (const [x,y] of [[651,516],[675,540],[681,542],[784,530],[825,524],[804,513],[1122,540],[1187,540],[1196,538],[1220,540],[1249,542],[1220,529]]) {
     assert.equal(isGlass(x,y),true,`glass beside time object ${x},${y}`);
   }
 });
