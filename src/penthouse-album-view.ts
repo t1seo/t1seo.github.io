@@ -76,6 +76,8 @@ export function createAlbumView() {
     letter.className = 'ph-album-letter';
     letter.tabIndex = 0;
     letter.setAttribute('aria-labelledby', 'ph-album-letter-title');
+    const keepsake = document.createElement('div');
+    keepsake.className = 'ph-album-letter-keepsake';
     const cutout = document.createElement('figure');
     cutout.className = 'ph-album-letter-cutout';
     const photograph = document.createElement('img');
@@ -87,14 +89,26 @@ export function createAlbumView() {
     photograph.draggable = false;
     photograph.addEventListener('error', () => { cutout.hidden = true; }, { once: true });
     photograph.src = '/assets/penthouse/milky-album/milky-letter-cutout.webp';
-    const tape = document.createElement('span');
-    tape.className = 'ph-album-letter-cutout-tape';
-    tape.setAttribute('aria-hidden', 'true');
-    cutout.append(photograph, tape);
+    cutout.append(photograph);
+    keepsake.append(cutout);
+    for (const motif of ['flower-sprig', 'rose-heart'] as const) {
+      const sticker = document.createElement('img');
+      sticker.className = `ph-album-letter-sticker ph-album-letter-sticker--${motif}`;
+      sticker.alt = '';
+      sticker.setAttribute('aria-hidden', 'true');
+      sticker.width = 160;
+      sticker.height = 160;
+      sticker.loading = 'lazy';
+      sticker.decoding = 'async';
+      sticker.draggable = false;
+      sticker.addEventListener('error', () => { sticker.hidden = true; }, { once: true });
+      sticker.src = albumStickerSource(motif);
+      keepsake.append(sticker);
+    }
     const greeting = document.createElement('h2');
     greeting.id = 'ph-album-letter-title';
     greeting.textContent = 'Dear Milky,';
-    letter.append(cutout, greeting);
+    letter.append(greeting);
     for (const text of [
       'You were my family and my very best friend. Thank you for always being by my side.',
       'I hope you are happy and at peace, wherever you are. I will keep you close in my heart until the day we meet again.',
@@ -107,7 +121,7 @@ export function createAlbumView() {
     const signature = document.createElement('footer');
     signature.className = 'ph-album-letter-signature';
     signature.textContent = 'Milky 2011-2026';
-    letter.append(signature);
+    letter.append(keepsake, signature);
     stage.replaceChildren(letter);
     stage.classList.remove('ph-album-stage--open');
     stage.classList.add('ph-album-stage--letter');

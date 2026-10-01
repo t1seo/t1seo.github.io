@@ -121,10 +121,13 @@
 .ph-album-letter h2 { margin: 0 0 25px; font: 600 1.34em/1.2 'Album Handwriting', 'Bradley Hand', cursive; color: #745045; }
 .ph-album-letter p { margin: 0 0 24px; max-width: 36ch; }
 .ph-album-letter p:last-of-type { margin-top: 30px; margin-bottom: 32px; }
-.ph-album-letter-cutout { position: relative; float: right; width: clamp(160px, 23cqw, 232px); margin: 9px -15px 22px 25px; transform: rotate(3deg); }
+.ph-album-letter-keepsake { position: relative; width: min(100%, 280px); min-height: 64px; margin: 10px auto 26px; }
+.ph-album-letter-cutout { width: min(154px, 60%); margin: 0 auto; transform: rotate(2deg); }
 .ph-album-letter-cutout img { display: block; width: 100%; height: auto; object-fit: contain; user-select: none; filter: drop-shadow(2px 3px 2px #76574029); }
-.ph-album-letter-cutout-tape { position: absolute; bottom: 19%; right: 6px; width: 78px; height: 23px; background: repeating-linear-gradient(1deg, #fff4df26 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, #b9897521 0 1px, transparent 1px 4px), #c4917994; border-block: 1px solid #ac79672d; transform: rotate(-29deg); clip-path: polygon(2% 0, 100% 2%, 98% 18%, 100% 39%, 98% 60%, 100% 81%, 98% 100%, 0 99%, 2% 77%, 0 56%, 2% 33%, 0 16%); pointer-events: none; }
-.ph-album-letter-signature { clear: both; width: fit-content; margin-top: 12px; padding-top: 16px; border-top: 1px solid #a9876b66; font: 500 20px/1.3 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .055em; color: #78584b; }
+.ph-album-letter-sticker { position: absolute; height: auto; object-fit: contain; user-select: none; pointer-events: none; }
+.ph-album-letter-sticker--flower-sprig { width: 50px; left: 0; bottom: 12%; transform: rotate(-12deg); }
+.ph-album-letter-sticker--rose-heart { width: 38px; right: 0; top: 23%; transform: rotate(13deg); }
+.ph-album-letter-signature { width: fit-content; margin-top: 12px; padding-top: 16px; border-top: 1px solid #a9876b66; font: 500 20px/1.3 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .055em; color: #78584b; }
 .ph-album-retry { min-height: 44px; border: 1px solid #c4b79b66; border-radius: 3px; background: #d8c8aa08; padding: 11px 20px; margin-top: 8px; }
 @media (hover: hover) {
   .ph-album-dialog button:not(:disabled):hover { color: #fff4de; }
@@ -139,8 +142,9 @@
   .ph-album-header h1 { font-size: 20px; }
   .ph-album-letter { padding: 29px 26px 34px; border-width: 5px; font-size: 25px; }
   .ph-album-letter h2 { margin-bottom: 22px; }
-  .ph-album-letter-cutout { float: none; width: min(168px, 75%); margin: 0 auto 27px; transform: rotate(2deg); }
-  .ph-album-letter-cutout-tape { width: 66px; height: 20px; right: 4px; }
+  .ph-album-letter-keepsake { margin-block: 8px 25px; }
+  .ph-album-letter-sticker--flower-sprig { width: 42px; }
+  .ph-album-letter-sticker--rose-heart { width: 32px; }
   .ph-album-stage, .ph-album-stage--open { padding: 3px 7px 15px; }
   .ph-album-cover { width: min(420px, 84cqh, calc(100cqw - 20px)); padding: 10% 8% 10% 12%; }
   .ph-album-cover-frame { inset: 22px 19px 22px 31px; }
@@ -165,7 +169,6 @@
   .ph-album-header h1 { font-size: 18px; }
   .ph-album-header { gap: 9px; }
   .ph-album-letter { padding: 26px 23px 30px; font-size: 24px; }
-  .ph-album-letter-cutout { width: 145px; margin-bottom: 23px; }
   .ph-album-cover-name { font-size: 57px; }
   .ph-album-ornament { height: 34px; margin-top: 19px; transform: rotate(15deg) scale(.75); }
   .ph-album-invitation { bottom: 34px; }
@@ -201,7 +204,4 @@
 @media (forced-colors: active) {
   .ph-album-cover, .ph-album-spread, .ph-album-print { border: 1px solid CanvasText; }
   .ph-album-cover::before, .ph-album-cover::after, .ph-album-binding, .ph-album-ornament, .ph-album-collage, .ph-album-tape, .ph-album-paperclip { display: none; }
-}
-@media (min-width: 521px) and (max-height: 520px) {
-  .ph-album-letter-cutout { float: right; width: 140px; margin: 3px -7px 16px 22px; }
 }
