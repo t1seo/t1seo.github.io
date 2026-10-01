@@ -21,6 +21,10 @@ function atmosphereMarkup(name: string): string {
     ${group('weather', CYBER_WEATHER)}
     <label class="ph-motion-control"><input type="checkbox" name="animated"> Animate the view</label>
     <p class="ph-panel-note">Choosing a scene pauses Auto. Reduced motion keeps the room still.</p>
+    <section class="ph-panel-section" aria-label="Fireworks festival"><span class="ph-section-label">Fireworks festival</span>
+      <div class="ph-pet-actions"><button type="button" data-action="fireworks" aria-pressed="false" aria-describedby="ph-fireworks-status">Watch fireworks</button></div>
+      <p id="ph-fireworks-status" class="ph-panel-note" role="status" data-fireworks-status>A one-minute celebration over the Han River.</p>
+    </section>
     ${name === 'clock' ? '' : `<div class="ph-pet-actions">${action('clock', 'Open the focus timer')}</div>`}
     ${presetsMarkup()}`;
 }

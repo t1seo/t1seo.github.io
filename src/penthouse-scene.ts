@@ -15,7 +15,10 @@ export const PENTHOUSE_WINDOW = `polygon(${GLASS_EDGE.map(([x,y]) => `${x / ROOM
 export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
   const layers = room.querySelector<HTMLElement>('[data-plates]')!;
   const canvas = room.querySelector<HTMLCanvasElement>('canvas')!;
-  const effects = mountPenthouseEffects(canvas, room.querySelector<HTMLImageElement>('.ph-plate'));
+  const fireworksListeners = new Set<(active: boolean) => void>();
+  const effects = mountPenthouseEffects(canvas, room.querySelector<HTMLImageElement>('.ph-plate'), active => {
+    for (const listener of fireworksListeners) listener(active);
+  });
   let state: ClimateState = { season: 'autumn', time: 'night', weather: 'clear', auto: true };
   let revision = 0;
   let dead = false;
@@ -63,8 +66,17 @@ export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
     savorCoffee: effects.savorCoffee,
     strikeBowl: effects.strikeBowl,
     scentDiffuser: effects.scentDiffuser,
+    startFireworks: effects.startFireworks,
+    stopFireworks: effects.stopFireworks,
+    get fireworksActive() { return effects.fireworksActive; },
+    subscribeFireworks(listener: (active: boolean) => void) {
+      fireworksListeners.add(listener);
+      listener(effects.fireworksActive);
+      return () => { fireworksListeners.delete(listener); };
+    },
     destroy() {
       dead = true; revision++; effects.destroy();
+      fireworksListeners.clear();
       for (const image of loaded) image.src = '';
       loaded.clear();
     },

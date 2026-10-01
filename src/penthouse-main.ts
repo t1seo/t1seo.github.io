@@ -3,6 +3,7 @@ import { panelMarkup } from './penthouse-panel-markup';
 import { roomMarkup } from './penthouse-room-markup';
 import { mountPersonalTools } from './penthouse-personal-ui';
 import { mountFocusSession } from './penthouse-focus-ui';
+import { mountFireworksControl } from './penthouse-fireworks-ui';
 import { mountSoundMixer } from './penthouse-sound-ui';
 import { createGuestbookPanel } from './penthouse-guestbook-panel';
 import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type ClimateState, type LocalClimateInfo } from './cyber-climate';
@@ -34,7 +35,6 @@ const $ = <T extends Element = HTMLElement>(selector: string): T => {
 };
 const studio = $('.ph-studio');
 const opening = $('.ph-opening-credits');
-const stopOpeningCredits = mountOpeningCredits(opening, opening.querySelectorAll<HTMLElement>('[data-opening-letter]'));
 const dialog = $<HTMLDialogElement>('.ph-dialog');
 const content = $('[data-dialog-content]');
 const guestbookUrl: unknown = import.meta.env.VITE_GUESTBOOK_API_URL;
@@ -68,6 +68,12 @@ function toast(message: string) {
   toastTimer = setTimeout(() => { $('.ph-toast').textContent = ''; }, 4500);
 }
 const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view could not load. Your current view is still here.'));
+const fireworks = mountFireworksControl(root, scene, () => animated, () => dialog.close());
+const stopOpeningCredits = mountOpeningCredits(opening, opening.querySelectorAll<HTMLElement>('[data-opening-letter]'), {
+  isBlocked: () => dialog.open || albumOpen || scene.fireworksActive,
+  isStill: () => !animated,
+});
+const stopFireworksCredits = scene.subscribeFireworks(() => stopOpeningCredits.resetIdle());
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
@@ -85,6 +91,7 @@ const personal = mountPersonalTools(root, {
     animated = snapshot.climate.animated;
     scene.setAnimated(animated);
     pet.setAnimated(animated);
+    stopOpeningCredits.resetIdle();
     climate.setAtmosphere(snapshot.climate);
     updateClimatePanel();
     void sound.setMix(snapshot.sound, true).catch((error: unknown) => {
@@ -147,8 +154,8 @@ async function openAlbum(trigger: HTMLElement) {
     albumViewer ??= module.createMilkyAlbum({
       host: root, isStill: () => !animated,
       music: { isEnabled: sound.isEnabled, toggle: () => { void sound.setEnabled(!sound.isEnabled()); } },
-      onOpen: () => { albumOpen = true; pet.setActive(false); },
-      onClose: () => { albumOpen = false; albumMusic?.close(); albumMusic = undefined; if (!destroyed) pet.setActive(!dialog.open); },
+      onOpen: () => { albumOpen = true; pet.setActive(false); stopOpeningCredits.resetIdle(); },
+      onClose: () => { albumOpen = false; albumMusic?.close(); albumMusic = undefined; if (!destroyed) { pet.setActive(!dialog.open); stopOpeningCredits.resetIdle(); } },
     });
     albumViewer.open(trigger);
   } catch {
@@ -183,6 +190,7 @@ function openPanel(name: string, trigger: HTMLElement) {
   personal.refresh();
   focusSession.refresh();
   if (!dialog.open) dialog.showModal();
+  stopOpeningCredits.resetIdle();
   const heading = content.querySelector<HTMLElement>('h2');
   heading?.setAttribute('tabindex', '-1');
   heading?.focus({ preventScroll: true });
@@ -192,6 +200,7 @@ function openPanel(name: string, trigger: HTMLElement) {
 
 function updateClimatePanel() {
   if (panel !== 'climate') return;
+  fireworks.refresh();
   const state = climate.getState();
   const info = climate.getLocalInfo();
   const status = content.querySelector('[data-local]');
@@ -259,7 +268,7 @@ root.addEventListener('click', event => {
 content.addEventListener('change', event => {
   const input = event.target;
   if (!(input instanceof HTMLInputElement)) return;
-  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); pet.setAnimated(animated); }
+  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); pet.setAnimated(animated); stopOpeningCredits.resetIdle(); }
   if (input.name === 'auto') climate.setAuto(input.checked);
   const season = CYBER_SEASONS.find(value => value === input.value);
   const time = CYBER_TIMES.find(value => value === input.value);
@@ -268,7 +277,7 @@ content.addEventListener('change', event => {
   if (input.name === 'time' && time) climate.setTime(time);
   if (input.name === 'weather' && weather) climate.setWeather(weather);
 }, options);
-dialog.addEventListener('close', () => { cancelAlbumLoad(); panel = ''; guestbook.close(); scene.setPreview(null); pet.setActive(!albumOpen); if (!albumOpen) (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
+dialog.addEventListener('close', () => { cancelAlbumLoad(); panel = ''; guestbook.close(); scene.setPreview(null); pet.setActive(!albumOpen); stopOpeningCredits.resetIdle(); if (!albumOpen) (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
 dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const r = dialog.getBoundingClientRect();
@@ -288,8 +297,8 @@ function destroy() {
   if (destroyed) return;
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
   cancelAlbumLoad(); albumViewer?.destroy();
-  focusSession.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
-  stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
+  focusSession.destroy(); fireworks.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
+  stopFireworksCredits(); stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);
 if (import.meta.hot) import.meta.hot.dispose(destroy);

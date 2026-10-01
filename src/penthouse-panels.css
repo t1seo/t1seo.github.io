@@ -60,6 +60,7 @@
 .ph-pet-actions button:hover, .ph-about-links a:hover { border-color: #dfcfb54d; background: #dfcfb510; }
 .ph-pet-actions button > span:last-child, .ph-about-links a > span { color: #a89982; }
 .ph-pet-actions button[aria-pressed='true'] { border-color: #ddc8a84d; background: #dbc7a513; }
+.ph-pet-actions button[data-action='fireworks']:disabled { cursor: not-allowed; }
 .ph-compact-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; }
 .ph-quick-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin: 18px 0 24px; }
 .ph-quick-links button { display: grid; justify-items: start; gap: 6px; min-height: 78px; padding: 14px; border: 1px solid #d7c4a631; border-radius: 10px; background: #dac7aa0c; text-align: left; }
