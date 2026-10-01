@@ -20,6 +20,7 @@ import './penthouse-opening-credits.css';
 import './penthouse-personal.css';
 import './penthouse-object-lighting.css';
 import './penthouse-panels.css';
+import './penthouse-album-prop.css';
 const mount = document.querySelector<HTMLDivElement>('#app');
 if (!mount) throw new Error('Studio mount element is missing.');
 const root: HTMLDivElement = mount;
@@ -32,7 +33,7 @@ const $ = <T extends Element = HTMLElement>(selector: string): T => {
 const studio = $('.ph-studio');
 const opening = $('.ph-opening-credits');
 const stopOpeningCredits = mountOpeningCredits(opening, opening.querySelectorAll<HTMLElement>('[data-opening-letter]'));
-const dialog = $<HTMLDialogElement>('dialog');
+const dialog = $<HTMLDialogElement>('.ph-dialog');
 const content = $('[data-dialog-content]');
 const guestbookUrl: unknown = import.meta.env.VITE_GUESTBOOK_API_URL;
 const guestbook = createGuestbookPanel(content, typeof guestbookUrl === 'string' ? guestbookUrl : '');
@@ -53,6 +54,10 @@ let destroyed = false;
 let playing: CyberPlaybackState | undefined;
 let mixer: ReturnType<typeof mountSoundMixer> | undefined;
 let animated = true;
+let albumViewer: ReturnType<typeof import('./penthouse-album').createMilkyAlbum> | undefined;
+let albumLoad: Promise<typeof import('./penthouse-album')> | undefined;
+let albumRequest = 0;
+let albumOpen = false;
 const workspace = { monitor: true, lamp: true, floorLamp: true };
 function toast(message: string) {
   clearTimeout(toastTimer);
@@ -119,7 +124,35 @@ function roomFocusTarget(): HTMLElement {
 const stopInfo = climate.subscribeLocalInfo(updateLocalInfo);
 updateLocalInfo(climate.getLocalInfo());
 
+function cancelAlbumLoad() {
+  albumRequest++;
+  root.querySelectorAll('[data-action="album"][aria-busy]').forEach(button => button.removeAttribute('aria-busy'));
+  $('[data-album-status]').textContent = '';
+}
+async function openAlbum(trigger: HTMLElement) {
+  cancelAlbumLoad();
+  const request = albumRequest;
+  trigger.setAttribute('aria-busy', 'true');
+  $('[data-album-status]').textContent = 'Opening Milky’s album…';
+  try {
+    const module = await (albumLoad ??= import('./penthouse-album'));
+    if (destroyed || request !== albumRequest || !trigger.isConnected) return;
+    albumViewer ??= module.createMilkyAlbum({
+      host: root, isStill: () => !animated,
+      onOpen: () => { albumOpen = true; pet.setActive(false); },
+      onClose: () => { albumOpen = false; if (!destroyed) pet.setActive(!dialog.open); },
+    });
+    albumViewer.open(trigger);
+  } catch {
+    albumLoad = undefined;
+    if (!destroyed && request === albumRequest) toast('Milky’s album could not open. Please select it again to retry.');
+  } finally {
+    if (!destroyed && request === albumRequest) cancelAlbumLoad();
+  }
+}
+
 function openPanel(name: string, trigger: HTMLElement) {
+  cancelAlbumLoad();
   guestbook.close();
   scene.setPreview(null);
   panel = name === 'clock' || name === 'calendar' ? 'climate' : name;
@@ -187,6 +220,7 @@ root.addEventListener('click', event => {
   if (!button) return;
   const action = button.dataset.action;
   if (action === 'climate' || action === 'clock' || action === 'calendar' || action === 'milky' || action === 'about' || action === 'workspace' || action === 'memo' || action === 'guestbook') openPanel(action, button);
+  else if (action === 'album') void openAlbum(button);
   else if (action === 'monitor' || action === 'lamp' || action === 'floorLamp') { workspace[action] = !workspace[action]; updateWorkspace(); }
   else if (action === 'music') void sound.setEnabled(!sound.isEnabled());
   else if (action === 'coffee') scene.savorCoffee('desk');
@@ -226,13 +260,15 @@ content.addEventListener('change', event => {
   if (input.name === 'time' && time) climate.setTime(time);
   if (input.name === 'weather' && weather) climate.setWeather(weather);
 }, options);
-dialog.addEventListener('close', () => { panel = ''; guestbook.close(); scene.setPreview(null); pet.setActive(true); (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
+dialog.addEventListener('close', () => { cancelAlbumLoad(); panel = ''; guestbook.close(); scene.setPreview(null); pet.setActive(!albumOpen); if (!albumOpen) (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
 dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const r = dialog.getBoundingClientRect();
   if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) dialog.close();
 }, options);
 document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') cancelAlbumLoad();
+  if (root.querySelector('dialog[open]')) return;
   if (event.key === 'Escape' && studio.dataset.focus === 'true') $<HTMLButtonElement>('.ph-restore').click();
 }, options);
 
@@ -243,6 +279,7 @@ if (!playing) $('[data-track-title]').textContent = 'Make yourself at home.';
 function destroy() {
   if (destroyed) return;
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
+  cancelAlbumLoad(); albumViewer?.destroy();
   focusSession.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
   stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }

@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-02",
+  "title": "2011-2026 Milky",
+  "implementation": [
+    "3552d79",
+    "6f2fcbb",
+    "c4728b8",
+    "ccefb8f"
+  ],
+  "siteTests": 449,
+  "build": {
+    "command": "VITE_GUESTBOOK_API_URL=https://taewon-guestbook.northstar-cloudflare.workers.dev npm run build",
+    "passed": true,
+    "log": "/tmp/t1seo-album-annotations-build.log"
+  },
+  "testLog": "/tmp/t1seo-album-annotations-full-tests.log",
+  "photos": {
+    "count": 26,
+    "bytes": 1127504,
+    "metadataFree": true,
+    "originals": "Only original-resolution WebP derivatives are public; original JPEGs and private filenames were not published."
+  },
+  "annotations": {
+    "passed": 17,
+    "checks": [
+      "creating the album sends no manifest or image requests",
+      "opening creates one manifest request and focuses the accessible close control",
+      "the exact memorial inscription appears before any photos are loaded",
+      "opening the cover loads only current and next spreads and preserves each photo dimensions and alt text",
+      "horizontal touch turns a spread while vertical scrolling, cancellation, multi-touch and mouse movement do not",
+      "arrow keys turn spreads with at most four retained image requests and revoke the old spread",
+      "End stops at the final photos, Home returns to the first spread, and Previous returns to the cover",
+      "a narrow screen shows one photo and resizing preserves the current photo",
+      "the final selected photograph survives narrow-wide-narrow changes",
+      "Escape closes once, restores opener focus, aborts requests, and discards late photograph responses",
+      "reopening uses the parsed manifest while failed photos have a working individual retry",
+      "room still mode and reduced motion suppress page-turn animations",
+      "destroy removes the dialog and prevents later opens or responsive events from loading photos",
+      "close and reopen ignores a stale manifest; a failed manifest can be retried successfully",
+      "destroying an open album releases every object URL without close callbacks or opener focus restoration",
+      "all 26 wrapped photos retain native dimensions and size caps, with one accessible note and one or two hidden lazy stickers mapped to their photo ID",
+      "notes follow photo identity independently of page numbering and a failed sticker is hidden without removing the note"
+    ],
+    "limits": "Actual album/controller/view/data/cache in Happy DOM. HTTP replies, blob decoder, object URL host and Web Animations are controlled. Native dialog focus trapping, swipe browser gesture arbitration and visual layout require Chrome verification."
+  },
+  "rootRegression": {
+    "passed": 41,
+    "checks": [
+      {
+        "command": "node /tmp/t1seo-album-integration-qa.mjs",
+        "file": "/tmp/t1seo-album-integration-qa-results.json",
+        "passed": 17,
+        "checks": [
+          "initial root mount makes no album module, manifest or photo request",
+          "painted shelf album is a separate decorative sprite with named keyboard-accessible hotspot",
+          "shelf open imports album once, announces loading then pauses pet and clears busy state",
+          "closing standalone album resumes pet and reopening reuses one controller",
+          "Milky panel album preserves underlying sidebar; pet resumes only after both close",
+          "closing underlying sidebar does not resume pet or steal focus while album remains open",
+          "album still-mode accessor follows room animation setting dynamically",
+          "root Escape does not toggle Immerse while album modal is open; teardown destroys viewer",
+          "switching to a sidebar before lazy import resolves prevents late album open and focus steal",
+          "closing sidebar during album import cancels load and ignores completion",
+          "Escape before lazy import resolves cancels album and clears loading without late open",
+          "root teardown before lazy resolution prevents creating a viewer and clears loading",
+          "failed lazy import clears busy state, announces retry and retry creates a working viewer",
+          "repeated clicks while loading share one module promise and open only the latest request",
+          "replacing the album opener by changing panels prevents stale modal open",
+          "album open and close preserve playing music, independent rain, both volumes and track without audio commands",
+          "album navigation preserves private memo storage exactly and never sends its contents over HTTP"
+        ],
+        "limits": "Actual root, room and panel markup, private tools and sidebar integration in HappyDOM. Heavy room/audio/pet boundaries are spies; lazy album transport and viewer contract controlled. No Chrome rendering, native top-layer/focus trap, image decoding or real album contents asserted."
+      },
+      {
+        "command": "node /tmp/t1seo-scene-dom-qa/check-guestbook-root.mjs",
+        "file": "/tmp/t1seo-guestbook-root-dom-results.json",
+        "passed": 12,
+        "checks": [
+          "root mount sends no guestbook requests or lazy imports; pen opens guestbook",
+          "pen imports lazily, starts one public read, retains content focus after async mount",
+          "dialog close aborts read, restores pen focus, ignores late response",
+          "switching to Desk while lazy import is pending prevents stale mount and read",
+          "rapid open-close-reopen ignores older import without destroying newest panel",
+          "failed lazy import renders actionable Retry and retry mounts actual guestbook",
+          "private memo stays separate from empty public draft and never triggers publishing",
+          "switching from public compose to private memo removes widget/listeners; detached form cannot publish",
+          "reopen restores only public draft; leaving during post aborts UI work and ignores late completion",
+          "root teardown invalidates lazy import and prevents further reads",
+          "blocked browser storage keeps private memo for visit across public guestbook navigation",
+          "visit-only presets survive guestbook navigation and restore atmosphere with Auto paused"
+        ],
+        "limits": "Actual root source, guestbook helper, guestbook UI/API/compose/entries and private tools in Happy DOM. Heavy room/audio/pet boundaries are spies; lazy module transport and HTTP/Turnstile boundaries are controlled. No Chrome rendering, native focus trap or real server writes asserted."
+      },
+      {
+        "command": "node /tmp/t1seo-scene-dom-qa/check-personal.mjs",
+        "file": "/tmp/t1seo-personal-dom-qa-results.json",
+        "passed": 12,
+        "checks": [
+          "mount has no music/rain autoplay",
+          "clock starts 25 minutes and moves focus to Pause",
+          "pause/resume preserves exact remaining time and keyboard focus",
+          "panel navigation mirrors countdown; cancel restores local clock and Start focus",
+          "50-minute completion is deferred while hidden and restores local clock exactly once",
+          "memo survives panel navigation, retains Korean text, renders markup as inert text",
+          "memo survives complete root remount through browser storage",
+          "memo Clear removes content and restores textarea focus",
+          "rain-only sound remains independent from music and survives panel navigation",
+          "preset names stay inert text; five-entry cap is enforced visibly",
+          "applying preset emits one atomic climate update, pauses Auto, restores lamps/monitor/still/pet/sound/UI",
+          "delete releases one preset slot and restores name-field focus"
+        ],
+        "limits": "Node happy-dom simulation of actual root wiring and actual UI/climate/storage/timer modules. Scene, pet and audio engine are boundary spies; no browser rendering, native focus trap, autoplay policy or audible output asserted."
+      }
+    ]
+  },
+  "chrome": {
+    "provider": "Official Codex Computer Use",
+    "browser": "Chrome on macOS",
+    "url": "http://127.0.0.1:4173/",
+    "verified": [
+      "Six-book shelf cluster makes contact with shelf without replacing room plates",
+      "Oatmeal linen cover and exact memorial inscription",
+      "Desktop two-page collage, multiple variants and landscape photo without cropping",
+      "Arrow/Home/End navigation and final-page disabled Next",
+      "Escape closes and restores bookshelf opener focus",
+      "Photo-specific English handwriting with painted paper stickers outside photo contents",
+      "320x740 single-page portrait layout and visible controls",
+      "740x360 short single-page layout with notes and visible controls"
+    ],
+    "screenshots": [
+      "/tmp/milky-scrapbook-cover-desktop.png",
+      "/tmp/milky-scrapbook-landscape-photo.png",
+      "/tmp/milky-scrapbook-notes-desktop.png",
+      "/tmp/milky-scrapbook-notes-outdoor.png",
+      "/tmp/milky-scrapbook-notes-mobile320.png",
+      "/tmp/milky-scrapbook-notes-short.png"
+    ],
+    "limits": "Responsive checks used Chrome device emulation, not physical mobile touch. Caption/decoration coverage for all 26 images is tested; screenshots sample representative spreads. Raw browser captures stay local because they include unrelated tab titles."
+  },
+  "preserved": "20 Seoul room plates and every Milky character raster unchanged relative to 3fab690. Album code and photos load only after explicit opening; current/next photo cache remains bounded at four photos.",
+  "files": [
+    {
+      "path": "src/penthouse-main.ts",
+      "sha256": "3b93cefd932a7f4a695885bd120d72656f4e6e61b00e6b677b806bdc27088c0e"
+    },
+    {
+      "path": "src/penthouse-album.ts",
+      "sha256": "3e1e58aef739733e8ab27676a22cd38507d8433886f5c5dbd84153266cd6413c"
+    },
+    {
+      "path": "src/penthouse-album-view.ts",
+      "sha256": "57e1e65ba800d84a467744c7b5c8a6aed680be294beef9db11efe37622e09267"
+    },
+    {
+      "path": "src/penthouse-album.css",
+      "sha256": "c7932822daf6b25fbfadd6fabb43e10d7f48152693ca375be1153c98c8e34062"
+    },
+    {
+      "path": "src/penthouse-album-decorations.ts",
+      "sha256": "a230056efc889982591cac61a09468faa0e105724ca99b19310af10d36b95ca0"
+    },
+    {
+      "path": "src/penthouse-album-prop.css",
+      "sha256": "5fb2dcb4b21422463c05d23855d52c4b39af12442d33f2caad56f203e2aaff33"
+    },
+    {
+      "path": "src/penthouse-room-markup.ts",
+      "sha256": "bd66243dd626398085abf3bed934ec7c37bc9ebc5ea62821f3112db2e07d12ce"
+    },
+    {
+      "path": "src/penthouse-panel-markup.ts",
+      "sha256": "d4470aab4490ca65bce8aca125dad7e9f7689cc2885eb0a6a47bfb067feaa0d4"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+.ph-album-prop {
+  position: absolute; left: 92.16507%; top: 31.66844%; width: 3.11005%; height: 9.35175%;
+  z-index: 2; pointer-events: none; container-type: inline-size;
+}
+.ph-album-prop img { display: block; width: 100%; height: 100%; }
+.ph-album-cover-print {
+  position: absolute; left: 24.2%; top: 30.7%; width: 38.5%; display: grid; gap: .7cqw;
+  color: #d7c697; font: 500 6.4cqw/1.1 'Opening Cormorant', Georgia, serif;
+  text-align: center; transform: rotate(90deg); text-shadow: 0 .3px #252a1740;
+}
+.ph-album-cover-print > span { font: 3.5cqw/1.1 Georgia, serif; letter-spacing: .035em; }
+.ph-room[data-time='night'] .ph-album-prop { filter: brightness(.8) saturate(.86); }
+.ph-room[data-time='evening'] .ph-album-prop { filter: brightness(.9) saturate(.92); }
+.ph-hotspot--album { left: 92.10526%; top: 31.88098%; width: 3.34928%; height: 8.92667%; }
+.ph-hotspot--album:focus-visible { border-radius: 3px; outline-offset: 2px; }
+.ph-album-loading-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ph-album-link {
+  display: flex; align-items: center; gap: 16px; width: 100%; min-height: 92px; margin: 0 0 24px;
+  padding: 14px 16px; border: 1px solid #cbbc943b; border-radius: 10px;
+  background: linear-gradient(120deg, #b9ae7c12, #d8d0b105); text-align: left;
+}
+.ph-album-link-book { flex: 0 0 29px; height: 48px; background: url('/assets/penthouse/objects/milky-photo-album.webp') center / contain no-repeat; }
+.ph-album-link > span:nth-child(2) { display: grid; gap: 6px; flex: 1; }
+.ph-album-link strong { font: 500 23px/1.2 'Opening Cormorant', Georgia, serif; color: #e7decb; }
+.ph-album-link small { font-size: 11px; color: #b7b0a2; }
+.ph-album-link > span:last-child { color: #bba98a; }
+.ph-album-link:hover { border-color: #d7c7a86b; background-color: #d8c7a607; }

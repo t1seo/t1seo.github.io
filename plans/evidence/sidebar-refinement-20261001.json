@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-01",
+  "implementation": [
+    "f9f0f2d",
+    "4256ea1"
+  ],
+  "siteTests": 414,
+  "domChecks": 42,
+  "sidebarScenarios": {
+    "passed": 5,
+    "checks": [
+      "calendar opens current Atmosphere navigation with heading focus and visible sound mixer",
+      "navigation resets only content scroll, focuses heading and hides irrelevant volume controls",
+      "private note stays under Desk and survives navigation through About and Milky",
+      "guestbook is directly reachable and leaving preserves sound settings without eager public requests",
+      "Milky action closes drawer and restores the original room opener"
+    ],
+    "limits": "Actual main source and native tool helpers in Happy DOM; not rendered browser layout, native focus trap or live guestbook writes."
+  },
+  "chrome": {
+    "provider": "Official Codex Computer Use",
+    "desktop": [
+      "Guestbook read and write layout",
+      "Atmosphere selected choices and headings",
+      "Desk grouped controls and preview",
+      "Milky action grid",
+      "About disclosure layout"
+    ],
+    "responsive": {
+      "viewport": [
+        320,
+        740
+      ],
+      "verified": [
+        "Five navigation destinations visible",
+        "Guestbook text/cards within viewport",
+        "Keyboard activates Leave a note and focuses Display name",
+        "Local official test Turnstile fits without clipping",
+        "Header/nav/footer remain while content scrolls to verification"
+      ]
+    },
+    "limits": "Local Chrome used a read-only fixture API and official Turnstile test sitekey. Earlier production guestbook verified real Turnstile and a successful write separately. No Windows native scrollbar screenshot taken; CSS guard accounts for it."
+  }
+}

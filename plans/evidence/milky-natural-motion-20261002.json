@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-02",
+  "implementation": "c58f16f",
+  "siteTests": 447,
+  "petTests": 155,
+  "logs": [
+    "/tmp/t1seo-milky-natural-full-tests.log",
+    "/tmp/t1seo-milky-natural-motion-tests.log"
+  ],
+  "chrome": {
+    "provider": "Official Codex Computer Use",
+    "browser": "Chrome on macOS",
+    "url": "http://127.0.0.1:4173/",
+    "verified": [
+      "Distance-linked walking to the bed front",
+      "Low airborne hop above the cushion edge",
+      "Grounded sitting and sleeping at the cushion anchor",
+      "Approaching torso stays visible after occupancy mask fix"
+    ],
+    "screenshots": [
+      "/tmp/milky-bed-fixed-sequence-4.png",
+      "/tmp/milky-bed-fixed-sequence-6.png",
+      "/tmp/milky-bed-fixed-sequence-9.png"
+    ]
+  },
+  "visualFix": {
+    "cause": "The z-index 4 duplicate cushion lip hid the dog before takeoff while its paws were still on the floor.",
+    "change": "Show ph-bed-front only while the pet data-bed attribute is true; the complete underlying bed remains visible throughout.",
+    "confirmation": "Repeated actual Chrome approach/hop/landing sequence after the CSS change.",
+    "review": "Motion owner independently checked landing, leaving, fallback and cancellation occupancy transitions."
+  },
+  "preserved": "No changes to public/assets/cyberpunk character art or public/assets/penthouse/seoul room plates relative to 3fab690.",
+  "limits": "Hidden, still, reduced-motion, modal, resize and cancellation paths were checked in mounted controller tests; screenshots demonstrate normal rendered motion, not every lifecycle scenario."
+}

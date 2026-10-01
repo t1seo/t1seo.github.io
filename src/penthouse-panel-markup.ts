@@ -53,6 +53,7 @@ export function panelMarkup(name: string): string {
   if (name === 'workspace') return workspaceMarkup();
   if (name === 'milky') return `<p class="ph-overline">YOUR LITTLE ROOMMATE</p><h2 id="ph-dialog-title">Meet Milky.</h2>
     <p class="ph-panel-intro">A little Maltese, with the run of the place.</p>
+    <button class="ph-album-link" data-action="album" aria-haspopup="dialog"><span class="ph-album-link-book" aria-hidden="true"></span><span><strong>2011-2026 Milky</strong><small>Open Milky’s photo album</small></span><span aria-hidden="true">↗</span></button>
     <span class="ph-section-label">Spend a moment together</span><div class="ph-pet-actions ph-compact-actions">
       ${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['bed','Rest in the bed'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([name,label]) => action(name ?? '', label ?? '')).join('')}
     </div><div class="ph-auto ph-milky-note"><p>Roll the red ball across the floor and Milky will follow. A short drag makes a gentle roll; a longer one invites a chase.</p><p class="ph-panel-note">You can also click Milky. With Milky focused, use the arrow keys to walk, S to sit and N to nap.</p></div>`;

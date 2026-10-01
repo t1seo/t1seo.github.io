@@ -14,6 +14,8 @@ export function roomMarkup(): string {
       <button class="ph-bed" data-action="bed" aria-label="Invite Milky to rest in the soft dog bed"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="520" height="284"></button>
       <div class="ph-bed-front" aria-hidden="true"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="520" height="284"></div>
       <div class="ph-pet" data-pet></div>
+      <div class="ph-album-prop" aria-hidden="true"><img src="/assets/penthouse/objects/milky-photo-album-shelved.webp" alt="" width="324" height="529" draggable="false"><span class="ph-album-cover-print"><span>2011-2026</span> Milky</span></div>
+      <button class="ph-hotspot ph-hotspot--album" data-action="album" aria-label="Open 2011-2026 Milky photo album" aria-haspopup="dialog"></button>
       <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn off the computer monitor" aria-pressed="true"></button>
       <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"></button>
       <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music on the small desktop speaker" aria-pressed="false"></button>
@@ -28,6 +30,7 @@ export function roomMarkup(): string {
   </div>
   <button class="ph-restore" data-action="focus" aria-label="Show clock and calendar" hidden>Return to the room</button>
   <div class="ph-toast" role="status" aria-live="polite"></div>
+  <div class="ph-album-loading-status" data-album-status role="status"></div>
   <dialog class="ph-dialog" aria-labelledby="ph-dialog-title">
     <header class="ph-panel-header"><span class="ph-panel-identity"><span aria-hidden="true">✦</span> THE SEOUL STUDIO</span><form method="dialog"><button class="ph-close" aria-label="Close panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form></header>
     <nav class="ph-panel-nav" aria-label="Studio settings"><button data-action="climate">Atmosphere</button><button data-action="workspace">Desk</button><button data-action="milky">Milky</button><button data-action="guestbook">Guestbook</button><button data-action="about">About</button></nav>

@@ -35,3 +35,7 @@ The read-only motion audit confirmed the long ramp, arrival gaze change, bed-rou
 - `npx tsc --noEmit` and scoped `git diff --check`: passed.
 - Independent read-only motion and lifecycle audits found no blocking issue. Real Chrome visual QA remains assigned to root; this file does not claim that it has passed.
 - No character raster, room plate, pet dimensions, sound behavior, or additional dependency changed. The generic skill AST checker could not resolve its external `typescript` import against this native TypeScript 7 installation; compiler checking and focused diff review passed.
+
+## Rendered integration check
+
+Root verified walking, takeoff, a low airborne hop and settled sleep in actual Chrome through official Codex Computer Use. The initial sequence revealed the duplicated front cushion masking the approaching torso before takeoff. Its visibility now follows `data-bed=true`, with the complete bed still visible underneath. The repeated sequence passes; the motion owner separately reviewed occupancy changes during landing, cancellation and leaving. Evidence: `plans/evidence/milky-natural-motion-20261002.json`.

@@ -8,6 +8,32 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Personal details on each photograph · latest, 2026-10-02
+
+Each real photograph receives its own brief handwritten observation and one or two small matte paper stickers selected for the visible scene or mood. Local Caveat lettering and painted cloud, moon, paw, heart, ribbon, flower, blanket and ball motifs complement the existing rose scrapbook. Keep notes warm without invented dates or memories, and keep every face and image unobstructed. Decorations belong to the surrounding paper rather than a filter over the original photograph.
+
+## Milky’s walking and bed entry · 2026-10-02
+
+The existing eight-frame walk remains linked to distance, with speed ramps capped at 240ms and a brief turn before changing direction. Milky approaches the front of her cushion, prepares for 180ms, makes a low 480ms hop with a grounded shadow, then settles into sitting and sleep at the original (1440,865) anchor. The front cushion overlay appears only after landing; approaching feet and torso remain visible. Motion respects hidden, still, reduced-motion, modal and cancellation states without a second frame loop or new character artwork.
+
+## Milky’s handmade scrapbook · latest, 2026-10-02
+
+The user's three supplied scrapbook images replace the formal interior direction. Present the same real Milky photographs as hand-mounted prints: generous polaroid borders, subtly varied angles and heights, translucent gingham washi tape, torn rose/terracotta paper, graph-paper layers and occasional paperclips. Keep the composition tactile and warm with cocoa details and cream pages, rather than copying the references' green palette. Page variants create the feeling of a personal collection without new or invented captions. The cover uses oatmeal linen with a quiet rose-brown inscription, exactly `2011-2026 Milky`. The six-book illustrated shelf placement remains current; image contents, native dimensions, loading and interaction contracts are unchanged.
+
+## Shelved album and fine-art pages · 2026-10-02
+
+The album sits within a six-book group on the third right-hand shelf, with muted cream, umber, charcoal and olive spines. The painted cluster uses `milky-photo-album-shelved.webp` at [1541,298,52,88]; its bottom meets the shelf at y382. The olive spine carries `2011-2026 Milky` in a tiny rotated foil inscription, while the open album preserves the title at a readable size. Existing sculpture, frame and all room plates remain intact. The earlier single-book sprite is used only for the sidebar entry.
+
+The opened book takes cues from linen-bound keepsake albums: sage cloth, restrained foil lettering, clear title hierarchy, a crafted spine and subtle paper edges. Inside, bright ivory paper, quiet folios and generous photographic margins keep the real images central. Pinterest discovery and directly inspected Artifact Uprising references are documented in `plans/milky-photo-album-refinement.md`; the Locketts pistachio linen album was also inspected for fine fabric texture and restrained embossing. The photographs themselves are never cropped, recolored or enlarged beyond their native resolution.
+
+## Milky’s memorial album and refined panels · 2026-10-01
+
+The photo album carries the exact title `2011-2026 Milky`. Keep it quiet and affectionate: real photographs, warm ivory paper, olive linen, a thin gold border, restrained page turns and no invented captions, dates, sounds or automatic slideshow. The painted closed album occupies [1542,291,48,92] on the third right-hand bookshelf. Its physical artwork stays visible in Immerse; its separate accessible hotspot opens the album. The Milky panel supplies the same entry when the shelf is cropped on mobile.
+
+The user has explicitly chosen 26 Milky photographs from Downloads for publication here. Their WebP derivatives preserve native dimensions and aspect ratios, remove metadata and total 1,127,504 bytes; originals and private paths remain outside the repository. The viewer loads lazily, keeps only the current and next spread prepared, and uses a separate native dialog over any existing settings panel. Closing restores the original control without changing room sound, climate or private notes. Narrow/short screens show one photo; wider screens show two. Still and reduced-motion settings suppress page animation.
+
+The settings drawer now uses warm charcoal surfaces and the existing local Cormorant typeface. A compact room heading, five navigation destinations and a small music/Immerse footer remain fixed while only the content scrolls. Guestbook is directly reachable; private notes remain under Desk. The full music/rain mixer appears only in Atmosphere but remains mounted. Related Desk and Milky actions are grouped, and secondary background material uses native disclosure controls. Desktop has a lightly inset rounded drawer; narrow screens fill the viewport with reachable 44px controls and an unclipped verification widget at 320px.
+
 ## Living room details and useful objects · 2026-10-01
 
 The painted room and all Milky sprites remain unchanged. The bed, ball, clock and calendar share restrained contact shadows and a time/weather lighting palette. The desk lamp adds warm fill to the nearby clock; the monitor gives the calendar a faint night fill. No chair textiles return.
