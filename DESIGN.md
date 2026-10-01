@@ -8,6 +8,22 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Music for Milky’s photographs · latest, 2026-10-02
+
+Opening the album begins Scott Buckley’s `Childhood`, a gentle piano-and-strings recording already included in the licensed local catalogue. A quiet room starts playing; an existing room soundtrack transitions through the existing audio engine. Closing restores the earlier track and its place, with an explicit Play/Pause choice inside the album taking priority. If the same recording was already playing, leave its progress uninterrupted. Keep the album’s own music control legible and reachable, including on narrow screens. No extra recording is downloaded into the project, no audio starts on ordinary page entry, and the artist/source/CC BY 4.0 attribution remains available in the music credits.
+
+## Physical album and letter materials · latest, 2026-10-02
+
+The album should read as a real hand-bound keepsake: fine oatmeal linen, a formed spine and hinge, restrained stamped serif lettering, visible board and paper thickness, and a gentle gutter between mounted photograph pages. Material grain is subtle and irregular rather than a strong synthetic grid. Retain the warm rose scrapbook accents and the photos' natural aspect ratios.
+
+The closing letter is a separate ivory cotton-paper sheet with restrained fibers, soft folds and paper edges. Remove the thick rose box frame. Its English writing should feel like a fine pen, with lighter strokes, comfortable line spacing and clear paragraph rhythm. Keep the Milky photograph below the prose with small flower/heart stickers and no tape; `Milky 2011-2026` remains the last line. Material images and fonts are small self-hosted assets used only after opening the album, and the letter remains readable through internal scrolling on narrow or short screens.
+
+## A simple cover and a closing letter · latest, 2026-10-02
+
+The opened cover reads only `Milky`, without years, while the viewer heading and sidebar entry read `Milky’s Photo Album`. The last page after photograph 26 is a warm English letter from the user: thanks for being family and a best friend, for always staying beside them, and a wish for happiness until they meet again. Its final memorial line is exactly `Milky 2011-2026`. Keep the page quiet, legible and reachable through normal page navigation; narrow or short screens may scroll the letter itself without hiding the viewer controls. The existing tiny bookshelf spine inscription remains unchanged.
+
+The supplied smiling photograph becomes a carefully contour-cut Milky keepsake, with the bedding removed to transparency and the photographic likeness preserved. The user's latest correction removes all tape from this photograph and places it below the letter prose, surrounded by small painted flower/heart stickers. A slight rotation and restrained shadow suggest a personal scrapbook without a rectangular frame. Keep decorations clear of Milky's face and the handwriting, and retain `Milky 2011-2026` as the final line. The photo and decorations load only on the letter page; responsive flow keeps every line and the lower keepsake reachable.
+
 ## Personal details on each photograph · latest, 2026-10-02
 
 Each real photograph receives its own brief handwritten observation and one or two small matte paper stickers selected for the visible scene or mood. Local Caveat lettering and painted cloud, moon, paw, heart, ribbon, flower, blanket and ball motifs complement the existing rose scrapbook. Keep notes warm without invented dates or memories, and keep every face and image unobstructed. Decorations belong to the surrounding paper rather than a filter over the original photograph.

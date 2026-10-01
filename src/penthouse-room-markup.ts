@@ -15,7 +15,7 @@ export function roomMarkup(): string {
       <div class="ph-bed-front" aria-hidden="true"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="520" height="284"></div>
       <div class="ph-pet" data-pet></div>
       <div class="ph-album-prop" aria-hidden="true"><img src="/assets/penthouse/objects/milky-photo-album-shelved.webp" alt="" width="324" height="529" draggable="false"><span class="ph-album-cover-print"><span>2011-2026</span> Milky</span></div>
-      <button class="ph-hotspot ph-hotspot--album" data-action="album" aria-label="Open 2011-2026 Milky photo album" aria-haspopup="dialog"></button>
+      <button class="ph-hotspot ph-hotspot--album" data-action="album" aria-label="Open Milky’s photo album" aria-haspopup="dialog"></button>
       <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn off the computer monitor" aria-pressed="true"></button>
       <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"></button>
       <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music on the small desktop speaker" aria-pressed="false"></button>

@@ -23,7 +23,7 @@ These are visual judgments for this particular letter, rather than claims that t
 - Use `font-display: swap` and a handwriting/system fallback. Do not preload this secondary font into the room: let its first actual letter usage request it.
 - The asset decodes correctly with weight 400 and 210 mapped characters. All characters in the final letter and `Milky 2011-2026` are present.
 
-The typography design checklist is provisionally 8/10: size, measure, leading, hierarchy, font payload, fallbacks, heading treatment and distinct controls are specified. The remaining checks are real-screen rendering at final CSS sizes and 200% browser zoom, which must be confirmed by the browser QA owner before a final quality claim.
+Final CSS was inspected in real Chrome through the official Codex Computer Use runtime on 2026-10-02. At 100% and 200% browser zoom, the prose keeps readable spacing, the photo annotations remain separate from the images, and the closing letter scrolls to the cutout and final memorial line while navigation remains reachable. The 320 × 740 responsive photograph layout was also visually checked. Captures remain local under /tmp/milky-*-materials-*.png because browser chrome contains unrelated personal tab titles. These checks cover Chrome on this Mac, not other browser engines or physical mobile devices.
 
 ## Official sources
 

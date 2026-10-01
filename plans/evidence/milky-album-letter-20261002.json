@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-02",
+  "baseline": "5bc9902d5966058558a9b645011c8caa8aa33ffb",
+  "implementationHead": "5f5598762df09c6a951339dd530182a2d381f0b5",
+  "scope": [
+    "Milky-only opened cover and Milky’s Photo Album viewer/panel title",
+    "Navigable closing English letter after photograph 26, ending with Milky 2011-2026",
+    "Background-removed Milky cutout below prose, no tape, flower and heart stickers",
+    "Linen-bound cover, formed spine and board/page thickness, cotton-paper pages and fine-pen handwriting",
+    "Childhood soundtrack on album open with prior track/cursor/play-state restoration and accessible Play/Pause"
+  ],
+  "automated": {
+    "site": {
+      "command": "npm test",
+      "passed": 472,
+      "failed": 0,
+      "log": "/tmp/t1seo-album-audio-full-tests.log"
+    },
+    "build": {
+      "command": "VITE_GUESTBOOK_API_URL=https://taewon-guestbook.northstar-cloudflare.workers.dev npm run build",
+      "exitCode": 0,
+      "log": "/tmp/t1seo-album-audio-final-build.log"
+    },
+    "closingLetter": {
+      "passed": 6,
+      "checks": [
+        "album header uses Milky’s Photo Album and front cover omits years without eager photo requests",
+        "End opens accessible English closing letter, preserves usable focus, releases photos and ignores late responses",
+        "closing letter retains its node and scroll position across Next, End and responsive changes with no photo requests",
+        "Previous from letter returns to photos 25–26 and final spread Next returns to letter without stranded focus",
+        "narrow letter Previous shows photograph 26 and Home returns to photograph 1",
+        "Cover restores its visible focus target; Escape closes letter once, restores opener and reopen starts at cover"
+      ],
+      "limits": "Focused new-letter scenarios only. Actual album controller/view/data/cache in HappyDOM with HTTP/image/object URL and Web Animations boundaries controlled. No GUI rendering, native scrolling or focus trap asserted."
+    },
+    "lowerKeepsake": {
+      "revision": "physical-book-paper-font-css-only",
+      "passed": 4,
+      "checks": [
+        "cover and ordinary photo pages assign no lower-letter cutout or letter-specific sticker sources",
+        "letter orders prose then lower Milky cutout with two decorative stickers then exact final signature, without tape",
+        "each failed sticker hides independently and photo failure hides only its figure while preserving readable prose, footer and navigation",
+        "resize preserves lower cluster and scroll; revisit retries its images, ignores detached errors and retains Escape and cover reopen"
+      ],
+      "limits": "Latest corrected lower-letter layout only; supersedes historical taped cutout QA. Actual modules in HappyDOM, controlled HTTP/image/object URL/animation boundaries. Source assignment proves request gating, not rendered browser layout or artwork fidelity. No full suite or GUI.",
+      "command": "node /tmp/t1seo-album-integration-qa-lower-cutout.mjs",
+      "assets": [
+        {
+          "url": "/assets/penthouse/milky-album/fonts/nothing-you-could-do-latin-400.woff2",
+          "bytes": 16072
+        },
+        {
+          "url": "/assets/badge/caveat-600.woff",
+          "bytes": 50244
+        },
+        {
+          "url": "/assets/penthouse/milky-album/materials/linen.webp",
+          "bytes": 69378
+        },
+        {
+          "url": "/assets/penthouse/milky-album/materials/cotton-paper.webp",
+          "bytes": 9706
+        }
+      ],
+      "cssSHA256": "d465b6921d38d784503a1c6d773fa02b58515340fb4a5afbadbf6ae2021ea6d1",
+      "viewControllerChanged": false,
+      "annotation17Rerun": false,
+      "browserGeometryVerified": false
+    },
+    "rootAudio": {
+      "checks": [
+        {
+          "name": "initial root mount requests no music; open starts it before lazy resolution",
+          "pass": true
+        },
+        {
+          "name": "lazy import failure restores original playing track and cursor; retry opens",
+          "pass": true
+        },
+        {
+          "name": "Escape cancels pending album music and late import cannot reopen",
+          "pass": true
+        },
+        {
+          "name": "sidebar switch cancels pending album music without changing rain volume",
+          "pass": true
+        },
+        {
+          "name": "album native music toggle pause persists after close and restore",
+          "pass": true
+        },
+        {
+          "name": "rapid duplicate open retains one original cursor and restores once",
+          "pass": true
+        },
+        {
+          "name": "destroy while album lazy import is pending must not issue another media.play",
+          "pass": true
+        }
+      ],
+      "limits": "Actual root and music/session/mixer modules. Deferred album module transport; modal contract controlled; media WebAudio primitive fakes. Root verifies browser rendering and actual autoplay."
+    },
+    "nativeAlbumAudio": {
+      "checks": [
+        {
+          "name": "real native album music button tracks state, pause survives Escape and teardown retains no dialog",
+          "pass": true
+        }
+      ],
+      "limits": "Actual root, sound and album controller/view in HappyDOM with WebAudio primitive fakes and controlled fetch/module load. Native rendering, physical audio and browser permissions verified separately by root."
+    }
+  },
+  "chrome": {
+    "provider": "Official Codex Computer Use, @oai/sky native Chrome UI via node_repl",
+    "origin": "http://127.0.0.1:4173/",
+    "checks": [
+      "Desktop linen cover, mounted photo spread, cotton letter and lighter handwriting visually inspected",
+      "200% Chrome page zoom: photograph and note do not overlap; letter scrolls to cutout and memorial footer",
+      "320 × 740 responsive viewport: photo note legible; final music header has two rows; letter scroll reaches photo, stickers and final line",
+      "740 × 360 responsive viewport: photo and note remain distinct; letter scroll reaches final line; header and footer controls remain reachable",
+      "Silent room album open: Pause album music state and Chrome Audio playing verified",
+      "Album close restores silent room after fade; previously playing room resumes enabled",
+      "Explicit album Pause changes control to Play album music and close preserves silence",
+      "Home returns from letter to first photo with native keyboard focus"
+    ],
+    "audioStates": [
+      {
+        "scenario": "Open album from silent room",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Audio playing - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t33 toggle button Pause album music, Value: 1"
+        ]
+      },
+      {
+        "scenario": "Close restores previously silent room",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Audio playing - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t38 toggle button Play music on the small desktop speaker, Value: 0"
+        ]
+      },
+      {
+        "scenario": "Room remains silent after fade completes",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t37 toggle button Play music on the small desktop speaker, Value: 0"
+        ]
+      },
+      {
+        "scenario": "Existing room music enabled before album",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Audio playing - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t38 toggle button Play music on the small desktop speaker, Value: 1",
+          "The focused UI element is 38 toggle button Play music on the small desktop speaker, Value: 1"
+        ]
+      },
+      {
+        "scenario": "Final code album from playing room",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Audio playing - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t33 toggle button Pause album music, Value: 1"
+        ]
+      },
+      {
+        "scenario": "Final code close restores playing state",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Audio playing - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t38 toggle button Play music on the small desktop speaker, Value: 1"
+        ]
+      },
+      {
+        "scenario": "Album pause",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t32 toggle button Play album music, Value: 0",
+          "The focused UI element is 32 toggle button Play album music, Value: 0"
+        ]
+      },
+      {
+        "scenario": "Explicit pause remains silent after close",
+        "state": [
+          "0 standard window Taewon Seo — Seoul Studio - Google Chrome, URL: 127.0.0.1:4173/, Secondary Actions: Raise",
+          "\t\t\t\t\t\t\t\t37 toggle button Play music on the small desktop speaker, Value: 0"
+        ]
+      }
+    ],
+    "localCaptures": [
+      "/tmp/milky-album-materials-cover.png",
+      "/tmp/milky-album-materials-spread.png",
+      "/tmp/milky-letter-materials-desktop.png",
+      "/tmp/milky-letter-materials-zoom200-top.png",
+      "/tmp/milky-letter-materials-zoom200-footer.png",
+      "/tmp/milky-album-materials-zoom200-spread.png",
+      "/tmp/milky-album-materials-mobile320.png",
+      "/tmp/milky-letter-materials-mobile320-top.png",
+      "/tmp/milky-letter-materials-mobile320-footer.png",
+      "/tmp/milky-letter-materials-short-footer.png",
+      "/tmp/milky-album-materials-short.png"
+    ],
+    "limits": "Chrome on macOS; mobile sizes are desktop Chrome device emulation, not physical devices. 200% material/typography captures precede the later music button; its final header was checked at desktop, 320 and 740 widths. Native Chrome reported actual audio playback; waveform/subjective loudspeaker listening was not measured. Screenshots stay local because browser chrome includes unrelated personal tab titles."
+  },
+  "assets": [
+    {
+      "path": "public/assets/penthouse/milky-album/milky-letter-cutout.webp",
+      "bytes": 42748,
+      "sha256": "a9a2b554ca7296e7c76167877975e1df188d482eef6f6b490adf2b3272567318"
+    },
+    {
+      "path": "public/assets/penthouse/milky-album/materials/linen.webp",
+      "bytes": 69378,
+      "sha256": "e5a27baaee14a7f31ba7e2fc76ab447249fc895979c21fd176daeee60ffc106f"
+    },
+    {
+      "path": "public/assets/penthouse/milky-album/materials/cotton-paper.webp",
+      "bytes": 9706,
+      "sha256": "ba7558c2dacdb1c07c103b015f33171faed486010afa32db61daf0dc601d6a3b"
+    },
+    {
+      "path": "public/assets/penthouse/milky-album/fonts/nothing-you-could-do-latin-400.woff2",
+      "bytes": 16072,
+      "sha256": "cd209e12babc395ffcf71df1683b3afe7ad23527aea618f7ff6366c69228499f"
+    }
+  ],
+  "assetNotes": {
+    "addedMaterialAndFontBytes": 95156,
+    "addedCutoutBytes": 42748,
+    "loading": "Album module and textures load after opening; closing-letter font, cutout and stickers are used on the letter. Existing bounded photograph loading preserved.",
+    "cutout": "Generated from the supplied smiling photograph using imagegen background extraction. Preserves photographic likeness but may reconstruct small edge details; not a pixel-identical masking claim. Original private photograph is not bundled.",
+    "provenance": [
+      "asset-sources/seoul-studio/milky-photo-album/letter-cutout",
+      "asset-sources/seoul-studio/milky-photo-album/materials",
+      "asset-sources/seoul-studio/milky-photo-album/typography"
+    ]
+  },
+  "soundtrack": {
+    "title": "Childhood",
+    "artist": "Scott Buckley",
+    "src": "/assets/music/spring-afternoon.mp3",
+    "bytes": 1920162,
+    "durationSeconds": 137.079206,
+    "source": "https://www.scottbuckley.com.au/library/childhood/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "credits": "/assets/music/CREDITS.html#milky-album",
+    "newMediaBytes": 0,
+    "behavior": "Gesture-started temporary listening session, 1.35-second engine crossfade; prior room track, cursor and play state restored on close unless explicitly changed. Same track continues without seeking; hidden tabs do not interrupt chosen playback. Main page mount remains silent."
+  },
+  "preserved": "No changes since baseline to any of the 26 photographs, the 20 Seoul room plates, existing music MP3 files or Milky character artwork.",
+  "review": "Independent targeted review and actual-module integration probes found and fixed pending-import teardown replay and retired paused-cursor restoration; no remaining blocker reported.",
+  "deployment": "Pending final integration commit and main push; verify GitHub Pages workflow and live bundle hashes after push."
+}

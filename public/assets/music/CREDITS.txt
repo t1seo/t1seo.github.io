@@ -1,4 +1,4 @@
-Music for the Paper Studio
+Music for Seoul Studio
 
 All 20 recordings are licensed under Creative Commons Attribution 4.0 International.
 License: https://creativecommons.org/licenses/by/4.0/
@@ -7,6 +7,13 @@ Full license: CC-BY-4.0.txt
 Modifications: encoded as 112 kbps stereo MP3 and loudness-normalized for consistent
 background playback. Full recordings retained; no edits to their compositions.
 Music remains copyright of the credited composers. No endorsement is implied.
+
+Milky’s Photo Album
+“Childhood” by Scott Buckley — released under CC BY 4.0.
+Artist: https://www.scottbuckley.com.au/
+Original track: https://www.scottbuckley.com.au/library/childhood/
+License: https://creativecommons.org/licenses/by/4.0/
+Uses the existing Spring / Afternoon recording listed below.
 
 Spring / Morning
 “Cherry Blossom” by Kevin MacLeod — CC BY 4.0
