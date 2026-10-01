@@ -1,0 +1,85 @@
+{
+  "tool": "built-in image_gen",
+  "useCase": "precise-object-edit",
+  "source": "public/assets/penthouse/seoul/autumn/noon.webp",
+  "master": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+  "iterations": [
+    {
+      "prompt": "Use case: precise-object-edit.\nInput image is the edit target: an existing 1672 x 941 full-room illustrated Seoul apartment game background. Edit ONLY the desk lamp and the small singing bowl, maintaining this exact room plate and composition, camera, entire color palette, hand-painted matte detail, same daylight, furniture, monitor, keyboard, all city/window geometry, lounge floor lamp, plants, floor and objects. Output same 1672 x 941 framing with no crop.\n\n1) Completely remove the existing thin horizontal silver LED desk lamp at source x1045..1157, y466..568; restore the exact skyline/window and desktop behind its old position. It must not remain or be duplicated.\n2) Add a much taller, premium sculptural architect's desk lamp farther RIGHT on the desktop. Matte graphite with subtly warm muted champagne-bronze hinges, very refined slender proportions. Low elliptical grounded foot occupies x1208..1256 y552..565. Slender upright rises at x1230 from y553 to y440, articulated bent arm reaches up-left to around x1200 y409. Small shallow rounded conical head x1168..1225 y394..416 points down-left. Thus the lamp's top is higher than the monitor's top, its whole height about 170px. The stylish articulated arm must look natural and mechanically plausible, not a tall straight LED bar, not a huge industrial shade. Bulb OFF, no emitted glow, no visible white beam. Preserve the separate floor lamp on the left.\n3) Upgrade the existing small black bowl immediately RIGHT of the pencil pot, centered around x1082 y550. It is a singing bowl: beautiful handcrafted dark bronze body with subtle hammered texture, fine warm brass rim and a visibly shallow oval interior, on a tiny charcoal cushion. Keep it compact and grounded on the desktop: body x1055..1110 y537..562, about 52x27 pixels. Do not change the pencil pot at x1040 or monitor.\n4) Keep the desktop strip between bowl-right x1110 and lamp-foot-left x1208 empty, ready for a later digital clock overlay. Do not paint a clock, calendar, speaker, pen, text, logo, watermark, dog or any other new prop.\nThis is a surgical edit to a painted game background, not a new room design. Match all existing brushwork and soft edges; no photorealistic cutout objects.",
+      "output": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f721-4a99-7ed3-91cc-50d5479f4880/exec-9e363d43-3352-402c-8759-2f2fe2ce9a3f.png",
+      "status": "superseded; lamp too far left"
+    },
+    {
+      "prompt": "Use case: precise-object-edit. Input is the edit target, an existing 1672 x 941 illustrated room plate. There is a tall dark architect desk lamp to the right of the monitor. Its foot is currently centered near x1147, its shade near x1065. MOVE THIS ENTIRE DESK LAMP about 85 pixels to the RIGHT. Preserve its exact design and scale, changing only its horizontal position. New elliptical foot should be centered near x1232, resting on desktop at y557, just inside the rightmost desktop edge x1260. New vertical upright x1235. New little shade near x1150, y415. The foot must now sit at the extreme RIGHT END of the desk, with a clear EMPTY desktop gap 80 pixels wide between the bronze singing bowl and the foot. Restore the old position with the background city/window/table. Keep this one lamp only. Preserve the new beautiful bronze singing bowl, pencil cup, black monitor, keyboard and EVERY other detail and object. Preserve exact image dimensions 1672 x 941, framing, camera, painting style and afternoon lighting. Lamp OFF; no extra glow. No new object, no clock, no text, no duplicate lamps, no composition changes. Make the requested rightward translation unmistakable.",
+      "output": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f721-4a99-7ed3-91cc-50d5479f4880/exec-7cdaf0fe-5345-4fb0-93c3-acb4f90da17a.png",
+      "status": "superseded; additional user-requested lounge diffuser and floor-lamp-off edit"
+    },
+    {
+      "prompt": "Use case: precise-object-edit. Input image is the edit target: the existing exact 1672 x 941 hand-painted illustrated Seoul apartment background. Preserve the whole room, camera, crop, city, furniture, weather/daylight and especially the newly refined tall black/brass articulated lamp at the far RIGHT edge of the desk, the bronze singing bowl, monitor and keyboard. Only edit the left lounge side table and left floor lamp lighting.\n\n1) On the small round white stone side table in front of the black lounge chair, REPLACE THE TEA CUP AND SAUCER completely with a refined reed diffuser. It should be a small premium smoky amber glass bottle, a subtly rounded square or elegant squat cylinder, seated on the table at approximately x100..143 and y622..656. Five fine dark natural reeds rise from its narrow neck to around y590. A minimal label-free bronze collar is okay. Make the reeds clear and graceful, very thin, slightly fanned. Match the rich hand-painted illustration texture, matte painterly edges and soft ambient daylight; no photorealistic cutout. Bottle must rest on stone tabletop, not float. No cup, handle, saucer or mug remains on this side table.\n\n2) The articulated FLOOR lamp behind and to the viewer's LEFT of the black lounge chair must have its BULB OFF in the source illustration, just like the desk lamp. Preserve the exact lamp structure, articulated arm, position and cream lampshade silhouette at x153..252/y389..449. Show the shade as nonemissive warm cream fabric with gentle natural daylight shading; REMOVE its internal orange/yellow glow. Remove the lamp-specific warm cast spotlight from black chair back/seat and immediate left side-table/floor, leaving natural soft daytime illumination. Keep the black leather chair clearly visible and naturally lit. Do not darken the entire room or change warm ambient shelf lights or ceiling lights.\nNo other changes. Keep both lamps off. Preserve all original architecture, colors, soft painted brushwork and full image dimensions 1672 x 941. No new writing, icons, clock, calendar, speaker or dog.",
+      "output": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f721-4a99-7ed3-91cc-50d5479f4880/exec-be81d221-e9f9-431a-ab08-012d5ea5f752.png",
+      "status": "master candidate"
+    }
+  ],
+  "estimatedGeometry": {
+    "lampFoot": [
+      1208,
+      552,
+      54,
+      15
+    ],
+    "lampStem": [
+      1235,
+      449,
+      5,
+      108
+    ],
+    "lampArm": [
+      1168,
+      402,
+      88,
+      58
+    ],
+    "lampShade": [
+      1130,
+      401,
+      48,
+      38
+    ],
+    "singingBowl": [
+      1058,
+      535,
+      41,
+      27
+    ],
+    "clearClockRect": [
+      1125,
+      531,
+      62,
+      30
+    ],
+    "diffuserBottle": [
+      108,
+      623,
+      30,
+      40
+    ],
+    "diffuserReeds": [
+      106,
+      580,
+      34,
+      53
+    ],
+    "floorLampShade": [
+      153,
+      389,
+      99,
+      60
+    ]
+  },
+  "invariants": [
+    "unchanged room layout, monitor, keyboard, pencil pot, floor-lamp geometry, window, skyline, crop",
+    "both desk and floor lamps bulb off; no lamp glow on chair or tabletop",
+    "no clock, speaker or calendar in plate",
+    "small lounge table cup and saucer fully replaced with reed diffuser"
+  ]
+}
