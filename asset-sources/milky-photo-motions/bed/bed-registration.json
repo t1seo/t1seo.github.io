@@ -20,7 +20,7 @@
   "registrationNotes": [
     "Offsets are rigid translations at a single common physical scale. Never normalize individual poses to silhouette height.",
     "registrationAnchor is a virtual source reference which maps to sharedAnchor. It is not the lowest alpha pixel or an anatomical joint. bodySupportLandmarks record separate approximate visible contact points.",
-    "Chin poses share identical [-103,230] registration: tucked body rests on the higher inner cushion, while the anatomically extended head reaches the lower/front rim. Do not move the entire body forward to fake chin contact.",
+    "Chin poses share identical [-103,240] registration: tucked body rests on the higher inner cushion, while the anatomically extended head reaches the lower/front rim. Do not move the entire body forward to fake chin contact.",
     "Roll poses share X=-103 with the existing sleep pose; Y uses stable back/cheek contact, excluding elevated paws.",
     "All art faces head-right/tail-left as drawn. Runtime facing changes must apply consistently across the whole sequence."
   ],
@@ -41,7 +41,7 @@
   },
   "qa": {
     "reviewer": "/root/photo_motion_art_qa",
-    "method": "Native canvas composition at the real room scale with the actual bed and foreground lip. Not a browser screenshot.",
+    "method": "Native canvas composition at the real room scale, including the controller CSS-rounded depth scale 0.9742, with the actual bed and foreground lip. Not a browser screenshot.",
     "scene": [
       1672,
       941
@@ -50,13 +50,13 @@
       1440,
       865
     ],
-    "logicalToSceneScale": 0.110639375,
+    "logicalToSceneScale": 0.107784879125,
     "chinContactScene": [
-      1466.55,
-      879.6
+      1465.8684,
+      880.3055
     ],
-    "frontLipBoundaryAtChin": 880.73,
-    "chinNoseSceneY": 873.85,
+    "frontLipBoundaryAtChin": 880.7853,
+    "chinNoseSceneY": 874.7006,
     "artifacts": [
       "qa-chin-bed-contact.png",
       "qa-roll-bed-sequence.png"
@@ -64,9 +64,11 @@
     "result": "All six frames passed anatomy/likeness, four-limb continuity, transparent background, registration, chin-rim contact and visible eyes/nose checks. Final runtime timing and browser behaviour are root integration responsibilities.",
     "finalGeometryApprovedBy": "/root",
     "chinContactBedFraction": [
-      0.60213,
-      0.6451
-    ]
+      0.599493735,
+      0.6500384
+    ],
+    "controllerCssRoundedDepthScale": 0.9742,
+    "calibrationNote": "These final composites and values include controller depth. Earlier non-depth compositions and the [-103,230] chin registration were provisional and are superseded."
   },
   "frames": [
     {
@@ -81,11 +83,11 @@
       "runtimeBytes": 66868,
       "offsetToSharedAnchor": [
         -103,
-        230
+        240
       ],
       "registrationAnchor": [
         898,
-        740
+        730
       ],
       "bodySupportLandmarks": [
         [
@@ -128,7 +130,7 @@
       },
       "approvedRuntimeRegistrationOffset": [
         -103,
-        230
+        240
       ]
     },
     {
@@ -143,11 +145,11 @@
       "runtimeBytes": 71968,
       "offsetToSharedAnchor": [
         -103,
-        230
+        240
       ],
       "registrationAnchor": [
         898,
-        740
+        730
       ],
       "bodySupportLandmarks": [
         [
@@ -190,7 +192,7 @@
       },
       "approvedRuntimeRegistrationOffset": [
         -103,
-        230
+        240
       ]
     },
     {
