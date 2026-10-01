@@ -1,0 +1,146 @@
+[
+  {
+    "file": "asset-sources/milky-grounded-walk/torso-prototype-02.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "70ae61bdab1244f51b3d71d331a5e5242978c0c7b04149f890f22bbb8040b4f2",
+    "alphaBounds": [
+      {
+        "threshold": 0,
+        "bbox": [
+          65,
+          21,
+          1443,
+          951
+        ],
+        "count": 459148
+      },
+      {
+        "threshold": 32,
+        "bbox": [
+          212,
+          107,
+          1417,
+          725
+        ],
+        "count": 427686
+      },
+      {
+        "threshold": 200,
+        "bbox": [
+          219,
+          110,
+          1413,
+          722
+        ],
+        "count": 412686
+      }
+    ],
+    "exteriorProbes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "asset-sources/milky-grounded-walk/foreleg-prototype-02.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "af28305d9d047cdd4e302a5cdc625b3e146b810480e6dfa34ac8aedfad4dc082",
+    "alphaBounds": [
+      {
+        "threshold": 0,
+        "bbox": [
+          65,
+          254,
+          1167,
+          977
+        ],
+        "count": 99489
+      },
+      {
+        "threshold": 32,
+        "bbox": [
+          913,
+          420,
+          1162,
+          970
+        ],
+        "count": 91146
+      },
+      {
+        "threshold": 200,
+        "bbox": [
+          920,
+          424,
+          1155,
+          968
+        ],
+        "count": 85184
+      }
+    ],
+    "exteriorProbes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "file": "asset-sources/milky-grounded-walk/hindleg-prototype-02.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "fdc78bdbb544667630e556947ba2a204af1d6e32a218452e15cd9028fddcd163",
+    "alphaBounds": [
+      {
+        "threshold": 0,
+        "bbox": [
+          255,
+          38,
+          1337,
+          961
+        ],
+        "count": 119344
+      },
+      {
+        "threshold": 32,
+        "bbox": [
+          263,
+          369,
+          623,
+          954
+        ],
+        "count": 109367
+      },
+      {
+        "threshold": 200,
+        "bbox": [
+          269,
+          375,
+          617,
+          953
+        ],
+        "count": 102509
+      }
+    ],
+    "exteriorProbes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]

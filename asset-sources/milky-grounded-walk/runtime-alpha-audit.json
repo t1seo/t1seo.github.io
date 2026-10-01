@@ -1,0 +1,47 @@
+[
+  {
+    "name": "torso",
+    "width": 768,
+    "height": 512,
+    "probes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "foreleg",
+    "width": 768,
+    "height": 512,
+    "probes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "name": "hindleg",
+    "width": 768,
+    "height": 512,
+    "probes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]

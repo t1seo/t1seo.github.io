@@ -1,0 +1,44 @@
+{
+  "status": "static three-pose art gate passed; continuous runtime gait still requires validation",
+  "reference": "public/assets/cyberpunk/milky-forward-idle.webp",
+  "logicalSize": [1536, 1024],
+  "runtimeSize": [768, 512],
+  "exportScale": 0.5,
+  "existingRendererScale": 0.847,
+  "existingStandingAnchor": [795, 970],
+  "torso": {
+    "source": "torso-prototype-02.png",
+    "placement": [0, 0],
+    "preservation": "Source-like head, face, torso and tail placement/scale; generated pixels, not a literal pixel copy. Original full-body rasters are untouched."
+  },
+  "foreleg": {
+    "source": "foreleg-prototype-02.png",
+    "shoulder": [1070, 575],
+    "elbow": [1025, 720],
+    "carpus": [1040, 880],
+    "pawCenter": [1080, 945],
+    "soleAnchor": [1080, 970],
+    "measuredAlpha32Bottom": 970,
+    "measuredAlpha200Bottom": 968,
+    "hiddenRootAlpha32Top": 420
+  },
+  "hindleg": {
+    "source": "hindleg-prototype-02.png",
+    "hip": [485, 575],
+    "stifle": [520, 710],
+    "hock": [350, 835],
+    "pawCenter": [355, 930],
+    "estimatedSoleAnchor": [355, 952],
+    "measuredAlpha32Bottom": 954,
+    "measuredAlpha200Bottom": 953,
+    "hiddenRootAlpha32Top": 369
+  },
+  "renderingNotes": [
+    "Root-approved torso prototype 02; original contour samples usually differ by at most 2 logical pixels.",
+    "Near and far limbs share the same authored fore/hind textures; far roots and contact heights require independent geometry.",
+    "Render legs beneath torso so the upper fur caps remain hidden.",
+    "The static gate used narrow joint-local blending after rigid rectangular crops exposed cut edges.",
+    "A 40-logical-pixel loading translation must ease in from idle; do not instantly drop the body.",
+    "Static art acceptance does not establish continuous gait quality, foot locking, cancellation behavior or browser performance."
+  ]
+}

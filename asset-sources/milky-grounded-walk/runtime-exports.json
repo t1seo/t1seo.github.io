@@ -1,0 +1,29 @@
+[
+  {
+    "id": "torso",
+    "source": "torso-prototype-02.png",
+    "target": "public/assets/cyberpunk/milky-grounded-walk/torso.webp",
+    "width": 768,
+    "height": 512,
+    "bytes": 60678,
+    "sha256": "8f3251310a799e08ce1358d0d3a42600f8857ad7d722e3b23682f93ea3d44903"
+  },
+  {
+    "id": "foreleg",
+    "source": "foreleg-prototype-02.png",
+    "target": "public/assets/cyberpunk/milky-grounded-walk/foreleg.webp",
+    "width": 768,
+    "height": 512,
+    "bytes": 17656,
+    "sha256": "3454df841a603727366830e45228c5e2ed68f87f0ca57956d1e1537d7ad1b6a6"
+  },
+  {
+    "id": "hindleg",
+    "source": "hindleg-prototype-02.png",
+    "target": "public/assets/cyberpunk/milky-grounded-walk/hindleg.webp",
+    "width": 768,
+    "height": 512,
+    "bytes": 21832,
+    "sha256": "5bdc5d8119701484a3fb3cef86fae5a691a5b0c738c07ffb7f90837d4f4e3c49"
+  }
+]
