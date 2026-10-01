@@ -1,6 +1,6 @@
 {
   "date": "2026-10-01",
-  "status": "implemented-and-locally-verified; Cloudflare authorization pending",
+  "status": "deployed-and-verified",
   "siteTests": {
     "passed": 414,
     "log": "/tmp/t1seo-guestbook-site-tests.log"
@@ -69,10 +69,125 @@
   },
   "securityReview": "Independent read-only review found no concrete blocker",
   "production": {
-    "cloudflareResourcesCreated": false,
-    "workerDeployed": false,
-    "siteDeployed": false,
-    "chromeGuestbookVerified": false
+    "cloudflareResourcesCreated": true,
+    "workerDeployed": true,
+    "siteDeployed": true,
+    "chromeGuestbookVerified": true,
+    "siteCommit": "3fab6908a92ab227b90e1d1b7dffbc90f1ff400b",
+    "siteUrl": "https://t1seo.github.io",
+    "workerUrl": "https://taewon-guestbook.northstar-cloudflare.workers.dev",
+    "actionsRun": "https://github.com/t1seo/t1seo.github.io/actions/runs/36877499159",
+    "accountPlan": "Workers Free ($0), verified from Current plan in Cloudflare dashboard",
+    "migration": "0001_guestbook.sql applied to dedicated D1",
+    "secrets": "Both secret bindings confirmed; staging secret file removed",
+    "smoke": {
+      "checkedAt": "2026-10-01T14:34:19.069Z",
+      "base": "https://taewon-guestbook.northstar-cloudflare.workers.dev",
+      "origin": "https://t1seo.github.io",
+      "checks": {
+        "configAvailable": true,
+        "listAvailable": true,
+        "blockedOriginRejected": true,
+        "missingTokenRejected": true,
+        "invalidTokenRejected": true,
+        "publicEntriesUnchanged": true,
+        "publicEntriesStillEmptyAfterCacheExpiry": true
+      },
+      "requests": [
+        {
+          "name": "Allowed-origin public config",
+          "status": 200,
+          "cors": "https://t1seo.github.io",
+          "cacheControl": "no-store",
+          "body": {
+            "siteKey": "0x4AAAAAAFLLEaXdtgYnYESs",
+            "maxNameLength": 40,
+            "maxMessageLength": 1000
+          }
+        },
+        {
+          "name": "Allowed-origin entries before invalid submissions",
+          "status": 200,
+          "cors": "https://t1seo.github.io",
+          "cacheControl": "no-store",
+          "body": {
+            "entries": [],
+            "nextCursor": null
+          }
+        },
+        {
+          "name": "Blocked-origin POST",
+          "status": 403,
+          "cors": null,
+          "cacheControl": "no-store",
+          "body": {
+            "error": {
+              "code": "invalid_origin",
+              "message": "Please open the guestbook from the website."
+            }
+          }
+        },
+        {
+          "name": "Missing-token POST",
+          "status": 400,
+          "cors": "https://t1seo.github.io",
+          "cacheControl": "no-store",
+          "body": {
+            "error": {
+              "code": "invalid_request",
+              "message": "Please check your name and message."
+            }
+          }
+        },
+        {
+          "name": "Invalid-token POST",
+          "status": 403,
+          "cors": "https://t1seo.github.io",
+          "cacheControl": "no-store",
+          "body": {
+            "error": {
+              "code": "invalid_verification",
+              "message": "Please complete a fresh verification and try again."
+            }
+          }
+        },
+        {
+          "name": "Allowed-origin entries after rejected submissions",
+          "status": 200,
+          "cors": "https://t1seo.github.io",
+          "cacheControl": "no-store",
+          "body": {
+            "entries": [],
+            "nextCursor": null
+          }
+        },
+        {
+          "name": "Entries after 31-second edge-cache expiry",
+          "status": 200,
+          "cors": "https://t1seo.github.io",
+          "cacheControl": "no-store",
+          "body": {
+            "entries": [],
+            "nextCursor": null
+          }
+        }
+      ],
+      "limitations": [
+        "No legitimate Turnstile verification or successful public submission was attempted.",
+        "Public list remained empty after a 31-second wait beyond the documented 30-second edge cache; D1 was not inspected directly.",
+        "No browser rendering, GitHub Pages frontend, concurrency, or production quota verification in this smoke test."
+      ],
+      "completedAt": "2026-10-01T14:35:10.494Z"
+    },
+    "chrome": [
+      "Guestbook opens with live empty list",
+      "Leave a note focuses Name",
+      "Actual managed Turnstile displayed Success and Verification complete",
+      "Temporary Deployment check submitted successfully; success message and entry focus shown",
+      "Public GET returned same entry ID",
+      "Temporary entry hidden with scoped owner D1 command"
+    ],
+    "testEntryId": "12205387-4383-4657-a38e-5e6536aa676d"
   },
-  "limits": "Cloudflare authentication is required before resource provisioning and live verification. No live deployment or actual Chrome guestbook check is claimed."
+  "limits": "Existing local UI simulations remain scoped as described. Production Chrome completed an actual Turnstile-protected write; backend rejection smoke and owner moderation were also exercised. The free account shares daily request quotas with existing Workers."
 }

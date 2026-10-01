@@ -2,6 +2,12 @@
 
 Small native Cloudflare Worker + D1 API for the pen interaction at `https://t1seo.github.io`. Visitors enter a nickname and message; no account, email or password is collected. The website stays on GitHub Pages. The existing browser-local private memo is separate and is never uploaded.
 
+## Active deployment (2026-10-01)
+
+Production API: `https://taewon-guestbook.northstar-cloudflare.workers.dev`. The existing Cloudflare account was verified on **Workers Free** in the dashboard; no plan upgrade was made. The dedicated D1, managed Turnstile widget and both secret bindings are deployed. GitHub repository variable `VITE_GUESTBOOK_API_URL` connects the Pages build to this API. The Pages workflow validates Worker code, but subsequent Worker releases still use authenticated Wrangler from this directory.
+
+The free daily Workers request limit is shared with existing account services. Exhausting a free quota can temporarily stop guestbook access; it does not automatically upgrade the plan. Local production `wrangler.jsonc` is ignored and secret values are held in Cloudflare secret bindings.
+
 ## Provision and deploy
 
 Use an existing **Workers Free** account for the intended zero-monthly-fee setup. D1 does not need a paid database instance. Free quotas can stop service; these protections are not a guarantee of availability under an attack. On a Workers Paid account, aggregate usage can incur charges. Do not upgrade the account to deploy this guestbook.
