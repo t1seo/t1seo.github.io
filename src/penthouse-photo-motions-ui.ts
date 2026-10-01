@@ -1,4 +1,4 @@
-import type { MilkyPhotoMotion } from './cyber-pet-photo-motions.ts';
+import type { MilkyPhotoMotion } from './cyber-pet.ts';
 
 export const PHOTO_MOTION_ACTIONS = [
   { kind: 'tilt', label: 'A curious little tilt' },
