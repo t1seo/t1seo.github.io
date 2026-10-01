@@ -60,6 +60,7 @@ let albumViewer: ReturnType<typeof import('./penthouse-album').createMilkyAlbum>
 let albumLoad: Promise<typeof import('./penthouse-album')> | undefined;
 let albumRequest = 0;
 let albumOpen = false;
+let albumLoading = false;
 let albumMusic: MusicSession | undefined;
 const workspace = { monitor: true, lamp: true, floorLamp: true };
 function toast(message: string) {
@@ -70,7 +71,7 @@ function toast(message: string) {
 const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view could not load. Your current view is still here.'));
 const fireworks = mountFireworksControl(root, scene, () => animated, () => dialog.close());
 const stopOpeningCredits = mountOpeningCredits(opening, opening.querySelectorAll<HTMLElement>('[data-opening-letter]'), {
-  isBlocked: () => dialog.open || albumOpen || scene.fireworksActive,
+  isBlocked: () => dialog.open || albumOpen || albumLoading || scene.fireworksActive,
   isStill: () => !animated,
 });
 const stopFireworksCredits = scene.subscribeFireworks(() => stopOpeningCredits.resetIdle());
@@ -136,15 +137,20 @@ const stopInfo = climate.subscribeLocalInfo(updateLocalInfo);
 updateLocalInfo(climate.getLocalInfo());
 
 function cancelAlbumLoad() {
+  const wasLoading = albumLoading;
+  albumLoading = false;
   albumRequest++;
   root.querySelectorAll('[data-action="album"][aria-busy]').forEach(button => button.removeAttribute('aria-busy'));
   $('[data-album-status]').textContent = '';
   if (!albumOpen) { if (!destroyed) albumMusic?.close(); albumMusic = undefined; }
+  if (wasLoading && !destroyed) stopOpeningCredits.resetIdle();
 }
 async function openAlbum(trigger: HTMLElement) {
   if (albumOpen) return;
   cancelAlbumLoad();
   const request = albumRequest;
+  albumLoading = true;
+  stopOpeningCredits.resetIdle();
   trigger.setAttribute('aria-busy', 'true');
   $('[data-album-status]').textContent = 'Opening Milky’s album…';
   albumMusic = sound.beginMusicSession(MILKY_ALBUM_MUSIC_TRACK);
@@ -154,7 +160,7 @@ async function openAlbum(trigger: HTMLElement) {
     albumViewer ??= module.createMilkyAlbum({
       host: root, isStill: () => !animated,
       music: { isEnabled: sound.isEnabled, toggle: () => { void sound.setEnabled(!sound.isEnabled()); } },
-      onOpen: () => { albumOpen = true; pet.setActive(false); stopOpeningCredits.resetIdle(); },
+      onOpen: () => { albumLoading = false; albumOpen = true; pet.setActive(false); stopOpeningCredits.resetIdle(); },
       onClose: () => { albumOpen = false; albumMusic?.close(); albumMusic = undefined; if (!destroyed) { pet.setActive(!dialog.open); stopOpeningCredits.resetIdle(); } },
     });
     albumViewer.open(trigger);
