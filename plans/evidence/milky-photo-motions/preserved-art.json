@@ -1,0 +1,265 @@
+{
+  "at": "2026-10-01T17:46:24.123Z",
+  "assets": [
+    {
+      "path": "public/assets/cyberpunk/milky-awake.webp",
+      "sha256": "f76c83f52c3633fe3489508be9bcf0c20c27d1b2860d4991a41bc9a2b080f42c"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-eat-lift.webp",
+      "sha256": "904d87102f7ee1b1372ee43b10a28c6c0d5774ae9296d8e9705f1c273820d2e8"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-eat-low.webp",
+      "sha256": "036648574e441ffcfaf7a01b37e4ba8d9272cab649bc26b3c8199db57ab5d147"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-idle.webp",
+      "sha256": "13eaa0e03c6072803a412f1719c56c4e93e9be55176c5d7c2e64c1fbd9f6dc37"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-0.webp",
+      "sha256": "3638a5c3d1d04bd249e2e8b62a0b0fe19bb5c54a3a2f3aca5b360583afe38511"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-1.webp",
+      "sha256": "8af7e595ef3ee35057249154b7e83f67d2fbc088488e14668dfd6e54cd4960ef"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-2.webp",
+      "sha256": "42cb046f5ed23e3f9779197cd3b753b6718096d90f9ea38c3b6396a612107d84"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-3.webp",
+      "sha256": "8c1a03c827ed9b7088299387caf26b103996922363b84bb3ba6859f1b6ddb1f6"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-4.webp",
+      "sha256": "09df587183e5c6d06de8f607118600c1c49e2c5d282299ed5d581e095c8e9928"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-5.webp",
+      "sha256": "ac05e3b2dd8e4ddce7dbea6fc992541a2c452b4f6f2226cb9188ee4c7ed1988f"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-6.webp",
+      "sha256": "35ac0a52c5b3758c0b000e64fd734a241e6e9d9218321172f9987e58865c7d95"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-step-7.webp",
+      "sha256": "6b5d8da573b882aaa0913ca5404d9e85e81b90ba30329b392ac30bba6b3e252a"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-logo.png",
+      "sha256": "5ed9278a3c64318451beedd91880b86189760369c5ca6d6c1bfc28a029dc01ab"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-logo.webp",
+      "sha256": "ba6308742255b50f6fcf64e76b8d87fb2cce1a476877bbbaaabfa16e6783cca6"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-play-bow.webp",
+      "sha256": "7bd7108d9d40e3ab933de99263e151e861172753f175197627f3711d7c6f68ac"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-play-reach.webp",
+      "sha256": "5f1ba886841ee0fd67cc700d22bfa7145e94ca196d09d63a5a0a00c57c874d82"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-prop-ball.webp",
+      "sha256": "73a7d21c109fc0cdedc88069b4b0284f31dc7391f3bcd665574b8d2536db743c"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-prop-bowl.webp",
+      "sha256": "0d975444d6c5f527f422e06e803ca85b46dffb48b07b5b07ffa0f57a5a090c53"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-rest-drowsy.webp",
+      "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-rest-sit.webp",
+      "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-rest-sleep.webp",
+      "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-rest.webp",
+      "sha256": "896b203bbbed2d0e7bc067eefe4a95d2c5e85002c870c43fd9854c778ff6b17d"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-trot-0.webp",
+      "sha256": "5ce69ce2c5512aaa46653994ca2739c4d9137f51d7c8f291a35884b35dc6ffd9"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-trot-1.webp",
+      "sha256": "09568e7c97f04c6cdf6e71c44006bdbc824d1808280bdc022eaee43a02b41ae3"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-trot-2.webp",
+      "sha256": "cca9ffbc5c474f79565fdc76440a86488e9d39427ee3f7b31a783a7a58dcb9bc"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-trot-3.webp",
+      "sha256": "ebea4bfcd08d086e7dad14d902e49fc82af86b2787314cf2e6201b2f76c4bf0c"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v2-behavior.webp",
+      "sha256": "0427b0ce46d4c402625a76799c523bcea370d3ce95cea60409bc4b6fa1a581d7"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v2-frontwalk.webp",
+      "sha256": "4a813299eab62e0e883064d1a5d7b626cfe8413acf78cb975facfe51a6270836"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v2-idle.webp",
+      "sha256": "3cde447a0d862b0319d2858988c25c1ac1a681a1997d11d5b28f617965f6c49b"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v2-walk.webp",
+      "sha256": "d010f20c4d21a3229d72d2f4de311ce8cb8b91ce5ee7d73ac5df9728e8d15163"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-0.webp",
+      "sha256": "2eedbd1165ffd531d3241d2451d0eb3fc1884d4e83f54a7a1c143488fd1b50e6"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-1.webp",
+      "sha256": "d8e500a047e0edcc165bb84fd75f69ff1e913eef222a294eec7049b7fc327537"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-2.webp",
+      "sha256": "64944bf5f8010f253002e3c8703f53c93dcb9c28eb47a24ecad3f14ba0de7b70"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-3.webp",
+      "sha256": "e5efd3053b27503fece26242eb6015dd28d09c58a555c0a9863a364a05f2e1aa"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-4.webp",
+      "sha256": "e573cebcc0f3c53a7e033e120035fe650999393802f403b8cdb0de6cb66dbfbf"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-5.webp",
+      "sha256": "cc4de189d07fa43863c511dea8d2b9dc7a0f390923f695fd9f3ec4fd19e2867d"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-6.webp",
+      "sha256": "3c7a7f5fe011df0f8ac51ba4ca457e61cb0fffffd1ff5e95132f8ff3177101e9"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v3-step-7.webp",
+      "sha256": "93e502acf7bc9d9513ecb997860c853a71d2a371abc8a67a8a306f607dc10252"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-blink.webp",
+      "sha256": "fcc6072c982c6f0367780c611a241f4c725589ed2a4ca0fe3414e16df45716ab"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-idle.webp",
+      "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-0.webp",
+      "sha256": "36e6c3524b2bd38192edf81682ed1f84bedb767a59b19d94347153499825581d"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-1.webp",
+      "sha256": "9d35fb615f6643b1628dad231d73ee236fd912d9ec740ea19c61efa3e0d57bd9"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-2.webp",
+      "sha256": "8fe1f89cd5142d5e1a4450c556c6fde704cf0729f0a608440cda0bf006830856"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-3.webp",
+      "sha256": "cab83bfd91a749494fd1b838b32e3946f3d15e01326503a3ab79f78622c388c1"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-4.webp",
+      "sha256": "e30b70423237a12778d6fcc21763050567ecc682c624cb7853b6f4cd519c5586"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-5.webp",
+      "sha256": "09f81704102a30093269931a6f275e3eb34f2ed32366921509f078b8ed72764e"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-6.webp",
+      "sha256": "93161b5b23093fa156a85615f5e635eede8c26a6f2477dbb3c36a79bb2aa4c7a"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-v4-step-7.webp",
+      "sha256": "4dc9361f3b6cfa66c4ce5b816ca9a1c2b9a3056c11d2e4feaf7f8f6792d69a0f"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-walk.webp",
+      "sha256": "f4af5a200c65bdbb9c800359f283327ca468e2c8479c4ec1120b705706323966"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+      "sha256": "8ac40b167a9b3f656b3398027564a8b0ee2ceedfbe5c65aa92ac3de14d835ba9"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/autumn/evening.webp",
+      "sha256": "e15210b502d35e6335d3064f702afc81e0bcff020f31d2f4eb68775b938620ff"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/autumn/morning.webp",
+      "sha256": "5be47bcd62033afc2d32dbedd943ac9c9b88064f9360aa026eac345178c51d4b"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/autumn/night.webp",
+      "sha256": "ef8282974d141b77156c2d1fa0dac2916ce0374092e4f9f1eb29e2d91eeb4974"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "sha256": "b0e3fad78380609d6b0829ef42248c2f43839337e5e8dacf01fc9b2e79f2f76c"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/spring/evening.webp",
+      "sha256": "22bb86f67f71cfb4f4c8e97be48f83aa9efcc347ce3f907db3037a8bc4343750"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/spring/morning.webp",
+      "sha256": "e83ec8e3ebf14d6d65c72c3238282ca930347814ea98aa466070ebdf2502d492"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/spring/night.webp",
+      "sha256": "6cd0c2a2931ac262bda7a13b49a463b8edf8aeb82113d1d8d71ec724175e62e1"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "sha256": "a2e233100b43826d642b2dab0cc8079c1305ed5e2b7864f06252047b097dc4b3"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/summer/evening.webp",
+      "sha256": "3bd763c8245b526307ac90b5c5eeb1dfd131c51f531524a8aa1a3adc052a9085"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/summer/morning.webp",
+      "sha256": "e8bb3df31cc4a1f0e204730b05c8c4450059925a076a8ffe0922efb0d0977a09"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/summer/night.webp",
+      "sha256": "052c7ca13423892e81912c8b74a71603fc385bac9c74c3627e2b5afa185230c3"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "sha256": "d128c242cac695d394a2c74bdbaea7b56c4ebc9bcdc8fa252f4597fd38e109e2"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/winter/evening.webp",
+      "sha256": "d5dc5ce0f2d06a939418f54872718f8c21791088fb90ca53fc38bb56a212ed84"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/winter/morning.webp",
+      "sha256": "6d03ed81e6fd8008cc183d438f6d893a58b97a5853105f8c9877021481266910"
+    },
+    {
+      "path": "public/assets/penthouse/seoul/winter/night.webp",
+      "sha256": "2fe07e3a4e74997eb64a649aadbb776f9802e366a1713db53901a5e095c53b54"
+    }
+  ]
+}

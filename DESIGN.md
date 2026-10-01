@@ -8,6 +8,14 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Milky's photograph-inspired moments and walking · latest, 2026-10-02
+
+Keep Milky's familiar white coat, face and restrained head/body proportions. Add six quiet performances drawn from the album: a curious head tilt, forepaws stretched out, a sleepy peek, a gentle pant after exertion, a chin resting on the real bed rim, and a relaxed roll on the cushion. The two cushion performances require a real approach, low hop and landing. Use authored lowering, rolling and rising poses in both directions; a new action must let a lying dog rise before walking or turning. Each motion is also available through the English `Little moments` controls in Milky, with no caption added over the room.
+
+Ordinary walking uses new painted torso and leg layers at the existing scale. Coordinate four feet continuously: stance paws stay on the floor while the body moves, swing paws lift and land, and short direction changes retain support. The normal walk is unhurried; on-floor Run and ball chase use a faster version of this gait. Keep the authored hop into the bed. At a normal stop, retain the final still walking silhouette instead of abruptly changing its legs to another drawing. Do not enlarge the head or replace the room, album photographs or existing character artwork.
+
+All motion remains within the existing pet scheduler and frame loop. Load each photo group only when needed, atomically with at most two simultaneous decodes; load the three small walking layers as one set. Unavailable art preserves the existing working pet. Pending requests must not resume after newer intent, a hidden tab, settings, still mode, reduced motion, resize cancellation or destruction. These performances are affectionate interpretations of the photographs, not claims about historical behavior. Source prompts and measured registration are retained with the new art.
+
 ## A quiet fireworks festival and returning name · latest, 2026-10-02
 
 Remove the small procedural river boat: the user found its rendering too crude for this room. Atmosphere instead offers a one-minute fireworks festival with Watch/Stop controls. Layer fine gold and champagne sparks with occasional dusty-rose accents; use varied, falling trails and soft light rather than flat rings or hard geometric symbols. Keep the show behind the window frames, skyline and interior silhouettes, with restrained reflections on the Han River. The room’s time, weather, artwork and soundtrack remain the visitor’s choices. A running festival stops when the tab is hidden, animation is disabled or reduced motion is requested.

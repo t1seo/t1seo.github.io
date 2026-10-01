@@ -1,0 +1,220 @@
+{
+  "actualMountAdapter": true,
+  "nativeCanvas": true,
+  "chromePlayback": false,
+  "sourceStableDuringRender": true,
+  "requestedImages": 21,
+  "maxConcurrentDecodes": 2,
+  "sourceHashes": {
+    "src/cyber-pet.ts": "94cc8a43f54c04a59820ed0792338738d2080c84fd24fe6fab4e9ffb611c91a4",
+    "src/cyber-pet-motion.ts": "11d993bd0b73bea6e90b02937c6dbbd26bee5fcb1956e35c1fe900b01691c144",
+    "src/cyber-pet-grounded-assets.ts": "0b0b37dd95c5b361929907b727a8551d9ab9e67a697ec570e63554dd7aede347",
+    "src/cyber-pet-grounded-geometry.ts": "469d2e85e3c63df93b6aab905f48ad54bc46b0a5d033c830d49461e4e65cc6d7",
+    "src/cyber-pet-grounded-plan.ts": "0dcb44bf744aceb0103c76c94f15db9393f1216e45ea6b2dfde3e42d908baf9c",
+    "src/cyber-pet-grounded-render.ts": "643d44566b15d939fddb246e99d15282f05d3772d286a9e201fa4586833d9249",
+    "src/cyber-pet-grounded-controller.ts": "81f79fb1b96fe3049ffe305d016525f46c758585603952212d149b4e6f3f7bec",
+    "src/cyber-pet-grounded-walk.ts": "b2a9a45a507faa18c0cee5af04df525785a00871bf9bad5436c781f81518573f",
+    "src/cyber-pet-grounded.css": "3d4714a40fe231c6ef957b32711a12e75be34d20f314ecf64695a62e4695f95e",
+    "public/assets/cyberpunk/milky-grounded-walk/torso.webp": "cd2d21c2ecc52b41dbfe227182880df42baec58f391506d1ce7894c000798ed8",
+    "public/assets/cyberpunk/milky-grounded-walk/foreleg.webp": "3454df841a603727366830e45228c5e2ed68f87f0ca57956d1e1537d7ad1b6a6",
+    "public/assets/cyberpunk/milky-grounded-walk/hindleg.webp": "5bdc5d8119701484a3fb3cef86fae5a691a5b0c738c07ffb7f90837d4f4e3c49"
+  },
+  "results": [
+    {
+      "name": "normal",
+      "from": {
+        "x": 700,
+        "y": 920
+      },
+      "to": {
+        "x": 880,
+        "y": 920
+      },
+      "cadence": 1,
+      "durationMs": 3493.814476085027,
+      "normalCycleMs": 720,
+      "frameCount": 211,
+      "failedFrames": [],
+      "finishAccepted": true,
+      "heldForMs": 500,
+      "holdAddedDraws": 0,
+      "holdStable": true,
+      "raster": {
+        "width": 340,
+        "height": 227
+      },
+      "finalRasterHash": "997e09acd3707f011d414fa1e0fd97294f41837e1fd07813ebb8071f1bb2418a",
+      "videoSha256": "ad258ccd9797d4b4c2f0fc6014982e912a5713b3a87beadfe8794c53f25fc579",
+      "medianDrawMs": 0.9855420000001232,
+      "p95DrawMs": 1.1161670000001322
+    },
+    {
+      "name": "brisk",
+      "from": {
+        "x": 700,
+        "y": 920
+      },
+      "to": {
+        "x": 880,
+        "y": 920
+      },
+      "cadence": 1.48,
+      "durationMs": 2438.523294652045,
+      "normalCycleMs": 486.4864864864865,
+      "frameCount": 148,
+      "failedFrames": [],
+      "finishAccepted": true,
+      "heldForMs": 500,
+      "holdAddedDraws": 0,
+      "holdStable": true,
+      "raster": {
+        "width": 340,
+        "height": 227
+      },
+      "finalRasterHash": "997e09acd3707f011d414fa1e0fd97294f41837e1fd07813ebb8071f1bb2418a",
+      "videoSha256": "aa6f257632793a67dd75507eb4213e29301fc7fe233f6e42b9969cb5c344a141",
+      "medianDrawMs": 1.0506249999998545,
+      "p95DrawMs": 1.1688340000000608
+    },
+    {
+      "name": "left-up",
+      "from": {
+        "x": 850,
+        "y": 930
+      },
+      "to": {
+        "x": 730,
+        "y": 918
+      },
+      "cadence": 1,
+      "durationMs": 2420.028718590479,
+      "normalCycleMs": 720,
+      "frameCount": 147,
+      "failedFrames": [],
+      "finishAccepted": true,
+      "heldForMs": 500,
+      "holdAddedDraws": 0,
+      "holdStable": true,
+      "raster": {
+        "width": 340,
+        "height": 227
+      },
+      "finalRasterHash": "997e09acd3707f011d414fa1e0fd97294f41837e1fd07813ebb8071f1bb2418a",
+      "videoSha256": "bc74f0ca6360a92427a19276e30b85406dbe2d326c6d8f254674fe6b482ee6b8",
+      "medianDrawMs": 1.1131249999998545,
+      "p95DrawMs": 11.650042000000212
+    },
+    {
+      "name": "arrow-up",
+      "from": {
+        "x": 902.8800000000001,
+        "y": 931.59
+      },
+      "to": {
+        "x": 994.8400000000001,
+        "y": 910.8879999999999
+      },
+      "cadence": 1,
+      "durationMs": 1943.939763670058,
+      "normalCycleMs": 720,
+      "frameCount": 118,
+      "failedFrames": [],
+      "finishAccepted": true,
+      "heldForMs": 500,
+      "holdAddedDraws": 0,
+      "holdStable": true,
+      "raster": {
+        "width": 340,
+        "height": 227
+      },
+      "finalRasterHash": "997e09acd3707f011d414fa1e0fd97294f41837e1fd07813ebb8071f1bb2418a",
+      "videoSha256": "a6c9117c6e1070c49e836270503edc66370781423b3aabc6bfc27cba08747c7e",
+      "medianDrawMs": 0.9844580000008136,
+      "p95DrawMs": 1.0912910000006377
+    },
+    {
+      "name": "arrow-down",
+      "from": {
+        "x": 902.8800000000001,
+        "y": 908.0649999999999
+      },
+      "to": {
+        "x": 994.8400000000001,
+        "y": 928.7669999999999
+      },
+      "cadence": 1,
+      "durationMs": 1943.9397636700576,
+      "normalCycleMs": 720,
+      "frameCount": 118,
+      "failedFrames": [],
+      "finishAccepted": true,
+      "heldForMs": 500,
+      "holdAddedDraws": 0,
+      "holdStable": true,
+      "raster": {
+        "width": 340,
+        "height": 227
+      },
+      "finalRasterHash": "997e09acd3707f011d414fa1e0fd97294f41837e1fd07813ebb8071f1bb2418a",
+      "videoSha256": "097df25a1b71af76e8b2bdac46b038b9d08d2d4cde8cf471dd65986a4f3ca68e",
+      "medianDrawMs": 0.9865420000005543,
+      "p95DrawMs": 1.0860839999986638
+    },
+    {
+      "name": "bed-approach",
+      "from": {
+        "x": 1100,
+        "y": 920
+      },
+      "to": {
+        "x": 1331.4,
+        "y": 931.2
+      },
+      "cadence": 1,
+      "durationMs": 4427.856036817304,
+      "normalCycleMs": 720,
+      "frameCount": 267,
+      "failedFrames": [],
+      "finishAccepted": true,
+      "heldForMs": 500,
+      "holdAddedDraws": 0,
+      "holdStable": true,
+      "raster": {
+        "width": 340,
+        "height": 227
+      },
+      "finalRasterHash": "997e09acd3707f011d414fa1e0fd97294f41837e1fd07813ebb8071f1bb2418a",
+      "videoSha256": "6083a494520e1d85115a531dda94a473f0403d3530053f70db593b4014ae7ca0",
+      "medianDrawMs": 1.0080830000006245,
+      "p95DrawMs": 1.1291249999994761
+    },
+    {
+      "name": "bed-no-hop-fallback",
+      "from": {
+        "x": 1331.4,
+        "y": 931.2
+      },
+      "to": {
+        "x": 1440,
+        "y": 865
+      },
+      "cadence": 1,
+      "durationMs": 2539.117782771556,
+      "normalCycleMs": 720,
+      "frameCount": 154,
+      "failedFrames": [],
+      "finishAccepted": true,
+      "heldForMs": 500,
+      "holdAddedDraws": 0,
+      "holdStable": true,
+      "raster": {
+        "width": 340,
+        "height": 227
+      },
+      "finalRasterHash": "997e09acd3707f011d414fa1e0fd97294f41837e1fd07813ebb8071f1bb2418a",
+      "videoSha256": "6142fb133b812bd0cc930df7576725fc99859da3da141f340b6deef011a84e01",
+      "medianDrawMs": 0.9862080000020796,
+      "p95DrawMs": 1.0845420000005106
+    }
+  ]
+}

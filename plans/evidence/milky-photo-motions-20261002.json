@@ -1,0 +1,192 @@
+{
+  "updatedAt": "2026-10-01T18:49:35.935696+00:00",
+  "scope": "Six photo-inspired Milky moments and continuous painted walking, active penthouse only",
+  "baselineCommit": "ea57d64518b2cee37b1677b303423a3e9d58c668",
+  "verifiedImplementationCommit": "83bce7aa51a2a374418205453d61633eec5bd15d",
+  "claude": {
+    "model": "claude-fable-5",
+    "photoImplementationCommit": "0b8bce2",
+    "role": "Actual Claude CLI implemented six photo motions in an isolated worktree, fixed independently reproduced lifecycle issues, and reviewed the layered gait approach. Codex workers authored and reviewed additive art, built the grounded renderer, integrated UI and fixes."
+  },
+  "checks": {
+    "tests": {
+      "command": "npm test",
+      "passed": 716,
+      "failed": 0,
+      "skipped": 0,
+      "logSha256": "2e84e2c8b234fd2812c6e9315b839141a2220fabceea746adee9f50d3289da8f"
+    },
+    "build": {
+      "command": "VITE_GUESTBOOK_API_URL=https://taewon-guestbook.northstar-cloudflare.workers.dev npm run build",
+      "result": "passed: tsc and Vite",
+      "logSha256": "b5c25fd02d2d0358e939c1db21ea28cf77a380aeb3746f5ae056cca57392034c"
+    },
+    "originalArt": {
+      "preserved": 65,
+      "total": 65,
+      "inventory": "milky-photo-motions/preserved-art.json"
+    },
+    "independentGaitRoutes": {
+      "planSha256": "0dcb44bf744aceb0103c76c94f15db9393f1216e45ea6b2dfde3e42d908baf9c",
+      "freshRoutes": 62,
+      "samplesEach": 1201,
+      "carriedArrowRoutes": 96,
+      "reachViolations": 0,
+      "intervalsWithFewerThanTwoSupports": 0
+    }
+  },
+  "behavior": {
+    "photoKinds": [
+      "tilt",
+      "paws-rest",
+      "sleepy-peek",
+      "pant",
+      "chin-rest",
+      "belly-up"
+    ],
+    "photoCacheImages": 15,
+    "photoMaxConcurrentDecodes": 2,
+    "gaitAssets": 3,
+    "gaitArtBytes": 109786,
+    "newRafLoops": 0,
+    "groundedNormalCadenceMs": 720,
+    "arrival": "Final neutral canvas remains frozen; no automatic legacy idle-image swap",
+    "activeRestSet": "MILKY_PHOTO_REST; archived default stays original three",
+    "lyingReadiness": "Requires authored rest prerequisites; later readiness updates controls",
+    "failedImageBehavior": "Current pet remains usable; no partial group or automatic photo retry loop"
+  },
+  "resolvedScenarios": [
+    "hidden/modal/still/reduced/resize cancellation before late photo decode",
+    "failed group deliberate retry with old decode completion",
+    "new intent supersedes queued bed intent",
+    "bed approach/hop/departure requests wait for real cushion landing",
+    "lying photo exits before walking or posture replacement",
+    "rolling ball continues landing during photo replacement",
+    "cold grounded art cannot swap into a running sprite leg",
+    "same-heading retarget keeps world contacts and compatible momentum",
+    "ArrowUp/down and depth-clamped bed fallback fit actual painted limb reach",
+    "completed gait freezes without a second frame loop",
+    "active-only rest bridges and photo controls preserve archive requests"
+  ],
+  "visualEvidence": {
+    "nativeAdapter": "milky-photo-motions/grounded-adapter-report.json",
+    "walkPreview": "milky-photo-motions/grounded-walk.mp4",
+    "walkSheet": "milky-photo-motions/grounded-contact-sheet.png",
+    "photoTimeline": "milky-photo-motions/photo-timeline-report.json",
+    "photoTimelineImplementationCommit": "e3e746f",
+    "photoTimelineNote": "Final art and photo plans unchanged; subsequent integrated readiness/controller regressions covered by the complete test suite"
+  },
+  "limitations": [
+    "Official Codex Computer Use @oai/sky failed with Sky Computer Use native pipe startup failed; Chrome playback and browser FPS were not verified. No alternate GUI provider was used.",
+    "Native Canvas renders and controller fixtures are not Chrome screenshots or end-to-end browser evidence.",
+    "Native adapter draw medians were about 1ms; one left-up diagnostic had p95 11.65ms. These are not a browser performance guarantee.",
+    "New art matches the existing likeness but is separately drawn; small silhouette/fur differences remain during authored pose changes. No claim of perfect biomechanics."
+  ],
+  "newRuntimeArt": [
+    {
+      "path": "public/assets/cyberpunk/milky-grounded-walk/foreleg.webp",
+      "bytes": 17656,
+      "sha256": "3454df841a603727366830e45228c5e2ed68f87f0ca57956d1e1537d7ad1b6a6"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-grounded-walk/hindleg.webp",
+      "bytes": 21832,
+      "sha256": "5bdc5d8119701484a3fb3cef86fae5a691a5b0c738c07ffb7f90837d4f4e3c49"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-grounded-walk/torso.webp",
+      "bytes": 70298,
+      "sha256": "cd2d21c2ecc52b41dbfe227182880df42baec58f391506d1ce7894c000798ed8"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/belly-relaxed.webp",
+      "bytes": 67884,
+      "sha256": "e7de6932d3ab64e0de2cc7d75bc263faef20dfb9202d650cc4fcae2fd9b38777"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/belly-up.webp",
+      "bytes": 81368,
+      "sha256": "1da5809925745e9779477fcb9f9931f121ef8e777a35bbe86ef3998f8d507125"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/chin-lower.webp",
+      "bytes": 66868,
+      "sha256": "45ce27b33e374d90139ce7139b23dcc77563a600371920840164b07699abcbc1"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/chin-rest.webp",
+      "bytes": 71968,
+      "sha256": "934aea525c1fc7e6eeb5ba724e2659ef8b16ea99e216ca8e85250357b528ac77"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/pant-open.webp",
+      "bytes": 90086,
+      "sha256": "a14866186567d18b08eab2f3533a28c7c2a55a004d72dd3d5783605c6ac16426"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/pant-soft.webp",
+      "bytes": 89114,
+      "sha256": "0ab2cdbf898187696f1f2f77151ec60f004263e03bac2bd49695113fc37b50e9"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/paws-lower.webp",
+      "bytes": 62704,
+      "sha256": "06a5f85fdabd6260f90097508348762b765abd3df7b48146e37f2e53d9533f07"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/paws-rest.webp",
+      "bytes": 66040,
+      "sha256": "ead5cc27c3152652a659c7a5c1d7f26e21878704beb1bd8936236f4430ac974a"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/peek-blink.webp",
+      "bytes": 65580,
+      "sha256": "462f0dfb7d03314ac3e7caac0334f53bbc14696b5a9170461f5f35ed7949c05d"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/peek-low.webp",
+      "bytes": 67118,
+      "sha256": "a172f7aece8f2a5ad75f0e43ddaba286531615ed334f1ab95cd9ce0edb505caf"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/peek-up.webp",
+      "bytes": 66308,
+      "sha256": "95db256d6e29b2069fc3d391bf119231e931967e7e21f070f821c8d5ae0524aa"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/roll-half.webp",
+      "bytes": 75168,
+      "sha256": "d67a674678d0dab74b044fcf2dab31c66ec11c35c1020355cc55552ec2da02a6"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/roll-side.webp",
+      "bytes": 74020,
+      "sha256": "2fdaca7c87c33c3da1f5713fb0a505ad284f1e1bf8bbed6e619a856a8f0313fa"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/tilt-full.webp",
+      "bytes": 93974,
+      "sha256": "b29eadcafca02c75de63a6eec8112fb65d3fb158ed42f9a4276d9b179b3ef47a"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-photo-motions/tilt-near.webp",
+      "bytes": 92010,
+      "sha256": "122c95908ec17bb433e590bf382f6eacd74c65a12882bc97324f4ef2bbdccb97"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-rest-sitdown.webp",
+      "bytes": 79034,
+      "sha256": "8eca06687845ad1d5d9ca574f54c239663a3e1595a4c17225bec8978b213b61b"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-rest-wake.webp",
+      "bytes": 97594,
+      "sha256": "ee97151aec455ae3b88c0e89147ae10be18472a78967574c06483845118ee4b2"
+    }
+  ],
+  "deployment": {
+    "status": "pending authorized main push",
+    "site": "https://t1seo.github.io/",
+    "note": "Exact Actions/Pages SHA and live bundle hashes will be verified after the release commit; deployment confirmation is reported separately to avoid self-referential commit hashes."
+  }
+}

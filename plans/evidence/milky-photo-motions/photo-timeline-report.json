@@ -1,0 +1,1006 @@
+{
+  "at": "2026-10-01T18:38:15.730Z",
+  "scope": "Native composition driven by actual controller timeline observations from photo_runtime_finish; not browser screenshots",
+  "timelineSha256": "010fb970852add2c68febc184372fe14a1b5234b0bbb9f2914efb8e9d34f78d3",
+  "modules": [
+    {
+      "path": "src/cyber-pet.ts",
+      "sha256": "97535a571a7f40e45094cd87de66b7d5d2e19b46fb69b3b2b82dabd2ef2a705d"
+    },
+    {
+      "path": "src/cyber-pet-photo-art.ts",
+      "sha256": "60a90cd00e1d9433646296fd4d0b366d6a23e02635ee55953f879d89c62740b5"
+    },
+    {
+      "path": "src/cyber-pet-photo-plan.ts",
+      "sha256": "3b13a3a63345d4d7900e758a60ec323aa52df8bdfca958eede5dc9e92ad75034"
+    },
+    {
+      "path": "src/cyber-pet-photo.ts",
+      "sha256": "9301031a081210add3036d1a7da0ff9061c646093d6f08f0a97d544452fcc3bb"
+    },
+    {
+      "path": "src/cyber-pet-photo-loader.ts",
+      "sha256": "fa3820fce5e75028cbf283661e84e739f4edf3f76f663907fa58ea20156a9469"
+    },
+    {
+      "path": "src/cyber-pet-photo-geometry.ts",
+      "sha256": "86d1f0a77ba9b4c33b6911cf0150cf3d42125405697f0be0eb20598cf436d014"
+    },
+    {
+      "path": "src/cyber-pet-photo.css",
+      "sha256": "0342bead898816b81c5ad1e508e773afc83611d2a5456fd20efed52db59d9539"
+    },
+    {
+      "path": "src/cyber-pet.css",
+      "sha256": "141872d8c8b064aac4aec2105dfb9e857d59a794c8f8292edeafa80b1d7427e6"
+    },
+    {
+      "path": "src/cyber-pet-rest.ts",
+      "sha256": "ccafb00193ed82fb4266bc59075283d4a2e1d1eb80d1b3466b9e48902778052e"
+    }
+  ],
+  "assetCount": 21,
+  "reports": [
+    {
+      "kind": "tilt",
+      "evidence": "actual-timeline-tilt.png",
+      "frameReports": [
+        {
+          "pose": "tilt-near",
+          "at": 0,
+          "hold": 496,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/tilt-near.webp",
+          "sha256": "122c95908ec17bb433e590bf382f6eacd74c65a12882bc97324f4ef2bbdccb97"
+        },
+        {
+          "pose": "tilt-full",
+          "at": 496,
+          "hold": 1248,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/tilt-full.webp",
+          "sha256": "b29eadcafca02c75de63a6eec8112fb65d3fb158ed42f9a4276d9b179b3ef47a"
+        },
+        {
+          "pose": "tilt-near",
+          "at": 1744,
+          "hold": 384,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/tilt-near.webp",
+          "sha256": "122c95908ec17bb433e590bf382f6eacd74c65a12882bc97324f4ef2bbdccb97"
+        },
+        {
+          "pose": "idle",
+          "at": 2128,
+          "hold": 208,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-v4-idle.webp",
+          "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+        }
+      ]
+    },
+    {
+      "kind": "pant",
+      "evidence": "actual-timeline-pant.png",
+      "frameReports": [
+        {
+          "pose": "pant-soft",
+          "at": 0,
+          "hold": 432,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/pant-soft.webp",
+          "sha256": "0ab2cdbf898187696f1f2f77151ec60f004263e03bac2bd49695113fc37b50e9"
+        },
+        {
+          "pose": "pant-open",
+          "at": 432,
+          "hold": 480,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/pant-open.webp",
+          "sha256": "a14866186567d18b08eab2f3533a28c7c2a55a004d72dd3d5783605c6ac16426"
+        },
+        {
+          "pose": "pant-soft",
+          "at": 912,
+          "hold": 400,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/pant-soft.webp",
+          "sha256": "0ab2cdbf898187696f1f2f77151ec60f004263e03bac2bd49695113fc37b50e9"
+        },
+        {
+          "pose": "pant-open",
+          "at": 1312,
+          "hold": 496,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/pant-open.webp",
+          "sha256": "a14866186567d18b08eab2f3533a28c7c2a55a004d72dd3d5783605c6ac16426"
+        },
+        {
+          "pose": "pant-soft",
+          "at": 1808,
+          "hold": 464,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/pant-soft.webp",
+          "sha256": "0ab2cdbf898187696f1f2f77151ec60f004263e03bac2bd49695113fc37b50e9"
+        },
+        {
+          "pose": "pant-open",
+          "at": 2272,
+          "hold": 464,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/pant-open.webp",
+          "sha256": "a14866186567d18b08eab2f3533a28c7c2a55a004d72dd3d5783605c6ac16426"
+        },
+        {
+          "pose": "pant-soft",
+          "at": 2736,
+          "hold": 512,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/pant-soft.webp",
+          "sha256": "0ab2cdbf898187696f1f2f77151ec60f004263e03bac2bd49695113fc37b50e9"
+        },
+        {
+          "pose": "idle",
+          "at": 3248,
+          "hold": 240,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-v4-idle.webp",
+          "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+        }
+      ]
+    },
+    {
+      "kind": "paws-rest",
+      "evidence": "actual-timeline-paws-rest.png",
+      "frameReports": [
+        {
+          "pose": "sitdown",
+          "at": 0,
+          "hold": 480,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -81.5,
+            -3
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sitdown.webp",
+          "sha256": "8eca06687845ad1d5d9ca574f54c239663a3e1595a4c17225bec8978b213b61b"
+        },
+        {
+          "pose": "sit",
+          "at": 480,
+          "hold": 736,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -94,
+            -7
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sit.webp",
+          "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+        },
+        {
+          "pose": "paws-lower",
+          "at": 1216,
+          "hold": 560,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -137,
+            20
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/paws-lower.webp",
+          "sha256": "06a5f85fdabd6260f90097508348762b765abd3df7b48146e37f2e53d9533f07"
+        },
+        {
+          "pose": "paws-rest",
+          "at": 1776,
+          "hold": 8608,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -137,
+            21
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/paws-rest.webp",
+          "sha256": "ead5cc27c3152652a659c7a5c1d7f26e21878704beb1bd8936236f4430ac974a"
+        },
+        {
+          "pose": "paws-lower",
+          "at": 10384,
+          "hold": 464,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -137,
+            20
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/paws-lower.webp",
+          "sha256": "06a5f85fdabd6260f90097508348762b765abd3df7b48146e37f2e53d9533f07"
+        },
+        {
+          "pose": "sit",
+          "at": 10848,
+          "hold": 496,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -94,
+            -7
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sit.webp",
+          "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+        },
+        {
+          "pose": "idle",
+          "at": 11344,
+          "hold": 208,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-v4-idle.webp",
+          "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+        }
+      ]
+    },
+    {
+      "kind": "sleepy-peek",
+      "evidence": "actual-timeline-sleepy-peek.png",
+      "frameReports": [
+        {
+          "pose": "sitdown",
+          "at": 0,
+          "hold": 352,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -81.5,
+            -3
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sitdown.webp",
+          "sha256": "8eca06687845ad1d5d9ca574f54c239663a3e1595a4c17225bec8978b213b61b"
+        },
+        {
+          "pose": "sit",
+          "at": 352,
+          "hold": 688,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -94,
+            -7
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sit.webp",
+          "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+        },
+        {
+          "pose": "drowsy",
+          "at": 1040,
+          "hold": 656,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -137,
+            19
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-drowsy.webp",
+          "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6"
+        },
+        {
+          "pose": "sleep",
+          "at": 1696,
+          "hold": 992,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -103,
+            55
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sleep.webp",
+          "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b"
+        },
+        {
+          "pose": "peek-low",
+          "at": 2688,
+          "hold": 592,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -109,
+            70
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/peek-low.webp",
+          "sha256": "a172f7aece8f2a5ad75f0e43ddaba286531615ed334f1ab95cd9ce0edb505caf"
+        },
+        {
+          "pose": "peek-up",
+          "at": 3280,
+          "hold": 992,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -105,
+            57
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/peek-up.webp",
+          "sha256": "95db256d6e29b2069fc3d391bf119231e931967e7e21f070f821c8d5ae0524aa"
+        },
+        {
+          "pose": "peek-blink",
+          "at": 4272,
+          "hold": 224,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -105,
+            56
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/peek-blink.webp",
+          "sha256": "462f0dfb7d03314ac3e7caac0334f53bbc14696b5a9170461f5f35ed7949c05d"
+        },
+        {
+          "pose": "peek-up",
+          "at": 4496,
+          "hold": 608,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -105,
+            57
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/peek-up.webp",
+          "sha256": "95db256d6e29b2069fc3d391bf119231e931967e7e21f070f821c8d5ae0524aa"
+        },
+        {
+          "pose": "peek-low",
+          "at": 5104,
+          "hold": 544,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -109,
+            70
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/peek-low.webp",
+          "sha256": "a172f7aece8f2a5ad75f0e43ddaba286531615ed334f1ab95cd9ce0edb505caf"
+        },
+        {
+          "pose": "sleep",
+          "at": 5648,
+          "hold": 3360,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -103,
+            55
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sleep.webp",
+          "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b"
+        },
+        {
+          "pose": "wake",
+          "at": 9008,
+          "hold": 464,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            -135,
+            -2
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-wake.webp",
+          "sha256": "ee97151aec455ae3b88c0e89147ae10be18472a78967574c06483845118ee4b2"
+        },
+        {
+          "pose": "idle",
+          "at": 9472,
+          "hold": 256,
+          "anchor": [
+            969.76,
+            908.06
+          ],
+          "depth": 1,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-v4-idle.webp",
+          "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+        }
+      ]
+    },
+    {
+      "kind": "chin-rest",
+      "evidence": "actual-timeline-chin-rest.png",
+      "frameReports": [
+        {
+          "pose": "sitdown",
+          "at": 4160,
+          "hold": 352,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -81.5,
+            -3
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sitdown.webp",
+          "sha256": "8eca06687845ad1d5d9ca574f54c239663a3e1595a4c17225bec8978b213b61b"
+        },
+        {
+          "pose": "sit",
+          "at": 4512,
+          "hold": 448,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -94,
+            -7
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sit.webp",
+          "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+        },
+        {
+          "pose": "drowsy",
+          "at": 4960,
+          "hold": 576,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -137,
+            19
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-drowsy.webp",
+          "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6"
+        },
+        {
+          "pose": "chin-lower",
+          "at": 5536,
+          "hold": 624,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103.01209363721107,
+            239.99284366252414
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/chin-lower.webp",
+          "sha256": "45ce27b33e374d90139ce7139b23dcc77563a600371920840164b07699abcbc1"
+        },
+        {
+          "pose": "chin-rest",
+          "at": 6160,
+          "hold": 6592,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103.01209363721107,
+            239.99284366252414
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/chin-rest.webp",
+          "sha256": "934aea525c1fc7e6eeb5ba724e2659ef8b16ea99e216ca8e85250357b528ac77"
+        },
+        {
+          "pose": "chin-lower",
+          "at": 12752,
+          "hold": 512,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103.01209363721107,
+            239.99284366252414
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/chin-lower.webp",
+          "sha256": "45ce27b33e374d90139ce7139b23dcc77563a600371920840164b07699abcbc1"
+        },
+        {
+          "pose": "drowsy",
+          "at": 13264,
+          "hold": 576,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -137,
+            19
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-drowsy.webp",
+          "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6"
+        },
+        {
+          "pose": "wake",
+          "at": 13840,
+          "hold": 496,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -135,
+            -2
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-wake.webp",
+          "sha256": "ee97151aec455ae3b88c0e89147ae10be18472a78967574c06483845118ee4b2"
+        },
+        {
+          "pose": "idle",
+          "at": 14336,
+          "hold": 240,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-v4-idle.webp",
+          "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+        }
+      ]
+    },
+    {
+      "kind": "belly-up",
+      "evidence": "actual-timeline-belly-up.png",
+      "frameReports": [
+        {
+          "pose": "sitdown",
+          "at": 4160,
+          "hold": 432,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -81.5,
+            -3
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sitdown.webp",
+          "sha256": "8eca06687845ad1d5d9ca574f54c239663a3e1595a4c17225bec8978b213b61b"
+        },
+        {
+          "pose": "sit",
+          "at": 4592,
+          "hold": 416,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -94,
+            -7
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sit.webp",
+          "sha256": "bd37a05ef8b7efeb57182ecac8b7891e5d6b0cf17575ad4769cd3d29ab2e4be3"
+        },
+        {
+          "pose": "drowsy",
+          "at": 5008,
+          "hold": 528,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -137,
+            19
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-drowsy.webp",
+          "sha256": "6418594f3b77ff3d504596ccc29e88673077db20b81258ea4b94df0db8a770e6"
+        },
+        {
+          "pose": "sleep",
+          "at": 5536,
+          "hold": 944,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            55
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sleep.webp",
+          "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b"
+        },
+        {
+          "pose": "roll-side",
+          "at": 6480,
+          "hold": 176,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            150
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/roll-side.webp",
+          "sha256": "2fdaca7c87c33c3da1f5713fb0a505ad284f1e1bf8bbed6e619a856a8f0313fa"
+        },
+        {
+          "pose": "roll-half",
+          "at": 6656,
+          "hold": 160,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            149
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/roll-half.webp",
+          "sha256": "d67a674678d0dab74b044fcf2dab31c66ec11c35c1020355cc55552ec2da02a6"
+        },
+        {
+          "pose": "belly-up",
+          "at": 6816,
+          "hold": 208,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            139
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/belly-up.webp",
+          "sha256": "1da5809925745e9779477fcb9f9931f121ef8e777a35bbe86ef3998f8d507125"
+        },
+        {
+          "pose": "belly-relaxed",
+          "at": 7024,
+          "hold": 6064,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            139
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/belly-relaxed.webp",
+          "sha256": "e7de6932d3ab64e0de2cc7d75bc263faef20dfb9202d650cc4fcae2fd9b38777"
+        },
+        {
+          "pose": "belly-up",
+          "at": 13088,
+          "hold": 192,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            139
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/belly-up.webp",
+          "sha256": "1da5809925745e9779477fcb9f9931f121ef8e777a35bbe86ef3998f8d507125"
+        },
+        {
+          "pose": "roll-half",
+          "at": 13280,
+          "hold": 144,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            149
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/roll-half.webp",
+          "sha256": "d67a674678d0dab74b044fcf2dab31c66ec11c35c1020355cc55552ec2da02a6"
+        },
+        {
+          "pose": "roll-side",
+          "at": 13424,
+          "hold": 176,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            150
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-photo-motions/roll-side.webp",
+          "sha256": "2fdaca7c87c33c3da1f5713fb0a505ad284f1e1bf8bbed6e619a856a8f0313fa"
+        },
+        {
+          "pose": "sleep",
+          "at": 13600,
+          "hold": 1088,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -103,
+            55
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-sleep.webp",
+          "sha256": "05d6e903a8ce380fbd72f922777a6c200bab56e2c9b2b28b91972ec9caeb4b9b"
+        },
+        {
+          "pose": "wake",
+          "at": 14688,
+          "hold": 560,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            -135,
+            -2
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-rest-wake.webp",
+          "sha256": "ee97151aec455ae3b88c0e89147ae10be18472a78967574c06483845118ee4b2"
+        },
+        {
+          "pose": "idle",
+          "at": 15248,
+          "hold": 272,
+          "anchor": [
+            1440,
+            865
+          ],
+          "depth": 0.9742,
+          "translation": [
+            0,
+            0
+          ],
+          "nonempty": true,
+          "asset": "public/assets/cyberpunk/milky-v4-idle.webp",
+          "sha256": "5ddc8ac39a033ab9f56df7974d5cd14d8c9be9a628a68deff97c0af9f273d26b"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Timeline sampled every16ms by another worker; observed holds quantized to sampling cadence",
+    "Complete look-ahead gait/hop animation excluded; first rendered bed frame is real post-landing sitdown",
+    "Final idle uses camera-facing reference as timeline did not capture gaze",
+    "CSS breathing, dynamic shadows, runtime DOM layout and live Chrome visibility are not rendered"
+  ]
+}
