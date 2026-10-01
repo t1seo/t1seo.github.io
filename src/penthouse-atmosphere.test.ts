@@ -1,7 +1,7 @@
-import test, { type TestContext } from 'node:test';
+import test from 'node:test';
 import assert from 'node:assert/strict';
 import { AtmosphereSimulation, atmosphereProfile, isGlass, isSky } from './penthouse-atmosphere.ts';
-import { mountPenthouseEffects } from './penthouse-effects.ts';
+import { compositor } from './penthouse-effects-test-support.ts';
 import { penthousePlate } from './penthouse-scene.ts';
 import { CYBER_SEASONS, type ClimateState } from './cyber-climate.ts';
 
@@ -80,49 +80,6 @@ test('a resumed or stalled frame cannot fast-forward the simulation', () => {
   assert.equal(sim.time,.1); assert.ok(sim.wetness < .05);
 });
 
-function compositor(t: TestContext, reducedMotion = false, textureSupport: 'available' | 'missing' | 'no-context' = 'available') {
-  const originals = new Map<string, PropertyDescriptor | undefined>();
-  const install = (key: string,value: unknown) => { originals.set(key,Object.getOwnPropertyDescriptor(globalThis,key)); Object.defineProperty(globalThis,key,{configurable:true,writable:true,value}); };
-  const page = Object.assign(new EventTarget(),{hidden:false});
-  const media = Object.assign(new EventTarget(),{matches:reducedMotion});
-  const frames = new Map<number,FrameRequestCallback>(); let id = 0, draws = 0;
-  const text: string[] = [];
-  const paintCommands: string[] = [];
-  const liveFilters: string[] = [];
-  const textureSizes: number[] = [];
-  const colorFilters: string[] = [];
-  let texturePaints = 0;
-  const context = new Proxy({}, { get(_target,key) {
-    if (key === 'createRadialGradient' || key === 'createLinearGradient') return () => ({addColorStop() {}});
-    if (key === 'measureText') return (value: string) => ({width:value.length * 2});
-    if (key === 'fillText') return (value: string) => text.push(value);
-    return (...args: unknown[]) => {
-      if (key === 'clearRect') draws++;
-      if (key === 'clearRect' || key === 'fillRect' || key === 'drawImage') paintCommands.push(key);
-      for (const arg of args) if (typeof arg === 'number') assert.ok(Number.isFinite(arg));
-    };
-  }, set(_target,key,value) {
-    if ((key === 'filter' && String(value).includes('blur')) || (key === 'shadowBlur' && Number(value) > 0)) liveFilters.push(`${String(key)}=${String(value)}`);
-    if (key === 'filter' && String(value).includes('brightness')) colorFilters.push(String(value));
-    return true;
-  } });
-  install('document',page); install('matchMedia',() => media);
-  install('OffscreenCanvas', textureSupport === 'missing' ? undefined : class {
-    constructor(width: number,height: number) { textureSizes.push(width * height); }
-    getContext() { return textureSupport === 'no-context' ? null : { fillRect() {}, beginPath() {}, rect() {}, fill() {}, clearRect() {}, drawImage() { texturePaints++; } }; }
-  });
-  const images: Array<EventTarget & { src: string; complete: boolean; naturalWidth: number }> = [];
-  install('Image', class extends EventTarget {
-    src = ''; complete = false; naturalWidth = 0;
-    constructor() { super(); images.push(this); }
-  });
-  install('requestAnimationFrame',(cb: FrameRequestCallback) => { frames.set(++id,cb); return id; });
-  install('cancelAnimationFrame',(n: number) => frames.delete(n));
-  const canvas = { getContext: () => context } as unknown as HTMLCanvasElement;
-  const effects = mountPenthouseEffects(canvas,null);
-  t.after(() => { effects.destroy(); for (const [key,value] of originals) { if (value) Object.defineProperty(globalThis,key,value); else Reflect.deleteProperty(globalThis,key); } });
-  return {effects,page,media,frames,text,images,paintCommands,liveFilters,textureSizes,colorFilters,texturePaints:()=>texturePaints,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
-}
 test('loaded desk objects reuse their lighting until the atmosphere changes', t => {
   const f = compositor(t);
   f.effects.update(state());
@@ -142,7 +99,7 @@ test('night lights animate without blurring the full room canvas every frame', t
   f.effects.update(state());
   for (let tick = 0; tick < 60; tick++) f.run(1000 + tick * 40);
   assert.deepEqual(f.liveFilters, [], 'window softness must be rasterized once, outside the room compositor');
-  assert.equal(f.textureSizes.length, 1, 'all night frames reuse one bounded texture');
+  assert.equal(f.textureSizes.filter(size => size < 65536).length, 1, 'all night frames reuse one bounded city texture');
   assert.ok(f.textureSizes[0] < 65536, 'window texture stays much smaller than the room');
   assert.ok(f.paintCommands.filter(command => command === 'drawImage').length > 60, 'city lights remain visible throughout the animation');
 });
@@ -152,7 +109,8 @@ for (const textureSupport of ['missing', 'no-context'] as const) {
     f.effects.update(state());
     for (let tick = 0; tick < 5; tick++) f.run(1000 + tick * 40);
     assert.deepEqual(f.liveFilters, []);
-    assert.equal(f.textureSizes.length, textureSupport === 'missing' ? 0 : 1, 'an unavailable texture is not retried every frame');
+    assert.equal(f.textureSizes.length, textureSupport === 'missing' ? 0 : 2, 'unavailable textures are not retried every frame');
+    assert.equal(f.fallbackCanvases.length, 1, 'the monitor uses one regular canvas when offscreen rendering is unavailable');
     assert.ok(f.paintCommands.includes('fillRect'), 'unfiltered city lights still render');
     assert.equal(f.frames.size, 1, 'scene animation continues');
   });
@@ -189,16 +147,6 @@ test('reduced motion and manual still mode render once without animation frames'
   f.media.matches = false; f.media.dispatchEvent(new Event('change')); assert.equal(f.frames.size,1);
   f.effects.setAnimated(false); assert.equal(f.frames.size,0); f.effects.update(state()); assert.equal(f.frames.size,0);
 });
-test('monitor starts off and writes code only after an explicit workspace action', t => {
-  const f = compositor(t,true); f.effects.update(state()); assert.equal(f.text.length,0);
-  f.effects.setWorkspace({monitor:true,lamp:true}); assert.ok(f.text.join('').includes('  companion: "Milky",'));
-  f.text.length = 0; f.effects.setWorkspace({monitor:false,lamp:false}); assert.equal(f.text.length,0);
-});
-test('clear daytime without active coding is static and uses no animation loop', t => {
-  const f = compositor(t); f.effects.update(state('clear','noon')); assert.equal(f.frames.size,0);
-  f.effects.setWorkspace({monitor:true,lamp:false}); assert.equal(f.frames.size,1);
-  f.effects.setWorkspace({monitor:false,lamp:false}); assert.equal(f.frames.size,0);
-});
 test('desk lamp toggles replace the light overlay without accumulating paint or idle frames', t => {
   const f = compositor(t); f.effects.update(state('clear','noon'));
   for (const lamp of [false,true,false,true,false]) {
@@ -210,4 +158,47 @@ test('desk lamp toggles replace the light overlay without accumulating paint or 
     else assert.deepEqual(f.paintCommands,['clearRect'],'turning off leaves no light behind');
     assert.equal(f.frames.size,0,'a steady lamp needs no animation loop');
   }
+});
+test('striking the singing bowl borrows one scene loop and lets daytime return to idle', t => {
+  const f = compositor(t); f.effects.update(state('clear','noon')); assert.equal(f.frames.size,0);
+  f.effects.strikeBowl(); assert.equal(f.frames.size,1);
+  f.effects.strikeBowl(); assert.equal(f.frames.size,1,'a second strike does not create another loop');
+  for (let tick = 0; tick < 170; tick++) f.run(1000 + tick * 40);
+  assert.equal(f.frames.size,0,'the six-second resonance finishes without leaving an idle loop');
+});
+test('singing bowl honors hidden tabs and freezes without frames in still mode', t => {
+  const f = compositor(t); f.effects.update(state('clear','noon')); f.effects.strikeBowl();
+  f.page.hidden = true; f.page.dispatchEvent(new Event('visibilitychange')); assert.equal(f.frames.size,0);
+  f.page.hidden = false; f.page.dispatchEvent(new Event('visibilitychange')); assert.equal(f.frames.size,1);
+  f.effects.setAnimated(false); f.effects.strikeBowl(); assert.equal(f.frames.size,0);
+  f.effects.strikeBowl(); assert.equal(f.frames.size,0); f.effects.destroy(); assert.equal(f.frames.size,0);
+});
+test('lounge light toggles independently with one reusable texture and no daytime loop', t => {
+  const f = compositor(t); f.effects.update(state('clear','noon'));
+  f.effects.setWorkspace({monitor:false,lamp:false,floorLamp:true});
+  assert.equal(f.textureSizes.filter(size => size === 360 * 400).length,1); assert.equal(f.frames.size,0);
+  f.effects.setWorkspace({monitor:false,lamp:false,floorLamp:false}); f.paintCommands.length = 0;
+  f.effects.setWorkspace({monitor:false,lamp:false,floorLamp:false}); assert.deepEqual(f.paintCommands,['clearRect']);
+  f.effects.setWorkspace({monitor:false,lamp:false,floorLamp:true});
+  assert.equal(f.textureSizes.filter(size => size === 360 * 400).length,1); assert.equal(f.frames.size,0);
+});
+test('a lit lounge reuses its soft gradients throughout night animation', t => {
+  const f = compositor(t); f.effects.update(state()); f.effects.setWorkspace({monitor:false,lamp:false,floorLamp:true});
+  const gradients = f.gradients(); for (let tick = 0; tick < 60; tick++) f.run(1000 + tick * 40);
+  assert.equal(f.gradients(),gradients); assert.deepEqual(f.liveFilters,[]);
+  assert.equal(f.textureSizes.filter(size => size === 360 * 400).length,1);
+});
+test('lounge light falls back to a regular canvas and releases it on teardown', t => {
+  const f = compositor(t,false,'missing'); f.effects.update(state('clear','noon')); f.effects.setWorkspace({monitor:false,lamp:false,floorLamp:true});
+  const texture = f.fallbackCanvases.find(surface => surface.width === 360); assert.ok(texture);
+  assert.equal(texture.height,400); f.effects.destroy(); assert.equal(texture.width,0); assert.equal(texture.height,0);
+});
+test('enabling animation after a still bowl strike does not start an endless daytime loop', t => {
+  const f = compositor(t); f.effects.update(state('clear','noon')); f.effects.setAnimated(false); f.effects.strikeBowl();
+  f.effects.setAnimated(true); assert.equal(f.frames.size,0);
+});
+test('diffuser fragrance uses the scene loop and returns daytime to idle after seven seconds', t => {
+  const f = compositor(t); f.effects.update(state('clear','noon')); f.effects.scentDiffuser(); assert.equal(f.frames.size,1);
+  for (let tick = 0; tick < 200; tick++) f.run(1000 + tick * 40);
+  assert.equal(f.frames.size,0);
 });

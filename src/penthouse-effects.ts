@@ -1,10 +1,13 @@
 import type { ClimateState } from './cyber-climate.ts';
-import { drawStudioScreen, SCREEN_SIZE } from './penthouse-monitor.ts';
+import { SCREEN_SIZE } from './penthouse-monitor.ts';
+import { StudioScreenCache } from './penthouse-monitor-cache.ts';
+import { LoungeLight } from './penthouse-lounge-light.ts';
 import { ROOM_OBJECTS, objectLighting } from './penthouse-objects.ts';
 import { RoomLife, type CupSpot } from './penthouse-room-life.ts';
+import { SingingBowl } from './penthouse-singing-bowl.ts';
 import { AtmosphereSimulation, GLASS_EDGE, GLASS_PANES, GLASS_OCCLUDERS, SKY_EDGE, WORKSPACE_CROP, MONITOR_SCREEN, ROOM_SIZE, atmosphereProfile, isSky, seededRandom, type Point } from './penthouse-atmosphere.ts';
 
-export interface WorkspaceState { monitor: boolean; lamp: boolean }
+export interface WorkspaceState { monitor: boolean; lamp: boolean; floorLamp?: boolean }
 type LitObject = { readonly image: HTMLImageElement; readonly rect: readonly [number, number, number, number]; texture?: OffscreenCanvas; lighting?: string };
 
 /** One bounded 30 fps compositor. Glass, skyline and workspace have separate masks. */
@@ -14,17 +17,20 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   const abort = new AbortController();
   const sim = new AtmosphereSimulation();
   const roomLife = new RoomLife();
+  const bowl = new SingingBowl();
+  const screen = new StudioScreenCache();
+  const loungeLight = new LoungeLight();
   const random = seededRandom(310730);
   const dust = Array.from({length: 180}, () => ({ x: random() * 1295, y: random() * 582, speed: .55 + random(), phase: random() * 6.28 }));
   const stars = Array.from({length: 48}, () => ({ x: 191 + random() * 1295, y: 40 + random() * 185, phase: random() * 6.28, r: .35 + random() * .5 })).filter(p => isSky(p.x,p.y));
   let state: ClimateState = { season: 'autumn', time: 'night', weather: 'clear', auto: true };
-  let workspace: WorkspaceState = { monitor: false, lamp: false };
+  let workspace: WorkspaceState = { monitor: true, lamp: true };
   let plate = initialPlate;
   let exterior = initialPlate;
   let preview: HTMLCanvasElement | null = null;
   let screenPreview: HTMLCanvasElement | null = null;
   let animateView = true;
-  let frame = 0, last = 0, painted = 0, typing = 0;
+  let frame = 0, last = 0, painted = 0, typing = 12;
   let dead = false;
   const objects: LitObject[] = ctx ? ROOM_OBJECTS.map(object => {
     const image = new Image();
@@ -129,6 +135,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   }
   function drawWorkspace() {
     const night = atmosphereProfile(state).night;
+    if (workspace.floorLamp && ctx) loungeLight.draw(ctx,night);
     if (workspace.lamp) {
       ctx!.save(); ctx!.beginPath(); path([[982,550],[1135,550],[1148,575],[978,575]]); ctx!.clip();
       glow(1068,561,98,15,'#ffdda0',.37); ctx!.restore();
@@ -140,7 +147,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
       glow(916,562,86,12,'#bad4e9',.08 + night * .09);
       ctx!.save(); ctx!.beginPath(); path(MONITOR_SCREEN); ctx!.clip();
       ctx!.translate(839,429); ctx!.scale(152 / SCREEN_SIZE[0],90 / SCREEN_SIZE[1]);
-      drawStudioScreen(ctx!,typing,reduced.matches || !animateView,state,plate);
+      screen.draw(ctx!,typing,reduced.matches || !animateView,state,plate);
       ctx!.restore();
     }
   }
@@ -177,23 +184,23 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     if (screenPreview) {
       screenPreview.hidden = !workspace.monitor;
       const screenContext = screenPreview.getContext('2d');
-      if (workspace.monitor && screenContext) drawStudioScreen(screenContext,typing,reduced.matches || !animateView,state,plate);
+      if (workspace.monitor && screenContext) screen.draw(screenContext,typing,reduced.matches || !animateView,state,plate);
     }
   }
   function render() {
     if (!ctx || dead) return;
-    ctx.clearRect(0,0,...ROOM_SIZE); drawSky(ctx); drawObjects(); drawWorkspace(); roomLife.drawSteam(ctx, reduced.matches || !animateView); drawPreview();
+    ctx.clearRect(0,0,...ROOM_SIZE); drawSky(ctx); drawObjects(); drawWorkspace(); roomLife.drawSteam(ctx, reduced.matches || !animateView); bowl.draw(ctx, reduced.matches || !animateView); drawPreview();
   }
   function needsMotion() {
-    return roomLife.active || atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 12);
+    return roomLife.active || bowl.active || atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 12);
   }
   function loop(now: number) {
     frame = 0;
     if (dead || !ctx || document.hidden || reduced.matches || !animateView) return;
     if (now - painted >= 1000 / 30) {
       const dt = last ? Math.min((now - last) / 1000,.1) : 0;
-      last = now; painted = now; sim.advance(dt,state); roomLife.advance(dt);
-      if (workspace.monitor) typing += dt;
+      last = now; painted = now; sim.advance(dt,state); roomLife.advance(dt); bowl.advance(dt);
+      if (workspace.monitor) typing = Math.min(12,typing + dt);
       render();
     }
     if (needsMotion()) frame = requestAnimationFrame(loop);
@@ -210,10 +217,12 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   return {
     update(next: ClimateState) { state = next; if (state.weather !== 'clear' || state.time !== 'night') sim.meteor = null; restart(); },
     setPlate(image: HTMLImageElement, outside: HTMLImageElement = image) { plate = image; exterior = outside; restart(); },
-    setWorkspace(next: WorkspaceState) { if (!workspace.monitor && next.monitor) typing = 0; workspace = next; restart(); },
+    setWorkspace(next: WorkspaceState) { if (!workspace.monitor && next.monitor) typing = 0; workspace = { ...next }; restart(); },
     setAnimated(enabled: boolean) { animateView = enabled; sim.meteor = null; restart(); },
     savorCoffee(kind: CupSpot) { roomLife.savorCoffee(kind, reduced.matches || !animateView); restart(); },
+    scentDiffuser() { roomLife.scentDiffuser(reduced.matches || !animateView); restart(); },
+    strikeBowl() { bowl.strike(reduced.matches || !animateView); restart(); },
     setPreview(next: HTMLCanvasElement | null, screen: HTMLCanvasElement | null = null) { preview = next; screenPreview = screen; if (screenPreview) { screenPreview.width = SCREEN_SIZE[0]; screenPreview.height = SCREEN_SIZE[1]; } if (preview) { preview.width = WORKSPACE_CROP[2]; preview.height = WORKSPACE_CROP[3]; } render(); },
-    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); roomLife.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const object of objects) { object.image.src = ''; object.texture = undefined; } },
+    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); roomLife.clear(); bowl.clear(); screen.clear(); loungeLight.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const object of objects) { object.image.src = ''; object.texture = undefined; } },
   };
 }

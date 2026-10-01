@@ -1,10 +1,11 @@
 import type { ClimateState } from './cyber-climate.ts';
 
 export const SCREEN_SIZE = [912, 540] as const;
+export type ScreenContext = CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D;
 const colors = { plain: '#d5e1ec', keyword: '#c4a4e7', string: '#b6d9aa', comment: '#829497' };
 
 /** Vector screen art: one composition for the room and the sharp Desk close-up. */
-export function drawStudioScreen(c: CanvasRenderingContext2D, seconds: number, still: boolean, state: ClimateState, plate: HTMLImageElement | null) {
+export function drawStudioScreen(c: ScreenContext, seconds: number, still: boolean, state: ClimateState, plate: HTMLImageElement | null) {
   const rect = (x: number, y: number, w: number, h: number, color: string) => { c.fillStyle = color; c.fillRect(x,y,w,h); };
   const text = (value: string, x: number, y: number, color = colors.plain, size = 17) => { c.fillStyle = color; c.font = `${size}px ui-monospace, SFMono-Regular, monospace`; c.fillText(value,x,y); };
   rect(0,0,912,540,'#17202d');
