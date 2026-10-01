@@ -1,0 +1,388 @@
+{
+  "tool": "built-in image_gen",
+  "season": "autumn",
+  "referenceMaster": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+  "runtimeEncoding": "Pillow WebP RGB quality90 method6; no spatial edits",
+  "invariants": [
+    "both lamps off in source art",
+    "painted tall architect desk lamp aligned at far-right edge of desk",
+    "singing bowl upgraded",
+    "left table reed diffuser replaces cup and saucer",
+    "monitor remains black in source art",
+    "clock/speaker/pen/Milky remain runtime assets"
+  ],
+  "plates": [
+    {
+      "time": "morning",
+      "source": "asset-sources/seoul-studio/refined-desk/autumn/morning.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/morning.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "webpQuality": 90,
+      "webpMethod": 6,
+      "sourceSha256": "cb3b20588171538fd544e4e91a418e83b271e08d653ce4fdb68f3ace1743503e",
+      "runtimeSha256": "5be47bcd62033afc2d32dbedd943ac9c9b88064f9360aa026eac345178c51d4b",
+      "runtimeBytes": 230012,
+      "generation": {
+        "asset": "autumn/morning",
+        "mode": "built-in image_gen",
+        "tool": "image_gen__imagegen",
+        "output": "asset-sources/seoul-studio/refined-desk/autumn/morning.png",
+        "sourceInputSha256": {
+          "public/assets/penthouse/seoul/autumn/morning.webp": "707fc523bfed3553646a37f11ff0595a639fcb7f5617124fe727c6f1483c455e",
+          "asset-sources/seoul-studio/refined-desk/autumn/noon.png": "14ef1bf13c51d0f3c36dde586887417c8d61306ff551532a31b601b87e9cc0c1"
+        },
+        "calls": [
+          {
+            "prompt": "Use case: precise-object-edit.\nAsset type: full illustrated room background plate for an interactive website, 1672\u00d7941.\nInput 1 is the EDIT TARGET: existing AUTUMN MORNING room. Input 2 is a DESIGN REFERENCE ONLY for four local object edits, NOT an overall lighting reference.\nEdit the FIRST image only, keep its peach morning sky, all clouds, morning city/buildings/river reflections, autumn foliage, warm indirect interior illumination, materials, camera/crop, full 1672\u00d7941 framing and all scene geometry unchanged. Copy only the following local design details from image 2:\n1. Replace the thin low LED bar desk lamp with the EXACT reference tall dark gunmetal/brass articulated task lamp at the FAR RIGHT desk edge: slim oval foot x1208..1262 y552..567, upright x1235..1240 y449..557, angled brass/dark arm x1168..1256 y402..460, tapered dark small shade x1130..1178 y401..439. It is as tall as the monitor and reaches left. Bulb OFF, no emitted beam/glow.\n2. Replace the small dark bowl immediately right of the pencil pot with the reference refined bronze singing bowl at x1058..1099 y535..562: finely brushed warm bronze outer bowl, defined thin lip, dark interior and simple low circular support. Keep pencil pot exactly where it is. No extra accessories or mallet.\n3. Replace ONLY the cup and saucer on the LEFT lounge side table with the reference small amber-glass reed diffuser: bottle x108..138 y623..663, fine dark reeds reaching y580. No cup or saucer there afterwards. Preserve the table.\n4. Turn OFF the existing lounge floor lamp while keeping its exact structure and ivory shade x153..252 y389..449. Shade is neutral ivory and nonemissive; remove its direct warm spotlight on chair/table/floor, but preserve ALL warm ambient morning illumination, indirect shelf lights and exterior light.\nKeep the monitor screen solid black. Preserve the rest of the room unchanged. Do not draw a digital clock, speaker, pen, calendar, dog, ball, UI, text or watermark: those are separate runtime objects. Leave desktop area x1125..1187 y531..561 EMPTY for the future clock.\nStyle: match the target's premium hand-painted matte 2.5D illustration, subtle tactile brush texture and natural perspective. Precision object edit; do not restyle the image, don't shift window mullions/furniture, don't adopt reference noon sky or its blue daylight. Output same wide 1672\u00d7941 composition.",
+            "referenced_image_paths": [
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/public/assets/penthouse/seoul/autumn/morning.webp",
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+            ],
+            "generatedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-b208-7291-8f15-1fe861f4e7e7/exec-610d48d3-72bf-4bc7-8797-f7e0a31eb4ff.png",
+            "accepted": false,
+            "reason": "Lamp slightly left; unwanted small mallet beside singing bowl"
+          },
+          {
+            "prompt": "Use case: precise-object-edit. FIRST image is the EDIT TARGET, already-correct autumn MORNING room; SECOND image is reference for the exact task lamp geometry and bronze singing bowl ONLY. Keep the entire FIRST image exactly as is except two tiny local corrections:\n1. The far-right desk task lamp in the FIRST image is approximately 12 pixels too far LEFT. Match the SECOND reference lamp's exact placement and dimensions. Move the entire task lamp right about 12 pixels with a tiny slight increase in arm reach: foot x1208..1262 y552..567, upright x1235..1240 y449..557, arm x1168..1256 y402..460, shade x1130..1178 y401..439 in this 1672\u00d7941 image. Reference silhouette: premium matte dark metal with quiet brass articulating joints, monitor-height, shade and bulb OFF. Erase the old lamp location cleanly into underlying morning river and desktop; preserve these textures.\n2. Remove the red/brown diagonal stick or mallet protruding up-right from the bronze singing bowl near x1093..1111 y520..539. The bowl should match reference bowl with no accessories: warm bronze outer surface, delicate lip, dark interior, low round support at x1058..1099 y535..562.\nNo other changes whatsoever. Keep target peach morning sky and warm amber morning atmosphere. Keep its same city/river/crop/window mullions/furniture/monitor black/pencil pot/amber reed diffuser. BOTH lamps remain off. Do not copy noon lighting from reference. Do not add clock, speaker, pen, calendar, text or UI. Leave x1125..1187 y531..561 desktop empty. Same 1672\u00d7941 framing. Preserve illustration style and existing object geometry everywhere else.",
+            "referenced_image_paths": [
+              "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-b208-7291-8f15-1fe861f4e7e7/exec-610d48d3-72bf-4bc7-8797-f7e0a31eb4ff.png",
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+            ],
+            "generatedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-b208-7291-8f15-1fe861f4e7e7/exec-8a571054-cd4b-4809-9c54-0014bf8ba192.png",
+            "accepted": false,
+            "reason": "Mallet removed but lamp shifted too far right"
+          },
+          {
+            "prompt": "Precise-object-edit. The FIRST image is the edit target autumn MORNING room and must remain unchanged everywhere except the desk task lamp. The SECOND image is the exact lamp position and design reference. Replace only the desk task lamp in first image with precisely the task lamp from second image, at exactly the same on-image location it has in the second image. The target's current lamp is too far right and hangs beyond the desk; the reference lamp foot sits wholly on the desk just inside its right edge and its upright is just left of that edge. Match the reference lamp 1:1 in location, scale, orientation and dark metal/brass design. Copy reference lamp only, not sky or room. Bulb remains OFF. All pixels/objects outside this lamp swap remain unchanged, especially the beautiful peach MORNING sky, singing bowl without mallet, diffuser, window mullions, blank monitor, floor lamp OFF, furniture and illustration style. Do not add clock, speaker, pen, dog or UI. Same 1672\u00d7941 wide framing.",
+            "referenced_image_paths": [
+              "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-b208-7291-8f15-1fe861f4e7e7/exec-8a571054-cd4b-4809-9c54-0014bf8ba192.png",
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+            ],
+            "generatedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-b208-7291-8f15-1fe861f4e7e7/exec-91769555-e303-4b20-a8d1-aec636035615.png",
+            "accepted": true
+          }
+        ],
+        "normalization": {
+          "tool": "ffmpeg",
+          "inputDimensions": [
+            1671,
+            941
+          ],
+          "outputDimensions": [
+            1672,
+            941
+          ],
+          "filter": "scale=1672:941:flags=lanczos",
+          "note": "Dimension normalization only; no manual compositing or image paint"
+        },
+        "outputSha256": "cb3b20588171538fd544e4e91a418e83b271e08d653ce4fdb68f3ace1743503e",
+        "visualReview": {
+          "deskLamp": {
+            "shadeApprox": [
+              1131,
+              402,
+              43,
+              36
+            ],
+            "uprightApprox": [
+              1235,
+              449,
+              5,
+              107
+            ],
+            "footApprox": [
+              1207,
+              553,
+              54,
+              13
+            ],
+            "off": true
+          },
+          "singingBowlApprox": [
+            1058,
+            532,
+            44,
+            31
+          ],
+          "diffuserApprox": [
+            108,
+            581,
+            30,
+            82
+          ],
+          "floorLampOff": true,
+          "monitorBlack": true,
+          "clockAreaEmpty": true,
+          "morningLightingPreserved": true,
+          "notes": "Reviewed generated full scene and normalized final; lamp registration matches approved master to about 2px. Warm ambient morning illumination remains, no lamp emission. Singing bowl is accessory-free; diffuser replaces lounge cup."
+        }
+      }
+    },
+    {
+      "time": "noon",
+      "source": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/noon.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "webpQuality": 90,
+      "webpMethod": 6,
+      "sourceSha256": "14ef1bf13c51d0f3c36dde586887417c8d61306ff551532a31b601b87e9cc0c1",
+      "runtimeSha256": "326bb8b24a25546ed23341109333b0ce5fea657df26a2560cbf2f887b27516cd",
+      "runtimeBytes": 226276,
+      "generationRecord": "asset-sources/seoul-studio/refined-desk/master-generation.json"
+    },
+    {
+      "time": "afternoon",
+      "source": "asset-sources/seoul-studio/refined-desk/autumn/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "webpQuality": 90,
+      "webpMethod": 6,
+      "sourceSha256": "c38c58ddd94c9be11a12598ecf54b006eacad5d6f70a3d5194662217642a79c3",
+      "runtimeSha256": "8ac40b167a9b3f656b3398027564a8b0ee2ceedfbe5c65aa92ac3de14d835ba9",
+      "runtimeBytes": 273972,
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "asset": "autumn/afternoon",
+        "output": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/refined-desk/autumn/afternoon.png",
+        "selectedGeneratedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-d3a9-7f22-81f3-281c9f694d2a/exec-cabdd412-0060-4c1b-a0a9-7e809d6e97ce.png",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "normalization": "none",
+        "selectedAttempt": 4,
+        "attempts": [
+          {
+            "number": 1,
+            "prompt": "Use case: precise-object-edit.\nAsset type: exact-alignment full-room illustration plate, 1672 \u00d7 941 pixels.\nImage 1 is the EDIT TARGET: the existing autumn AFTERNOON room. Image 2 is an approved OBJECT DESIGN reference only (noon). Edit IMAGE 1; preserve its golden afternoon sky, autumn city, sky/clouds, sunset reflections, interior ambient afternoon colors, composition, crop and existing painted material quality. Do not turn the whole image into noon.\n\nMake ONLY these four localized changes, using the corresponding object geometry from image 2:\n1. Replace the thin short LED desk lamp with the EXACT approved tall elegant dark-charcoal/brass articulating task lamp. Put it at the far RIGHT of the desk. Target coordinates in the 1672\u00d7941 framing: low oval base x1208..1262 y552..567; upright x1235..1240 y449..557; slender articulated arm x1168..1256 y402..460; dark tilted conical shade x1130..1178 y401..439. Shape, delicate brass hinges, height and silhouette must match image 2. Desk lamp bulb OFF, no emitted light. The old LED lamp must disappear cleanly with restored city/desk behind it.\n2. Upgrade the black bowl on the desktop to the exact refined warm-bronze singing bowl in image 2, at x1058..1099 y535..562. Give it a carefully painted rounded hammered-bronze body, refined rim and subtle foot/rest. Keep the pencil pot immediately to its left intact.\n3. Replace only the left lounge side-table cup and saucer with the approved slender amber reed diffuser from image 2: amber glass bottle x108..138 y623..663, long fine dark reeds reaching up to y580. Preserve the little round pale-stone table.\n4. Turn the lounge FLOOR lamp OFF: retain the articulated floor lamp and its ivory shade at x153..252 y389..449 in precisely the same position. Shade is matte ivory, nonemissive; remove its own direct warm spotlight on chair/table/floor while preserving natural golden AFTERNOON ambient sunlight throughout the room.\n\nPreserve everything else as closely as possible: Seoul skyline and river, N Seoul Tower and hills, three-pane window architecture and proportions, furniture, monitor body/screen geometry, keyboard, books, desk cup, pencil pot, armchair, rug, wall plant/shelves, desk wood and floor. Source monitor screen remains black/off. Leave a clear empty desktop area between bronze bowl and right lamp, especially [1125,531,62,30], for runtime clock. Do not draw clock, calendar, speakers, pen, dog, ball, UI, text or extra props. Both desk and floor lamps are OFF. Keep exact 1672\u00d7941 framing and matching handcrafted matte painterly 2.5D illustration. No photo elements, no wider crop, no rearrangement of the room.",
+            "referenced_image_paths": [
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/public/assets/penthouse/seoul/autumn/afternoon.webp",
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+            ],
+            "generatedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-d3a9-7f22-81f3-281c9f694d2a/exec-5a9d5676-f0cd-4af3-b876-1843ca31a321.png",
+            "note": "Rejected: lamp alignment offset and residual old LED bar."
+          },
+          {
+            "number": 2,
+            "prompt": "Use case: precise-object-edit. IMAGE 1 is the edit target, a finished golden autumn afternoon illustrated room; IMAGE 2 is the object-position reference only. Preserve ALL of image 1, including golden afternoon light, bronze singing bowl, reed diffuser, black monitor screen, room geometry and exact 1672\u00d7941 framing, except two tiny corrections around desk lamp.\n(1) Remove the leftover old LED desk lamp fragment: there is a thin horizontal gray-bronze line floating over the river to the right of the monitor at x1047..1138 y468..477. Remove it completely and restore uninterrupted river reflections. Do not confuse this with the diagonal arm of the new tall desk lamp, which must remain.\n(2) Match the new tall dark-and-brass lamp position to IMAGE 2 exactly: move the complete lamp approximately 15 pixels right and its shade approximately 22 pixels right so its shade is x1130..1178 y401..439, upright x1235..1240 y449..557, base x1208..1262 y552..567, diagonal arm x1168..1256 y402..460. The shade top is near the same height as the monitor top. Recreate its small dark conical shade and delicate articulated brass joints, matching Image 2 design. Bulb stays OFF. Floor lamp stays OFF. No new objects. No change to clock space x1125..1187 y531..561. Most of the image must be untouched.",
+            "referenced_image_paths": [
+              "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-d3a9-7f22-81f3-281c9f694d2a/exec-5a9d5676-f0cd-4af3-b876-1843ca31a321.png",
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+            ],
+            "generatedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-d3a9-7f22-81f3-281c9f694d2a/exec-4ddf4d29-f9ed-4914-832d-5e5c8f6fcffd.png",
+            "note": "Rejected: residual old LED bar."
+          },
+          {
+            "number": 3,
+            "prompt": "Use case: precise-object-edit. Single tiny retouch to this exact 1672\u00d7941 image. Preserve the entire picture unchanged, EXCEPT the narrow region x1035..1152, y460..484 over the river just RIGHT of the black monitor and BELOW the new diagonal task lamp. There is still a faint, thin, artificial straight horizontal bronze-gray bar from an old LED lamp across that region. Erase that horizontal bar completely and paint the natural blue/amber river reflections in its place so there is no floating straight horizontal object left over the water. The NEW tall diagonal articulated desk lamp at the far right remains untouched, including all its shade, diagonal brass arm, vertical pole and base. Do not change any other object, color, light, framing or detail. Monitor remains black; desk and floor lamps OFF. This is a tiny removal-only repair.",
+            "referenced_image_paths": [
+              "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-d3a9-7f22-81f3-281c9f694d2a/exec-4ddf4d29-f9ed-4914-832d-5e5c8f6fcffd.png"
+            ],
+            "generatedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-d3a9-7f22-81f3-281c9f694d2a/exec-371aba48-2ad9-4b02-8411-80eb5d2c71dc.png",
+            "note": "Rejected in favor of master-first generation."
+          },
+          {
+            "number": 4,
+            "prompt": "Use case: lighting-weather.\nIMAGE 1 is the EDIT TARGET and approved master room. IMAGE 2 is ONLY an AFTERNOON COLOR/LIGHTING reference.\nChange only the time-of-day lighting and colors of IMAGE 1 from bright noon to the rich golden late afternoon depicted in IMAGE 2. FREEZE all object geometry from IMAGE 1. Keep EXACT camera, 1672\u00d7941 framing, city buildings and mountains, three window panes, desk and furniture, tall articulated desk lamp at far right, floor lamp at far left, bronze singing bowl, amber reed diffuser on left lounge table, pencil pot, keyboard, books and black monitor.\nThe old short LED bar and lounge cup from image 2 MUST NOT return. Use Image 2 only for golden warm afternoon sunlight, soft pink-orange clouds within blue sky, warm hill/city tones, golden river reflections, and golden interior ambient sun. Preserve the painted matte handcrafted 2.5D quality and crisp small details of Image 1.\nBoth lamps remain OFF: desk conical shade nonemissive; left floor lamp ivory shade matte, no direct spotlight pools. Natural golden sunlight is allowed; do not illuminate bulbs. Source monitor remains black. The tall desk lamp geometry must be precisely unchanged from Image 1: base x1208..1262 y552..567, upright x1235..1240 y449..557, articulated arm x1168..1256 y402..460, shade x1130..1178 y401..439. Bronze singing bowl unchanged at x1058..1099 y535..562. Reed diffuser unchanged at x108..138 y623..663, reeds up to y580. Empty clock space remains x1125..1187 y531..561. No clock, pen, speaker, calendar, dog, ball, text or UI. ONLY time-of-day colors and ambient sunlight change; FREEZE all object geometry.",
+            "referenced_image_paths": [
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+              "/Users/cillian/Documents/Github/Projects/t1seo.github.io/public/assets/penthouse/seoul/autumn/afternoon.webp"
+            ],
+            "generatedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-d3a9-7f22-81f3-281c9f694d2a/exec-cabdd412-0060-4c1b-a0a9-7e809d6e97ce.png",
+            "note": "Selected: approved noon geometry, golden afternoon lighting; no LED remnant. Both lamps off; monitor black; bronze bowl and diffuser preserved."
+          }
+        ]
+      }
+    },
+    {
+      "time": "evening",
+      "source": "asset-sources/seoul-studio/refined-desk/autumn/evening.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/evening.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "webpQuality": 90,
+      "webpMethod": 6,
+      "sourceSha256": "78358bd25bcfd190580b0576ae5b0c20f007886ede970beccff35f3377c65262",
+      "runtimeSha256": "e15210b502d35e6335d3064f702afc81e0bcff020f31d2f4eb68775b938620ff",
+      "runtimeBytes": 264290,
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "mode": "built-in",
+        "useCase": "lighting-weather",
+        "selectedOutput": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f76d-7190-a86d-51a755d061a2/exec-a909d009-5074-44a6-ba91-078557f7d5ac.png",
+        "savedTo": "asset-sources/seoul-studio/refined-desk/autumn/evening.png",
+        "normalized": false,
+        "selectedInputs": [
+          {
+            "role": "edit-target",
+            "path": "asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+          },
+          {
+            "role": "evening-time-lighting-reference",
+            "path": "public/assets/penthouse/seoul/autumn/evening.webp"
+          }
+        ],
+        "prompt": "Use case: lighting-weather.\nINPUT 1 is the sole EDIT TARGET and authoritative geometry: approved autumn noon room. INPUT 2 is strictly a TIME-OF-DAY COLOR/LIGHTING REFERENCE: existing autumn evening room.\nTransform ONLY the colors, sky lighting, river reflections and time of day of input 1 to match the richly purple/orange sunset evening atmosphere of input 2. Sky is orange near horizon and purple above; Seoul city tower and building lights glow warmly and reflect over the darker river; architectural interior ambient lighting remains warm.\nFREEZE ALL OBJECT GEOMETRY of INPUT 1 exactly. All objects must remain at precisely their original pixel positions, dimensions, shape and proportions. In particular the approved far-right tall articulated brass/charcoal desk lamp: base x1208..1262 y552..567, upright x1235..1240 y449..557, arm x1168..1256 y402..460, shade x1130..1178 y401..439. Keep bronze singing bowl x1058..1099 y535..562, pencil pot, amber reed diffuser x108..138 y623..663 with reeds rising to y580, and their designs unchanged. Leave empty desk space between bowl and lamp.\nBOTH DESK LAMP AND FLOOR LAMP MUST REMAIN OFF. Floor lamp ivory shade remains non-emissive, without direct warm spotlight on lounge chair/table/floor. Ambient architectural lighting may reflect softly on its shade, but never make it glow. Desk lamp shade has no lit bulb, no cone of light.\nKeep input 1's exact architecture, crop, city silhouettes, autumn foliage shapes, window mullions, black monitor, desk, keyboard, coffee/books, paintings, shelving, chair, side-table, rug and plant positions and painterly material textures. Do not import the old low LED lamp or the old lounge cup from input 2. Do not add clock, speaker, pen, calendar, dog, text or any UI. Do not move or rescale anything. Output exact 1672x941 framing, a complete high-quality painted autumn evening room.",
+        "precedingAttempts": [
+          {
+            "prompt": "Use case: precise-object-edit.\nAsset type: hand-painted illustrated interactive room background, exact framing 1672 x 941.\nINPUT 1 is the EDIT TARGET: existing autumn EVENING room. INPUT 2 is only an approved OBJECT DESIGN and PLACEMENT reference (autumn noon). Edit INPUT 1. Do not recolor the target as noon and do not use input 2 as the base.\nChange only these four local details in input 1:\n1. Remove its low thin LED desk lamp and replace it with EXACTLY the tall dark charcoal and brass articulated lamp shown in input 2, on the FAR RIGHT of the desk. Match silhouette, scale and placement: base x1208..1262 y552..567, upright x1235..1240 y449..557, arm x1168..1256 y402..460, conical shade x1130..1178 y401..439. Its top is above the monitor top. Lamp OFF, no lamp glow.\n2. Upgrade the small singing bowl on the desk to the SAME finely illustrated warm bronze singing bowl as input 2, within x1058..1099 y535..562. Preserve the pencil pot immediately left of the bowl. Leave clear empty desktop between bowl and lamp for a runtime clock, around x1125..1187 y531..561.\n3. Replace only the lounge side-table cup and saucer with the SAME small elegant amber reed diffuser as input 2: bottle x108..138 y623..663, thin reeds rise to y580. Table and chair remain fixed.\n4. Switch the EXISTING left lounge floor lamp OFF: retain exact lamp geometry and ivory shade x153..252 y389..449 but make shade non-emissive. Remove its direct warm spotlight from chair, table and nearby floor. Preserve the overall warm ambient evening illumination from other architectural fixtures.\nABSOLUTE INVARIANTS: preserve input 1's purple/orange sunset, city buildings, N Seoul Tower, river, all city lights, autumn foliage, window mullions, room architecture, full crop, camera perspective, furniture positions, detailed painted style, textures and overall evening palette. Keep black monitor screen, keyboard, books, desktop coffee, pencil pot, rug and ambient architectural lights. Do NOT draw any clock, speaker, pen, calendar, dog or runtime UI. Do not add objects or text. Preserve exact 1672x941 full-room framing. Output one complete edited evening room.",
+            "inputs": [
+              "public/assets/penthouse/seoul/autumn/evening.webp",
+              "asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+            ],
+            "output": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f76d-7190-a86d-51a755d061a2/exec-22a1775c-746a-438e-b1be-c65338c3e9f9.png",
+            "rejectedReason": "Desk lamp around 15 px left of approved geometry"
+          },
+          {
+            "prompt": "Use case: precise-object-edit. Input 1 is the EDIT TARGET, the refined autumn evening room. Input 2 is ONLY the exact lamp-placement reference, never a lighting/background reference.\nMake ONLY ONE local correction to input 1: move the entire new tall articulated dark/brass DESK LAMP precisely 18 pixels to the RIGHT without changing its size, proportions, design, height or off state. Match its position in input 2. Its base should span x1208..1262 y552..567, upright near x1237, articulating brass arm from near x1168 y406 to x1256 y460, small charcoal conical shade x1130..1178 y401..439. Restore the sunset river and desk behind its previous position, preserving the window mullion exactly. Keep the lamp turned OFF.\nChange nothing else. In particular preserve the target's purple-orange evening sky, skyline, illuminated city and reflections, exact room and furniture geometry, existing bronze bowl at x1058..1099, pencil pot, amber reed diffuser on the left table, nonemissive OFF floor lamp shade, black monitor, keyboard, coffee/books, shadows, architectural lighting and illustrated brush texture. Do not change overall exposure or color. Do not draw clock, speaker, pen, calendar, dog, labels or extra objects. Output same exact full-room 1672 x 941 framing.",
+            "inputs": [
+              "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f76d-7190-a86d-51a755d061a2/exec-22a1775c-746a-438e-b1be-c65338c3e9f9.png",
+              "asset-sources/seoul-studio/refined-desk/autumn/noon.png"
+            ],
+            "output": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f76d-7190-a86d-51a755d061a2/exec-3df0fc73-84a3-45da-8733-c189a46a88b8.png",
+            "rejectedReason": "Desk lamp shifted too far right"
+          }
+        ],
+        "visualQA": {
+          "dimensions": [
+            1672,
+            941
+          ],
+          "lampFootApprox": [
+            1208,
+            552,
+            54,
+            15
+          ],
+          "lampShaftApprox": [
+            1235,
+            449,
+            5,
+            108
+          ],
+          "lampShadeApprox": [
+            1130,
+            401,
+            48,
+            38
+          ],
+          "bowlApprox": [
+            1058,
+            535,
+            41,
+            27
+          ],
+          "diffuserBottleApprox": [
+            108,
+            623,
+            30,
+            40
+          ],
+          "bothLampsOff": true,
+          "blackMonitor": true,
+          "clockSpaceClear": true,
+          "notes": "Approved noon object layout retained. Evening skyline and warm sunset color reference applied; naturally painted cloud shapes differ from old evening plate."
+        }
+      }
+    },
+    {
+      "time": "night",
+      "source": "asset-sources/seoul-studio/refined-desk/autumn/night.png",
+      "runtime": "public/assets/penthouse/seoul/autumn/night.webp",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "webpQuality": 90,
+      "webpMethod": 6,
+      "sourceSha256": "bc0b77e267cad25e9f89077c1ad28e75cce33dca43bc8f1d199dc359f8d5c002",
+      "runtimeSha256": "ef8282974d141b77156c2d1fa0dac2916ce0374092e4f9f1eb29e2d91eeb4974",
+      "runtimeBytes": 239302,
+      "generation": {
+        "tool": "built-in image_gen",
+        "source": "public/assets/penthouse/seoul/autumn/night.webp",
+        "reference": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+        "output": "asset-sources/seoul-studio/refined-desk/autumn/night.png",
+        "selectedIteration": 3,
+        "iterations": [
+          {
+            "useCase": "precise-object-edit",
+            "prompt": "Use case: precise-object-edit.\nImage 1 is EDIT TARGET: existing autumn NIGHT room, 1672x941. Preserve this exact night plate, navy sky, illuminated Seoul skyline and river, autumn foliage, ambient shelf/ceiling lights and warm interior, image crop, monitor, furniture and all composition.\nImage 2 is OBJECT DESIGN/PLACEMENT REFERENCE ONLY: approved noon master. Do not copy its daytime sky, lighting or color palette. Copy only the four precise object changes below into NIGHT target, matched to night illumination and existing hand-painted soft matte style.\n\n1. Replace the old thin horizontal LED desk lamp with the exact tall sculptural dark graphite/brass articulated architect lamp from Image 2, FAR RIGHT on desk: ellipse foot x1208..1262/y552..567, upright x1235..1240/y449..557, angled arm from x1168/y402 to x1256/y460, small conical shade x1130..1178/y401..439. Foot sits near extreme right desktop edge above right drawer, to RIGHT of right window mullion. Preserve clear EMPTY space x1110..1208 on desktop. Remove the old lamp completely, restore background. New lamp OFF, no emissive bulb or desk glow.\n2. Upgrade little bowl immediately right of pencil pot to exact premium hammered bronze singing bowl from Image 2, body x1058..1099/y535..562, warm brass rim, charcoal cushion, same small size. Keep pencil pot unchanged.\n3. Replace cup AND saucer on left circular white stone side table with exact elegant small amber glass reed diffuser from Image 2: bottle x108..138/y623..663 and five fine dark fanned reeds reaching y580. No cup/saucer remains.\n4. Turn the LEFT FLOOR LAMP completely OFF in SOURCE ART: retain same articulated metal structure and cream shade silhouette x153..252/y389..449, but shade now dark neutral cream/beige fabric illuminated only by ambient room, NOT orange, NOT glowing, NO illuminated bulb. Remove its localized warm spotlight/reflection on black lounge chair back/seat, side table and immediately surrounding floor; chair remains subtly lit by ambient shelf/ceiling/night city light. Preserve all other ambient warm room lights. Both lamps source OFF.\n\nKeep black monitor screen black (runtime adds screen later). No clock/calendar/speaker/pen/dog/new props/text/logo/watermark. Do not recompose or regenerate the interior. Preserve exact source framing, window geometry, skyline, architecture, seasons and camera; no crop. Output 1672x941.",
+            "generatedPath": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f721-4a99-7ed3-91cc-50d5479f4880/exec-ac569aa9-85dc-47d9-8f0e-c004838a8442.png",
+            "status": "rejected; lamp 30px too far right"
+          },
+          {
+            "useCase": "precise-object-edit",
+            "prompt": "Use case: precise-object-edit. First image is EDIT TARGET, a finished autumn NIGHT room plate with refined new objects. Second image is exact OBJECT-GEOMETRY reference, approved noon plate. Keep EVERYTHING in the first night image unchanged except correct the new architect desk lamp's position and geometry to match reference perfectly.\nThe target lamp is about 30 pixels too far RIGHT. Move its whole silhouette 30 pixels LEFT, keeping foot grounded at y557. Match Image 2 foot x1208..1262/y552..567, upright x1235..1240/y449..557, small down-left shade x1130..1178/y401..439 and arm from top x1168/y402 to hinge x1238/y450. The foot center must be x1235, about 25px INSIDE the right desktop edge, not beyond the tabletop. The lamp shade should overlap the right window mullion slightly like in Image 2; move the upper shade LEFT as needed to exactly align reference. Head and upper joint above the black monitor top y420. Make no changes to any other object, bowl, diffuser, floor lamp, chair, skyline, desk, walls, existing night lighting or image crop. Both lamps remain OFF. Do not copy any daytime colors/background from reference. Lamp style remains matte black / subtle brass. No extra objects, no clock. Keep 1672x941 composition.",
+            "generatedPath": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f721-4a99-7ed3-91cc-50d5479f4880/exec-1e91a9c5-1d55-4bcd-9399-7a8d298644df.png",
+            "status": "rejected; correction over-moved lamp"
+          },
+          {
+            "useCase": "lighting-weather",
+            "prompt": "Use case: lighting-weather.\nImage 1 is the EDIT TARGET: an approved 1672 x 941 hand-painted illustrated Seoul apartment at noon. Preserve absolutely all of its object geometry, positions, scale, silhouettes, furniture, all desk details, new tall black/brass articulated desk lamp at far right, small bronze singing bowl, left table amber reed diffuser, plants, shelves, carpet, architecture, camera and crop EXACTLY.\nImage 2 is a NIGHT LIGHTING/CITY COLOR REFERENCE ONLY. Change the TIME OF DAY in Image 1 from noon to night to match Image 2: deep midnight navy blue sky, distant dark autumn mountain, illuminated Seoul buildings and bridges, warm golden city lights reflecting in the dark Han River. Autumn foliage remains autumn. Room has warm ambient shelf/ceiling/under-window cove lights like Image 2, with natural soft darkening in corners.\nCRITICAL: Do NOT copy or restore any objects from Image 2. Its desk lamp and cup are obsolete. Freeze all Image 1 object geometry exactly, including far-right lamp foot, arm and shade. Its two lamps must stay OFF. Left floor lamp shade is non-emissive muted cream/beige fabric, NOT orange glowing and no direct pool of light on lounge chair/table/floor. Desk lamp shade similarly OFF, no emissive bulb. Black monitor remains black.\nONLY change the illumination and time of day. Do not move, replace, resize, add or delete a single object. No cup/saucer on left table; keep approved diffuser. No new clock, speaker, calendar, dog, pen, text or watermark. Exact 1672x941 frame and hand-painted matte finish.",
+            "generatedPath": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f721-4a99-7ed3-91cc-50d5479f4880/exec-1efe8320-f9ff-4489-b0af-84bfbe59a5f7.png",
+            "status": "accepted; approved master geometry preserved, night colors applied"
+          }
+        ],
+        "estimatedGeometry": {
+          "lampFoot": [
+            1208,
+            552,
+            54,
+            15
+          ],
+          "lampStem": [
+            1235,
+            449,
+            5,
+            108
+          ],
+          "lampShade": [
+            1130,
+            401,
+            48,
+            38
+          ],
+          "bowl": [
+            1058,
+            535,
+            41,
+            27
+          ],
+          "diffuserBottle": [
+            108,
+            623,
+            30,
+            40
+          ],
+          "diffuserReeds": [
+            106,
+            580,
+            34,
+            53
+          ]
+        },
+        "checks": [
+          "1672x941 full plate",
+          "lamps off, floor lamp nonemissive shade and no direct chair glow",
+          "monitor black",
+          "diffuser replaces lounge cup/saucer",
+          "desk clock area empty",
+          "approved object coordinates aligned"
+        ]
+      }
+    }
+  ]
+}
