@@ -21,7 +21,7 @@ export function mountSeasonalDecor(room: HTMLElement) {
     const token = ++revision;
     cancelPending();
     if (season === displayed) return;
-    const images = (['textile', 'vignette'] as const).map(kind => {
+    const images = (['vignette'] as const).map(kind => {
       const image = new Image();
       image.alt = '';
       image.className = `ph-seasonal-decor__${kind}`;
