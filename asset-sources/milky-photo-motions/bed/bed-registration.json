@@ -52,7 +52,7 @@
     ],
     "logicalToSceneScale": 0.110639375,
     "chinContactScene": [
-      1466.33,
+      1466.55,
       879.6
     ],
     "frontLipBoundaryAtChin": 880.73,
@@ -62,7 +62,11 @@
       "qa-roll-bed-sequence.png"
     ],
     "result": "All six frames passed anatomy/likeness, four-limb continuity, transparent background, registration, chin-rim contact and visible eyes/nose checks. Final runtime timing and browser behaviour are root integration responsibilities.",
-    "finalGeometryApprovedBy": "/root"
+    "finalGeometryApprovedBy": "/root",
+    "chinContactBedFraction": [
+      0.60213,
+      0.6451
+    ]
   },
   "frames": [
     {
@@ -156,7 +160,7 @@
         ]
       ],
       "chinContact": [
-        1136,
+        1138,
         872
       ],
       "noseCenter": [
