@@ -1,0 +1,21 @@
+.ph-opening-credits {
+  position: absolute;
+  z-index: 6;
+  inset-inline: 20px;
+  top: clamp(64px, 14cqh, 160px);
+  margin: 0;
+  padding-left: .32em;
+  color: #f6eee1;
+  font: 400 clamp(17px, 1.65cqw, 27px) / 1.4 Georgia, 'Times New Roman', serif;
+  letter-spacing: .32em;
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px #24201d66, 0 2px 12px #171c2155;
+  pointer-events: none;
+  user-select: none;
+}
+.ph-opening-credits[data-phase='waiting'] { visibility: hidden; }
+.ph-opening-credits[data-phase='fading'] { animation: ph-opening-fade 1s ease-out both; }
+.ph-opening-credits[data-paused='true'] { animation-play-state: paused; }
+@keyframes ph-opening-fade { to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ph-opening-credits { animation: none; } }
