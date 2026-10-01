@@ -114,7 +114,7 @@
   display: block;
   width: 100%;
   height: auto;
-  transform: translate(var(--milky-prop-anchor-x, 0%), var(--milky-prop-anchor-y, 0%)) translateY(var(--milky-prop-lift, 0px)) scaleX(var(--milky-prop-facing, 1));
+  transform: translate(var(--milky-prop-anchor-x, 0%), var(--milky-prop-anchor-y, 0%)) translateY(var(--milky-prop-lift, 0px)) scaleX(var(--milky-prop-facing, 1)) rotate(var(--milky-prop-spin, 0deg));
 }
 .cyber-pet-prop[data-prop='ball'] .cyber-pet-prop-shadow { left: 22%; width: 56%; }
 .cyber-pet-prop[data-facing='left'] { --milky-prop-facing: -1; }

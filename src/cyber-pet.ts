@@ -267,6 +267,8 @@ export function mountCyberPet(
   let walk: { plan: MilkyWalk; started: number; travelled: number; stride: number; autonomous: boolean; onDone?: () => void } | undefined;
   let ball: MilkyBallState | undefined;
   let ballBounds: MilkyBallBounds | undefined;
+  let ballRotation = 0;
+  let previousBallX: number | undefined;
   let gaitPhase = 0;
   let currentSpeed = 0;
   let currentSteps = steps;
@@ -356,13 +358,22 @@ export function mountCyberPet(
   function showProp(name: (typeof PROP_NAMES)[number], point: MilkyPoint) {
     const entry = prop(name);
     if (!entry) return;
-    entry.wrap.dataset.facing = facing < 0 ? 'left' : 'right';
+    entry.wrap.dataset.facing = name === 'ball' && toyOptions ? 'right' : facing < 0 ? 'left' : 'right';
     entry.wrap.dataset.visible = 'true';
     renderProp(entry, point);
   }
   function renderBall() {
     const entry = prop('ball');
-    if (entry && ball) renderProp(entry, { x: ball.x, y: ball.y }, ball.h);
+    if (!entry || !ball) return;
+    if (toyOptions) {
+      if (previousBallX !== undefined && !ball.resting) {
+        const diameter = milkyWidthRatio(floorBounds, portrait) * (.026 / .14) * (322 / 512) * milkyDepthScale(ball.y);
+        ballRotation = (ballRotation + (ball.x - previousBallX) / (Math.PI * diameter) * 360) % 360;
+      }
+      previousBallX = ball.x;
+      entry.image.style.setProperty('--milky-prop-spin', `${ballRotation.toFixed(2)}deg`);
+    }
+    renderProp(entry, { x: ball.x, y: ball.y }, ball.h);
   }
   function syncToy() {
     const entry = prop('ball');

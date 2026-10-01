@@ -114,3 +114,30 @@ test('a rejected ball decode never creates a reachable empty control', async () 
     assert.equal(target(f).disabled, true);
   } finally { f.restore(); }
 });
+
+test('the painted seam rotates with rolling distance and freezes at rest and reduced motion', async () => {
+  const f = setup();
+  try {
+    await ready(f);
+    const ball = f.propEl('ball');
+    const image = ball.children.find((entry) => entry.className === 'cyber-pet-prop-image');
+    assert.ok(image);
+    const angle = () => parseFloat(String(image.style['--milky-prop-spin']));
+    target(f).dispatchEvent(new Event('click'));
+    until(f, () => f.button.dataset.pose === 'play-reach');
+    assert.equal(angle(), 0);
+    f.advance(160);
+    assert.ok(Math.abs(angle()) > 1 && Math.abs(angle()) < 360);
+    until(f, () => f.button.dataset.motion === 'idle');
+    const atRest = angle();
+    f.advance(1000);
+    assert.equal(angle(), atRest);
+    assert.equal(ball.dataset.facing, 'right', 'the seam never jumps by mirroring with Milky');
+    f.media.matches = true;
+    f.media.dispatchEvent(new Event('change'));
+    f.controller.play();
+    f.advance(20_000);
+    assert.equal(angle(), atRest);
+    assert.equal(f.tasks.size, 0);
+  } finally { f.restore(); }
+});
