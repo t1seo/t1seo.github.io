@@ -1,0 +1,30 @@
+{
+  "retrievedAt": "2026-10-02",
+  "font": "Nothing You Could Do",
+  "designer": "Kimberly Geswein",
+  "style": "normal",
+  "weight": 400,
+  "license": "SIL Open Font License 1.1",
+  "specimenUrl": "https://fonts.google.com/specimen/Nothing+You+Could+Do",
+  "metadataUrl": "https://github.com/google/fonts/blob/cb3271a955200f72557673e25eced6f5521f2cca/ofl/nothingyoucoulddo/METADATA.pb",
+  "licenseUrl": "https://github.com/google/fonts/blob/cb3271a955200f72557673e25eced6f5521f2cca/ofl/nothingyoucoulddo/OFL.txt",
+  "cssUrl": "https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap",
+  "fontUrl": "https://fonts.gstatic.com/s/nothingyoucoulddo/v21/oY1B8fbBpaP5OX3DtrRYf_Q2BPB1SnfZb3OOnVsH2pmp.woff2",
+  "subset": "Google Fonts Latin, unmodified",
+  "runtimePath": "public/assets/penthouse/milky-album/fonts/nothing-you-could-do-latin-400.woff2",
+  "bytes": 16072,
+  "sha256": "cd209e12babc395ffcf71df1683b3afe7ad23527aea618f7ff6366c69228499f",
+  "licensePath": "public/assets/penthouse/milky-album/fonts/OFL-NothingYouCouldDo.txt",
+  "licenseBytes": 4361,
+  "licenseSha256": "1d3dfa53acd63b2e501101356107b0f996877b678e2dba800918a6887afc4c88",
+  "verification": {
+    "format": "WOFF2",
+    "decodedFamily": "Nothing You Could Do",
+    "decodedStyle": "Regular",
+    "decodedWeight": 400,
+    "unicodeMappings": 210,
+    "allClosingLetterCharactersCovered": true,
+    "runtimeExternalFontRequestsRequired": false
+  },
+  "licenseFormatting": "Original license terms preserved; trailing whitespace removed."
+}
