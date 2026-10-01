@@ -1,0 +1,415 @@
+{
+  "coordinateSpace": "Logical 1536x1024. New runtime files uniformly encoded at 768x512 without crop, warp, retouch or silhouette normalization.",
+  "generator": "Built-in image_gen.imagegen, identity-preserve/precise-object-edit; no CLI fallback.",
+  "sourceGeneratorDirectory": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f88f-94d0-7f13-8316-f2bc1d0cfdd3",
+  "commonTargetAnchor": [
+    795,
+    970
+  ],
+  "renderScale": 0.847,
+  "supportMethod": "Approximate visually reviewed horizontal extent of grounded folded hindquarters, belly and both forepaws, excluding tail; midpoint is support X. Contact Y is lowest alpha>32 row. X landmarks carry about +/-20 logical pixels uncertainty. No alpha/bounding-box centroid used for centering.",
+  "encoding": "@napi-rs/canvas high-quality uniform 50% downsample, WebP quality92, generated alpha preserved after downsample. No image edits outside built-in generation.",
+  "generationReview": "The first peek-up attempt widened the body and enlarged the head; rejected. Final peek-up was regenerated directly from the original sleep raster. Original character rasters unchanged. Variation in fur silhouette remains; registration aligns contact rather than claiming identical anatomy pixel-for-pixel. The first paws-lower had an enlarged 544px maximum head-row width and was regenerated against paws-rest only. Final lower head-row width512px and paws-rest518px, versus existing drowsy489px; some original/new fur contour variation remains.",
+  "recommendedSequence": {
+    "paws": [
+      "existing sit",
+      "paws-lower",
+      "paws-rest",
+      "paws-lower",
+      "existing sit"
+    ],
+    "peek": [
+      "existing sleep",
+      "peek-low",
+      "peek-up",
+      "peek-blink",
+      "peek-up",
+      "peek-low",
+      "existing sleep"
+    ]
+  },
+  "assets": [
+    {
+      "name": "paws-lower",
+      "source": "asset-sources/milky-photo-motions/rest/paws-lower.png",
+      "sourceGeneratorFile": "exec-f78a14c8-c1f8-46d5-aeea-40f59b64f677.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/paws-lower.webp",
+      "prompt": "asset-sources/milky-photo-motions/rest/paws-lower-prompt.txt",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "sourceSha256": "9f135c46a31802a3550f8123cced3a40b018c8eabf4aa94bad3bdf29f0b9e8bb",
+      "runtimeSha256": "06a5f85fdabd6260f90097508348762b765abd3df7b48146e37f2e53d9533f07",
+      "runtimeBytes": 62704,
+      "sourceAlphaMin": 0,
+      "sourceAlphaMax": 254,
+      "sourceFullyTransparentPixels": 1028403,
+      "sourceAlphaBoundsAbove32": [
+        151,
+        197,
+        1379,
+        951
+      ],
+      "supportFootprintExtentX": [
+        380,
+        1380
+      ],
+      "logicalSupportAnchor": [
+        880,
+        950
+      ],
+      "translationToContractAnchor": [
+        -85,
+        20
+      ],
+      "maxAlphaDifferenceFromUniformlyDownscaledSource": 0,
+      "exteriorAlphaSamples": [
+        {
+          "x": 0,
+          "y": 0,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 10,
+          "alpha": 0
+        },
+        {
+          "x": 10,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 757,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 505,
+          "alpha": 0
+        },
+        {
+          "x": 762,
+          "y": 500,
+          "alpha": 0
+        }
+      ],
+      "runtimeRegistrationOffset": [
+        -137,
+        20
+      ]
+    },
+    {
+      "name": "paws-rest",
+      "source": "asset-sources/milky-photo-motions/rest/paws-rest.png",
+      "sourceGeneratorFile": "exec-cf54fc67-3335-479e-b8e4-b0524342d57e.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/paws-rest.webp",
+      "prompt": "asset-sources/milky-photo-motions/rest/paws-rest-prompt.txt",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "sourceSha256": "cd0ab64700d1378453ead1338ec37f8830e65aebae978ce51b50d968121aeea0",
+      "runtimeSha256": "ead5cc27c3152652a659c7a5c1d7f26e21878704beb1bd8936236f4430ac974a",
+      "runtimeBytes": 66040,
+      "sourceAlphaMin": 0,
+      "sourceAlphaMax": 254,
+      "sourceFullyTransparentPixels": 1029491,
+      "sourceAlphaBoundsAbove32": [
+        148,
+        233,
+        1376,
+        950
+      ],
+      "supportFootprintExtentX": [
+        380,
+        1376
+      ],
+      "logicalSupportAnchor": [
+        878,
+        949
+      ],
+      "translationToContractAnchor": [
+        -83,
+        21
+      ],
+      "maxAlphaDifferenceFromUniformlyDownscaledSource": 0,
+      "exteriorAlphaSamples": [
+        {
+          "x": 0,
+          "y": 0,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 10,
+          "alpha": 0
+        },
+        {
+          "x": 10,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 757,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 505,
+          "alpha": 0
+        },
+        {
+          "x": 762,
+          "y": 500,
+          "alpha": 0
+        }
+      ],
+      "runtimeRegistrationOffset": [
+        -137,
+        21
+      ]
+    },
+    {
+      "name": "peek-low",
+      "source": "asset-sources/milky-photo-motions/rest/peek-low.png",
+      "sourceGeneratorFile": "exec-1fbf125a-46d6-4f1c-b4f2-61853897a773.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/peek-low.webp",
+      "prompt": "asset-sources/milky-photo-motions/rest/peek-low-prompt.txt",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "sourceSha256": "f456bd8488dc15a88cc08bba20ebcccda582c65a7bfee5e59428ebe8b5fc8100",
+      "runtimeSha256": "a172f7aece8f2a5ad75f0e43ddaba286531615ed334f1ab95cd9ce0edb505caf",
+      "runtimeBytes": 67118,
+      "sourceAlphaMin": 0,
+      "sourceAlphaMax": 254,
+      "sourceFullyTransparentPixels": 1062382,
+      "sourceAlphaBoundsAbove32": [
+        85,
+        451,
+        1462,
+        901
+      ],
+      "supportFootprintExtentX": [
+        346,
+        1462
+      ],
+      "logicalSupportAnchor": [
+        904,
+        900
+      ],
+      "translationToContractAnchor": [
+        -109,
+        70
+      ],
+      "maxAlphaDifferenceFromUniformlyDownscaledSource": 0,
+      "exteriorAlphaSamples": [
+        {
+          "x": 0,
+          "y": 0,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 10,
+          "alpha": 0
+        },
+        {
+          "x": 10,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 757,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 505,
+          "alpha": 0
+        },
+        {
+          "x": 762,
+          "y": 500,
+          "alpha": 0
+        }
+      ],
+      "runtimeRegistrationOffset": [
+        -109,
+        70
+      ]
+    },
+    {
+      "name": "peek-up",
+      "source": "asset-sources/milky-photo-motions/rest/peek-up.png",
+      "sourceGeneratorFile": "exec-a38fa722-f70e-4bbc-87c1-7184e799a6bb.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/peek-up.webp",
+      "prompt": "asset-sources/milky-photo-motions/rest/peek-up-prompt.txt",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "sourceSha256": "95a1d7459f827e79dd966af92dd0e37d34036e6ab1ee8021adfadcc8ab591873",
+      "runtimeSha256": "95db256d6e29b2069fc3d391bf119231e931967e7e21f070f821c8d5ae0524aa",
+      "runtimeBytes": 66308,
+      "sourceAlphaMin": 0,
+      "sourceAlphaMax": 254,
+      "sourceFullyTransparentPixels": 1033238,
+      "sourceAlphaBoundsAbove32": [
+        111,
+        346,
+        1440,
+        914
+      ],
+      "supportFootprintExtentX": [
+        360,
+        1440
+      ],
+      "logicalSupportAnchor": [
+        900,
+        913
+      ],
+      "translationToContractAnchor": [
+        -105,
+        57
+      ],
+      "maxAlphaDifferenceFromUniformlyDownscaledSource": 0,
+      "exteriorAlphaSamples": [
+        {
+          "x": 0,
+          "y": 0,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 10,
+          "alpha": 0
+        },
+        {
+          "x": 10,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 757,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 505,
+          "alpha": 0
+        },
+        {
+          "x": 762,
+          "y": 500,
+          "alpha": 0
+        }
+      ],
+      "runtimeRegistrationOffset": [
+        -105,
+        57
+      ]
+    },
+    {
+      "name": "peek-blink",
+      "source": "asset-sources/milky-photo-motions/rest/peek-blink.png",
+      "sourceGeneratorFile": "exec-0865e652-0781-4bd4-acd5-fc4b91a9f6c0.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/peek-blink.webp",
+      "prompt": "asset-sources/milky-photo-motions/rest/peek-blink-prompt.txt",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "sourceSha256": "e1e5621e2065bda4c879b628ed236722713903d94583889b9f02580e47a0e75f",
+      "runtimeSha256": "462f0dfb7d03314ac3e7caac0334f53bbc14696b5a9170461f5f35ed7949c05d",
+      "runtimeBytes": 65580,
+      "sourceAlphaMin": 0,
+      "sourceAlphaMax": 254,
+      "sourceFullyTransparentPixels": 1045148,
+      "sourceAlphaBoundsAbove32": [
+        112,
+        348,
+        1440,
+        915
+      ],
+      "supportFootprintExtentX": [
+        360,
+        1440
+      ],
+      "logicalSupportAnchor": [
+        900,
+        914
+      ],
+      "translationToContractAnchor": [
+        -105,
+        56
+      ],
+      "maxAlphaDifferenceFromUniformlyDownscaledSource": 0,
+      "exteriorAlphaSamples": [
+        {
+          "x": 0,
+          "y": 0,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 10,
+          "alpha": 0
+        },
+        {
+          "x": 10,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 757,
+          "y": 250,
+          "alpha": 0
+        },
+        {
+          "x": 384,
+          "y": 505,
+          "alpha": 0
+        },
+        {
+          "x": 762,
+          "y": 500,
+          "alpha": 0
+        }
+      ],
+      "runtimeRegistrationOffset": [
+        -105,
+        56
+      ]
+    }
+  ],
+  "totalRuntimeBytes": 327750,
+  "runtimeRegistrationMethod": "Use runtimeRegistrationOffset, in logical1536 coordinates, with unchanged .847 physical scale. The paws pair preserves drowsy torso X=-137 because bringing forepaws together changes support-footprint midpoint without moving the torso. translationToContractAnchor is the measured footprint-centering diagnostic, not the final runtime prescription. Peek offsets retain measured contact alignment and existing sleep continuity."
+}
