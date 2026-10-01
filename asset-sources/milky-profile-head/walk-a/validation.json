@@ -1,0 +1,155 @@
+{
+  "method": "Alpha threshold 128 contact checks; original and generated flat-grey composites visually inspected. Frame 0 first attempt rejected for 20px body shift; second attempt retained.",
+  "frames": [
+    {
+      "frame": 0,
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "oldSolidBBox": [
+        68,
+        56,
+        729,
+        466
+      ],
+      "newSolidBBox": [
+        68,
+        52,
+        737,
+        467
+      ],
+      "oldPawBottoms": [
+        465,
+        465,
+        464
+      ],
+      "newPawBottoms": [
+        466,
+        466,
+        465
+      ]
+    },
+    {
+      "frame": 1,
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "oldSolidBBox": [
+        73,
+        66,
+        728,
+        479
+      ],
+      "newSolidBBox": [
+        74,
+        54,
+        752,
+        478
+      ],
+      "oldPawBottoms": [
+        478,
+        477,
+        477
+      ],
+      "newPawBottoms": [
+        477,
+        476,
+        476
+      ]
+    },
+    {
+      "frame": 2,
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "oldSolidBBox": [
+        72,
+        41,
+        725,
+        476
+      ],
+      "newSolidBBox": [
+        72,
+        39,
+        747,
+        476
+      ],
+      "oldPawBottoms": [
+        472,
+        475
+      ],
+      "newPawBottoms": [
+        473,
+        475
+      ]
+    },
+    {
+      "frame": 3,
+      "sourceSize": [
+        1536,
+        1024
+      ],
+      "runtimeSize": [
+        768,
+        512
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "oldSolidBBox": [
+        103,
+        60,
+        728,
+        473
+      ],
+      "newSolidBBox": [
+        103,
+        47,
+        735,
+        474
+      ],
+      "oldPawBottoms": [
+        469,
+        455,
+        472
+      ],
+      "newPawBottoms": [
+        470,
+        456,
+        473
+      ]
+    }
+  ]
+}
