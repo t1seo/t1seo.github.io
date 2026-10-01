@@ -1,0 +1,278 @@
+{
+  "tool": "built-in image_gen",
+  "request": "Reduce previously enlarged profile heads to a subtler proportion, visually matching approved idle-candidate-3.",
+  "selection": "Parent visually approved all4 first candidates in /tmp/trot-refined-all.png. Exact3\u20135% width target relaxed after visual review; achieved5.3\u20137.1% over original within upper-head ROI, clearly reduced from previous11% iteration.",
+  "unused": "Frame0/2 second candidates were already generating when parent approved first set; retained as unused originals, never applied.",
+  "normalization": "Generated1536x1024 downsampled768x512 Lanczos; WebP quality95 method6 exact; atomic temporary-sibling os.replace writes.",
+  "validation": "RGBA alpha0..255, actual-alpha flat-background visual inspection with no visible halo. Body paw extrema within2px except original vs revised backpaw crop may shift small antialiasing. Original airborne heights retained within1px.",
+  "frames": [
+    {
+      "frame": 0,
+      "source": "asset-sources/milky-profile-head/refined-size/trot/trot-0-generated.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/refined-size/trot/trot-0-prompt.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-0.webp",
+      "runtime_bytes": 92286,
+      "runtime_sha256": "5ce69ce2c5512aaa46653994ca2739c4d9137f51d7c8f291a35884b35dc6ffd9",
+      "original_geometry": {
+        "head_roi_bbox": [
+          501,
+          60,
+          699,
+          190
+        ],
+        "head_roi_width": 198,
+        "body_bbox_below_y260": [
+          120,
+          0,
+          686,
+          212
+        ],
+        "back_paws_crop_x0_y360": [
+          120,
+          0,
+          367,
+          95
+        ],
+        "front_paws_crop_x400_y350": [
+          14,
+          0,
+          286,
+          122
+        ]
+      },
+      "revised_geometry": {
+        "head_roi_bbox": [
+          500,
+          57,
+          712,
+          190
+        ],
+        "head_roi_width": 212,
+        "body_bbox_below_y260": [
+          120,
+          0,
+          688,
+          212
+        ],
+        "back_paws_crop_x0_y360": [
+          120,
+          0,
+          368,
+          95
+        ],
+        "front_paws_crop_x400_y350": [
+          17,
+          0,
+          288,
+          122
+        ]
+      },
+      "head_roi_width_increase_percent": 7.07
+    },
+    {
+      "frame": 1,
+      "source": "asset-sources/milky-profile-head/refined-size/trot/trot-1-generated.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/refined-size/trot/trot-1-prompt.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-1.webp",
+      "runtime_bytes": 96204,
+      "runtime_sha256": "09568e7c97f04c6cdf6e71c44006bdbc824d1808280bdc022eaee43a02b41ae3",
+      "original_geometry": {
+        "head_roi_bbox": [
+          492,
+          55,
+          700,
+          190
+        ],
+        "head_roi_width": 208,
+        "body_bbox_below_y260": [
+          64,
+          0,
+          712,
+          170
+        ],
+        "back_paws_crop_x0_y360": [
+          64,
+          0,
+          382,
+          65
+        ],
+        "front_paws_crop_x400_y350": [
+          32,
+          0,
+          312,
+          80
+        ]
+      },
+      "revised_geometry": {
+        "head_roi_bbox": [
+          493,
+          56,
+          712,
+          190
+        ],
+        "head_roi_width": 219,
+        "body_bbox_below_y260": [
+          64,
+          0,
+          713,
+          170
+        ],
+        "back_paws_crop_x0_y360": [
+          64,
+          0,
+          383,
+          66
+        ],
+        "front_paws_crop_x400_y350": [
+          28,
+          0,
+          313,
+          80
+        ]
+      },
+      "head_roi_width_increase_percent": 5.29
+    },
+    {
+      "frame": 2,
+      "source": "asset-sources/milky-profile-head/refined-size/trot/trot-2-generated.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/refined-size/trot/trot-2-prompt.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-2.webp",
+      "runtime_bytes": 91530,
+      "runtime_sha256": "cca9ffbc5c474f79565fdc76440a86488e9d39427ee3f7b31a783a7a58dcb9bc",
+      "original_geometry": {
+        "head_roi_bbox": [
+          498,
+          59,
+          700,
+          190
+        ],
+        "head_roi_width": 202,
+        "body_bbox_below_y260": [
+          102,
+          0,
+          687,
+          211
+        ],
+        "back_paws_crop_x0_y360": [
+          102,
+          0,
+          373,
+          111
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          287,
+          120
+        ]
+      },
+      "revised_geometry": {
+        "head_roi_bbox": [
+          497,
+          55,
+          713,
+          190
+        ],
+        "head_roi_width": 216,
+        "body_bbox_below_y260": [
+          101,
+          0,
+          689,
+          211
+        ],
+        "back_paws_crop_x0_y360": [
+          101,
+          0,
+          375,
+          111
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          289,
+          121
+        ]
+      },
+      "head_roi_width_increase_percent": 6.93
+    },
+    {
+      "frame": 3,
+      "source": "asset-sources/milky-profile-head/refined-size/trot/trot-3-generated.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/refined-size/trot/trot-3-prompt.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-3.webp",
+      "runtime_bytes": 90140,
+      "runtime_sha256": "ebea4bfcd08d086e7dad14d902e49fc82af86b2787314cf2e6201b2f76c4bf0c",
+      "original_geometry": {
+        "head_roi_bbox": [
+          498,
+          59,
+          699,
+          190
+        ],
+        "head_roi_width": 201,
+        "body_bbox_below_y260": [
+          104,
+          0,
+          690,
+          188
+        ],
+        "back_paws_crop_x0_y360": [
+          104,
+          0,
+          380,
+          75
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          290,
+          98
+        ]
+      },
+      "revised_geometry": {
+        "head_roi_bbox": [
+          498,
+          59,
+          710,
+          190
+        ],
+        "head_roi_width": 212,
+        "body_bbox_below_y260": [
+          103,
+          0,
+          691,
+          189
+        ],
+        "back_paws_crop_x0_y360": [
+          103,
+          0,
+          381,
+          75
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          291,
+          99
+        ]
+      },
+      "head_roi_width_increase_percent": 5.47
+    }
+  ]
+}
