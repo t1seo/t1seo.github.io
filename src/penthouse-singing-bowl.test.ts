@@ -32,8 +32,8 @@ test('a strike emits restrained elliptical resonance from the actual brass rim',
   bowl.draw(paint.ctx);
   assert.equal(bowl.active, true);
   assert.equal(paint.marks.length, 3);
-  assert.ok(paint.marks.every(mark => mark.x === 1082 && mark.y === 545));
-  assert.ok(paint.marks.every(mark => mark.rx >= 25 && mark.rx <= 42 && mark.ry <= 10));
+  assert.ok(paint.marks.every(mark => mark.x === 1079 && mark.y === 540));
+  assert.ok(paint.marks.every(mark => mark.rx >= 20 && mark.rx <= 36 && mark.ry >= 4 && mark.ry <= 8));
   assert.ok(paint.marks.every(mark => mark.opacity > 0 && mark.opacity < .3));
 });
 

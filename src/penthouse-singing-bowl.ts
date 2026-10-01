@@ -1,7 +1,7 @@
 type BowlPaint = Pick<CanvasRenderingContext2D, 'save' | 'restore' | 'beginPath' | 'ellipse' | 'stroke' | 'lineWidth' | 'globalAlpha' | 'strokeStyle' | 'lineCap'>;
 
 const RESONANCE_SECONDS = 6;
-export const SINGING_BOWL_RIM = { x: 1082, y: 545, radiusX: 25, radiusY: 5.5 } as const;
+export const SINGING_BOWL_RIM = { x: 1079, y: 540, radiusX: 20, radiusY: 4 } as const;
 
 export class SingingBowl {
   private elapsed: number | null = null;
