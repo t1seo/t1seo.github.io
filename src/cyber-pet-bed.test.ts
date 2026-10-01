@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { visibleMilkyBed } from './cyber-pet-bed.ts';
+import { createMilkyBed, visibleMilkyBed } from './cyber-pet-bed.ts';
 import { fixture, POSES, RESTS } from './cyber-pet-test-support.ts';
 
 const floor = { left: .35, right: .66, top: .965, bottom: .99, footerInset: 0, desktopWidth: .12, portraitWidth: .11 };
@@ -36,6 +36,34 @@ test('bed visits require the complete bed and dog footprint inside the actual vi
   assert.equal(visibleMilkyBed({ ...bed, left: 1430 }, room, room, anchor, floor), false);
   assert.equal(visibleMilkyBed(bed, room, { ...room, width: 390, height: 844 }, anchor, floor), false);
   assert.equal(visibleMilkyBed(bed, room, room, { x: .97, y: anchor.y }, floor), false);
+});
+
+test('a provided bed sequence plays after the real approach, hop and occupancy, then leaves home', () => {
+  const calls: string[] = [];
+  const walkCompletions: (() => void)[] = [];
+  const element = { getBoundingClientRect: () => bed } as unknown as HTMLElement;
+  const api = createMilkyBed({ element, anchor }, {
+    room: () => room, viewport: () => room, floor,
+    position: () => ({ x: .5, y: .97 }),
+    bound: (point) => point,
+    canWalk: () => true,
+    walk: (_point, _autonomous, done) => { calls.push('walk'); walkCompletions.push(done); },
+    hop: (_point, _autonomous, landed, done) => { calls.push('hop'); landed(); done(); return true; },
+    rest: () => { calls.push('rest'); },
+    occupied: (occupied) => { calls.push(`occupied:${occupied}`); },
+    settle: () => { calls.push('settle'); },
+  });
+  assert.equal(api.visible(), true, 'the geometry check is exposed for capability queries');
+  let sequenceDone: (() => void) | undefined;
+  assert.equal(api.enter([], false, (done) => { calls.push('sequence'); sequenceDone = done; }), true);
+  walkCompletions[0]();
+  assert.deepEqual(calls, ['walk', 'hop', 'occupied:true', 'sequence'], 'the sequence replaces the rest stages');
+  assert.ok(sequenceDone);
+  sequenceDone();
+  assert.deepEqual(calls.slice(4), ['occupied:false', 'walk'], 'finishing the sequence starts the walk home');
+  walkCompletions[1]();
+  assert.equal(calls.at(-1), 'settle');
+  assert.equal(api.active, false);
 });
 
 test('Milky walks with changing gait frames to the cushion, naps without drifting, and walks home', async () => {

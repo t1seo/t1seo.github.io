@@ -1,3 +1,4 @@
+@import './cyber-pet-photo.css';
 .cyber-pet-button {
   position: absolute;
   left: 0;
@@ -46,7 +47,7 @@
   animation: none;
   transform: translateY(var(--milky-hop-lift, 0px));
 }
-.cyber-pet-image, .cyber-pet-step, .cyber-pet-pose, .cyber-pet-rest, .cyber-pet-activity {
+.cyber-pet-image, .cyber-pet-step, .cyber-pet-pose, .cyber-pet-rest, .cyber-pet-activity, .cyber-pet-photo {
   position: absolute;
   inset: 0;
   display: block;
@@ -63,7 +64,8 @@
 .cyber-pet-button[data-facing='left'] .cyber-pet-step,
 .cyber-pet-button[data-facing='left'] .cyber-pet-pose,
 .cyber-pet-button[data-facing='left'] .cyber-pet-rest,
-.cyber-pet-button[data-facing='left'] .cyber-pet-activity { --milky-facing: -1; }
+.cyber-pet-button[data-facing='left'] .cyber-pet-activity,
+.cyber-pet-button[data-facing='left'] .cyber-pet-photo { --milky-facing: -1; }
 /* The idle face follows the gaze: forward-looking at quiet rest, camera-look on greeting. */
 .cyber-pet-button[data-pose='idle']:not([data-gaze='forward']) .cyber-pet-image[data-look='camera'],
 .cyber-pet-button[data-pose='idle'][data-gaze='forward'] .cyber-pet-image[data-look='forward'],
