@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { stripTypeScriptTypes } from 'node:module';
+import { setImmediate as flushMicrotasks } from 'node:timers/promises';
 // Run the real controller in a deliberately small DOM/clock harness. CSS is browser-owned.
 const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replace("import './cyber-pet.css';", '')
+  .replace("import './cyber-pet-grounded.css';", '')
   .replace("'./cyber-pet-geometry'", JSON.stringify(new URL('./cyber-pet-geometry.ts', import.meta.url).href))
   .replace("'./cyber-pet-motion'", JSON.stringify(new URL('./cyber-pet-motion.ts', import.meta.url).href))
   .replace("'./cyber-pet-roam'", JSON.stringify(new URL('./cyber-pet-roam.ts', import.meta.url).href))
@@ -16,6 +18,9 @@ const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replace("'./cyber-pet-throw'", JSON.stringify(new URL('./cyber-pet-throw.ts', import.meta.url).href))
   .replace("'./cyber-pet-transitions'", JSON.stringify(new URL('./cyber-pet-transitions.ts', import.meta.url).href))
   .replace("'./cyber-pet-hop'", JSON.stringify(new URL('./cyber-pet-hop.ts', import.meta.url).href))
+  .replaceAll("'./cyber-pet-grounded-walk.ts'", JSON.stringify(new URL('./cyber-pet-grounded-walk.ts', import.meta.url).href))
+  .replaceAll("'./cyber-pet-grounded-walk'", JSON.stringify(new URL('./cyber-pet-grounded-walk.ts', import.meta.url).href))
+  .replaceAll("'./cyber-pet-grounded-geometry'", JSON.stringify(new URL('./cyber-pet-grounded-geometry.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-photo'", JSON.stringify(new URL('./cyber-pet-photo.ts', import.meta.url).href));
 const { mountCyberPet, MILKY_PHOTO_REST } = await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString('base64')}`) as typeof import('./cyber-pet');
 export { MILKY_PHOTO_REST };
@@ -31,6 +36,14 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
   let now = 0;
   let nextId = 1;
   const tasks = new Map<number, Task>();
+  const painting = { draws: 0, clears: 0 };
+  const context = {
+    globalAlpha: 1,
+    clearRect() { painting.clears++; }, drawImage() { painting.draws++; },
+    resetTransform() {}, scale() {}, save() {}, restore() {}, beginPath() {},
+    moveTo() {}, lineTo() {}, closePath() {}, clip() {}, transform() {},
+    getTransform: () => ({ a: 1 }),
+  };
   const schedule = (callback: () => void, delay: number, kind: Task['kind']) => {
     const id = nextId++;
     tasks.set(id, { at: now + delay, callback, kind });
@@ -63,6 +76,8 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     naturalHeight = 1024;
     append(...children: Element[]) { this.children.push(...children); }
     setAttribute(key: string, value: string) { this.attributes[key] = value; }
+    removeAttribute(key: string) { delete this.attributes[key]; if (key === 'src') this.src = ''; }
+    getContext() { return this.tagName === 'CANVAS' ? context : null; }
     getBoundingClientRect() { return this.bounds; }
     closest(selector: string) { return selector === '.night-studio' ? studio : scene; }
     decodeFails = false;
@@ -92,6 +107,17 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     }
   }
   const document = new DocumentFake();
+  const decoderImages: Element[] = [];
+  class DecoderImage extends Element {
+    readonly decoded = new Promise<void>((resolve, reject) => {
+      this.addEventListener('load', () => this.decodeFails ? reject(new Error('decode failed')) : resolve(), { once: true });
+      this.addEventListener('error', () => reject(new Error('decode failed')), { once: true });
+    });
+    constructor() { super(); this.ownerDocument = document; this.tagName = 'IMG'; document.images.push(this); decoderImages.push(this); }
+    decode() { return this.decoded; }
+  }
+  const previousImage = Object.getOwnPropertyDescriptor(globalThis, 'Image');
+  Object.defineProperty(globalThis, 'Image', { configurable: true, value: DecoderImage });
   const host = document.createElement('div');
   const scene = document.createElement('div');
   const studio = document.createElement('main');
@@ -120,7 +146,7 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
   // The props layer paints beneath the pet button so the lowered face eats over the bowl.
   const button = host.children.find((child) => child.className === 'cyber-pet-button')!;
   const asset = (name: string) => {
-    const image = document.images.find((item) => item.src.endsWith(name));
+    const image = [...document.images].reverse().find((item) => item.src.endsWith(name));
     assert.ok(image, `image requested: ${name}`);
     return image;
   };
@@ -150,6 +176,13 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     for (let frame = 0; frame < 8; frame++) await load(`milky-forward-step-${frame}.webp`, 768, 512);
   };
   const loadTrot = async (count = 4) => { for (let frame = 0; frame < count; frame++) await load(`milky-trot-${frame}.webp`, 768, 512); };
+  const loadGrounded = async () => {
+    await load('milky-grounded-walk/torso.webp');
+    await load('milky-grounded-walk/foreleg.webp');
+    await flushMicrotasks();
+    await load('milky-grounded-walk/hindleg.webp');
+    await flushMicrotasks();
+  };
   const propsLayer = () => host.children.find((child) => child.className === 'cyber-pet-props')!;
   const propEl = (name: string) => {
     const wrap = propsLayer().children.find((child) => child.dataset.prop === name);
@@ -177,8 +210,10 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     Math.random = old.random;
     globalThis.ResizeObserver = old.ResizeObserver;
     globalThis.MutationObserver = old.MutationObserver;
+    if (previousImage) Object.defineProperty(globalThis, 'Image', previousImage);
+    else Reflect.deleteProperty(globalThis, 'Image');
   }
   const intro = (visible: boolean) => { studio.dataset.intro = visible ? 'visible' : 'hidden'; observed.filter((o) => o.mutation).forEach((o) => o.callback()); };
   const resize = () => observed.filter((entry) => !entry.mutation).forEach((entry) => entry.callback());
-  return { controller, button, document, media, tasks, host, scene, bed, resize, asset, load, loadAll, loadV3, loadPoses, loadRest, loadActivity, loadForward, loadTrot, propEl, propsLayer, advance, key, intro, restore, disconnected: () => observersDisconnected };
+  return { controller, button, document, media, tasks, host, scene, bed, resize, asset, load, loadAll, loadV3, loadPoses, loadRest, loadActivity, loadForward, loadTrot, loadGrounded, decoderImages, painting, flushMicrotasks, propEl, propsLayer, advance, key, intro, restore, disconnected: () => observersDisconnected };
 }

@@ -3,8 +3,9 @@ import { test } from 'node:test';
 import { createGroundedPlan, createGroundedPose, sampleGroundedPlan, sampleGroundedLoad } from './cyber-pet-grounded-plan.ts';
 import type { GroundedPlan, GroundedPose } from './cyber-pet-grounded-plan.ts';
 import { GROUNDED_ART, GROUNDED_FEET, GROUNDED_LIMBS, GROUNDED_JOINTS } from './cyber-pet-grounded-geometry.ts';
+import { milkyDepthScale } from './cyber-pet-motion.ts';
 function assertPhysicalReach(plan: GroundedPlan, pose: GroundedPose, u: number): void {
-  const route = plan.route, scale = route.scale + (route.endScale - route.scale) * u;
+  const route = plan.route, scale = route.scaleAt?.(u) ?? route.scale + (route.endScale - route.scale) * u;
   const load = sampleGroundedLoad(plan, plan.distance * u);
   for (const name of GROUNDED_FEET) {
     const limb = GROUNDED_LIMBS[name], joints = GROUNDED_JOINTS[limb.kind];
@@ -145,6 +146,43 @@ test('lands carried descents above the floor without a contact or velocity disco
         assert.ok(GROUNDED_FEET.filter(foot => pose[foot].contact).length >= 2);
         assertPhysicalReach(next, pose, i / 300);
       }
+    }
+  }
+});
+test('keeps physical reach on actual keyboard, roaming and bed approach routes', () => {
+  // Given legal room routes with steeper depth travel than the original sampling grid.
+  const destinations = [{ x: 91.96, y: -20.702 }, { x: 35, y: -23 }, { x: 53, y: -23 }, { x: 14, y: -23 }, { x: 108.6, y: -66.2 }];
+  for (const facing of [1, -1] as const) for (const delta of destinations) for (const vertical of [1, -1]) {
+    const from = { x: 969.76, y: vertical === 1 ? 931.59 : 908 };
+    const dy = delta.y * vertical;
+    const scaleAt = (u: number) => .110639375 * Number(milkyDepthScale((from.y + dy * u) / 941).toFixed(4));
+    const route = { from, to: { x: from.x + facing * delta.x, y: from.y + dy }, scale: scaleAt(0), endScale: scaleAt(1), scaleAt, facing };
+    const plan = createGroundedPlan(route), pose = createGroundedPose();
+    // When the actual route is sampled throughout its complete start, walk and arrival.
+    for (let i = 0; i <= 3000; i++) {
+      sampleGroundedPlan(plan, plan.distance * i / 3000, pose);
+      // Then the painted bones reach every target and at least two real soles support the body.
+      assertPhysicalReach(plan, pose, i / 3000);
+      assert.ok(GROUNDED_FEET.filter(name => pose[name].contact && pose[name].lift === 0).length >= 2);
+    }
+  }
+});
+test('keeps planted feet reachable when a horizontal walk redirects to an arrow diagonal', () => {
+  // Given a real horizontal route at early, middle and late phases around the depth clamp.
+  const scaleY = (y: number) => .110639375 * Number(milkyDepthScale(y / 941).toFixed(4));
+  for (const facing of [1, -1] as const) for (const y of [899.83, 915, 931.59]) for (const at of [1, 5, 18, 45, 90, 135, 162, 175]) for (const dy of [-20.702, 20.702]) {
+    const origin = { x: 969.76, y };
+    const original = createGroundedPlan({ from: origin, to: { x: origin.x + facing * 180, y }, scale: scaleY(y), endScale: scaleY(y), facing, scaleAt: () => scaleY(y) });
+    const carry = createGroundedPose(); sampleGroundedPlan(original, at, carry);
+    const from = { x: origin.x + facing * at, y };
+    const plan = createGroundedPlan({ from, to: { x: from.x + facing * 91.96, y: y + dy }, scale: scaleY(y), endScale: scaleY(y + dy), facing, scaleAt: u => scaleY(y + dy * u) }, carry, sampleGroundedLoad(original, at));
+    const pose = createGroundedPose();
+    // When an upward or downward keyboard command carries the compatible heading.
+    for (let i = 0; i <= 1200; i++) {
+      sampleGroundedPlan(plan, plan.distance * i / 1200, pose);
+      // Then the new depth direction never requires a stretched bone or airborne support flag.
+      assertPhysicalReach(plan, pose, i / 1200);
+      assert.ok(GROUNDED_FEET.filter(name => pose[name].contact && pose[name].lift === 0).length >= 2);
     }
   }
 });

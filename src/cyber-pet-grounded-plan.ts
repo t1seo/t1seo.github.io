@@ -3,6 +3,7 @@ import type { GroundPoint, GroundedFoot } from './cyber-pet-grounded-geometry.ts
 export type GroundedRoute = {
   readonly from: GroundPoint; readonly to: GroundPoint; readonly scale: number;
   readonly endScale: number; readonly facing: 1 | -1;
+  readonly scaleAt?: (progress: number) => number;
 };
 export type GroundedStep = {
   readonly lift: number; readonly land: number; readonly from: GroundPoint; readonly to: GroundPoint;
@@ -32,7 +33,7 @@ export function createGroundedPlan(route: GroundedRoute, carried?: Readonly<Grou
   const steps: Record<GroundedFoot, GroundedStep[]> = { nearHind: [], nearFore: [], farHind: [], farFore: [] };
   const point = (name: GroundedFoot, d: number, advance: number): GroundPoint => {
     const u = distance > 0 ? d / distance : 0;
-    const scale = route.scale + (route.endScale - route.scale) * u, limb = GROUNDED_LIMBS[name];
+    const scale = route.scaleAt?.(u) ?? route.scale + (route.endScale - route.scale) * u, limb = GROUNDED_LIMBS[name];
     return { x: route.from.x + (route.to.x - route.from.x) * u + route.facing * (limb.idle.x - GROUNDED_ART.anchorX + advance) * scale,
       y: route.from.y + (route.to.y - route.from.y) * u + (limb.idle.y - GROUNDED_ART.anchorY) * scale };
   };
@@ -44,7 +45,8 @@ export function createGroundedPlan(route: GroundedRoute, carried?: Readonly<Grou
     const endpoint = point(name, distance, 0);
     // A downward screen path needs less forward reach while the shoulder catches the landing depth.
     const descent = Math.max(0, (route.to.y - route.from.y) / Math.max(1e-8, distance));
-    const target = final ? endpoint : point(name, land, GROUNDED_LIMBS[name].touchX - GROUNDED_LIMBS[name].idle.x - 80 * descent);
+    const entry = !carried && route.to.y < route.from.y ? Math.max(0, 1 - land / (54 * route.scale)) : 0;
+    const target = final ? endpoint : point(name, land, GROUNDED_LIMBS[name].touchX - GROUNDED_LIMBS[name].idle.x - 80 * descent - 40 * entry);
     const to = { x: route.facing * Math.min(route.facing * target.x, route.facing * endpoint.x), y: target.y };
     steps[name].push({ lift, land, from, to,
       height: Math.min(55 * route.scale, Math.hypot(to.x - from.x, to.y - from.y) * .20),
@@ -85,15 +87,33 @@ export function createGroundedPlan(route: GroundedRoute, carried?: Readonly<Grou
     const stride = route.to.y < route.from.y ? 240 : GROUNDED_ART.stride;
     const middleCount = Math.max(0, Math.ceil((remaining - 2 * edge) / (stride * Math.min(route.scale, route.endScale))));
     const edgeLength = remaining <= edge ? remaining : Math.min(edge, (remaining - middleCount * 180 * route.scale) / 2);
-    const cycles = remaining <= edge ? [remaining] : [edgeLength, ...Array.from({ length: middleCount }, () => (remaining - 2 * edgeLength) / middleCount), edgeLength];
+    const shortApproach = route.to.y < route.from.y && remaining > 20 * route.scale && remaining <= edge;
+    const cycles = shortApproach ? [remaining * .35, remaining * .65] : remaining <= edge ? [remaining] : [edgeLength, ...Array.from({ length: middleCount }, () => (remaining - 2 * edgeLength) / middleCount), edgeLength];
     for (const [cycle, length] of cycles.entries()) {
       const final = cycle === cycles.length - 1;
+      const depthEntry = route.to.y < route.from.y && cycle === 0 && !final;
+      const depthArrival = final && (route.to.y - route.from.y) / distance > .3;
+      const phases = depthArrival ? { nearHind: 0, nearFore: .25, farHind: .6, farFore: .85 } : depthEntry ? { nearHind: 0, nearFore: .005, farHind: .26, farFore: .35 } : { nearHind: 0, nearFore: .25, farHind: .5, farFore: .75 };
+      const swings = depthArrival ? { nearHind: .6, nearFore: .65, farHind: .25, farFore: .15 } : depthEntry ? { nearHind: .25, nearFore: .25, farHind: .25, farFore: .375 } : { nearHind: .375, nearFore: .375, farHind: .375, farFore: .375 };
       for (const [index, name] of GROUNDED_FEET.entries()) {
-        const lift = start + length * index / 4;
+        const phase = phases[name], swing = swings[name];
+        const lift = start + length * phase;
         // The front support lands later on arrival so its nearly straight authored leg stays reachable.
-        add(name, lift, Math.min(distance, lift + length * (final ? (index === 1 ? .46 : .25) : .375)), final);
+        add(name, lift, Math.min(distance, lift + length * (depthArrival ? swing : final ? (index === 1 ? .46 : .25) : swing)), final);
       }
       start += length;
+    }
+  }
+  if (route.to.y < route.from.y) {
+    for (const name of GROUNDED_FEET) {
+      let prior: GroundPoint | undefined;
+      steps[name] = steps[name].map((step, index, sequence) => {
+        const next = sequence[index + 1];
+        const to = next ? { x: step.to.x, y: point(name, next.lift, 0).y } : step.to;
+        const from = prior ?? step.from;
+        prior = to;
+        return { ...step, from, to };
+      });
     }
   }
   const loadRelease = Math.max(distance - GROUNDED_ART.stride * route.scale * .15, steps.nearFore.at(-1)?.land ?? 0);
