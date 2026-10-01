@@ -1,3 +1,4 @@
+@font-face { font-family: 'Album Handwriting'; src: url('/assets/badge/caveat-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: swap; }
 .ph-album-dialog {
   --album-paper: #f6ecdc; --album-ink: #6e514a; --album-gold: #825b4f; --album-cloth: #d8c5b8;
   width: min(1100px, calc(100vw - 56px)); height: min(880px, calc(100dvh - 40px));
@@ -13,7 +14,7 @@
 .ph-album-shell { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 20px; }
 .ph-album-header { display: flex; align-items: center; gap: 22px; min-height: 44px; padding: 0 8px; }
 .ph-album-header h1 { margin: 0 auto 0 0; font: 400 21px/1.2 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .035em; color: #cabeaa; }
-.ph-album-cover-link { min-height: 44px; padding: 10px 4px; background: transparent; border: 0; font-size: 11px !important; letter-spacing: .035em; color: #c0b4a1 !important; }
+.ph-album-cover-link { min-width: 44px; min-height: 44px; padding: 10px 4px; background: transparent; border: 0; font-size: 11px !important; letter-spacing: .035em; color: #c0b4a1 !important; }
 .ph-album-close { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0 0 4px; border: 1px solid #cec2ac38; border-radius: 50%; background: #cec2ac06; font-size: 28px !important; font-weight: 200 !important; }
 .ph-album-stage { min-height: 0; position: relative; display: grid; place-items: center; padding: 8px 18px 17px; touch-action: pan-y pinch-zoom; container-type: size; }
 .ph-album-cover {
@@ -60,6 +61,21 @@
 .ph-album-page[data-collage='1'] { --print-turn: 1.8deg; --print-offset: 13px; --tape-turn: 13deg; --tape-color: #c889779c; }
 .ph-album-page[data-collage='2'] { --print-turn: 1.1deg; --print-offset: -5px; --tape-turn: -13deg; --tape-color: #a471659c; }
 .ph-album-page[data-collage='3'] { --print-turn: -1.6deg; --print-offset: 8px; --tape-turn: 7deg; --tape-color: #bf958397; }
+.ph-album-page.ph-album-page--noted { padding-bottom: 109px; }
+.ph-album-note { position: absolute; z-index: 2; left: 32px; right: 103px; bottom: 38px; margin: 0; max-width: 29ch; color: #715147; font: 600 clamp(21px, 2.3cqw, 26px)/1.15 'Album Handwriting', 'Bradley Hand', cursive; text-wrap: balance; transform: rotate(-2deg); }
+.ph-album-page[data-collage='1'] .ph-album-note { left: 41px; transform: rotate(1.5deg); }
+.ph-album-page[data-collage='2'] .ph-album-note { transform: rotate(-1deg); }
+.ph-album-page[data-collage='3'] .ph-album-note { left: 36px; transform: rotate(2deg); }
+.ph-album-sticker { position: absolute; object-fit: contain; user-select: none; pointer-events: none; }
+.ph-album-sticker--primary { right: 19px; bottom: 34px; width: 68px; height: 68px; transform: rotate(9deg); }
+.ph-album-sticker--secondary { left: 20px; top: 18px; width: 43px; height: 43px; transform: rotate(-13deg); }
+.ph-album-page[data-collage='1'] .ph-album-sticker--primary { bottom: 31px; right: 23px; transform: rotate(-10deg); }
+.ph-album-page[data-collage='1'] .ph-album-sticker--secondary { left: auto; right: 21px; top: 20px; transform: rotate(14deg); }
+.ph-album-page[data-collage='2'] .ph-album-sticker--primary { right: 20px; bottom: 37px; transform: rotate(5deg); }
+.ph-album-page[data-collage='2'] .ph-album-sticker--secondary { left: 18px; top: 22px; transform: rotate(-7deg); }
+.ph-album-page[data-collage='3'] .ph-album-sticker--primary { right: 25px; bottom: 29px; transform: rotate(-7deg); }
+.ph-album-page[data-collage='3'] .ph-album-sticker--secondary { left: auto; right: 21px; top: 18px; transform: rotate(11deg); }
+.ph-album-page--noted .ph-album-stamp { display: none; }
 .ph-album-collage { position: absolute; inset: 0; pointer-events: none; }
 .ph-album-scrap { position: absolute; display: block; }
 .ph-album-scrap--rose { width: 46%; height: 57%; left: -5%; top: 13%; background: repeating-linear-gradient(12deg, #f6d8c51a 0 .8px, transparent .8px 3px), #c59b8c; opacity: .8; transform: rotate(-6deg); clip-path: polygon(2% 0, 96% 2%, 98% 14%, 95% 27%, 99% 40%, 95% 53%, 98% 65%, 96% 77%, 100% 88%, 96% 100%, 0 97%); }
@@ -96,7 +112,7 @@
 .ph-album-photo-status { font: italic 17px/1.4 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; color: #776e60; text-align: center; }
 .ph-album-photo-retry { min-height: 44px; padding: 12px 14px; border: 1px solid #86765e66; border-radius: 3px; background: #fff5dc45; color: #655844 !important; font-size: 12px !important; }
 .ph-album-footer { min-height: 48px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; padding: 0 8px; }
-.ph-album-footer button { min-height: 44px; padding: 10px 1px; border: 0; border-bottom: 1px solid #c4b79b40; border-radius: 0; background: transparent; font-size: 11px; letter-spacing: .025em; width: fit-content; }
+.ph-album-footer button { min-width: 44px; min-height: 44px; padding: 10px 1px; border: 0; border-bottom: 1px solid #c4b79b40; border-radius: 0; background: transparent; font-size: 11px; letter-spacing: .025em; width: fit-content; }
 .ph-album-next { justify-self: end; }
 .ph-album-counter { margin: 0; font-size: 10px; letter-spacing: .1em; color: #ada28e; text-align: center; font-variant-numeric: tabular-nums; }
 .ph-album-message { max-width: 290px; text-align: center; color: #c5b9a7; font-size: 14px; line-height: 1.7; }
@@ -123,6 +139,10 @@
   .ph-album-spread { grid-template-columns: minmax(0, 1fr); max-width: 490px; max-height: 720px; border-width: 6px; }
   .ph-album-spread::after { left: 0; width: 20px; background: linear-gradient(90deg, #6c5d3f29, #8b7a5710 35%, transparent); }
   .ph-album-page, .ph-album-page:first-child { padding: 30px 24px 51px; }
+  .ph-album-page.ph-album-page--noted { --print-offset: 0px; padding-bottom: 98px; }
+  .ph-album-page[data-collage] .ph-album-note { left: 25px; right: 84px; bottom: 35px; font-size: 22px; }
+  .ph-album-page[data-collage] .ph-album-sticker--primary { width: 55px; height: 55px; right: 18px; bottom: 33px; }
+  .ph-album-page[data-collage] .ph-album-sticker--secondary { width: 35px; height: 35px; top: 13px; }
   .ph-album-print { width: min(var(--print-width), calc(100cqw - 20px), calc((100cqh - 27px) * var(--print-ratio))); }
   .ph-album-folio { left: 24px; bottom: 19px; font-size: 11px; }
   .ph-album-footer { gap: 6px; padding: 0 3px; }
@@ -136,6 +156,8 @@
   .ph-album-ornament { height: 34px; margin-top: 19px; transform: rotate(15deg) scale(.75); }
   .ph-album-invitation { bottom: 34px; }
   .ph-album-page, .ph-album-page:first-child { padding: 24px 18px 43px; }
+  .ph-album-page[data-collage] .ph-album-note { left: 20px; right: 75px; font-size: 21px; }
+  .ph-album-page[data-collage] .ph-album-sticker--primary { width: 49px; height: 49px; right: 15px; bottom: 35px; }
   .ph-album-folio { left: 20px; bottom: 16px; }
 }
 @media (max-height: 520px) {
@@ -150,6 +172,11 @@
   .ph-album-ornament { height: 21px; margin-top: 12px; transform: rotate(15deg) scale(.55); transform-origin: top center; }
   .ph-album-invitation { bottom: 26px; font-size: 7px; }
   .ph-album-page, .ph-album-page:first-child { padding: 17px 29px 29px; }
+  .ph-album-page.ph-album-page--noted { padding-bottom: 53px; }
+  .ph-album-page[data-collage] .ph-album-note { bottom: 11px; left: 31px; right: 64px; font-size: 19px; line-height: 1.1; }
+  .ph-album-page[data-collage] .ph-album-sticker--primary { width: 34px; height: 34px; bottom: 8px; right: 17px; }
+  .ph-album-page[data-collage] .ph-album-sticker--secondary { width: 28px; height: 28px; top: 6px; }
+  .ph-album-page--noted .ph-album-folio { display: none; }
   .ph-album-print { --print-offset: 0px; width: min(var(--print-width), calc(100cqw - 24px), calc((100cqh - 22px) * var(--print-ratio))); padding: 5px 5px 16px; }
   .ph-album-tape { height: 15px; top: -9px; }
   .ph-album-paperclip { top: -9px; height: 32px; width: 12px; }

@@ -1,4 +1,5 @@
 import type { AlbumPhoto } from './penthouse-album-data';
+import { albumDecoration, albumStickerSource } from './penthouse-album-decorations';
 
 function button(label: string, className: string) {
   const element = document.createElement('button');
@@ -115,11 +116,32 @@ export function createAlbumPage(photo: AlbumPhoto, number: number) {
   loading.className = 'ph-album-photo-status';
   loading.textContent = 'Loading photograph…';
   mount.append(loading);
-  const folio = document.createElement('figcaption');
+  const folio = document.createElement('span');
   folio.className = 'ph-album-folio';
   folio.textContent = String(number).padStart(2, '0');
   folio.setAttribute('aria-hidden', 'true');
   page.append(collage, mount, folio);
+  const decoration = albumDecoration(photo.id);
+  if (decoration) {
+    page.classList.add('ph-album-page--noted');
+    const note = document.createElement('figcaption');
+    note.className = 'ph-album-note';
+    note.textContent = decoration.note;
+    page.append(note);
+    decoration.stickers.forEach((sticker, index) => {
+      const image = document.createElement('img');
+      image.className = `ph-album-sticker ph-album-sticker--${index === 0 ? 'primary' : 'secondary'}`;
+      image.alt = '';
+      image.width = 160;
+      image.height = 160;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.draggable = false;
+      image.addEventListener('error', () => { image.hidden = true; }, { once: true });
+      image.src = albumStickerSource(sticker);
+      collage.append(image);
+    });
+  }
   return {
     page,
     ready(url: string) {
