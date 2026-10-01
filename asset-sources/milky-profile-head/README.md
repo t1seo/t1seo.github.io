@@ -1,5 +1,7 @@
 # Milky profile head refinement
 
+Latest correction: the user found the first enlargement too large. The final approved reference is `refined-size/idle-candidate-3.png`, with an upper-head alpha width of 419px versus the original 407px (about 3% larger). The first enlarged 461px version is preserved in `iteration-1/`. New walking and trot refinements use the same subtle original-plus-3–5% target. See `refined-size/` for the final prompts and measurements; the earlier records below document the superseded first pass.
+
 The user requested a slightly fuller head when Milky looks sideways while walking, closer to the familiar camera-facing proportions. Only the forward-looking idle, eight forward walk frames, and four brisk trot frames are replaced. All camera-facing, greeting, sleep, rest, eating and play artwork remains unchanged.
 
 The built-in `image_gen` tool performed each raster edit separately. `before/` contains the shipped sprites used as edit targets; no private photographs were copied. Exact prompts and full generated outputs are retained beside each set.

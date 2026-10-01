@@ -1,0 +1,5 @@
+Use case: precise-object-edit.
+Make only a TINY head-size adjustment to this existing transparent 1536 x 1024 Milky sprite. The current head should retain almost all its size, becoming about 3 percent smaller in width and height. This is a subtle correction, NOT a small-headed dog. Keep the fluffy rounded cranium, ears, muzzle, eye and smiling mouth as one coherent head.
+Target the upper-head silhouette from x≈983 to x≈1419 and the crown at y≈96 (currently x971..1432, crown y82). The bottom of the neck remains fixed. Do not move the head down the neck or shorten the neck. Keep his head facing the same direction with identical expression, identity, fur and lighting.
+ABSOLUTELY preserve all other anatomy and registration: tail, torso, shoulder, every leg and paw remain at the same pixels. Near rear paw bottom y954 and near front paw bottom y971. Same 1536x1024 canvas and padding. Do not rescale or translate the entire animal.
+Genuine transparent RGBA alpha outside the fur; no glow, ground shadow, backdrop, text or border. Output one sprite with exact 1536x1024 dimensions.

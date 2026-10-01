@@ -1,0 +1,5 @@
+Use case: precise-object-edit.
+EDIT TARGET: this original transparent 1536x1024 Milky sprite. Make his profile head VERY SLIGHTLY fuller: enlarge ONLY the head including ears and muzzle by 4 percent. The increase must be subtle and barely noticeable, while keeping the same right-facing gaze, smile, face and fine white Maltese fur.
+Precise guide in the original coordinate system: upper-head silhouette currently spans about x992..1399 above y380; target x986..1410, with crown y105 instead of y116. Do not extend farther than x1415 or higher than y99. The neck attachment stays fixed. These small pixel changes are the whole edit.
+Preserve the exact body, tail plume, four legs, feet, existing pose, fur, shading and transparent padding. Near rear paw bottom remains y954 and near front paw bottom y970. DO NOT move or scale the entire dog. Keep the original 1536x1024 canvas.
+Output one single transparent RGBA PNG sprite, genuinely alpha=0 outside the fur silhouette. No shadow, scenery, background, text, border, haze or glow.

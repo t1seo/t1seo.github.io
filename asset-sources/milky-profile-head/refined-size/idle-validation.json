@@ -1,0 +1,152 @@
+{
+  "selected": "idle-candidate-3.png",
+  "prompt": "idle-prompt-3.txt",
+  "tool": "built-in image_gen",
+  "requested_refinement": "The user found the first enlargement too large. Final target is only 3\u20135 percent above the original head.",
+  "alpha_threshold": 127,
+  "regions": {
+    "upper_head": [
+      950,
+      0,
+      1536,
+      380
+    ],
+    "rear_near_paw": [
+      240,
+      840,
+      450,
+      990
+    ],
+    "rear_far_paw": [
+      450,
+      810,
+      700,
+      940
+    ],
+    "front_near_paw": [
+      950,
+      850,
+      1160,
+      990
+    ],
+    "front_far_paw": [
+      1130,
+      850,
+      1300,
+      960
+    ]
+  },
+  "bounds": {
+    "original": {
+      "upper_head": [
+        992,
+        116,
+        1399,
+        380
+      ],
+      "rear_near_paw": [
+        261,
+        840,
+        430,
+        954
+      ],
+      "rear_far_paw": [
+        468,
+        810,
+        656,
+        917
+      ],
+      "front_near_paw": [
+        953,
+        850,
+        1160,
+        970
+      ],
+      "front_far_paw": [
+        1130,
+        850,
+        1285,
+        960
+      ]
+    },
+    "first_enlargement": {
+      "upper_head": [
+        971,
+        82,
+        1432,
+        380
+      ],
+      "rear_near_paw": [
+        264,
+        840,
+        430,
+        954
+      ],
+      "rear_far_paw": [
+        469,
+        810,
+        657,
+        917
+      ],
+      "front_near_paw": [
+        956,
+        850,
+        1160,
+        971
+      ],
+      "front_far_paw": [
+        1130,
+        850,
+        1286,
+        960
+      ]
+    },
+    "final": {
+      "upper_head": [
+        997,
+        108,
+        1416,
+        380
+      ],
+      "rear_near_paw": [
+        266,
+        840,
+        430,
+        954
+      ],
+      "rear_far_paw": [
+        470,
+        810,
+        655,
+        917
+      ],
+      "front_near_paw": [
+        958,
+        850,
+        1160,
+        970
+      ],
+      "front_far_paw": [
+        1130,
+        850,
+        1285,
+        960
+      ]
+    }
+  },
+  "runtime": "public/assets/cyberpunk/milky-forward-idle.webp",
+  "runtime_sha256": "13eaa0e03c6072803a412f1719c56c4e93e9be55176c5d7c2e64c1fbd9f6dc37",
+  "runtime_bytes": 251240,
+  "canvas": [
+    1536,
+    1024
+  ],
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "rejected_candidates": {
+    "idle-candidate.png": "Shrank below original head width,389px.",
+    "idle-candidate-2.png": "Shrank below original head width,395px."
+  }
+}
