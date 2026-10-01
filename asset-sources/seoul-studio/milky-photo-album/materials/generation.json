@@ -1,0 +1,114 @@
+{
+  "generationDate": "2026-10-02",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "photorealistic-natural",
+  "materials": [
+    {
+      "name": "linen",
+      "promptFile": "linen-prompt.txt",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: seamless repeatable bookbinding linen material texture tile, square 1024x1024; a neutral flat albedo scan for a premium physical scrapbook cover.\nSubject: fine high-quality linen bookcloth in warm oatmeal with a very restrained dusty-pink greige undertone, average color approximately #d9c8bd. Delicate irregular interwoven flax threads, small natural variations in thread thickness, occasional subtle slubs, tiny soft fibrous strands. Tightly woven contemporary binding cloth, tactile and refined. The weave must look ORGANIC, not a computer-generated hard checkerboard or perfect uniform grid.\nComposition: texture fills the entire square edge to edge, viewed straight down at the cloth plane. No book, no edge, no fold, no binding, no objects. Seamless tiling: match all four edges, no visible repeat boundary, no unique prominent feature.\nLight and tonal response: uniform extremely soft diffuse flat scan lighting; very LOW contrast, restrained micro-shading only where fibers meet; no directional illumination, no gradients, no highlights, no cast shadows or vignette. Low-frequency color uniform throughout. The weave should be quietly visible when used behind text at CSS scale.\nColor constraints: warm NEUTRAL oatmeal / pink-greige, not orange, yellow, brown, green or saturated pink. Fiber variations only a few tonal steps from the base; no high contrast crosshatching.\nOutput: opaque RGB material texture, NOT transparent. No stains, dirt, damage, distressed patches, paper, text, decorative embroidery, graphic lines, borders or watermark. A real contemporary premium linen bookcloth scan with rich fine detail and soft calm appearance.\n",
+      "source": {
+        "path": "asset-sources/seoul-studio/milky-photo-album/materials/linen.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "bytes": 3219427,
+        "sha256": "9ca4647d4d5beef688f3c2bd8bcce902dc316bbecaf8cdef92abb061defd2249",
+        "averageRGB": [
+          207,
+          185,
+          173
+        ],
+        "alphaRange": [
+          255,
+          255
+        ]
+      },
+      "runtime": {
+        "path": "public/assets/penthouse/milky-album/materials/linen.webp",
+        "dimensions": [
+          512,
+          512
+        ],
+        "bytes": 69378,
+        "sha256": "e5a27baaee14a7f31ba7e2fc76ab447249fc895979c21fd176daeee60ffc106f",
+        "averageRGB": [
+          207,
+          186,
+          173
+        ],
+        "alphaRange": [
+          255,
+          255
+        ]
+      },
+      "webpQuality": 75,
+      "preview": "qa-linen-repeat.jpg"
+    },
+    {
+      "name": "cotton-paper",
+      "promptFile": "paper-prompt.txt",
+      "prompt": "Use case: photorealistic-natural.\nAsset type: seamless repeatable fine cotton stationery paper texture tile, square 1024x1024; flat diffuse material scan for an intimate handwritten letter.\nSubject: premium warm ivory cotton rag writing paper, average color approximately #f3eee4. A nearly smooth matte sheet with exceptionally subtle sparse tiny cotton fibers, shallow microscopic soft tooth and barely perceptible organic tonal variation. The fibers are small, delicate, irregular and infrequent. The physical paper feels soft and substantial, not rough craft cardboard, not handmade pulp chunks and not noisy parchment.\nComposition: texture fills the entire square edge to edge, viewed straight down at the paper plane, no paper edges or sheet outline. Seamless tiling: all four edges match visually, no visible repeat boundary or prominent unique marks.\nLight: perfectly uniform diffuse flat scan illumination, very LOW contrast; no directional lighting, no highlights, no cast shadows, no gradients, no vignette. Uniform base tone across the entire image. Texture should remain barely perceptible underneath elegant dark handwriting, enriching the paper without reducing text readability.\nColor: neutral warm ivory with a hint of warm grey; NO orange, yellow, sepia or dirty brown cast. No oversaturated cream. Fibers no darker than a few tonal steps from the ground.\nOutput: opaque RGB texture, NOT transparent. No ruled lines, grid, letters, handwriting, watermark, motifs, stains, scratches, creases, folds, borders, deckled edges, fibers protruding outside the square, glitter or decorative elements. Just clean, calm, realistic premium cotton writing paper.\n",
+      "source": {
+        "path": "asset-sources/seoul-studio/milky-photo-album/materials/cotton-paper.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "bytes": 2044605,
+        "sha256": "0c940242eb0a608bf56cd66980d8a24532387adabe7e15927a23659abf8b0081",
+        "averageRGB": [
+          240,
+          233,
+          222
+        ],
+        "alphaRange": [
+          255,
+          255
+        ]
+      },
+      "runtime": {
+        "path": "public/assets/penthouse/milky-album/materials/cotton-paper.webp",
+        "dimensions": [
+          512,
+          512
+        ],
+        "bytes": 9706,
+        "sha256": "ba7558c2dacdb1c07c103b015f33171faed486010afa32db61daf0dc601d6a3b",
+        "averageRGB": [
+          240,
+          233,
+          223
+        ],
+        "alphaRange": [
+          255,
+          255
+        ]
+      },
+      "webpQuality": 82,
+      "preview": "qa-cotton-paper-repeat.jpg"
+    }
+  ],
+  "totalRuntimeBytes": 79084,
+  "conversion": {
+    "method": "@napi-rs/canvas high-quality proportional1254-to512pixel resampling; WebP linenquality75 and cotton-paperquality82. No synthetic repainting or color transformation.",
+    "creativeEdits": "Both textures generated independently with built-in ImageGen. Original assets preserved; no Milky photo edits."
+  },
+  "validation": {
+    "decode": "Both final WebP files decoded at512x512 and composited into2x2 repeat previews from encoded bytes.",
+    "appearance": "Neutral warm oatmeal/pink-greige linen fibers and low-contrast ivory cotton paper. No text, object edges, borders, illustrations, folds or directional light baked in.",
+    "tiling": "Visually low-contrast repeating materials. Repeat previews inspected; no conspicuous repeat boundary at intended scale. Not asserted pixel-perfect periodic textures.",
+    "performance": "Combined79,084bytes, under100KB target. Use only in lazy-loaded album UI.",
+    "uiContract": {
+      "linen": "/assets/penthouse/milky-album/materials/linen.webp",
+      "paper": "/assets/penthouse/milky-album/materials/cotton-paper.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "recommendation": "Layer thin CSS light/shade and independent book/page geometry. Linen can repeat around320–512CSSpx; paper texture remains subtle under handwriting."
+    }
+  }
+}

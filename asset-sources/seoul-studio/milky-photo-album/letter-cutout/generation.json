@@ -83,6 +83,6 @@
     "identityCaveat": "Background removed via ImageGen; small reconstructed edge areas are possible. The result is not pixel-identical to the original photograph.",
     "alpha": "Actual decoded runtime has true alpha; all four corners transparent. Dog body reaches254/255 alpha with short antialiasing and no visible background matte.",
     "privacy": "Source photograph and source-comparison QA remain outside repository; only the selected generated cutout is committed.",
-    "uiContract": "Use427x600 intrinsic dimensions and natural aspect ratio. Root UI adds tape separately and creates the image only on the final letter."
+    "uiContract": "Use427x600 intrinsic dimensions and natural aspect ratio. Create only on the final letter, below the letter prose with flower/heart stickers; no tape."
   }
 }
