@@ -8,6 +8,16 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Quiet interactions, opening credits and seasonal details · 2026-10-01
+
+Object clicks communicate through their effect, without the former coffee, fragrance, bowl or bed toast. Operational loading failures can still report an error. The desk-lamp target now covers the entire painted lamp at source[1118,386,162,191]; the higher clock layer preserves clock clicks where the rectangles overlap. Its existing warm underside and tabletop pool are stronger, with no new compositor loop or filter. Coffee steam uses soft rising curls; diffuser fragrance is wider and slower, with a gentler opacity than coffee. Both remain seven-second effects and honor still, hidden and reduced-motion behavior.
+
+A one-shot cinematic title appears in the upper window: A PERSONAL SPACE fades in, followed by TAEWON SEO at 220ms per letter with a 480ms word pause. The complete title width is reserved before typing. It holds for 4.2 seconds and fades for 1.6 seconds (10.04 seconds overall). The existing 37,776-byte Cormorant Garamond WOFF2 is self-hosted under its retained SIL OFL license. There is no box, sound, cursor or recurring loop. Hidden tabs pause; reduced motion shows the complete name briefly. The title is decorative because the main landmark already identifies the studio.
+
+Seasonal detail is an additive layer, not a repaint of the twenty registered room plates. A small textile drapes over the lounge chair at[236,596,88,112]; a console arrangement sits at[1530,445,52,110]. Spring uses sage linen and blossoms, summer light striped linen and greenery, autumn warm wool and dried branches, winter knit fabric and a miniature festive vignette. The active pair of alpha WebP images decodes atomically, keeps the previous pair on failure, ignores stale requests and adds no RAF or timers. Static time/weather shading keeps the accents in the room light. Inputs, exact prompts and runtime manifests are in `asset-sources/seoul-studio/seasonal-accents`.
+
+Milky's forward-facing side profile receives a modest head-only enlargement across forward idle, eight walk frames and four trot frames, matching her existing camera-facing proportions. Preserve her torso, tail, gait, paw contacts, registration and every other pose. The prior thirteen sprites and generation records are retained in `asset-sources/milky-profile-head`; no private photograph is bundled.
+
 ## Refined desk, lounge and Milky bed · 2026-10-01
 
 This section supersedes the initial-monitor-off, short LED bar, large speaker and earlier clock/calendar positions below. The monitor starts on with completed code and a current Seoul preview. Explicit off/on replays typing; the completed editor is cached so night effects never repeatedly rasterize its text.

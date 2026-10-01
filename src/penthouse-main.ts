@@ -6,7 +6,11 @@ import { mountPenthouseScene } from './penthouse-scene';
 import { MILKY_STUDY_FLOOR } from './penthouse-atmosphere';
 import { roomTimeObjectsMarkup, updateRoomTimeObjects } from './penthouse-time-objects';
 import { createSingingBowlSound } from './penthouse-singing-bowl';
+import { mountSeasonalDecor } from './penthouse-seasonal-decor';
+import { mountOpeningCredits, openingCreditsMarkup } from './penthouse-opening-credits';
 import './penthouse-time-objects.css';
+import './penthouse-seasonal-decor.css';
+import './penthouse-opening-credits.css';
 
 const mount = document.querySelector<HTMLDivElement>('#app');
 if (!mount) throw new Error('Studio mount element is missing.');
@@ -14,6 +18,7 @@ const root: HTMLDivElement = mount;
 root.innerHTML = `
 <main class="ph-studio night-studio" data-intro="hidden" data-focus="false" aria-label="Taewon Seo's Seoul studio">
   <div class="ph-stage night-scene">
+    ${openingCreditsMarkup()}
     <div class="ph-room" data-time="night" data-season="autumn" data-weather="clear">
       <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and a tall graphite and bronze desk lamp. An ivory-shade articulated floor lamp stands to the left of the lounge chair, casting warm light across its back and seat. A small black and gold fountain pen rests directly beside the keyboard, with a small fabric-front speaker between the books and monitor, a bronze singing bowl beside the pen, and a digital clock between the bowl and the right-hand desk lamp. A lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/autumn/night.webp" alt="" fetchpriority="high" draggable="false"></div>
       <div class="ph-weather" data-weather-wash aria-hidden="true"></div>
@@ -44,6 +49,8 @@ const $ = <T extends Element = HTMLElement>(selector: string): T => {
   return element;
 };
 const studio = $('.ph-studio');
+const opening = $('.ph-opening-credits');
+const stopOpeningCredits = mountOpeningCredits(opening, opening.querySelectorAll<HTMLElement>('[data-opening-letter]'));
 const dialog = $<HTMLDialogElement>('dialog');
 const content = $('[data-dialog-content]');
 const abort = new AbortController();
@@ -70,6 +77,7 @@ function toast(message: string) {
   toastTimer = setTimeout(() => { $('.ph-toast').textContent = ''; }, 4500);
 }
 const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view could not load. Your current view is still here.'));
+const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/workspace/ball.webp', anchor: [256.204, 407.885] },
 }, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } });
@@ -87,6 +95,7 @@ function updatePlayback(next: CyberPlaybackState) {
 }
 function applyClimate(state: ClimateState) {
   scene.update(state);
+  seasonalDecor.update(state);
   sound.setClimate(state);
   sound.setRain(state.weather === 'rain');
   studio.dataset.time = state.time;
@@ -236,7 +245,7 @@ if (!playing) $('[data-track-title]').textContent = 'Make yourself at home.';
 function destroy() {
   if (destroyed) return;
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
-  climate.destroy(); scene.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
+  stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);
 if (import.meta.hot) import.meta.hot.dispose(destroy);
