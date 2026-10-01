@@ -6,14 +6,15 @@ import { ROOM_OBJECTS, objectLighting } from './penthouse-objects.ts';
 import { RoomLife, type CupSpot } from './penthouse-room-life.ts';
 import { SingingBowl } from './penthouse-singing-bowl.ts';
 import { AdaptiveEffectQuality, EFFECT_DENSITY } from './penthouse-quality.ts';
-import { RiverBoat } from './penthouse-river-boat.ts';
+import { FireworksShow } from './penthouse-fireworks-show.ts';
+import { FireworksPaint } from './penthouse-fireworks-paint.ts';
 import { AtmosphereSimulation, GLASS_EDGE, GLASS_PANES, GLASS_OCCLUDERS, SKY_EDGE, WORKSPACE_CROP, MONITOR_SCREEN, ROOM_SIZE, atmosphereProfile, isSky, seededRandom, type Point } from './penthouse-atmosphere.ts';
 
 export interface WorkspaceState { monitor: boolean; lamp: boolean; floorLamp?: boolean }
 type LitObject = { readonly image: HTMLImageElement; readonly rect: readonly [number, number, number, number]; texture?: OffscreenCanvas; lighting?: string };
 
 /** One bounded 30 fps compositor. Glass, skyline and workspace have separate masks. */
-export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: HTMLImageElement | null) {
+export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: HTMLImageElement | null, onFireworksChange?: (active: boolean) => void) {
   const ctx = canvas.getContext('2d');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const abort = new AbortController();
@@ -23,7 +24,9 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   const screen = new StudioScreenCache();
   const loungeLight = new LoungeLight();
   const quality = new AdaptiveEffectQuality();
-  const boat = new RiverBoat(restart);
+  const fireworks = new FireworksShow(onFireworksChange);
+  let fireworksPaint: FireworksPaint | null = null;
+  let fireworksTick: number | null = null;
   const random = seededRandom(310730);
   const dust = Array.from({length: 180}, () => ({ x: random() * 1295, y: random() * 582, speed: .55 + random(), phase: random() * 6.28 }));
   const stars = Array.from({length: 48}, () => ({ x: 191 + random() * 1295, y: 40 + random() * 185, phase: random() * 6.28, r: .35 + random() * .5 })).filter(p => isSky(p.x,p.y));
@@ -74,7 +77,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     if (p.mist) for (let i = 0; i < 4; i++) glow(320 + i * 320 + Math.sin(t * .022 + i) * 45, 155 + i % 2 * 15,390,58,p.night ? '#a5b1be' : '#e8e7df',.23);
     ctx!.globalAlpha = 1;
     clipGlass();
-    boat.draw(ctx, p.night, density.reflections);
+    if (fireworks.active) fireworksPaint?.draw(ctx, fireworks.time, p.night, density.particles);
     if (p.night) {
       roomLife.drawCity(ctx, t, p.night);
       // Short horizontal glints ripple within the Han River, below the far bank.
@@ -202,7 +205,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     ctx.clearRect(0,0,...ROOM_SIZE); drawSky(ctx); drawObjects(); drawWorkspace(); roomLife.drawSteam(ctx, reduced.matches || !animateView); bowl.draw(ctx, reduced.matches || !animateView); drawPreview();
   }
   function needsMotion() {
-    return boat.active || roomLife.active || bowl.active || atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 12);
+    return fireworks.active || roomLife.active || bowl.active || atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 12);
   }
   function loop(now: number) {
     frame = 0;
@@ -213,7 +216,8 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     if (now - painted >= 1000 / 30) {
       const paintStart = performance.now();
       const dt = last ? Math.min((now - last) / 1000,.1) : 0;
-      last = now; painted = now; sim.advance(dt,state); roomLife.advance(dt); bowl.advance(dt); boat.advance(dt);
+      last = now; painted = now; sim.advance(dt,state); roomLife.advance(dt); bowl.advance(dt);
+      if (fireworks.active) { if (fireworksTick !== null) fireworks.advance(Math.max(0, now - fireworksTick) / 1000); fireworksTick = now; }
       if (workspace.monitor) typing = Math.min(12,typing + dt);
       render();
       paintDuration = performance.now() - paintStart;
@@ -224,7 +228,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   }
   function restart() {
     cancelAnimationFrame(frame); frame = 0; last = 0; painted = 0; sampled = 0; quality.resetSampling();
-    boat.setEnabled(Boolean(ctx) && !dead && !document.hidden && animateView && !reduced.matches);
+    if (dead || document.hidden || !animateView || reduced.matches) fireworks.stop();
     if (dead || document.hidden) return;
     render();
     if (ctx && animateView && !reduced.matches && needsMotion()) frame = requestAnimationFrame(loop);
@@ -234,6 +238,9 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   initialPlate?.addEventListener?.('load', restart, { signal: abort.signal });
   return {
     get effectDetail() { return quality.detail; },
+    get fireworksActive() { return fireworks.active; },
+    startFireworks() { if (!ctx || dead || document.hidden || !animateView || reduced.matches) return false; fireworksPaint ??= new FireworksPaint(); if (!fireworks.active) fireworksTick = null; fireworks.start(); restart(); return true; },
+    stopFireworks() { fireworks.stop(); restart(); },
     update(next: ClimateState) { state = next; if (state.weather !== 'clear' || state.time !== 'night') sim.meteor = null; restart(); },
     setPlate(image: HTMLImageElement, outside: HTMLImageElement = image) { plate = image; exterior = outside; restart(); },
     setWorkspace(next: WorkspaceState) { if (!workspace.monitor && next.monitor) typing = 0; workspace = { ...next }; restart(); },
@@ -242,6 +249,6 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     scentDiffuser() { roomLife.scentDiffuser(reduced.matches || !animateView); restart(); },
     strikeBowl() { bowl.strike(reduced.matches || !animateView); restart(); },
     setPreview(next: HTMLCanvasElement | null, screen: HTMLCanvasElement | null = null) { preview = next; screenPreview = screen; if (screenPreview) { screenPreview.width = SCREEN_SIZE[0]; screenPreview.height = SCREEN_SIZE[1]; } if (preview) { preview.width = WORKSPACE_CROP[2]; preview.height = WORKSPACE_CROP[3]; } render(); },
-    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); boat.destroy(); roomLife.clear(); bowl.clear(); screen.clear(); loungeLight.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const object of objects) { object.image.src = ''; object.texture = undefined; } },
+    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); fireworks.stop(); fireworksPaint = null; roomLife.clear(); bowl.clear(); screen.clear(); loungeLight.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const object of objects) { object.image.src = ''; object.texture = undefined; } },
   };
 }

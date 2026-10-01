@@ -52,7 +52,8 @@ export function compositor(t: TestContext, reducedMotion = false, textureSupport
   install('setTimeout', (callback: () => void, delay: number) => { const timer = ++id; timers.set(timer, { callback, delay }); return timer; });
   install('clearTimeout', (timer: number) => timers.delete(timer));
   const canvas = { dataset: {}, getContext: () => context } as unknown as HTMLCanvasElement;
-  const effects = mountPenthouseEffects(canvas,null);
+  const fireworksChanges: boolean[] = [];
+  const effects = mountPenthouseEffects(canvas,null, active => fireworksChanges.push(active));
   t.after(() => { effects.destroy(); for (const [key,value] of originals) { if (value) Object.defineProperty(globalThis,key,value); else Reflect.deleteProperty(globalThis,key); } });
-  return {effects,canvas,page,media,frames,timers,text,translations,images,paintCommands,liveFilters,textureSizes,fallbackCanvases,colorFilters,gradients:()=>gradients,texturePaints:()=>texturePaints,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }, wakeBoat() { const pending = [...timers.values()]; timers.clear(); pending.forEach(timer => timer.callback()); }};
+  return {effects,canvas,page,media,frames,timers,text,translations,images,paintCommands,liveFilters,textureSizes,fallbackCanvases,colorFilters,fireworksChanges,gradients:()=>gradients,texturePaints:()=>texturePaints,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
 }
