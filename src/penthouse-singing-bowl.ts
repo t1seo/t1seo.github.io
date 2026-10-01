@@ -7,9 +7,9 @@ export class SingingBowl {
   private elapsed: number | null = null;
   private fixed = false;
 
-  get active(): boolean { return this.elapsed !== null; }
+  get active(): boolean { return this.elapsed !== null && !this.fixed; }
   strike(still = false): void {
-    this.elapsed = still && this.active ? null : 0;
+    this.elapsed = still && this.elapsed !== null ? null : 0;
     this.fixed = still;
   }
   advance(seconds: number): void {

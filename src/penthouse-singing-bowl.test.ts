@@ -68,6 +68,7 @@ test('still mode creates an immediate fixed pose which a second strike dismisses
   const bowl = new SingingBowl(), first = painting(), later = painting(), cleared = painting();
   bowl.strike(true);
   bowl.draw(first.ctx, true);
+  assert.equal(bowl.active, false, 'a fixed pose must not keep the animation loop alive');
   advance(bowl, 10);
   bowl.draw(later.ctx, true);
   assert.ok(first.marks.length > 0);
