@@ -1,47 +1,28 @@
 import './penthouse.css';
+import { panelMarkup } from './penthouse-panel-markup';
+import { roomMarkup } from './penthouse-room-markup';
+import { mountPersonalTools } from './penthouse-personal-ui';
+import { mountFocusSession } from './penthouse-focus-ui';
+import { mountSoundMixer } from './penthouse-sound-ui';
 import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type ClimateState, type LocalClimateInfo } from './cyber-climate';
 import { createCyberSound, type CyberPlaybackState } from './cyber-sound';
 import { mountCyberPet } from './cyber-pet';
 import { mountPenthouseScene } from './penthouse-scene';
 import { MILKY_STUDY_FLOOR } from './penthouse-atmosphere';
-import { roomTimeObjectsMarkup, updateRoomTimeObjects } from './penthouse-time-objects';
+import { updateRoomTimeObjects } from './penthouse-time-objects';
 import { createSingingBowlSound } from './penthouse-singing-bowl';
 import { mountSeasonalDecor } from './penthouse-seasonal-decor';
-import { mountOpeningCredits, openingCreditsMarkup } from './penthouse-opening-credits';
+import { mountOpeningCredits } from './penthouse-opening-credits';
 import './penthouse-time-objects.css';
 import './penthouse-seasonal-decor.css';
 import './penthouse-opening-credits.css';
+import './penthouse-personal.css';
+import './penthouse-object-lighting.css';
 
 const mount = document.querySelector<HTMLDivElement>('#app');
 if (!mount) throw new Error('Studio mount element is missing.');
 const root: HTMLDivElement = mount;
-root.innerHTML = `
-<main class="ph-studio night-studio" data-intro="hidden" data-focus="false" aria-label="Taewon Seo's Seoul studio">
-  <div class="ph-stage night-scene">
-    ${openingCreditsMarkup()}
-    <div class="ph-room" data-time="night" data-season="autumn" data-weather="clear">
-      <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and a tall graphite and bronze desk lamp. An ivory-shade articulated floor lamp stands to the left of the lounge chair, casting warm light across its back and seat. A small black and gold fountain pen rests directly beside the keyboard, with a small fabric-front speaker between the books and monitor, a bronze singing bowl beside the pen, and a digital clock between the bowl and the right-hand desk lamp. A lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/autumn/night.webp" alt="" fetchpriority="high" draggable="false"></div>
-      <div class="ph-weather" data-weather-wash aria-hidden="true"></div>
-      <canvas class="ph-weather-canvas" aria-hidden="true"></canvas>
-      <button class="ph-bed" data-action="bed" aria-label="Invite Milky to rest in the soft dog bed"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="520" height="284"></button>
-      <div class="ph-bed-front" aria-hidden="true"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="520" height="284"></div>
-      <div class="ph-pet" data-pet></div>
-      <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn off the computer monitor" aria-pressed="true"></button>
-      <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"></button>
-      <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music on the small desktop speaker" aria-pressed="false"></button>
-      <button class="ph-hotspot ph-hotspot--pen" data-action="workspace" aria-label="Explore the fountain pen and desk objects" aria-haspopup="dialog"></button>
-      <button class="ph-hotspot ph-hotspot--book" data-action="about" aria-label="Read about this studio"></button>
-      <button class="ph-hotspot ph-hotspot--coffee" data-action="coffee" aria-label="Enjoy the aroma of the desk coffee"></button>
-      <button class="ph-hotspot ph-hotspot--diffuser" data-action="diffuser" aria-label="Release a little fragrance from the reed diffuser"></button>
-      <button class="ph-hotspot ph-hotspot--floor-lamp" data-action="floorLamp" aria-label="Turn off the lounge floor lamp" aria-pressed="true"></button>
-      <button class="ph-hotspot ph-hotspot--bowl" data-action="bowl" aria-label="Ring the bronze singing bowl"></button>
-      ${roomTimeObjectsMarkup()}
-    </div>
-  </div>
-  <button class="ph-restore" data-action="focus" aria-label="Show clock and calendar" hidden>Return to the room</button>
-  <div class="ph-toast" role="status" aria-live="polite"></div>
-  <dialog class="ph-dialog" aria-labelledby="ph-dialog-title"><form method="dialog"><button class="ph-close" aria-label="Close panel">×</button></form><nav class="ph-panel-nav" aria-label="Studio settings"><button data-action="climate">Atmosphere</button><button data-action="workspace">Desk</button><button data-action="milky">Milky</button><button data-action="about">About</button></nav><div data-dialog-content></div><div class="ph-panel-sound"><button data-action="music" aria-pressed="false"><span data-music-label>Play music</span></button><a class="ph-track" href="/assets/music/CREDITS.html" target="_blank" rel="noopener noreferrer" aria-label="Music credits"><span data-track-status>SOUND IS OFF</span><span data-track-title>Make yourself at home.</span></a></div><button class="ph-immerse" data-action="focus">Immerse in the room</button></dialog>
-</main>`;
+root.innerHTML = roomMarkup();
 
 const $ = <T extends Element = HTMLElement>(selector: string): T => {
   const element = root.querySelector<T>(selector);
@@ -68,9 +49,9 @@ let opener: HTMLElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | undefined;
 let destroyed = false;
 let playing: CyberPlaybackState | undefined;
+let mixer: ReturnType<typeof mountSoundMixer> | undefined;
 let animated = true;
 const workspace = { monitor: true, lamp: true, floorLamp: true };
-const pretty = (value: string) => value[0].toUpperCase() + value.slice(1);
 function toast(message: string) {
   clearTimeout(toastTimer);
   $('.ph-toast').textContent = message;
@@ -80,16 +61,33 @@ const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view coul
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
-}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 } });
-const sound = createCyberSound({ onTrackChange: updatePlayback });
+}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true });
+const sound = createCyberSound({ independentMix: true, onTrackChange: updatePlayback, onMixChange: (mix, error) => mixer?.refresh(mix, error) });
 const bowlSound = createSingingBowlSound();
 const climate = createCyberClimate(applyClimate);
+const focusSession = mountFocusSession(root, () => climate.getLocalInfo().timeZone, () => scene.strikeBowl());
+mixer = mountSoundMixer(root, sound);
+const personal = mountPersonalTools(root, {
+  snapshot: () => ({ climate: { ...climate.getState(), animated }, workspace: { ...workspace }, sound: sound.getMix() }),
+  apply(snapshot) {
+    Object.assign(workspace, snapshot.workspace);
+    updateWorkspace();
+    animated = snapshot.climate.animated;
+    scene.setAnimated(animated);
+    pet.setAnimated(animated);
+    climate.setAtmosphere(snapshot.climate);
+    updateClimatePanel();
+    void sound.setMix(snapshot.sound, true).catch((error: unknown) => {
+      console.error('Saved atmosphere sound unavailable', error instanceof Error ? error.message : error);
+    });
+  },
+});
 
 function updatePlayback(next: CyberPlaybackState) {
   playing = next;
   root.querySelectorAll('[data-action="music"]').forEach(button => button.setAttribute('aria-pressed', String(next.enabled)));
   $('[data-music-label]').textContent = next.enabled ? 'Pause music' : 'Play music';
-  $('[data-track-status]').textContent = next.loading ? 'LOADING RECORD' : next.playing ? 'NOW PLAYING' : next.error ? 'PLAYBACK UNAVAILABLE' : 'SOUND IS OFF';
+  $('[data-track-status]').textContent = next.loading ? 'LOADING RECORD' : next.playing ? 'NOW PLAYING' : next.error ? 'PLAYBACK UNAVAILABLE' : 'MUSIC IS OFF';
   $('[data-track-title]').textContent = next.enabled ? next.track.title : 'Make yourself at home.';
   if (next.error) toast('Music could not load. Please try again.');
 }
@@ -110,7 +108,7 @@ const localCopy = (info: LocalClimateInfo) => ({
   unavailable: 'Live weather is unavailable. Your last view is preserved; you can retry.',
 })[info.status];
 function updateLocalInfo(info: LocalClimateInfo) {
-  updateRoomTimeObjects(root, info.timeZone);
+  focusSession.refresh();
   updateClimatePanel();
 }
 function roomFocusTarget(): HTMLElement {
@@ -128,21 +126,16 @@ function openPanel(name: string, trigger: HTMLElement) {
     if (button.dataset.action === panel) button.setAttribute('aria-current', 'page');
     else button.removeAttribute('aria-current');
   });
-  if (panel === 'climate') {
-    const group = (key: string, values: readonly string[]) => `<fieldset><legend>${pretty(key)}</legend><div class="ph-options">${values.map(value => `<label><input type="radio" name="${key}" value="${value}"><span>${pretty(value)}</span></label>`).join('')}</div></fieldset>`;
-    content.innerHTML = `<p class="ph-overline">${name === 'calendar' ? 'A SEASON FOR EVERY MOOD' : 'MAKE THIS MOMENT YOURS'}</p><h2 id="ph-dialog-title" tabindex="-1">${name === 'calendar' ? 'Calendar & seasons' : name === 'clock' ? 'Time & atmosphere' : 'Room atmosphere'}</h2><p data-local></p><div class="ph-auto"><label><input type="checkbox" name="auto"> Follow my local time</label><button data-action="location">Use my location</button></div>${name === 'calendar' ? group('season', CYBER_SEASONS) + group('time', CYBER_TIMES) : group('time', CYBER_TIMES) + group('season', CYBER_SEASONS)}${group('weather', CYBER_WEATHER)}<div class="ph-auto"><label><input type="checkbox" name="animated"> Animate the view</label></div><p class="ph-panel-note">Clear nights bring slow city lights and an occasional shooting star. Rain leaves beads on the glass that dry gradually. Reduced motion keeps the scene still.</p><p class="ph-panel-note">The clock and calendar show your local date and time. A manual scene choice pauses Auto. Location is requested only with your permission. Approximate coordinates stay in memory.</p>`;
-    updateClimatePanel();
-  } else if (name === 'workspace') {
-    content.innerHTML = `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">Facing Seoul.</h2><p>A walnut desk, an Apple Studio Display and a Happy Hacking Keyboard (HHKB). A tall graphite and bronze lamp lights the right side of the walnut desk. A digital clock sits between the lamp and a hand-hammered singing bowl; the clock and paper calendar open the room settings. A small fountain pen rests beside the keyboard, and a compact fabric-front speaker sits to the left of the monitor. Beside the window, the lounge has its own switchable floor lamp and an amber reed diffuser.</p><div class="ph-desk-detail"><canvas class="ph-desk-preview" aria-label="Close-up of the monitor, keyboard, small speaker, singing bowl, clock and tall desk lamp"></canvas>${roomTimeObjectsMarkup()}</div><div class="ph-pet-actions"><button data-action="monitor" aria-pressed="false"><span data-monitor-label>Turn on monitor</span><span aria-hidden="true">↗</span></button><button data-action="lamp" aria-pressed="false"><span data-lamp-label>Turn on desk light</span><span aria-hidden="true">↗</span></button><button data-action="coffee">Enjoy a warm coffee<span aria-hidden="true">↗</span></button><button data-action="bowl">Ring the singing bowl<span aria-hidden="true">↗</span></button><button data-action="floorLamp" aria-pressed="true"><span data-floorLamp-label>Turn off lounge light</span><span aria-hidden="true">↗</span></button><button data-action="diffuser">Enjoy the reed diffuser<span aria-hidden="true">↗</span></button></div><p class="ph-panel-note">The monitor is on when you arrive. Turn it off and on to watch the editor write again. Ring the bowl for a soft, fading note, or enjoy a little fragrance from the reed diffuser beside the lounge chair. Both lights can be switched independently.</p><p class="ph-workspace-status" role="status" data-workspace-status></p><canvas class="ph-screen-preview" aria-label="Detailed studio screen showing a TypeScript editor, file list and the current Seoul view" hidden></canvas><div class="ph-objects"><article><div class="ph-object-art"><img src="/assets/penthouse/objects/fountain-pen.webp" alt="Painted capped black and gold fountain pen" width="1981" height="794" loading="lazy"></div><h3>A place for a thought.</h3><p>A small black and gold fountain pen inspired by Montblanc, resting directly on the walnut desk.</p></article><article><div class="ph-object-art"><img src="/assets/penthouse/objects/petite-speaker.webp" alt="Painted small charcoal speaker with a warm fabric grille and bronze knob" width="528" height="302" loading="lazy"></div><h3>Room for a record.</h3><p>A little speaker with a woven fabric grille, charcoal shell, bronze dial and warm walnut feet.</p><button class="ph-object-play" data-action="music" aria-pressed="false">Play / pause room music</button></article></div><p class="ph-panel-note"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The objects, materials &amp; research ↗</a></p>`;
+  content.innerHTML = panelMarkup(name);
+  if (panel === 'climate') updateClimatePanel();
+  if (name === 'workspace') {
     updateRoomTimeObjects(root, climate.getLocalInfo().timeZone);
     scene.setPreview(content.querySelector<HTMLCanvasElement>('.ph-desk-preview'),content.querySelector<HTMLCanvasElement>('.ph-screen-preview'));
     updateWorkspace();
     if (playing) updatePlayback(playing);
-  } else if (name === 'milky') {
-    content.innerHTML = `<p class="ph-overline">THE ONE WARM EXCEPTION</p><h2 id="ph-dialog-title">Meet Milky.</h2><p>A little Maltese, with the run of the place.</p><div class="ph-pet-actions">${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['bed','Rest in the soft bed'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([action,label])=>`<button data-action="${action}">${label}<span aria-hidden="true">↗</span></button>`).join('')}</div><p class="ph-panel-note">You can also click Milky in the room. When focused, arrow keys walk, S sits and N naps.</p>`;
-  } else {
-    content.innerHTML = `<p class="ph-overline">TAEWON SEO / THE SEOUL STUDIO</p><h2 id="ph-dialog-title">Seoul, in view.</h2><p>A wide window straight ahead. A desk facing the Han River, with N Seoul Tower on the horizon. A quiet lounge, warm shelves and a soft bed for Milky in the corner.</p><p>Four seasons and five times of day change the illustrated Seoul view. Auto follows your local clock; permitted location adds your local weather. Choose any season, time or weather in Atmosphere.</p><div class="ph-about-links"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The fountain pen &amp; desktop audio <span>↗</span></a><a href="/design/research/penthouse-layout/report.html" target="_blank" rel="noopener">Compare the new room layout <span>↗</span></a><a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">The workspace & living weather research <span>↗</span></a><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
   }
+  personal.refresh();
+  focusSession.refresh();
   if (!dialog.open) dialog.showModal();
   else {
     const heading = content.querySelector<HTMLElement>('h2');
@@ -159,8 +152,10 @@ function updateClimatePanel() {
   const info = climate.getLocalInfo();
   const status = content.querySelector('[data-local]');
   if (status) status.textContent = `${info.localDateTime} · ${info.timeZone}. ${localCopy(info)}`;
-  content.querySelectorAll<HTMLInputElement>('input').forEach(input => {
-    input.checked = input.name === 'animated' ? animated : input.name === 'auto' ? state.auto : state[input.name as 'season'|'time'|'weather'] === input.value;
+  content.querySelectorAll<HTMLInputElement>('input[name]').forEach(input => {
+    if (input.name === 'animated') input.checked = animated;
+    else if (input.name === 'auto') input.checked = state.auto;
+    else if (input.name === 'season' || input.name === 'time' || input.name === 'weather') input.checked = state[input.name] === input.value;
   });
   const button = content.querySelector<HTMLButtonElement>('[data-action="location"]');
   if (button) {
@@ -188,7 +183,7 @@ root.addEventListener('click', event => {
   const button = event.target.closest<HTMLElement>('[data-action]');
   if (!button) return;
   const action = button.dataset.action;
-  if (action === 'climate' || action === 'clock' || action === 'calendar' || action === 'milky' || action === 'about' || action === 'workspace') openPanel(action, button);
+  if (action === 'climate' || action === 'clock' || action === 'calendar' || action === 'milky' || action === 'about' || action === 'workspace' || action === 'memo') openPanel(action, button);
   else if (action === 'monitor' || action === 'lamp' || action === 'floorLamp') { workspace[action] = !workspace[action]; updateWorkspace(); }
   else if (action === 'music') void sound.setEnabled(!sound.isEnabled());
   else if (action === 'coffee') scene.savorCoffee('desk');
@@ -219,7 +214,7 @@ root.addEventListener('click', event => {
 content.addEventListener('change', event => {
   const input = event.target;
   if (!(input instanceof HTMLInputElement)) return;
-  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); }
+  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); pet.setAnimated(animated); }
   if (input.name === 'auto') climate.setAuto(input.checked);
   const season = CYBER_SEASONS.find(value => value === input.value);
   const time = CYBER_TIMES.find(value => value === input.value);
@@ -245,6 +240,7 @@ if (!playing) $('[data-track-title]').textContent = 'Make yourself at home.';
 function destroy() {
   if (destroyed) return;
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
+  focusSession.destroy(); personal.destroy(); mixer?.destroy();
   stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);

@@ -8,6 +8,20 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Living room details and useful objects · 2026-10-01
+
+The painted room and all Milky sprites remain unchanged. The bed, ball, clock and calendar share restrained contact shadows and a time/weather lighting palette. The desk lamp adds warm fill to the nearby clock; the monitor gives the calendar a faint night fill. No chair textiles return.
+
+Dragging the existing red ball more than six pixels rolls that same ball in the release direction, with distance controlling force and a bounded floor path. Milky turns and follows with her real gait. Click, Enter and Space retain their previous play behavior. Brief stop glances and a bed-wake play-bow connect existing poses without resizing her head or deforming her body. Animate the view now controls Milky as well as window effects; still/reduced-motion states preserve static interactions.
+
+A distant 25-pixel river boat first appears after 18–30 seconds, crosses for 42 seconds, then waits 95–150 seconds. It stays in the registered river band and behind the glass/furniture masks. Night windows leave small broken reflections. One cancellable wake timer allows clear daytime scenes to stay idle between crossings. Hidden, still and reduced-motion states cancel the crossing and its wake.
+
+The digital clock opens 25- and 50-minute focus sessions, with Pause, Resume and Cancel. The physical clock displays remaining minutes/seconds, then returns to local time. A deadline keeps background elapsed time correct, but completion visuals/audio wait until the page is visible. Starting explicitly prepares a silent dedicated audio context; completion strikes the singing bowl once and releases it. Nothing autoplays on arrival.
+
+The fountain pen opens an automatically saved 2,000-character note, also available from Desk. Notes and up to five named atmosphere presets stay only in this browser. Each preset captures season/time/weather, motion, monitor, both lamps and independent music/rain levels. Applying one changes climate atomically and pauses Auto; explicit preset selection may start its chosen audio. Invalid/blocked storage preserves usable in-memory state with an English status message. User strings are assigned only with textContent/value. The room-sound mixer lets rain play without music and changes both volumes independently; sound continues in background tabs.
+
+Effect detail uses sustained observed paint cost and RAF gaps with recovery hysteresis. Balanced/quiet levels reduce precipitation, glass refraction and reflection density while retaining room artwork and Milky detail. No visible performance HUD or persistent control bar is added. Native CPU Skia rain-night comparison: median39.31→23.73ms, p95 84.85→33.70ms, refraction calls76→35; these are renderer experiment measurements, not Chrome FPS. Plan and final verification: `plans/living-room-delights.md`.
+
 ## Painted Milky bed and red ball · 2026-10-01
 
 The cream donut bed uses short, softly brushed plush with a stitched lower edge, replacing the photographic long fur. Its source-space rect[1310,788,260,142], sleeping contact[1440,865] and foreground lip remain unchanged. Runtime artwork is520×284 RGBA WebP (48362bytes). Day/night occupied-bed composites preserve Milky's face and paws above the inner cushion. Original art and the exact built-in ImageGen prompt are in `asset-sources/seoul-studio/painted-milky-bed`.

@@ -15,7 +15,9 @@ export function roomTimeObjectsMarkup(): string {
   </div>`
 }
 
-export function updateRoomTimeObjects(root: HTMLElement, timeZone: string, now = new Date()): void {
+export type ClockDisplay = { readonly text: string; readonly label: string };
+
+export function updateRoomTimeObjects(root: HTMLElement, timeZone: string, now = new Date(), countdown?: ClockDisplay): void {
   const dateParts = new Intl.DateTimeFormat('en-US', {
     timeZone,
     month: 'short',
@@ -30,10 +32,11 @@ export function updateRoomTimeObjects(root: HTMLElement, timeZone: string, now =
   const date = new Intl.DateTimeFormat('en-US', { timeZone, dateStyle: 'full' }).format(now)
 
   root.querySelectorAll<HTMLElement>('.ph-desk-clock').forEach(clock => {
-    clock.setAttribute('aria-label', `${time}. Open time and atmosphere settings`)
+    clock.setAttribute('aria-label', countdown?.label ?? `${time}. Open time and atmosphere settings`)
+    clock.dataset.countdown = String(Boolean(countdown))
   })
   root.querySelectorAll<HTMLElement>('.ph-digital-time').forEach(display => {
-    display.textContent = `${fields.get('hour') ?? '00'}:${fields.get('minute') ?? '00'}`
+    display.textContent = countdown?.text ?? `${fields.get('hour') ?? '00'}:${fields.get('minute') ?? '00'}`
   })
   root.querySelectorAll<HTMLElement>('.ph-desk-calendar').forEach(calendar => {
     calendar.setAttribute('aria-label', `${date}. Open calendar and season settings`)
