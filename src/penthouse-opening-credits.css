@@ -42,6 +42,10 @@
 .ph-opening-credits[data-phase='waiting'] { visibility: hidden; }
 .ph-opening-credits:not([data-phase='waiting']) .ph-opening-eyebrow { animation: ph-opening-eyebrow 1s ease-out both; }
 .ph-opening-credits[data-phase='fading'] { animation: ph-opening-fade 1.6s ease-in-out both; }
+.ph-opening-credits[data-phase='fading'][data-interrupted='true'] { animation-duration: .36s; }
+.ph-opening-credits[data-static='true'], .ph-opening-credits[data-static='true'] * { animation: none !important; }
+.ph-opening-credits[data-static='true'] .ph-opening-eyebrow { opacity: .82; }
+.ph-opening-credits[data-static='true'] [data-opening-letter][data-visible='true'] { opacity: 1; }
 .ph-opening-credits[data-paused='true'], .ph-opening-credits[data-paused='true'] * { animation-play-state: paused; }
 @keyframes ph-opening-eyebrow { to { opacity: .82; } }
 @keyframes ph-opening-letter { from { opacity: 0; } to { opacity: 1; } }
