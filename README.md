@@ -1,10 +1,79 @@
-# Taewon Seo — After Hours · GitHub Pages
+# Taewon Seo — Seoul Studio
 
 Live site: **https://t1seo.github.io/**
 
-The default experience is **The Penthouse**, rebuilt from scratch on 2026-09-30.
-`src/entry.ts` loads `src/penthouse-main.ts`. Only explicit archive URLs load the
-earlier studio entry and styles. The imported project and logo archives remain in Git.
+A quiet, illustrated room above the Han River, with a walnut desk facing Seoul,
+warm shelves, changing weather and a small Maltese named Milky. The room fills
+the viewport; its objects open the controls without a permanent navigation bar.
+
+The current experience uses plain TypeScript, CSS and Vite. `src/entry.ts` loads
+`src/penthouse-main.ts`; the earlier studio and its styles load only through the
+explicit archive URLs below. [DESIGN.md](DESIGN.md) records the current visual
+direction and the history of earlier iterations.
+
+## Explore the room
+
+| Object or panel | Interaction |
+| --- | --- |
+| Desk calendar | Atmosphere settings and up to five browser-local saved atmospheres |
+| Digital clock | Local time and 25- or 50-minute focus sessions with pause, resume and cancel |
+| Fountain pen | Public guestbook; the separate private desk note lives in **Desk** |
+| Monitor and lamps | Independent switches; the monitor starts on, and off/on replays its editor typing |
+| Desktop speaker | Play or pause music; **Atmosphere** contains independent music and rain controls |
+| Coffee, diffuser and singing bowl | Brief steam, fragrance and resonance effects, with no object captions |
+| Milky, red ball and cushion | Say hello, walk, play, or rest; drag the ball to invite a chase |
+| Shelved photo album | Open **Milky’s Photo Album**, also available from the **Milky** panel |
+
+Milky's walking follows the distance travelled, with eased starts and stops. She
+makes a small hop into her cushion before settling down. With Milky focused, use
+the arrow keys to walk, **S** to sit and **N** to nap. The Desk panel provides a
+close-up when room objects are cropped on a narrow screen.
+
+The warm charcoal settings drawer groups **Atmosphere**, **Desk**, **Milky**,
+**Guestbook** and **About**. Controls are in English, support keyboard access,
+and respect still mode and reduced motion. **Immerse** clears the controls from
+the view.
+
+## Fireworks and window credits
+
+Choose **Atmosphere → Watch fireworks** for a one-minute festival over the Han
+River, or **Stop fireworks** to end it early. Gold, champagne and muted rose
+trails appear behind the window frames and room silhouettes, with soft water
+reflections. Manual playback is available at every time of day while animation
+is enabled and reduced motion is off. The previous procedural river boat has
+been removed.
+
+In the selected **Night** scene, a festival may also start after a random
+**8–15 uninterrupted eligible minutes**. Settings, a loading or open album,
+another festival, a hidden tab, still mode or reduced motion prevent an automatic
+start. Returning to an eligible view begins a fresh full interval; missed time
+never accumulates, and routine climate refreshes do not reset the countdown.
+Automatic scheduling uses one cancellable timeout and the existing bounded
+effects renderer. It does not change the weather, time or soundtrack.
+
+A running festival ends after one minute, or immediately when the tab is hidden,
+still mode is selected or reduced motion is enabled. The cinematic **TAEWON SEO**
+window credit returns after 60 seconds without interaction. Settings, album
+loading/viewing and fireworks suppress it and begin a fresh idle interval when
+they end.
+
+## Milky’s Photo Album
+
+The linen-bound scrapbook holds 26 photographs, handwritten English notes and
+small painted stickers. Its front cover reads **Milky**; a closing letter ends
+with **Milky 2011-2026**, beside a contour-cut photograph and flower/heart details.
+Page controls and keyboard navigation support both single-photo and spread views.
+
+Opening the album starts or gently switches to Scott Buckley's **Childhood**.
+Closing restores the previous room track, playback position and play state,
+unless the visitor explicitly changed Play/Pause in the album. The recording is
+reused from the existing local catalogue; attribution and its CC BY 4.0 license
+are in the [music credits](public/assets/music/CREDITS.html#milky-album).
+
+The viewer and photographs load only when needed, with bounded preparation of
+the current and next spread. Published photographs are metadata-free WebP
+derivatives with their original aspect ratios and native size limits. Source
+photographs and private filenames are not published.
 
 ## Develop and deploy
 
@@ -15,12 +84,34 @@ npm ci
 npm run dev
 ```
 
-Validate changes with `npm test` and `npm run build`. Each push to `main` runs
-these checks in `.github/workflows/deploy.yml`, then publishes `dist/` to GitHub
-Pages. The repository's Pages source must be **GitHub Actions**. Build outputs and
-`node_modules/` stay out of Git.
+Check the code and preview a production build with:
+
+```sh
+npm test
+npm run build
+npm run preview
+```
+
+Each push to `main` runs the site tests/build and the guestbook Worker type and
+protection tests in [.github/workflows/deploy.yml](.github/workflows/deploy.yml),
+then publishes `dist/` to GitHub Pages. The repository's Pages source must be
+**GitHub Actions**. Build outputs and `node_modules/` stay out of Git.
+
+The Pages build receives the public `VITE_GUESTBOOK_API_URL` repository variable.
+For another environment, copy `.env.example` to `.env.local` and configure its
+public Worker URL before building. Keep Cloudflare credentials and Turnstile
+secrets out of Vite variables. The Worker has its own authenticated deployment;
+pushing this website does not deploy Worker changes. See the
+[guestbook operator guide](workers/guestbook/README.md) for local setup,
+migrations, checks and deployment commands.
 
 ## Local time and weather
+
+Twenty aligned room paintings cover four seasons and five times of day, with
+small seasonal shelf decorations. Rain, snow, haze, city lights and river glints
+are clipped to the window and surrounding objects. Effects reduce their detail
+under sustained rendering load; hidden tabs stop visual work. A failed room-art
+request keeps the current view in place.
 
 Auto follows each visitor's device timezone immediately. The Atmosphere panel's
 **Use my location** action asks for browser permission. With permission, the room follows the
@@ -33,37 +124,49 @@ Denied location or unavailable weather leaves the clock and room usable; the
 Atmosphere panel explains the state and offers a retry. A manual time, season or
 weather choice pauses Auto and persists across visits. Re-enable Auto to resume.
 Coordinates are rounded to two decimal places, sent only to Open-Meteo after
-browser permission, and kept in memory only. No API key or backend is needed.
+browser permission, and kept in memory only. Weather needs no API key or backend.
 
 ## Background music
 
-Click Music or the turntable to start playback. Music and the rain ambience continue
+Click **Play music** or the desktop speaker to start playback. Music and rain ambience continue
 when switching browser tabs; returning to the studio does not restart the track.
-Use Music again to stop playback. Object sounds remain tied to the visible scene,
-and opening the site never starts audio automatically.
+Use **Pause music** or the speaker again to pause. The Atmosphere mixer controls
+music and rain separately. Object sounds remain tied to the visible scene, and
+ordinary site entry never starts audio automatically. Opening Milky's album is
+the explicit gesture that starts its soundtrack.
 
-## The Penthouse and backups
+## Public guestbook and private notes
 
-New architecture, new skyline, low black leather sectional, stone block table,
-concealed storage and audio wall. Navigation, panels and weather geometry are new.
-Milky's character sprites and behavior are preserved. The default page does not
-import old room/city artwork, masks, desk effects or typography.
+The pen and Guestbook panel connect to the deployed **Cloudflare Worker + D1**
+guestbook. Visitors leave a nickname and message without an account. Turnstile
+is loaded when writing begins and verified on the server; durable posting
+limits, duplicate detection and bounded input checks reduce spam. The static
+website remains on GitHub Pages.
 
-Three original plates supply day, sunset and night; morning/afternoon adapt daylight.
-Seasons subtly tint the glass view and select music, without interior decorations.
-Weather is clipped to the new windows. Failed art loading retains the current view.
+**Your desk note** is separate: its text and saved atmosphere presets remain in
+the visitor's browser and are never uploaded to the guestbook. Deployment,
+privacy, moderation and abuse-control details are documented in
+[workers/guestbook/README.md](workers/guestbook/README.md).
 
-- [New penthouse](https://t1seo.github.io/)
-- [Detailed design research](https://t1seo.github.io/design/research/penthouse-rebuild/report.html)
+## Artwork and preserved versions
+
+Current room paintings live in `public/assets/penthouse/seoul/{season}/{time}.webp`;
+object, album and seasonal accents live alongside them under
+`public/assets/penthouse/`. Generated source art and prompts are preserved under
+`asset-sources/seoul-studio/`, with earlier penthouse iterations retained in their
+own source directories. Existing Milky character artwork is preserved.
+
+- [Seoul Studio](https://t1seo.github.io/)
+- [Current room composition and research](https://t1seo.github.io/design/research/penthouse-layout/report.html)
+- [Objects and materials](https://t1seo.github.io/design/research/penthouse-objects/report.html)
 - [First Noir restyle](https://t1seo.github.io/?interior=noir): remote backup
   `backup/noir-restyle-20260930` at `caef110`.
 - [Original interior](https://t1seo.github.io/?interior=original): remote backup
   `backup/original-interior-20260930` at `924c42e`.
 
-The residence panel links both archives. Style selection preserves climate choices.
-Raw new art/prompts: `asset-sources/penthouse/`. Runtime: `public/assets/penthouse/`.
-Research: `design/research/penthouse-rebuild/`; the Vite build publishes it with
-the site. Studio sync is pending because this personal project is not connected.
+**About → Behind the room** links both archives and the design research. Style
+selection preserves climate choices. The Vite build publishes the research
+reports with the site; historical reports describe earlier versions.
 
 ## Imported files
 
@@ -78,4 +181,4 @@ the site. Studio sync is pending because this personal project is not connected.
 The root `assets/` collections are source archives kept in Git. Runtime assets
 are served from `public/`. The older [delivery documentation](docs/delivery/PROJECT-README.md) and the
 preserved Jieun studio files describe earlier iterations; the deployed homepage
-is Taewon Seo's Milky Studio. Keep all supplied asset credits and licenses.
+is Taewon Seo's Seoul Studio. Keep all supplied asset credits and licenses.
