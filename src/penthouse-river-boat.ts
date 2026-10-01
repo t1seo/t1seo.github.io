@@ -30,8 +30,8 @@ export class RiverBoat {
     this.onWake = onWake;
     this.random = options.random ?? Math.random;
     this.schedule = options.schedule ?? ((callback, delayMs) => {
-      const timer = window.setTimeout(callback, delayMs);
-      return () => window.clearTimeout(timer);
+      const timer = globalThis.setTimeout(callback, delayMs);
+      return () => globalThis.clearTimeout(timer);
     });
   }
 
