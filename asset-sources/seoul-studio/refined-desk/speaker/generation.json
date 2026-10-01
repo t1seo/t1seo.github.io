@@ -1,0 +1,28 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "precise-object-edit",
+  "generationDate": "2026-10-01",
+  "initialPrompt": "Use case: precise-object-edit.\nAsset type: one isolated transparent-background illustration sprite for a hand-painted 2.5D room.\nInput images: Image 1 is the current wide oak-slat desktop speaker to redesign completely. Image 2 is STYLE REFERENCE ONLY for the painted room, warm walnut, and soft matte illustration finish; do not include the room.\nPrimary request: replace the wide speaker with a beautiful much smaller compact tabletop speaker. One custom unbranded horizontal rounded rectangle, about 1.75 times as wide as it is tall, matte charcoal shell, front warm-grey fine woven textile grille, a single very small satin bronze volume knob in the upper right of the grille, a shallow walnut plinth or two tiny walnut feet. Quiet premium minimal industrial design. No long vertical wooden slats.\nComposition: straight-on front view with just a little top surface visible, matching the forward-facing monitor and desk in the reference room. Entire speaker visible, centered, with only 4–6% transparent padding. Subject fills most of the width and height. The visible top should be only about 10% of the overall height, with very little side surface. Feet rest on a common horizontal baseline.\nStyle/medium: delicately hand-painted digital illustration, warm material texture and softened painterly edges matching the reference room; subtle brush-grain on charcoal edges, restrained textile weave, tiny warm highlight on bronze knob. Readable at an eventual 66 by 38 pixel scene size. A crafted painted miniature, not a glossy photoreal product render or flat vector icon.\nLighting: soft neutral daylight from front-left; restrained natural shadows on the object, neutral enough to accept time-of-day tint. No cast floor plane or separate contact shadow extending outside the speaker.\nConstraints: GENUINELY TRANSPARENT background with alpha, not a checkerboard drawn in pixels. No room, tabletop, cable, plants, text, lettering, logo, watermark, labels, decorative border, reflection, or second object. Preserve only a single complete speaker on transparency.",
+  "refinementPrompt": "Use case: precise-object-edit. Edit this isolated speaker sprite only. Keep the exact charcoal painted shell, fine warm grey woven fabric grille, small bronze knob, walnut feet, the same front-facing view with a little top visible, and genuine transparent alpha background. ONE CHANGE: make the whole speaker MUCH LESS WIDE, with the complete object including feet strictly 1.75 times as wide as its height. Current image is about 2.6:1 and too elongated. Design a compact squat desktop speaker rather than a soundbar. The grille should be correspondingly shorter horizontally, retaining its height. Put the small bronze knob near the upper right. Feet near each side. Entire object fully visible with only 4 percent transparent margin on all sides. Preserve softly painted matte texture matching a hand-painted architectural interior, no text, no logos, no room or tabletop, no checkerboard, no background color. Output image canvas itself should be landscape at about 1.75:1 so the object can occupy nearly all the canvas.",
+  "references": [
+    "public/assets/penthouse/objects/horizontal-speaker.webp",
+    "public/assets/penthouse/seoul/autumn/noon.webp"
+  ],
+  "selectedSource": "petite-speaker.png",
+  "runtimeAsset": "public/assets/penthouse/objects/petite-speaker.webp",
+  "sourceDimensions": [1659, 948],
+  "runtimeDimensions": [528, 302],
+  "runtimeBytes": 44122,
+  "runtimeAlphaBounds": [42, 21, 486, 277],
+  "intendedRect": [
+    718,
+    522,
+    66,
+    38
+  ],
+  "conversion": {
+    "resize": "FFmpeg Lanczos proportional downscale to width 528",
+    "encode": "Pillow WebP quality 92, method 6; source alpha preserved"
+  }
+}
