@@ -1,0 +1,221 @@
+{
+  "task": "Slightly enlarge Milky profile heads while preserving gait registration",
+  "tool": "built-in image_gen only",
+  "runtime_file_count": 13,
+  "runtime_bytes_before": 1125630,
+  "runtime_bytes_after": 1437164,
+  "decoded_pixels_before_and_after": 6291456,
+  "other_cyberpunk_assets_unchanged_since": "1faa831",
+  "checks": [
+    "All 13 expected sprites decode successfully.",
+    "Every canvas has exactly the original dimensions and genuine alpha.",
+    "Only forward idle, eight forward walk frames and four trot frames changed in public/assets/cyberpunk.",
+    "Camera-facing, sleeping, playing, greeting and other Milky artwork is unchanged.",
+    "Alpha-composited visual review completed for all 13 sprites.",
+    "Individual paw-coordinate measurements are recorded in the per-set manifests."
+  ],
+  "per_set_evidence": [
+    "idle-validation.json",
+    "walk-a/validation.json",
+    "walk-a/generation.json",
+    "walk-b/generation.json",
+    "trot/manifest.json"
+  ],
+  "files": [
+    {
+      "file": "public/assets/cyberpunk/milky-forward-idle.webp",
+      "canvas": [
+        1536,
+        1024
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "before_bytes": 202964,
+      "after_bytes": 251924,
+      "before_sha256": "f307a34a832cc82136d8b768d30f09abe3d1e2b2208f970308c3aafb1193610d",
+      "after_sha256": "339c0ca21baeebdd0e46e1e3c9430aa9976f8cf0bb966833d482e34ad4278d24"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-0.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 82234,
+      "after_bytes": 106964,
+      "before_sha256": "8773613547811a7a6643c96743d3b6f8218161ff0ea70f9151ed59fddf6d21ef",
+      "after_sha256": "c07cce63c92848ec3098726c610abe426c3436c7b3a25b705175905fb49bebbe"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-1.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 85904,
+      "after_bytes": 107822,
+      "before_sha256": "1bc97d00cacc40c21fab8fbe895fedea3762a4a54588cd0bf5ccec2d34a54576",
+      "after_sha256": "ac00cfb542aff03d87a94871d8ed32f9992723493f4c69d91e6fde1e5ffca3ee"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-2.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 85376,
+      "after_bytes": 109170,
+      "before_sha256": "49ac6e2173dc6890dd829dc1771dea4007259846ca72ae8edbe28027fd4836f7",
+      "after_sha256": "27680f61961e485285f877bf77b3c440a16299c99a22ac75d594c1abf68d3fef"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-3.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 76230,
+      "after_bytes": 99244,
+      "before_sha256": "2140f0a638d5a9214f5dbaed852d28368ccf7a5109666fbf62cefc8162d85f43",
+      "after_sha256": "4e598a415281f495f5fe90ec2972df9a20b3a8643c05fd7dfef02b639335dcd8"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-4.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 77094,
+      "after_bytes": 94940,
+      "before_sha256": "1eb75ecfb05c6e27d126c089a4c942e843dfb861c659329de59d3032a47da670",
+      "after_sha256": "de2013d49fc8d4888185bbbfe34c1cabe572b40ac5315a817ef8a0bcbba27ec6"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-5.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 78086,
+      "after_bytes": 96628,
+      "before_sha256": "c5fc8de847378b74ff211aae486ad6f38cd24a841764b69043717dca83ad8129",
+      "after_sha256": "587948b834f8c0d61520b5da4885c1fe29aec295190057a403b6604ba15f730d"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-6.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 74004,
+      "after_bytes": 92086,
+      "before_sha256": "e84c75d57094eaff76115f68c7ec19dccfdd5de51f6bc09859d2a952c895d18b",
+      "after_sha256": "99c528ec36d14c785df29f89f5ed60971cf3f5d96c96ab5659beb45403ba2150"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-forward-step-7.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 78518,
+      "after_bytes": 98366,
+      "before_sha256": "4743560a460ae7a83f05fc123c3a5ef3157fcad766e9953c3362b38e3a0bd7d8",
+      "after_sha256": "824912f9864a853c6fba7b5486aaf19d19e433495b5d50eee4221d260d569651"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-trot-0.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 70796,
+      "after_bytes": 101230,
+      "before_sha256": "b43f1903abedaa91594eea8878e7bad42d56b0bc9ef469354d39a752d8c3f8ee",
+      "after_sha256": "2426fbee6c3706e64584fe38f2924db65f6e771c5e0b57585636ed68e12c3cbe"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-trot-1.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 72376,
+      "after_bytes": 98104,
+      "before_sha256": "ecabd1040b7c505322d068ffc43a7f453c9b3826e315f3250eb1a31790d176d1",
+      "after_sha256": "ebcd3f1297c0d6dd044d89d73b193235ededd1372d30572d759bc3dfce2c3c44"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-trot-2.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 71368,
+      "after_bytes": 90168,
+      "before_sha256": "4ab5d879fea40e7a0aa1916ec44a73a357842aa87eff80e4a0ea2b646f782709",
+      "after_sha256": "e109a90df651cb520c3e6b670b358c10ba347d0062b536dbb1cd8a025a87f1a1"
+    },
+    {
+      "file": "public/assets/cyberpunk/milky-trot-3.webp",
+      "canvas": [
+        768,
+        512
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "before_bytes": 70680,
+      "after_bytes": 90518,
+      "before_sha256": "105ed5bf52ce6f95abb5617f33639253e31e374dfbd2058d6a1023bcafa65ea4",
+      "after_sha256": "55203101d685d3aa5551aa20a465f1943fd4c0b8912ca3db4ad3d4f5285ab717"
+    }
+  ]
+}
