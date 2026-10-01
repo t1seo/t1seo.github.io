@@ -3,7 +3,6 @@ export function roomTimeObjectsMarkup(): string {
     <button class="ph-desk-clock ph-time-object" type="button" data-action="clock" aria-haspopup="dialog" aria-label="Open time and atmosphere settings">
       <img class="ph-time-object-art" src="/assets/penthouse/objects/digital-clock.webp" alt="" aria-hidden="true" draggable="false">
       <span class="ph-digital-time" aria-hidden="true">00:00</span>
-      <span class="ph-time-object-label">Time &amp; atmosphere</span>
     </button>
     <button class="ph-desk-calendar ph-time-object" type="button" data-action="calendar" aria-haspopup="dialog" aria-label="Open calendar and season settings">
       <img class="ph-time-object-art" src="/assets/penthouse/objects/desk-calendar.webp" alt="" aria-hidden="true" draggable="false">
@@ -12,7 +11,6 @@ export function roomTimeObjectsMarkup(): string {
         <span class="ph-calendar-date">·</span>
         <span class="ph-calendar-weekday"></span>
       </span>
-      <span class="ph-time-object-label">Calendar &amp; seasons</span>
     </button>
   </div>`
 }

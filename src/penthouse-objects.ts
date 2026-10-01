@@ -1,10 +1,10 @@
 import type { ClimateState } from './cyber-climate.ts';
 
 // Full alpha-image rectangles, registered to the 1672 × 941 room. Transparent
-// margins preserve the soft painted edges. The low speaker rests between the
+// margins preserve the soft painted edges. The small speaker rests between the
 // books and monitor with feet at y558; the capped pen lies beside the keyboard.
 export const ROOM_OBJECTS = [
-  { id: 'horizontal-speaker', src: '/assets/penthouse/objects/horizontal-speaker.webp', rect: [684,517,118,47.66] },
+  { id: 'petite-speaker', src: '/assets/penthouse/objects/petite-speaker.webp', rect: [718,522,66,38] },
   { id: 'fountain-pen', src: '/assets/penthouse/objects/fountain-pen.webp', rect: [998,551,48,19.24] },
 ] as const;
 

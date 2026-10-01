@@ -5,6 +5,7 @@ import { mountCyberPet } from './cyber-pet';
 import { mountPenthouseScene } from './penthouse-scene';
 import { MILKY_STUDY_FLOOR } from './penthouse-atmosphere';
 import { roomTimeObjectsMarkup, updateRoomTimeObjects } from './penthouse-time-objects';
+import { createSingingBowlSound } from './penthouse-singing-bowl';
 import './penthouse-time-objects.css';
 
 const mount = document.querySelector<HTMLDivElement>('#app');
@@ -14,17 +15,21 @@ root.innerHTML = `
 <main class="ph-studio night-studio" data-intro="hidden" data-focus="false" aria-label="Taewon Seo's Seoul studio">
   <div class="ph-stage night-scene">
     <div class="ph-room" data-time="night" data-season="autumn" data-weather="clear">
-      <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and a slim brushed-metal LED desk lamp. An ivory-shade articulated floor lamp stands to the left of the lounge chair, casting warm light across its back and seat. A small black and gold fountain pen rests directly beside the keyboard, with a low horizontal oak-slat speaker in the open space between the books and monitor. A lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/autumn/night.webp" alt="" fetchpriority="high" draggable="false"></div>
+      <div class="ph-plates" data-plates role="img" aria-label="A frontal Seoul studio overlooking the Han River and N Seoul Tower through a wide window. A walnut desk faces the view with an Apple Studio Display, HHKB keyboard and a tall graphite and bronze desk lamp. An ivory-shade articulated floor lamp stands to the left of the lounge chair, casting warm light across its back and seat. A small black and gold fountain pen rests directly beside the keyboard, with a small fabric-front speaker between the books and monitor, a bronze singing bowl beside the pen, and a digital clock between the bowl and the right-hand desk lamp. A lounge and warm shelves frame the room."><img class="ph-plate" src="/assets/penthouse/seoul/autumn/night.webp" alt="" fetchpriority="high" draggable="false"></div>
       <div class="ph-weather" data-weather-wash aria-hidden="true"></div>
       <canvas class="ph-weather-canvas" aria-hidden="true"></canvas>
+      <button class="ph-bed" data-action="bed" aria-label="Invite Milky to rest in the soft dog bed"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="1040" height="568"></button>
+      <div class="ph-bed-front" aria-hidden="true"><img src="/assets/penthouse/objects/milky-bed.webp" alt="" draggable="false" width="1040" height="568"></div>
       <div class="ph-pet" data-pet></div>
-      <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn on the computer monitor" aria-pressed="false"><span>THE WORKSPACE</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"><span>DESK LIGHT</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music on the horizontal desktop speaker" aria-pressed="false"><span>DESKTOP AUDIO</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--pen" data-action="workspace" aria-label="Explore the fountain pen and desk objects" aria-haspopup="dialog"><span>THE WRITING RITUAL</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--book" data-action="about" aria-label="Read about this studio"><span>THE STUDIO</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--coffee" data-action="coffee" aria-label="Enjoy the aroma of the desk coffee"><span>A QUIET COFFEE</span><i aria-hidden="true">+</i></button>
-      <button class="ph-hotspot ph-hotspot--tea" data-action="tea" aria-label="Let the lounge tea steep"><span>A MOMENT TO STEEP</span><i aria-hidden="true">+</i></button>
+      <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn off the computer monitor" aria-pressed="true"></button>
+      <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"></button>
+      <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music on the small desktop speaker" aria-pressed="false"></button>
+      <button class="ph-hotspot ph-hotspot--pen" data-action="workspace" aria-label="Explore the fountain pen and desk objects" aria-haspopup="dialog"></button>
+      <button class="ph-hotspot ph-hotspot--book" data-action="about" aria-label="Read about this studio"></button>
+      <button class="ph-hotspot ph-hotspot--coffee" data-action="coffee" aria-label="Enjoy the aroma of the desk coffee"></button>
+      <button class="ph-hotspot ph-hotspot--diffuser" data-action="diffuser" aria-label="Release a little fragrance from the reed diffuser"></button>
+      <button class="ph-hotspot ph-hotspot--floor-lamp" data-action="floorLamp" aria-label="Turn off the lounge floor lamp" aria-pressed="true"></button>
+      <button class="ph-hotspot ph-hotspot--bowl" data-action="bowl" aria-label="Ring the bronze singing bowl"></button>
       ${roomTimeObjectsMarkup()}
     </div>
   </div>
@@ -47,17 +52,17 @@ const visibleHotspots = new IntersectionObserver(entries => {
   for (const entry of entries) {
     if (!(entry.target instanceof HTMLElement)) continue;
     entry.target.inert = entry.intersectionRatio < .95;
-    entry.target.style.visibility = entry.target.inert ? 'hidden' : '';
+    entry.target.style.visibility = entry.target.inert && !entry.target.classList.contains('ph-bed') ? 'hidden' : '';
   }
 }, { root: $('.ph-stage'), threshold: .95 });
-root.querySelectorAll('.ph-hotspot').forEach(button => visibleHotspots.observe(button));
+root.querySelectorAll('.ph-room .ph-hotspot, .ph-room .ph-time-object, .ph-bed').forEach(button => visibleHotspots.observe(button));
 let panel = '';
 let opener: HTMLElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | undefined;
 let destroyed = false;
 let playing: CyberPlaybackState | undefined;
 let animated = true;
-const workspace = { monitor: false, lamp: true };
+const workspace = { monitor: true, lamp: true, floorLamp: true };
 const pretty = (value: string) => value[0].toUpperCase() + value.slice(1);
 function toast(message: string) {
   clearTimeout(toastTimer);
@@ -67,8 +72,9 @@ function toast(message: string) {
 const scene = mountPenthouseScene($('.ph-room'), () => toast('The next view could not load. Your current view is still here.'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/workspace/ball.webp', anchor: [256.204, 407.885] },
-}, MILKY_STUDY_FLOOR);
+}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } });
 const sound = createCyberSound({ onTrackChange: updatePlayback });
+const bowlSound = createSingingBowlSound();
 const climate = createCyberClimate(applyClimate);
 
 function updatePlayback(next: CyberPlaybackState) {
@@ -98,6 +104,10 @@ function updateLocalInfo(info: LocalClimateInfo) {
   updateRoomTimeObjects(root, info.timeZone);
   updateClimatePanel();
 }
+function roomFocusTarget(): HTMLElement {
+  if (opener?.isConnected && !opener.inert) return opener;
+  return root.querySelector<HTMLElement>('.ph-room .ph-time-object:not([inert])') ?? $('[data-action="calendar"]');
+}
 const stopInfo = climate.subscribeLocalInfo(updateLocalInfo);
 updateLocalInfo(climate.getLocalInfo());
 
@@ -114,14 +124,15 @@ function openPanel(name: string, trigger: HTMLElement) {
     content.innerHTML = `<p class="ph-overline">${name === 'calendar' ? 'A SEASON FOR EVERY MOOD' : 'MAKE THIS MOMENT YOURS'}</p><h2 id="ph-dialog-title" tabindex="-1">${name === 'calendar' ? 'Calendar & seasons' : name === 'clock' ? 'Time & atmosphere' : 'Room atmosphere'}</h2><p data-local></p><div class="ph-auto"><label><input type="checkbox" name="auto"> Follow my local time</label><button data-action="location">Use my location</button></div>${name === 'calendar' ? group('season', CYBER_SEASONS) + group('time', CYBER_TIMES) : group('time', CYBER_TIMES) + group('season', CYBER_SEASONS)}${group('weather', CYBER_WEATHER)}<div class="ph-auto"><label><input type="checkbox" name="animated"> Animate the view</label></div><p class="ph-panel-note">Clear nights bring slow city lights and an occasional shooting star. Rain leaves beads on the glass that dry gradually. Reduced motion keeps the scene still.</p><p class="ph-panel-note">The clock and calendar show your local date and time. A manual scene choice pauses Auto. Location is requested only with your permission. Approximate coordinates stay in memory.</p>`;
     updateClimatePanel();
   } else if (name === 'workspace') {
-    content.innerHTML = `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">Facing Seoul.</h2><p>A walnut desk, an Apple Studio Display and a Happy Hacking Keyboard (HHKB). A slim brushed-metal desk lamp casts a soft pool across the walnut. A painted digital clock and paper calendar open the room settings. A small fountain pen rests beside the keyboard; a low horizontal speaker sits between the books and monitor. Beside the window, a silver floor lamp casts warm light onto the lounge chair from its left.</p><canvas class="ph-desk-preview" aria-label="Close-up of the Apple Studio Display, HHKB keyboard, fountain pen, horizontal desktop speaker and desk lighting"></canvas><div class="ph-pet-actions"><button data-action="monitor" aria-pressed="false"><span data-monitor-label>Turn on monitor</span><span aria-hidden="true">↗</span></button><button data-action="lamp" aria-pressed="false"><span data-lamp-label>Turn on desk light</span><span aria-hidden="true">↗</span></button><button data-action="coffee">Enjoy a warm coffee<span aria-hidden="true">↗</span></button></div><p class="ph-panel-note">Turn on the monitor to see the editor, live Seoul preview and a detailed screen view below. The light bar casts a warm pool across the left side of the desktop. Click the coffee or tea in the room for a quiet moment.</p><p class="ph-workspace-status" role="status" data-workspace-status></p><canvas class="ph-screen-preview" aria-label="Detailed studio screen showing a TypeScript editor, file list and the current Seoul view" hidden></canvas><div class="ph-objects"><article><div class="ph-object-art"><img src="/assets/penthouse/objects/fountain-pen.webp" alt="Painted capped black and gold fountain pen" width="1981" height="794" loading="lazy"></div><h3>A place for a thought.</h3><p>A small black and gold fountain pen inspired by Montblanc, resting directly on the walnut desk.</p></article><article><div class="ph-object-art"><img src="/assets/penthouse/objects/horizontal-speaker.webp" alt="Painted low horizontal speaker with oak slats, a charcoal case and a muted champagne frame" width="1100" height="445" loading="lazy"></div><h3>Room for a record.</h3><p>A low speaker with oak slats, a matte charcoal case and a muted champagne frame. Its custom proportions draw from Bang &amp; Olufsen’s material palette.</p><a href="https://www.bang-olufsen.com/en/int/speakers/beosound-level" target="_blank" rel="noopener noreferrer">Explore Bang &amp; Olufsen ↗</a><button class="ph-object-play" data-action="music" aria-pressed="false">Play / pause room music</button></article></div><p class="ph-panel-note"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The objects, materials &amp; research ↗</a></p>`;
+    content.innerHTML = `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">Facing Seoul.</h2><p>A walnut desk, an Apple Studio Display and a Happy Hacking Keyboard (HHKB). A tall graphite and bronze lamp lights the right side of the walnut desk. A digital clock sits between the lamp and a hand-hammered singing bowl; the clock and paper calendar open the room settings. A small fountain pen rests beside the keyboard, and a compact fabric-front speaker sits to the left of the monitor. Beside the window, the lounge has its own switchable floor lamp and an amber reed diffuser.</p><div class="ph-desk-detail"><canvas class="ph-desk-preview" aria-label="Close-up of the monitor, keyboard, small speaker, singing bowl, clock and tall desk lamp"></canvas>${roomTimeObjectsMarkup()}</div><div class="ph-pet-actions"><button data-action="monitor" aria-pressed="false"><span data-monitor-label>Turn on monitor</span><span aria-hidden="true">↗</span></button><button data-action="lamp" aria-pressed="false"><span data-lamp-label>Turn on desk light</span><span aria-hidden="true">↗</span></button><button data-action="coffee">Enjoy a warm coffee<span aria-hidden="true">↗</span></button><button data-action="bowl">Ring the singing bowl<span aria-hidden="true">↗</span></button><button data-action="floorLamp" aria-pressed="true"><span data-floorLamp-label>Turn off lounge light</span><span aria-hidden="true">↗</span></button><button data-action="diffuser">Enjoy the reed diffuser<span aria-hidden="true">↗</span></button></div><p class="ph-panel-note">The monitor is on when you arrive. Turn it off and on to watch the editor write again. Ring the bowl for a soft, fading note, or enjoy a little fragrance from the reed diffuser beside the lounge chair. Both lights can be switched independently.</p><p class="ph-workspace-status" role="status" data-workspace-status></p><canvas class="ph-screen-preview" aria-label="Detailed studio screen showing a TypeScript editor, file list and the current Seoul view" hidden></canvas><div class="ph-objects"><article><div class="ph-object-art"><img src="/assets/penthouse/objects/fountain-pen.webp" alt="Painted capped black and gold fountain pen" width="1981" height="794" loading="lazy"></div><h3>A place for a thought.</h3><p>A small black and gold fountain pen inspired by Montblanc, resting directly on the walnut desk.</p></article><article><div class="ph-object-art"><img src="/assets/penthouse/objects/petite-speaker.webp" alt="Painted small charcoal speaker with a warm fabric grille and bronze knob" width="528" height="302" loading="lazy"></div><h3>Room for a record.</h3><p>A little speaker with a woven fabric grille, charcoal shell, bronze dial and warm walnut feet.</p><button class="ph-object-play" data-action="music" aria-pressed="false">Play / pause room music</button></article></div><p class="ph-panel-note"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The objects, materials &amp; research ↗</a></p>`;
+    updateRoomTimeObjects(root, climate.getLocalInfo().timeZone);
     scene.setPreview(content.querySelector<HTMLCanvasElement>('.ph-desk-preview'),content.querySelector<HTMLCanvasElement>('.ph-screen-preview'));
     updateWorkspace();
     if (playing) updatePlayback(playing);
   } else if (name === 'milky') {
-    content.innerHTML = `<p class="ph-overline">THE ONE WARM EXCEPTION</p><h2 id="ph-dialog-title">Meet Milky.</h2><p>A little Maltese, with the run of the place.</p><div class="ph-pet-actions">${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([action,label])=>`<button data-action="${action}">${label}<span aria-hidden="true">↗</span></button>`).join('')}</div><p class="ph-panel-note">You can also click Milky in the room. When focused, arrow keys walk, S sits and N naps.</p>`;
+    content.innerHTML = `<p class="ph-overline">THE ONE WARM EXCEPTION</p><h2 id="ph-dialog-title">Meet Milky.</h2><p>A little Maltese, with the run of the place.</p><div class="ph-pet-actions">${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['bed','Rest in the soft bed'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([action,label])=>`<button data-action="${action}">${label}<span aria-hidden="true">↗</span></button>`).join('')}</div><p class="ph-panel-note">You can also click Milky in the room. When focused, arrow keys walk, S sits and N naps.</p>`;
   } else {
-    content.innerHTML = `<p class="ph-overline">TAEWON SEO / THE SEOUL STUDIO</p><h2 id="ph-dialog-title">Seoul, in view.</h2><p>A wide window straight ahead. A desk facing the Han River, with N Seoul Tower on the horizon. A quiet lounge, warm shelves and Milky nearby.</p><p>Four seasons and five times of day change the illustrated Seoul view. Auto follows your local clock; permitted location adds your local weather. Choose any season, time or weather in Atmosphere.</p><div class="ph-about-links"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The fountain pen &amp; desktop audio <span>↗</span></a><a href="/design/research/penthouse-layout/report.html" target="_blank" rel="noopener">Compare the new room layout <span>↗</span></a><a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">The workspace & living weather research <span>↗</span></a><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
+    content.innerHTML = `<p class="ph-overline">TAEWON SEO / THE SEOUL STUDIO</p><h2 id="ph-dialog-title">Seoul, in view.</h2><p>A wide window straight ahead. A desk facing the Han River, with N Seoul Tower on the horizon. A quiet lounge, warm shelves and a soft bed for Milky in the corner.</p><p>Four seasons and five times of day change the illustrated Seoul view. Auto follows your local clock; permitted location adds your local weather. Choose any season, time or weather in Atmosphere.</p><div class="ph-about-links"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The fountain pen &amp; desktop audio <span>↗</span></a><a href="/design/research/penthouse-layout/report.html" target="_blank" rel="noopener">Compare the new room layout <span>↗</span></a><a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">The workspace & living weather research <span>↗</span></a><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
   }
   if (!dialog.open) dialog.showModal();
   else {
@@ -151,16 +162,16 @@ function updateClimatePanel() {
 
 function updateWorkspace() {
   scene.setWorkspace(workspace);
-  for (const key of ['monitor', 'lamp'] as const) {
+  for (const key of ['monitor', 'lamp', 'floorLamp'] as const) {
     root.querySelectorAll(`[data-action="${key}"]`).forEach(button => {
       button.setAttribute('aria-pressed', String(workspace[key]));
-      button.setAttribute('aria-label', `Turn ${workspace[key] ? 'off' : 'on'} the ${key === 'monitor' ? 'computer monitor' : 'desk light'}`);
+      button.setAttribute('aria-label', `Turn ${workspace[key] ? 'off' : 'on'} the ${key === 'monitor' ? 'computer monitor' : key === 'floorLamp' ? 'lounge floor lamp' : 'desk light'}`);
     });
     const label = content.querySelector(`[data-${key}-label]`);
-    if (label) label.textContent = `Turn ${workspace[key] ? 'off' : 'on'} ${key === 'monitor' ? 'monitor' : 'desk light'}`;
+    if (label) label.textContent = `Turn ${workspace[key] ? 'off' : 'on'} ${key === 'monitor' ? 'monitor' : key === 'floorLamp' ? 'lounge light' : 'desk light'}`;
   }
   const status = content.querySelector('[data-workspace-status]');
-  if (status) status.textContent = `Monitor ${workspace.monitor ? 'on' : 'off'} · Desk light ${workspace.lamp ? 'on' : 'off'}`;
+  if (status) status.textContent = `Monitor ${workspace.monitor ? 'on' : 'off'} · Desk light ${workspace.lamp ? 'on' : 'off'} · Lounge light ${workspace.floorLamp ? 'on' : 'off'}`;
 }
 
 root.addEventListener('click', event => {
@@ -169,9 +180,19 @@ root.addEventListener('click', event => {
   if (!button) return;
   const action = button.dataset.action;
   if (action === 'climate' || action === 'clock' || action === 'calendar' || action === 'milky' || action === 'about' || action === 'workspace') openPanel(action, button);
-  else if (action === 'monitor' || action === 'lamp') { workspace[action] = !workspace[action]; updateWorkspace(); }
+  else if (action === 'monitor' || action === 'lamp' || action === 'floorLamp') { workspace[action] = !workspace[action]; updateWorkspace(); }
   else if (action === 'music') void sound.setEnabled(!sound.isEnabled());
-  else if (action === 'coffee' || action === 'tea') { scene.savorCoffee(action === 'coffee' ? 'desk' : 'lounge'); toast(action === 'coffee' ? 'A warm cup. A little pause.' : 'Let the tea steep for a moment.'); }
+  else if (action === 'coffee') { scene.savorCoffee('desk'); toast('A warm cup. A little pause.'); }
+  else if (action === 'diffuser') { scene.scentDiffuser(); toast('A soft breath of fragrance.'); }
+  else if (action === 'bed') {
+    if (dialog.open) dialog.close();
+    pet.setActive(true);
+    toast(pet.napInBed() ? 'A soft place to settle, Milky.' : 'Milky can visit the bed when it is fully in view.');
+  }
+  else if (action === 'bowl') {
+    scene.strikeBowl();
+    void bowlSound.strike().then(played => toast(played ? 'One quiet note. Let it settle.' : 'A quiet ripple. Sound is unavailable in this browser.')).catch((error: unknown) => { console.error('Singing bowl playback failed', error); toast('A quiet ripple. Sound could not start.'); });
+  }
   else if (action === 'location') void climate.useLocation();
   else if (action === 'focus') {
     const focus = studio.dataset.focus !== 'true';
@@ -179,7 +200,7 @@ root.addEventListener('click', event => {
     const restore = $<HTMLButtonElement>('.ph-restore');
     restore.hidden = !focus;
     if (dialog.open) dialog.close();
-    (focus ? restore : opener ?? $<HTMLButtonElement>('[data-action="clock"]')).focus();
+    (focus ? restore : roomFocusTarget()).focus();
   } else if (action && ['pet','sit','sleep','feed','play','run'].includes(action)) {
     dialog.close();
     pet.setActive(true);
@@ -198,7 +219,7 @@ content.addEventListener('change', event => {
   if (input.name === 'time' && time) climate.setTime(time);
   if (input.name === 'weather' && weather) climate.setWeather(weather);
 }, options);
-dialog.addEventListener('close', () => { panel = ''; scene.setPreview(null); pet.setActive(true); (studio.dataset.focus === 'true' ? $('.ph-restore') : opener && !opener.inert ? opener : $('[data-action="clock"]')).focus(); }, options);
+dialog.addEventListener('close', () => { panel = ''; scene.setPreview(null); pet.setActive(true); (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
 dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const r = dialog.getBoundingClientRect();
@@ -215,7 +236,7 @@ if (!playing) $('[data-track-title]').textContent = 'Make yourself at home.';
 function destroy() {
   if (destroyed) return;
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
-  climate.destroy(); scene.destroy(); pet.destroy(); sound.destroy();
+  climate.destroy(); scene.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);
 if (import.meta.hot) import.meta.hot.dispose(destroy);

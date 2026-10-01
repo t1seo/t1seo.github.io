@@ -8,6 +8,22 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Refined desk, lounge and Milky bed · 2026-10-01
+
+This section supersedes the initial-monitor-off, short LED bar, large speaker and earlier clock/calendar positions below. The monitor starts on with completed code and a current Seoul preview. Explicit off/on replays typing; the completed editor is cached so night effects never repeatedly rasterize its text.
+
+The desk lamp is taller than the monitor and stands further right: graphite and champagne-bronze articulated construction, foot x1208..1262/y552..567, upright x1235..1240/y449..557, upper joint1168,402 and shade1130..1178/y401..439. Its runtime light emits near1153,431 toward the walnut at1129,559. The bronze singing bowl immediately right of the pen occupies1058..1099/y535..562, with a rim centered1079,540. The painted digital clock rests between bowl and lamp at[1125,531,62,30]. A small premium speaker occupies[718,522,66,38]. The calendar occupies[785,510.5,38,48.5], directly left of the monitor; do not move it to a different part of the desk on narrow screens. The Desk close-up includes the same clock and calendar with working settings buttons.
+
+Replace the lounge side-table cup with a small amber reed diffuser: bottle108..138/y623..663, reeds106..140/y580..633. Clicking it releases a faint, finite fragrance wash from122,612. The existing ivory-shade floor lamp has its own switch, independent of the desk lamp. Both lamps are OFF in every source plate; cached gentle light paints their on states, keeping the black lounge chair black. Preserve the original room architecture, seasonal foliage, city, other furnishings and Milky.
+
+The singing bowl responds with a subtle six-second rim glow/elliptical resonance and a quiet synthesized metallic note only after an explicit gesture. Repeated strikes stay bounded; unavailable audio leaves the visual response functional. Diffuser and coffee effects share the existing compositor. Still/reduced-motion interactions are static and dismissible; hidden tabs stop visual work without pausing room music.
+
+A fluffy cream donut bed sits in the right floor corner at[1310,788,260,142], using a painted alpha sprite. Milky sometimes walks to sleep contact[1440,865], sleeps using the existing registered pose, then walks back. The bed can also be clicked. Visits are skipped when the bed is cropped or walking is disabled. A foreground bolster layer masks the resting paws; do not paint Milky into the bed or regenerate her likeness.
+
+Source paintings and exact built-in imagegen prompts live in `asset-sources/seoul-studio/refined-desk`. Runtime full plates remain1672×941 WebP; small separate speaker/bed sprites preserve alpha. The earlier scene is preserved at `backup/seoul-before-refined-desk-20261001` (`95bff44`). The latest speaker uses a refined charcoal shell, woven grille and small flush champagne dial. The user accepted the current tall desk lamp design.
+
+Latest interaction refinement (2026-10-01): object controls have no visible hover captions or plus badges, including clock, calendar and Milky bed. Keep their accessible names, pointer affordance and keyboard focus. The current tall graphite/bronze desk lamp design is accepted.
+
 ## Room object controls · 2026-10-01
 
 The room fills the browser viewport with no persistent header, caption, climate readout or control bar. Preserve image proportions using a floor-anchored cover crop, keeping Milky visible on wide displays. A painted graphite electronic clock with a champagne rim rests at the right of the desk, with a small ivory paper tent calendar between the books and speaker. Both are generated transparent paintings with crisp live time/date overlays. Portrait screens keep the objects reachable on the visible desk. CSS/vector wall-clock styling was rejected.
