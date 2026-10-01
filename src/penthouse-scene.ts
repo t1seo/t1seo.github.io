@@ -55,6 +55,7 @@ export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
     setWorkspace: effects.setWorkspace,
     setAnimated: effects.setAnimated,
     setPreview: effects.setPreview,
+    savorCoffee: effects.savorCoffee,
     destroy() {
       dead = true; revision++; effects.destroy();
       for (const image of loaded) image.src = '';

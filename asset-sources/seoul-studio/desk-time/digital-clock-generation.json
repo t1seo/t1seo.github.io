@@ -1,0 +1,67 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "generatedAt": "2026-10-01",
+  "asset": "digital-clock",
+  "purpose": "Painterly tabletop electronic clock body with live time rendered in application code",
+  "original": "asset-sources/seoul-studio/desk-time/digital-clock.png",
+  "runtime": "public/assets/penthouse/objects/digital-clock.webp",
+  "selectedGeneratedFile": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f6-8ba7-74a2-9df0-054ed69a44bb/exec-1d22323d-408c-4160-b39a-ec573c7c017c.png",
+  "prompts": [
+    {
+      "kind": "generate",
+      "prompt": "Use case: stylized-concept.\nAsset type: one transparent-background tabletop digital-clock sprite for a hand-painted 2.5D warm walnut and greige Seoul studio scene.\nPrimary request: Paint ONLY a refined, expensive low horizontal tabletop electronic alarm clock. Fine matte graphite anodized metal case with a thin muted champagne-metal bevel around a wide smoked-black glass face. The glass display is COMPLETELY BLANK and unlit; absolutely no digits, numbers, letters, logo, symbols, icons or buttons on the front. Live time will be added in the app.\nComposition: near-frontal view, modestly elevated viewpoint so a small amount of the clock's top is visible and a very subtle right side is visible. Clock case overall physical aspect ratio approximately 2.1 to 1. Low compact horizontal body, two tiny understated feet on a common level desktop baseline, no stand or pedestal. Whole object tightly framed with a small breathing margin; include a delicate translucent soft contact shadow directly beneath the feet.\nStyle: soft hand-painted 2.5D editorial room illustration, subtly tactile brushwork and softly painted edges, warm walnut-room ambient highlights on the left with cooler charcoal shadows on the right. Elegant quiet contemporary industrial design. Painterly materials, not a polished photorealistic product render and not a flat vector icon.\nBackground: genuine fully transparent RGBA alpha. No tabletop, scenery, backdrop, white fill, checkerboard graphic, floor, other objects or frame. The transparency must be actual alpha. Keep the black glass face wide, calm, flat and unobstructed so overlaid clock digits remain readable."
+    },
+    {
+      "kind": "edit",
+      "prompt": "Refine this digital-clock sprite. Change only two closely related design details: make the CLOCK BODY itself a compact width-to-height ratio of 2.1:1, visibly taller and less stretched horizontally than this reference, and soften the surface into hand-painted 2.5D illustrative brushwork matching a painted walnut-room game scene. Keep the refined graphite matte metal, thin warm muted-champagne bezel, completely blank smoked-black front glass without numbers or text, near-frontal slightly elevated perspective, small feet, tiny contact shadow. Do not create a long soundbar shape. Whole object with small breathing margin. Preserve genuine transparent RGBA alpha throughout background. No tabletop, no room, no background fill, no checkered graphic. The entire CLOCK CASE including top must be about twice as wide as tall, regardless of output canvas ratio."
+    }
+  ],
+  "conversion": {
+    "tool": "Pillow",
+    "operation": "PNG to WebP format conversion only; no pixel edits, cropping or resizing",
+    "quality": 94,
+    "method": 6,
+    "exact": true,
+    "note": "cwebp and ImageMagick unavailable; installed ffmpeg lacks libwebp encoder"
+  },
+  "verification": {
+    "dimensions": [
+      1817,
+      866
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha128BBox": [
+      120,
+      116,
+      1700,
+      747
+    ],
+    "alpha250BBox": [
+      121,
+      117,
+      1699,
+      741
+    ],
+    "imageInspected": true,
+    "glassIsBlank": true
+  },
+  "registration": {
+    "canvasAspectRatio": 2.0981524249422634,
+    "opaqueBodyApproximateAspectRatio": 2.5039619651347067,
+    "glassApproximateBounds": [
+      150,
+      250,
+      1445,
+      430
+    ],
+    "timeOverlayCenterPercent": [
+      48,
+      54
+    ],
+    "note": "The canvas is 2.10:1. Visible body is about 2.5:1 after the generated refinement; use the transparent canvas registration when sizing."
+  }
+}

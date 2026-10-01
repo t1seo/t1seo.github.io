@@ -16,7 +16,9 @@ export const GLASS_OCCLUDERS: readonly (readonly Point[])[] = [
   [[191,389],[227,389],[252,446],[252,450],[191,450]], // lounge floor-lamp shade; its arm overlaps the tree mask, and its stem is outside the glazing
   [[527,546],[1269,546],[1269,614],[527,614]], // desk and accessories
   [[828,416],[1003,416],[1003,531],[930,531],[930,552],[902,552],[902,531],[828,531]], // Studio Display
-  [[1071,512],[1074,503],[1086,494],[1108,488],[1130,485],[1153,489],[1174,502],[1184,517],[1183,536],[1166,536],[1163,566],[1102,566],[1110,530],[1080,521]], // union of the painted dome/base positions across the seasonal plates
+  [[1045,466],[1141,466],[1141,551],[1157,551],[1157,568],[1104,568],[1104,551],[1127,551],[1127,480],[1045,480]], // slim metal light bar, upright and elliptical base
+  [[648,513],[684,513],[684,558],[648,558]], // painted desk calendar
+  [[1193,535],[1252,535],[1252,561],[1193,561]], // digital clock
   [[589,510],[632,510],[632,551],[589,551]], // mug and books
   [[1027,513],[1104,513],[1104,551],[1027,551]], // pencils and planter
   [[688,536],[698,528],[787,528],[799,536],[799,554],[790,558],[698,558],[688,553]], // low horizontal speaker between the books and monitor

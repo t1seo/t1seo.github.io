@@ -10,13 +10,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid #ede0c9; outline-offs
 button { color: inherit; }
 a { color: inherit; }
 [hidden] { display: none !important; }
-.ph-studio { --ph-controls-space: max(90px, calc(76px + env(safe-area-inset-bottom, 0px))); position: relative; isolation: isolate; container-type: size; height: 100svh; min-height: 360px; overflow: hidden; background: #202329; }
-/* The taller-window art shows source y0..925: glass occupies 63% and the
-   lower foreground occupies 17%, down from 20% in the old art. The
-   control strip is outside the scene, so Milky can use the remaining floor.
-   Wide displays retain the complete composition within a centered matte. */
-.ph-stage { position: absolute; inset: 0 auto var(--ph-controls-space) 50%; width: min(100cqw, calc((100cqh - var(--ph-controls-space)) * 1.807567568)); transform: translateX(-50%); container-type: size; overflow: hidden; }
-.ph-room { position: absolute; top: 0; left: 50%; width: 180.7567568cqh; height: 101.7297297cqh; transform: translateX(-50%); }
+.ph-studio { position: relative; isolation: isolate; container-type: size; height: 100dvh; overflow: hidden; background: #202329; }
+/* Fill the viewport without a control strip; bottom alignment keeps Milky's floor visible. */
+.ph-stage { position: absolute; inset: 0; container-type: size; overflow: hidden; }
+.ph-room { position: absolute; bottom: 0; left: 50%; width: max(100cqw, 177.6833156cqh); aspect-ratio: 1672 / 941; transform: translateX(-50%); }
 .ph-plates, .ph-plate, .ph-pet, .ph-weather, .ph-weather-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ph-plate { object-fit: fill; pointer-events: none; }
 .ph-plates { transition: filter 1.3s ease; }
@@ -24,26 +21,6 @@ a { color: inherit; }
 .ph-weather, .ph-weather-canvas { pointer-events: none; }
 .ph-weather { opacity: 0; transition: opacity 1s, background 1s; }
 .ph-pet { z-index: 3; pointer-events: none; }
-.ph-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(#08090d94, transparent 18%, transparent 72%, #08090db0), linear-gradient(90deg, #0c0d1033, transparent 45%); }
-.ph-header { position: absolute; inset: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 42px; }
-.ph-wordmark { font-size: 14px; font-weight: 550; letter-spacing: .18em; text-decoration: none; line-height: 1.8; }
-.ph-wordmark span { display: block; font-size: 8px; font-weight: 400; letter-spacing: .24em; opacity: .65; }
-.ph-edition { font-size: 9px; letter-spacing: .19em; color: #dedbda; }
-.ph-about { padding: 10px 0 10px 15px; min-height: 44px; border: 0; background: none; font-size: 12px; }
-.ph-about span { margin-left: 24px; }
-.ph-intro { position: absolute; left: 42px; bottom: 142px; pointer-events: none; color: #f0ede7; text-shadow: 0 1px 12px #000b; }
-.ph-intro p { font-size: 8px; letter-spacing: .18em; margin: 0 0 12px; color: #ddd9d1; }
-.ph-intro h1 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: clamp(40px, 4.3vw, 70px); letter-spacing: -.045em; line-height: 1; margin: 0 0 18px; }
-.ph-intro div { font-size: 12px; line-height: 1.65; color: #ddd9d1; }
-.ph-live-climate { position: absolute; right: 42px; top: 116px; display: grid; gap: 7px; text-align: right; font-size: 10px; letter-spacing: .03em; text-shadow: 0 1px 4px #000, 0 0 12px #000; }
-.ph-live-climate span:last-child { color: #c0bfbe; font-size: 9px; }
-.ph-footer { position: absolute; inset: auto 42px 25px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; border-top: 1px solid #f0ede72b; padding-top: 18px; }
-.ph-caption { display: flex; gap: 10px; align-items: center; font-size: 8px; letter-spacing: .13em; }
-.ph-status-dot { width: 4px; height: 4px; border-radius: 50%; background: #d1c3ae; box-shadow: 0 0 8px #f2dab03b; }
-.ph-controls { display: flex; align-items: center; gap: 4px; }
-.ph-controls button { min-height: 44px; min-width: 60px; padding: 10px 15px; display: flex; align-items: center; justify-content: center; gap: 10px; background: #11121455; border: 1px solid transparent; border-radius: 2px; font-size: 10px; }
-.ph-controls button:hover, .ph-controls button[aria-pressed='true'] { background: #ece7df15; border-color: #ece7df39; }
-.ph-controls svg, .ph-restore svg { height: 18px; width: 18px; }
 .ph-track { text-align: right; text-decoration: none; display: grid; gap: 7px; min-height: 44px; align-content: center; max-width: 100%; overflow: hidden; }
 .ph-track span:first-child { font-size: 7px; letter-spacing: .17em; color: #c4c0bc; }
 .ph-track span:last-child { font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -51,15 +28,16 @@ a { color: inherit; }
 .ph-hotspot--audio { left: 44.44%; top: 57.7%; width: 7.2%; height: 4.7%; transform: translate(-50%, -50%); }
 .ph-hotspot--pen { left: 61.1%; top: 59.65%; width: 4%; height: 3%; transform: translate(-50%, -50%); }
 .ph-hotspot--monitor { left: 49.7%; top: 44.5%; width: 10.2%; height: 11.5%; }
-.ph-hotspot--lamp { left: 67.85%; top: 55.9%; width: 6%; height: 8.4%; transform: translate(-50%, -50%); }
+.ph-hotspot--lamp { left: 65.9%; top: 54.9%; width: 7%; height: 10.5%; transform: translate(-50%, -50%); }
+.ph-hotspot--coffee { left: 36.2%; top: 56.2%; width: 2.3%; height: 3.7%; transform: translate(-50%, -50%); }
+.ph-hotspot--tea { left: 7.3%; top: 68.2%; width: 3.5%; height: 3.8%; transform: translate(-50%, -50%); }
 .ph-hotspot--book { left: 34%; top: 54.5%; width: 4.5%; height: 4.5%; }
 .ph-hotspot i { display: grid; place-items: center; width: 26px; height: 26px; border: 1px solid #e2d8c880; border-radius: 50%; color: #fff; font: 18px Georgia, serif; background: #0e101b66; opacity: 0; transition: opacity .2s; }
 .ph-hotspot span { position: absolute; bottom: 100%; font-size: 8px; letter-spacing: .12em; white-space: nowrap; background: #151719e6; padding: 8px; border-radius: 2px; opacity: 0; transition: opacity .2s; pointer-events: none; }
 .ph-hotspot:hover i, .ph-hotspot:focus-visible i, .ph-hotspot:hover span, .ph-hotspot:focus-visible span { opacity: 1; }
-.ph-header, .ph-intro, .ph-live-climate, .ph-footer { transition: opacity .35s, visibility .35s; }
-.ph-studio[data-focus='true'] :is(.ph-header,.ph-intro,.ph-live-climate,.ph-footer,.ph-hotspot) { opacity: 0; visibility: hidden; pointer-events: none; }
+.ph-studio[data-focus='true'] :is(.ph-time-objects,.ph-hotspot) { opacity: 0; visibility: hidden; pointer-events: none; }
 .ph-restore { position: absolute; right: 28px; bottom: 25px; min-height: 44px; display: flex; align-items: center; gap: 10px; border: 1px solid #eee4; border-radius: 2px; background: #111214aa; padding: 10px 14px; font-size: 11px; }
-.ph-toast { position: absolute; bottom: 110px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 40px); font-size: 12px; line-height: 1.5; background: #151719ed; border-radius: 2px; }
+.ph-toast { position: absolute; bottom: max(24px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 40px); font-size: 12px; line-height: 1.5; background: #151719ed; border-radius: 2px; }
 .ph-toast:not(:empty) { padding: 12px 18px; border: 1px solid #555; }
 .ph-dialog { position: fixed; inset: 0 0 0 auto; margin: 0; width: min(490px, 100%); height: 100dvh; max-height: 100dvh; max-width: 100%; border: 0; border-left: 1px solid #4b4b4b; background: #17191bf5; color: #efede9; padding: 90px 40px 40px; overflow-y: auto; box-shadow: -20px 0 100px #0005; }
 .ph-dialog::backdrop { background: #080a0d70; backdrop-filter: blur(4px); }
@@ -86,29 +64,12 @@ a { color: inherit; }
 .ph-pet-actions button:hover, .ph-about-links a:hover { color: #e2c797; }
 .ph-desk-preview { display: block; width: 100%; height: auto; aspect-ratio: 870 / 490; border: 1px solid #55514a; background: #292725; margin-top: 26px; }
 .ph-workspace-status { font-size: 11px !important; }
-@media (max-width: 1000px) { .ph-track { display: none; } .ph-footer { grid-template-columns: 1fr auto; } .ph-intro h1 { font-size: 46px; } .ph-controls button { padding-inline: 12px; } }
 @media (max-width: 650px) {
-  .ph-header { padding: 23px 22px; gap: 16px; }
-  .ph-wordmark { font-size: 12px; }
-  .ph-wordmark span { font-size: 7px; }
-  .ph-edition { display: none; }
-  .ph-about { font-size: 10px; max-width: 132px; text-align: right; }
-  .ph-about span { margin-left: 7px; }
-  .ph-live-climate { top: 105px; right: 22px; font-size: 9px; }
-  .ph-intro { left: 22px; bottom: 158px; }
-  .ph-intro p { font-size: 7px; max-width: 145px; line-height: 1.8; }
-  .ph-intro h1 { font-size: 36px; margin-bottom: 10px; }
-  .ph-intro div { font-size: 10px; }
-  .ph-footer { left: 16px; right: 16px; bottom: max(15px, env(safe-area-inset-bottom)); display: block; padding-top: 11px; }
-  .ph-caption { display: none; }
-  .ph-controls { justify-content: space-between; gap: 0; }
-  .ph-controls button { flex-direction: column; gap: 7px; min-width: 44px; min-height: 57px; padding: 8px 5px; flex: 1; font-size: 9px; }
-  .ph-hotspot { display: none; }
+  .ph-hotspot--book, .ph-hotspot--pen, .ph-hotspot--lamp, .ph-hotspot--tea, .ph-hotspot--coffee { display: none; }
   .ph-dialog { padding: 80px 26px 30px; }
 }
-@media (max-height: 650px) and (min-width: 651px) { .ph-header { padding-top: 18px; } .ph-intro { bottom: 105px; } .ph-intro h1 { font-size: 40px; } .ph-intro div { display: none; } .ph-live-climate { top: 92px; } .ph-footer { bottom: 16px; padding-top: 10px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
-@media (forced-colors: active) { .ph-options span, .ph-controls button { border: 1px solid ButtonText; } .ph-options input:checked + span { outline: 2px solid Highlight; } }
+@media (forced-colors: active) { .ph-options span, .ph-panel-nav button { border: 1px solid ButtonText; } .ph-options input:checked + span { outline: 2px solid Highlight; } }
 
 .ph-objects { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; border-top: 1px solid #55514a; padding-top: 18px; }
 .ph-object-art { height: 140px; display: flex; align-items: center; justify-content: center; background: #2d2b29; border-radius: 3px; }
@@ -122,3 +83,13 @@ a { color: inherit; }
 
 .ph-screen-preview { display: block; width: 100%; height: auto; aspect-ratio: 912 / 540; margin: 24px 0; border: 1px solid #46525d; border-radius: 6px; }
 .ph-screen-preview[hidden] { display: none; }
+
+.ph-panel-nav { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 24px; border-bottom: 1px solid #45474a; margin-bottom: 30px; }
+.ph-panel-nav button { min-height: 44px; padding: 10px 12px; border: 1px solid transparent; background: transparent; color: #c2c3c5; font-size: 12px; }
+.ph-panel-nav button:hover, .ph-panel-nav button[aria-current='page'] { color: #efe4d3; border-color: #756a58; background: #e3d7c50b; }
+.ph-panel-sound { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 22px; margin-top: 30px; border-top: 1px solid #45474a; }
+.ph-panel-sound button, .ph-immerse { min-height: 44px; padding: 10px 12px; border: 1px solid #756a58; background: transparent; font-size: 12px; }
+.ph-panel-sound button { flex-shrink: 0; }
+.ph-panel-sound button[aria-pressed='true'] { background: #e3d7c5; color: #202124; }
+.ph-immerse { margin-top: 22px; width: 100%; color: #bfbab2; }
+.ph-panel-sound .ph-track { min-width: 0; }

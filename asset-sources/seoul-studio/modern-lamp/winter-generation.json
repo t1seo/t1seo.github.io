@@ -1,0 +1,153 @@
+{
+  "tool": "builtin image_gen.imagegen",
+  "mode": "precise-object-edit",
+  "createdDate": "2026-10-01",
+  "masterReference": "asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+  "records": [
+    {
+      "season": "winter",
+      "time": "morning",
+      "output": "asset-sources/seoul-studio/modern-lamp/winter/morning.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-d616-7232-b60d-a0de0cecf363/exec-bfa950c4-16fb-45a4-b26f-bc3b63d5d14c.png",
+      "inputImages": [
+        "asset-sources/seoul-studio/dome-lamp/winter/morning.png",
+        "asset-sources/seoul-studio/modern-lamp/autumn/noon.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: complete 1672x941 winter morning hand-painted illustrated Seoul room plate for an interactive website.\nInput image 1 is the EDIT TARGET, the winter morning scene. Input image 2 is a REFERENCE ONLY for the precise new desk lamp shape, position, material and scale.\nReplace ONLY the black dome-shade desk lamp and its pale stone pedestal in image 1 with the EXACT IDENTICAL thin brushed champagne-metal LED bar desk lamp shown in image 2. It is an inverted L with the very thin straight horizontal bar reaching left; slender upright at right; small thin elliptical low metal foot. Precisely match reference geometry: bar x1049..1137 y470..476, stem x1131..1137 y474..554, low elliptical base x1108..1153 y554..563, at 1672x941 image coordinates. Lamp is OFF, no emitting strip, no warm pool, no glow. Match the winter morning ambient reflections while preserving that identical shape.\nRemove the old black shade and pale pedestal completely within x1071..1184 y485..566 and reconstruct ONLY the tiny patches of river, snowy winter trees, window structure and desktop formerly hidden by the old lamp, matching image 1. Retain the pen cup and black tea bowl to the left.\nPreservation is critical: image 1 remains the complete picture, with its EXACT winter morning palette, sky, snowy hills and trees, architecture, city lights, river reflections, framing, geometry and every furniture object. Do not transfer image 2's autumn leaves, blue noon colors or any other feature. Keep monitor black, keyboard, desk/books, lounge chair and floor lamp on viewer's LEFT, plant, shelving, carpet and all floor unchanged. SAME camera, SAME crop, SAME full room, SAME 1672x941 resolution. No clock/calendar or other new objects, no dog, no text. Hand-painted matte illustration texture matching input 1. Edit only the desk lamp and its immediately uncovered background.",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "inputDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "sha256": "3c5de004cdf6be50cfe924dd4eff557a326f5c737a4a162117c24d64a7a86639",
+      "resampled": false,
+      "visualInspection": {
+        "checked": true,
+        "fullCompositionRetained": true,
+        "seasonAndTimeRetained": true,
+        "oldDomeRemoved": true,
+        "referenceBarLampMatched": true,
+        "noLampPoolOrGlow": true
+      }
+    },
+    {
+      "season": "winter",
+      "time": "noon",
+      "output": "asset-sources/seoul-studio/modern-lamp/winter/noon.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-d616-7232-b60d-a0de0cecf363/exec-f8d98f9a-b87a-4a63-81ec-659580992e85.png",
+      "inputImages": [
+        "asset-sources/seoul-studio/dome-lamp/winter/noon.png",
+        "asset-sources/seoul-studio/modern-lamp/autumn/noon.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: complete 1672x941 winter noon hand-painted illustrated Seoul room plate for an interactive website.\nInput image 1 is the EDIT TARGET, the winter noon scene. Input image 2 is a REFERENCE ONLY for the precise new desk lamp shape, position, material and scale.\nReplace ONLY the black dome-shade desk lamp and its pale stone pedestal in image 1 with the EXACT IDENTICAL thin brushed champagne-metal LED bar desk lamp shown in image 2. It is an inverted L with the very thin straight horizontal bar reaching left; slender upright at right; small thin elliptical low metal foot. Precisely match reference geometry: bar x1049..1137 y470..476, stem x1131..1137 y474..554, low elliptical base x1108..1153 y554..563, at 1672x941 image coordinates. Lamp is OFF, no emitting strip, no warm pool, no glow. Match the winter noon ambient reflections while preserving that identical shape.\nRemove the old black shade and pale pedestal completely within x1071..1184 y485..566 and reconstruct ONLY the tiny patches of river, snowy winter trees, window structure and desktop formerly hidden by the old lamp, matching image 1. Retain the pen cup and black tea bowl to the left.\nPreservation is critical: image 1 remains the complete picture, with its EXACT winter noon palette, sky, snowy hills and trees, architecture, city lights, river reflections, framing, geometry and every furniture object. Do not transfer image 2's autumn leaves, blue noon colors or any other feature. Keep monitor black, keyboard, desk/books, lounge chair and floor lamp on viewer's LEFT, plant, shelving, carpet and all floor unchanged. SAME camera, SAME crop, SAME full room, SAME 1672x941 resolution. No clock/calendar or other new objects, no dog, no text. Hand-painted matte illustration texture matching input 1. Edit only the desk lamp and its immediately uncovered background.",
+      "dimensions": {
+        "width": 1671,
+        "height": 941
+      },
+      "inputDimensions": {
+        "width": 1671,
+        "height": 941
+      },
+      "sha256": "d84ce6b76408db392b63ffe2785c5f20f95de90b88f5c0c96e63ee901c670e9c",
+      "resampled": false,
+      "visualInspection": {
+        "checked": true,
+        "fullCompositionRetained": true,
+        "seasonAndTimeRetained": true,
+        "oldDomeRemoved": true,
+        "referenceBarLampMatched": true,
+        "noLampPoolOrGlow": true
+      }
+    },
+    {
+      "season": "winter",
+      "time": "afternoon",
+      "output": "asset-sources/seoul-studio/modern-lamp/winter/afternoon.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-d616-7232-b60d-a0de0cecf363/exec-e4cee5ea-65da-4005-9495-310c1edf5582.png",
+      "inputImages": [
+        "asset-sources/seoul-studio/dome-lamp/winter/afternoon.png",
+        "asset-sources/seoul-studio/modern-lamp/autumn/noon.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: complete 1672x941 winter afternoon hand-painted illustrated Seoul room plate for an interactive website.\nInput image 1 is the EDIT TARGET, the winter afternoon scene. Input image 2 is a REFERENCE ONLY for the precise new desk lamp shape, position, material and scale.\nReplace ONLY the black dome-shade desk lamp and its pale stone pedestal in image 1 with the EXACT IDENTICAL thin brushed champagne-metal LED bar desk lamp shown in image 2. It is an inverted L with the very thin straight horizontal bar reaching left; slender upright at right; small thin elliptical low metal foot. Precisely match reference geometry: bar x1049..1137 y470..476, stem x1131..1137 y474..554, low elliptical base x1108..1153 y554..563, at 1672x941 image coordinates. Lamp is OFF, no emitting strip, no warm pool, no glow. Match the winter afternoon ambient reflections while preserving that identical shape.\nRemove the old black shade and pale pedestal completely within x1071..1184 y485..566 and reconstruct ONLY the tiny patches of river, snowy winter trees, window structure and desktop formerly hidden by the old lamp, matching image 1. Retain the pen cup and black tea bowl to the left.\nPreservation is critical: image 1 remains the complete picture, with its EXACT winter afternoon palette, sky, snowy hills and trees, architecture, city lights, river reflections, framing, geometry and every furniture object. Do not transfer image 2's autumn leaves, blue noon colors or any other feature. Keep monitor black, keyboard, desk/books, lounge chair and floor lamp on viewer's LEFT, plant, shelving, carpet and all floor unchanged. SAME camera, SAME crop, SAME full room, SAME 1672x941 resolution. No clock/calendar or other new objects, no dog, no text. Hand-painted matte illustration texture matching input 1. Edit only the desk lamp and its immediately uncovered background.",
+      "dimensions": {
+        "width": 1671,
+        "height": 941
+      },
+      "inputDimensions": {
+        "width": 1671,
+        "height": 941
+      },
+      "sha256": "67ae06b323f18a0c9eb412066ca18e0163adaa5ab097d92dd700a5682650ec55",
+      "resampled": false,
+      "visualInspection": {
+        "checked": true,
+        "fullCompositionRetained": true,
+        "seasonAndTimeRetained": true,
+        "oldDomeRemoved": true,
+        "referenceBarLampMatched": true,
+        "noLampPoolOrGlow": true
+      }
+    },
+    {
+      "season": "winter",
+      "time": "evening",
+      "output": "asset-sources/seoul-studio/modern-lamp/winter/evening.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-d616-7232-b60d-a0de0cecf363/exec-06f97e12-3639-45b9-b932-fa78e9c17119.png",
+      "inputImages": [
+        "asset-sources/seoul-studio/dome-lamp/winter/evening.png",
+        "asset-sources/seoul-studio/modern-lamp/autumn/noon.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: complete 1672x941 winter evening hand-painted illustrated Seoul room plate for an interactive website.\nInput image 1 is the EDIT TARGET, the winter evening scene. Input image 2 is a REFERENCE ONLY for the precise new desk lamp shape, position, material and scale.\nReplace ONLY the black dome-shade desk lamp and its pale stone pedestal in image 1 with the EXACT IDENTICAL thin brushed champagne-metal LED bar desk lamp shown in image 2. It is an inverted L with the very thin straight horizontal bar reaching left; slender upright at right; small thin elliptical low metal foot. Precisely match reference geometry: bar x1049..1137 y470..476, stem x1131..1137 y474..554, low elliptical base x1108..1153 y554..563, at 1672x941 image coordinates. Lamp is OFF, no emitting strip, no warm pool, no glow. Match the winter evening ambient reflections while preserving that identical shape.\nRemove the old black shade and pale pedestal completely within x1071..1184 y485..566 and reconstruct ONLY the tiny patches of river, snowy winter trees, window structure and desktop formerly hidden by the old lamp, matching image 1. Retain the pen cup and black tea bowl to the left.\nPreservation is critical: image 1 remains the complete picture, with its EXACT winter evening palette, sky, snowy hills and trees, architecture, city lights, river reflections, framing, geometry and every furniture object. Do not transfer image 2's autumn leaves, blue noon colors or any other feature. Keep monitor black, keyboard, desk/books, lounge chair and floor lamp on viewer's LEFT, plant, shelving, carpet and all floor unchanged. SAME camera, SAME crop, SAME full room, SAME 1672x941 resolution. No clock/calendar or other new objects, no dog, no text. Hand-painted matte illustration texture matching input 1. Edit only the desk lamp and its immediately uncovered background.",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "inputDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "sha256": "50218f8f7c73436fc4e1d19201770fae39cd7eee0542979b8450c7e43199fd0d",
+      "resampled": false,
+      "visualInspection": {
+        "checked": true,
+        "fullCompositionRetained": true,
+        "seasonAndTimeRetained": true,
+        "oldDomeRemoved": true,
+        "referenceBarLampMatched": true,
+        "noLampPoolOrGlow": true
+      }
+    },
+    {
+      "season": "winter",
+      "time": "night",
+      "output": "asset-sources/seoul-studio/modern-lamp/winter/night.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-d616-7232-b60d-a0de0cecf363/exec-349a3156-bcc8-4d07-bc58-d0dfd86627a0.png",
+      "inputImages": [
+        "asset-sources/seoul-studio/dome-lamp/winter/night.png",
+        "asset-sources/seoul-studio/modern-lamp/autumn/noon.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: complete 1672x941 winter night hand-painted illustrated Seoul room plate for an interactive website.\nInput image 1 is the EDIT TARGET, the winter night scene. Input image 2 is a REFERENCE ONLY for the precise new desk lamp shape, position, material and scale.\nReplace ONLY the black dome-shade desk lamp and its pale stone pedestal in image 1 with the EXACT IDENTICAL thin brushed champagne-metal LED bar desk lamp shown in image 2. It is an inverted L with the very thin straight horizontal bar reaching left; slender upright at right; small thin elliptical low metal foot. Precisely match reference geometry: bar x1049..1137 y470..476, stem x1131..1137 y474..554, low elliptical base x1108..1153 y554..563, at 1672x941 image coordinates. Lamp is OFF, no emitting strip, no warm pool, no glow. Match the winter night ambient reflections while preserving that identical shape.\nRemove the old black shade and pale pedestal completely within x1071..1184 y485..566 and reconstruct ONLY the tiny patches of river, snowy winter trees, window structure and desktop formerly hidden by the old lamp, matching image 1. Retain the pen cup and black tea bowl to the left.\nPreservation is critical: image 1 remains the complete picture, with its EXACT winter night palette, sky, snowy hills and trees, architecture, city lights, river reflections, framing, geometry and every furniture object. Do not transfer image 2's autumn leaves, blue noon colors or any other feature. Keep monitor black, keyboard, desk/books, lounge chair and floor lamp on viewer's LEFT, plant, shelving, carpet and all floor unchanged. SAME camera, SAME crop, SAME full room, SAME 1672x941 resolution. No clock/calendar or other new objects, no dog, no text. Hand-painted matte illustration texture matching input 1. Edit only the desk lamp and its immediately uncovered background.",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "inputDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "sha256": "764280416ff803ac6d482bb2bc9b5c196cdd6d3347df9b0046f19588cf4a2b55",
+      "resampled": false,
+      "visualInspection": {
+        "checked": true,
+        "fullCompositionRetained": true,
+        "seasonAndTimeRetained": true,
+        "oldDomeRemoved": true,
+        "referenceBarLampMatched": true,
+        "noLampPoolOrGlow": true
+      }
+    }
+  ]
+}

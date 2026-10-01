@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-10-01",
+  "prompt": "Use case: stylized-concept. Asset type: transparent sprite for a hand-painted 2.5D illustrated Seoul studio. Create ONLY a small elegant desktop tent calendar, warm ivory textured thick paper on a fine muted walnut folded triangular stand, with a tiny brushed brass binding across the top. Entire object in frame with real transparent alpha background, no surrounding room, no table, no white background. Near frontal view, a little top and right side visible, camera looking slightly down as if placed at the back of a walnut desk facing viewer. The front paper face is clean BLANK: no letters, numbers, grid, logo or illustrations; a live month/date will be overlaid by code. Soft oil/gouache brush texture on the edges, subdued painterly shading and slight paper warp; matches sophisticated warm architectural interior illustration, NOT a crisp vector icon and NOT a product photo. Restrained warm ambient highlights, cool gray-brown shadow on the right, extremely soft compact contact shadow directly beneath the little stand. Overall object tall aspect ratio approximately 40 wide by 51 high. Tightly frame the entire object with a little transparent margin. No loose sheets beside it, no extra props, no dramatic glow.",
+  "source": "desk-calendar.png",
+  "runtime": "public/assets/penthouse/objects/desk-calendar.webp"
+}

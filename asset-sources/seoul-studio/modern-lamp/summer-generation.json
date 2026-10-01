@@ -1,0 +1,78 @@
+{
+  "season": "summer",
+  "edit": "Replace dome desk lamp with approved thin champagne brushed-metal LED bar lamp, light off.",
+  "mode": "Built-in image generation edit; five independent corresponding source plates plus approved master reference.",
+  "resampling": "None. Original generated PNG bytes copied unchanged. Native output width is 1671 for morning/night and 1672 for noon/afternoon/evening; all heights 941.",
+  "records": [
+    {
+      "time": "morning",
+      "tool": "builtin image_gen.imagegen",
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/morning.png",
+      "reference": "asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "output": "asset-sources/seoul-studio/modern-lamp/summer/morning.png",
+      "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-b1f1-7712-80fa-febbe5e9302c/exec-3930c55c-5213-408b-a948-70b3c789c182.png",
+      "prompt": "Use case: precise-object-edit. Asset: complete hand-painted Seoul studio background, summer morning, landscape 1672x941. Image 1 is the EDIT TARGET and defines every pixel except its desktop lamp. Image 2 is a lamp-design reference ONLY. Replace the black dome desk lamp and white stone pedestal on the right of the monitor in Image 1 with the identical refined ultra-thin champagne/brushed-metal LED bar desk lamp seen in Image 2. Match Image 2's exact silhouette and pixel placement: horizontal bar x1049..1137/y470..476; narrow right stem x1131..1137/y474..554; flattened oval foot x1108..1153/y554..563. Bar points left over the desktop; the lamp is OFF with no new light or halo. Remove the old black shade and pedestal within x1071..1184/y485..566; reconstruct the SAME SUMMER green foliage and river of Image 1 behind the removed shade. Preserve Image 1's exact summer morning sky, foliage, river, city buildings, time-of-day illumination, all architecture and window frames, desk and monitor and ivory keyboard, black cup/pencil items, lounge chair, LEFT floor lamp, all floor and rug, crop and camera framing and painterly texture. Do not copy Image 2's autumn foliage or noon lighting. Change only the desktop lamp and revealed tiny background region. No new objects, no clock, no calendar, no text or watermark. Return the complete full landscape room at original framing and dimensions.",
+      "visualQA": "Viewed full generated output. Summer foliage and original time-of-day light retained; black dome and stone pedestal removed; thin bar lamp matches approved silhouette; left floor lamp, desk, monitor, chair and room framing preserved.",
+      "dimensions": {
+        "width": 1671,
+        "height": 941
+      }
+    },
+    {
+      "time": "noon",
+      "tool": "builtin image_gen.imagegen",
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/noon.png",
+      "reference": "asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "output": "asset-sources/seoul-studio/modern-lamp/summer/noon.png",
+      "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-b1f1-7712-80fa-febbe5e9302c/exec-2c980e38-9133-4aab-a70e-b234f828b098.png",
+      "prompt": "Use case: precise-object-edit. Asset: complete hand-painted Seoul studio background, summer noon, landscape 1672x941. Image 1 is the EDIT TARGET and defines every pixel except its desktop lamp. Image 2 is a lamp-design reference ONLY. Replace the black dome desk lamp and white stone pedestal on the right of the monitor in Image 1 with the identical refined ultra-thin champagne/brushed-metal LED bar desk lamp seen in Image 2. Match Image 2's exact silhouette and pixel placement: horizontal bar x1049..1137/y470..476; narrow right stem x1131..1137/y474..554; flattened oval foot x1108..1153/y554..563. Bar points left over the desktop; the lamp is OFF with no new light or halo. Remove the old black shade and pedestal within x1071..1184/y485..566; reconstruct the SAME SUMMER green foliage and river of Image 1 behind the removed shade. Preserve Image 1's exact summer noon sky, foliage, river, city buildings, time-of-day illumination, all architecture and window frames, desk and monitor and ivory keyboard, black cup/pencil items, lounge chair, LEFT floor lamp, all floor and rug, crop and camera framing and painterly texture. Do not copy Image 2's autumn foliage or noon lighting. Change only the desktop lamp and revealed tiny background region. No new objects, no clock, no calendar, no text or watermark. Return the complete full landscape room at original framing and dimensions.",
+      "visualQA": "Viewed full generated output. Summer foliage and original time-of-day light retained; black dome and stone pedestal removed; thin bar lamp matches approved silhouette; left floor lamp, desk, monitor, chair and room framing preserved.",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "time": "afternoon",
+      "tool": "builtin image_gen.imagegen",
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/afternoon.png",
+      "reference": "asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "output": "asset-sources/seoul-studio/modern-lamp/summer/afternoon.png",
+      "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-b1f1-7712-80fa-febbe5e9302c/exec-14b5ca9e-9c1d-4f90-ac8b-f0837f76ab19.png",
+      "prompt": "Use case: precise-object-edit. Asset: complete hand-painted Seoul studio background, summer afternoon, landscape 1672x941. Image 1 is the EDIT TARGET and defines every pixel except its desktop lamp. Image 2 is a lamp-design reference ONLY. Replace the black dome desk lamp and white stone pedestal on the right of the monitor in Image 1 with the identical refined ultra-thin champagne/brushed-metal LED bar desk lamp seen in Image 2. Match Image 2's exact silhouette and pixel placement: horizontal bar x1049..1137/y470..476; narrow right stem x1131..1137/y474..554; flattened oval foot x1108..1153/y554..563. Bar points left over the desktop; the lamp is OFF with no new light or halo. Remove the old black shade and pedestal within x1071..1184/y485..566; reconstruct the SAME SUMMER green foliage and river of Image 1 behind the removed shade. Preserve Image 1's exact summer afternoon sky, foliage, river, city buildings, time-of-day illumination, all architecture and window frames, desk and monitor and ivory keyboard, black cup/pencil items, lounge chair, LEFT floor lamp, all floor and rug, crop and camera framing and painterly texture. Do not copy Image 2's autumn foliage or noon lighting. Change only the desktop lamp and revealed tiny background region. No new objects, no clock, no calendar, no text or watermark. Return the complete full landscape room at original framing and dimensions.",
+      "visualQA": "Viewed full generated output. Summer foliage and original time-of-day light retained; black dome and stone pedestal removed; thin bar lamp matches approved silhouette; left floor lamp, desk, monitor, chair and room framing preserved.",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "time": "evening",
+      "tool": "builtin image_gen.imagegen",
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/evening.png",
+      "reference": "asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "output": "asset-sources/seoul-studio/modern-lamp/summer/evening.png",
+      "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-b1f1-7712-80fa-febbe5e9302c/exec-32641003-4cef-494e-a080-9a29dde4ded5.png",
+      "prompt": "Use case: precise-object-edit. Asset: complete hand-painted Seoul studio background, summer evening, landscape 1672x941. Image 1 is the EDIT TARGET and defines every pixel except its desktop lamp. Image 2 is a lamp-design reference ONLY. Replace the black dome desk lamp and white stone pedestal on the right of the monitor in Image 1 with the identical refined ultra-thin champagne/brushed-metal LED bar desk lamp seen in Image 2. Match Image 2's exact silhouette and pixel placement: horizontal bar x1049..1137/y470..476; narrow right stem x1131..1137/y474..554; flattened oval foot x1108..1153/y554..563. Bar points left over the desktop; the lamp is OFF with no new light or halo. Remove the old black shade and pedestal within x1071..1184/y485..566; reconstruct the SAME SUMMER green foliage and river of Image 1 behind the removed shade. Preserve Image 1's exact summer evening sky, foliage, river, city buildings, time-of-day illumination, all architecture and window frames, desk and monitor and ivory keyboard, black cup/pencil items, lounge chair, LEFT floor lamp, all floor and rug, crop and camera framing and painterly texture. Do not copy Image 2's autumn foliage or noon lighting. Change only the desktop lamp and revealed tiny background region. No new objects, no clock, no calendar, no text or watermark. Return the complete full landscape room at original framing and dimensions.",
+      "visualQA": "Viewed full generated output. Summer foliage and original time-of-day light retained; black dome and stone pedestal removed; thin bar lamp matches approved silhouette; left floor lamp, desk, monitor, chair and room framing preserved.",
+      "dimensions": {
+        "width": 1672,
+        "height": 941
+      }
+    },
+    {
+      "time": "night",
+      "tool": "builtin image_gen.imagegen",
+      "source": "asset-sources/seoul-studio/dome-lamp/summer/night.png",
+      "reference": "asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "output": "asset-sources/seoul-studio/modern-lamp/summer/night.png",
+      "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-b1f1-7712-80fa-febbe5e9302c/exec-cba3b1d3-4cb2-4b35-8339-7ac7a8b1a061.png",
+      "prompt": "Use case: precise-object-edit. Asset: complete hand-painted Seoul studio background, summer night, landscape 1672x941. Image 1 is the EDIT TARGET and defines every pixel except its desktop lamp. Image 2 is a lamp-design reference ONLY. Replace the black dome desk lamp and white stone pedestal on the right of the monitor in Image 1 with the identical refined ultra-thin champagne/brushed-metal LED bar desk lamp seen in Image 2. Match Image 2's exact silhouette and pixel placement: horizontal bar x1049..1137/y470..476; narrow right stem x1131..1137/y474..554; flattened oval foot x1108..1153/y554..563. Bar points left over the desktop; the lamp is OFF with no new light or halo. Remove the old black shade and pedestal within x1071..1184/y485..566; reconstruct the SAME SUMMER green foliage and river of Image 1 behind the removed shade. Preserve Image 1's exact summer night sky, foliage, river, city buildings, time-of-day illumination, all architecture and window frames, desk and monitor and ivory keyboard, black cup/pencil items, lounge chair, LEFT floor lamp, all floor and rug, crop and camera framing and painterly texture. Do not copy Image 2's autumn foliage or noon lighting. Change only the desktop lamp and revealed tiny background region. No new objects, no clock, no calendar, no text or watermark. Return the complete full landscape room at original framing and dimensions.",
+      "visualQA": "Viewed full generated output. Summer foliage and original time-of-day light retained; black dome and stone pedestal removed; thin bar lamp matches approved silhouette; left floor lamp, desk, monitor, chair and room framing preserved.",
+      "dimensions": {
+        "width": 1671,
+        "height": 941
+      }
+    }
+  ]
+}

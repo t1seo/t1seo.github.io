@@ -1,0 +1,72 @@
+{
+  "mode": "built-in image_gen",
+  "useCase": "precise-object-edit",
+  "season": "spring",
+  "canvas": {
+    "width": 1672,
+    "height": 941
+  },
+  "resampled": false,
+  "outputs": [
+    {
+      "time": "morning",
+      "source": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/dome-lamp/spring/morning.png",
+      "lampReference": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-89b7-7ab3-b213-d7adc0ce064f/exec-4ea42e98-51a5-4ecc-a9f1-b109bcaa858e.png",
+      "destination": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/spring/morning.png",
+      "prompt": "Use case: precise-object-edit. Asset type: complete spring morning room plate.\nInput 1 is the ONLY EDIT TARGET: the spring morning room. Input 2 is REFERENCE ONLY, used solely to copy the approved slim desk lamp design and its exact registration.\nReplace ONLY the black dome shade and warm-white thick pedestal desk lamp on the right side of the desk in input 1 with the identical thin champagne brushed-metal LED bar lamp from input 2. Copy its shape, proportions and placement exactly: horizontal slim bar x1049..1137 y470..476, narrow upright stem x1131..1137 y474..554, low thin oval base x1108..1153 y554..563 in the original 1672x941 image coordinates. Bar reaches left from top of stem. LED OFF, no emitted light and no new glow. Render in the existing hand-painted matte illustration with restrained metallic highlights matching input 1 lighting.\nCompletely remove old dome and pedestal within x1071..1184 y485..566 and faithfully reconstruct the tiny hidden patch of spring cherry blossoms and river behind the removed shade, while keeping the new slim lamp in front.\nSTRICT INVARIANTS: preserve input 1's spring cherry-blossom foliage, morning sky colors and cloud shapes, all city buildings and river reflections, architecture, window frame, desk, dark monitor, ivory HHKB keyboard, cups, books, objects, chair, entire articulated floor lamp on viewer-left of lounge chair, room lighting, rug, floors, shelves, left tree and ceiling EXACTLY. Keep original 1672x941 full canvas, identical framing, no crop, no zoom, no reposition. Do not import autumn foliage or noon lighting from input 2. Change nothing except this single desk lamp and its occluded background. No clock/calendar, no new objects, no text, no watermark.",
+      "width": 1672,
+      "height": 941,
+      "sha256": "9002ee50963b5a1c2da22502b88d34305f3a145e2ec5d01f9775e0846e0c3a43",
+      "verification": "Visually inspected full output: spring/time colors, framing, architecture and objects retained; approved slim brushed-metal lamp replaces dome, light off."
+    },
+    {
+      "time": "noon",
+      "source": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/dome-lamp/spring/noon.png",
+      "lampReference": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-89b7-7ab3-b213-d7adc0ce064f/exec-501b3bea-3166-4a24-a7c5-d07783174ec5.png",
+      "destination": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/spring/noon.png",
+      "prompt": "Use case: precise-object-edit. Asset type: complete spring noon room plate.\nInput 1 is the ONLY EDIT TARGET: the spring noon room. Input 2 is REFERENCE ONLY, used solely to copy the approved slim desk lamp design and its exact registration.\nReplace ONLY the black dome shade and warm-white thick pedestal desk lamp on the right side of the desk in input 1 with the identical thin champagne brushed-metal LED bar lamp from input 2. Copy its shape, proportions and placement exactly: horizontal slim bar x1049..1137 y470..476, narrow upright stem x1131..1137 y474..554, low thin oval base x1108..1153 y554..563 in the original 1672x941 image coordinates. Bar reaches left from top of stem. LED OFF, no emitted light and no new glow. Render in the existing hand-painted matte illustration with restrained metallic highlights matching input 1 lighting.\nCompletely remove old dome and pedestal within x1071..1184 y485..566 and faithfully reconstruct the tiny hidden patch of spring cherry blossoms and river behind the removed shade, while keeping the new slim lamp in front.\nSTRICT INVARIANTS: preserve input 1's spring cherry-blossom foliage, noon sky colors and cloud shapes, all city buildings and river reflections, architecture, window frame, desk, dark monitor, ivory HHKB keyboard, cups, books, objects, chair, entire articulated floor lamp on viewer-left of lounge chair, room lighting, rug, floors, shelves, left tree and ceiling EXACTLY. Keep original 1672x941 full canvas, identical framing, no crop, no zoom, no reposition. Do not import autumn foliage or noon lighting from input 2. Change nothing except this single desk lamp and its occluded background. No clock/calendar, no new objects, no text, no watermark.",
+      "width": 1672,
+      "height": 941,
+      "sha256": "e7c69ed8cee6f3d946d399af6040a3e59efc1fce3a69d456db8e347a9e7ebfbe",
+      "verification": "Visually inspected full output: spring/time colors, framing, architecture and objects retained; approved slim brushed-metal lamp replaces dome, light off."
+    },
+    {
+      "time": "afternoon",
+      "source": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/dome-lamp/spring/afternoon.png",
+      "lampReference": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-89b7-7ab3-b213-d7adc0ce064f/exec-1723a220-0c03-407f-a075-810ca07259fc.png",
+      "destination": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/spring/afternoon.png",
+      "prompt": "Use case: precise-object-edit. Asset type: complete spring afternoon room plate.\nInput 1 is the ONLY EDIT TARGET: the spring afternoon room. Input 2 is REFERENCE ONLY, used solely to copy the approved slim desk lamp design and its exact registration.\nReplace ONLY the black dome shade and warm-white thick pedestal desk lamp on the right side of the desk in input 1 with the identical thin champagne brushed-metal LED bar lamp from input 2. Copy its shape, proportions and placement exactly: horizontal slim bar x1049..1137 y470..476, narrow upright stem x1131..1137 y474..554, low thin oval base x1108..1153 y554..563 in the original 1672x941 image coordinates. Bar reaches left from top of stem. LED OFF, no emitted light and no new glow. Render in the existing hand-painted matte illustration with restrained metallic highlights matching input 1 lighting.\nCompletely remove old dome and pedestal within x1071..1184 y485..566 and faithfully reconstruct the tiny hidden patch of spring cherry blossoms and river behind the removed shade, while keeping the new slim lamp in front.\nSTRICT INVARIANTS: preserve input 1's spring cherry-blossom foliage, afternoon sky colors and cloud shapes, all city buildings and river reflections, architecture, window frame, desk, dark monitor, ivory HHKB keyboard, cups, books, objects, chair, entire articulated floor lamp on viewer-left of lounge chair, room lighting, rug, floors, shelves, left tree and ceiling EXACTLY. Keep original 1672x941 full canvas, identical framing, no crop, no zoom, no reposition. Do not import autumn foliage or noon lighting from input 2. Change nothing except this single desk lamp and its occluded background. No clock/calendar, no new objects, no text, no watermark.",
+      "width": 1672,
+      "height": 941,
+      "sha256": "4c9014dac6ae51bb48114577d527256d41d6301bc4a624566aa430d340c20ea8",
+      "verification": "Visually inspected full output: spring/time colors, framing, architecture and objects retained; approved slim brushed-metal lamp replaces dome, light off."
+    },
+    {
+      "time": "evening",
+      "source": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/dome-lamp/spring/evening.png",
+      "lampReference": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-89b7-7ab3-b213-d7adc0ce064f/exec-2cd39f35-e580-4ec3-8076-c63b18e623c1.png",
+      "destination": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/spring/evening.png",
+      "prompt": "Use case: precise-object-edit. Asset type: complete spring evening room plate.\nInput 1 is the ONLY EDIT TARGET: the spring evening room. Input 2 is REFERENCE ONLY, used solely to copy the approved slim desk lamp design and its exact registration.\nReplace ONLY the black dome shade and warm-white thick pedestal desk lamp on the right side of the desk in input 1 with the identical thin champagne brushed-metal LED bar lamp from input 2. Copy its shape, proportions and placement exactly: horizontal slim bar x1049..1137 y470..476, narrow upright stem x1131..1137 y474..554, low thin oval base x1108..1153 y554..563 in the original 1672x941 image coordinates. Bar reaches left from top of stem. LED OFF, no emitted light and no new glow. Render in the existing hand-painted matte illustration with restrained metallic highlights matching input 1 lighting.\nCompletely remove old dome and pedestal within x1071..1184 y485..566 and faithfully reconstruct the tiny hidden patch of spring cherry blossoms and river behind the removed shade, while keeping the new slim lamp in front.\nSTRICT INVARIANTS: preserve input 1's spring cherry-blossom foliage, evening sky colors and cloud shapes, all city buildings and river reflections, architecture, window frame, desk, dark monitor, ivory HHKB keyboard, cups, books, objects, chair, entire articulated floor lamp on viewer-left of lounge chair, room lighting, rug, floors, shelves, left tree and ceiling EXACTLY. Keep original 1672x941 full canvas, identical framing, no crop, no zoom, no reposition. Do not import autumn foliage or noon lighting from input 2. Change nothing except this single desk lamp and its occluded background. No clock/calendar, no new objects, no text, no watermark.",
+      "width": 1672,
+      "height": 941,
+      "sha256": "4772eecbcfd0090ac1d3044eddc49bcac5b48d28a1ea0c57e800339706b1d211",
+      "verification": "Visually inspected full output: spring/time colors, framing, architecture and objects retained; approved slim brushed-metal lamp replaces dome, light off."
+    },
+    {
+      "time": "night",
+      "source": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/dome-lamp/spring/night.png",
+      "lampReference": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f6f8-89b7-7ab3-b213-d7adc0ce064f/exec-73ee3a3e-686f-471e-8367-71e4792d6f73.png",
+      "destination": "/Users/cillian/Documents/Github/Projects/t1seo.github.io/asset-sources/seoul-studio/modern-lamp/spring/night.png",
+      "prompt": "Use case: precise-object-edit. Asset type: complete spring night room plate.\nInput 1 is the ONLY EDIT TARGET: the spring night room. Input 2 is REFERENCE ONLY, used solely to copy the approved slim desk lamp design and its exact registration.\nReplace ONLY the black dome shade and warm-white thick pedestal desk lamp on the right side of the desk in input 1 with the identical thin champagne brushed-metal LED bar lamp from input 2. Copy its shape, proportions and placement exactly: horizontal slim bar x1049..1137 y470..476, narrow upright stem x1131..1137 y474..554, low thin oval base x1108..1153 y554..563 in the original 1672x941 image coordinates. Bar reaches left from top of stem. LED OFF, no emitted light and no new glow. Render in the existing hand-painted matte illustration with restrained metallic highlights matching input 1 lighting.\nCompletely remove old dome and pedestal within x1071..1184 y485..566 and faithfully reconstruct the tiny hidden patch of spring cherry blossoms and river behind the removed shade, while keeping the new slim lamp in front.\nSTRICT INVARIANTS: preserve input 1's spring cherry-blossom foliage, night sky colors and cloud shapes, all city buildings and river reflections, architecture, window frame, desk, dark monitor, ivory HHKB keyboard, cups, books, objects, chair, entire articulated floor lamp on viewer-left of lounge chair, room lighting, rug, floors, shelves, left tree and ceiling EXACTLY. Keep original 1672x941 full canvas, identical framing, no crop, no zoom, no reposition. Do not import autumn foliage or noon lighting from input 2. Change nothing except this single desk lamp and its occluded background. No clock/calendar, no new objects, no text, no watermark.",
+      "width": 1672,
+      "height": 941,
+      "sha256": "0078c1c0ff42bbb05ef6821b7441d41d764023d48c5d172ba8ce60456e66f0f6",
+      "verification": "Visually inspected full output: spring/time colors, framing, architecture and objects retained; approved slim brushed-metal lamp replaces dome, light off."
+    }
+  ]
+}

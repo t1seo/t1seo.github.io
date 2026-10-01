@@ -1,0 +1,265 @@
+{
+  "format": "WebP quality 90; subpixel dimension normalization by ffmpeg only when needed",
+  "plates": [
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/spring/morning.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/morning.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "3541aac00c5ae57edbf6a4cf0fe8ff515c7b20fc2c9fc54c0a886cc10a9a4575"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/spring/noon.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/noon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "37d88ef1bbe59f5719f13ced5b74a12248ae50f93ffde11de70f9d6e8a22a9d1"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/spring/afternoon.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "796c1a4bd0429fbac950a1f32d69151a3d1a0e02cc8534149ebd5ff0a2e0f3ac"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/spring/evening.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/evening.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "1841936e1d5966efa30a096d7296888fe51ecf7c355591892df982b237d79e9a"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/spring/night.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/spring/night.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "8be366e10ad316d9174b22c0f45c148e3f978008fde828b8812eaa1a994f7f8e"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/summer/morning.png",
+      "sourceSize": [
+        1671,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/morning.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "6bc71c8a9c874612d873424aa043df15122f002512c8cddcaae6de43fc5cb600"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/summer/noon.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/noon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "79fc035370864195e11c375b2bda15e98d861ae5bda2f6a95cbd5c2318f2db75"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/summer/afternoon.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "7dc714da8c03be0625759b2dad16d245f97f923aa8b43d9e1a990edf9b020e02"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/summer/evening.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/evening.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "467863f4c7763cfad74916a1f7bf8bf7d3ff3cea7ac4a52657810c5588fcaf94"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/summer/night.png",
+      "sourceSize": [
+        1671,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/summer/night.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "dd4474904ba3465a3722b190199d6abbb0fb74c24382e3f23642b109b12d257a"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/autumn/morning.png",
+      "sourceSize": [
+        1670,
+        942
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/morning.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "707fc523bfed3553646a37f11ff0595a639fcb7f5617124fe727c6f1483c455e"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/autumn/noon.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/noon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "405833a3b0854f5b3523e585aa435ad55ac825a32df65af17a631f5aa39bfd85"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/autumn/afternoon.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/afternoon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "6146b08c4984a4156f41a67ca6bde3c6f7f95d132580e6d5376a6092941b6076"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/autumn/evening.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/evening.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "153086514350ede0543115555963056adfe3f30f10923274891422c29fb76f44"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/autumn/night.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/autumn/night.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "11b5491bc6976ea16f31a07315fb8f8d7c9ed6fa796d41d1645c7e53c1f32cd3"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/winter/morning.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/morning.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "0f399c1e8f423fb4a46ac94366c6dd9eabaff6f5ec2e29e68d434a484e00cd29"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/winter/noon.png",
+      "sourceSize": [
+        1671,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/noon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "e8f8b547264413b009eb57cea9fd60ebf3971fb65982cf267b3ed716116b4ba8"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/winter/afternoon.png",
+      "sourceSize": [
+        1671,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "80344b1b358babc39ae8314d92db1a3d5965677281afd17bb39ef1614488f308"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/winter/evening.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/evening.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "03c6ba338d112bfb535a71e019548da6718757e8ddfed00639a0c83a4c15784b"
+    },
+    {
+      "source": "asset-sources/seoul-studio/modern-lamp/winter/night.png",
+      "sourceSize": [
+        1672,
+        941
+      ],
+      "runtime": "public/assets/penthouse/seoul/winter/night.webp",
+      "runtimeSize": [
+        1672,
+        941
+      ],
+      "sha256": "745a7789a448c7ea2818a5b4c77a0dedd15a13be9424674aee6143ee155c89c0"
+    }
+  ]
+}
