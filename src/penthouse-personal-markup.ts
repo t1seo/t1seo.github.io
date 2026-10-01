@@ -15,23 +15,24 @@ export function focusMarkup(): string {
 }
 
 export function memoMarkup(): string {
-  return `<p class="ph-overline">A THOUGHT, KEPT CLOSE</p><h2 id="ph-dialog-title">Your desk note.</h2>
-    <label class="ph-field-label" for="desk-note">A thought or a few things for today</label>
+  return `<p class="ph-overline">JUST FOR YOU</p><h2 id="ph-dialog-title">Your desk note.</h2>
+    <p class="ph-panel-intro">A thought to return to. Private, and saved in this browser only.</p>
+    <label class="ph-field-label" for="desk-note">What's on your mind?</label>
     <textarea id="desk-note" class="ph-note" data-personal-memo maxlength="2000" rows="9" placeholder="Leave yourself a little note…"></textarea>
     <div class="ph-note-footer"><span data-memo-count>0 / 2,000</span><button type="button" data-action="memo-clear">Clear note</button></div>
     <p class="ph-personal-status" data-memo-status role="status"></p>
-    <p class="ph-panel-note">Saved as you write, in this browser only. Clearing browser data removes your note.</p>`;
+    <p class="ph-panel-note">Saved as you write. Clearing browser data removes your note.</p>`;
 }
 
 export function presetsMarkup(): string {
-  return `<section class="ph-presets" aria-labelledby="presets-heading">
-    <h3 id="presets-heading">Your atmospheres</h3>
+  return `<details class="ph-panel-disclosure ph-presets">
+    <summary id="presets-heading">Your saved atmospheres</summary>
     <p class="ph-panel-note">Keep up to five combinations of weather, lighting and sound.</p>
     <label class="ph-field-label" for="atmosphere-name">Name this atmosphere</label>
     <div class="ph-preset-save"><input id="atmosphere-name" data-preset-name type="text" maxlength="40" placeholder="Rainy evening" autocomplete="off"><button type="button" data-action="preset-save">Save current</button></div>
     <div class="ph-preset-list" data-preset-list></div>
     <p class="ph-personal-status" data-preset-status role="status"></p>
-  </section>`;
+  </details>`;
 }
 
 export function mixerMarkup(): string {

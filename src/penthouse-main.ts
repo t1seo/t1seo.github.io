@@ -19,6 +19,7 @@ import './penthouse-seasonal-decor.css';
 import './penthouse-opening-credits.css';
 import './penthouse-personal.css';
 import './penthouse-object-lighting.css';
+import './penthouse-panels.css';
 const mount = document.querySelector<HTMLDivElement>('#app');
 if (!mount) throw new Error('Studio mount element is missing.');
 const root: HTMLDivElement = mount;
@@ -83,7 +84,6 @@ const personal = mountPersonalTools(root, {
     });
   },
 });
-
 function updatePlayback(next: CyberPlaybackState) {
   playing = next;
   root.querySelectorAll('[data-action="music"]').forEach(button => button.setAttribute('aria-pressed', String(next.enabled)));
@@ -124,8 +124,10 @@ function openPanel(name: string, trigger: HTMLElement) {
   scene.setPreview(null);
   panel = name === 'clock' || name === 'calendar' ? 'climate' : name;
   if (!dialog.open) opener = trigger;
+  dialog.dataset.panel = panel;
+  $('[data-panel-mixer]').hidden = panel !== 'climate';
   root.querySelectorAll<HTMLElement>('.ph-panel-nav [data-action]').forEach(button => {
-    if (button.dataset.action === panel) button.setAttribute('aria-current', 'page');
+    if (button.dataset.action === (panel === 'memo' ? 'workspace' : panel)) button.setAttribute('aria-current', 'page');
     else button.removeAttribute('aria-current');
   });
   content.innerHTML = panelMarkup(name);
@@ -140,12 +142,10 @@ function openPanel(name: string, trigger: HTMLElement) {
   personal.refresh();
   focusSession.refresh();
   if (!dialog.open) dialog.showModal();
-  else {
-    const heading = content.querySelector<HTMLElement>('h2');
-    heading?.setAttribute('tabindex', '-1');
-    heading?.focus();
-  }
-  dialog.scrollTop = 0;
+  const heading = content.querySelector<HTMLElement>('h2');
+  heading?.setAttribute('tabindex', '-1');
+  heading?.focus({ preventScroll: true });
+  $('[data-panel-scroll]').scrollTop = 0;
   pet.setActive(false);
 }
 

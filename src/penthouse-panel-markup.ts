@@ -4,14 +4,69 @@ import { focusMarkup, memoMarkup, presetsMarkup } from './penthouse-personal-mar
 
 const pretty = (value: string) => (value[0] ?? '').toUpperCase() + value.slice(1);
 const group = (key: string, values: readonly string[]) => `<fieldset><legend>${pretty(key)}</legend><div class="ph-options">${values.map(value => `<label><input type="radio" name="${key}" value="${value}"><span>${pretty(value)}</span></label>`).join('')}</div></fieldset>`;
+const action = (name: string, label: string) => `<button data-action="${name}">${label}<span aria-hidden="true">↗</span></button>`;
+
+function atmosphereMarkup(name: string): string {
+  return `<p class="ph-overline">SETTLE INTO THE MOMENT</p>
+    <h2 id="ph-dialog-title" tabindex="-1">${name === 'clock' ? 'Time & focus.' : 'Your atmosphere.'}</h2>
+    <p class="ph-panel-intro">A different light, a change of season. Make the room yours.</p>
+    ${name === 'clock' ? focusMarkup() : ''}
+    <div class="ph-auto">
+      <label><input type="checkbox" name="auto"> Follow my local time</label>
+      <p class="ph-local-status" data-local></p>
+      <button data-action="location">Use my location</button>
+      <p class="ph-panel-note">Location adds local weather. Approximate coordinates stay only for this visit.</p>
+    </div>
+    ${name === 'calendar' ? group('season', CYBER_SEASONS) + group('time', CYBER_TIMES) : group('time', CYBER_TIMES) + group('season', CYBER_SEASONS)}
+    ${group('weather', CYBER_WEATHER)}
+    <label class="ph-motion-control"><input type="checkbox" name="animated"> Animate the view</label>
+    <p class="ph-panel-note">Choosing a scene pauses Auto. Reduced motion keeps the room still.</p>
+    ${name === 'clock' ? '' : `<div class="ph-pet-actions">${action('clock', 'Open the focus timer')}</div>`}
+    ${presetsMarkup()}`;
+}
+
+function workspaceMarkup(): string {
+  return `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">Facing Seoul.</h2>
+    <p class="ph-panel-intro">A walnut desk, a quiet view, and a little space to think.</p>
+    <div class="ph-desk-detail"><canvas class="ph-desk-preview" aria-label="Close-up of the monitor, keyboard, small speaker, singing bowl, clock and tall desk lamp"></canvas>${roomTimeObjectsMarkup()}</div>
+    <div class="ph-quick-links">
+      <button data-action="memo"><strong>Your desk note <span aria-hidden="true">↗</span></strong><small>Private · saved in this browser</small></button>
+      <button data-action="guestbook"><strong>The guestbook <span aria-hidden="true">↗</span></strong><small>Public · a hello for everyone</small></button>
+    </div>
+    <section class="ph-panel-section" aria-label="Desk and lighting"><span class="ph-section-label">Desk & lighting</span><div class="ph-pet-actions ph-compact-actions">
+      <button data-action="monitor" aria-pressed="true"><span data-monitor-label>Turn off monitor</span><span aria-hidden="true">↗</span></button>
+      <button data-action="lamp" aria-pressed="true"><span data-lamp-label>Turn off desk light</span><span aria-hidden="true">↗</span></button>
+      <button data-action="floorLamp" aria-pressed="true"><span data-floorLamp-label>Turn off lounge light</span><span aria-hidden="true">↗</span></button>
+      ${action('clock', 'Focus timer')}
+    </div><p class="ph-workspace-status" role="status" data-workspace-status></p></section>
+    <section class="ph-panel-section" aria-label="Small rituals"><span class="ph-section-label">Small rituals</span><div class="ph-pet-actions ph-compact-actions">
+      ${action('coffee', 'Warm coffee')}${action('bowl', 'Singing bowl')}${action('diffuser', 'Reed diffuser')}${action('calendar', 'Saved atmospheres')}
+    </div></section>
+    <canvas class="ph-screen-preview" aria-label="Detailed studio screen showing a TypeScript editor, file list and the current Seoul view" hidden></canvas>
+    <details class="ph-panel-disclosure"><summary>The objects in the room</summary><p class="ph-panel-note">An Apple Studio Display, ivory HHKB, fountain pen and fabric-front speaker share the walnut desk. Switch the monitor off and on to replay the editor. Each lamp has its own light.</p><div class="ph-about-links"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">Objects, materials & research <span aria-hidden="true">↗</span></a></div></details>`;
+}
 
 export function panelMarkup(name: string): string {
   if (name === 'memo') return memoMarkup();
   if (name === 'guestbook') return '<h2 id="ph-dialog-title" tabindex="-1">Guestbook.</h2><p role="status">Opening the guestbook…</p>';
-  if (name === 'clock' || name === 'calendar' || name === 'climate') {
-    return `<p class="ph-overline">${name === 'calendar' ? 'A SEASON FOR EVERY MOOD' : 'MAKE THIS MOMENT YOURS'}</p><h2 id="ph-dialog-title" tabindex="-1">${name === 'calendar' ? 'Calendar & seasons' : name === 'clock' ? 'Time & atmosphere' : 'Room atmosphere'}</h2>${name === 'clock' ? focusMarkup() : ''}<p data-local></p><div class="ph-auto"><label><input type="checkbox" name="auto"> Follow my local time</label><button data-action="location">Use my location</button></div>${name === 'calendar' ? group('season', CYBER_SEASONS) + group('time', CYBER_TIMES) : group('time', CYBER_TIMES) + group('season', CYBER_SEASONS)}${group('weather', CYBER_WEATHER)}<div class="ph-auto"><label><input type="checkbox" name="animated"> Animate the view</label></div><p class="ph-panel-note">Clear nights bring slow city lights and an occasional shooting star. Rain leaves beads on the glass that dry gradually. Reduced motion keeps the scene still.</p><p class="ph-panel-note">The clock and calendar show your local date and time. A manual scene choice pauses Auto. Location is requested only with your permission. Approximate coordinates stay in memory.</p>` + presetsMarkup();
-  }
-  if (name === 'workspace') return `<p class="ph-overline">A PLACE FOR IDEAS</p><h2 id="ph-dialog-title">Facing Seoul.</h2><p>A walnut desk, an Apple Studio Display and a Happy Hacking Keyboard (HHKB). A tall graphite and bronze lamp lights the right side of the walnut desk. A digital clock sits between the lamp and a hand-hammered singing bowl; the clock and paper calendar open the room settings. A small fountain pen rests beside the keyboard, and a compact fabric-front speaker sits to the left of the monitor. Beside the window, the lounge has its own switchable floor lamp and an amber reed diffuser.</p><div class="ph-desk-detail"><canvas class="ph-desk-preview" aria-label="Close-up of the monitor, keyboard, small speaker, singing bowl, clock and tall desk lamp"></canvas>${roomTimeObjectsMarkup()}</div><div class="ph-pet-actions"><button data-action="guestbook">Open the guestbook<span aria-hidden="true">↗</span></button><button data-action="memo">Open your desk note<span aria-hidden="true">↗</span></button><button data-action="monitor" aria-pressed="false"><span data-monitor-label>Turn on monitor</span><span aria-hidden="true">↗</span></button><button data-action="lamp" aria-pressed="false"><span data-lamp-label>Turn on desk light</span><span aria-hidden="true">↗</span></button><button data-action="coffee">Enjoy a warm coffee<span aria-hidden="true">↗</span></button><button data-action="bowl">Ring the singing bowl<span aria-hidden="true">↗</span></button><button data-action="floorLamp" aria-pressed="true"><span data-floorLamp-label>Turn off lounge light</span><span aria-hidden="true">↗</span></button><button data-action="diffuser">Enjoy the reed diffuser<span aria-hidden="true">↗</span></button></div><p class="ph-panel-note">The monitor is on when you arrive. Turn it off and on to watch the editor write again. Ring the bowl for a soft, fading note, or enjoy a little fragrance from the reed diffuser beside the lounge chair. Both lights can be switched independently.</p><p class="ph-workspace-status" role="status" data-workspace-status></p><canvas class="ph-screen-preview" aria-label="Detailed studio screen showing a TypeScript editor, file list and the current Seoul view" hidden></canvas><div class="ph-objects"><article><div class="ph-object-art"><img src="/assets/penthouse/objects/fountain-pen.webp" alt="Painted capped black and gold fountain pen" width="1981" height="794" loading="lazy"></div><h3>A place for a thought.</h3><p>A small black and gold fountain pen inspired by Montblanc, resting directly on the walnut desk.</p></article><article><div class="ph-object-art"><img src="/assets/penthouse/objects/petite-speaker.webp" alt="Painted small charcoal speaker with a warm fabric grille and bronze knob" width="528" height="302" loading="lazy"></div><h3>Room for a record.</h3><p>A little speaker with a woven fabric grille, charcoal shell, bronze dial and warm walnut feet.</p><button class="ph-object-play" data-action="music" aria-pressed="false">Play / pause room music</button></article></div><p class="ph-panel-note"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The objects, materials &amp; research ↗</a></p>`;
-  if (name === 'milky') return `<p class="ph-overline">THE ONE WARM EXCEPTION</p><h2 id="ph-dialog-title">Meet Milky.</h2><p>A little Maltese, with the run of the place.</p><div class="ph-pet-actions">${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['bed','Rest in the soft bed'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([action,label])=>`<button data-action="${action}">${label}<span aria-hidden="true">↗</span></button>`).join('')}</div><p class="ph-panel-note">Drag the red ball across the floor to roll it for Milky, or click it to play. You can also click Milky in the room. When focused, arrow keys walk, S sits and N naps.</p>`;
-  return `<p class="ph-overline">TAEWON SEO / THE SEOUL STUDIO</p><h2 id="ph-dialog-title">Seoul, in view.</h2><p>A wide window straight ahead. A desk facing the Han River, with N Seoul Tower on the horizon. A quiet lounge, warm shelves and a soft bed for Milky in the corner.</p><p>Four seasons and five times of day change the illustrated Seoul view. Auto follows your local clock; permitted location adds your local weather. Choose any season, time or weather in Atmosphere.</p><div class="ph-about-links"><a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">The fountain pen &amp; desktop audio <span>↗</span></a><a href="/design/research/penthouse-layout/report.html" target="_blank" rel="noopener">Compare the new room layout <span>↗</span></a><a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">The workspace & living weather research <span>↗</span></a><a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Read the design research <span>↗</span></a><a href="/?interior=original">Visit the original studio <span>↗</span></a><a href="/?interior=noir">Visit the first Noir restyle <span>↗</span></a><a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span>↗</span></a></div>`;
+  if (name === 'clock' || name === 'calendar' || name === 'climate') return atmosphereMarkup(name);
+  if (name === 'workspace') return workspaceMarkup();
+  if (name === 'milky') return `<p class="ph-overline">YOUR LITTLE ROOMMATE</p><h2 id="ph-dialog-title">Meet Milky.</h2>
+    <p class="ph-panel-intro">A little Maltese, with the run of the place.</p>
+    <span class="ph-section-label">Spend a moment together</span><div class="ph-pet-actions ph-compact-actions">
+      ${[['pet','Say hello'],['sit','Sit with me'],['sleep','Take a nap'],['bed','Rest in the bed'],['feed','Dinner time'],['play','Play ball'],['run','A little run']].map(([name,label]) => action(name ?? '', label ?? '')).join('')}
+    </div><div class="ph-auto ph-milky-note"><p>Roll the red ball across the floor and Milky will follow. A short drag makes a gentle roll; a longer one invites a chase.</p><p class="ph-panel-note">You can also click Milky. With Milky focused, use the arrow keys to walk, S to sit and N to nap.</p></div>`;
+  return `<p class="ph-overline">A PERSONAL SPACE BY TAEWON SEO</p><h2 id="ph-dialog-title">Seoul, in view.</h2>
+    <p class="ph-panel-intro">A quiet room above the Han River. A desk facing the horizon, warm shelves, and a soft corner for Milky.</p>
+    <p>Four seasons, five times of day, and weather on the glass. Stay a while, put a record on, or leave a hello in the guestbook.</p>
+    <div class="ph-pet-actions">${action('guestbook', 'Leave a little hello')}${action('climate', 'Find your atmosphere')}</div>
+    <details class="ph-panel-disclosure"><summary>Behind the room</summary><p class="ph-panel-note">The view is an illustration of Seoul. Auto follows your local clock; optional location adds your local weather.</p><div class="ph-about-links">
+      <a href="/design/research/penthouse-objects/report.html" target="_blank" rel="noopener">Objects & materials <span aria-hidden="true">↗</span></a>
+      <a href="/design/research/penthouse-layout/report.html" target="_blank" rel="noopener">Room composition <span aria-hidden="true">↗</span></a>
+      <a href="/design/research/penthouse-atmosphere/report.html" target="_blank" rel="noopener">Living weather <span aria-hidden="true">↗</span></a>
+      <a href="/design/research/penthouse-rebuild/report.html" target="_blank" rel="noopener">Design journal <span aria-hidden="true">↗</span></a>
+      <a href="/?interior=original">The original studio <span aria-hidden="true">↗</span></a>
+      <a href="/?interior=noir">The first Noir restyle <span aria-hidden="true">↗</span></a>
+      <a href="/assets/music/CREDITS.html" target="_blank" rel="noopener">Music credits <span aria-hidden="true">↗</span></a>
+    </div></details>`;
 }
