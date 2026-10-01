@@ -1,0 +1,115 @@
+{
+  "generationDate": "2026-10-01",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "stylized-concept",
+  "promptFile": "prompt.txt",
+  "prompt": "Use case: stylized-concept.\nAsset type: one transparent hand-painted photo album sprite for a richly painted 2.5D illustrated Seoul riverfront room.\nPrimary request: A single refined closed memorial photograph album, standing upright on its bottom edge. Tall narrow proportions, quiet and dignified, treasured handmade keepsake. Muted olive-sage linen cloth wrapped boards, warm cream thick pages, a narrow rounded cloth spine on the left, subtle finely painted cloth grain and softly worn corners. A restrained thin antique-brass debossed rectangular border centered on the front cover; the cover interior must be completely blank, with no picture, no symbol and no text. Exact lettering will be typeset later.\nStyle/medium: High quality tactile oil/gouache illustration with purposeful soft broad brush clusters and delicate secondary linen strokes. Painterly matte planes, beautiful controlled edges, modest dimensional depth. Matches a sophisticated warm oak and walnut room with luminous hand-painted afternoon Seoul city outside. Clearly an illustrated object, not a photoreal product image, not plastic 3D.\nComposition/registration: portrait canvas, width-to-height 52:92. Album silhouette approximately x8%..82% of canvas and y5%..94%. Main frontal cover has a very slight three-quarter perspective: left spine visible at the far left, front cover faces viewer almost straight on; right page edge barely visible, top edge subtle. Album bottom edge sits horizontally across y94%, allowing shelf alignment. The book is tall and slender with restrained realistic binding thickness. Entire object safely within canvas. NO floor, shelf, room, surface, wall or other object.\nLight/color: gentle upper-left neutral daylight and subtle warm top shelf lighting, modest soft self-shading on the left spine, muted desaturated sage/olive with warm grey and cream page edges; no dramatic contrast and no harsh shadow cast.\nBackground: genuinely TRANSPARENT alpha outside the object, perfectly empty corners, no colored matte, no checkerboard texture; album itself opaque; short natural antialiased painted silhouette. No ground shadow floating below.\nConstraints: exactly one closed album. No separate props, no dog, no flowers, no photo, no ribbons, no stickers, no lettering, no watermark. The quiet memorial mood should come from fine cloth and understated craftsmanship, not ornamental decoration.\n",
+  "referenceInspection": {
+    "path": "public/assets/penthouse/seoul/spring/afternoon.webp",
+    "role": "Viewed before generation to describe the existing painterly materials and scene registration; not modified or sent as edit target."
+  },
+  "selectedOriginal": {
+    "path": "asset-sources/seoul-studio/milky-photo-album/milky-photo-album.png",
+    "dimensions": [
+      942,
+      1669
+    ],
+    "bytes": 3010081,
+    "sha256": "11ca4749df6a1e1c5247036d36a7bef9e458be94b31a8d0b63a2c438efcf6f43",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      47,
+      58,
+      928,
+      1621
+    ],
+    "alphaBoundsAt8": [
+      51,
+      61,
+      895,
+      1616
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "runtime": {
+    "path": "public/assets/penthouse/objects/milky-photo-album.webp",
+    "dimensions": [
+      312,
+      553
+    ],
+    "bytes": 45224,
+    "sha256": "fd7e34f91f274db97c62a95913fa65495277b5a379d32941983ff0985f392da1",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      14,
+      18,
+      299,
+      538
+    ],
+    "alphaBoundsAt8": [
+      17,
+      20,
+      297,
+      536
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "conversion": {
+    "method": "Pillow Lanczos proportional RGBA downscale to 312x553, WebP quality93 method6",
+    "creativeEdits": "Only built-in ImageGen. No manual painting, alpha keying, background removal or warping of runtime image."
+  },
+  "registration": {
+    "recommendedSceneRect": [
+      1542,
+      291,
+      48,
+      92
+    ],
+    "shelfY": 383,
+    "opaqueBodyApprox": [
+      1545,
+      295,
+      43,
+      85
+    ],
+    "bottomContactApprox": [
+      1566,
+      380
+    ],
+    "coverTextContent": "2011-2026 Milky",
+    "coverTextRendering": "Exact accessible DOM text supplied by album UI; no AI lettering baked into artwork.",
+    "frontCoverNormalizedBounds": [
+      0.16,
+      0.11,
+      0.68,
+      0.81
+    ]
+  },
+  "validation": {
+    "alpha": "All four alpha corners are zero; opaque linen body and transparent exterior verified.",
+    "placementPreview": [
+      "qa-placement-day.jpg",
+      "qa-placement-detail.jpg"
+    ],
+    "previewMethod": "Read-only alpha composite onto existing spring afternoon room, at recommended scene rectangle; not a browser screenshot. Original room plate untouched.",
+    "observations": "Muted linen cloth, quiet thin brass frame and restrained binding details. Placed on third right shelf left of existing dark vase and framed photo, with no extra prop or text.",
+    "rootVisualApproval": "Root inspected full-room and detail placement previews and approved style plus scene rectangle [1542,291,48,92]."
+  }
+}
