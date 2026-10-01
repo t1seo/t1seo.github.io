@@ -46,6 +46,31 @@ export function milkyGaitStride(nominal: number, distance: number, startPhase = 
   return stride >= nominal * 0.86 && stride <= nominal * 1.16 ? stride : nominal;
 }
 
+/**
+ * Aim inside the support frame so it appears during deceleration, before the idle swap.
+ * Smoothstep's maximum slope is 1.5; cap its adjustment to keep cadence within ±35%.
+ * Short paths and some carried phases receive only a partial correction.
+ */
+export function milkyGaitFinishAdjustment(startPhase: number, distance: number, stride: number, frames = 8): number {
+  if (!(stride > 0) || !(distance > 0) || !Number.isFinite(startPhase)) return 0;
+  const cycles = distance / stride;
+  const over = (((startPhase + cycles - 0.5 - 0.5 / frames) % 1) + 1) % 1;
+  const adjustment = over <= 0.5 ? -over : 1 - over;
+  const cap = 0.35 * cycles / 1.5;
+  return Math.max(-cap, Math.min(cap, adjustment));
+}
+
+/**
+ * Keep phase continuous on retarget and increasing with distance under the adjustment cap.
+ * Fixed sprite frames still have residual foot drift; this only adjusts their timing.
+ */
+export function milkyGaitPhase(startPhase: number, travelled: number, distance: number, stride: number, adjustment: number): number {
+  if (!(stride > 0)) return startPhase;
+  const base = startPhase + Math.max(0, travelled) / stride;
+  if (adjustment === 0 || !(distance > 0)) return base;
+  return base + adjustment * smooth(clamp01(travelled / distance));
+}
+
 /** The gait advances by accumulated phase (cycles), so a new walk's stride never jumps a limb. */
 export function milkyGaitFrame(phase: number, frames = 8): number {
   if (!Number.isFinite(phase)) return 0;
