@@ -1,0 +1,306 @@
+{
+  "title": "2011-2026 Milky",
+  "source": "26 user-selected Milky photographs supplied through the local Downloads folder; originals remain outside the repository.",
+  "processing": {
+    "encoder": "Pillow 11.3.0 / WebP",
+    "quality": 90,
+    "method": 6,
+    "nativeDimensionsPreserved": true,
+    "cropped": false,
+    "upscaled": false,
+    "generativeEdits": false,
+    "metadataRemoved": [
+      "EXIF",
+      "XMP",
+      "ICC"
+    ]
+  },
+  "photos": [
+    {
+      "id": "milky-01",
+      "sourceSha256": "81fbaa5fe5b1709e310809c24ba2e5818b2b79a6bd14536b567bdb9771bb5efb",
+      "sourceBytes": 63201,
+      "outputSha256": "5070b538b4b862a7e1c7437cb7c4f3e6b9336fd3feed4dbf0a6ed3d1e96128ec",
+      "outputBytes": 25864,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-02",
+      "sourceSha256": "89a38fdbbc0de902a503309427f8e5096a0dd1b229785eecbd96d16345e16ebd",
+      "sourceBytes": 60322,
+      "outputSha256": "55c29fc141570dfb28ae1f8bb82c1032ed30fe6e9c28a48cca48d2fe90fd6e26",
+      "outputBytes": 25188,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-03",
+      "sourceSha256": "0c1017cf8a9125dc6383759ba2174114775f35197e3a57173c46b49014d6de9f",
+      "sourceBytes": 417326,
+      "outputSha256": "0d22bd575fceb9bfc2db8ab7addf94905182e9ea3fb87ce51788f647130ba3cc",
+      "outputBytes": 268878,
+      "dimensions": [
+        768,
+        1024
+      ]
+    },
+    {
+      "id": "milky-04",
+      "sourceSha256": "b792be9bf7f89e33e3bcc0e4724418bbc1c3559c3b16f14da6e217825f201ee9",
+      "sourceBytes": 34300,
+      "outputSha256": "22714564086c8c584558723cad74d519e59042280b8b2cbf81809525adfa66a4",
+      "outputBytes": 18490,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-05",
+      "sourceSha256": "14ec2fdfe77bb5e9f2708e182054371cc6650d4870175d4a1a7e72122aadcb23",
+      "sourceBytes": 88760,
+      "outputSha256": "d96ebae0efd30fe80461bf83146c9db7a341c083115fc91462ddd7221f434c57",
+      "outputBytes": 43624,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-06",
+      "sourceSha256": "77786e17766f6b87f2fd9fc74217baa849dcd057f5a4662c8ba01ccbb53e7a20",
+      "sourceBytes": 74495,
+      "outputSha256": "ebb76b0bf0a299f58d3a69a3a7e45bf76790bb6c5a7180966c5847d8f16d453f",
+      "outputBytes": 34512,
+      "dimensions": [
+        480,
+        360
+      ]
+    },
+    {
+      "id": "milky-07",
+      "sourceSha256": "76290f011cecf452670bc17cd5f6947bf6ce56741d36134739a58911b02c1fa9",
+      "sourceBytes": 68832,
+      "outputSha256": "78be073cd23872a07f3389c76659a47822852f7425d40b99d518b15d922b889d",
+      "outputBytes": 49534,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-08",
+      "sourceSha256": "48b9235dec0a7d2c363230afdc07f86c8fe83e6122e06c42da199ccb64d9b206",
+      "sourceBytes": 41845,
+      "outputSha256": "e863cc7294d5d84f0184efcf61075673cc09660b0f10eb98f1fb33bdf4e53074",
+      "outputBytes": 20490,
+      "dimensions": [
+        640,
+        360
+      ]
+    },
+    {
+      "id": "milky-09",
+      "sourceSha256": "c1dcb0f7c1a9e12401778cf0b922e5f7c6c58896944e58092b4cb15086a17dd7",
+      "sourceBytes": 39015,
+      "outputSha256": "13dbb588f5e83286f2f22ef40675074efac8703018b8f43d8dbe1168b093e912",
+      "outputBytes": 20202,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-10",
+      "sourceSha256": "56d5f52d2a09cc929cb9a9c9756ae2f7bcaa3b7cded2a453e5a7e8ff50b32692",
+      "sourceBytes": 42877,
+      "outputSha256": "428c7f9611e7dec00cf4110191215d426f2b684e74f0c1aceaeaf401510084be",
+      "outputBytes": 25866,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-11",
+      "sourceSha256": "7e41bf4788678a4b722ce3702b917f45a4fbd0e01579364c775569308ee23a2a",
+      "sourceBytes": 73948,
+      "outputSha256": "c382bb026b1d898faa5891bb7cf01f4c114fc2fb5908f9ec56ab34fc964cd53a",
+      "outputBytes": 35170,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-12",
+      "sourceSha256": "d58d5f456ed6ceddeb8352c3141ed7594b29b4b8f9ffe56e670339331baea8f1",
+      "sourceBytes": 72836,
+      "outputSha256": "46775722a1706d0536e547c1132fc26540eae8a614d0a83240c9ac8b9447d34d",
+      "outputBytes": 34442,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-13",
+      "sourceSha256": "3617b50eab761a2b9faa581c6a4361136e39abb1a5e059ac375239e872ba29dc",
+      "sourceBytes": 31168,
+      "outputSha256": "76639e56fbf75410fa111fa473f54d5d2df075ea568cbef40a71cdd1caa58ffe",
+      "outputBytes": 15124,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-14",
+      "sourceSha256": "3c23a6b59d979954c517a6e4f3d77add5ed79c623709b8037dced1a4b40b9cd5",
+      "sourceBytes": 146506,
+      "outputSha256": "6fbb902ad19f728013a80cee1f6724ad70f24ca8fea86f2d555d0d649e22fd42",
+      "outputBytes": 62356,
+      "dimensions": [
+        768,
+        1024
+      ]
+    },
+    {
+      "id": "milky-15",
+      "sourceSha256": "74f225d5dd2a3d192b4ae87a8747a61f955143602767ca7c32f7d47f65456355",
+      "sourceBytes": 182235,
+      "outputSha256": "25fc69bb4a01c1c32c7da73f48622ded5eb4aed42f0d41d588c8d2c1b431706e",
+      "outputBytes": 81890,
+      "dimensions": [
+        768,
+        1024
+      ]
+    },
+    {
+      "id": "milky-16",
+      "sourceSha256": "ea7d205b817ca71cc0716f62ab227a065ab73945add8e98ff2c96f70ab7678ac",
+      "sourceBytes": 104119,
+      "outputSha256": "3718ef2d406f0b99e435e5796dae3aa894ff91e8a80404d7950c1b78faab1421",
+      "outputBytes": 61052,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-17",
+      "sourceSha256": "08ca6980f6f6d3efcadd58be57b51309433d6184636cf4dcd659c0d472bb8dd0",
+      "sourceBytes": 39374,
+      "outputSha256": "04f2e5a16a52e61070e358a0fd05c13567bc7a5f49eb8f3c41204aca021be343",
+      "outputBytes": 19338,
+      "dimensions": [
+        640,
+        360
+      ]
+    },
+    {
+      "id": "milky-18",
+      "sourceSha256": "a9f3a60ccf1dc6c67804dc806effbda10086a1cd3211d4f845c109bb4a85e4c0",
+      "sourceBytes": 27697,
+      "outputSha256": "5956bf55882de37a9543c2f9c506a6703ce5246179674de8983219913a55ea2d",
+      "outputBytes": 12696,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-19",
+      "sourceSha256": "22c60f7db0a0da00c41b218a4fcfe67dd0767bf764c167b733321be954c9a15f",
+      "sourceBytes": 84318,
+      "outputSha256": "51e367237c4b95e4b9ae8756ce58d4dfeebd1efa46d5661463b24a7fcd51ce47",
+      "outputBytes": 42746,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-20",
+      "sourceSha256": "c0b359e1fbfdd2dd2dd3054c2d88db7dfdd3ce25e38f096b9f8b69a75f700d1e",
+      "sourceBytes": 76781,
+      "outputSha256": "bb22a9c52c7ca579b62482d62754ff00ab88f348f2b58949a755a445bb49cc4d",
+      "outputBytes": 55956,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-21",
+      "sourceSha256": "3da88e28f629b44e270ed40450084ee4e347488847dc38e5403bc30d433a2316",
+      "sourceBytes": 46724,
+      "outputSha256": "4f1e22961e892b2240353635e6ef3df74c31eb31fe6fe278a4aa6af0a2337be6",
+      "outputBytes": 28410,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-22",
+      "sourceSha256": "f2258c43d6d434cbb081b884f00c363c941bdbc4e3eda9d14ce8b70d31b10b67",
+      "sourceBytes": 67605,
+      "outputSha256": "88ed31ba912b13df346645fbbc70cb3cd382e80ef04c14a1621174c0e97bda62",
+      "outputBytes": 28434,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-23",
+      "sourceSha256": "aff0c59bdea541aebd316c6de2a9bbe02d983261c722f3f03e441d55abc61f95",
+      "sourceBytes": 38994,
+      "outputSha256": "ee96f52e5306ee659453b162f584bbecdabd2d657750e4df29469af43f1caf86",
+      "outputBytes": 21642,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-24",
+      "sourceSha256": "2b73549b4b9fe642fd7ce812e66f91c62933e44b09a34ec5fc4c24ec8316fd7e",
+      "sourceBytes": 49711,
+      "outputSha256": "67e9f1da0bcb1aba62998dba13bf3951dafd4bb59707f312f14c8ec608fed8c3",
+      "outputBytes": 32212,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-25",
+      "sourceSha256": "97962ae1c33e5ef92a2ad248d378bf71e60e4d1dc11ecc836be333967c39fe10",
+      "sourceBytes": 88226,
+      "outputSha256": "2a88c7745c6e4665efde7459c1211022ffd932ff7c1c784f88a553b4af9c0ad3",
+      "outputBytes": 42470,
+      "dimensions": [
+        360,
+        480
+      ]
+    },
+    {
+      "id": "milky-26",
+      "sourceSha256": "87afef91f3d5e35de3be7dcd902d7add9a51bd871cb26087151d4a9d9606de96",
+      "sourceBytes": 39453,
+      "outputSha256": "868a83a6f5bbe4866cd9961aedf47e2bd0b735a09176661e2f068780df58083d",
+      "outputBytes": 20918,
+      "dimensions": [
+        360,
+        480
+      ]
+    }
+  ]
+}
