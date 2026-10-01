@@ -13,7 +13,7 @@ test('coffee releases visible steam from the desk cup only after a click', () =>
   room.savorCoffee('desk');
   advance(room, 1);
   assert.equal(room.active, true);
-  assert.ok(room.steamWisps().some(wisp => wisp.opacity > 0));
+  assert.ok(room.steamWisps().every(wisp => wisp.opacity >= .09 && wisp.opacity <= .14));
   assert.ok(room.steamWisps().every(wisp => wisp.x > 587 && wisp.x < 623 && wisp.y <= 520));
 });
 
@@ -76,8 +76,8 @@ test('diffuser fragrance begins only on a click and rises gently from the bottle
   assert.equal(room.active, true);
   assert.equal(wisps.length, 2);
   assert.ok(wisps.every(wisp => wisp.x > 110 && wisp.x < 138 && wisp.y >= 609 && wisp.y <= 612));
-  assert.ok(wisps.every(wisp => wisp.y - wisp.height < 590 && wisp.opacity > 0 && wisp.opacity < .04));
-  assert.ok(wisps.every(wisp => wisp.width < 2 && Math.abs(wisp.bend) > 5));
+  assert.ok(wisps.every(wisp => wisp.y - wisp.height < 590 && wisp.opacity >= .05 && wisp.opacity < .09));
+  assert.ok(wisps.every(wisp => wisp.width >= 1.5 && wisp.width < 2.1 && Math.abs(wisp.bend) > 5));
   assert.deepEqual(room.steamWisps(), []);
 });
 
@@ -97,4 +97,20 @@ test('clearing the room removes both coffee and diffuser effects', () => {
   assert.equal(room.active, false);
   assert.deepEqual(room.fragranceWisps(), []);
   assert.deepEqual(room.steamWisps(), []);
+});
+
+test('coffee stays translucent and stronger than the slower fragrance during the visible plateau', () => {
+  const room = new RoomLife();
+  room.savorCoffee('desk');
+  room.scentDiffuser();
+  advance(room, 1.5);
+  const before = room.fragranceWisps();
+  room.advance(1 / 30);
+  const after = room.fragranceWisps();
+  assert.ok(room.steamWisps().every(wisp => wisp.opacity < .14));
+  assert.ok(after.every(wisp => wisp.opacity < Math.min(...room.steamWisps().map(steam => steam.opacity))));
+  assert.ok(after.every((wisp, index) => {
+    const previous = before.at(index);
+    return previous && Math.abs(wisp.x - previous.x) < .1 && Math.abs(wisp.bend - previous.bend) < .1;
+  }));
 });

@@ -50,10 +50,10 @@ export class RoomLife {
       return {
         x: x + (index - 1) * 5 + Math.sin(phase) * 1.8,
         y: y - 1 - Math.sin(phase * .65) ** 2 * 2,
-        width: 2.4 + Math.sin(phase * .7) ** 2 * 1.8,
-        height: 27 + index * 5 + Math.sin(phase) * 5 + Math.min(age, 2) * 4,
+        width: 2.6 + Math.sin(phase * .7) ** 2 * 1.6,
+        height: 30 + index * 5 + Math.sin(phase) * 5 + Math.min(age, 2) * 4,
         bend: Math.sin(phase * .7 + index) * 5,
-        opacity: fade * (.065 + Math.sin(phase * .6) ** 2 * .035),
+        opacity: fade * (.095 + Math.sin(phase * .6) ** 2 * .04),
       };
     });
   }
@@ -69,10 +69,10 @@ export class RoomLife {
       return {
         x: x + (index - .5) * 8 + Math.sin(phase) * 3,
         y: y - .5 - Math.sin(phase) ** 2 * .8,
-        width: 1.15 + Math.sin(phase) ** 2 * .25,
-        height: 32 + index * 5 + Math.sin(phase) * 3 + Math.min(age, 2) * 4,
+        width: 1.65 + Math.sin(phase) ** 2 * .35,
+        height: 36 + index * 5 + Math.sin(phase) * 3 + Math.min(age, 2) * 4,
         bend: 8 + Math.sin(phase * .8) * 7,
-        opacity: fade * (.02 + Math.sin(phase) ** 2 * .008),
+        opacity: fade * (.055 + Math.sin(phase) ** 2 * .015),
       };
     });
   }
@@ -122,7 +122,7 @@ export class RoomLife {
     for (const wisp of [...this.steamWisps(still), ...this.fragranceWisps(still)]) {
       for (let dab = 0; dab < 10; dab++) {
         const progress = (dab + .5) / 10;
-        const x = wisp.x + Math.sin(progress * Math.PI) * wisp.bend;
+        const x = wisp.x + Math.sin(progress * Math.PI) * wisp.bend + Math.sin(progress * Math.PI * 2) * wisp.width * .7;
         const y = wisp.y - progress * wisp.height;
         ctx.save(); ctx.translate(x, y); ctx.scale(wisp.width * (.55 + progress), 5.5);
         const wash = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
