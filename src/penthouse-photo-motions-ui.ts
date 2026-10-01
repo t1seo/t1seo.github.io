@@ -1,4 +1,4 @@
-import type { MilkyPhotoMotion } from './cyber-pet.ts';
+import type { MilkyPhotoMotion, MilkyPhotoMotionEvent } from './cyber-pet.ts';
 
 export const PHOTO_MOTION_ACTIONS = [
   { kind: 'tilt', label: 'A curious little tilt' },
@@ -20,6 +20,7 @@ type MotionView = {
 type MotionPet = {
   readonly canPhotoMotion: (kind: MilkyPhotoMotion) => boolean;
   readonly photoMotion: (kind: MilkyPhotoMotion) => boolean;
+  readonly subscribePhotoMotions: (listener: (event: MilkyPhotoMotionEvent) => void) => () => void;
 };
 
 export function photoMotionButtonsMarkup(): string {
@@ -32,6 +33,8 @@ export function mountPhotoMotionControls(view: MotionView, pet: MotionPet, isAni
   let buttonEvents = new AbortController();
   let boundButtons: readonly MotionButton[] = [];
   let unavailable = false;
+  let loading = false;
+  let requested: MilkyPhotoMotion | undefined;
   let destroyed = false;
   const canStart = (kind: MilkyPhotoMotion) => !destroyed && !reduced.matches && isAnimated() && pet.canPhotoMotion(kind);
 
@@ -46,8 +49,11 @@ export function mountPhotoMotionControls(view: MotionView, pet: MotionPet, isAni
         button.addEventListener('click', () => {
           const action = PHOTO_MOTION_ACTIONS.find(({ kind }) => kind === button.dataset.photoMotion);
           if (!action || button.disabled || !canStart(action.kind)) { refresh(); return; }
+          requested = action.kind;
+          unavailable = false;
+          loading = false;
           beforeStart();
-          unavailable = !pet.photoMotion(action.kind);
+          if (!pet.photoMotion(action.kind)) { unavailable = true; loading = false; requested = undefined; }
           refresh();
         }, { signal: buttonEvents.signal });
       }
@@ -60,14 +66,28 @@ export function mountPhotoMotionControls(view: MotionView, pet: MotionPet, isAni
     if (status) status.textContent = reduced.matches ? 'These moments rest while reduced motion is enabled.'
       : !isAnimated() ? 'Turn on “Animate the view” in Atmosphere to enjoy these moments.'
       : unavailable ? 'That moment is not ready yet. Please try again.'
+      : loading ? 'Getting this little moment ready…'
+      : buttons.length > 0 && buttons.every(button => button.disabled) ? 'Milky’s moments are not available in this view yet.'
       : !pet.canPhotoMotion('chin-rest') || !pet.canPhotoMotion('belly-up') ? 'The two bed moments need Milky’s bed in view. Try a wider window.'
       : 'Small moments inspired by Milky’s photographs. The last two take place in the bed.';
   }
 
   window.addEventListener('resize', refresh, { signal: abort.signal });
   reduced.addEventListener('change', refresh, { signal: abort.signal });
+  const unsubscribe = pet.subscribePhotoMotions(event => {
+    if (destroyed) return;
+    if (event.type === 'load' && event.kind === requested) {
+      loading = event.state === 'loading';
+      unavailable = event.state === 'failed';
+      if (!loading) requested = undefined;
+    }
+    refresh();
+  });
   return {
     refresh,
-    destroy() { destroyed = true; abort.abort(); buttonEvents.abort(); boundButtons = []; },
+    destroy() {
+      if (destroyed) return;
+      destroyed = true; unsubscribe(); abort.abort(); buttonEvents.abort(); boundButtons = [];
+    },
   };
 }

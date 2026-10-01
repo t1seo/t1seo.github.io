@@ -142,3 +142,96 @@ test('removes button, resize and motion listeners when the scene is destroyed', 
   assert.deepEqual(f.events, []);
   assert.equal(f.buttons.some(button => button.disabled), false);
 });
+
+test('enables an already open drawer when base artwork finishes decoding', t => {
+  // Given controls opened before the base artwork is ready.
+  const f = fixture(t);
+  f.state.ready = false;
+  f.controls.refresh();
+  assert.ok(f.buttons.every(button => button.disabled));
+  f.state.ready = true;
+  // When the controller announces its new availability.
+  f.emit({ type: 'availability' });
+  // Then the existing controls become usable without resize, reopen or polling.
+  assert.ok(f.buttons.every(button => !button.disabled));
+  assert.deepEqual(f.events, []);
+});
+
+test('retains an asynchronous failure when the visitor reopens the drawer', t => {
+  // Given an accepted deliberate action whose art later fails to load.
+  const f = fixture(t);
+  f.controls.refresh();
+  f.buttons[0]?.dispatchEvent(new Event('click'));
+  f.emit({ type: 'load', kind: 'tilt', state: 'failed' });
+  // When the visitor opens a freshly rendered Milky page.
+  f.reopen();
+  // Then the failure remains explained and the action permits a deliberate retry.
+  assert.match(f.status.textContent, /try again/i);
+  assert.equal(f.buttons[0]?.disabled, false);
+});
+
+test('observes a loading event emitted synchronously inside the deliberate request', t => {
+  // Given a button whose request starts loading immediately.
+  const f = fixture(t);
+  f.controls.refresh();
+  // When the visitor selects the action.
+  f.buttons[0]?.dispatchEvent(new Event('click'));
+  // Then the in-flight request has a status without a second activation.
+  assert.match(f.status.textContent, /getting.*ready/i);
+});
+
+test('ignores an older request failure after a newer deliberate action', t => {
+  // Given tilt loading followed by a newer request to rest.
+  const f = fixture(t);
+  f.controls.refresh();
+  f.buttons[0]?.dispatchEvent(new Event('click'));
+  f.buttons[1]?.dispatchEvent(new Event('click'));
+  const current = f.status.textContent;
+  // When the older tilt load fails.
+  f.emit({ type: 'load', kind: 'tilt', state: 'failed' });
+  // Then its stale failure does not replace the newer action's feedback.
+  assert.equal(f.status.textContent, current);
+  assert.doesNotMatch(f.status.textContent, /try again/i);
+});
+
+test('does not show an unrelated autonomous load failure as visitor feedback', t => {
+  // Given controls with no deliberate request.
+  const f = fixture(t);
+  f.controls.refresh();
+  const current = f.status.textContent;
+  // When an autonomous pant load fails.
+  f.emit({ type: 'load', kind: 'pant', state: 'failed' });
+  // Then the panel keeps its neutral guidance.
+  assert.equal(f.status.textContent, current);
+});
+
+test('clears failure feedback when the visitor deliberately retries', t => {
+  // Given a failed tilt and a fresh deliberate retry.
+  const f = fixture(t);
+  f.controls.refresh();
+  f.buttons[0]?.dispatchEvent(new Event('click'));
+  f.emit({ type: 'load', kind: 'tilt', state: 'failed' });
+  // When the same action is activated again.
+  f.buttons[0]?.dispatchEvent(new Event('click'));
+  // Then loading replaces the old failure immediately.
+  assert.match(f.status.textContent, /getting.*ready/i);
+  assert.doesNotMatch(f.status.textContent, /try again/i);
+});
+
+test('unsubscribes once and ignores queued controller events after destruction', t => {
+  // Given a destroyed controller UI with a formerly requested action.
+  const f = fixture(t);
+  f.controls.refresh();
+  f.buttons[0]?.dispatchEvent(new Event('click'));
+  f.controls.destroy();
+  const current = f.status.textContent;
+  f.state.ready = false;
+  // When an already queued callback arrives after teardown.
+  f.emitLate({ type: 'load', kind: 'tilt', state: 'failed' });
+  f.emitLate({ type: 'availability' });
+  f.controls.destroy();
+  // Then neither feedback nor availability changes, and the subscription is released once.
+  assert.equal(f.status.textContent, current);
+  assert.equal(f.buttons.some(button => button.disabled), false);
+  assert.equal(f.unsubscribes(), 1);
+});
