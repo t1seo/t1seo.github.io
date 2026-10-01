@@ -24,15 +24,48 @@ direction and the history of earlier iterations.
 | Milky, red ball and cushion | Say hello, walk, play, or rest; drag the ball to invite a chase |
 | Shelved photo album | Open **Milky’s Photo Album**, also available from the **Milky** panel |
 
-Milky's walking follows the distance travelled, with eased starts and stops. She
-makes a small hop into her cushion before settling down. With Milky focused, use
-the arrow keys to walk, **S** to sit and **N** to nap. The Desk panel provides a
-close-up when room objects are cropped on a narrow screen.
+Milky walks with four continuously animated painted legs: planted paws stay at
+their floor contact while the body advances, with eased starts and stops. Run
+and ball chases use a faster stepping rhythm. After a completed walk, the final
+neutral pose stays still without switching to a different idle image. Her small
+hop into the cushion retains its drawn airborne poses. The new walking artwork
+loads as one complete three-part set, with the original sprites kept as a fallback.
+
+With Milky focused, use the arrow keys to walk, **S** to sit and **N** to nap.
+The Desk panel provides a close-up when room objects are cropped on a narrow
+screen.
 
 The warm charcoal settings drawer groups **Atmosphere**, **Desk**, **Milky**,
 **Guestbook** and **About**. Controls are in English, support keyboard access,
 and respect still mode and reduced motion. **Immerse** clears the controls from
 the view.
+
+## Milky’s little moments
+
+Open **Milky → Little moments** for six quiet animations inspired by the album
+photographs:
+
+| Action | Moment |
+| --- | --- |
+| A curious little tilt | A small head tilt, a brief attentive pause, then a return to neutral |
+| Stretch out and rest | Milky lies down with both front paws stretched out |
+| A sleepy little peek | A drowsy head lift and a short look before settling back to sleep |
+| Catch your breath | A gentle pant with a little tongue showing, sometimes also seen after completed play or a run |
+| Rest your chin | Milky rests her chin on the cushion rim |
+| A comfy little roll | A slow roll onto her back in the bed, then back onto her side |
+
+Occasional variations also accompany greetings, quiet rests and naps. The two
+bed moments are unavailable when the cushion is outside the visible room crop;
+a wider window brings them back. All six controls are disabled while still mode
+or reduced motion is enabled. Lying moments also wait until the required rest
+poses are ready.
+
+Their illustrated frame groups load only for a requested motion or an eligible
+autonomous moment, with no more than two photo-frame decodes running at once
+across groups. Each complete group is ready before it appears, and a failed load
+leaves the existing Milky pose intact. See the
+[motion implementation guide](docs/MILKY-PHOTO-MOTIONS.md) for registration and
+lifecycle details.
 
 ## Fireworks and window credits
 
