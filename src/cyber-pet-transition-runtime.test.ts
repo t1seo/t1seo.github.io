@@ -81,7 +81,7 @@ test('reduced motion never starts a wake stretch or a delayed glance', async () 
   } finally { f.restore(); }
 });
 
-test('the shipped three-pose rest set still stretches without requesting absent wake art', async () => {
+test('the three-pose fallback still stretches when wake art is omitted', async () => {
   const f = fixture(7829, POSES, ['sit', 'drowsy', 'sleep'], true, floor,
     { x: 1440 / 1672, y: 865 / 941 }, { ballHome: { x: .52, y: .977 }, transitions: true });
   try {

@@ -17,7 +17,8 @@ const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replace("'./cyber-pet-transitions'", JSON.stringify(new URL('./cyber-pet-transitions.ts', import.meta.url).href))
   .replace("'./cyber-pet-hop'", JSON.stringify(new URL('./cyber-pet-hop.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-photo'", JSON.stringify(new URL('./cyber-pet-photo.ts', import.meta.url).href));
-const { mountCyberPet } = await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString('base64')}`) as typeof import('./cyber-pet');
+const { mountCyberPet, MILKY_PHOTO_REST } = await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString('base64')}`) as typeof import('./cyber-pet');
+export { MILKY_PHOTO_REST };
 
 type Task = { at: number; callback: () => void; kind: 'timer' | 'frame' };
 const rect = { left: 0, top: 0, width: 1672, height: 941 };

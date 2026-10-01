@@ -4,8 +4,7 @@ import { fixture } from './cyber-pet-test-support.ts';
 
 const floor = { left: .35, right: .66, top: .965, bottom: .99, footerInset: 0, desktopWidth: .12, portraitWidth: .11 };
 const anchor = { x: 1440 / 1672, y: 865 / 941 };
-// Realistic art context: only the actually shipped optional poses (blink) and rest set
-// (sit, drowsy, sleep) exist — no hypothetical wake/sitdown transitionals.
+// Exercise the decoded three-pose fallback; authored bridges have separate default-runtime coverage.
 const SHIPPED_REST = ['sit', 'drowsy', 'sleep'] as const;
 const setup = (seed = 7829) => fixture(seed, ['blink'], SHIPPED_REST, true, floor, anchor,
   { ballHome: { x: .52, y: .977 }, transitions: true }, { photoMotions: true });

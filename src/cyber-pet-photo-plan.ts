@@ -2,9 +2,9 @@
  * Pure sequencing for the six photo-inspired motions. Every plan is a list of held
  * raster postures at human-ease timings — authored intermediate frames, never
  * crossfades, ghosting, or whole-body scale/rotate fakery. Only actually decoded rest
- * art bridges into and out of the new frames: with the currently shipped set (sit,
- * drowsy, sleep) a prone body stands through drowsy → sit, and the optional wake /
- * sitdown transitionals take over automatically once root ships them. An interrupted
+ * art bridges into and out of the new frames: a decoded wake frame lifts a prone body,
+ * otherwise it stands through drowsy → sit. The controller adds decoded sitdown art
+ * before a standing body's descent. An interrupted
  * pose always finishes its authored reverse exit before anything else may happen.
  */
 import type { MilkyRandom } from './cyber-pet-roam.ts';

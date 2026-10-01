@@ -12,7 +12,7 @@ import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type Cli
 import { createCyberSound, type CyberPlaybackState } from './cyber-sound';
 import { MILKY_ALBUM_MUSIC_TRACK } from './cyber-music-catalog';
 import type { MusicSession } from './cyber-music-session';
-import { mountCyberPet } from './cyber-pet';
+import { mountCyberPet, MILKY_PHOTO_REST } from './cyber-pet';
 import { mountPenthouseScene } from './penthouse-scene';
 import { MILKY_STUDY_FLOOR } from './penthouse-atmosphere';
 import { updateRoomTimeObjects } from './penthouse-time-objects';
@@ -83,7 +83,7 @@ const automaticFireworks = mountAutomaticFireworks({
 function updateWindowAvailability() { stopOpeningCredits.resetIdle(); automaticFireworks.refresh(); }
 const stopFireworksCredits = scene.subscribeFireworks(updateWindowAvailability);
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
-const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
+const pet = mountCyberPet($('[data-pet]'), undefined, MILKY_PHOTO_REST, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
 }, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true }, { photoMotions: true });
 const photoMoments = mountPhotoMotionControls({

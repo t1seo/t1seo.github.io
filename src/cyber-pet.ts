@@ -20,6 +20,10 @@ import {
 
 export type { CyberPetPhotoOptions, MilkyPhotoMotion } from './cyber-pet-photo';
 
+export type MilkyPhotoMotionEvent =
+  | { readonly type: 'availability' }
+  | { readonly type: 'load'; readonly kind: MilkyPhotoMotion; readonly state: 'loading' | 'ready' | 'failed' };
+
 export interface CyberPetController {
   /** Milky notices you and chooses a small walk across the visible floor. */
   pet(): void;
@@ -45,6 +49,8 @@ export interface CyberPetController {
    * the modal-driven active flag and never issues a network request.
    */
   canPhotoMotion(kind: MilkyPhotoMotion): boolean;
+  /** Readiness updates for controls that may already be open when artwork decodes. */
+  subscribePhotoMotions(listener: (event: MilkyPhotoMotionEvent) => void): () => void;
   setAnimated(enabled: boolean): void;
   setActive(active: boolean): void;
   destroy(): void;
@@ -90,15 +96,17 @@ export const MILKY_SHIPPED_POSES: readonly MilkyPoseName[] = ['blink'];
 const REST_NAMES = ['sit', 'drowsy', 'sleep', 'sitdown', 'wake'] as const;
 /**
  * Rest poses confirmed shipped by root's art delivery (docs/MILKY-FABLE-REST-ASSET-BRIEF.md).
- * Only listed files are requested (no 404s for unproduced art). The optional sitdown/wake
- * transitionals are implemented but dormant until root confirms and lists them.
+ * Only listed files are requested. Archived rooms retain their original three-pose
+ * set; the active photo-motion room explicitly opts into the authored bridges.
  */
 export const MILKY_SHIPPED_REST: readonly MilkyRestPoseName[] = ['sit', 'drowsy', 'sleep'];
+export const MILKY_PHOTO_REST: readonly MilkyRestPoseName[] = [...MILKY_SHIPPED_REST, 'sitdown', 'wake'];
 // Delivered rest registration (milky-rest-registration.json): translate each pose's
 // support-footprint anchor (sit 889/977, drowsy 932/951, sleep 898/915) onto the shared
-// floor point (795, 970) at the common .847 scale. Transitionals ship unadjusted.
+// floor point (795, 970) at the common .847 scale. Bridge measurements are archived in
+// asset-sources/milky-photo-motions/bridges/registration.json.
 const REST_TRANSLATE: Record<MilkyRestPoseName, readonly [number, number]> = {
-  sit: [-94, -7], drowsy: [-137, 19], sleep: [-103, 55], sitdown: [0, 0], wake: [0, 0],
+  sit: [-94, -7], drowsy: [-137, 19], sleep: [-103, 55], sitdown: [-81.5, -3], wake: [-135, -2],
 };
 const ACTIVITY_NAMES = ['eat-low', 'eat-lift', 'play-bow', 'play-reach'] as const;
 const PROP_NAMES = ['bowl', 'ball'] as const;
@@ -277,6 +285,10 @@ export function mountCyberPet(
   let active = true;
   let animated = true;
   let destroyed = false;
+  const photoSubscribers = new Set<(event: MilkyPhotoMotionEvent) => void>();
+  function notifyPhotoMotions(event: MilkyPhotoMotionEvent) {
+    if (!destroyed) for (const listener of photoSubscribers) listener(event);
+  }
   let version: MilkyArtVersion = 'v4';
   let idleDecoded = false;
   let idleFailed = false;
@@ -420,31 +432,51 @@ export function mountCyberPet(
       }
     }
   }
+  function ensurePhotoMotion(kind: MilkyPhotoMotion) {
+    const state = photo?.ensure(kind);
+    switch (state) {
+      case 'loading':
+      case 'ready':
+      case 'failed':
+        notifyPhotoMotions({ type: 'load', kind, state });
+        break;
+      case 'idle':
+      case undefined:
+        break;
+      default: state satisfies never;
+    }
+    return state;
+  }
   function photoMotion(kind: MilkyPhotoMotion): boolean {
     if (!photo || !available() || !canPhotoMotion(kind)) return false;
-    const state = photo.ensure(kind);
+    clearPhotoIntents();
+    const state = ensurePhotoMotion(kind);
     if (state === 'failed') return false;
     if (state === 'ready') {
-      photo.clearIntent();
       beginPhoto(kind, false);
     } else photo.setIntent(kind);
     return true;
   }
   function photoGroupSettled(kind: MilkyPhotoMotion, groupReady: boolean) {
-    if (!photo || destroyed || !photo.takeIntent(kind)) return;
+    if (!photo || destroyed) return;
+    notifyPhotoMotions({ type: 'load', kind, state: groupReady ? 'ready' : 'failed' });
+    if (!photo.takeIntent(kind)) return;
     // A stale, canceled or deactivated context never starts from a late decode; on any
     // loading failure the previous working pose simply stays.
     if (!groupReady || !available() || !canPhotoMotion(kind)) return;
     beginPhoto(kind, false);
   }
   function runPhotoSteps(steps: MilkyPoseStep[], autonomous: boolean, done: () => void = settle) {
+    const sequence = button.dataset.pose === 'idle' && steps[0]?.pose === 'sit' && restReady('sitdown')
+      ? [{ pose: 'sitdown', hold: milkyRestTransitionHold('sitdown'), motion: 'resting' }, ...steps]
+      : steps;
     cancelAction();
     // A ball still rolling or airborne from the interrupted play keeps its shared
     // animation frame and lands normally; a photo pose never freezes it mid-air.
     if (ball && !ball.resting) ensureTick();
     autonomousAction = autonomous;
     const revision = actionRevision;
-    playPoseSteps(steps, 0, revision, () => finishRest(revision, done));
+    playPoseSteps(sequence, 0, revision, () => finishRest(revision, done));
   }
   /** The end-of-sequence stand, through whatever rest art actually decoded. */
   const photoStandBridge = (steps: readonly MilkyPhotoStep[]): MilkyPoseStep[] =>
@@ -512,9 +544,11 @@ export function mountCyberPet(
           // on the floor would be a lie; the latest bed intent waits for a real landing
           // instead, or re-enters freshly once the departure walk resolves (see settle).
           pendingBedPhoto = kind;
-        } else if (!bed.enter([], autonomous, (done) => {
-          if (!takePendingBedPhoto(done, autonomous)) startBedPhotoSequence(kind, done, autonomous);
-        })) settle();
+        } else wakeThenRun(() => {
+          if (!bed.enter([], autonomous, (done) => {
+            if (!takePendingBedPhoto(done, autonomous)) startBedPhotoSequence(kind, done, autonomous);
+          })) settle();
+        });
         break;
       }
       default: kind satisfies never;
@@ -527,7 +561,7 @@ export function mountCyberPet(
     if (photo.state(kind) !== 'ready') {
       // Only a never-tried group warms lazily; a failed one is never auto-retried —
       // a fresh fetch takes a deliberate explicit request.
-      if (photo.state(kind) === 'idle') photo.ensure(kind);
+      if (photo.state(kind) === 'idle') ensurePhotoMotion(kind);
       return false;
     }
     beginPhoto(kind, autonomous);
@@ -856,7 +890,7 @@ export function mountCyberPet(
       if (photo.state('sleepy-peek') === 'ready') {
         photo.markPerformed('sleepy-peek', view.performance.now());
         steps.push(...planMilkySleepyPeek({ sit: false, drowsy: false, sleep: true, wake: false, descend: false }));
-      } else if (photo.state('sleepy-peek') === 'idle') photo.ensure('sleepy-peek');
+      } else if (photo.state('sleepy-peek') === 'idle') ensurePhotoMotion('sleepy-peek');
     }
     if (stages.at(-1)?.pose === 'sleep' && restReady('wake')) steps.push({ pose: 'wake', hold: milkyRestTransitionHold('wake') });
     const stretch = bedWakeStretch(stages.at(-1)?.pose === 'sleep');
@@ -1307,6 +1341,7 @@ export function mountCyberPet(
     if (!available() || motionStopped()) { clearPhotoIntents(); settle(); }
     else if (button.dataset.motion === 'idle' && !bed.resume()) { queueRoam(); queueLife(); }
     syncToy();
+    notifyPhotoMotions({ type: 'availability' });
   }
   // The whole displayed set demotes together: a v4 face on the idle photo must never
   // alternate with a v3 face inside the gait. v3 remains the verified complete fallback.
@@ -1405,16 +1440,19 @@ export function mountCyberPet(
         if (!(error instanceof Error)) throw error;
         entry.ready = false;
         syncToy();
+        notifyPhotoMotions({ type: 'availability' });
         return;
       }
       if (destroyed || entry.disabled || entry.image.src !== loadedSrc || version !== 'v4') return;
       entry.ready = validPetRatio(entry.image);
       syncToy();
+      notifyPhotoMotions({ type: 'availability' });
     }, { signal: listeners.signal });
     entry.image.addEventListener('error', () => {
       entry.ready = false;
       entry.disabled = true;
       syncToy();
+      notifyPhotoMotions({ type: 'availability' });
     }, { signal: listeners.signal });
   }
   for (const entry of propItems) {
@@ -1592,11 +1630,16 @@ export function mountCyberPet(
     run,
     photoMotion,
     canPhotoMotion,
+    subscribePhotoMotions(listener) {
+      if (!destroyed) photoSubscribers.add(listener);
+      return () => { photoSubscribers.delete(listener); };
+    },
     setAnimated(enabled) { if (!destroyed && animated !== enabled) { animated = enabled; syncActivity(); } },
     setActive(nextActive) { if (!destroyed) { active = nextActive; syncActivity(); } },
     destroy() {
       if (destroyed) return;
       destroyed = true;
+      photoSubscribers.clear();
       cancelAction();
       photo?.disable();
       pendingBedPhoto = undefined;
