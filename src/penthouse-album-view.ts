@@ -112,7 +112,7 @@ export function createAlbumView() {
     greeting.textContent = 'Dear Milky,';
     letter.append(greeting);
     for (const text of [
-      'You were my family and my very best friend. Thank you for always being by my side.',
+      'You were my little brother and my very best friend. Thank you for always being by my side.',
       'I hope you are happy and at peace, wherever you are. I will keep you close in my heart until the day we meet again.',
       'With all my love, always.',
     ]) {
