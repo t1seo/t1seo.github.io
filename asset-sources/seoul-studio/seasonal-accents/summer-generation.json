@@ -1,0 +1,34 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-01",
+  "references": [
+    "asset-sources/seoul-studio/seasonal-accents/spring/textile.png",
+    "asset-sources/seoul-studio/seasonal-accents/spring/vignette.png",
+    "public/assets/penthouse/seoul/autumn/noon.webp"
+  ],
+  "textile": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: transparent seasonal throw sprite for a warm hand-painted 2.5D room.\nInput image 1 is the exact EDIT TARGET: the spring textile. Input image 2 is STYLE REFERENCE ONLY: the full room. Output only the edited textile, never any room or furniture.\nPrimary request: change ONLY the fabric material and colors into a light SUMMER textile: airy natural ivory linen, with a single narrow softly desaturated sky-blue woven stripe in the same stripe position. Tiny neat ivory fringe. Subtle refined linen slubs, soft matte brush grain, slightly lighter and airier than the source but still opaque.\nPreserve precisely the source silhouette, folded top, hanging folds, orientation, camera angle, contact fold, edge positions and framing. Same drape over an unseen chair arm. Do not expand or add folds. Source aspect width:height is 88:112; maintain that aspect. Full textile stays within existing transparent frame. No stretching. Keep neutral soft upper-left daylight and quiet warm bounce.\nGenuine transparent alpha outside the exact fabric silhouette and short fringe, including the large left concavity. No opaque matte, no background color, no glow, halo, cast shadow, furniture, backdrop, letters, logo or watermark. Preserve premium delicately painted textile rendering matching the room, not a flat vector or photograph.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f744-f6d2-79f2-b8d4-50f109669c1c/exec-749486ab-e204-4521-9f03-790d6a68d519.png",
+    "source": "summer/textile.png",
+    "runtime": "summer-textile.webp",
+    "sourceRect": [
+      236,
+      596,
+      88,
+      112
+    ]
+  },
+  "vignette": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: one isolated transparent SUMMER console vase and sprigs sprite for a hand-painted 2.5D room.\nInput image 1 is the exact EDIT TARGET: existing spring vase arrangement. Input image 2 is STYLE REFERENCE ONLY: the full room. Do not include any room, shelf, black vase or background.\nPrimary request: replace ONLY the cherry blossom branches with three airy fresh green eucalyptus sprigs and change the vase to matte pale sand-ivory ceramic. Eucalyptus leaves small and rounded, softly desaturated fresh sage green, fine brown-green stems, elegant asymmetry, generous transparent air between leaves. No flowers. Vase keeps exactly the source shape, size, position and baseline, with delicate handmade matte brush texture.\nMaintain the source narrow portrait canvas, aspect ratio width:height exactly 52:110. Keep the whole arrangement silhouette within the same width and height envelope, same vase bottom at 94% height and sprig tops at 6%. Preserve the tiny neck, rounded body, front/slightly-above perspective and neutral upper-left daylight. No enlargement of the vase. About 3 sparing stems, not a dense bush. Keep foliage slender and readable at 52x110 pixel runtime size.\nStyle: restrained premium delicately hand-painted architectural illustration, soft fine brush grain, no harsh black outlines, quiet warm bounce and only internal shading. Match room materials.\nGenuine transparent alpha: outside the exact vase, stems and leaves and through all gaps is alpha 0. Fully opaque physical objects except antialiased edges. No haze, bokeh, halo, glow, cast shadow, background color, checkerboard, furniture, text, label, logo or watermark.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f744-f6d2-79f2-b8d4-50f109669c1c/exec-55288a8d-aa97-4a8f-ab00-5fdc3820e257.png",
+    "source": "summer/vignette.png",
+    "runtime": "summer-vignette.webp",
+    "sourceRect": [
+      1530,
+      445,
+      52,
+      110
+    ]
+  }
+}
