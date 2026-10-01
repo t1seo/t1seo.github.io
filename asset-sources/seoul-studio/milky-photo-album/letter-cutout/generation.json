@@ -1,0 +1,88 @@
+{
+  "generationDate": "2026-10-02",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "background-extraction / identity-preserve",
+  "input": {
+    "description": "User-supplied actual photograph of Milky smiling with tongue visible, seated on pink/floral bedding.",
+    "dimensions": [
+      1140,
+      1604
+    ],
+    "sha256": "e6ed9b0fae3c867c015ecb930ed5246cf57443faa70fe14d22d17b39bba03cce",
+    "publication": "Original input photo and comparison images are not bundled or committed."
+  },
+  "attempts": [
+    {
+      "promptFile": "prompt.txt",
+      "selected": false,
+      "reason": "Initial extraction enhanced fur and rounded paw contours; rejected after source comparison."
+    },
+    {
+      "promptFile": "prompt-retry.txt",
+      "selected": true,
+      "reason": "Stronger background-only prompt retains the original softer photo quality, expression and pink/grey lighting more faithfully."
+    }
+  ],
+  "selectedOriginal": {
+    "path": "asset-sources/seoul-studio/milky-photo-album/letter-cutout/milky-letter-cutout.png",
+    "dimensions": [
+      1058,
+      1487
+    ],
+    "bytes": 1188085,
+    "sha256": "7a85b089fb33a8853cb2181ffaa9304e6cf2355ec9a88bdc141d631580dcbd46",
+    "alphaRange": [
+      0,
+      254
+    ],
+    "alphaBoundsAt8": [
+      99,
+      3,
+      1013,
+      1467
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "runtime": {
+    "path": "public/assets/penthouse/milky-album/milky-letter-cutout.webp",
+    "dimensions": [
+      427,
+      600
+    ],
+    "bytes": 42748,
+    "sha256": "a9a2b554ca7296e7c76167877975e1df188d482eef6f6b490adf2b3272567318",
+    "alphaRange": [
+      0,
+      254
+    ],
+    "alphaBoundsAt8": [
+      40,
+      1,
+      409,
+      592
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "conversion": {
+    "method": "@napi-rs/canvas high-quality proportional downscale, WebP quality92; final runtime427x600.",
+    "creativeEdits": "All background-removal editing used built-in ImageGen only. No Python image editing, manual alpha masking, alternate network API, tape, lettering or border applied."
+  },
+  "validation": {
+    "rootVisualApproval": "Root reviewed the second extraction against the source photograph and approved this output for the small contour-cut scrapbook photograph.",
+    "identityCaveat": "Background removed via ImageGen; small reconstructed edge areas are possible. The result is not pixel-identical to the original photograph.",
+    "alpha": "Actual decoded runtime has true alpha; all four corners transparent. Dog body reaches254/255 alpha with short antialiasing and no visible background matte.",
+    "privacy": "Source photograph and source-comparison QA remain outside repository; only the selected generated cutout is committed.",
+    "uiContract": "Use427x600 intrinsic dimensions and natural aspect ratio. Root UI adds tape separately and creates the image only on the final letter."
+  }
+}
