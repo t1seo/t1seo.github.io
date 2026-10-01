@@ -1,0 +1,141 @@
+{
+  "generationDate": "2026-10-02",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "stylized-concept",
+  "promptFile": "prompt.txt",
+  "prompt": "Use case: stylized-concept.\nAsset type: ONE transparent-alpha sprite of six naturally shelved clothbound books, for a premium hand-painted 2.5D contemporary walnut/oak room.\nPrimary request: A compact close group of exactly six upright books seen on their SPINES, their bottom edges all resting on the same horizontal baseline. Five supporting books surround one slightly thicker muted olive linen memorial photo album in the center. The album is naturally inserted flush among the other books, not presented cover-forward and not pulled out. The other books physically touch and support the album with narrow occlusion creases and little self-shadows. Quiet, restrained, considered everyday library arrangement.\nCritical silhouette/perspective: spines face the viewer, almost frontal, a tiny sliver of page top and right cover edges visible. No broad front covers. The entire group has about 0.63 width-to-height, suited to a narrow shelf gap. Vary book heights naturally 76%,87%,95%,84%,92%,79% from left to right, grounded on one level bottom baseline. All stand vertically with at most a one-degree easy lean. The third book from the left is the thickest olive memorial album (about 24% of group width), with a perfectly clear vertical spine label area centered through its upper-middle. The album has a subtle antique brass hairline rectangle along its spine; NO LETTERS, because precise '2011-2026 Milky' text will be typeset later. Other spines have no marks or text, some tiny understated embossed horizontal binding lines only.\nMaterials/style: Highly crafted MATTE OIL/GOUACHE PAINTING with controlled soft broad painted planes, subtle linen weave expressed as painterly strokes, gently rounded cloth bindings and warm cream page block tops. Warm sandstone, greige, muted dark umber, olive and a single faded charcoal-blue spine. Contemporary sophisticated cloth books, not distressed antiques and not glossy leather. Hand-painted edges harmonizing with an illustrated modern Seoul room, no photographic sharpness, no plastic 3D, no heavy outlined cartoon. Book group looks solid and weighs on its support.\nLighting: gentle warm top-left shelf light and soft ambient daylight, darker muted right-facing edges, restrained warm highlights. Narrow dark ambient-occlusion contacts between book spines. A tiny soft translucent dark contact shadow exactly under the bottoms, maximum 1% canvas height, no broad floating halo.\nComposition: tall canvas with width:height 54:88. Book group occupies x6%..94%, top of tallest book at y8%, every book bottom at y95%. No perspective floor plane, no shelf surface included. Transparent margin all around.\nBackground: GENUINELY transparent alpha outside six books; clear alpha corners; no background fill, no checkerboard image, no room, no wall, no shelf, no extra object. Only the closely touching books and subtle contact shadow.\nAvoid: any text or lettering, photographs, dog pictures, stickers, flower props, decorative ribbons, giant front-facing album cover, open book, book lying flat, gaps between books, floating individual volumes, broad shadows, giant left/right perspective, watermark.\n",
+  "direction": "Replace the isolated cover-forward album prop with six adjoining upright cloth books; the olive memorial album is shelved spine-forward among them. Preserve the original single-book runtime asset for the sidebar icon.",
+  "referenceInspection": [
+    "User screenshot orca-paste-1790866873012-f5aa6306-3580-4a0a-b9b9-4ebaa2ce9073.png",
+    "public/assets/penthouse/seoul/autumn/noon.webp",
+    "public/assets/penthouse/seoul/autumn/night.webp"
+  ],
+  "selectedOriginal": {
+    "path": "asset-sources/seoul-studio/milky-photo-album/shelved-books/milky-photo-album-shelved.png",
+    "dimensions": [
+      982,
+      1602
+    ],
+    "bytes": 2821221,
+    "sha256": "66a7a9c9be16571dd23da9046718de88a3bccfbf55e6cfef395c125891dfdf34",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      37,
+      952,
+      1578
+    ],
+    "alphaBoundsAt8": [
+      44,
+      93,
+      948,
+      1531
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "runtime": {
+    "path": "public/assets/penthouse/objects/milky-photo-album-shelved.webp",
+    "dimensions": [
+      324,
+      529
+    ],
+    "bytes": 44268,
+    "sha256": "feb45167b2f227f6c2a391e22ad3a6220ccea357318f0faca09301362efe6b3b",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      10,
+      14,
+      315,
+      508
+    ],
+    "alphaBoundsAt8": [
+      15,
+      30,
+      313,
+      506
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "conversion": {
+    "method": "Pillow Lanczos proportional RGBA downscale to324x529; WebP quality93 method6",
+    "creativeEdits": "Only built-in ImageGen. No manual painting, alpha keying or background removal. Runtime sprite is not warped."
+  },
+  "registration": {
+    "sceneRect": [
+      1541,
+      298,
+      52,
+      88
+    ],
+    "shelfY": 383,
+    "bookBottomY": 382,
+    "visibleBoundsApprox": [
+      1543,
+      303,
+      48,
+      79
+    ],
+    "albumSpineNormalizedBounds": [
+      0.337,
+      0.11,
+      0.201,
+      0.838
+    ],
+    "spineLabelNormalizedBounds": [
+      0.368,
+      0.228,
+      0.131,
+      0.227
+    ],
+    "spineLabelSceneBounds": [
+      1560.1,
+      318.1,
+      6.9,
+      19.9
+    ],
+    "spineText": "2011-2026 Milky",
+    "textImplementation": "Root supplies actual DOM text, not generated lettering; rotate the inscription group 90 degrees within the label frame. Keep exact full title prominent in the open album.",
+    "textRotationDegrees": 90,
+    "textCenterScene": [
+      1563.55,
+      328.05
+    ],
+    "maximumInscriptionSceneWidthBeforeRotation": 19,
+    "maximumInscriptionSceneHeightBeforeRotation": 6,
+    "suggestedHotspotSceneRect": [
+      1540,
+      300,
+      56,
+      84
+    ]
+  },
+  "validation": {
+    "rootVisualApproval": "Root inspected noon/night detail composites and approved the naturally shelved appearance and scene rectangle [1541,298,52,88].",
+    "previews": [
+      "qa-placement-noon.jpg",
+      "qa-placement-night.jpg",
+      "qa-detail-noon.jpg",
+      "qa-detail-night.jpg"
+    ],
+    "previewMethod": "Read-only alpha composites on existing autumn plates. Night approximates current CSS brightness .8 and saturation .86. Detail previews are enlarged crops, not browser screenshots.",
+    "observations": "Six clearly separated but touching matte book spines share a level baseline directly on the shelf. Olive album is third from left with narrow blank foil label. Existing sculpture and frame remain visible. All four alpha corners are zero, with no visible exterior matte in day/night composites.",
+    "unchanged": "All room plates, all character art, original standalone album art, photo-provenance.json and code/CSS left untouched."
+  }
+}
