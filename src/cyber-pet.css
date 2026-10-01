@@ -38,6 +38,7 @@
   filter: blur(1.4px);
   pointer-events: none;
 }
+.cyber-pet-button[data-bed='true'] .cyber-pet-shadow { opacity: .35; }
 .cyber-pet-figure { position: absolute; inset: 0; pointer-events: none; transform-origin: 50% 94%; }
 .cyber-pet-image, .cyber-pet-step, .cyber-pet-pose, .cyber-pet-rest, .cyber-pet-activity {
   position: absolute;

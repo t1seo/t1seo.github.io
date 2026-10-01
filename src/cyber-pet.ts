@@ -5,6 +5,7 @@ import { chooseMilkyDestination, milkyKeyboardDestination, milkyRoamPause, type 
 import { planMilkyIdleMoment, milkySniffHold, milkyGreetHold, MILKY_BLINK_GAP, type MilkyIdleMoment } from './cyber-pet-life';
 import { planMilkyRestCycle, milkyRestTransitionHold, milkyStandHold, milkyExplicitRestHold, type MilkyRestPoseName } from './cyber-pet-rest';
 import { planMilkyMeal, planMilkyPlay, planMilkyRun, milkyBallAtRest, milkyNudgeBall, stepMilkyBall, type MilkyActivityPoseName, type MilkyBallState, type MilkyBallBounds } from './cyber-pet-activity';
+import { createMilkyBed, type MilkyBedOptions } from './cyber-pet-bed';
 
 export interface CyberPetController {
   /** Milky notices you and chooses a small walk across the visible floor. */
@@ -13,6 +14,7 @@ export interface CyberPetController {
   sit(): void;
   /** Milky lies down and naps (deepest delivered rest pose). Waking is gentle. */
   sleep(): void;
+  napInBed(): boolean;
   /** Milky walks to a real bowl and eats. A no-op until the eat poses and bowl decode. */
   feed(): void;
   /** Milky bows, nudges and chases a small rolling ball. Needs the play poses and ball. */
@@ -120,6 +122,7 @@ export function mountCyberPet(
   shippedTrot: boolean = MILKY_SHIPPED_TROT,
   propOverrides: Partial<Record<'ball' | 'bowl', { src: string; anchor: readonly [number, number] }>> = {},
   floorBounds = DEFAULT_MILKY_FLOOR,
+  bedOptions?: MilkyBedOptions,
 ): CyberPetController {
   const page = host.ownerDocument;
   const view = page.defaultView!;
@@ -282,6 +285,13 @@ export function mountCyberPet(
   const busyPoseActive = () => restPoseActive() || (ACTIVITY_NAMES as readonly string[]).includes(button.dataset.pose ?? '');
   const forwardActive = () => version === 'v4' && !forwardFailed && (forwardIdle?.ready ?? false) && forwardSteps.length === 8 && forwardSteps.every((entry) => entry.ready);
   const trotActive = () => version === 'v4' && !trotFailed && trotSteps.length === 4 && trotSteps.every((entry) => entry.ready);
+  const bed = createMilkyBed(bedOptions, {
+    room: () => host.getBoundingClientRect(), viewport: () => scene.getBoundingClientRect(), floor: floorBounds,
+    position: () => position, bound, canWalk,
+    walk: (point, autonomous, onDone) => { clearSession(); walkTo(point, { autonomous, onDone, bedRoute: true }); },
+    rest: (stages, autonomous, done) => startAutonomousRest(stages, autonomous, done),
+    occupied: (occupied) => { button.dataset.bed = String(occupied); }, settle: () => settle(),
+  });
 
   function registerArt(image: HTMLImageElement, frameX?: string, frameY?: string) {
     const registration = MILKY_ART[version];
@@ -402,7 +412,11 @@ export function mountCyberPet(
       }
       // A rest pause may deepen into sitting, lying and napping instead of another walk.
       const restPlan = planMilkyRestCycle({ sit: restReady('sit'), drowsy: restReady('drowsy'), sleep: restReady('sleep') });
-      if (restPlan.length > 0) { startAutonomousRest(restPlan); return; }
+      if (restPlan.length > 0) {
+        const bedNap = bed.available() && restPlan.some((stage) => stage.pose === 'sleep') && Math.random() < 1 / 3;
+        if (!bedNap || !bed.enter(restPlan, true)) startAutonomousRest(restPlan);
+        return;
+      }
       const target = chooseMilkyDestination(position, bound, lastHeading);
       if (!target) { queueRoam(); return; }
       // A nose-down moment of anticipation sometimes precedes a same-heading wander.
@@ -458,6 +472,7 @@ export function mountCyberPet(
     // At quiet rest Milky mostly looks ahead rather than staring at the camera; the
     // camera-look idle remains the greeting face and the only base for blinking.
     button.dataset.gaze = forwardActive() && Math.random() < .75 ? 'forward' : 'camera';
+    if (bed.resume()) return;
     queueRoam(afterWalk);
     queueLife();
   }
@@ -475,24 +490,24 @@ export function mountCyberPet(
       playPoseSteps(steps, index + 1, revision, done);
     }, step.hold);
   }
-  function finishRest(revision: number) {
+  function finishRest(revision: number, done: () => void = settle) {
     if (revision !== actionRevision) return;
     showIdle();
     button.dataset.motion = 'settling';
     actionTimer = setTimeout(() => {
       actionTimer = undefined;
-      if (revision === actionRevision) settle();
+      if (revision === actionRevision) done();
     }, milkyStandHold());
   }
-  function startAutonomousRest(stages: { pose: 'sit' | 'drowsy' | 'sleep'; hold: number }[]) {
+  function startAutonomousRest(stages: readonly { pose: 'sit' | 'drowsy' | 'sleep'; hold: number }[], autonomous = true, done: () => void = settle) {
     cancelAction();
-    autonomousAction = true;
+    autonomousAction = autonomous;
     const revision = actionRevision;
     const steps: MilkyPoseStep[] = [];
     if (stages[0]?.pose === 'sit' && restReady('sitdown')) steps.push({ pose: 'sitdown', hold: milkyRestTransitionHold('sitdown') });
     steps.push(...stages);
     if (stages.at(-1)?.pose === 'sleep' && restReady('wake')) steps.push({ pose: 'wake', hold: milkyRestTransitionHold('wake') });
-    playPoseSteps(steps, 0, revision, () => finishRest(revision));
+    playPoseSteps(steps, 0, revision, () => finishRest(revision, done));
   }
   /** Explicit sit/nap request from the controller API or the S/N keys. */
   function restNow(kind: 'sit' | 'sleep') {
@@ -525,11 +540,12 @@ export function mountCyberPet(
   }
   /** Gently restore standing (never walk, drag or mirror a resting pose) and then act. */
   function wakeThenRun(next: () => void) {
-    if (!busyPoseActive()) { next(); return; }
+    const onFloor = () => { if (!bed.leave(next)) next(); };
+    if (!busyPoseActive()) { onFloor(); return; }
     const fromSleep = button.dataset.pose === 'sleep';
     cancelAction();
     if (ball && !ball.resting) ensureTick();
-    if (reducedMotion.matches) { showIdle(); button.dataset.motion = 'idle'; next(); return; }
+    if (reducedMotion.matches) { showIdle(); button.dataset.motion = 'idle'; onFloor(); return; }
     const revision = actionRevision;
     const steps: MilkyPoseStep[] = fromSleep && restReady('wake')
       ? [{ pose: 'wake', hold: milkyRestTransitionHold('wake') }]
@@ -542,7 +558,7 @@ export function mountCyberPet(
         actionTimer = undefined;
         if (revision !== actionRevision) return;
         button.dataset.motion = 'idle';
-        next();
+        onFloor();
       }, milkyStandHold());
     });
   }
@@ -594,8 +610,8 @@ export function mountCyberPet(
     ensureTick();
   }
   /** Internal targeted walk for activity sessions, with a turn pause and a completion hook. */
-  function walkTo(destination: MilkyPoint, opts: { autonomous?: boolean; cadence?: number; onDone?: () => void }) {
-    const target = bound(destination);
+  function walkTo(destination: MilkyPoint, opts: { autonomous?: boolean; cadence?: number; onDone?: () => void; bedRoute?: boolean }) {
+    const target = opts.bedRoute ? destination : bound(destination);
     const turning = (target.x < position.x ? -1 : 1) !== facing;
     cancelAction();
     if (ball && !ball.resting) ensureTick();
@@ -815,7 +831,7 @@ export function mountCyberPet(
     host.dispatchEvent(new CustomEvent('cyber:pet', { bubbles: true, detail: { kind } }));
   }
   function pet() {
-    if (!available() || idleFailed) return;
+    if (!available() || idleFailed || (bed.active && !canWalk())) return;
     notify('greet');
     // A greeting is the one moment Milky deliberately looks up at the camera.
     button.dataset.gaze = 'camera';
@@ -826,13 +842,13 @@ export function mountCyberPet(
     });
   }
   function feed() {
-    if (!available() || idleFailed) return;
+    if (!available() || idleFailed || (bed.active && !canWalk())) return;
     if (!activityReady('eat-low') || !activityReady('eat-lift') || !propReady('bowl')) return;
     notify('feed');
     wakeThenRun(beginFeed);
   }
   function play() {
-    if (!available() || idleFailed) return;
+    if (!available() || idleFailed || (bed.active && !canWalk())) return;
     if (!activityReady('play-bow') || !activityReady('play-reach') || !propReady('ball')) return;
     notify('play');
     wakeThenRun(() => beginPlay(false));
@@ -846,7 +862,7 @@ export function mountCyberPet(
   function keydown(event: KeyboardEvent) {
     const arrow = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key);
     const posture = event.key.toLowerCase() === 's' ? 'sit' : event.key.toLowerCase() === 'n' ? 'sleep' : undefined;
-    if ((!arrow && !posture) || !available()) return;
+    if ((!arrow && !posture) || !available() || (arrow && bed.active && !canWalk())) return;
     event.preventDefault();
     if (event.repeat) return;
     keyboardFocused = true;
@@ -867,7 +883,7 @@ export function mountCyberPet(
     // Until the atomic set decodes, no art is exposed at all — not even a still v4 idle.
     button.hidden = !floorVisible || idleFailed || !displayReady();
     if (!available() || reducedMotion.matches) settle();
-    else if (button.dataset.motion === 'idle') { queueRoam(); queueLife(); }
+    else if (button.dataset.motion === 'idle' && !bed.resume()) { queueRoam(); queueLife(); }
   }
   // The whole displayed set demotes together: a v4 face on the idle photo must never
   // alternate with a v3 face inside the gait. v3 remains the verified complete fallback.
@@ -1053,8 +1069,11 @@ export function mountCyberPet(
       position = { x: portrait ? .595 : .58, y: portrait ? .84 : .865 };
       placed = viewport.width > 0 && viewport.height > 0;
     }
-    if (walk || button.dataset.motion !== 'idle') settle();
-    if (floorVisible) position = bound(position);
+    const visitingBed = bed.active;
+    bed.revalidate();
+    if (!bed.active && (walk || button.dataset.motion !== 'idle')) settle();
+    if (floorVisible && !bed.active) position = bound(position);
+    if (visitingBed && !bed.active) button.dataset.bed = 'false';
     renderPosition();
     syncActivity();
   }
@@ -1095,6 +1114,11 @@ export function mountCyberPet(
     pet,
     sit() { restNow('sit'); },
     sleep() { restNow('sleep'); },
+    napInBed() {
+      if (!bed.available() || !restReady('sleep')) return false;
+      wakeThenRun(() => bed.enter([{ pose: 'sleep', hold: milkyExplicitRestHold('sleep') }], false));
+      return true;
+    },
     feed,
     play,
     run,
@@ -1103,6 +1127,7 @@ export function mountCyberPet(
       if (destroyed) return;
       destroyed = true;
       cancelAction();
+      bed.destroy();
       clearSession();
       listeners.abort();
       observer.disconnect();
