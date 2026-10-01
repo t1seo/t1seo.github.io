@@ -1,0 +1,120 @@
+{
+  "season": "summer",
+  "status": "Completed: five source paintings inspected; 1672x941 runtime WebP encoding at quality 90, method 6. Both lamps are unlit in source art.",
+  "assets": [
+    {
+      "time": "morning",
+      "source": "asset-sources/seoul-studio/refined-desk/summer/morning.png",
+      "runtime": "public/assets/penthouse/seoul/summer/morning.webp",
+      "generationTool": "builtin image_gen.imagegen",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/summer/morning.webp",
+      "prompt": "Use case: lighting-weather.\nImage 1 is the EDIT TARGET: approved refined-desk AUTUMN NOON master. Image 2 is ONLY a summer season/time lighting reference, NOT an object or geometry reference.\nCreate a precise SUMMER variation of image 1. Change only exterior leaf colors to lush summer greens and the sky/sunlight/ambient room illumination to match image 2's time of day. Copy the summer foliage and time-of-day atmosphere from image 2.\nFREEZE the exact 1672x941 composition and EVERY indoor object geometry of image 1. No reframing, no zoom, no object rearrangement. Keep the exact architecture, window mullions, Seoul city/river geography, desk, black monitor, keyboard, plant, books, shelves, chair, side table, rug and floor. Preserve the fine hand-painted 2.5D illustration material.\nEspecially FREEZE the existing new lamp, singing bowl and diffuser from image 1: tall articulated graphite-bronze desk lamp base x1208..1262/y552..567, stem x1235..1240/y449..557, upper joint x1168/y402, shade x1130..1178/y401..439; singing bowl x1058..1099/y535..562; amber diffuser bottle x108..138/y623..663 with five dark reeds x106..140/y580..633; left floor lamp shade x153..252/y389..449.\nBOTH LAMPS ARE OFF in this source image. Keep floor shade nonemissive natural cream and desk shade dark without glow. Do NOT copy the reference image's obsolete short desk lamp, tea cup, or glowing floor lamp. No direct floor-lamp light on chair or wall. Other ambient ceiling and shelf lighting is retained. The empty desktop gap x1125..1187/y531..561 stays empty for a later digital clock. No clock, speaker, bed, dog, text or UI. Do not alter any object or add any new one.\nTime: SUMMER MORNING. Match image 2's pink and peach wispy sunrise sky and early morning warm room ambient tones with lush summer green foliage. Keep all object geometry from image 1.",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a/exec-b34c31bc-19e7-400f-a965-68f7f18ea947.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "status": "accepted, encoded to runtime",
+      "sourceSha256": "06d6efc1141b2707cdb1067150e5141982d8a56def74f80592da752d7f5a0c74",
+      "runtimeSha256": "e8bb3df31cc4a1f0e204730b05c8c4450059925a076a8ffe0922efb0d0977a09",
+      "sourceBytes": 2028101,
+      "runtimeBytes": 253618,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "noon",
+      "source": "asset-sources/seoul-studio/refined-desk/summer/noon.png",
+      "runtime": "public/assets/penthouse/seoul/summer/noon.webp",
+      "generationTool": "builtin image_gen.imagegen",
+      "editTarget": "public/assets/penthouse/seoul/summer/noon.webp",
+      "reference": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "prompt": "Use case: precise-object-edit.\nInput image 1 is the EDIT TARGET: the existing SUMMER room plate. Input image 2 is ONLY a reference for the exact design, scale and registered layout of the replacement objects, not its autumn foliage or daylight.\nEdit image 1 locally, retaining its EXACT 1672x941 composition, framing, architecture, full window lines, Seoul skyline and Han River, lush green summer foliage, room surfaces and lighting, books, black monitor screen and keyboard, right shelves, left black lounge chair, rug and floor.\nMake ONLY these object changes to match image 2:\n1. Remove the old short horizontal LED desk lamp and carefully reconstruct the summer river/city background behind it. Add the approved refined tall graphite and bronze articulated architect desk lamp farther RIGHT: base x1208..1262 y552..567; upright x1235..1240 y449..557; upper joint x1168 y402; dark small downturned shade x1130..1178 y401..439. Match its slim proportions exactly. Bulb completely OFF, no emissive underside or glow.\n2. The small bowl beside the pencil pot is a premium hammered bronze singing bowl: body x1058..1099 y535..562, rich hand-painted warm metal, neatly defined elliptical rim, dark hollow interior, small thin base. Match approved reference.\n3. Replace ONLY the tea cup/saucer on the LEFT lounge side table with a premium little amber glass reed diffuser. Bottle x108..138 y623..663; five slim black reeds in x106..140 y580..633. Keep table unchanged.\n4. Existing LEFT floor lamp keeps its original location but has an OFF, non-emissive natural cream shade aligned x153..252 y389..449, like reference. Remove only its direct warm light on the chair and wall; retain the room's ambient illumination and all other lighting.\nThe clock gap x1125..1187 y531..561 must be EMPTY. No clock, speaker, dog bed, animal, people, added UI or text. Both lamps MUST be OFF in the finished source painting; interactive light will be added in software. Preserve image 1's fine painterly 2.5D texture; no photographic pasted objects. No other changes whatsoever.\nThis asset is SUMMER NOON: preserve image 1's exact clear blue sky, bright daylight room palette and lush green trees. Carefully COPY the reference lamp's location and size: its large upper joint is directly over the black window mullion at x1168; the desk lamp base touches the desktop's far right end x1262. Do not accidentally shift it to the left. The floor-lamp shade position also matches the reference exactly.",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a/exec-58bd0a5f-d8f4-42fb-a252-a720bafc37f6.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "status": "accepted, encoded to runtime",
+      "sourceSha256": "f8e4778cafdc40d27e2f4c05a0c35bbc84ba61ce21aed566107e568975d89eb9",
+      "runtimeSha256": "3d79e851048a7d21675f2d49a01d3ee071c81f037d87bc59d0ebc549d116eb64",
+      "sourceBytes": 1933603,
+      "runtimeBytes": 233736,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "afternoon",
+      "source": "asset-sources/seoul-studio/refined-desk/summer/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "generationTool": "builtin image_gen.imagegen",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/summer/afternoon.webp",
+      "prompt": "Use case: lighting-weather.\nImage 1 is the EDIT TARGET: approved refined-desk AUTUMN NOON master. Image 2 is ONLY a summer season/time lighting reference, NOT an object or geometry reference.\nCreate a precise SUMMER variation of image 1. Change only exterior leaf colors to lush summer greens and the sky/sunlight/ambient room illumination to match image 2's time of day. Copy the summer foliage and time-of-day atmosphere from image 2.\nFREEZE the exact 1672x941 composition and EVERY indoor object geometry of image 1. No reframing, no zoom, no object rearrangement. Keep the exact architecture, window mullions, Seoul city/river geography, desk, black monitor, keyboard, plant, books, shelves, chair, side table, rug and floor. Preserve the fine hand-painted 2.5D illustration material.\nEspecially FREEZE the existing new lamp, singing bowl and diffuser from image 1: tall articulated graphite-bronze desk lamp base x1208..1262/y552..567, stem x1235..1240/y449..557, upper joint x1168/y402, shade x1130..1178/y401..439; singing bowl x1058..1099/y535..562; amber diffuser bottle x108..138/y623..663 with five dark reeds x106..140/y580..633; left floor lamp shade x153..252/y389..449.\nBOTH LAMPS ARE OFF in this source image. Keep floor shade nonemissive natural cream and desk shade dark without glow. Do NOT copy the reference image's obsolete short desk lamp, tea cup, or glowing floor lamp. No direct floor-lamp light on chair or wall. Other ambient ceiling and shelf lighting is retained. The empty desktop gap x1125..1187/y531..561 stays empty for a later digital clock. No clock, speaker, bed, dog, text or UI. Do not alter any object or add any new one.\nTime: SUMMER AFTERNOON. Match image 2's warm slanting afternoon sunlight from the right, bright blue sky with sparse pale clouds, warm golden reflections on the summer-green treetops, floor and city. Keep all object geometry from image 1.",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a/exec-ba237e56-5b4c-4827-8b49-355abf6c776b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "status": "accepted, encoded to runtime",
+      "sourceSha256": "6313e01abd6ed8121687f18a9094afc99cf41c72d6db66639348dc958cd4d49c",
+      "runtimeSha256": "a2e233100b43826d642b2dab0cc8079c1305ed5e2b7864f06252047b097dc4b3",
+      "sourceBytes": 2076998,
+      "runtimeBytes": 270484,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "evening",
+      "source": "asset-sources/seoul-studio/refined-desk/summer/evening.png",
+      "runtime": "public/assets/penthouse/seoul/summer/evening.webp",
+      "generationTool": "builtin image_gen.imagegen",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/summer/evening.webp",
+      "prompt": "Use case: lighting-weather.\nImage 1 is the EDIT TARGET: approved refined-desk AUTUMN NOON master. Image 2 is ONLY a summer season/time lighting reference, NOT an object or geometry reference.\nCreate a precise SUMMER variation of image 1. Change only exterior leaf colors to lush summer greens and the sky/sunlight/ambient room illumination to match image 2's time of day. Copy the summer foliage and time-of-day atmosphere from image 2.\nFREEZE the exact 1672x941 composition and EVERY indoor object geometry of image 1. No reframing, no zoom, no object rearrangement. Keep the exact architecture, window mullions, Seoul city/river geography, desk, black monitor, keyboard, plant, books, shelves, chair, side table, rug and floor. Preserve the fine hand-painted 2.5D illustration material.\nEspecially FREEZE the existing new lamp, singing bowl and diffuser from image 1: tall articulated graphite-bronze desk lamp base x1208..1262/y552..567, stem x1235..1240/y449..557, upper joint x1168/y402, shade x1130..1178/y401..439; singing bowl x1058..1099/y535..562; amber diffuser bottle x108..138/y623..663 with five dark reeds x106..140/y580..633; left floor lamp shade x153..252/y389..449.\nBOTH LAMPS ARE OFF in this source image. Keep floor shade nonemissive natural cream and desk shade dark without glow. Do NOT copy the reference image's obsolete short desk lamp, tea cup, or glowing floor lamp. No direct floor-lamp light on chair or wall. Other ambient ceiling and shelf lighting is retained. The empty desktop gap x1125..1187/y531..561 stays empty for a later digital clock. No clock, speaker, bed, dog, text or UI. Do not alter any object or add any new one.\nTime: SUMMER EVENING. Match image 2's blue-violet upper sky fading into saturated dusky coral/pink near horizon, softly illuminated Seoul skyline/bridge and reflected lights, darker lush green trees, warm room ambient illumination from shelves and ceiling. Both task/floor lamps REMAIN OFF: no luminous shade and no light cast onto the lounge chair. Keep all object geometry from image 1.",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a/exec-2ee8d943-8d84-488f-8cfc-13806b97ad2d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "status": "accepted, encoded to runtime",
+      "sourceSha256": "58ab411f99e84449b0f9cdc2ba1117de1da3f670135c67b6af6c2192dbdf6c5f",
+      "runtimeSha256": "3bd763c8245b526307ac90b5c5eeb1dfd131c51f531524a8aa1a3adc052a9085",
+      "sourceBytes": 2007992,
+      "runtimeBytes": 253516,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "night",
+      "source": "asset-sources/seoul-studio/refined-desk/summer/night.png",
+      "runtime": "public/assets/penthouse/seoul/summer/night.webp",
+      "generationTool": "builtin image_gen.imagegen",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/summer/night.webp",
+      "prompt": "Use case: lighting-weather.\nImage 1 is the EDIT TARGET: approved refined-desk AUTUMN NOON master. Image 2 is ONLY a summer season/time lighting reference, NOT an object or geometry reference.\nCreate a precise SUMMER variation of image 1. Change only exterior leaf colors to lush summer greens and the sky/sunlight/ambient room illumination to match image 2's time of day. Copy the summer foliage and time-of-day atmosphere from image 2.\nFREEZE the exact 1672x941 composition and EVERY indoor object geometry of image 1. No reframing, no zoom, no object rearrangement. Keep the exact architecture, window mullions, Seoul city/river geography, desk, black monitor, keyboard, plant, books, shelves, chair, side table, rug and floor. Preserve the fine hand-painted 2.5D illustration material.\nEspecially FREEZE the existing new lamp, singing bowl and diffuser from image 1: tall articulated graphite-bronze desk lamp base x1208..1262/y552..567, stem x1235..1240/y449..557, upper joint x1168/y402, shade x1130..1178/y401..439; singing bowl x1058..1099/y535..562; amber diffuser bottle x108..138/y623..663 with five dark reeds x106..140/y580..633; left floor lamp shade x153..252/y389..449.\nBOTH LAMPS ARE OFF in this source image. Keep floor shade nonemissive natural cream and desk shade dark without glow. Do NOT copy the reference image's obsolete short desk lamp, tea cup, or glowing floor lamp. No direct floor-lamp light on chair or wall. Other ambient ceiling and shelf lighting is retained. The empty desktop gap x1125..1187/y531..561 stays empty for a later digital clock. No clock, speaker, bed, dog, text or UI. Do not alter any object or add any new one.\nTime: SUMMER NIGHT. Match image 2's deep midnight blue night sky, softly illuminated Seoul skyline/bridge and rich blue/gold river reflections, dark lush green summer trees, dimmer warm ambient room lighting from shelves and ceiling. Both desk and floor lamps REMAIN OFF: natural cream non-emissive floor shade and dark desk shade, no visible bulbs, no light cast onto lounge chair or desktop. Keep all object geometry exactly from image 1.",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a/exec-7114b3b6-1bbb-4152-a1e2-ef160e1d9ee8.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "status": "accepted, encoded to runtime",
+      "sourceSha256": "489c9f83850c9ab3b5312dfcd03437b3f104a6a8f01a6265611e1110246697d6",
+      "runtimeSha256": "052c7ca13423892e81912c8b74a71603fc385bac9c74c3627e2b5afa185230c3",
+      "sourceBytes": 1965798,
+      "runtimeBytes": 242844,
+      "dimensions": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "time": "morning",
+      "reason": "Lamp shifted left approximately 20px from master. Replaced with master-target generation.",
+      "prompt": "Use case: precise-object-edit.\nInput image 1 is the EDIT TARGET: the existing SUMMER room plate. Input image 2 is ONLY a reference for the exact design, scale and registered layout of the replacement objects, not its autumn foliage or daylight.\nEdit image 1 locally, retaining its EXACT 1672x941 composition, framing, architecture, full window lines, Seoul skyline and Han River, lush green summer foliage, room surfaces and lighting, books, black monitor screen and keyboard, right shelves, left black lounge chair, rug and floor.\nMake ONLY these object changes to match image 2:\n1. Remove the old short horizontal LED desk lamp and carefully reconstruct the summer river/city background behind it. Add the approved refined tall graphite and bronze articulated architect desk lamp farther RIGHT: base x1208..1262 y552..567; upright x1235..1240 y449..557; upper joint x1168 y402; dark small downturned shade x1130..1178 y401..439. Match its slim proportions exactly. Bulb completely OFF, no emissive underside or glow.\n2. The small bowl beside the pencil pot is a premium hammered bronze singing bowl: body x1058..1099 y535..562, rich hand-painted warm metal, neatly defined elliptical rim, dark hollow interior, small thin base. Match approved reference.\n3. Replace ONLY the tea cup/saucer on the LEFT lounge side table with a premium little amber glass reed diffuser. Bottle x108..138 y623..663; five slim black reeds in x106..140 y580..633. Keep table unchanged.\n4. Existing LEFT floor lamp keeps its original location but has an OFF, non-emissive natural cream shade aligned x153..252 y389..449, like reference. Remove only its direct warm light on the chair and wall; retain the room's ambient illumination and all other lighting.\nThe clock gap x1125..1187 y531..561 must be EMPTY. No clock, speaker, dog bed, animal, people, added UI or text. Both lamps MUST be OFF in the finished source painting; interactive light will be added in software. Preserve image 1's fine painterly 2.5D texture; no photographic pasted objects. No other changes whatsoever.\nThis asset is SUMMER MORNING: preserve image 1's exact soft pink and golden sunrise sky and warm early-morning ambient room palette with lush green trees.",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-bc16-7681-960a-e663ee49638a/exec-4a47af97-6819-4d35-bcbe-e077f1866acf.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+    }
+  ],
+  "encoding": {
+    "format": "WEBP",
+    "quality": 90,
+    "method": 6,
+    "resize": false
+  },
+  "review": {
+    "geometry": "Lamp upper joint at x1168 window mullion and base at the far-right desktop match the approved master. Approximate frame-to-frame drift is under 5px by visual inspection.",
+    "lamps": "Desk shade dark; floor shade natural cream without bulb emission or its prior direct chair glow. Ambient ceiling/shelf illumination retained.",
+    "other": "Black monitor, empty clock gap, bronze singing bowl and left-table amber reed diffuser present in all five. No pets, bed, clock or speaker introduced."
+  }
+}
