@@ -42,6 +42,7 @@ export interface CyberClimateController {
   setSeason(season: Season): void;
   setTime(time: TimeOfDay): void;
   setWeather(weather: Weather): void;
+  setAtmosphere(snapshot: Pick<ClimateState, 'season' | 'time' | 'weather'>): void;
   setAuto(enabled?: boolean): void;
   destroy(): void;
 }
@@ -200,6 +201,11 @@ export function createCyberClimate(onChange: (state: ClimateState) => void, opti
     },
     setWeather(weather) {
       if (CYBER_WEATHER.includes(weather)) manual({ weather });
+    },
+    setAtmosphere({ season, time, weather }) {
+      if (CYBER_SEASONS.includes(season) && CYBER_TIMES.includes(time) && CYBER_WEATHER.includes(weather)) {
+        manual({ season, time, weather });
+      }
     },
     setAuto,
     destroy() {
