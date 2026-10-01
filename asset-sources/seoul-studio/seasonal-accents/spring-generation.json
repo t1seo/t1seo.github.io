@@ -1,0 +1,101 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-01",
+  "references": [
+    "public/assets/penthouse/seoul/autumn/noon.webp"
+  ],
+  "textile": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: one transparent painted throw-blanket sprite to place into the illustrated room reference.\nInput image: existing room is the STYLE, camera angle and CHAIR ARM geometry reference. Output ONLY a small SPRING textile, without any furniture or background.\nPrimary request: a refined lightweight muted sage linen throw with one very narrow faded blush woven stripe and tiny neat fringe, draped across the viewer's RIGHT arm of the existing black leather lounge chair at lower left of the reference. The fabric goes over that right armrest and hangs vertically down its outer/right front face. Preserve a small folded top lying on the armrest, then restrained soft irregular vertical folds. This is NOT a big blanket covering the seat.\nGeometry: intended complete sprite rectangle in the 1672x941 source scene is [236,596,88,112]. The fabric's upper horizontal contact area runs from about 15% to 78% of its width at 8–26% of its height, slanting very slightly down toward the left to match the chair arm's perspective. Hanging portion narrows gently toward the lower hem at 91% image height, ends above the floor. Narrow portrait canvas width:height exactly 88:112. View from the FRONT and slightly ABOVE, with a little right-side depth. Full fabric visible, 5% clear transparent padding. It must look physically supported by an unseen chair arm when overlaid.\nStyle: elegant delicately hand-painted 2.5D interior illustration, matte fine linen texture, softened brush grain, subtle natural folds, sophisticated color variation. Match the warm room's painterly materials; not photography, flat vector, plastic rendering or chunky cartoon.\nLighting: soft neutral daylight from upper-left with gentle warm bounce. No overly dark black shadows. Textile body is fully opaque.\nTransparency: genuine transparent alpha background and clean antialiased silhouette. Outside actual fabric and its short fringe is alpha 0. NO chair, armrest, sofa, cushion, floor, wall, backdrop, cast shadow, glow, haze, checkerboard, text, label, logo, watermark or other objects. Only the gracefully draped single small fabric throw.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f740-7493-7362-a402-207c6f311a3f/exec-26cda7a6-bd82-44f3-9901-b74c8886928a.png",
+    "source": "spring/textile.png",
+    "runtime": "spring-textile.webp",
+    "sourceRect": [
+      236,
+      596,
+      88,
+      112
+    ],
+    "sourceDimensions": [
+      1112,
+      1415
+    ],
+    "sourceSHA256": "d4da86058d355988df944a0af3a0724314a9704f1c65f742a02bbbf3bf2a1593",
+    "runtimeDimensions": [
+      352,
+      448
+    ],
+    "runtimeBytes": 26478,
+    "runtimeSHA256": "d8ef9f0d6906b899f0c696ca4f688be1ef42f4a090408133aed5f828c2de7f63",
+    "runtimeAlphaRange": [
+      0,
+      255
+    ],
+    "runtimeAlphaBounds": [
+      29,
+      7,
+      316,
+      415
+    ],
+    "runtimeCornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "vignette": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: one small isolated transparent seasonal console-vase sprite for this painted room.\nInput image: the existing room is STYLE, perspective and warm material REFERENCE ONLY, not a background to include.\nPrimary request: a modest SPRING arrangement, 3 slender dark brown cherry-blossom twigs with a restrained handful of small soft blush pink/ivory blossoms, in a tiny handmade chalk-white ceramic bud vase. Beautiful asymmetry and generous air between branches; no huge dense bouquet. Vase is a simple rounded oval with a tiny neck, not patterned. A few muted new sage leaves, delicate lightly painted petals. Vignette feels like a quiet premium home detail.\nGeometry: it will sit on the right walnut console immediately to the left of its existing black vase, in world rectangle [1530,445,52,110] within a 1672x941 room. Slender portrait silhouette width:height 52:110. Complete object group occupies 90% canvas height and 88% canvas width; fully transparent 5% margins. Vase bottom at 94% image height, vase 24% total object height, flowers extend up to 6%. Subtly front-facing viewpoint with only a very small visible vase opening, viewed slightly from above in the same architectural illustration perspective. Vase base is flat and horizontal so it sits naturally on a shelf when overlaid.\nStyle: delicately hand-painted 2.5D matte architectural illustration matching room, softened natural brush grain, no large black outlines. Petals remain elegant and readable when rendered just 52x110 px. Not a photograph, glossy product render, or childish vector icon.\nLighting: neutral soft daylight from upper-left, quiet warm bounce, subtle self-shadowing only.\nConstraints: ONLY one white bud vase and sparse spring branches. No furniture, room, shelf, black vase, art frame, floor plane, cast shadow, glow, haze, text, letters, label, watermark, logos or extra objects. GENUINE alpha transparency outside precise silhouette. No checkerboard painted in pixels, no white/colored matte, clean antialiased edges.",
+    "cleanupPrompt": "Use case: background-extraction. Edit this exact cherry blossom vase asset. Keep the single chalk-white ceramic vase and sparse pink blossom branch artwork with the same scale and composition.\nRemove EVERY pixel of the soft blurry brown/green/white background halo surrounding the branches, flowers and vase. It is not part of the subject. This must become a production-ready isolated alpha sprite: the complete space between all branches and petals is genuine fully transparent alpha 0. Outside the exact physical silhouettes also pure alpha 0. No bokeh, glow, blur, mist, shadow, diffuse color, outline, white fringe, or haze anywhere. Vase and flowers fully opaque except their clean 1–2px antialiased edges.\nAlso normalize its framing to a slender portrait canvas width:height exactly 52:110 with the complete object occupying 90% height and at most 88% width, 5% fully transparent margins. Keep vase base horizontal at 94% height, petals at 6%. Do not stretch or distort it. Preserve delicately hand-painted matte brushwork, warm ivory vase, blush petals, sparse leaves and branch texture. No new objects, lettering or background.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f740-7493-7362-a402-207c6f311a3f/exec-a9848584-7e03-4c9a-bcbe-c2c3f38ef96c.png",
+    "source": "spring/vignette.png",
+    "runtime": "spring-vignette.webp",
+    "sourceRect": [
+      1530,
+      445,
+      52,
+      110
+    ],
+    "sourceDimensions": [
+      862,
+      1825
+    ],
+    "sourceSHA256": "14db1fd398e613f7272f6b3f5eab2441af2bdef20694f852ccee04c499472c2f",
+    "runtimeDimensions": [
+      208,
+      440
+    ],
+    "runtimeBytes": 28930,
+    "runtimeSHA256": "b0c62c3e94148754401548a37f453096999503c0a2dbf8c4393138182aba69a7",
+    "runtimeAlphaRange": [
+      0,
+      255
+    ],
+    "runtimeAlphaBounds": [
+      5,
+      8,
+      208,
+      430
+    ],
+    "runtimeCornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "validation": {
+    "visualReview": "Actual RGBA-composited full room and chair/console detail inspected; alpha is clean, textile contact on right chair edge and vase base on console are grounded. Root approved placement.",
+    "diagnosticFiles": [
+      "/tmp/t1seo-spring-accents-proposal.jpg",
+      "/tmp/t1seo-spring-textile-proposal.jpg",
+      "/tmp/t1seo-spring-vignette-proposal.jpg"
+    ],
+    "preserved": "All 20 full room plates, lighting, desk props, diffuser, dog assets and bed remain unchanged."
+  },
+  "conversion": {
+    "tool": "Pillow",
+    "operation": "Proportional Lanczos downscale with subpixel aspect normalization to exactly 4x intended source-space rectangle; RGBA alpha preserved. No hand painting, alpha-keying or compositing in runtime asset.",
+    "format": "WebP quality 91, method 6"
+  }
+}
