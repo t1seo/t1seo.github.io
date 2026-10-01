@@ -1,0 +1,138 @@
+{
+  "generationDate": "2026-10-01",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "style-transfer / precise-object-edit",
+  "promptFile": "prompt.txt",
+  "prompt": "Use case: style-transfer / precise-object-edit.\nAsset type: one transparent illustrated pet-bed game sprite, rendered small on a hand-painted interior website.\nInput images: Image 1 is the EDIT TARGET and exact shape, perspective, padding and registration guide. Image 2 is STYLE REFERENCE ONLY for the painted room, its material finish and light. Do not reproduce the room.\nPrimary request: upgrade this single empty warm-ivory donut dog bed so it belongs naturally in the same richly hand-painted 2.5D room as image 2. Replace the photographic long stringy fur with premium short, soft plush and tactile brushed textile described by restrained visible gouache/oil brush clusters, coherent broad shaded planes and softly broken painted edges. Make it feel luxurious, warm and touchable, but clearly hand-painted rather than a product photograph or a 3D render. Subtle sewn piping around the lower outside bolster and a delicately stitched inset cushion seam are welcome. No heavy outline.\nShape invariants: retain the current exact low, wide elliptical donut silhouette and low frontal three-quarter camera angle. Same thick back/side bolsters, same generous oval recessed cushion, same low front bolster, same object placement in the image. The whole sprite canvas is approximately 1.83:1 wide. Keep the full bed inside the frame with the original padding: bed starts at about 7% height and ends at 95% height; width fills about 97%. Interior cushion center is 50% image width and 49% image height. Inner edge of the front rim at horizontal center must remain at about 67% image height; preserve its smooth curved path to about 51% height at 14% and 86% width. This precise shape lets an existing sleeping dog and foreground rim layer align later. Do not add a dog now.\nMaterials/color: muted warm ivory and oatmeal/greige, subtle stone taupe creases, soft cream highlights. Refined short plush with larger purposeful brush marks and delicate textile weave, not long individual strands. Restrained saturation, no yellow/orange cast. Existing bed proportions remain identical.\nLighting: gentle upper-left neutral daylight, modest warm room bounce, soft painted self-shadow inside the bed, no glossy hotspot. A very thin neutral translucent contact shadow may sit directly beneath the lower edge but must fit within the existing bottom padding; no broad halo or floor plane.\nBackground: GENUINELY TRANSPARENT alpha outside the bed, perfectly clear empty corners, no colored matte, no checkerboard texture. The bed itself must be opaque. Clean natural painted edges with a short antialiased alpha transition.\nAvoid: photorealism, wispy long hairs, hard cartoon outlines, smooth plastic/3D shading, beige glowing aura, scattered flecks outside the bed, floor, room, furniture, animal, ball, extra object, text, logo, watermark. Output only the empty bed sprite.\n",
+  "references": [
+    {
+      "role": "Edit target; original silhouette and registration",
+      "path": "before.webp"
+    },
+    {
+      "role": "Room style and lighting only",
+      "path": "public/assets/penthouse/seoul/autumn/noon.webp"
+    }
+  ],
+  "selectedOriginal": {
+    "path": "asset-sources/seoul-studio/painted-milky-bed/painted-milky-bed.png",
+    "dimensions": [
+      1697,
+      927
+    ],
+    "bytes": 2110066,
+    "sha256": "d64d024f20b4bdde25f3efc3644a619e7f709beb88eff536860829f0491e62fa",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      0,
+      0,
+      1681,
+      927
+    ],
+    "alphaBoundsAt8": [
+      21,
+      49,
+      1677,
+      873
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "before": {
+    "path": "asset-sources/seoul-studio/painted-milky-bed/before.webp",
+    "dimensions": [
+      1040,
+      568
+    ],
+    "bytes": 96890,
+    "sha256": "e4b561dbe96ceb4ca5237a9b163140ddaa55dcb1dc1f42f0d2f4cdb0c54de065",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      17,
+      39,
+      1030,
+      539
+    ],
+    "alphaBoundsAt8": [
+      19,
+      43,
+      1024,
+      536
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "runtime": {
+    "path": "public/assets/penthouse/objects/milky-bed.webp",
+    "dimensions": [
+      520,
+      284
+    ],
+    "bytes": 48362,
+    "sha256": "b7c10ee1c06bb4392b52846af8745371ab2f19e773e1a34e683c1ede5dc6aa61",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBounds": [
+      4,
+      0,
+      516,
+      270
+    ],
+    "alphaBoundsAt8": [
+      6,
+      15,
+      514,
+      267
+    ],
+    "cornersAlpha": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "conversion": {
+    "method": "Pillow Lanczos RGBA proportional downscale to 520x284; WebP quality93 method6; atomic os.replace",
+    "creativeEdits": "Only built-in ImageGen; no manual painting, alpha keying or warping"
+  },
+  "registration": {
+    "sceneRect": [
+      1310,
+      788,
+      260,
+      142
+    ],
+    "sleepContact": [
+      1440,
+      865
+    ],
+    "innerFrontRimCenterFractionY": 0.67,
+    "css": "Unchanged .ph-bed and .ph-bed-front polygon, including existing static contact shadow"
+  },
+  "validation": {
+    "rootVisualApproval": "Approved after before/after full-room and close-up inspection",
+    "dayAndNightSleepComposites": [
+      "qa-noon-sleep.jpg",
+      "qa-night-sleep.jpg"
+    ],
+    "qaMethod": "Read-only image composites using native plate, existing sleep asset at registered (898,915) support anchor\u2192(1440,865), .847 art scale and current depth factor, current frontlip polygon; night bed brightness .69/saturation .8. CSS contact shadow approximated analytically. These are art QA, not browser screenshots.",
+    "observations": "Short painted plush and subtle piping fit the room; the empty and occupied bed has no hard matte, no duplicate baked shadow and no pet cut-through. All four alpha corners are zero. A few exterior pixels carry alpha1/255 but alpha>=8 follows the silhouette cleanly and no visible flecks occur in the composite. No CSS geometry or Milky assets changed."
+  }
+}
