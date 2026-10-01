@@ -1,0 +1,124 @@
+{
+  "generator": "Built-in image_gen.imagegen",
+  "date": "2026-10-01",
+  "season": "winter",
+  "status": "Complete: five winter time variants reviewed and encoded.",
+  "referenceMaster": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+  "encoding": {
+    "format": "WebP",
+    "quality": 90,
+    "method": 6,
+    "width": 1672,
+    "height": 941,
+    "sourceOriginalsPreserved": true
+  },
+  "entries": [
+    {
+      "time": "noon",
+      "prompt": "Use case: lighting-weather. Asset type: production full room illustration, exactly 1672x941 pixels, opaque.\nINPUT 1 is the EDIT TARGET: the approved refined room and exact object layout. INPUT 2 is ONLY the WINTER SEASON AND TIME LIGHTING reference.\nChange INPUT 1 only in its exterior seasonal foliage and sky/time-of-day illumination to match INPUT 2's winter scene. Make the hill forest snowy blue-white, lower exterior trees bare winter branches with delicate snow, preserve the river, skyline and towers. Match input 2's seasonal light and sky, but do NOT copy its old short desk lamp, old tea cup, or lit floor lamp.\nFREEZE input 1's precise architecture, room dimensions, full-frame camera crop, skyline registration, window mullions, desk, monitor, keyboard, floor, rug, plant, shelves, chair, and especially ALL NEW OBJECTS and their exact screen positions and contour:\n- The tall graphite/muted-bronze articulated desk lamp at the far RIGHT must be pixel-position faithful to INPUT 1: base x1208..1262/y552..567, upright x1235..1240/y449..557, top joint1168/y402, cone shade1130..1178/y401..439. Do not move, stretch, shorten, resize or redesign it. It is OFF; shade dark, no emitted glow.\n- The premium hand-hammered bronze singing bowl body x1058..1099/y535..562 remains unchanged beside the pencil pot.\n- The amber glass diffuser bottle x108..138/y623..663, its five black reeds x106..140/y580..633 remains unchanged on the left stone side table.\n- The left floor lamp remains in INPUT 1's unlit state: muted non-emissive cream shade x153..252/y389..449; NO yellow/orange internal glow and NO direct pool of lamp illumination on the chair. Preserve natural ambient and architectural lighting.\nMonitor remains black OFF. Clock gap x1125..1187/y531..561 stays empty. No clock, speaker, cushion, pet, people, extra objects, text or watermark. Retain the fine matte painterly 2.5D illustration style. Output one complete room, never a collage.\nTime is WINTER NOON: blue clear sky and blue-cold winter landscape as input 2, well-lit room from natural daylight.",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "lightingReference": "public/assets/penthouse/seoul/winter/noon.webp",
+      "referenceOriginalSha256": "e8f8b547264413b009eb57cea9fd60ebf3971fb65982cf267b3ed716116b4ba8",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f837-7d43-b50e-94917b33fe0e/exec-ae8fa83c-481e-46aa-b383-d1fcadff4130.png",
+      "output": "asset-sources/seoul-studio/refined-desk/winter/noon.png",
+      "runtime": "public/assets/penthouse/seoul/winter/noon.webp",
+      "review": "Approved layout preserved visually. Both lamps off. Bronze bowl and amber diffuser present; snowy winter and blue noon exterior.",
+      "sourceSha256": "928332bca32d71b3b23b080a05627cda22ecb72f267dee6c57e4d02c31fa6981",
+      "runtimeSha256": "6a1555e737b0770e07fb355a7efdd8c7d0b5ccc0ba6e4c546f4eacc67b3722f9",
+      "runtimeBytes": 262274,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "morning",
+      "prompt": "Use case: lighting-weather. Asset type: production full room illustration, exactly 1672x941 pixels, opaque.\nINPUT 1 is the EDIT TARGET: the approved refined room and exact object layout. INPUT 2 is ONLY the WINTER SEASON AND TIME LIGHTING reference.\nChange INPUT 1 only in its exterior seasonal foliage and sky/time-of-day illumination to match INPUT 2's winter scene. Make the hill forest snowy blue-white, lower exterior trees bare winter branches with delicate snow, preserve the river, skyline and towers. Match input 2's seasonal light and sky, but do NOT copy its old short desk lamp, old tea cup, or lit floor lamp.\nFREEZE input 1's precise architecture, room dimensions, full-frame camera crop, skyline registration, window mullions, desk, monitor, keyboard, floor, rug, plant, shelves, chair, and especially ALL NEW OBJECTS and their exact screen positions and contour:\n- The tall graphite/muted-bronze articulated desk lamp at the far RIGHT must be pixel-position faithful to INPUT 1: base x1208..1262/y552..567, upright x1235..1240/y449..557, top joint1168/y402, cone shade1130..1178/y401..439. Do not move, stretch, shorten, resize or redesign it. It is OFF; shade dark, no emitted glow.\n- The premium hand-hammered bronze singing bowl body x1058..1099/y535..562 remains unchanged beside the pencil pot.\n- The amber glass diffuser bottle x108..138/y623..663, its five black reeds x106..140/y580..633 remains unchanged on the left stone side table.\n- The left floor lamp remains in INPUT 1's unlit state: muted non-emissive cream shade x153..252/y389..449; NO yellow/orange internal glow and NO direct pool of lamp illumination on the chair. Preserve natural ambient and architectural lighting.\nMonitor remains black OFF. Clock gap x1125..1187/y531..561 stays empty. No clock, speaker, cushion, pet, people, extra objects, text or watermark. Retain the fine matte painterly 2.5D illustration style. Output one complete room, never a collage.\nTime is WINTER MORNING / DAWN. Match image 2: delicate blue upper sky with pink clouds, peach-golden sunrise horizon, faint sunrise reflections on blue water and snowy bare trees, warm ambient architecture. Both lamps still OFF. Freeze all geometry and scale from image 1.",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "lightingReference": "public/assets/penthouse/seoul/winter/morning.webp",
+      "referenceOriginalSha256": "0f399c1e8f423fb4a46ac94366c6dd9eabaff6f5ec2e29e68d434a484e00cd29",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f837-7d43-b50e-94917b33fe0e/exec-7b457651-c6b3-439e-b130-fbe3d0d2bdb7.png",
+      "output": "asset-sources/seoul-studio/refined-desk/winter/morning.png",
+      "runtime": "public/assets/penthouse/seoul/winter/morning.webp",
+      "review": "Approved layout preserved visually. Both lamps off. Peach sunrise and blue snowy winter exterior.",
+      "sourceSha256": "d1f245eaf07103bb89b4c5fdcca50fba1fe2ee5e91b0a8dcbcfa13ebe4b14f07",
+      "runtimeSha256": "6d03ed81e6fd8008cc183d438f6d893a58b97a5853105f8c9877021481266910",
+      "runtimeBytes": 241862,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "afternoon",
+      "prompt": "Use case: lighting-weather. Asset type: production full room illustration, exactly 1672x941 pixels, opaque.\nINPUT 1 is the EDIT TARGET: the approved refined room and exact object layout. INPUT 2 is ONLY the WINTER SEASON AND TIME LIGHTING reference.\nChange INPUT 1 only in its exterior seasonal foliage and sky/time-of-day illumination to match INPUT 2's winter scene. Make the hill forest snowy blue-white, lower exterior trees bare winter branches with delicate snow, preserve the river, skyline and towers. Match input 2's seasonal light and sky, but do NOT copy its old short desk lamp, old tea cup, or lit floor lamp.\nFREEZE input 1's precise architecture, room dimensions, full-frame camera crop, skyline registration, window mullions, desk, monitor, keyboard, floor, rug, plant, shelves, chair, and especially ALL NEW OBJECTS and their exact screen positions and contour:\n- The tall graphite/muted-bronze articulated desk lamp at the far RIGHT must be pixel-position faithful to INPUT 1: base x1208..1262/y552..567, upright x1235..1240/y449..557, top joint1168/y402, cone shade1130..1178/y401..439. Do not move, stretch, shorten, resize or redesign it. It is OFF; shade dark, no emitted glow.\n- The premium hand-hammered bronze singing bowl body x1058..1099/y535..562 remains unchanged beside the pencil pot.\n- The amber glass diffuser bottle x108..138/y623..663, its five black reeds x106..140/y580..633 remains unchanged on the left stone side table.\n- The left floor lamp remains in INPUT 1's unlit state: muted non-emissive cream shade x153..252/y389..449; NO yellow/orange internal glow and NO direct pool of lamp illumination on the chair. Preserve natural ambient and architectural lighting.\nMonitor remains black OFF. Clock gap x1125..1187/y531..561 stays empty. No clock, speaker, cushion, pet, people, extra objects, text or watermark. Retain the fine matte painterly 2.5D illustration style. Output one complete room, never a collage.\nTime is WINTER AFTERNOON / GOLDEN HOUR. Match image 2: blue sky with warm pale golden horizon and sparse white clouds, low winter sun casting golden light across left wall and floor, warmly highlighted towers, cool blue snowy winter hillside/bare trees and golden reflected accents in river. Both lamps OFF, including no floor-lamp glow on chair. Preserve approved object geometry exactly.",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "lightingReference": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "referenceOriginalSha256": "80344b1b358babc39ae8314d92db1a3d5965677281afd17bb39ef1614488f308",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f837-7d43-b50e-94917b33fe0e/exec-30726585-017b-4fe8-a291-30fcff51536e.png",
+      "output": "asset-sources/seoul-studio/refined-desk/winter/afternoon.png",
+      "runtime": "public/assets/penthouse/seoul/winter/afternoon.webp",
+      "review": "Approved layout preserved visually. Both lamps off. Golden winter afternoon light and snow.",
+      "sourceSha256": "aca19704e32dabdc86dadcf46467897cd215caed7d27a0537c761231a9c64134",
+      "runtimeSha256": "d128c242cac695d394a2c74bdbaea7b56c4ebc9bcdc8fa252f4597fd38e109e2",
+      "runtimeBytes": 260968,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "evening",
+      "prompt": "Use case: lighting-weather. Asset type: production full room illustration, exactly 1672x941 pixels, opaque.\nINPUT 1 is the EDIT TARGET: the approved refined room and exact object layout. INPUT 2 is ONLY the WINTER SEASON AND TIME LIGHTING reference.\nChange INPUT 1 only in its exterior seasonal foliage and sky/time-of-day illumination to match INPUT 2's winter scene. Make the hill forest snowy blue-white, lower exterior trees bare winter branches with delicate snow, preserve the river, skyline and towers. Match input 2's seasonal light and sky, but do NOT copy its old short desk lamp, old tea cup, or lit floor lamp.\nFREEZE input 1's precise architecture, room dimensions, full-frame camera crop, skyline registration, window mullions, desk, monitor, keyboard, floor, rug, plant, shelves, chair, and especially ALL NEW OBJECTS and their exact screen positions and contour:\n- The tall graphite/muted-bronze articulated desk lamp at the far RIGHT must be pixel-position faithful to INPUT 1: base x1208..1262/y552..567, upright x1235..1240/y449..557, top joint1168/y402, cone shade1130..1178/y401..439. Do not move, stretch, shorten, resize or redesign it. It is OFF; shade dark, no emitted glow.\n- The premium hand-hammered bronze singing bowl body x1058..1099/y535..562 remains unchanged beside the pencil pot.\n- The amber glass diffuser bottle x108..138/y623..663, its five black reeds x106..140/y580..633 remains unchanged on the left stone side table.\n- The left floor lamp remains in INPUT 1's unlit state: muted non-emissive cream shade x153..252/y389..449; NO yellow/orange internal glow and NO direct pool of lamp illumination on the chair. Preserve natural ambient and architectural lighting.\nMonitor remains black OFF. Clock gap x1125..1187/y531..561 stays empty. No clock, speaker, cushion, pet, people, extra objects, text or watermark. Retain the fine matte painterly 2.5D illustration style. Output one complete room, never a collage.\nTime is WINTER EVENING / TWILIGHT. Match image 2: violet-blue upper sky grading to vivid rose-crimson sunset horizon, dark blue winter hillside, snowy bare trees, city windows and bridge warmly lit with gold reflections over dark blue river. Keep room ambient architecture warm and quiet but BOTH floor lamp and desk lamp switched OFF: matte dim cream floor shade with no inner glow or direct chair lighting, dark desk shade. Freeze image 1 object geometry exactly; no reshaping.",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "lightingReference": "public/assets/penthouse/seoul/winter/evening.webp",
+      "referenceOriginalSha256": "03c6ba338d112bfb535a71e019548da6718757e8ddfed00639a0c83a4c15784b",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f837-7d43-b50e-94917b33fe0e/exec-545bde07-0ec1-4adc-a936-ae4c7ef2461b.png",
+      "output": "asset-sources/seoul-studio/refined-desk/winter/evening.png",
+      "runtime": "public/assets/penthouse/seoul/winter/evening.webp",
+      "review": "Approved layout preserved visually. Both lamps off. Crimson-violet winter twilight and blue snow.",
+      "sourceSha256": "49a335b189ab590299ca1bb5ede76d08bdc95280b7130e2ff363d50a0b633891",
+      "runtimeSha256": "d5dc5ce0f2d06a939418f54872718f8c21791088fb90ca53fc38bb56a212ed84",
+      "runtimeBytes": 251572,
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "time": "night",
+      "prompt": "Use case: lighting-weather. Asset type: production full room illustration, exactly 1672x941 pixels, opaque.\nINPUT 1 is the EDIT TARGET: the approved refined room and exact object layout. INPUT 2 is ONLY the WINTER SEASON AND TIME LIGHTING reference.\nChange INPUT 1 only in its exterior seasonal foliage and sky/time-of-day illumination to match INPUT 2's winter scene. Make the hill forest snowy blue-white, lower exterior trees bare winter branches with delicate snow, preserve the river, skyline and towers. Match input 2's seasonal light and sky, but do NOT copy its old short desk lamp, old tea cup, or lit floor lamp.\nFREEZE input 1's precise architecture, room dimensions, full-frame camera crop, skyline registration, window mullions, desk, monitor, keyboard, floor, rug, plant, shelves, chair, and especially ALL NEW OBJECTS and their exact screen positions and contour:\n- The tall graphite/muted-bronze articulated desk lamp at the far RIGHT must be pixel-position faithful to INPUT 1: base x1208..1262/y552..567, upright x1235..1240/y449..557, top joint1168/y402, cone shade1130..1178/y401..439. Do not move, stretch, shorten, resize or redesign it. It is OFF; shade dark, no emitted glow.\n- The premium hand-hammered bronze singing bowl body x1058..1099/y535..562 remains unchanged beside the pencil pot.\n- The amber glass diffuser bottle x108..138/y623..663, its five black reeds x106..140/y580..633 remains unchanged on the left stone side table.\n- The left floor lamp remains in INPUT 1's unlit state: muted non-emissive cream shade x153..252/y389..449; NO yellow/orange internal glow and NO direct pool of lamp illumination on the chair. Preserve natural ambient and architectural lighting.\nMonitor remains black OFF. Clock gap x1125..1187/y531..561 stays empty. No clock, speaker, cushion, pet, people, extra objects, text or watermark. Retain the fine matte painterly 2.5D illustration style. Output one complete room, never a collage.\nTime is WINTER NIGHT. Match image 2 closely: deep navy-cobalt sky, quiet dark snowy hillside and snowy bare winter riverside trees, lit N Seoul Tower, warm city window/bridge lights reflected as gold and a few cyan accents across deep blue river. Warm architectural ceiling/shelf/baseboard illumination stays; dim all natural daylight on room surfaces realistically. The desk lamp and floor lamp are BOTH OFF: left cream fabric shade should be dim unlit beige with no emitted orange light and the chair should have ambient reflection only; desk shade dark. Preserve every room object contour and registration from image 1. No stars, snow particles or other new effects.",
+      "editTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "lightingReference": "public/assets/penthouse/seoul/winter/night.webp",
+      "referenceOriginalSha256": "745a7789a448c7ea2818a5b4c77a0dedd15a13be9424674aee6143ee155c89c0",
+      "generatedOriginal": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f837-7d43-b50e-94917b33fe0e/exec-0d479ca6-13fd-4fff-87c3-91df4f5f0b7f.png",
+      "output": "asset-sources/seoul-studio/refined-desk/winter/night.png",
+      "runtime": "public/assets/penthouse/seoul/winter/night.webp",
+      "review": "Approved layout preserved visually. Both lamps off. Deep-blue winter night, snowy trees and warm city reflections.",
+      "sourceSha256": "823ac7b3434af1a8551fe64a775bb68e9549c1ec9f822c8a77fcd21aade35f68",
+      "runtimeSha256": "2fe07e3a4e74997eb64a649aadbb776f9802e366a1713db53901a5e095c53b54",
+      "runtimeBytes": 249968,
+      "dimensions": [
+        1672,
+        941
+      ]
+    }
+  ],
+  "discardedAttempts": [
+    {
+      "time": "noon",
+      "prompt": "Use case: precise-object-edit. Asset type: production 2.5D hand-painted illustrated room plate, exactly 1672 by 941, opaque.\nImage 1 is the EDIT TARGET, an existing WINTER room. Image 2 is ONLY the approved OBJECT DESIGN AND PLACEMENT reference from autumn noon. Never transplant autumn trees, autumn color, noon daylight, or any background from image 2.\nPreserve image 1's exact whole-room composition, architecture, camera/crop, horizon, window mullions, winter snow and bare trees, Seoul skyline and river, winter-specific lighting and time-of-day palette, black OFF monitor, keyboard, desk, chair, floor, rug, shelves, plant, and all unrelated objects. Make only these local changes to image 1, matching the crafted painted material style:\n1. Completely remove the short thin LED-bar desk lamp at x1049..1153/y470..563, reconstructing the winter city/river and desk behind it. Replace with the approved taller graphite and muted bronze articulated task lamp far to the RIGHT of the desk, matching image 2. Foot x1208..1262/y552..567, narrow upright x1235..1240/y449..557, arm top joint around x1168/y402, downward cone shade x1130..1178/y401..439. The lamp is about monitor height and BOTH lamps are electrically OFF. No emitted desk-lamp glow, no bright white LED strip.\n2. Refine the tiny bowl next to the pencil pot into a premium warm-bronze hand-hammered singing bowl, round open lip and shaded interior, body x1058..1099/y535..562, small soft foot. Keep exact bowl scale.\n3. On the left round stone side table remove the tea cup and saucer fully. Replace them with the approved petite amber-glass reed diffuser: bottle x108..138/y623..663, five slender black reeds x106..140/y580..633. Keep the table intact.\n4. Keep the existing LEFT floor lamp exactly in place but turn it OFF: its fabric shade x153..252/y389..449 is opaque non-emissive muted cream, no yellow inner illumination. Remove only its direct orange chair-seat/back light pools, preserving the scene's remaining ambient and indirect lighting.\nLeave the desktop clock gap x1125..1187/y531..561 EMPTY. Do not add clock, speaker, cushion, pet, humans, text, labels, or any other objects. Do not restyle the scene. Every pixel outside these local object/glow replacement areas should remain visually unchanged. Output one complete full room plate.\nSpecific target time: WINTER NOON. Preserve the original clear blue cold noon sky, snowy white mountain/tree canopy and blue water.",
+      "editTarget": "public/assets/penthouse/seoul/winter/noon.webp",
+      "objectReference": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "result": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f837-7d43-b50e-94917b33fe0e/exec-6206aa85-764d-4cab-b866-134e8a8bd968.png",
+      "reason": "Desk lamp position drifted left more than 10px."
+    },
+    {
+      "time": "noon",
+      "prompt": "Use case: precise-object-edit. Image 1 is edit target. Image 2 is the approved exact desk-lamp design and registration reference. Output exactly 1672x941.\nCorrect ONLY the desk lamp in image 1. The new lamp is currently too far LEFT, has too long a horizontal reach and too low a top. Match the lamp in image 2 exactly in position, scale, contour and shape: foot at x1208..1262 y552..567, upright x1235..1240 y449..557, top joint around x1168 y402, downward cone shade at x1130..1178 y401..439. The base must be at the far right desk edge. The shade must be mostly LEFT OF and touching the dark window mullion at x1163. Shorten the diagonal arm span to match image 2. Preserve a wide empty clock area on desktop between singing bowl and lamp foot. Lamp bulb OFF. Keep every other element of image 1 exactly unchanged, especially its WINTER snow and bare trees, blue noon sky, black monitor, bronze bowl, diffuser, floor lamp OFF and no direct lamp illumination on chair. No extra object.",
+      "result": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-f837-7d43-b50e-94917b33fe0e/exec-208d7e17-3852-40be-9503-1307c534fd1a.png",
+      "reason": "Desk lamp base remained about 25px left of approved reference."
+    }
+  ],
+  "referenceMasterSha256": "14ef1bf13c51d0f3c36dde586887417c8d61306ff551532a31b601b87e9cc0c1"
+}
