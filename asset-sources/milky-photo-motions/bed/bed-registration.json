@@ -1,0 +1,458 @@
+{
+  "version": 1,
+  "created": "2026-10-02",
+  "generator": "Built-in image_gen; no CLI/API fallback",
+  "logicalCanvas": [
+    1536,
+    1024
+  ],
+  "runtimeCanvas": [
+    768,
+    512
+  ],
+  "sharedAnchor": [
+    795,
+    970
+  ],
+  "commonScale": 0.847,
+  "coordinateUnits": "Logical 1536 × 1024 source pixels; runtime PNG/WebP dimensions are independent of registration units.",
+  "encoding": "@napi-rs/canvas: whole original image resized once to 768 × 512; WebP quality 93, generated alpha preserved. No recolouring, cropping, masking, rotation, compositing, or regional scaling of runtime assets.",
+  "registrationNotes": [
+    "Offsets are rigid translations at a single common physical scale. Never normalize individual poses to silhouette height.",
+    "registrationAnchor is a virtual source reference which maps to sharedAnchor. It is not the lowest alpha pixel or an anatomical joint. bodySupportLandmarks record separate approximate visible contact points.",
+    "Chin poses share identical [-103,230] registration: tucked body rests on the higher inner cushion, while the anatomically extended head reaches the lower/front rim. Do not move the entire body forward to fake chin contact.",
+    "Roll poses share X=-103 with the existing sleep pose; Y uses stable back/cheek contact, excluding elevated paws.",
+    "All art faces head-right/tail-left as drawn. Runtime facing changes must apply consistently across the whole sequence."
+  ],
+  "references": {
+    "existingArt": [
+      "public/assets/cyberpunk/milky-rest-drowsy.webp",
+      "public/assets/cyberpunk/milky-rest-sleep.webp",
+      "public/assets/cyberpunk/milky-rest-sit.webp",
+      "public/assets/cyberpunk/milky-v4-idle.webp"
+    ],
+    "actualBed": "public/assets/penthouse/objects/milky-bed.webp",
+    "photoObservations": [
+      "public/assets/penthouse/milky-album/photos/26.webp",
+      "public/assets/penthouse/milky-album/photos/12.webp",
+      "public/assets/penthouse/milky-album/photos/21.webp"
+    ],
+    "photoUsage": "Viewed for the observed gestures; source photographs were not modified or bundled again. Photo 26 was also supplied to the first rejected chin attempt, not the accepted finals."
+  },
+  "qa": {
+    "reviewer": "/root/photo_motion_art_qa",
+    "method": "Native canvas composition at the real room scale with the actual bed and foreground lip. Not a browser screenshot.",
+    "scene": [
+      1672,
+      941
+    ],
+    "petSceneAnchor": [
+      1440,
+      865
+    ],
+    "logicalToSceneScale": 0.110639375,
+    "chinContactScene": [
+      1466.33,
+      879.6
+    ],
+    "frontLipBoundaryAtChin": 880.73,
+    "chinNoseSceneY": 873.85,
+    "artifacts": [
+      "qa-chin-bed-contact.png",
+      "qa-roll-bed-sequence.png"
+    ],
+    "result": "All six frames passed anatomy/likeness, four-limb continuity, transparent background, registration, chin-rim contact and visible eyes/nose checks. Final runtime timing and browser behaviour are root integration responsibilities.",
+    "finalGeometryApprovedBy": "/root"
+  },
+  "frames": [
+    {
+      "name": "chin-lower",
+      "source": "asset-sources/milky-photo-motions/bed/chin-lower.png",
+      "prompt": "asset-sources/milky-photo-motions/bed/chin-lower-v4.prompt.txt",
+      "reference": "asset-sources/milky-photo-motions/bed/chin-rest.png",
+      "generatorOutput": "exec-2a0c3a28-f2ce-432a-bd51-a24597e4335c.png",
+      "sourceSha256": "076cc0a2dc1e359f8d1d500fea42eeaac9b69f83c161815771cd5b3bb8ff5d88",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/chin-lower.webp",
+      "runtimeSha256": "45ce27b33e374d90139ce7139b23dcc77563a600371920840164b07699abcbc1",
+      "runtimeBytes": 66868,
+      "offsetToSharedAnchor": [
+        -103,
+        230
+      ],
+      "registrationAnchor": [
+        898,
+        740
+      ],
+      "bodySupportLandmarks": [
+        [
+          700,
+          658
+        ],
+        [
+          900,
+          663
+        ]
+      ],
+      "chinContact": [
+        1189,
+        634
+      ],
+      "noseCenter": [
+        1188,
+        568
+      ],
+      "eyeCenters": [
+        [
+          1101,
+          484
+        ],
+        [
+          1275,
+          506
+        ]
+      ],
+      "alpha": {
+        "transparent": 270535,
+        "partial": 122681,
+        "opaque": 0,
+        "boundsAbove32": [
+          63,
+          85,
+          722,
+          333
+        ]
+      },
+      "approvedRuntimeRegistrationOffset": [
+        -103,
+        230
+      ]
+    },
+    {
+      "name": "chin-rest",
+      "source": "asset-sources/milky-photo-motions/bed/chin-rest.png",
+      "prompt": "asset-sources/milky-photo-motions/bed/chin-rest-v3.prompt.txt",
+      "reference": "asset-sources/milky-photo-motions/bed/chin-rest-rejected-scale.png",
+      "generatorOutput": "exec-09c4390a-f97d-48cb-996e-68edb2dfdaf0.png",
+      "sourceSha256": "45db62a3d9c2b7b059e95e891753c13a96b6adad53b4af364148d20c72c59727",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/chin-rest.webp",
+      "runtimeSha256": "934aea525c1fc7e6eeb5ba724e2659ef8b16ea99e216ca8e85250357b528ac77",
+      "runtimeBytes": 71968,
+      "offsetToSharedAnchor": [
+        -103,
+        230
+      ],
+      "registrationAnchor": [
+        898,
+        740
+      ],
+      "bodySupportLandmarks": [
+        [
+          700,
+          658
+        ],
+        [
+          820,
+          655
+        ]
+      ],
+      "chinContact": [
+        1136,
+        872
+      ],
+      "noseCenter": [
+        1138,
+        820
+      ],
+      "eyeCenters": [
+        [
+          1054,
+          724
+        ],
+        [
+          1224,
+          748
+        ]
+      ],
+      "alpha": {
+        "transparent": 269994,
+        "partial": 123222,
+        "opaque": 0,
+        "boundsAbove32": [
+          62,
+          85,
+          700,
+          437
+        ]
+      },
+      "approvedRuntimeRegistrationOffset": [
+        -103,
+        230
+      ]
+    },
+    {
+      "name": "roll-side",
+      "source": "asset-sources/milky-photo-motions/bed/roll-side.png",
+      "prompt": "asset-sources/milky-photo-motions/bed/roll-side.prompt.txt",
+      "reference": "asset-sources/milky-photo-motions/rest/paws-rest.png",
+      "generatorOutput": "exec-fc7ca63e-6b4d-4fa1-8438-d0e53d62e44c.png",
+      "sourceSha256": "246e2aa7e4747cae062ae238e863fa382c54ed77903f75990b25a2de05beee43",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/roll-side.webp",
+      "runtimeSha256": "2fdaca7c87c33c3da1f5713fb0a505ad284f1e1bf8bbed6e619a856a8f0313fa",
+      "runtimeBytes": 74020,
+      "offsetToSharedAnchor": [
+        -103,
+        150
+      ],
+      "registrationAnchor": [
+        898,
+        820
+      ],
+      "bodySupportLandmarks": [
+        [
+          690,
+          785
+        ],
+        [
+          1000,
+          838
+        ],
+        [
+          1270,
+          804
+        ]
+      ],
+      "chinContact": [
+        1220,
+        795
+      ],
+      "noseCenter": [
+        1185,
+        696
+      ],
+      "eyeCenters": [
+        [
+          1160,
+          584
+        ],
+        [
+          1290,
+          706
+        ]
+      ],
+      "alpha": {
+        "transparent": 260994,
+        "partial": 132222,
+        "opaque": 0,
+        "boundsAbove32": [
+          30,
+          190,
+          751,
+          424
+        ]
+      },
+      "approvedRuntimeRegistrationOffset": [
+        -103,
+        150
+      ]
+    },
+    {
+      "name": "roll-half",
+      "source": "asset-sources/milky-photo-motions/bed/roll-half.png",
+      "prompt": "asset-sources/milky-photo-motions/bed/roll-half.prompt.txt",
+      "reference": "asset-sources/milky-photo-motions/bed/roll-side.png",
+      "generatorOutput": "exec-da814e26-9ea4-49cc-87fa-2dcea61334a9.png",
+      "sourceSha256": "5992a1fc1c27ecf67878e8e896fa208acf2b4b798f7f669d79209f9948fedc75",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/roll-half.webp",
+      "runtimeSha256": "d67a674678d0dab74b044fcf2dab31c66ec11c35c1020355cc55552ec2da02a6",
+      "runtimeBytes": 75168,
+      "offsetToSharedAnchor": [
+        -103,
+        149
+      ],
+      "registrationAnchor": [
+        898,
+        821
+      ],
+      "bodySupportLandmarks": [
+        [
+          690,
+          770
+        ],
+        [
+          960,
+          795
+        ],
+        [
+          1270,
+          821
+        ]
+      ],
+      "chinContact": [
+        1215,
+        814
+      ],
+      "noseCenter": [
+        1197,
+        728
+      ],
+      "eyeCenters": [
+        [
+          1185,
+          614
+        ],
+        [
+          1284,
+          755
+        ]
+      ],
+      "alpha": {
+        "transparent": 254751,
+        "partial": 138465,
+        "opaque": 0,
+        "boundsAbove32": [
+          26,
+          172,
+          752,
+          412
+        ]
+      },
+      "approvedRuntimeRegistrationOffset": [
+        -103,
+        149
+      ]
+    },
+    {
+      "name": "belly-up",
+      "source": "asset-sources/milky-photo-motions/bed/belly-up.png",
+      "prompt": "asset-sources/milky-photo-motions/bed/belly-up.prompt.txt",
+      "reference": "asset-sources/milky-photo-motions/bed/roll-half.png",
+      "generatorOutput": "exec-7c68487b-8d74-4d8e-a50c-d1637afab974.png",
+      "sourceSha256": "140096a96865be57f3f04057d18344ded58812606c25cc4617fa37394b420c39",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/belly-up.webp",
+      "runtimeSha256": "1da5809925745e9779477fcb9f9931f121ef8e777a35bbe86ef3998f8d507125",
+      "runtimeBytes": 81368,
+      "offsetToSharedAnchor": [
+        -103,
+        139
+      ],
+      "registrationAnchor": [
+        898,
+        831
+      ],
+      "bodySupportLandmarks": [
+        [
+          690,
+          791
+        ],
+        [
+          990,
+          807
+        ],
+        [
+          1300,
+          831
+        ]
+      ],
+      "chinContact": [
+        1224,
+        824
+      ],
+      "noseCenter": [
+        1227,
+        717
+      ],
+      "eyeCenters": [
+        [
+          1227,
+          611
+        ],
+        [
+          1315,
+          757
+        ]
+      ],
+      "alpha": {
+        "transparent": 245917,
+        "partial": 147299,
+        "opaque": 0,
+        "boundsAbove32": [
+          21,
+          133,
+          760,
+          419
+        ]
+      },
+      "approvedRuntimeRegistrationOffset": [
+        -103,
+        139
+      ]
+    },
+    {
+      "name": "belly-relaxed",
+      "source": "asset-sources/milky-photo-motions/bed/belly-relaxed.png",
+      "prompt": "asset-sources/milky-photo-motions/bed/belly-relaxed.prompt.txt",
+      "reference": "asset-sources/milky-photo-motions/bed/belly-up.png",
+      "generatorOutput": "exec-d28eb7a2-87e6-43e1-8c41-a7872ee376a6.png",
+      "sourceSha256": "7ae759dee9c26c617dc784e16b92ead03ae83840074c34c815f3083258d4cb2b",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/belly-relaxed.webp",
+      "runtimeSha256": "e7de6932d3ab64e0de2cc7d75bc263faef20dfb9202d650cc4fcae2fd9b38777",
+      "runtimeBytes": 67884,
+      "offsetToSharedAnchor": [
+        -103,
+        139
+      ],
+      "registrationAnchor": [
+        898,
+        831
+      ],
+      "bodySupportLandmarks": [
+        [
+          690,
+          791
+        ],
+        [
+          990,
+          807
+        ],
+        [
+          1300,
+          831
+        ]
+      ],
+      "chinContact": [
+        1224,
+        824
+      ],
+      "noseCenter": [
+        1227,
+        717
+      ],
+      "eyeCenters": [
+        [
+          1227,
+          611
+        ],
+        [
+          1315,
+          757
+        ]
+      ],
+      "alpha": {
+        "transparent": 251806,
+        "partial": 141410,
+        "opaque": 0,
+        "boundsAbove32": [
+          21,
+          135,
+          759,
+          419
+        ]
+      },
+      "approvedRuntimeRegistrationOffset": [
+        -103,
+        139
+      ]
+    }
+  ],
+  "landmarkPrecision": "Approximate visible anatomical landmarks, about ±5 logical pixels; not a segmentation ground-truth annotation."
+}
