@@ -1,0 +1,353 @@
+{
+  "generationDate": "2026-10-02",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "illustration-story",
+  "promptFile": "prompt.txt",
+  "prompt": "Use case: illustration-story.\nAsset type: exactly eight handmade paper scrapbook stickers on one transparent production sprite sheet; arranged in a STRICT 2-column by 4-row grid, for a warm, quiet memorial photo album.\nCanvas: portrait 1:2 aspect ratio. Eight equal square cells in precisely two columns, four rows. Each individual cutout sits centered in its own cell, occupies at most 70% of cell width and height, with LARGE transparent gutters between all cells. NO object crosses a cell boundary. Invisible grid only, no ruled lines.\nStyle shared by every sticker: premium hand-painted matte gouache and watercolor on lightly fibrous ivory paper, simple legible forms, quiet warmly loved mood, soft irregular brush shading with subtle pigment pooling, understated natural paper grain. Each motif has one slightly irregular warm-ivory die-cut paper border about 3% of the motif width, a tiny translucent warm-cocoa contact shadow immediately beneath the paper edge. Low dimensional paper thickness, not chunky foam, not glossy 3D, not flat vector. Looks lovely at only 30\u201355 pixels in a tactile scrapbook. Limited warm rose, terracotta, cocoa, oatmeal and cream palette, with very subdued sage only on the flower. Carefully crafted and restrained; no cute faces, no cartoon outlines, no glitter.\nExact cell contents (left-to-right then top-to-bottom), one motif per cell:\nROW 1 LEFT: a single tiny red rubber play ball, muted warm brick-red with one gentle painted highlight, simple round silhouette, no seams or lettering.\nROW 1 RIGHT: one soft fluffy cream cloud, three to four rounded lobes, warm greige shaded lower edge, no face or raindrops.\nROW 2 LEFT: one small golden-oat crescent moon accompanied by exactly two tiny dusty-rose stars, together inside ONE cohesive ivory die-cut paper silhouette; the trio forms one compact sticker, not loose scattered elements.\nROW 2 RIGHT: one small cocoa-brown dog paw print, one large rounded central pad and exactly four little oval toe pads on a single simple paw-shaped ivory paper backing, no claws.\nROW 3 LEFT: one softly painted dusty-rose heart, warm terracotta shadows, delicately irregular handmade contour, no text.\nROW 3 RIGHT: one small oatmeal/cream linen ribbon bow, two rounded loops, small central knot and two short ribbon tails, minimal painted fabric folds.\nROW 4 LEFT: a small single dried flower sprig with three tiny faded-rose flowers and two muted-sage leaves on slender cocoa stems, a gentle curve, gathered as one compact die-cut paper sticker, not a bouquet.\nROW 4 RIGHT: one neatly folded cozy oatmeal blanket, simple compact low stack shape seen slightly from above, two or three soft folds and just a few tiny edge stitches, warm taupe shadows; no fringe, no chair, no towel hanging.\nBackground: genuinely TRANSPARENT ALPHA everywhere outside the eight individual paper cutouts and tiny immediate shadows, including all corners and all cell gutters. No white or colored sheet behind them. Never render checkerboard texture.\nConstraints: EXACTLY eight stickers in the specified 2x4 grid. No lettering, labels, numbers, grid marks, handwriting, photographs, realistic dog, extra stars outside the moon cell, extra decorations, extra props or watermark. Balanced matching scale and coherent quality across all eight.\n",
+  "source": {
+    "path": "asset-sources/seoul-studio/milky-photo-album/stickers/sticker-sheet.png",
+    "dimensions": [
+      887,
+      1774
+    ],
+    "bytes": 1538283,
+    "sha256": "e1d7d419a844dc246a056d069f9a022fa915fbf5976bb8f3bb4c7523d9571997"
+  },
+  "runtime": [
+    {
+      "name": "tiny-red-ball",
+      "path": "public/assets/penthouse/milky-album/stickers/tiny-red-ball.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 11644,
+      "sha256": "a663e5d019a0cb74d0df69bc202fb3278b32664ada617f5f675db642e8b03738",
+      "sourceCell": [
+        0,
+        0,
+        444,
+        444
+      ],
+      "cellLocalCrop": [
+        72,
+        96,
+        362,
+        386
+      ],
+      "canvasPaste": [
+        6,
+        6
+      ],
+      "scaledContentDimensions": [
+        148,
+        148
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "cream-cloud",
+      "path": "public/assets/penthouse/milky-album/stickers/cream-cloud.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 6974,
+      "sha256": "0e1806cc7da8149602207334554b0ceffb2c6d7060cc07d2fd093914f82d26ba",
+      "sourceCell": [
+        444,
+        0,
+        887,
+        444
+      ],
+      "cellLocalCrop": [
+        16,
+        115,
+        426,
+        396
+      ],
+      "canvasPaste": [
+        6,
+        29
+      ],
+      "scaledContentDimensions": [
+        148,
+        101
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "moon-stars",
+      "path": "public/assets/penthouse/milky-album/stickers/moon-stars.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 11046,
+      "sha256": "4d067d9b15cb5a86317b2d77885986b83ffcf4cea4be3ef634c2147a2f986957",
+      "sourceCell": [
+        0,
+        444,
+        444,
+        887
+      ],
+      "cellLocalCrop": [
+        65,
+        65,
+        409,
+        395
+      ],
+      "canvasPaste": [
+        6,
+        9
+      ],
+      "scaledContentDimensions": [
+        148,
+        142
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "pawprint",
+      "path": "public/assets/penthouse/milky-album/stickers/pawprint.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 11740,
+      "sha256": "ac5d35d48e4278458d7315daca1a1a2739ca8540c4b273e7759bb4fb61241661",
+      "sourceCell": [
+        444,
+        444,
+        887,
+        887
+      ],
+      "cellLocalCrop": [
+        63,
+        79,
+        393,
+        396
+      ],
+      "canvasPaste": [
+        6,
+        9
+      ],
+      "scaledContentDimensions": [
+        148,
+        142
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "rose-heart",
+      "path": "public/assets/penthouse/milky-album/stickers/rose-heart.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 10446,
+      "sha256": "2b44b6da4cc1b678e3c27594f1268c66400c164cb1e81d91a8fcccb71657a508",
+      "sourceCell": [
+        0,
+        887,
+        444,
+        1330
+      ],
+      "cellLocalCrop": [
+        58,
+        66,
+        392,
+        368
+      ],
+      "canvasPaste": [
+        6,
+        13
+      ],
+      "scaledContentDimensions": [
+        148,
+        134
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "oatmeal-bow",
+      "path": "public/assets/penthouse/milky-album/stickers/oatmeal-bow.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 11168,
+      "sha256": "b826d1dfe649c4e3dcf00bf79dd26aa03fe9f3f2cbb81aad5677d7e925176954",
+      "sourceCell": [
+        444,
+        887,
+        887,
+        1330
+      ],
+      "cellLocalCrop": [
+        25,
+        72,
+        407,
+        384
+      ],
+      "canvasPaste": [
+        6,
+        19
+      ],
+      "scaledContentDimensions": [
+        148,
+        121
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "flower-sprig",
+      "path": "public/assets/penthouse/milky-album/stickers/flower-sprig.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 9508,
+      "sha256": "d45d9f2ee436359cb3486bf78806a9a420226e1e1c97606763e25a2da4df633d",
+      "sourceCell": [
+        0,
+        1330,
+        444,
+        1774
+      ],
+      "cellLocalCrop": [
+        98,
+        0,
+        383,
+        402
+      ],
+      "canvasPaste": [
+        27,
+        6
+      ],
+      "scaledContentDimensions": [
+        105,
+        148
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "cozy-blanket",
+      "path": "public/assets/penthouse/milky-album/stickers/cozy-blanket.webp",
+      "dimensions": [
+        160,
+        160
+      ],
+      "bytes": 9346,
+      "sha256": "a35a18bb24a6418ba84bc9a03480dda9960744307d9fa910fea88b19b1991146",
+      "sourceCell": [
+        444,
+        1330,
+        887,
+        1774
+      ],
+      "cellLocalCrop": [
+        0,
+        58,
+        428,
+        383
+      ],
+      "canvasPaste": [
+        6,
+        24
+      ],
+      "scaledContentDimensions": [
+        148,
+        112
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "cornersAlpha": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "totalRuntimeBytes": 81872,
+  "conversion": {
+    "method": "Divide source into exact 2-column/4-row cells; crop each cell around alpha>=8 bounding box plus8px margin without changing pixel alpha; Lanczos proportional thumbnail within148x148; center on160x160 transparent canvas; WebP quality92 method6.",
+    "creativeEdits": "Built-in ImageGen only. Deterministic cell cropping, proportional resampling and transparent padding only; no repainting, alpha keying, synthesis, added lettering or photo changes."
+  },
+  "validation": {
+    "sheetPreview": "qa-sheet-on-paper.jpg",
+    "runtimePreview": "qa-runtime-stickers.jpg",
+    "previewMethod": "Read-only composites over current album paper #f6ecdc. Runtime preview shows55px and90px samples; labels are QA-only and not baked into stickers.",
+    "observations": "Eight requested motifs present, warm rose/terracotta/cocoa/cream palette, matching watercolor paper texture. Four toe pads on pawprint. Moon has two stars. No text, photographs or pet likeness included. Clear alpha corners on all runtime sprites; tiny contact shadows included.",
+    "renderRecommendations": "30\u201355CSSpx with width/height both set and object-fit contain. Load only stickers on currently visible pages. Use empty alt for decorative image elements and no extra shadow or only a restrained shadow.",
+    "rootVisualApproval": "Root inspected the sheet composited on album paper and approved quality and palette.",
+    "runtimeVerification": "Decoded all eight final WebP files; each160x160 RGBA, all four corner alpha values zero. Runtime QA is composited from those decoded final files at55px and90px."
+  }
+}
