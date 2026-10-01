@@ -14,7 +14,8 @@ const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replace("'./cyber-pet-toy'", JSON.stringify(new URL('./cyber-pet-toy.ts', import.meta.url).href))
   .replace("'./cyber-pet-drag'", JSON.stringify(new URL('./cyber-pet-drag.ts', import.meta.url).href))
   .replace("'./cyber-pet-throw'", JSON.stringify(new URL('./cyber-pet-throw.ts', import.meta.url).href))
-  .replace("'./cyber-pet-transitions'", JSON.stringify(new URL('./cyber-pet-transitions.ts', import.meta.url).href));
+  .replace("'./cyber-pet-transitions'", JSON.stringify(new URL('./cyber-pet-transitions.ts', import.meta.url).href))
+  .replace("'./cyber-pet-hop'", JSON.stringify(new URL('./cyber-pet-hop.ts', import.meta.url).href));
 const { mountCyberPet } = await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString('base64')}`) as typeof import('./cyber-pet');
 
 type Task = { at: number; callback: () => void; kind: 'timer' | 'frame' };

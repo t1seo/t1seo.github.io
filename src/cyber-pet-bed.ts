@@ -33,6 +33,7 @@ interface BedRuntime {
   readonly bound: (point: MilkyPoint) => MilkyPoint;
   readonly canWalk: () => boolean;
   readonly walk: (point: MilkyPoint, autonomous: boolean, done: () => void) => void;
+  readonly hop: (point: MilkyPoint, autonomous: boolean, landed: () => void, done: () => void) => boolean;
   readonly rest: (stages: readonly MilkyRestStage[], autonomous: boolean, done: () => void) => void;
   readonly occupied: (occupied: boolean) => void;
   readonly settle: () => void;
@@ -58,15 +59,27 @@ export function createMilkyBed(options: MilkyBedOptions | undefined, runtime: Be
   }
   return {
     get active() { return visit !== undefined; },
-    available: () => visible() && runtime.canWalk(),
+    available: () => !visit && visible() && runtime.canWalk(),
     enter(stages: readonly MilkyRestStage[], autonomous: boolean): boolean {
       if (!options || !visible() || !runtime.canWalk()) return false;
       const current = { home: runtime.bound(runtime.position()) };
       visit = current;
-      runtime.walk(options.anchor, autonomous, () => {
+      const room = runtime.room();
+      const bed = options.element.getBoundingClientRect();
+      const bodyWidth = milkyWidthRatio(runtime.floor, false) * .66;
+      const approach = {
+        x: options.anchor.x - Math.min(bodyWidth * .82, (options.anchor.x - (bed.left - room.left) / room.width) * .85),
+        y: Math.min(runtime.floor.bottom, options.anchor.y + bodyWidth * .5 * room.width / room.height),
+      };
+      runtime.walk(approach, autonomous, () => {
         if (visit !== current || !runtime.canWalk()) return;
-        runtime.occupied(true);
-        runtime.rest(stages, autonomous, () => leave(runtime.settle));
+        const landed = () => { if (visit === current) runtime.occupied(true); };
+        const rest = () => {
+          if (visit === current && runtime.canWalk()) runtime.rest(stages, autonomous, () => leave(runtime.settle));
+        };
+        if (!runtime.hop(options.anchor, autonomous, landed, rest)) {
+          runtime.walk(options.anchor, autonomous, () => { landed(); rest(); });
+        }
       });
       return true;
     },

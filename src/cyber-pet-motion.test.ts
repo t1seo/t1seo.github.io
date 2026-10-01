@@ -78,3 +78,26 @@ test('depth uses scene aspect, with modest scale change and stationary plans wit
   const idle = createMilkyWalk({ x: .6, y: .9 }, { x: .6, y: .9 }, .05);
   assert.deepEqual(sampleMilkyWalk(idle, 0), { position: idle.target, distance: 0, speed: 0, done: true });
 });
+
+test('long walks reach and leave their normal stride within a brief ramp rather than lingering on held feet', () => {
+  // Given a long room crossing and a normal cruise speed.
+  const walk = createMilkyWalk({ x: .4, y: .95 }, { x: .86, y: .92 }, .06);
+  // When sampling shortly after departure and shortly before arrival.
+  const departure = sampleMilkyWalk(walk, 240);
+  const arrival = sampleMilkyWalk(walk, walk.duration - 240);
+  // Then neither end stretches a slow held-paw pose across a large fraction of the route.
+  assert.ok(Math.abs(departure.speed - .06) < 1e-8);
+  assert.ok(Math.abs(arrival.speed - .06) < 1e-8);
+});
+
+test('short and long ramp plans retain their requested speed and exact distance when momentum carries through', () => {
+  for (const distance of [.009, .03, .4]) {
+    for (const carriedSpeed of [0, .025, .06]) {
+      const walk = createMilkyWalk({ x: .4, y: .95 }, { x: .4 + distance, y: .95 }, .06, carriedSpeed);
+      assert.ok(walk.ramp * walk.duration <= 240 + 1e-9);
+      assert.ok(Math.abs(sampleMilkyWalk(walk, 0).speed - carriedSpeed) < 1e-9);
+      assert.ok(Math.abs(sampleMilkyWalk(walk, walk.duration / 2).speed - .06) < 1e-9);
+      assert.equal(sampleMilkyWalk(walk, walk.duration).distance, walk.distance);
+    }
+  }
+});

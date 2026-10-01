@@ -10,6 +10,7 @@ import { createMilkyToyTarget, type MilkyToyOptions } from './cyber-pet-toy';
 import { mountMilkyToyDrag } from './cyber-pet-drag';
 import { throwMilkyBall, predictMilkyBallRest } from './cyber-pet-throw';
 import { planMilkyWalkArrival, planMilkyBedWakeStretch } from './cyber-pet-transitions';
+import { sampleMilkyBedHop, type MilkyBedHop } from './cyber-pet-hop';
 
 export interface CyberPetController {
   /** Milky notices you and chooses a small walk across the visible floor. */
@@ -143,6 +144,7 @@ export function mountCyberPet(
   button.dataset.pose = 'idle';
   button.dataset.facing = 'right';
   button.dataset.motion = 'idle';
+  button.dataset.bed = 'false';
   const desktopWidth = milkyWidthRatio(floorBounds, false);
   const portraitWidth = milkyWidthRatio(floorBounds, true);
   const percent = (value: number) => `${Number(value.toFixed(6))}%`;
@@ -270,6 +272,7 @@ export function mountCyberPet(
   let actionRevision = 0;
   let autonomousAction = false;
   let walk: { plan: MilkyWalk; started: number; travelled: number; stride: number; autonomous: boolean; onDone?: () => void } | undefined;
+  let hop: { readonly plan: MilkyBedHop; readonly started: number; readonly autonomous: boolean; readonly onLand: () => void; readonly onDone: () => void; landed: boolean } | undefined;
   let ball: MilkyBallState | undefined;
   let ballBounds: MilkyBallBounds | undefined;
   let ballRotation = 0;
@@ -304,6 +307,7 @@ export function mountCyberPet(
     room: () => host.getBoundingClientRect(), viewport: () => scene.getBoundingClientRect(), floor: floorBounds,
     position: () => position, bound, canWalk,
     walk: (point, autonomous, onDone) => { if (!throwAwaitingWake) clearSession(); walkTo(point, { autonomous, onDone, bedRoute: true }); },
+    hop: startBedHop,
     rest: (stages, autonomous, done) => startAutonomousRest(stages, autonomous, done),
     occupied: (occupied) => { button.dataset.bed = String(occupied); syncToy(); }, settle: () => settle(),
   });
@@ -333,6 +337,11 @@ export function mountCyberPet(
     clearTimeout(lifeTimer);
     actionTimer = roamTimer = lifeTimer = undefined;
     walk = undefined;
+    if (hop) {
+      hop = undefined;
+      renderHop(0, 1, 1);
+      showIdle();
+    }
     autonomousAction = false;
     currentSpeed = 0;
   }
@@ -359,6 +368,27 @@ export function mountCyberPet(
   function renderPosition() {
     const depth = milkyDepthScale(position.y);
     button.style.transform = `translate3d(${(position.x * width).toFixed(2)}px, ${(position.y * height).toFixed(2)}px, 0) translate(-50%, -94%) scale(${depth.toFixed(4)})`;
+  }
+  function renderHop(lift: number, shadowScale: number, shadowOpacity: number) {
+    button.style.setProperty('--milky-hop-lift', `${(-lift * width).toFixed(2)}px`);
+    button.style.setProperty('--milky-hop-shadow-scale', shadowScale.toFixed(3));
+    button.style.setProperty('--milky-hop-shadow-opacity', shadowOpacity.toFixed(3));
+  }
+  function startBedHop(target: MilkyPoint, autonomous: boolean, onLand: () => void, onDone: () => void): boolean {
+    if (!canWalk() || !trotActive()) return false;
+    cancelAction();
+    autonomousAction = autonomous;
+    const bodyWidth = milkyWidthRatio(floorBounds, portrait) * .66 * milkyDepthScale(position.y);
+    hop = { plan: { origin: { ...position }, target: { ...target }, height: bodyWidth * .12 },
+      started: view.performance.now(), autonomous, onLand, onDone, landed: false };
+    currentSteps = trotSteps;
+    currentFrames = 4;
+    button.dataset.motion = 'anticipating';
+    button.dataset.gaze = forwardActive() ? 'forward' : 'camera';
+    if (activityReady('play-bow')) button.dataset.pose = 'play-bow'; else showIdle();
+    renderHop(0, 1, 1);
+    ensureTick();
+    return true;
   }
   function renderProp(entry: (typeof propItems)[number], point: MilkyPoint, lift = 0) {
     const depth = milkyDepthScale(point.y);
@@ -421,6 +451,30 @@ export function mountCyberPet(
       renderPosition();
       spriteFrame(milkyGaitFrame(gaitPhase, currentFrames));
       if (sample.done) finishWalk();
+      else more = true;
+    }
+    if (hop) {
+      if (!canWalk() || (hop.autonomous && !passiveAvailable())) { settle(); return; }
+      const current = hop;
+      const sample = sampleMilkyBedHop(current.plan, now - current.started);
+      position = sample.position;
+      renderPosition();
+      renderHop(sample.lift, sample.shadowScale, sample.shadowOpacity);
+      switch (sample.stage) {
+        case 'anticipation': break;
+        case 'flight':
+          button.dataset.motion = 'hopping';
+          spriteFrame(sample.frame);
+          break;
+        case 'landing':
+        case 'done':
+          button.dataset.motion = 'landing';
+          spriteFrame(2);
+          if (!current.landed) { current.landed = true; current.onLand(); }
+          break;
+        default: sample.stage satisfies never;
+      }
+      if (sample.stage === 'done') { hop = undefined; showIdle(); current.onDone(); }
       else more = true;
     }
     if (ball && !ball.resting && canWalk() && ballBounds) {
@@ -547,6 +601,10 @@ export function mountCyberPet(
     autonomousAction = autonomous;
     const revision = actionRevision;
     const steps: MilkyPoseStep[] = [];
+    if (button.dataset.bed === 'true' && stages[0]?.pose === 'sleep') {
+      if (restReady('sit')) steps.push({ pose: 'sit', hold: 320 });
+      if (restReady('drowsy')) steps.push({ pose: 'drowsy', hold: 460 });
+    }
     if (stages[0]?.pose === 'sit' && restReady('sitdown')) steps.push({ pose: 'sitdown', hold: milkyRestTransitionHold('sitdown') });
     steps.push(...stages);
     if (stages.at(-1)?.pose === 'sleep' && restReady('wake')) steps.push({ pose: 'wake', hold: milkyRestTransitionHold('wake') });
@@ -617,6 +675,7 @@ export function mountCyberPet(
     // A short still pause preserves the real dog's identity instead of swapping to a new face.
     // The stride was fitted so this walk ended near phase 4, whose stance matches the photo.
     button.dataset.motion = 'settling';
+    button.dataset.gaze = forwardActive() ? 'forward' : 'camera';
     showIdle();
     const arrival = !done ? planMilkyWalkArrival({
       enabled: toyOptions?.transitions === true, reducedMotion: motionStopped(),
@@ -651,6 +710,7 @@ export function mountCyberPet(
     actionRevision++;
     autonomousAction = autonomous;
     button.dataset.motion = 'walking';
+    button.dataset.gaze = forwardActive() ? 'forward' : 'camera';
     // One walk uses one frame set, fixed for the whole leg — never mixed mid-walk. A
     // brisk leg (cadence > 1.25) may use the atomic 4-frame trot when all four decoded;
     // otherwise the honest faster-stepped walk frames stand in.
@@ -676,6 +736,7 @@ export function mountCyberPet(
     autonomousAction = opts.autonomous ?? false;
     if (!turning) { startWalk(target, autonomousAction, 0, opts); return; }
     showIdle();
+    button.dataset.gaze = 'camera';
     button.dataset.motion = 'turning';
     const revision = actionRevision;
     actionTimer = setTimeout(() => {
@@ -699,6 +760,7 @@ export function mountCyberPet(
     showIdle();
     const attending = greeting && !turning && poseReady('attend');
     if (attending) button.dataset.pose = 'attend';
+    if (turning) button.dataset.gaze = 'camera';
     button.dataset.motion = turning ? 'turning' : 'attending';
     autonomousAction = autonomous;
     const revision = actionRevision;

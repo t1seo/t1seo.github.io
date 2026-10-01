@@ -37,9 +37,15 @@
   background: radial-gradient(ellipse, rgb(9 13 17 / .24), rgb(9 13 17 / .12) 38%, transparent 72%);
   filter: blur(1.4px);
   pointer-events: none;
+  transform: scale(var(--milky-hop-shadow-scale, 1));
+  opacity: var(--milky-hop-shadow-opacity, 1);
 }
 .cyber-pet-button[data-bed='true'] .cyber-pet-shadow { opacity: .35; }
 .cyber-pet-figure { position: absolute; inset: 0; pointer-events: none; transform-origin: 50% 94%; }
+.cyber-pet-button:is([data-motion='anticipating'], [data-motion='hopping'], [data-motion='landing']) .cyber-pet-figure {
+  animation: none;
+  transform: translateY(var(--milky-hop-lift, 0px));
+}
 .cyber-pet-image, .cyber-pet-step, .cyber-pet-pose, .cyber-pet-rest, .cyber-pet-activity {
   position: absolute;
   inset: 0;
@@ -137,7 +143,7 @@
 @keyframes milky-sleep-breathing { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.006); } }
 @media (prefers-reduced-motion: no-preference) {
   /* Micro- and rest poses keep breathing on the same clock so a swap cannot restart it. */
-  .cyber-pet-button:is([data-pose='idle'], [data-pose='blink'], [data-pose='attend'], [data-pose='sniff'], [data-pose='sit'], [data-pose='drowsy'], [data-pose='sitdown'], [data-pose='wake'], [data-pose='eat-low'], [data-pose='eat-lift'], [data-pose='play-bow'], [data-pose='play-reach'])[data-active='true'][data-animated='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-breathing 5.4s ease-in-out infinite; }
+  .cyber-pet-button:is([data-pose='idle'], [data-pose='blink'], [data-pose='attend'], [data-pose='sniff'], [data-pose='sit'], [data-pose='drowsy'], [data-pose='sitdown'], [data-pose='wake'], [data-pose='eat-low'], [data-pose='eat-lift'], [data-pose='play-bow'], [data-pose='play-reach']):not([data-motion='anticipating'])[data-active='true'][data-animated='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-breathing 5.4s ease-in-out infinite; }
   .cyber-pet-button[data-pose='sleep'][data-active='true'][data-animated='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-sleep-breathing 4.2s ease-in-out infinite; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -2,6 +2,7 @@ import type { MilkyPoint } from './cyber-pet-geometry.ts';
 
 const FLOOR_ASPECT = 941 / 1672;
 const RAMP = 0.17;
+const MAX_RAMP_SECONDS = .24;
 const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
 // Smoothstep velocity ramps remove the jerk of a linear ramp at both ends of a walk while
 // integrating to the same area, so walk duration math is unchanged from the linear version.
@@ -15,6 +16,7 @@ export interface MilkyWalk {
   duration: number;
   initialRatio: number;
   area: number;
+  ramp: number;
 }
 
 /** Distances use room-width units so a vertical step is not stretched by the artwork's aspect ratio. */
@@ -55,27 +57,31 @@ export function createMilkyWalk(origin: MilkyPoint, target: MilkyPoint, speed: n
   const distance = milkyDistance(origin, target);
   const targetSpeed = Math.max(0.005, speed);
   const initialRatio = clamp01(initialSpeed / targetSpeed);
-  const area = 1 - RAMP + initialRatio * RAMP / 2;
+  const nominalArea = 1 - RAMP + initialRatio * RAMP / 2;
+  const nominalDuration = distance / (targetSpeed * nominalArea);
+  const duration = Math.min(nominalDuration, distance / targetSpeed + MAX_RAMP_SECONDS * (1 - initialRatio / 2));
+  const ramp = duration > 0 ? Math.min(RAMP, MAX_RAMP_SECONDS / duration) : RAMP;
+  const area = 1 - ramp + initialRatio * ramp / 2;
   return { origin: { ...origin }, target: { ...target }, distance,
-    duration: distance > 0 ? distance / (targetSpeed * area) * 1000 : 0,
-    initialRatio, area };
+    duration: duration * 1000, initialRatio, area, ramp };
 }
 
 export function sampleMilkyWalk(walk: MilkyWalk, elapsed: number) {
   if (walk.duration <= 0) return { position: { ...walk.target }, distance: 0, speed: 0, done: true };
   const time = clamp01(elapsed / walk.duration);
+  const ramp = walk.ramp;
   let integral: number;
   let velocity: number;
-  if (time < RAMP) {
-    const s = time / RAMP;
-    integral = RAMP * (walk.initialRatio * s + (1 - walk.initialRatio) * smoothIntegral(s));
+  if (time < ramp) {
+    const s = time / ramp;
+    integral = ramp * (walk.initialRatio * s + (1 - walk.initialRatio) * smoothIntegral(s));
     velocity = walk.initialRatio + (1 - walk.initialRatio) * smooth(s);
-  } else if (time <= 1 - RAMP) {
-    integral = RAMP * (1 + walk.initialRatio) / 2 + time - RAMP;
+  } else if (time <= 1 - ramp) {
+    integral = ramp * (1 + walk.initialRatio) / 2 + time - ramp;
     velocity = 1;
   } else {
-    const s = (time - (1 - RAMP)) / RAMP;
-    integral = RAMP * (1 + walk.initialRatio) / 2 + 1 - 2 * RAMP + RAMP * (s - smoothIntegral(s));
+    const s = (time - (1 - ramp)) / ramp;
+    integral = ramp * (1 + walk.initialRatio) / 2 + 1 - 2 * ramp + ramp * (s - smoothIntegral(s));
     velocity = 1 - smooth(s);
   }
   const progress = time === 1 ? 1 : clamp01(integral / walk.area);
