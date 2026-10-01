@@ -1,0 +1,72 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-01",
+  "references": [
+    "asset-sources/seoul-studio/seasonal-accents/spring/textile.png",
+    "asset-sources/seoul-studio/seasonal-accents/spring/vignette.png",
+    "public/assets/penthouse/seoul/autumn/noon.webp"
+  ],
+  "textile": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: transparent painted seasonal throw sprite for an interactive illustrated room.\nInput image 1 is the EDIT TARGET: the existing spring sage throw. Input image 2 is STYLE and perspective REFERENCE only.\nPrimary request: change ONLY the textile material and color of image 1 into a refined winter throw: creamy warm ivory, softly knitted fine wool with delicate close-knit stitch texture, one very narrow deep muted burgundy stripe following the same stripe path, and restrained short matching cream fringe.\nKeep the exact existing throw silhouette, fold arrangement, drape, direction, vertical proportions, framing and transparent padding. It lies over the viewer's right lounge-chair arm and hangs down its outer front face. Do not broaden, thicken or move the throw. It must work in source room rectangle [236,596,88,112], canvas width:height 88:112.\nStyle: delicate hand-painted 2.5D matte architectural interior illustration matching image 2, subtle softened brushwork and fine winter-wool texture. Cozy but premium, no chunky oversized cable knit. Fully opaque fabric body, genuine transparent alpha outside fabric including open spaces around fringe. Clean antialiased physical edges.\nLighting: soft neutral upper-left daylight with gentle warm bounce, subtle folded self-shadows only.\nConstraints: output ONLY the single throw isolated on true transparent background. No furniture, room, wall, floor, chair arm, cushion, cast shadow, glow, haze, backdrop, text, logos or watermark. Do not paint a checkerboard. Preserve image 1 geometry precisely.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f745-411b-7fc3-9734-0a9f6259dec9/exec-2afaed86-502a-42c5-ad5a-1c27505f9288.png",
+    "source": "winter/textile.png",
+    "runtime": "winter-textile.webp",
+    "sourceRect": [
+      236,
+      596,
+      88,
+      112
+    ],
+    "runtimeSize": [
+      352,
+      448
+    ],
+    "runtimeBytes": 36768,
+    "runtimeSha256": "6a0dff3f6e7ac892151afcb5cecf878c2dacff2bb3fa98cb2a38342cdfd68c1a",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBoundingBox": [
+      24,
+      26,
+      344,
+      422
+    ],
+    "encoding": "WebP quality 91, method 6, resized with Lanczos; generated alpha preserved"
+  },
+  "vignette": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: tiny transparent seasonal console sprite in an illustrated room.\nInput image 1 is COMPOSITION REFERENCE ONLY: spring vase sprite. Replace this subject completely with a winter decoration. Input image 2 is STYLE, lighting and architectural perspective reference only, do not include its room.\nPrimary request: an elegant miniature Christmas evergreen tree in a very small matte warm ivory ceramic planter, a slender softly irregular conical silhouette with delicate hand-painted dimensional needles, restrained fine warm gold fairy-light points lying on physical foliage, exactly three very small deep muted burgundy baubles. One tiny cream wrapped gift with a narrow burgundy ribbon beside the pot at its bottom right. No topper.\nGeometry: this decorative group replaces the spring vase on the right walnut console at room rectangle [1530,445,52,110]. Slender portrait canvas width:height exactly 52:110. Entire physical silhouette with 5% clear transparent margins; tree top at 6% and pot/gift bottoms at 94% canvas height. Tree occupies 90% canvas height, 88% maximum width. Tiny pot is 13% overall height, gift 9% overall height. Lower branches may reach near pot, realistic short exposed trunk. Base horizontal. Seen from front and slightly above to match the interior painting.\nStyle: sophisticated delicately hand-painted 2.5D matte architectural illustration, natural dimensional foliage, softened visible brush grain and gentle irregular natural edges, subtle self-shadowing. Finely painted green needles in cool dark evergreen with muted sage tips. Refined quiet premium home detail, sufficiently legible when rendered 52x110 pixels. Not flat vector, childish icon, photography or plasticky 3D.\nLighting: soft neutral upper-left daylight with warm bounce. Fairy lights are tiny amber/gold opaque dots attached to branches, no broad bloom.\nTransparency: production-ready genuine alpha outside exact physical tree, pot, ornament and gift silhouettes. True alpha 0 between foliage where there are gaps. All physical subjects fully opaque except clean antialiased edges. NO haze, halo, diffuse glow, stars, sparkle lines, cast floor shadow, shelf, room, furniture, background, text, logo, watermark or checkerboard. Only the miniature tree, planter and one tiny gift.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f745-411b-7fc3-9734-0a9f6259dec9/exec-b63fc8ef-8bdd-4d8a-9807-2736bc0abc1e.png",
+    "source": "winter/vignette.png",
+    "runtime": "winter-vignette.webp",
+    "sourceRect": [
+      1530,
+      445,
+      52,
+      110
+    ],
+    "runtimeSize": [
+      208,
+      440
+    ],
+    "runtimeBytes": 48426,
+    "runtimeSha256": "705d7e1014d652568e93157451d3b0d2985f527bdae637f4073c274b05660e38",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "alphaBoundingBox": [
+      12,
+      4,
+      197,
+      425
+    ],
+    "encoding": "WebP quality 91, method 6, resized with Lanczos; generated alpha preserved"
+  },
+  "validation": {
+    "composite": "/tmp/t1seo-winter-accents.jpg",
+    "checked": "Real alpha over target room at source rectangles; clean edges and natural furniture contact; all four border edges fully transparent."
+  }
+}
