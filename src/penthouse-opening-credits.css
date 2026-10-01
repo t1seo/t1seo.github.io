@@ -1,21 +1,56 @@
+@font-face {
+  font-family: 'Opening Cormorant';
+  src: url('/assets/fonts/cormorant-garamond-latin.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+}
 .ph-opening-credits {
   position: absolute;
   z-index: 6;
-  inset-inline: 20px;
-  top: clamp(64px, 14cqh, 160px);
-  margin: 0;
-  padding-left: .32em;
+  inset-inline: 16px;
+  top: clamp(48px, 12cqh, 140px);
+  display: grid;
+  justify-items: center;
+  gap: clamp(12px, 1.5cqh, 20px);
   color: #f6eee1;
-  font: 400 clamp(17px, 1.65cqw, 27px) / 1.4 Georgia, 'Times New Roman', serif;
-  letter-spacing: .32em;
   text-align: center;
-  white-space: nowrap;
-  text-shadow: 0 1px 3px #24201d66, 0 2px 12px #171c2155;
+  text-shadow: 0 1px 3px #24201d70, 0 2px 16px #171c2155;
   pointer-events: none;
   user-select: none;
 }
+.ph-opening-eyebrow {
+  font: 400 clamp(.625rem, .57rem + .25cqw, .8125rem) / 1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: .3em;
+  padding-left: .3em;
+  opacity: 0;
+}
+.ph-opening-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  font: 400 clamp(1.75rem, 1.3rem + 2.15cqw, 3.5rem) / 1.2 'Opening Cormorant', 'Iowan Old Style', Georgia, serif;
+  letter-spacing: .2em;
+  padding-left: .2em;
+  white-space: pre;
+}
+.ph-opening-word { display: flex; }
+[data-opening-letter] { opacity: 0; }
+[data-opening-letter][data-visible='true'] { animation: ph-opening-letter .3s ease-out both; }
 .ph-opening-credits[data-phase='waiting'] { visibility: hidden; }
-.ph-opening-credits[data-phase='fading'] { animation: ph-opening-fade 1s ease-out both; }
-.ph-opening-credits[data-paused='true'] { animation-play-state: paused; }
+.ph-opening-credits:not([data-phase='waiting']) .ph-opening-eyebrow { animation: ph-opening-eyebrow 1s ease-out both; }
+.ph-opening-credits[data-phase='fading'] { animation: ph-opening-fade 1.6s ease-in-out both; }
+.ph-opening-credits[data-paused='true'], .ph-opening-credits[data-paused='true'] * { animation-play-state: paused; }
+@keyframes ph-opening-eyebrow { to { opacity: .82; } }
+@keyframes ph-opening-letter { from { opacity: 0; } to { opacity: 1; } }
 @keyframes ph-opening-fade { to { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .ph-opening-credits { animation: none; } }
+@media (max-width: 360px) { .ph-opening-title { font-size: 1.75rem; letter-spacing: .16em; } }
+@media (max-width: 260px) { .ph-opening-title { font-size: 1.5rem; letter-spacing: .1em; } }
+@media (max-height: 450px) { .ph-opening-credits { top: max(24px, 10cqh); gap: 9px; } }
+@media (prefers-reduced-motion: reduce) {
+  .ph-opening-credits, .ph-opening-credits * { animation: none !important; }
+  .ph-opening-eyebrow { opacity: .82; }
+  [data-opening-letter][data-visible='true'] { opacity: 1; }
+}

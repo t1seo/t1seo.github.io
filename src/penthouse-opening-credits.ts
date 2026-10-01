@@ -1,16 +1,24 @@
-type OpeningCreditsHost = Pick<HTMLElement, 'textContent' | 'dataset' | 'hidden'>;
-type OpeningPhase = 'waiting' | 'typing' | 'holding' | 'fading' | 'done';
+type OpeningCreditsHost = Pick<HTMLElement, 'dataset' | 'hidden'>;
+type OpeningLetter = Pick<HTMLElement, 'dataset'>;
+type OpeningPhase = 'waiting' | 'introducing' | 'typing' | 'holding' | 'fading' | 'done';
 const TITLE = 'TAEWON SEO';
 
-export function mountOpeningCredits(element: OpeningCreditsHost): () => void {
+export function openingCreditsMarkup(): string {
+  const words = TITLE.split(' ').map(word => `<span class="ph-opening-word">${Array.from(word, letter => `<span data-opening-letter data-visible="false">${letter}</span>`).join('')}</span>`);
+  const title = words.join('<span data-opening-letter data-visible="false"> </span>');
+  return `<div class="ph-opening-credits" aria-hidden="true" data-phase="waiting"><span class="ph-opening-eyebrow">A PERSONAL SPACE</span><span class="ph-opening-title">${title}</span></div>`;
+}
+
+export function mountOpeningCredits(element: OpeningCreditsHost, letterElements: Iterable<OpeningLetter>): () => void {
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const letters = Array.from(letterElements);
   let phase: OpeningPhase = 'waiting';
   let timer: number | undefined;
-  let remaining = 900;
+  let remaining = 1000;
   let started = 0;
-  let letters = 0;
+  let revealed = 0;
   let disposed = false;
-  element.textContent = '';
+  for (const letter of letters) letter.dataset.visible = 'false';
   element.hidden = false;
   element.dataset.phase = phase;
   element.dataset.paused = String(document.hidden);
@@ -32,15 +40,17 @@ export function mountOpeningCredits(element: OpeningCreditsHost): () => void {
     element.dataset.phase = next;
   }
   function hold() {
-    element.textContent = TITLE;
+    for (const letter of letters) letter.dataset.visible = 'true';
     setPhase('holding');
-    schedule(3000);
+    schedule(4200);
   }
   function typeLetter() {
-    letters++;
-    element.textContent = TITLE.slice(0, letters);
-    if (letters === TITLE.length) hold();
-    else schedule(100);
+    const letter = letters[revealed];
+    if (letter) letter.dataset.visible = 'true';
+    const delay = TITLE[revealed] === ' ' ? 480 : 220;
+    revealed++;
+    if (revealed === letters.length) hold();
+    else schedule(delay);
   }
   function finish() {
     if (disposed) return;
@@ -50,19 +60,19 @@ export function mountOpeningCredits(element: OpeningCreditsHost): () => void {
     motion.removeEventListener('change', preference);
     setPhase('done');
     element.hidden = true;
-    element.textContent = '';
     delete element.dataset.paused;
   }
   function advance() {
     switch (phase) {
       case 'waiting':
         if (motion.matches) hold();
-        else { setPhase('typing'); typeLetter(); }
+        else { setPhase('introducing'); schedule(1000); }
         return;
+      case 'introducing': setPhase('typing'); typeLetter(); return;
       case 'typing': typeLetter(); return;
       case 'holding':
         if (motion.matches) finish();
-        else { setPhase('fading'); schedule(1000); }
+        else { setPhase('fading'); schedule(1600); }
         return;
       case 'fading': finish(); return;
       case 'done': return;
@@ -81,6 +91,7 @@ export function mountOpeningCredits(element: OpeningCreditsHost): () => void {
     if (!motion.matches) return;
     switch (phase) {
       case 'waiting':
+      case 'introducing':
       case 'typing': pause(); hold(); return;
       case 'holding': return;
       case 'fading': finish(); return;
