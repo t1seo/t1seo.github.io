@@ -1,4 +1,6 @@
 import { getCyberMusicTrack, type CyberMusicTrack, type MusicClimate } from './cyber-music-catalog.ts';
+import { createSoundMixer, normalizeAudioVolume, type CyberSoundMixer, type MixListener } from './cyber-sound-mix.ts';
+export type { CyberSoundMix, CyberSoundMixer } from './cyber-sound-mix.ts';
 
 export interface CyberPlaybackState {
   track: CyberMusicTrack;
@@ -15,6 +17,7 @@ export type CyberSound = {
   setClimate(climate: MusicClimate): void;
   getCurrentTrack(): CyberMusicTrack;
   setRain(enabled: boolean): void;
+  setMusicVolume(volume: number): void;
   playBowl(): Promise<void>;
   playCup(): Promise<void>;
   destroy(): void;
@@ -31,13 +34,33 @@ type Deck = {
 type Tone = { nodes: AudioNode[]; sources: OscillatorNode[]; timer: ReturnType<typeof setTimeout> };
 const MUSIC_GAIN = 0.34;
 const CROSSFADE_SECONDS = 1.35;
+type CyberSoundOptions = {
+  readonly onTrackChange?: (state: CyberPlaybackState) => void;
+  readonly independentMix?: boolean;
+  readonly onMixChange?: MixListener;
+};
 
 /** Local licensed recordings + gesture-only physical sounds. No audio at mount. */
-export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybackState) => void } = {}): CyberSound {
+export function createCyberSound(options: CyberSoundOptions & { independentMix: true }): CyberSoundMixer;
+export function createCyberSound(options?: CyberSoundOptions): CyberSound;
+export function createCyberSound(options: CyberSoundOptions = {}): CyberSound {
+  let publishMix = () => {};
+  const music = createCoupledSound({ ...options, onTrackChange: state => {
+    options.onTrackChange?.(state);
+    publishMix();
+  } });
+  if (!options.independentMix) return music;
+  const mixer = createSoundMixer(music, options.onMixChange);
+  publishMix = mixer.publish;
+  return mixer.sound;
+}
+
+function createCoupledSound(options: CyberSoundOptions): CyberSound {
   let context: AudioContext | null = null;
   let climate: MusicClimate = { season: 'autumn', time: 'night', weather: 'clear' };
   let selected = getCyberMusicTrack(climate);
   let enabled = false;
+  let musicVolume = .65;
   let playing = false;
   let loading = false;
   let destroyed = false;
@@ -46,6 +69,7 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
   let visibilityRevision = 0;
   let activeDeck: Deck | null = null;
   let pendingDeck: Deck | null = null;
+  let musicGain: GainNode | null = null;
   let rain: { source: AudioBufferSourceNode; gain: GainNode; nodes: AudioNode[] } | null = null;
   let rainEnabled = false;
   let idleTimer: ReturnType<typeof setTimeout> | undefined;
@@ -160,13 +184,19 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
   }
 
   function buildDeck(audio: AudioContext, track: CyberMusicTrack): Deck {
+    if (!musicGain) {
+      musicGain = audio.createGain();
+      musicGain.gain.value = 0;
+      musicGain.connect(audio.destination);
+      fade(musicGain.gain, MUSIC_GAIN * musicVolume / .65, .12);
+    }
     const element = new Audio();
     element.preload = 'none';
     element.loop = true;
     const source = audio.createMediaElementSource(element);
     const gain = audio.createGain();
     gain.gain.value = 0;
-    source.connect(gain).connect(audio.destination);
+    source.connect(gain).connect(musicGain);
     const deck: Deck = { track, element, source, gain, onError: () => {
       // An outgoing recording can fail while its replacement is buffering.
       // Retire that deck without discarding the newer, healthy request.
@@ -216,7 +246,7 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
       activeDeck = next;
       if (next.stopTimer !== undefined) clearTimeout(next.stopTimer);
       next.stopTimer = undefined;
-      fade(next.gain.gain, MUSIC_GAIN, CROSSFADE_SECONDS);
+      fade(next.gain.gain, 1, CROSSFADE_SECONDS);
       playing = true;
       loading = false;
       updateRain();
@@ -318,15 +348,20 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
       const next = getCyberMusicTrack(climate);
       const changed = selected.id !== next.id;
       selected = next;
-      rainEnabled = climate.weather === 'rain';
+      rainEnabled = !options.independentMix && climate.weather === 'rain';
       updateRain();
       if (changed && enabled) void startSelected();
       else publish();
     },
     setRain(value): void {
       if (destroyed) return;
-      rainEnabled = value;
+      rainEnabled = !options.independentMix && value;
       updateRain();
+    },
+    setMusicVolume(value): void {
+      if (destroyed) return;
+      musicVolume = normalizeAudioVolume(value, musicVolume);
+      if (musicGain) fade(musicGain.gain, MUSIC_GAIN * musicVolume / .65, .12);
     },
     playBowl: () => physicalTone('bowl'),
     playCup: () => physicalTone('cup'),
@@ -339,6 +374,8 @@ export function createCyberSound(options: { onTrackChange?: (state: CyberPlaybac
       clearIdle();
       document.removeEventListener('visibilitychange', onVisibilityChange);
       for (const deck of decks) retire(deck);
+      musicGain?.disconnect();
+      musicGain = null;
       for (const tone of tones) disposeTone(tone);
       clearIdle();
       if (rain) {
