@@ -1,6 +1,6 @@
 import './cyber-pet.css';
 import { placeMilky, milkyHasVisibleFloor, milkyWidthRatio, DEFAULT_MILKY_FLOOR, type MilkyPoint } from './cyber-pet-geometry';
-import { createMilkyWalk, sampleMilkyWalk, milkyCanContinue, milkyDepthScale, milkyDistance, milkyStride, milkyGaitStride, milkyGaitFrame, type MilkyWalk } from './cyber-pet-motion';
+import { createMilkyWalk, sampleMilkyWalk, milkyCanContinue, milkyDepthScale, milkyDistance, milkyStride, milkyGaitStride, milkyGaitFinishAdjustment, milkyGaitPhase, milkyGaitFrame, type MilkyWalk } from './cyber-pet-motion';
 import { chooseMilkyDestination, milkyKeyboardDestination, milkyRoamPause, type MilkyHeading } from './cyber-pet-roam';
 import { planMilkyIdleMoment, milkySniffHold, milkyGreetHold, MILKY_BLINK_GAP, type MilkyIdleMoment } from './cyber-pet-life';
 import { planMilkyRestCycle, milkyRestTransitionHold, milkyStandHold, milkyExplicitRestHold, type MilkyRestPoseName } from './cyber-pet-rest';
@@ -40,17 +40,24 @@ const ASSET_ROOT = '/assets/cyberpunk/';
 // bodies to align them would shift the torso and stance paws instead of fixing the heads.
 // Keep the common body-space transform (docs/MILKY-FABLE-ASSET-BRIEF.md).
 type MilkyArtVersion = 'v4' | 'v3';
-interface MilkyArt { scale: number; x: number; y: number; stepOffsetX: number[] }
-const art = (centerX: number, groundY: number, scale: number, stepOffsetX: number[]): MilkyArt => ({
+interface MilkyArt { scale: number; x: number; y: number; stepOffsetX: number[]; stepOffsetY: readonly number[] }
+const art = (centerX: number, groundY: number, scale: number, stepOffsetX: number[], stepOffsetY: readonly number[]): MilkyArt => ({
   scale,
   x: (.5 - centerX / 1536) * scale * 100,
   y: (.94 - groundY / 1024) * scale * 100,
   stepOffsetX,
+  stepOffsetY,
 });
+// Rigid contact-height offsets in native pixels, positive down; proportions stay intact.
+// Paw-window measurements improve maximum floor error from 16→6 px (v4), 19→5 (forward)
+// at export size. Torso variation and foot slide remain; this does not stabilize the head.
 const MILKY_ART: Record<MilkyArtVersion, MilkyArt> = {
-  v4: art(795, 970, .847, [0, 0, 0, 0, 0, 0, 0, 0]),
-  v3: art(811, 973, .82, [.49, .01, -.20, .93, 5.73, 2.15, 2.44, 2.08]),
+  v4: art(795, 970, .847, [0, 0, 0, 0, 0, 0, 0, 0], [20, 14, 20, 28, 26, 14, 2, 14] as const),
+  v3: art(811, 973, .82, [.49, .01, -.20, .93, 5.73, 2.15, 2.44, 2.08], [0, 0, 0, 0, 0, 0, 0, 0] as const),
 };
+// The forward-look walk frames are redrawn bodies with their own measured bottoms, so
+// they carry their own grounding table.
+const FORWARD_STEP_OFFSET_Y = [32, 20, 20, 24, 26, 16, 12, 24] as const;
 const idleAsset = (version: MilkyArtVersion) => version === 'v4' ? 'milky-v4-idle.webp' : 'milky-awake.webp';
 const stepAsset = (version: MilkyArtVersion, index: number) => `milky-${version}-step-${index}.webp`;
 const POSE_NAMES = ['blink', 'attend', 'sniff'] as const;
@@ -271,7 +278,7 @@ export function mountCyberPet(
   let lifeTimer: ReturnType<typeof setTimeout> | undefined;
   let actionRevision = 0;
   let autonomousAction = false;
-  let walk: { plan: MilkyWalk; started: number; travelled: number; stride: number; autonomous: boolean; onDone?: () => void } | undefined;
+  let walk: { plan: MilkyWalk; started: number; basePhase: number; adjust: number; stride: number; autonomous: boolean; onDone?: () => void } | undefined;
   let hop: { readonly plan: MilkyBedHop; readonly started: number; readonly autonomous: boolean; readonly onLand: () => void; readonly onDone: () => void; landed: boolean } | undefined;
   let ball: MilkyBallState | undefined;
   let ballBounds: MilkyBallBounds | undefined;
@@ -322,7 +329,9 @@ export function mountCyberPet(
     const registration = MILKY_ART[version];
     for (const [index, step] of steps.entries()) {
       step.ready = false;
-      registerArt(step.image, `${registration.x - registration.stepOffsetX[index] / 1536 * registration.scale * 100}%`);
+      registerArt(step.image,
+        `${registration.x - registration.stepOffsetX[index] / 1536 * registration.scale * 100}%`,
+        `${registration.y + registration.stepOffsetY[index] / 1024 * registration.scale * 100}%`);
       step.image.src = `${ASSET_ROOT}${stepAsset(version, index)}`;
     }
     registerArt(idleImage);
@@ -444,8 +453,7 @@ export function mountCyberPet(
     if (walk) {
       if (!canWalk() || (walk.autonomous && !passiveAvailable())) { settle(); return; }
       const sample = sampleMilkyWalk(walk.plan, now - walk.started);
-      gaitPhase += Math.max(0, sample.distance - walk.travelled) / walk.stride;
-      walk.travelled = sample.distance;
+      gaitPhase = milkyGaitPhase(walk.basePhase, sample.distance, walk.plan.distance, walk.stride, walk.adjust);
       currentSpeed = sample.speed;
       position = sample.position;
       renderPosition();
@@ -717,7 +725,9 @@ export function mountCyberPet(
     const brisk = (opts?.cadence ?? 1) > 1.25;
     currentSteps = brisk && trotActive() ? trotSteps : forwardActive() ? forwardSteps : steps;
     currentFrames = currentSteps.length;
-    walk = { plan, started: view.performance.now(), travelled: 0, stride, autonomous, onDone: opts?.onDone };
+    // Aim within the support frame before settling, subject to the cadence adjustment cap.
+    walk = { plan, started: view.performance.now(), basePhase: gaitPhase,
+      adjust: milkyGaitFinishAdjustment(gaitPhase, plan.distance, stride, currentFrames), stride, autonomous, onDone: opts?.onDone };
     spriteFrame(milkyGaitFrame(gaitPhase, currentFrames));
     ensureTick();
   }
@@ -1283,7 +1293,8 @@ export function mountCyberPet(
     forwardIdle.image.src = `${ASSET_ROOT}milky-forward-idle.webp`;
   }
   forwardSteps.forEach((entry, index) => {
-    registerArt(entry.image);
+    const v4 = MILKY_ART.v4;
+    registerArt(entry.image, undefined, `${v4.y + FORWARD_STEP_OFFSET_Y[index] / 1024 * v4.scale * 100}%`);
     entry.image.src = `${ASSET_ROOT}milky-forward-step-${index}.webp`;
   });
   trotSteps.forEach((entry, index) => {
