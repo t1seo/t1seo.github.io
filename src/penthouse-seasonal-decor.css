@@ -1,0 +1,21 @@
+.ph-seasonal-decor {
+  --decor-brightness: 1;
+  --decor-weather: 1;
+  --decor-saturation: 1;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.ph-seasonal-decor img {
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  filter: brightness(calc(var(--decor-brightness) * var(--decor-weather))) saturate(var(--decor-saturation));
+}
+.ph-seasonal-decor__textile { left: 14.114833%; top: 63.336876%; width: 5.263158%; height: 11.902232%; }
+.ph-seasonal-decor__vignette { left: 91.507177%; top: 47.290117%; width: 3.110048%; height: 11.689692%; }
+.ph-room[data-time='night'] .ph-seasonal-decor { --decor-brightness: .69; --decor-saturation: .8; }
+.ph-room[data-time='evening'] .ph-seasonal-decor { --decor-brightness: .83; --decor-saturation: .86; }
+.ph-room:is([data-weather='rain'], [data-weather='cloudy']) .ph-seasonal-decor { --decor-weather: .9; }
