@@ -17,6 +17,33 @@
       596,
       88,
       112
+    ],
+    "sourceDimensions": [
+      1112,
+      1415
+    ],
+    "sourceSHA256": "b926895b4eb2249f11ae6d0de17011265d4495c294b13cc243b3993ef0920c32",
+    "runtimeDimensions": [
+      352,
+      448
+    ],
+    "runtimeBytes": 33932,
+    "runtimeSHA256": "a549cbf51918af6aecc6ebfa1b0215c6d0b77c07a600a69b98f0e263e3d1470b",
+    "runtimeAlphaRange": [
+      0,
+      255
+    ],
+    "runtimeAlphaBounds": [
+      29,
+      30,
+      341,
+      419
+    ],
+    "runtimeCornerAlpha": [
+      0,
+      0,
+      0,
+      0
     ]
   },
   "vignette": {
@@ -29,6 +56,45 @@
       445,
       52,
       110
+    ],
+    "sourceDimensions": [
+      862,
+      1825
+    ],
+    "sourceSHA256": "c7383e2f62b5cb4aa15417bd327d9e062675d385b991da4fa05bd790d386db3d",
+    "runtimeDimensions": [
+      208,
+      440
+    ],
+    "runtimeBytes": 34106,
+    "runtimeSHA256": "368aa9cd05c34337618eadd3ffa1ca9dfba77e05cd2c7665be0dbcbe17b0a7ab",
+    "runtimeAlphaRange": [
+      0,
+      255
+    ],
+    "runtimeAlphaBounds": [
+      4,
+      6,
+      206,
+      431
+    ],
+    "runtimeCornerAlpha": [
+      0,
+      0,
+      0,
+      0
     ]
+  },
+  "validation": {
+    "visualReview": "Actual RGBA-composited full room inspected; alpha is clean, ivory textile rests on the right chair arm and sand-ivory vase base sits on the console. Parent reviewed the full composite and approved original spring coordinates.",
+    "diagnosticFiles": [
+      "/tmp/t1seo-summer-accents.jpg"
+    ],
+    "preserved": "All 20 full room plates, lighting, desk props, diffuser, dog assets and bed remain unchanged."
+  },
+  "conversion": {
+    "tool": "Pillow",
+    "operation": "Proportional Lanczos downscale with subpixel aspect normalization to exactly 4x intended source-space rectangle; RGBA alpha preserved. No hand painting, alpha-keying or compositing in runtime asset.",
+    "format": "WebP quality 91, method 6"
   }
 }
