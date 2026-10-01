@@ -159,11 +159,13 @@ test('reduced motion and manual still mode render once without animation frames'
 });
 test('desk lamp toggles replace the light overlay without accumulating paint or idle frames', t => {
   const f = compositor(t); f.effects.update(state('clear','noon'));
+  const workspace = { monitor: false, lamp: false };
   for (const lamp of [false,true,false,true,false]) {
-    f.paintCommands.length = 0;
-    f.effects.setWorkspace({monitor:false,lamp});
+    f.paintCommands.length = 0; f.translations.length = 0;
+    workspace.lamp = lamp; f.effects.setWorkspace(workspace);
     assert.equal(f.paintCommands[0],'clearRect','each state replaces the previous overlay');
     assert.equal(f.paintCommands.filter(command => command === 'clearRect').length,1);
+    assert.equal(f.translations.some(([x,y]) => x === 1153 && y === 431),lamp,'the clicked desk light emits only while enabled');
     if (lamp) assert.ok(f.paintCommands.includes('fillRect'),'turning on paints the light');
     else assert.deepEqual(f.paintCommands,['clearRect'],'turning off leaves no light behind');
     assert.equal(f.frames.size,0,'a steady lamp needs no animation loop');

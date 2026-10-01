@@ -138,11 +138,11 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     if (workspace.floorLamp && ctx) loungeLight.draw(ctx,night);
     if (workspace.lamp) {
       ctx!.save(); ctx!.beginPath(); path([[1044,550],[1220,550],[1215,575],[1036,575]]); ctx!.clip();
-      glow(1129,559,90,14,'#ffdda0',.32); ctx!.restore();
+      glow(1129,559,90,14,'#ffdda0',.56 + night * .08); ctx!.restore();
       ctx!.save(); ctx!.beginPath(); path([[1131,431],[1175,442],[1189,568],[1038,568]]); ctx!.clip();
-      glow(1127,520,84,67,'#ffe9bd',.045); ctx!.restore();
+      glow(1127,520,84,67,'#ffe9bd',.075); ctx!.restore();
       ctx!.save(); ctx!.translate(1153,431); ctx!.rotate(.28);
-      glow(0,0,20,2.2,'#fff0c6',.3); ctx!.restore();
+      glow(0,0,22,4.4,'#fff0c6',.68 + night * .1); ctx!.restore();
     }
     if (workspace.monitor) {
       glow(916,562,86,12,'#bad4e9',.08 + night * .09);
