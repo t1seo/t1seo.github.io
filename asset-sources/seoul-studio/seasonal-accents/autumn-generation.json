@@ -1,0 +1,141 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "date": "2026-10-01",
+  "references": [
+    "asset-sources/seoul-studio/seasonal-accents/spring/textile.png",
+    "asset-sources/seoul-studio/seasonal-accents/spring/vignette.png",
+    "public/assets/penthouse/seoul/autumn/noon.webp"
+  ],
+  "textile": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: transparent autumn textile sprite for a refined painted room.\nInput image 1 is the EDIT TARGET. Input image 2 is STYLE AND LIGHTING REFERENCE ONLY.\nChange only the seasonal color and textile material of the exact spring throw shown in image 1. Preserve its complete silhouette, draping, fold geometry, fringe, placement, scale, alpha background, view direction and canvas aspect ratio exactly. Replace sage linen/blush stripe with sophisticated warm cinnamon/ochre fine wool and one muted warm cream narrow woven stripe in the SAME stripe position. Fine restrained wool weave, tactile soft edges and painterly natural color variation, no exaggerated fluff. Keep material subtle and match the hand-painted 2.5D room. Not photographic, plastic, vector or a busy plaid.\nKeep the gracefully horizontal folded top supported by an unseen chair arm, and softly vertical hanging folds. Do not include any chair, armrest, floor, shadow or surrounding room.\nCanvas width:height remains exactly 88:112, full fabric visible with the same transparent padding, no cropping or stretching. Genuine transparent alpha background; every pixel outside exact textile/fringe silhouette alpha 0, no haze, glow, cast shadow, border, matte or checkerboard. Soft neutral upper-left daylight, warm bounce, opaque wool body. No lettering, watermark, labels or added objects.",
+    "correctionPrompt": "Use case: precise-object-edit.\nEdit ONLY the color of this exact isolated sage throw. This is a fixed-geometry production sprite. Keep every contour, fold and pixel position as faithfully as possible. Do not zoom in, reframe, recenter, redraw the shape, enlarge it, change draping or change transparent padding.\nChange the sage textile to warm muted cinnamon/ochre wool and the narrow blush stripe to muted warm cream. Beautiful refined fine soft wool texture and subtle hand-painted natural color variation. Keep the exact original upper-left neutral light, soft folds and neat tiny fringe.\nCRITICAL geometry: output canvas exactly 1112 x 1415, with the primary visible fabric silhouette bounds approximately x145..989 and y211..1269. Leave the large clear transparent top padding: top of fabric starts at 15% canvas height (NOT 5%). Leftmost fabric at13% width, rightmost fringe89% width. Folded horizontal top contacts the chair at y230..355 of this canvas. Hanging hem ends near90% height. This is the exact existing reference's framing. Preserve the gently curved folded top sloping down from left to right, and two soft vertical folds.\nGenuine alpha transparency, fully transparent background and spaces outside fabric. Keep only the fabric; no cast shadow, background, haze, border, extra objects, text or watermark.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f745-1dd2-71f0-bebb-bf72ee13d7c2/exec-8f495dbb-b323-4b39-8407-297a9af03d4c.png",
+    "source": "autumn/textile.png",
+    "runtime": "autumn-textile.webp",
+    "sourceRect": [
+      236,
+      596,
+      88,
+      112
+    ],
+    "sourceInfo": {
+      "dimensions": [
+        1112,
+        1414
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visibleBounds": [
+        146,
+        209,
+        1000,
+        1269
+      ],
+      "bytes": 1361959,
+      "sha256": "8413fd9337ec7da28138538a237084c2823648e42bbb1475f19657633638f84a"
+    },
+    "runtimeInfo": {
+      "dimensions": [
+        352,
+        448
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visibleBounds": [
+        46,
+        66,
+        316,
+        402
+      ],
+      "bytes": 29082,
+      "sha256": "96814dc520fbe26ea6fd88b62b49cb966025662e7a10db1b7f0a0d6b80b31986"
+    }
+  },
+  "vignette": {
+    "prompt": "Use case: precise-object-edit.\nAsset type: transparent autumn console vase sprite for a refined painted interior.\nInput image 1 is the EDIT TARGET. Input image 2 is STYLE AND LIGHTING REFERENCE ONLY. Replace the spring cherry blossoms and green leaves with a small AUTUMN arrangement, 3 sparse elegant dry slender brown branches with a few muted amber/ochre leaves and delicate small dried seed heads. No flowers, no pampas or fluffy grass, no dense bouquet. Keep beautifully asymmetric airy branches. Retain approximately the same slender portrait footprint and the 3 main branch directions of the target.\nChange the tiny rounded ceramic vase from chalk white to understated warm pale greige stoneware with hand-painted matte ceramic texture. Keep its exact shape, scale, position, perspective and horizontal baseline, including tiny neck. Leaves subtle in color, not vivid orange; twigs thin and refined. Artwork must match elegant softly hand-painted 2.5D warm room materials, no heavy outlines.\nCanvas width:height remains exactly 52:110. Complete object occupies 90% height with 5% transparent margins, vase bottom at 94% height and around 24% object height, branches start near 6%. Same upper-left soft neutral daylight and subtle self-shadowing.\nOutput ONLY this small single vase with sparse autumn branches. Genuine transparent alpha outside precise silhouettes and between every branch/leaf. No room, furniture, shelf, floor, cast shadow, glow, background blur, haze, colored matte, checkerboard, text, logo or watermark. Vase and branches fully opaque except clean antialiased edges. Do not include the room reference in the output.",
+    "correctionPrompt": "Use case: precise-object-edit.\nThis exact image is a fixed-geometry production sprite. Keep the canvas dimensions 862 x 1825 and exactly preserve the existing vase silhouette, position, scale, subtle perspective and bottom baseline at y1772, leaving fully transparent space underneath. Do not zoom or reframe. Keep the vase x265..602, y1240..1772, approximately 31%..70% of width. Keep the same 3 airy main branch directions.\nChange ONLY the plants to an AUTUMN arrangement: thin warm brown dry branches, a sparse handful of muted amber and ochre leaves, small delicate dried seed heads. No blossoms, green leaves, large bouquet, pampas fuzz or flowers. Maintain air and negative space between branches. The complete silhouette starts at about y42 and ends at y1772. Retain branch heights and general composition.\nChange the vase color from chalk white to light warm greige matte ceramic; no other changes to its exact shape. Style stays elegant delicate hand-painted 2.5D illustration with soft fine brush grain and same gentle upper-left neutral daylight.\nPreserve genuine alpha transparency. All spaces between twigs and leaves, outside exact vase silhouette, and the bottom strip below y1775 must be fully alpha0. No cast shadow, haze, backdrop, matte, glow, checkerboard, letters, logos or additional objects.",
+    "generated": "/Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f745-1dd2-71f0-bebb-bf72ee13d7c2/exec-6e7fc544-3052-4cf6-b9bb-b8a0716377a6.png",
+    "source": "autumn/vignette.png",
+    "runtime": "autumn-vignette.webp",
+    "sourceRect": [
+      1530,
+      445,
+      52,
+      110
+    ],
+    "sourceInfo": {
+      "dimensions": [
+        862,
+        1825
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visibleBounds": [
+        37,
+        42,
+        830,
+        1770
+      ],
+      "bytes": 991286,
+      "sha256": "a912c70b198307300ca06e1b6b253afb71de12ce9b258adbf39669f026adeb0c"
+    },
+    "runtimeInfo": {
+      "dimensions": [
+        208,
+        440
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "visibleBounds": [
+        9,
+        11,
+        200,
+        427
+      ],
+      "bytes": 33066,
+      "sha256": "de07a6c7236ca43c3d79994861828f4d278d2b9ee0704c1e6f3fb924e177593b"
+    }
+  },
+  "verification": {
+    "composite": "/tmp/t1seo-autumn-accents.jpg",
+    "runtimeEncoding": "RGBA WebP quality91 method6; saved via atomic sibling rename",
+    "operations": "Proportional resize and format encoding only; all imagery content generated by built-in tool."
+  }
+}
