@@ -11,6 +11,14 @@ import { mountMilkyToyDrag } from './cyber-pet-drag';
 import { throwMilkyBall, predictMilkyBallRest } from './cyber-pet-throw';
 import { planMilkyWalkArrival, planMilkyBedWakeStretch } from './cyber-pet-transitions';
 import { sampleMilkyBedHop, type MilkyBedHop } from './cyber-pet-hop';
+import {
+  createMilkyPhotoRuntime, milkyChinRimTranslation, MILKY_BED_RIM_FRACTION, MILKY_PHOTO_FRAMES,
+  planMilkyTilt, planMilkyPant, planMilkyPawsRest, planMilkySleepyPeek, planMilkyChinRest, planMilkyBellyUp,
+  planMilkyStandBridge,
+  type CyberPetPhotoOptions, type MilkyPhotoMotion, type MilkyPhotoRestContext, type MilkyPhotoStep,
+} from './cyber-pet-photo';
+
+export type { CyberPetPhotoOptions, MilkyPhotoMotion } from './cyber-pet-photo';
 
 export interface CyberPetController {
   /** Milky notices you and chooses a small walk across the visible floor. */
@@ -26,6 +34,17 @@ export interface CyberPetController {
   play(): void;
   /** A brisk trot across the floor: the distance-linked gait at a faster cadence. */
   run(): void;
+  /**
+   * Requests one of the six photo-inspired motions. True means the request was accepted
+   * (including a first-time lazy art load that will start when it decodes); false means
+   * the motion is unavailable right now. Requires the photoMotions opt-in.
+   */
+  photoMotion(kind: MilkyPhotoMotion): boolean;
+  /**
+   * Capability, geometry and animation check suitable for a controls drawer: it ignores
+   * the modal-driven active flag and never issues a network request.
+   */
+  canPhotoMotion(kind: MilkyPhotoMotion): boolean;
   setAnimated(enabled: boolean): void;
   setActive(active: boolean): void;
   destroy(): void;
@@ -137,6 +156,7 @@ export function mountCyberPet(
   floorBounds = DEFAULT_MILKY_FLOOR,
   bedOptions?: MilkyBedOptions,
   toyOptions?: MilkyToyOptions,
+  photoOptions?: CyberPetPhotoOptions,
 ): CyberPetController {
   const page = host.ownerDocument;
   const view = page.defaultView!;
@@ -306,8 +326,10 @@ export function mountCyberPet(
   const activityReady = (name: MilkyActivityPoseName) => version === 'v4' && (activities.find((entry) => entry.name === name)?.ready ?? false);
   const propReady = (name: (typeof PROP_NAMES)[number]) => version === 'v4' && (propItems.find((entry) => entry.name === name)?.ready ?? false);
   const prop = (name: (typeof PROP_NAMES)[number]) => propItems.find((entry) => entry.name === name);
-  const restPoseActive = () => (REST_NAMES as readonly string[]).includes(button.dataset.pose ?? '');
-  const busyPoseActive = () => restPoseActive() || (ACTIVITY_NAMES as readonly string[]).includes(button.dataset.pose ?? '');
+  const restPoseActive = () => (REST_NAMES as readonly string[]).includes(button.dataset.pose ?? '')
+    || (photo?.isLyingPose(button.dataset.pose ?? '') ?? false);
+  const busyPoseActive = () => restPoseActive() || (ACTIVITY_NAMES as readonly string[]).includes(button.dataset.pose ?? '')
+    || (photo?.isPhotoPose(button.dataset.pose ?? '') ?? false);
   const forwardActive = () => version === 'v4' && !forwardFailed && (forwardIdle?.ready ?? false) && forwardSteps.length === 8 && forwardSteps.every((entry) => entry.ready);
   const trotActive = () => version === 'v4' && !trotFailed && trotSteps.length === 4 && trotSteps.every((entry) => entry.ready);
   const bed = createMilkyBed(bedOptions, {
@@ -315,9 +337,207 @@ export function mountCyberPet(
     position: () => position, bound, canWalk,
     walk: (point, autonomous, onDone) => { if (!throwAwaitingWake) clearSession(); walkTo(point, { autonomous, onDone, bedRoute: true }); },
     hop: startBedHop,
-    rest: (stages, autonomous, done) => startAutonomousRest(stages, autonomous, done),
+    // A landed rest first honors a bed photo intent queued during the transit; the
+    // ordinary nap stages remain the default.
+    rest: (stages, autonomous, done) => {
+      if (takePendingBedPhoto(done, autonomous)) return;
+      startAutonomousRest(stages, autonomous, done);
+    },
     occupied: (occupied) => { button.dataset.bed = String(occupied); syncToy(); }, settle: () => settle(),
   });
+  // ---- Photo-inspired motions (opt-in): six explicit actions plus rare autonomous
+  // accents at existing opportunities. All sequencing reuses actionRevision timers; the
+  // art loads lazily on first intent and each frame registers onto the shared v4 floor
+  // point exactly like the rest and activity sets. ----
+  const photo = photoOptions?.photoMotions === true ? createMilkyPhotoRuntime({
+    createImage(frame) {
+      const image = spriteImage('cyber-pet-photo');
+      image.dataset.variant = frame;
+      return image;
+    },
+    register: (image, translate) => registerPhotoArt(image, translate),
+    validRatio: validPetRatio,
+    signal: listeners.signal,
+    onGroupSettled: (kind, groupReady) => photoGroupSettled(kind, groupReady),
+  }) : undefined;
+  function registerPhotoArt(image: HTMLImageElement, translate: readonly [number, number]) {
+    const v4 = MILKY_ART.v4;
+    registerArt(image, `${v4.x + translate[0] / 1536 * v4.scale * 100}%`, `${v4.y + translate[1] / 1024 * v4.scale * 100}%`);
+  }
+  const photoRestContext = (): MilkyPhotoRestContext =>
+    ({ sit: restReady('sit'), drowsy: restReady('drowsy'), sleep: restReady('sleep'), wake: restReady('wake') });
+  // A bed-only motion requested while a visit is still in transit (approach, hop, or
+  // departure) waits here for a real landing — or a fresh visit once the departure walk
+  // resolves. Any new user command or lifecycle invalidation drops it.
+  let pendingBedPhoto: MilkyPhotoMotion | undefined;
+  function clearPhotoIntents() {
+    photo?.clearIntent();
+    pendingBedPhoto = undefined;
+  }
+  /**
+   * The native-pixel correction that lands the measured chin landmark on the actual bed
+   * rim at the given stance, or undefined when the rim is genuinely out of reach.
+   */
+  function chinRimOffset(point: MilkyPoint, face: number): readonly [number, number] | undefined {
+    if (!bedOptions || width <= 0 || height <= 0) return undefined;
+    const pixelsPerNative = width * milkyWidthRatio(floorBounds, portrait) * milkyDepthScale(point.y) * MILKY_ART.v4.scale / 1536;
+    const room = host.getBoundingClientRect();
+    const bedRect = bedOptions.element.getBoundingClientRect();
+    const frame = MILKY_PHOTO_FRAMES['chin-rest'];
+    return milkyChinRimTranslation({
+      chinPoint: frame.chinPoint,
+      supportAnchor: frame.supportAnchor,
+      dogScreen: { x: point.x * width, y: point.y * height },
+      rimScreen: {
+        x: bedRect.left - room.left + MILKY_BED_RIM_FRACTION.x * bedRect.width,
+        y: bedRect.top - room.top + MILKY_BED_RIM_FRACTION.y * bedRect.height,
+      },
+      pixelsPerNative,
+      facing: face < 0 ? -1 : 1,
+    });
+  }
+  /** Drawer-friendly capability/geometry/animation check; never a network request. */
+  function canPhotoMotion(kind: MilkyPhotoMotion): boolean {
+    if (!photo || destroyed || idleFailed || !primaryArtwork) return false;
+    if (version !== 'v4' || !displayReady() || !floorVisible) return false;
+    if (motionStopped()) return false;
+    // A previously failed load does NOT make the capability false: a later explicit
+    // request is a deliberate retry. Only autonomy treats a failed group as dead.
+    switch (kind) {
+      case 'tilt':
+      case 'pant':
+      case 'paws-rest':
+        return true;
+      case 'sleepy-peek':
+        return restReady('sleep');
+      case 'belly-up':
+        return bed.visible() && restReady('sleep');
+      case 'chin-rest':
+        return bed.visible() && bedOptions !== undefined && chinRimOffset(bedOptions.anchor, 1) !== undefined;
+      default: {
+        kind satisfies never;
+        return false;
+      }
+    }
+  }
+  function photoMotion(kind: MilkyPhotoMotion): boolean {
+    if (!photo || !available() || !canPhotoMotion(kind)) return false;
+    const state = photo.ensure(kind);
+    if (state === 'failed') return false;
+    if (state === 'ready') {
+      photo.clearIntent();
+      beginPhoto(kind, false);
+    } else photo.setIntent(kind);
+    return true;
+  }
+  function photoGroupSettled(kind: MilkyPhotoMotion, groupReady: boolean) {
+    if (!photo || destroyed || !photo.takeIntent(kind)) return;
+    // A stale, canceled or deactivated context never starts from a late decode; on any
+    // loading failure the previous working pose simply stays.
+    if (!groupReady || !available() || !canPhotoMotion(kind)) return;
+    beginPhoto(kind, false);
+  }
+  function runPhotoSteps(steps: MilkyPoseStep[], autonomous: boolean, done: () => void = settle) {
+    cancelAction();
+    // A ball still rolling or airborne from the interrupted play keeps its shared
+    // animation frame and lands normally; a photo pose never freezes it mid-air.
+    if (ball && !ball.resting) ensureTick();
+    autonomousAction = autonomous;
+    const revision = actionRevision;
+    playPoseSteps(steps, 0, revision, () => finishRest(revision, done));
+  }
+  /** The end-of-sequence stand, through whatever rest art actually decoded. */
+  const photoStandBridge = (steps: readonly MilkyPhotoStep[]): MilkyPoseStep[] =>
+    [...steps, ...planMilkyStandBridge(steps.at(-1)?.pose ?? 'sleep', photoRestContext())];
+  /** Runs the cushion sequence for a landed bed photo motion. Requires real occupancy. */
+  function startBedPhotoSequence(requested: MilkyPhotoMotion, done: () => void, autonomous: boolean) {
+    const kind = pendingBedPhoto ?? requested;
+    pendingBedPhoto = undefined;
+    if (!photo || photo.state(kind) !== 'ready' || button.dataset.bed !== 'true') { done(); return; }
+    // The cushion entry always faces the rim side; fixed here, while still standing,
+    // so a lying silhouette can never flip mid-rest.
+    setFacing(1);
+    if (kind === 'chin-rest') {
+      const offset = chinRimOffset(position, facing);
+      // Geometry may have shifted since the capability check; an unreachable rim
+      // honestly skips the chin contact instead of faking it.
+      if (!offset) { done(); return; }
+      photo.applyChinOffset(offset);
+    }
+    runPhotoSteps(kind === 'chin-rest'
+      ? photoStandBridge(planMilkyChinRest(photoRestContext()))
+      : photoStandBridge(planMilkyBellyUp(photoRestContext())), autonomous, done);
+  }
+  /** Consumes a bed intent queued during transit, the moment a landing actually rests. */
+  function takePendingBedPhoto(done: () => void, autonomous: boolean): boolean {
+    const kind = pendingBedPhoto;
+    if (kind === undefined) return false;
+    pendingBedPhoto = undefined;
+    if (!photo || photo.state(kind) !== 'ready' || button.dataset.bed !== 'true' || !canPhotoMotion(kind)) return false;
+    startBedPhotoSequence(kind, done, autonomous);
+    return true;
+  }
+  function beginPhoto(kind: MilkyPhotoMotion, autonomous: boolean) {
+    if (!photo) return;
+    photo.markPerformed(kind, view.performance.now());
+    switch (kind) {
+      case 'tilt':
+        wakeThenRun(() => {
+          // Besides greeting, this is the one moment Milky deliberately seeks the camera.
+          button.dataset.gaze = 'camera';
+          runPhotoSteps(planMilkyTilt(), autonomous);
+        });
+        break;
+      case 'pant':
+        wakeThenRun(() => runPhotoSteps(planMilkyPant(), autonomous));
+        break;
+      case 'paws-rest':
+        wakeThenRun(() => runPhotoSteps(planMilkyPawsRest(photoRestContext()), autonomous));
+        break;
+      case 'sleepy-peek':
+        // Already asleep: peek in place, preserving the chosen rest context (bed or floor).
+        if (button.dataset.pose === 'sleep') {
+          runPhotoSteps(photoStandBridge(planMilkySleepyPeek({ ...photoRestContext(), descend: false })), autonomous);
+        } else {
+          wakeThenRun(() => runPhotoSteps(photoStandBridge(planMilkySleepyPeek({ ...photoRestContext(), descend: true })), autonomous));
+        }
+        break;
+      case 'chin-rest':
+      case 'belly-up': {
+        if (button.dataset.bed === 'true') {
+          // Genuinely landed on the cushion: rise from any current rest and play in place.
+          wakeThenRun(() => startBedPhotoSequence(kind, () => { if (!bed.leave(settle)) settle(); }, autonomous), true);
+        } else if (bed.active) {
+          // The visit is still in transit (approach, hop, or departure). A lying sequence
+          // on the floor would be a lie; the latest bed intent waits for a real landing
+          // instead, or re-enters freshly once the departure walk resolves (see settle).
+          pendingBedPhoto = kind;
+        } else if (!bed.enter([], autonomous, (done) => {
+          if (!takePendingBedPhoto(done, autonomous)) startBedPhotoSequence(kind, done, autonomous);
+        })) settle();
+        break;
+      }
+      default: kind satisfies never;
+    }
+  }
+  /** Rare autonomous accent at an existing opportunity; a cold group only warms lazily. */
+  function maybePhotoVariation(kind: MilkyPhotoMotion, autonomous: boolean): boolean {
+    if (!photo || !canPhotoMotion(kind)) return false;
+    if (!photo.wantsAutonomous(kind, view.performance.now())) return false;
+    if (photo.state(kind) !== 'ready') {
+      // Only a never-tried group warms lazily; a failed one is never auto-retried —
+      // a fresh fetch takes a deliberate explicit request.
+      if (photo.state(kind) === 'idle') photo.ensure(kind);
+      return false;
+    }
+    beginPhoto(kind, autonomous);
+    return true;
+  }
+  /** After a genuinely completed play or run, Milky occasionally catches his breath. */
+  function afterExertion() {
+    if (available() && !motionStopped() && maybePhotoVariation('pant', true)) return;
+    settle();
+  }
 
   function registerArt(image: HTMLImageElement, frameX?: string, frameY?: string) {
     const registration = MILKY_ART[version];
@@ -511,6 +731,10 @@ export function mountCyberPet(
         runLeg({ legs: 1, cadence: 1.3 }, 0, Math.random() < .5 ? -facing : facing, true);
         return;
       }
+      // A quiet pause may instead become one of the rare photo moments: the sphinx rest
+      // on the floor, or — very rarely — a chin rest or belly roll on the visible bed.
+      if (photo && maybePhotoVariation('paws-rest', true)) return;
+      if (photo && bed.available() && (maybePhotoVariation('belly-up', true) || maybePhotoVariation('chin-rest', true))) return;
       // A rest pause may deepen into sitting, lying and napping instead of another walk.
       const restPlan = planMilkyRestCycle({ sit: restReady('sit'), drowsy: restReady('drowsy'), sleep: restReady('sleep') });
       if (restPlan.length > 0) {
@@ -574,6 +798,16 @@ export function mountCyberPet(
     // camera-look idle remains the greeting face and the only base for blinking.
     button.dataset.gaze = forwardActive() && Math.random() < .75 ? 'forward' : 'camera';
     if (bed.resume()) return;
+    // A bed photo requested during the departure walk starts a fresh full visit —
+    // approach and hop included — the moment the previous visit has fully resolved.
+    if (pendingBedPhoto !== undefined && !bed.active) {
+      const queued = pendingBedPhoto;
+      pendingBedPhoto = undefined;
+      if (photo && photo.state(queued) === 'ready' && available() && canPhotoMotion(queued)) {
+        beginPhoto(queued, false);
+        return;
+      }
+    }
     queueRoam(afterWalk);
     queueLife();
   }
@@ -615,6 +849,15 @@ export function mountCyberPet(
     }
     if (stages[0]?.pose === 'sit' && restReady('sitdown')) steps.push({ pose: 'sitdown', hold: milkyRestTransitionHold('sitdown') });
     steps.push(...stages);
+    // Deep in an autonomous nap, a rare half-lifted peek (photos 10/17) may interleave
+    // before the wake — planned here, never from an extra timer.
+    if (photo && stages.at(-1)?.pose === 'sleep' && restReady('sleep')
+      && photo.wantsAutonomous('sleepy-peek', view.performance.now())) {
+      if (photo.state('sleepy-peek') === 'ready') {
+        photo.markPerformed('sleepy-peek', view.performance.now());
+        steps.push(...planMilkySleepyPeek({ sit: false, drowsy: false, sleep: true, wake: false, descend: false }));
+      } else if (photo.state('sleepy-peek') === 'idle') photo.ensure('sleepy-peek');
+    }
     if (stages.at(-1)?.pose === 'sleep' && restReady('wake')) steps.push({ pose: 'wake', hold: milkyRestTransitionHold('wake') });
     const stretch = bedWakeStretch(stages.at(-1)?.pose === 'sleep');
     if (stretch) steps.push(stretch);
@@ -622,12 +865,13 @@ export function mountCyberPet(
   }
   /** Explicit sit/nap request from the controller API or the S/N keys. */
   function restNow(kind: 'sit' | 'sleep') {
+    clearPhotoIntents();
     if (!available() || idleFailed) return;
     const deepest: MilkyRestPoseName | undefined = kind === 'sit'
       ? (restReady('sit') ? 'sit' : undefined)
       : restReady('sleep') ? 'sleep' : restReady('drowsy') ? 'drowsy' : restReady('sit') ? 'sit' : undefined;
     if (!deepest) return;
-    const fromPose = button.dataset.pose ?? 'idle';
+    const requestedPose = button.dataset.pose ?? 'idle';
     cancelAction();
     clearSession();
     if (motionStopped()) {
@@ -637,7 +881,15 @@ export function mountCyberPet(
       return;
     }
     const revision = actionRevision;
+    // A posture command from a photo pose first finishes the authored reverse exit —
+    // truncated the moment it reaches the requested posture, so a belly roll asked to
+    // sleep rolls back to prone and simply stays there instead of standing first.
     const steps: MilkyPoseStep[] = [];
+    for (const riseStep of (photo?.riseSteps(requestedPose, photoRestContext()) ?? { steps: [] }).steps) {
+      steps.push({ ...riseStep });
+      if (riseStep.pose === deepest) break;
+    }
+    const fromPose = steps.at(-1)?.pose ?? requestedPose;
     if (fromPose === 'sleep' && deepest === 'sit' && restReady('wake')) steps.push({ pose: 'wake', hold: milkyRestTransitionHold('wake') });
     if (fromPose === 'idle' && restReady('sitdown')) steps.push({ pose: 'sitdown', hold: milkyRestTransitionHold('sitdown') });
     // Deepening passes briefly through the shallower delivered postures on the way down.
@@ -650,17 +902,20 @@ export function mountCyberPet(
     playPoseSteps(steps, 0, revision, () => finishRest(revision));
   }
   /** Gently restore standing (never walk, drag or mirror a resting pose) and then act. */
-  function wakeThenRun(next: () => void) {
-    const onFloor = () => { if (!bed.leave(next)) next(); };
+  function wakeThenRun(next: () => void, stayInBed = false) {
+    const onFloor = stayInBed ? next : () => { if (!bed.leave(next)) next(); };
     if (!busyPoseActive()) { onFloor(); return; }
-    const fromSleep = button.dataset.pose === 'sleep';
+    // An interrupted lying photo pose first finishes its authored reverse exit (own
+    // frames, then up through whatever rest art decoded) before anything else happens.
+    const plainSleep = button.dataset.pose === 'sleep';
+    const rise = photo?.riseSteps(button.dataset.pose ?? '', photoRestContext()) ?? { steps: [], fromProne: false };
+    const fromSleep = plainSleep || rise.fromProne;
     cancelAction();
     if (ball && !ball.resting) ensureTick();
     if (motionStopped()) { showIdle(); button.dataset.motion = 'idle'; onFloor(); return; }
     const revision = actionRevision;
-    const steps: MilkyPoseStep[] = fromSleep && restReady('wake')
-      ? [{ pose: 'wake', hold: milkyRestTransitionHold('wake') }]
-      : [];
+    const steps: MilkyPoseStep[] = rise.steps.map((step) => ({ ...step }));
+    if (plainSleep && restReady('wake')) steps.push({ pose: 'wake', hold: milkyRestTransitionHold('wake') });
     const stretch = bedWakeStretch(fromSleep);
     if (stretch) steps.push(stretch);
     playPoseSteps(steps, 0, revision, () => {
@@ -944,7 +1199,9 @@ export function mountCyberPet(
           const chaseDir = ball.x < position.x ? -1 : 1;
           walkTo({ x: ball.x - chaseDir * reachAhead(PAW_REACH_NATIVE, ball.y), y: ball.y }, { autonomous, cadence: 1.4, onDone: () => {
             if (round + 1 < plan.rounds) playRound(plan, round + 1, autonomous);
-            else finishRest(actionRevision);
+            // Only a genuinely completed session (real contact happened) may end in the
+            // occasional photo-20 pant; the honest give-up path above never does.
+            else finishRest(actionRevision, photo ? afterExertion : undefined);
           } });
         });
       });
@@ -957,10 +1214,14 @@ export function mountCyberPet(
       dir = -dir;
       target = bound({ x: position.x + dir * (.13 + Math.random() * .07), y: position.y + (Math.random() * 2 - 1) * .03 });
     }
-    const next = leg + 1 < plan.legs ? () => runLeg(plan, leg + 1, Math.random() < .6 ? -dir : dir, autonomous) : undefined;
+    const next = leg + 1 < plan.legs
+      ? () => runLeg(plan, leg + 1, Math.random() < .6 ? -dir : dir, autonomous)
+      : photo ? () => afterExertion() : undefined;
     walkTo(target, { autonomous, cadence: plan.cadence, onDone: next });
   }
   function notify(kind: 'greet' | 'walk' | 'feed' | 'play' | 'run') {
+    // Any fresh user action supersedes a photo request still waiting on its art or bed.
+    clearPhotoIntents();
     host.dispatchEvent(new CustomEvent('cyber:pet', { bubbles: true, detail: { kind } }));
   }
   function pet() {
@@ -969,6 +1230,8 @@ export function mountCyberPet(
     // A greeting is the one moment Milky deliberately looks up at the camera.
     button.dataset.gaze = 'camera';
     wakeThenRun(() => {
+      // Rarely the greeting answers with the photo-17 head tilt instead of a walk.
+      if (photo && maybePhotoVariation('tilt', false)) return;
       const target = chooseMilkyDestination(position, bound, lastHeading);
       if (target) requestWalk(target, false, true);
       else settle();
@@ -1020,6 +1283,7 @@ export function mountCyberPet(
     event.preventDefault();
     if (event.repeat) return;
     keyboardFocused = true;
+    clearPhotoIntents();
     if (arrow) {
       notify('walk');
       const key = event.key;
@@ -1037,7 +1301,10 @@ export function mountCyberPet(
     button.disabled = !available() || idleFailed;
     // Until the atomic set decodes, no art is exposed at all — not even a still v4 idle.
     button.hidden = !floorVisible || idleFailed || !displayReady();
-    if (!available() || motionStopped()) settle();
+    // Any lifecycle gate (hidden page, modal deactivation, still mode, reduced motion)
+    // is a real invalidation boundary: a photo request still waiting on its art or on a
+    // bed landing is dropped, so a later decode cannot start a canceled context.
+    if (!available() || motionStopped()) { clearPhotoIntents(); settle(); }
     else if (button.dataset.motion === 'idle' && !bed.resume()) { queueRoam(); queueLife(); }
     syncToy();
   }
@@ -1048,6 +1315,8 @@ export function mountCyberPet(
     version = 'v3';
     idleDecoded = false;
     gaitReady = false;
+    photo?.disable();
+    pendingBedPhoto = undefined;
     settle();
     for (const entry of poses) { entry.ready = false; entry.disabled = true; }
     for (const entry of rests) { entry.ready = false; entry.disabled = true; }
@@ -1229,6 +1498,8 @@ export function mountCyberPet(
   observer.observe(host);
   function resize() {
     if (destroyed) return;
+    // Relayout invalidates the geometry a pending photo request was accepted under.
+    clearPhotoIntents();
     toyDrag?.cancel();
     if (dragOrigin) { dragOrigin = undefined; gentleSettle(); }
     const viewport = scene.getBoundingClientRect();
@@ -1256,6 +1527,7 @@ export function mountCyberPet(
   const toyDrag = toyOptions?.drag && toyTarget ? mountMilkyToyDrag(toyTarget, {
     available: () => canWalk() && !toyTarget.disabled,
     start: () => {
+      clearPhotoIntents();
       cancelAction();
       throwAwaitingWake = false;
       if (ball) { ball = milkyBallAtRest(bound(ball)); dragOrigin = { x: ball.x, y: ball.y }; renderBall(); }
@@ -1310,6 +1582,7 @@ export function mountCyberPet(
     sit() { restNow('sit'); },
     sleep() { restNow('sleep'); },
     napInBed() {
+      clearPhotoIntents();
       if (!bed.available() || !restReady('sleep')) return false;
       wakeThenRun(() => bed.enter([{ pose: 'sleep', hold: milkyExplicitRestHold('sleep') }], false));
       return true;
@@ -1317,12 +1590,16 @@ export function mountCyberPet(
     feed,
     play,
     run,
+    photoMotion,
+    canPhotoMotion,
     setAnimated(enabled) { if (!destroyed && animated !== enabled) { animated = enabled; syncActivity(); } },
     setActive(nextActive) { if (!destroyed) { active = nextActive; syncActivity(); } },
     destroy() {
       if (destroyed) return;
       destroyed = true;
       cancelAction();
+      photo?.disable();
+      pendingBedPhoto = undefined;
       bed.destroy();
       clearSession();
       listeners.abort();

@@ -60,7 +60,14 @@ export function createMilkyBed(options: MilkyBedOptions | undefined, runtime: Be
   return {
     get active() { return visit !== undefined; },
     available: () => !visit && visible() && runtime.canWalk(),
-    enter(stages: readonly MilkyRestStage[], autonomous: boolean): boolean {
+    /** Pure geometry: the bed and the landing footprint fit the current viewport. */
+    visible,
+    /**
+     * Walks, hops and occupies as always; when a `sequence` is provided it plays on the
+     * cushion instead of the rest stages — the one narrow extension for the photo bed
+     * motions, reusing the existing approach, hop, occupancy and leave machinery.
+     */
+    enter(stages: readonly MilkyRestStage[], autonomous: boolean, sequence?: (done: () => void) => void): boolean {
       if (!options || !visible() || !runtime.canWalk()) return false;
       const current = { home: runtime.bound(runtime.position()) };
       visit = current;
@@ -75,7 +82,10 @@ export function createMilkyBed(options: MilkyBedOptions | undefined, runtime: Be
         if (visit !== current || !runtime.canWalk()) return;
         const landed = () => { if (visit === current) runtime.occupied(true); };
         const rest = () => {
-          if (visit === current && runtime.canWalk()) runtime.rest(stages, autonomous, () => leave(runtime.settle));
+          if (visit !== current || !runtime.canWalk()) return;
+          const finish = () => leave(runtime.settle);
+          if (sequence) sequence(finish);
+          else runtime.rest(stages, autonomous, finish);
         };
         if (!runtime.hop(options.anchor, autonomous, landed, rest)) {
           runtime.walk(options.anchor, autonomous, () => { landed(); rest(); });

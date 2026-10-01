@@ -1,0 +1,27 @@
+/* Photo-inspired motion frames (album photos 10/12/17/20/21/22/26). Each pose is one
+   independently drawn raster held at the shared floor registration; visibility swaps
+   only — no crossfades, ghosting, or whole-body scale/rotate fake motion. The base
+   .cyber-pet-photo box/transform rules live with the other sprite classes in
+   cyber-pet.css so every frame family shares one registration pipeline. */
+.cyber-pet-button[data-pose='tilt-near'] .cyber-pet-photo[data-variant='tilt-near'],
+.cyber-pet-button[data-pose='tilt-full'] .cyber-pet-photo[data-variant='tilt-full'],
+.cyber-pet-button[data-pose='pant-soft'] .cyber-pet-photo[data-variant='pant-soft'],
+.cyber-pet-button[data-pose='pant-open'] .cyber-pet-photo[data-variant='pant-open'],
+.cyber-pet-button[data-pose='paws-lower'] .cyber-pet-photo[data-variant='paws-lower'],
+.cyber-pet-button[data-pose='paws-rest'] .cyber-pet-photo[data-variant='paws-rest'],
+.cyber-pet-button[data-pose='peek-low'] .cyber-pet-photo[data-variant='peek-low'],
+.cyber-pet-button[data-pose='peek-up'] .cyber-pet-photo[data-variant='peek-up'],
+.cyber-pet-button[data-pose='peek-blink'] .cyber-pet-photo[data-variant='peek-blink'],
+.cyber-pet-button[data-pose='chin-lower'] .cyber-pet-photo[data-variant='chin-lower'],
+.cyber-pet-button[data-pose='chin-rest'] .cyber-pet-photo[data-variant='chin-rest'],
+.cyber-pet-button[data-pose='roll-side'] .cyber-pet-photo[data-variant='roll-side'],
+.cyber-pet-button[data-pose='roll-half'] .cyber-pet-photo[data-variant='roll-half'],
+.cyber-pet-button[data-pose='belly-up'] .cyber-pet-photo[data-variant='belly-up'],
+.cyber-pet-button[data-pose='belly-relaxed'] .cyber-pet-photo[data-variant='belly-relaxed'] { visibility: visible; }
+/* The held photo postures breathe on the shared clocks (keyframes in cyber-pet.css):
+   upright and transitional frames use the waking rhythm, the settled rests the deeper
+   sleeping one. Paws stay planted; this is the same imperceptible ribcage motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .cyber-pet-button:is([data-pose='tilt-near'], [data-pose='tilt-full'], [data-pose='pant-soft'], [data-pose='pant-open'], [data-pose='paws-lower'], [data-pose='chin-lower'], [data-pose='roll-side'], [data-pose='roll-half'], [data-pose='belly-up'])[data-active='true'][data-animated='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-breathing 5.4s ease-in-out infinite; }
+  .cyber-pet-button:is([data-pose='paws-rest'], [data-pose='peek-low'], [data-pose='peek-up'], [data-pose='peek-blink'], [data-pose='chin-rest'], [data-pose='belly-relaxed'])[data-active='true'][data-animated='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-sleep-breathing 4.2s ease-in-out infinite; }
+}
