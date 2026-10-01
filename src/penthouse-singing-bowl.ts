@@ -45,10 +45,11 @@ const PARTIALS = [[174.6, .027, 5.4], [176.1, .023, 5.1], [472.8, .013, 4.1], [9
 type Voice = { readonly oscillator: OscillatorNode; readonly gain: GainNode; readonly peak: number; readonly decay: number };
 type Resonance = { readonly voices: readonly Voice[]; endsAt: number; remaining: number };
 
-export function createSingingBowlSound(): { strike(): Promise<boolean>; destroy(): void } {
+export function createSingingBowlSound(): { prepare(): Promise<boolean>; release(): void; strike(): Promise<boolean>; destroy(): void } {
   let context: AudioContext | null = null;
   let resonance: Resonance | null = null;
   let revision = 0, destroyed = false;
+  let held = false, holdRevision = 0;
 
   function disposeVoices(): void {
     if (!resonance) return;
@@ -62,8 +63,34 @@ export function createSingingBowlSound(): { strike(): Promise<boolean>; destroy(
       if (!(error instanceof DOMException)) throw error;
     });
   }
+  function closeIfIdle(): void {
+    if (!held && !resonance && context) {
+      const audio = context; context = null; closeContext(audio);
+    }
+  }
 
   return {
+    async prepare(): Promise<boolean> {
+      if (destroyed || typeof AudioContext === 'undefined') return false;
+      const request = ++holdRevision;
+      held = true;
+      try {
+        context ??= new AudioContext();
+        const audio = context;
+        if (audio.state !== 'running') await audio.resume();
+        const ready = !destroyed && held && request === holdRevision && context === audio && audio.state === 'running';
+        if (!ready && request === holdRevision) { held = false; closeIfIdle(); }
+        return ready;
+      } catch (error) {
+        if (!(error instanceof DOMException)) throw error;
+        if (request === holdRevision) { held = false; closeIfIdle(); }
+        return false;
+      }
+    },
+    release(): void {
+      held = false; holdRevision++; revision++;
+      closeIfIdle();
+    },
     async strike(): Promise<boolean> {
       if (destroyed || typeof AudioContext === 'undefined') return false;
       const request = ++revision;
@@ -71,7 +98,7 @@ export function createSingingBowlSound(): { strike(): Promise<boolean>; destroy(
         context ??= new AudioContext();
         const audio = context;
         if (audio.state !== 'running') await audio.resume();
-        if (destroyed || request !== revision || audio.state !== 'running') return false;
+        if (destroyed || request !== revision || context !== audio || audio.state !== 'running') return false;
         const now = audio.currentTime;
         if (resonance && now >= resonance.endsAt) disposeVoices();
         if (!resonance) {
@@ -87,7 +114,7 @@ export function createSingingBowlSound(): { strike(): Promise<boolean>; destroy(
             oscillator.disconnect(); gain.disconnect(); next.remaining--;
             if (next.remaining === 0 && resonance === next) {
               resonance = null;
-              if (context === audio) { context = null; closeContext(audio); }
+              if (context === audio) closeIfIdle();
             }
           };
           resonance = next;
@@ -107,9 +134,9 @@ export function createSingingBowlSound(): { strike(): Promise<boolean>; destroy(
     },
     destroy(): void {
       if (destroyed) return;
-      destroyed = true; revision++;
+      destroyed = true; held = false; holdRevision++; revision++;
       disposeVoices();
-      if (context) { closeContext(context); context = null; }
+      closeIfIdle();
     },
   };
 }
