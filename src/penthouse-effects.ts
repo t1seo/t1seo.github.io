@@ -5,6 +5,7 @@ import { RoomLife, type CupSpot } from './penthouse-room-life.ts';
 import { AtmosphereSimulation, GLASS_EDGE, GLASS_PANES, GLASS_OCCLUDERS, SKY_EDGE, WORKSPACE_CROP, MONITOR_SCREEN, ROOM_SIZE, atmosphereProfile, isSky, seededRandom, type Point } from './penthouse-atmosphere.ts';
 
 export interface WorkspaceState { monitor: boolean; lamp: boolean }
+type LitObject = { readonly image: HTMLImageElement; readonly rect: readonly [number, number, number, number]; texture?: OffscreenCanvas; lighting?: string };
 
 /** One bounded 30 fps compositor. Glass, skyline and workspace have separate masks. */
 export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: HTMLImageElement | null) {
@@ -25,7 +26,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   let animateView = true;
   let frame = 0, last = 0, painted = 0, typing = 0;
   let dead = false;
-  const objects = ctx ? ROOM_OBJECTS.map(object => {
+  const objects: LitObject[] = ctx ? ROOM_OBJECTS.map(object => {
     const image = new Image();
     image.addEventListener('load', restart, { signal: abort.signal });
     image.src = object.src;
@@ -144,12 +145,28 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     }
   }
   function drawObjects() {
-    ctx!.save();
-    ctx!.filter = objectLighting(state);
-    for (const { image, rect } of objects) {
-      if (image.complete && image.naturalWidth) ctx!.drawImage(image, rect[0], rect[1], rect[2], rect[3]);
+    if (!ctx) return;
+    const lighting = objectLighting(state);
+    for (const object of objects) {
+      const { image, rect } = object;
+      if (!image.complete || !image.naturalWidth) continue;
+      if (object.lighting !== lighting && typeof OffscreenCanvas !== 'undefined') {
+        const texture = object.texture ?? new OffscreenCanvas(Math.ceil(rect[2]), Math.ceil(rect[3]));
+        const paint = texture.getContext('2d');
+        if (paint) {
+          paint.clearRect(0, 0, texture.width, texture.height);
+          paint.filter = lighting;
+          paint.drawImage(image, 0, 0, rect[2], rect[3]);
+          object.texture = texture;
+        }
+        object.lighting = lighting;
+      }
+      if (object.texture) ctx.drawImage(object.texture, rect[0], rect[1]);
+      else {
+        ctx.save(); ctx.filter = lighting;
+        ctx.drawImage(image, rect[0], rect[1], rect[2], rect[3]); ctx.restore();
+      }
     }
-    ctx!.restore();
   }
   function drawPreview() {
     const c = preview?.getContext('2d'); if (!c || !preview) return;
@@ -197,6 +214,6 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     setAnimated(enabled: boolean) { animateView = enabled; sim.meteor = null; restart(); },
     savorCoffee(kind: CupSpot) { roomLife.savorCoffee(kind, reduced.matches || !animateView); restart(); },
     setPreview(next: HTMLCanvasElement | null, screen: HTMLCanvasElement | null = null) { preview = next; screenPreview = screen; if (screenPreview) { screenPreview.width = SCREEN_SIZE[0]; screenPreview.height = SCREEN_SIZE[1]; } if (preview) { preview.width = WORKSPACE_CROP[2]; preview.height = WORKSPACE_CROP[3]; } render(); },
-    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); roomLife.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const {image} of objects) image.src = ''; },
+    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); roomLife.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const object of objects) { object.image.src = ''; object.texture = undefined; } },
   };
 }

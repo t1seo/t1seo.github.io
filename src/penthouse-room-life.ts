@@ -6,9 +6,11 @@ export type SteamWisp = { readonly x: number; readonly y: number; readonly width
 const CUP_RIMS = { desk: [605, 520], lounge: [122, 642] } as const;
 const FACADES = [[244,260,28,45],[320,254,37,48],[419,258,30,50],[554,248,36,59],[718,214,20,90],[964,244,29,60],[1205,260,35,47],[1280,211,25,92],[1358,244,32,63],[1439,245,27,60]] as const;
 const softStep = (value: number) => value * value * (3 - 2 * value);
+const LIGHT_CELL = 16, LIGHT_COLUMNS = 16, LIGHT_PADDING = 6;
 
 export class RoomLife {
   private readonly cups = new Map<CupSpot, number>();
+  private cityLights: OffscreenCanvas | null | undefined;
   private readonly windows = (() => {
     const random = seededRandom(301026);
     return FACADES.flatMap(([x,y,width,height]) => Array.from({ length: 16 }, () => ({
@@ -24,7 +26,7 @@ export class RoomLife {
     if (still && this.cups.has(kind)) this.cups.delete(kind);
     else this.cups.set(kind, 0);
   }
-  clear(): void { this.cups.clear(); }
+  clear(): void { this.cups.clear(); this.cityLights = undefined; }
 
   advance(seconds: number): void {
     const dt = Math.max(0, Math.min(seconds, .1));
@@ -53,17 +55,42 @@ export class RoomLife {
     });
   }
 
+  private cityTexture(): OffscreenCanvas | null {
+    if (this.cityLights !== undefined) return this.cityLights;
+    if (typeof OffscreenCanvas === 'undefined') { this.cityLights = null; return null; }
+    const texture = new OffscreenCanvas(LIGHT_COLUMNS * LIGHT_CELL, Math.ceil(this.windows.length / LIGHT_COLUMNS) * LIGHT_CELL);
+    const paint = texture.getContext('2d');
+    if (!paint) { this.cityLights = null; return null; }
+    paint.filter = 'blur(.3px)'; paint.shadowBlur = 2; paint.shadowColor = '#e9c89c55';
+    for (const warm of [true, false]) {
+      paint.beginPath();
+      this.windows.forEach((window,index) => {
+        if (window.warm === warm) paint.rect(index % LIGHT_COLUMNS * LIGHT_CELL + LIGHT_PADDING, Math.floor(index / LIGHT_COLUMNS) * LIGHT_CELL + LIGHT_PADDING, window.width, 1.8);
+      });
+      paint.fillStyle = warm ? '#e9c594' : '#e1ddd0';
+      paint.fill();
+    }
+    this.cityLights = texture;
+    return texture;
+  }
+
   drawCity(ctx: CanvasRenderingContext2D, time: number, night: number): void {
-    ctx.save(); ctx.filter = 'blur(.3px)'; ctx.shadowBlur = 2; ctx.shadowColor = '#e9c89c55';
-    for (const window of this.windows) {
+    const texture = this.cityTexture();
+    ctx.save();
+    for (let index = 0; index < this.windows.length; index++) {
+      const window = this.windows[index];
       const phase = (time + window.offset) / window.period;
       const cycle = Math.floor(phase), blend = softStep(phase - cycle);
       const previous = Math.sin(cycle * 2.39 + window.seed) * .5 + .5;
       const next = Math.sin((cycle + 1) * 2.39 + window.seed) * .5 + .5;
       const intensity = previous + (next - previous) * blend;
       ctx.globalAlpha = night * (.045 + intensity ** 2 * .4);
-      ctx.fillStyle = window.warm ? '#e9c594' : '#e1ddd0';
-      ctx.fillRect(window.x, window.y, window.width, 1.8);
+      if (texture) {
+        ctx.drawImage(texture, index % LIGHT_COLUMNS * LIGHT_CELL, Math.floor(index / LIGHT_COLUMNS) * LIGHT_CELL, LIGHT_CELL, LIGHT_CELL, window.x - LIGHT_PADDING, window.y - LIGHT_PADDING, LIGHT_CELL, LIGHT_CELL);
+      } else {
+        ctx.fillStyle = window.warm ? '#e9c594' : '#e1ddd0';
+        ctx.fillRect(window.x, window.y, window.width, 1.8);
+      }
     }
     ctx.restore();
   }

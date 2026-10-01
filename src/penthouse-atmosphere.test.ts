@@ -80,7 +80,7 @@ test('a resumed or stalled frame cannot fast-forward the simulation', () => {
   assert.equal(sim.time,.1); assert.ok(sim.wetness < .05);
 });
 
-function compositor(t: TestContext, reducedMotion = false) {
+function compositor(t: TestContext, reducedMotion = false, textureSupport: 'available' | 'missing' | 'no-context' = 'available') {
   const originals = new Map<string, PropertyDescriptor | undefined>();
   const install = (key: string,value: unknown) => { originals.set(key,Object.getOwnPropertyDescriptor(globalThis,key)); Object.defineProperty(globalThis,key,{configurable:true,writable:true,value}); };
   const page = Object.assign(new EventTarget(),{hidden:false});
@@ -88,6 +88,10 @@ function compositor(t: TestContext, reducedMotion = false) {
   const frames = new Map<number,FrameRequestCallback>(); let id = 0, draws = 0;
   const text: string[] = [];
   const paintCommands: string[] = [];
+  const liveFilters: string[] = [];
+  const textureSizes: number[] = [];
+  const colorFilters: string[] = [];
+  let texturePaints = 0;
   const context = new Proxy({}, { get(_target,key) {
     if (key === 'createRadialGradient' || key === 'createLinearGradient') return () => ({addColorStop() {}});
     if (key === 'measureText') return (value: string) => ({width:value.length * 2});
@@ -97,8 +101,16 @@ function compositor(t: TestContext, reducedMotion = false) {
       if (key === 'clearRect' || key === 'fillRect' || key === 'drawImage') paintCommands.push(key);
       for (const arg of args) if (typeof arg === 'number') assert.ok(Number.isFinite(arg));
     };
-  }, set: () => true });
+  }, set(_target,key,value) {
+    if ((key === 'filter' && String(value).includes('blur')) || (key === 'shadowBlur' && Number(value) > 0)) liveFilters.push(`${String(key)}=${String(value)}`);
+    if (key === 'filter' && String(value).includes('brightness')) colorFilters.push(String(value));
+    return true;
+  } });
   install('document',page); install('matchMedia',() => media);
+  install('OffscreenCanvas', textureSupport === 'missing' ? undefined : class {
+    constructor(width: number,height: number) { textureSizes.push(width * height); }
+    getContext() { return textureSupport === 'no-context' ? null : { fillRect() {}, beginPath() {}, rect() {}, fill() {}, clearRect() {}, drawImage() { texturePaints++; } }; }
+  });
   const images: Array<EventTarget & { src: string; complete: boolean; naturalWidth: number }> = [];
   install('Image', class extends EventTarget {
     src = ''; complete = false; naturalWidth = 0;
@@ -109,7 +121,41 @@ function compositor(t: TestContext, reducedMotion = false) {
   const canvas = { getContext: () => context } as unknown as HTMLCanvasElement;
   const effects = mountPenthouseEffects(canvas,null);
   t.after(() => { effects.destroy(); for (const [key,value] of originals) { if (value) Object.defineProperty(globalThis,key,value); else Reflect.deleteProperty(globalThis,key); } });
-  return {effects,page,media,frames,text,images,paintCommands,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
+  return {effects,page,media,frames,text,images,paintCommands,liveFilters,textureSizes,colorFilters,texturePaints:()=>texturePaints,draws:()=>draws,run(now:number) { const callbacks = [...frames.values()]; frames.clear(); callbacks.forEach(fn=>fn(now)); }};
+}
+test('loaded desk objects reuse their lighting until the atmosphere changes', t => {
+  const f = compositor(t);
+  f.effects.update(state());
+  for (const image of f.images) { image.complete = true; image.naturalWidth = 512; image.dispatchEvent(new Event('load')); }
+  for (let tick = 0; tick < 30; tick++) f.run(1000 + tick * 40);
+  assert.deepEqual(f.colorFilters, [], 'steady frames must not re-filter the full-size source images');
+  assert.equal(f.texturePaints(), 2, 'each loaded object is lit once');
+  const textures = f.textureSizes.length;
+  f.effects.update(state('clear', 'morning'));
+  assert.equal(f.texturePaints(), 4, 'a different light rebuilds both cached colors');
+  assert.equal(f.textureSizes.length, textures, 'lighting changes reuse existing pixel buffers');
+  f.effects.update(state('clear', 'morning', 'winter'));
+  assert.equal(f.texturePaints(), 4, 'the same lighting remains cached across seasons');
+});
+test('night lights animate without blurring the full room canvas every frame', t => {
+  const f = compositor(t);
+  f.effects.update(state());
+  for (let tick = 0; tick < 60; tick++) f.run(1000 + tick * 40);
+  assert.deepEqual(f.liveFilters, [], 'window softness must be rasterized once, outside the room compositor');
+  assert.equal(f.textureSizes.length, 1, 'all night frames reuse one bounded texture');
+  assert.ok(f.textureSizes[0] < 65536, 'window texture stays much smaller than the room');
+  assert.ok(f.paintCommands.filter(command => command === 'drawImage').length > 60, 'city lights remain visible throughout the animation');
+});
+for (const textureSupport of ['missing', 'no-context'] as const) {
+  test(`night lights remain usable when offscreen textures are ${textureSupport}`, t => {
+    const f = compositor(t, false, textureSupport);
+    f.effects.update(state());
+    for (let tick = 0; tick < 5; tick++) f.run(1000 + tick * 40);
+    assert.deepEqual(f.liveFilters, []);
+    assert.equal(f.textureSizes.length, textureSupport === 'missing' ? 0 : 1, 'an unavailable texture is not retried every frame');
+    assert.ok(f.paintCommands.includes('fillRect'), 'unfiltered city lights still render');
+    assert.equal(f.frames.size, 1, 'scene animation continues');
+  });
 }
 test('object images arriving in a still scene repaint once and release on teardown', t => {
   const f = compositor(t,true);
