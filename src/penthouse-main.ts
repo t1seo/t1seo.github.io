@@ -182,16 +182,16 @@ root.addEventListener('click', event => {
   if (action === 'climate' || action === 'clock' || action === 'calendar' || action === 'milky' || action === 'about' || action === 'workspace') openPanel(action, button);
   else if (action === 'monitor' || action === 'lamp' || action === 'floorLamp') { workspace[action] = !workspace[action]; updateWorkspace(); }
   else if (action === 'music') void sound.setEnabled(!sound.isEnabled());
-  else if (action === 'coffee') { scene.savorCoffee('desk'); toast('A warm cup. A little pause.'); }
-  else if (action === 'diffuser') { scene.scentDiffuser(); toast('A soft breath of fragrance.'); }
+  else if (action === 'coffee') scene.savorCoffee('desk');
+  else if (action === 'diffuser') scene.scentDiffuser();
   else if (action === 'bed') {
     if (dialog.open) dialog.close();
     pet.setActive(true);
-    toast(pet.napInBed() ? 'A soft place to settle, Milky.' : 'Milky can visit the bed when it is fully in view.');
+    pet.napInBed();
   }
   else if (action === 'bowl') {
     scene.strikeBowl();
-    void bowlSound.strike().then(played => toast(played ? 'One quiet note. Let it settle.' : 'A quiet ripple. Sound is unavailable in this browser.')).catch((error: unknown) => { console.error('Singing bowl playback failed', error); toast('A quiet ripple. Sound could not start.'); });
+    void bowlSound.strike().catch((error: unknown) => { console.error('Singing bowl playback failed', error instanceof Error ? error.message : error); });
   }
   else if (action === 'location') void climate.useLocation();
   else if (action === 'focus') {
