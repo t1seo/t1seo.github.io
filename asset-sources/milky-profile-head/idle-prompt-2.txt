@@ -1,0 +1,5 @@
+Use case: background-extraction and precise-object-edit.
+This is an existing transparent sprite of Milky, the same small white Maltese. Image 1 is the EDIT TARGET, the new sprite with the correctly enlarged profile head. Image 2 is the original pre-edit sprite, solely a body-registration reference.
+Keep Image 1's head size, face, eyes, mouth, pose and all of the dog's rendered appearance exactly as they are. Remove ALL pale beige/white glow or haze outside the dog's actual fur silhouette. The halo surrounding his back, tail, legs and head is unwanted and must become completely transparent. True alpha=0 outside the crisp fine fur strands; no soft opaque background layer at all. Preserve fine fur edge details with natural narrow antialiasing only. Do not add any glow, ground shadow, scenery, checkerboard or solid color. It must be a genuine clean transparent cutout.
+Preserve canvas 1536x1024, exact body/tail/legs/paw positions as in Image 2, and keep the slightly enlarged head from Image 1. Do not recenter, rescale, crop or move the dog.
+Output one single transparent RGBA PNG sprite, exact dimensions 1536x1024.

@@ -1,0 +1,105 @@
+{
+  "selected": "generated/idle-candidate-1.png",
+  "rejected": "generated/idle-candidate-2.png",
+  "reason": "First candidate retains original body geometry most closely. Candidate 2 adds unnecessary pose and fur changes.",
+  "tool": "built-in image_gen",
+  "runtime": "public/assets/cyberpunk/milky-forward-idle.webp",
+  "canvas": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "original_and_new_geometry": {
+    "hind_near_paw": {
+      "before": [
+        261,
+        840,
+        430,
+        954
+      ],
+      "after": [
+        265,
+        840,
+        430,
+        954
+      ]
+    },
+    "hind_far_paw": {
+      "before": [
+        468,
+        810,
+        656,
+        917
+      ],
+      "after": [
+        469,
+        810,
+        657,
+        917
+      ]
+    },
+    "front_near_paw": {
+      "before": [
+        953,
+        850,
+        1160,
+        970
+      ],
+      "after": [
+        956,
+        850,
+        1160,
+        971
+      ]
+    },
+    "front_far_paw": {
+      "before": [
+        1130,
+        850,
+        1285,
+        960
+      ],
+      "after": [
+        1130,
+        850,
+        1286,
+        960
+      ]
+    },
+    "head_upper": {
+      "before": [
+        900,
+        116,
+        1399,
+        450
+      ],
+      "after": [
+        900,
+        82,
+        1432,
+        450
+      ]
+    }
+  },
+  "files": [
+    {
+      "path": "asset-sources/milky-profile-head/generated/idle-candidate-1.png",
+      "bytes": 1884759,
+      "sha256": "3cea3032b464b49a5c23d41d2386012f12c83236a50b94a425ea6da44b8be655"
+    },
+    {
+      "path": "asset-sources/milky-profile-head/before/milky-forward-idle.webp",
+      "bytes": 202964,
+      "sha256": "f307a34a832cc82136d8b768d30f09abe3d1e2b2208f970308c3aafb1193610d"
+    },
+    {
+      "path": "public/assets/cyberpunk/milky-forward-idle.webp",
+      "bytes": 251924,
+      "sha256": "339c0ca21baeebdd0e46e1e3c9430aa9976f8cf0bb966833d482e34ad4278d24"
+    }
+  ]
+}
