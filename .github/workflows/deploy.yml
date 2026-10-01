@@ -13,6 +13,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  guestbook:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: workers/guestbook
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: workers/guestbook/package-lock.json
+      - name: Install guestbook tooling
+        run: npm ci
+      - name: Check guestbook types
+        run: npm run check
+      - name: Test guestbook protection
+        run: npm test
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -29,6 +50,8 @@ jobs:
         run: npm test
       - name: Build site
         run: npm run build
+        env:
+          VITE_GUESTBOOK_API_URL: ${{ vars.VITE_GUESTBOOK_API_URL }}
       - name: Configure Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
       - name: Upload site
@@ -37,7 +60,7 @@ jobs:
           path: dist
 
   deploy:
-    needs: build
+    needs: [build, guestbook]
     runs-on: ubuntu-latest
     permissions:
       pages: write

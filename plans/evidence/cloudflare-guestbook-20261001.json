@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-01",
+  "status": "implemented-and-locally-verified; Cloudflare authorization pending",
+  "siteTests": {
+    "passed": 414,
+    "log": "/tmp/t1seo-guestbook-site-tests.log"
+  },
+  "workerTests": {
+    "passed": 67,
+    "log": "/tmp/t1seo-guestbook-backend-tests.log",
+    "runtime": "Miniflare workerd with real D1 SQLite; only external Turnstile verification mocked"
+  },
+  "siteBuild": "TypeScript and Vite passed; guestbook JS and CSS split into lazy chunks",
+  "workerBuild": "Wrangler dry-run passed, 19.17 KiB / 5.81 KiB gzip",
+  "guestbookUI": {
+    "passed": 13,
+    "checks": [
+      "module import starts no requests or Turnstile",
+      "unconfigured guestbook honest and no requests",
+      "public entries render literal text and readable pagination",
+      "earlier page appends without duplicates",
+      "writing loads verification lazily and keeps name focus",
+      "post disables duplicate submissions and keeps draft on verification rejection",
+      "publish prepends safe text and moves focus to new note",
+      "lost write response retains draft and refreshes without reposting",
+      "reopen keeps uncertain draft and ignores old verification callbacks",
+      "server cooldown stays enforced after fresh verification",
+      "destroy cancels pending reads and ignores late results",
+      "successful post merges with pending initial page and retains cursor and focus",
+      "uncertain post queues confirmation refresh behind older in-flight read"
+    ],
+    "limits": "Actual guestbook modules in HappyDOM; fake API responses and Turnstile SDK boundary. No actual Chrome rendering or real Cloudflare validation."
+  },
+  "rootIntegration": {
+    "passed": 12,
+    "checks": [
+      "root mount sends no guestbook requests or lazy imports; pen opens guestbook",
+      "pen imports lazily, starts one public read, retains content focus after async mount",
+      "dialog close aborts read, restores pen focus, ignores late response",
+      "switching to Desk while lazy import is pending prevents stale mount and read",
+      "rapid open-close-reopen ignores older import without destroying newest panel",
+      "failed lazy import renders actionable Retry and retry mounts actual guestbook",
+      "private memo stays separate from empty public draft and never triggers publishing",
+      "switching from public compose to private memo removes widget/listeners; detached form cannot publish",
+      "reopen restores only public draft; leaving during post aborts UI work and ignores late completion",
+      "root teardown invalidates lazy import and prevents further reads",
+      "blocked browser storage keeps private memo for visit across public guestbook navigation",
+      "visit-only presets survive guestbook navigation and restore atmosphere with Auto paused"
+    ],
+    "limits": "Actual root source, guestbook helper, guestbook UI/API/compose/entries and private tools in Happy DOM. Heavy room/audio/pet boundaries are spies; lazy module transport and HTTP/Turnstile boundaries are controlled. No Chrome rendering, native focus trap or real server writes asserted."
+  },
+  "personalRegression": {
+    "passed": 12,
+    "checks": [
+      "mount has no music/rain autoplay",
+      "clock starts 25 minutes and moves focus to Pause",
+      "pause/resume preserves exact remaining time and keyboard focus",
+      "panel navigation mirrors countdown; cancel restores local clock and Start focus",
+      "50-minute completion is deferred while hidden and restores local clock exactly once",
+      "memo survives panel navigation, retains Korean text, renders markup as inert text",
+      "memo survives complete root remount through browser storage",
+      "memo Clear removes content and restores textarea focus",
+      "rain-only sound remains independent from music and survives panel navigation",
+      "preset names stay inert text; five-entry cap is enforced visibly",
+      "applying preset emits one atomic climate update, pauses Auto, restores lamps/monitor/still/pet/sound/UI",
+      "delete releases one preset slot and restores name-field focus"
+    ],
+    "limits": "Node happy-dom simulation of actual root wiring and actual UI/climate/storage/timer modules. Scene, pet and audio engine are boundary spies; no browser rendering, native focus trap, autoplay policy or audible output asserted."
+  },
+  "securityReview": "Independent read-only review found no concrete blocker",
+  "production": {
+    "cloudflareResourcesCreated": false,
+    "workerDeployed": false,
+    "siteDeployed": false,
+    "chromeGuestbookVerified": false
+  },
+  "limits": "Cloudflare authentication is required before resource provisioning and live verification. No live deployment or actual Chrome guestbook check is claimed."
+}

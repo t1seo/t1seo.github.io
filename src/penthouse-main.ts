@@ -4,6 +4,7 @@ import { roomMarkup } from './penthouse-room-markup';
 import { mountPersonalTools } from './penthouse-personal-ui';
 import { mountFocusSession } from './penthouse-focus-ui';
 import { mountSoundMixer } from './penthouse-sound-ui';
+import { createGuestbookPanel } from './penthouse-guestbook-panel';
 import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type ClimateState, type LocalClimateInfo } from './cyber-climate';
 import { createCyberSound, type CyberPlaybackState } from './cyber-sound';
 import { mountCyberPet } from './cyber-pet';
@@ -18,12 +19,10 @@ import './penthouse-seasonal-decor.css';
 import './penthouse-opening-credits.css';
 import './penthouse-personal.css';
 import './penthouse-object-lighting.css';
-
 const mount = document.querySelector<HTMLDivElement>('#app');
 if (!mount) throw new Error('Studio mount element is missing.');
 const root: HTMLDivElement = mount;
 root.innerHTML = roomMarkup();
-
 const $ = <T extends Element = HTMLElement>(selector: string): T => {
   const element = root.querySelector<T>(selector);
   if (!element) throw new Error(`Missing studio element: ${selector}`);
@@ -34,6 +33,8 @@ const opening = $('.ph-opening-credits');
 const stopOpeningCredits = mountOpeningCredits(opening, opening.querySelectorAll<HTMLElement>('[data-opening-letter]'));
 const dialog = $<HTMLDialogElement>('dialog');
 const content = $('[data-dialog-content]');
+const guestbookUrl: unknown = import.meta.env.VITE_GUESTBOOK_API_URL;
+const guestbook = createGuestbookPanel(content, typeof guestbookUrl === 'string' ? guestbookUrl : '');
 const abort = new AbortController();
 const options = { signal: abort.signal };
 const visibleHotspots = new IntersectionObserver(entries => {
@@ -119,6 +120,7 @@ const stopInfo = climate.subscribeLocalInfo(updateLocalInfo);
 updateLocalInfo(climate.getLocalInfo());
 
 function openPanel(name: string, trigger: HTMLElement) {
+  guestbook.close();
   scene.setPreview(null);
   panel = name === 'clock' || name === 'calendar' ? 'climate' : name;
   if (!dialog.open) opener = trigger;
@@ -127,6 +129,7 @@ function openPanel(name: string, trigger: HTMLElement) {
     else button.removeAttribute('aria-current');
   });
   content.innerHTML = panelMarkup(name);
+  if (name === 'guestbook') void guestbook.open();
   if (panel === 'climate') updateClimatePanel();
   if (name === 'workspace') {
     updateRoomTimeObjects(root, climate.getLocalInfo().timeZone);
@@ -183,7 +186,7 @@ root.addEventListener('click', event => {
   const button = event.target.closest<HTMLElement>('[data-action]');
   if (!button) return;
   const action = button.dataset.action;
-  if (action === 'climate' || action === 'clock' || action === 'calendar' || action === 'milky' || action === 'about' || action === 'workspace' || action === 'memo') openPanel(action, button);
+  if (action === 'climate' || action === 'clock' || action === 'calendar' || action === 'milky' || action === 'about' || action === 'workspace' || action === 'memo' || action === 'guestbook') openPanel(action, button);
   else if (action === 'monitor' || action === 'lamp' || action === 'floorLamp') { workspace[action] = !workspace[action]; updateWorkspace(); }
   else if (action === 'music') void sound.setEnabled(!sound.isEnabled());
   else if (action === 'coffee') scene.savorCoffee('desk');
@@ -223,7 +226,7 @@ content.addEventListener('change', event => {
   if (input.name === 'time' && time) climate.setTime(time);
   if (input.name === 'weather' && weather) climate.setWeather(weather);
 }, options);
-dialog.addEventListener('close', () => { panel = ''; scene.setPreview(null); pet.setActive(true); (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
+dialog.addEventListener('close', () => { panel = ''; guestbook.close(); scene.setPreview(null); pet.setActive(true); (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
 dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const r = dialog.getBoundingClientRect();
@@ -240,7 +243,7 @@ if (!playing) $('[data-track-title]').textContent = 'Make yourself at home.';
 function destroy() {
   if (destroyed) return;
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
-  focusSession.destroy(); personal.destroy(); mixer?.destroy();
+  focusSession.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
   stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);

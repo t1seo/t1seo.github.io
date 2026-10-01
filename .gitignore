@@ -4,3 +4,9 @@ dist/
 .DS_Store
 .worktrees/
 tmp/
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.wrangler/

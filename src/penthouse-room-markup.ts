@@ -17,7 +17,7 @@ export function roomMarkup(): string {
       <button class="ph-hotspot ph-hotspot--monitor" data-action="monitor" aria-label="Turn off the computer monitor" aria-pressed="true"></button>
       <button class="ph-hotspot ph-hotspot--lamp" data-action="lamp" aria-label="Turn on the desk light" aria-pressed="false"></button>
       <button class="ph-hotspot ph-hotspot--audio" data-action="music" aria-label="Play music on the small desktop speaker" aria-pressed="false"></button>
-      <button class="ph-hotspot ph-hotspot--pen" data-action="memo" aria-label="Open your private desk note" aria-haspopup="dialog"></button>
+      <button class="ph-hotspot ph-hotspot--pen" data-action="guestbook" aria-label="Open the guestbook" aria-haspopup="dialog"></button>
       <button class="ph-hotspot ph-hotspot--book" data-action="about" aria-label="Read about this studio"></button>
       <button class="ph-hotspot ph-hotspot--coffee" data-action="coffee" aria-label="Enjoy the aroma of the desk coffee"></button>
       <button class="ph-hotspot ph-hotspot--diffuser" data-action="diffuser" aria-label="Release a little fragrance from the reed diffuser"></button>
