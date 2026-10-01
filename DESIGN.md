@@ -8,6 +8,12 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## A quiet fireworks festival and returning name · latest, 2026-10-02
+
+Remove the small procedural river boat: the user found its rendering too crude for this room. Atmosphere instead offers a deliberate one-minute fireworks festival with Watch/Stop controls. Layer fine gold and champagne sparks with occasional dusty-rose accents; use varied, falling trails and soft light rather than flat rings or hard geometric symbols. Keep the show behind the window frames, skyline and interior silhouettes, with restrained reflections on the Han River. The room’s time, weather, artwork and soundtrack remain the visitor’s choices. The effect starts only on request and stops when the tab is hidden, animation is disabled or reduced motion is requested.
+
+The existing cinematic name returns after one minute of inactivity. Preserve its Cormorant lettering, slow typing, hold and gentle fade. Interaction resets the idle interval; settings, the photo album and fireworks suppress the name and start a fresh minute when they end. Still/reduced-motion mode may show the name without animated typing. This extends the original opening credit without an always-running animation loop.
+
 ## Music for Milky’s photographs · latest, 2026-10-02
 
 Opening the album begins Scott Buckley’s `Childhood`, a gentle piano-and-strings recording already included in the licensed local catalogue. A quiet room starts playing; an existing room soundtrack transitions through the existing audio engine. Closing restores the earlier track and its place, with an explicit Play/Pause choice inside the album taking priority. If the same recording was already playing, leave its progress uninterrupted. Keep the album’s own music control legible and reachable, including on narrow screens. No extra recording is downloaded into the project, no audio starts on ordinary page entry, and the artist/source/CC BY 4.0 attribution remains available in the music credits.
@@ -56,7 +62,7 @@ The painted room and all Milky sprites remain unchanged. The bed, ball, clock an
 
 Dragging the existing red ball more than six pixels rolls that same ball in the release direction, with distance controlling force and a bounded floor path. Milky turns and follows with her real gait. Click, Enter and Space retain their previous play behavior. Brief stop glances and a bed-wake play-bow connect existing poses without resizing her head or deforming her body. Animate the view now controls Milky as well as window effects; still/reduced-motion states preserve static interactions.
 
-A distant 25-pixel river boat first appears after 18–30 seconds, crosses for 42 seconds, then waits 95–150 seconds. It stays in the registered river band and behind the glass/furniture masks. Night windows leave small broken reflections. One cancellable wake timer allows clear daytime scenes to stay idle between crossings. Hidden, still and reduced-motion states cancel the crossing and its wake.
+The formerly scheduled river boat has been removed following the 2026-10-02 correction. Quiet daytime views remain idle between actual interactions; the optional fireworks festival above replaces this exterior feature.
 
 The digital clock opens 25- and 50-minute focus sessions, with Pause, Resume and Cancel. The physical clock displays remaining minutes/seconds, then returns to local time. A deadline keeps background elapsed time correct, but completion visuals/audio wait until the page is visible. Starting explicitly prepares a silent dedicated audio context; completion strikes the singing bowl once and releases it. Nothing autoplays on arrival.
 

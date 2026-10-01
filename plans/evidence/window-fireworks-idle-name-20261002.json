@@ -1,0 +1,379 @@
+{
+  "date": "2026-10-02",
+  "tested_source_commit": "23513371c66a7435f262f7094b8fe7c6ab335611",
+  "requests": [
+    "Remove the rejected procedural boat and its scheduler",
+    "Add an on-demand fireworks festival outside the window",
+    "Replay TAEWON SEO after inactivity"
+  ],
+  "automated": {
+    "site_tests": {
+      "passed": 504,
+      "failed": 0,
+      "command": "npm test",
+      "log": "/tmp/t1seo-window-details-final-tests.log"
+    },
+    "production_build": {
+      "passed": true,
+      "command": "VITE_GUESTBOOK_API_URL=https://taewon-guestbook.northstar-cloudflare.workers.dev npm run build",
+      "log": "/tmp/t1seo-window-details-final-build.log"
+    },
+    "controls_dom": {
+      "tests": 10,
+      "passed": [
+        "initial mount stays silent and idle with an accessible native control",
+        "accepted launch closes the drawer and announces running state",
+        "a fresh Atmosphere panel reflects an already running festival",
+        "manual stop leaves the drawer open",
+        "effect completion resets the displayed state without a new panel render",
+        "rejected launch preserves the drawer and reports availability",
+        "still mode disables launch and explains the required switch",
+        "changing the animation switch refreshes availability",
+        "reduced motion prevents launch and updates on a live preference change",
+        "teardown removes event listeners and effect subscription"
+      ]
+    },
+    "main_music_controls_dom": {
+      "checks": [
+        {
+          "name": "initial root mount requests no music; open starts it before lazy resolution",
+          "pass": true
+        },
+        {
+          "name": "lazy import failure restores original playing track and cursor; retry opens",
+          "pass": true
+        },
+        {
+          "name": "Escape cancels pending album music and late import cannot reopen",
+          "pass": true
+        },
+        {
+          "name": "sidebar switch cancels pending album music without changing rain volume",
+          "pass": true
+        },
+        {
+          "name": "album native music toggle pause persists after close and restore",
+          "pass": true
+        },
+        {
+          "name": "rapid duplicate open retains one original cursor and restores once",
+          "pass": true
+        },
+        {
+          "name": "destroy while album lazy import is pending must not issue another media.play",
+          "pass": true
+        },
+        {
+          "name": "root launch preserves climate and music while closing the drawer",
+          "pass": true
+        },
+        {
+          "name": "root offers stop after reopening Atmosphere and leaves the drawer open",
+          "pass": true
+        },
+        {
+          "name": "root still checkbox updates launch and idle-credit availability",
+          "pass": true
+        }
+      ],
+      "limits": "Actual root and music/session/mixer modules. Deferred album module transport; modal contract controlled; media WebAudio primitive fakes. Root verifies browser rendering and actual autoplay."
+    },
+    "independent_root_lifecycle": {
+      "checks": [
+        {
+          "name": "pending shelf album keeps credits hidden beyond sixty seconds",
+          "pass": true
+        },
+        {
+          "name": "failed lazy album load begins a fresh exact sixty-second idle interval",
+          "pass": true
+        },
+        {
+          "name": "opened album suppresses credits and closing begins a full fresh idle minute",
+          "pass": true
+        },
+        {
+          "name": "settings suppress credits and closing begins a full fresh idle minute",
+          "pass": true
+        },
+        {
+          "name": "festival controls close drawer and natural end begins a full fresh idle minute",
+          "pass": true
+        },
+        {
+          "name": "teardown removes credits timers and scene subscriptions",
+          "pass": true
+        }
+      ],
+      "limits": "Actual root, credits and fireworks controls in HappyDOM with exact fake clock; scene start/stop notifications and deferred album transport controlled. No canvas or GUI rendering."
+    },
+    "independent_pending_album_races": {
+      "checks": [
+        {
+          "name": "cancelled pending album ignores late completion without extending the fresh idle deadline",
+          "pass": true
+        },
+        {
+          "name": "rapid cancel and reopen keeps pending suppression until latest shared import opens exactly once",
+          "pass": true
+        },
+        {
+          "name": "destroy during pending import leaves no late title, view or idle timer",
+          "pass": true
+        }
+      ],
+      "limits": "Actual root and opening credits with exact clock; deferred import and external scene/media boundaries controlled. No GUI."
+    }
+  },
+  "visual": {
+    "renderer": "Actual production FireworksPaint with real room plates and masks, offline @napi-rs/canvas. Not Chrome.",
+    "reviewed": [
+      "Night and noon at 2, 3, 8, 15, 52 seconds",
+      "Full and quiet detail at 52 seconds",
+      "Refined tails, brightness, radial depth and low-detail palm geometry after first review"
+    ],
+    "images": [
+      {
+        "path": "/tmp/t1seo-fireworks-night-contact.png",
+        "sha256": "13b007ec73efa2602c8828561c4b7deb10830c8b3b7c13601cb48f9c5f45d14d"
+      },
+      {
+        "path": "/tmp/t1seo-fireworks-noon-contact.png",
+        "sha256": "69e13678e86cdfef8d4ab8b0503ad386d7934e04aa21195e98827261c0d8695c"
+      },
+      {
+        "path": "/tmp/t1seo-fireworks-density-contact.png",
+        "sha256": "1209fa7f714db24fb7b804377e192f46630d837f2ce356161dd91091cbdaab75"
+      }
+    ],
+    "mask_check": {
+      "renderer": "@napi-rs/canvas; actual production FireworksPaint and mask polygons",
+      "results": [
+        {
+          "time": 2,
+          "visiblePixels": 4138,
+          "outsideMaskPixels": 0
+        },
+        {
+          "time": 3,
+          "visiblePixels": 5989,
+          "outsideMaskPixels": 0
+        },
+        {
+          "time": 8,
+          "visiblePixels": 5605,
+          "outsideMaskPixels": 0
+        },
+        {
+          "time": 15,
+          "visiblePixels": 10574,
+          "outsideMaskPixels": 0
+        },
+        {
+          "time": 52,
+          "visiblePixels": 12712,
+          "outsideMaskPixels": 0
+        }
+      ]
+    },
+    "native_timing": {
+      "environment": "Offline native Skia via @napi-rs/canvas on local host. NOT Chrome, not browser FPS; actual production renderer and exact masks at1672x941. Measures clear+clip+fireworks+one-pixel readback; excludes room/effects/DOM. Five warmups then30samples pertime.",
+      "runs": [
+        {
+          "density": 1,
+          "samplesPerTime": 30,
+          "perTime": [
+            {
+              "time": 3,
+              "p50ms": 4.423,
+              "p95ms": 6.181,
+              "maxMs": 6.503
+            },
+            {
+              "time": 15,
+              "p50ms": 5.276,
+              "p95ms": 6.509,
+              "maxMs": 6.606
+            },
+            {
+              "time": 48,
+              "p50ms": 5.086,
+              "p95ms": 5.578,
+              "maxMs": 5.593
+            },
+            {
+              "time": 49,
+              "p50ms": 7.171,
+              "p95ms": 10.794,
+              "maxMs": 20.434
+            },
+            {
+              "time": 50,
+              "p50ms": 6.135,
+              "p95ms": 7.61,
+              "maxMs": 7.705
+            },
+            {
+              "time": 51,
+              "p50ms": 6.65,
+              "p95ms": 10.247,
+              "maxMs": 11.304
+            },
+            {
+              "time": 52,
+              "p50ms": 6.288,
+              "p95ms": 7.449,
+              "maxMs": 7.841
+            },
+            {
+              "time": 53,
+              "p50ms": 7.226,
+              "p95ms": 8.224,
+              "maxMs": 8.341
+            },
+            {
+              "time": 54,
+              "p50ms": 6.359,
+              "p95ms": 7.129,
+              "maxMs": 7.32
+            }
+          ]
+        },
+        {
+          "density": 0.66,
+          "samplesPerTime": 30,
+          "perTime": [
+            {
+              "time": 3,
+              "p50ms": 3.697,
+              "p95ms": 4.603,
+              "maxMs": 4.848
+            },
+            {
+              "time": 15,
+              "p50ms": 4.019,
+              "p95ms": 4.674,
+              "maxMs": 5.272
+            },
+            {
+              "time": 48,
+              "p50ms": 4.253,
+              "p95ms": 6.042,
+              "maxMs": 6.129
+            },
+            {
+              "time": 49,
+              "p50ms": 4.496,
+              "p95ms": 5.416,
+              "maxMs": 5.871
+            },
+            {
+              "time": 50,
+              "p50ms": 4.262,
+              "p95ms": 6.524,
+              "maxMs": 12.999
+            },
+            {
+              "time": 51,
+              "p50ms": 4.454,
+              "p95ms": 6.127,
+              "maxMs": 11.865
+            },
+            {
+              "time": 52,
+              "p50ms": 5.963,
+              "p95ms": 20.564,
+              "maxMs": 22.257
+            },
+            {
+              "time": 53,
+              "p50ms": 5.222,
+              "p95ms": 12.302,
+              "maxMs": 66.543
+            },
+            {
+              "time": 54,
+              "p50ms": 4.949,
+              "p95ms": 6.587,
+              "maxMs": 8.612
+            }
+          ]
+        },
+        {
+          "density": 0.38,
+          "samplesPerTime": 30,
+          "perTime": [
+            {
+              "time": 3,
+              "p50ms": 3.716,
+              "p95ms": 5.484,
+              "maxMs": 5.688
+            },
+            {
+              "time": 15,
+              "p50ms": 3.64,
+              "p95ms": 4.297,
+              "maxMs": 4.316
+            },
+            {
+              "time": 48,
+              "p50ms": 4.065,
+              "p95ms": 7.008,
+              "maxMs": 8.29
+            },
+            {
+              "time": 49,
+              "p50ms": 4.447,
+              "p95ms": 6.04,
+              "maxMs": 6.185
+            },
+            {
+              "time": 50,
+              "p50ms": 3.615,
+              "p95ms": 4.123,
+              "maxMs": 4.634
+            },
+            {
+              "time": 51,
+              "p50ms": 3.917,
+              "p95ms": 4.393,
+              "maxMs": 4.633
+            },
+            {
+              "time": 52,
+              "p50ms": 4.003,
+              "p95ms": 4.383,
+              "maxMs": 4.698
+            },
+            {
+              "time": 53,
+              "p50ms": 4.161,
+              "p95ms": 4.811,
+              "maxMs": 4.848
+            },
+            {
+              "time": 54,
+              "p50ms": 4.25,
+              "p95ms": 5.305,
+              "maxMs": 5.486
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Official Codex Computer Use failed with Sky Computer Use native pipe startup failed, including after kernel reset and native service restart.",
+    "Actual Chrome interactions, mobile layout, elapsed 60-second idle observation and browser frame performance remain unverified. No alternate GUI provider was used.",
+    "DOM scenarios use exact fake clocks and controlled external boundaries; native Canvas timing is not browser FPS."
+  ],
+  "preservation": {
+    "public_artwork_audio_diff": [],
+    "boat_source_references": []
+  },
+  "release": {
+    "target": "main",
+    "site": "https://t1seo.github.io/",
+    "verification": "Exact release SHA, remote main, Actions status and live bundle hashes are verified after pushing and reported separately."
+  }
+}
