@@ -1,5 +1,5 @@
 {
-  "status": "static three-pose art gate passed; continuous runtime gait still requires validation",
+  "status": "independent static three-pose art gate passed with torso03 and runtime bodyLoad20/stride360; continuous runtime gait still requires validation",
   "reference": "public/assets/cyberpunk/milky-forward-idle.webp",
   "logicalSize": [1536, 1024],
   "runtimeSize": [768, 512],
@@ -7,7 +7,7 @@
   "existingRendererScale": 0.847,
   "existingStandingAnchor": [795, 970],
   "torso": {
-    "source": "torso-prototype-02.png",
+    "source": "torso-prototype-03.png",
     "placement": [0, 0],
     "preservation": "Source-like head, face, torso and tail placement/scale; generated pixels, not a literal pixel copy. Original full-body rasters are untouched."
   },
@@ -34,11 +34,11 @@
     "hiddenRootAlpha32Top": 369
   },
   "renderingNotes": [
-    "Root-approved torso prototype 02; original contour samples usually differ by at most 2 logical pixels.",
+    "Torso03 refines the bright lower hip/chest hems after independent review of torso02. Head/body contour samples usually differ by at most 2 logical pixels.",
     "Near and far limbs share the same authored fore/hind textures; far roots and contact heights require independent geometry.",
     "Render legs beneath torso so the upper fur caps remain hidden.",
     "The static gate used narrow joint-local blending after rigid rectangular crops exposed cut edges.",
-    "A 40-logical-pixel loading translation must ease in from idle; do not instantly drop the body.",
+    "The independent art gate uses a reduced 20-logical-pixel loading translation and stride360, easing in from idle. The earlier 40-pixel load looked crouched and was rejected.",
     "Static art acceptance does not establish continuous gait quality, foot locking, cancellation behavior or browser performance."
   ]
 }

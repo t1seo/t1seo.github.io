@@ -1,6 +1,7 @@
 [
   {
     "name": "torso",
+    "source": "torso-prototype-03.png",
     "width": 768,
     "height": 512,
     "probes": [
@@ -16,6 +17,7 @@
   },
   {
     "name": "foreleg",
+    "source": "foreleg-prototype-02.png",
     "width": 768,
     "height": 512,
     "probes": [
@@ -31,6 +33,7 @@
   },
   {
     "name": "hindleg",
+    "source": "hindleg-prototype-02.png",
     "width": 768,
     "height": 512,
     "probes": [

@@ -8,7 +8,8 @@ async function main() {
   const destination = path.resolve(__dirname, '../../public/assets/cyberpunk/milky-grounded-walk');
   fs.mkdirSync(destination, { recursive: true });
   for (const id of ['torso', 'foreleg', 'hindleg']) {
-    const source = path.join(__dirname, `${id}-prototype-02.png`);
+    const revision = id === 'torso' ? '03' : '02';
+    const source = path.join(__dirname, `${id}-prototype-${revision}.png`);
     const image = await loadImage(source);
     if (image.width !== 1536 || image.height !== 1024) throw new Error(`Unexpected source dimensions: ${id}`);
     const canvas = createCanvas(768, 512);

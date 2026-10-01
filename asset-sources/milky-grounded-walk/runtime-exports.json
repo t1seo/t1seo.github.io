@@ -1,12 +1,12 @@
 [
   {
     "id": "torso",
-    "source": "torso-prototype-02.png",
+    "source": "torso-prototype-03.png",
     "target": "public/assets/cyberpunk/milky-grounded-walk/torso.webp",
     "width": 768,
     "height": 512,
-    "bytes": 60678,
-    "sha256": "8f3251310a799e08ce1358d0d3a42600f8857ad7d722e3b23682f93ea3d44903"
+    "bytes": 70298,
+    "sha256": "cd2d21c2ecc52b41dbfe227182880df42baec58f391506d1ce7894c000798ed8"
   },
   {
     "id": "foreleg",
