@@ -52,7 +52,12 @@ export function mountPenthouseScene(room: HTMLElement, onError: () => void) {
       if (source !== requested) void changePlate(source);
       effects.update(state);
     },
-    setWorkspace: effects.setWorkspace,
+    setWorkspace(next: Parameters<typeof effects.setWorkspace>[0]) {
+      room.dataset.deskLamp = String(next.lamp);
+      room.dataset.floorLamp = String(Boolean(next.floorLamp));
+      room.dataset.monitor = String(next.monitor);
+      effects.setWorkspace(next);
+    },
     setAnimated: effects.setAnimated,
     setPreview: effects.setPreview,
     savorCoffee: effects.savorCoffee,

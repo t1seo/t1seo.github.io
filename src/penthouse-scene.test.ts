@@ -26,7 +26,7 @@ function setup(t: TestContext) {
   install('cancelAnimationFrame', () => {});
   const shown: string[][] = [];
   const layers = { replaceChildren(...children: FakeImage[]) { shown.push(children.map(image => image.src)); } };
-  const canvas = { style: {}, getContext: () => null };
+  const canvas = { style: {}, dataset: {}, getContext: () => null };
   const room = { dataset: {}, querySelector(selector: string) { return selector === '[data-plates]' ? layers : selector === 'canvas' ? canvas : { style: {} }; } };
   let errors = 0;
   const scene = mountPenthouseScene(room as unknown as HTMLElement, () => errors++);

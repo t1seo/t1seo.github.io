@@ -1,0 +1,58 @@
+.ph-room {
+  --ph-ambient-light: .95;
+  --ph-object-saturation: .86;
+  --ph-floor-fill: 0;
+  --ph-desk-fill: 0;
+  --ph-paper-fill: 0;
+  --ph-lamp-warmth: 0;
+  --ph-contact-ink: #271d17;
+  --ph-contact-opacity: .25;
+}
+.ph-room[data-time='morning'] { --ph-ambient-light: .93; --ph-object-saturation: .78; }
+.ph-room[data-time='afternoon'] { --ph-ambient-light: .96; --ph-object-saturation: .9; }
+.ph-room[data-time='evening'] { --ph-ambient-light: .79; --ph-object-saturation: .82; --ph-contact-opacity: .3; }
+.ph-room[data-time='night'] { --ph-ambient-light: .67; --ph-object-saturation: .76; --ph-contact-opacity: .35; }
+.ph-room:is([data-time='morning'],[data-time='noon'],[data-time='afternoon']):is([data-weather='rain'],[data-weather='cloudy']) {
+  --ph-ambient-light: .85;
+  --ph-object-saturation: .69;
+}
+.ph-room:is([data-time='morning'],[data-time='noon'],[data-time='afternoon']):is([data-weather='snow'],[data-weather='mist']) {
+  --ph-ambient-light: .91;
+  --ph-object-saturation: .73;
+}
+.ph-room[data-desk-lamp='true'] { --ph-desk-fill: .045; --ph-lamp-warmth: .1; }
+.ph-room:is([data-time='evening'],[data-time='night'])[data-desk-lamp='true'] { --ph-desk-fill: .16; --ph-floor-fill: .025; }
+.ph-room:is([data-time='evening'],[data-time='night'])[data-monitor='true'] { --ph-paper-fill: .055; }
+.ph-room:is([data-time='evening'],[data-time='night'])[data-floor-lamp='true'] { --ph-contact-ink: #231b16; }
+
+.ph-room[data-time] :is(.ph-bed,.ph-bed-front,.cyber-pet-prop[data-prop='ball']) img {
+  filter: brightness(calc(var(--ph-ambient-light) + var(--ph-floor-fill))) saturate(var(--ph-object-saturation));
+}
+.ph-room[data-time] .ph-desk-clock .ph-time-object-art {
+  filter: brightness(calc(var(--ph-ambient-light) + var(--ph-desk-fill))) saturate(var(--ph-object-saturation)) sepia(var(--ph-lamp-warmth));
+}
+.ph-room[data-time] .ph-desk-calendar .ph-time-object-art {
+  filter: brightness(calc(var(--ph-ambient-light) + var(--ph-paper-fill))) saturate(var(--ph-object-saturation));
+}
+.ph-room .ph-calendar-print { opacity: calc(.72 + var(--ph-ambient-light) * .28); }
+.ph-room .ph-time-object { isolation: isolate; }
+.ph-room .ph-time-object::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 80% 7% -3%;
+  background: radial-gradient(ellipse, var(--ph-contact-ink) 0%, transparent 72%);
+  opacity: var(--ph-contact-opacity);
+  pointer-events: none;
+}
+.ph-room .ph-desk-calendar::after { inset: 86% -8% -3% -12%; transform: skewX(-12deg); }
+.ph-room .ph-bed::before {
+  inset: 68% 6% 2%;
+  background: radial-gradient(ellipse, var(--ph-contact-ink) 0%, #271d1755 43%, transparent 72%);
+  opacity: var(--ph-contact-opacity);
+}
+.ph-room .cyber-pet-prop[data-prop='ball'] .cyber-pet-prop-shadow {
+  background: radial-gradient(ellipse, var(--ph-contact-ink) 0%, #271d174d 42%, transparent 73%);
+  filter: none;
+  opacity: calc(var(--milky-prop-shadow, 1) * var(--ph-contact-opacity));
+}

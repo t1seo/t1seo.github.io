@@ -5,6 +5,8 @@ import { LoungeLight } from './penthouse-lounge-light.ts';
 import { ROOM_OBJECTS, objectLighting } from './penthouse-objects.ts';
 import { RoomLife, type CupSpot } from './penthouse-room-life.ts';
 import { SingingBowl } from './penthouse-singing-bowl.ts';
+import { AdaptiveEffectQuality, EFFECT_DENSITY } from './penthouse-quality.ts';
+import { RiverBoat } from './penthouse-river-boat.ts';
 import { AtmosphereSimulation, GLASS_EDGE, GLASS_PANES, GLASS_OCCLUDERS, SKY_EDGE, WORKSPACE_CROP, MONITOR_SCREEN, ROOM_SIZE, atmosphereProfile, isSky, seededRandom, type Point } from './penthouse-atmosphere.ts';
 
 export interface WorkspaceState { monitor: boolean; lamp: boolean; floorLamp?: boolean }
@@ -20,6 +22,8 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   const bowl = new SingingBowl();
   const screen = new StudioScreenCache();
   const loungeLight = new LoungeLight();
+  const quality = new AdaptiveEffectQuality();
+  const boat = new RiverBoat(restart);
   const random = seededRandom(310730);
   const dust = Array.from({length: 180}, () => ({ x: random() * 1295, y: random() * 582, speed: .55 + random(), phase: random() * 6.28 }));
   const stars = Array.from({length: 48}, () => ({ x: 191 + random() * 1295, y: 40 + random() * 185, phase: random() * 6.28, r: .35 + random() * .5 })).filter(p => isSky(p.x,p.y));
@@ -30,7 +34,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   let preview: HTMLCanvasElement | null = null;
   let screenPreview: HTMLCanvasElement | null = null;
   let animateView = true;
-  let frame = 0, last = 0, painted = 0, typing = 12;
+  let frame = 0, last = 0, painted = 0, sampled = 0, typing = 12;
   let dead = false;
   const objects: LitObject[] = ctx ? ROOM_OBJECTS.map(object => {
     const image = new Image();
@@ -39,6 +43,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     return { ...object, image };
   }) : [];
   canvas.width = ROOM_SIZE[0]; canvas.height = ROOM_SIZE[1];
+  canvas.dataset.effectDetail = quality.detail;
 
   function path(points: readonly Point[]) {
     ctx!.moveTo(...points[0]); for (const point of points.slice(1)) ctx!.lineTo(...point); ctx!.closePath();
@@ -55,6 +60,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   }
   function drawSky(ctx: CanvasRenderingContext2D) {
     const p = atmosphereProfile(state), t = sim.time;
+    const density = EFFECT_DENSITY[quality.detail];
     ctx!.save();
     ctx!.beginPath(); for (const pane of GLASS_PANES) path(pane); ctx!.clip();
     // Broad sky haze fades before indoor objects. Applying a haze wash through
@@ -68,15 +74,17 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     if (p.mist) for (let i = 0; i < 4; i++) glow(320 + i * 320 + Math.sin(t * .022 + i) * 45, 155 + i % 2 * 15,390,58,p.night ? '#a5b1be' : '#e8e7df',.23);
     ctx!.globalAlpha = 1;
     clipGlass();
+    boat.draw(ctx, p.night, density.reflections);
     if (p.night) {
       roomLife.drawCity(ctx, t, p.night);
       // Short horizontal glints ripple within the Han River, below the far bank.
       ctx!.save(); ctx!.beginPath(); path([[228,433],[1486,433],[1486,495],[228,495]]); ctx!.clip();
-      for (let i = 0; i < 26; i++) {
-        const x = 242 + i * 47 + Math.sin(t * .35 + i) * 2;
-        const y = 437 + (i * 17 % 51);
-        ctx!.strokeStyle = `rgba(255,219,155,${p.night * (.13 + .08 * Math.sin(t * .65 + i))})`;
-        ctx!.lineWidth = .7; ctx!.beginPath(); ctx!.moveTo(x,y); ctx!.lineTo(x + 3 + (i % 4),y); ctx!.stroke();
+      for (let i = 0; i < Math.ceil(26 * density.reflections); i++) {
+        const index = Math.floor(i / density.reflections);
+        const x = 242 + index * 47 + Math.sin(t * .35 + index) * 2;
+        const y = 437 + (index * 17 % 51);
+        ctx!.strokeStyle = `rgba(255,219,155,${p.night * (.13 + .08 * Math.sin(t * .65 + index))})`;
+        ctx!.lineWidth = .7; ctx!.beginPath(); ctx!.moveTo(x,y); ctx!.lineTo(x + 3 + (index % 4),y); ctx!.stroke();
       }
       ctx!.restore();
       if (workspace.lamp) glow(1153,426,29,13,'#f1d7ac',p.night * .028);
@@ -97,7 +105,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
       ctx!.restore();
     }
     if (p.rain || p.snow) {
-      for (let i = 0; i < dust.length; i++) {
+      for (let i = 0; i < Math.ceil(dust.length * density.particles); i++) {
         const d = dust[i], near = i % 3 === 0;
         const y = 32 + (d.y + t * d.speed * (p.snow ? 19 : near ? 480 : 300)) % 582;
         const x = 191 + (d.x + (p.snow ? Math.sin(t * .35 + d.phase) * 15 : y * .11) + 1295) % 1295;
@@ -112,7 +120,8 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     }
     const wetness = reduced.matches || !animateView ? (p.rain ? 1 : 0) : sim.wetness;
     if (wetness > .01) {
-      for (const d of sim.drops) {
+      for (let i = 0; i < Math.ceil(sim.drops.length * density.beads); i++) {
+        const d = sim.drops[i];
         const r = d.radius, moving = d.speed > 0;
         ctx!.save(); ctx!.globalAlpha = wetness * .74;
         if (moving) {
@@ -193,21 +202,29 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     ctx.clearRect(0,0,...ROOM_SIZE); drawSky(ctx); drawObjects(); drawWorkspace(); roomLife.drawSteam(ctx, reduced.matches || !animateView); bowl.draw(ctx, reduced.matches || !animateView); drawPreview();
   }
   function needsMotion() {
-    return roomLife.active || bowl.active || atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 12);
+    return boat.active || roomLife.active || bowl.active || atmosphereProfile(state).night > 0 || state.weather !== 'clear' || sim.wetness > .01 || (workspace.monitor && typing < 12);
   }
   function loop(now: number) {
     frame = 0;
     if (dead || !ctx || document.hidden || reduced.matches || !animateView) return;
+    const frameDuration = sampled ? now - sampled : 0;
+    sampled = now;
+    let paintDuration: number | undefined;
     if (now - painted >= 1000 / 30) {
+      const paintStart = performance.now();
       const dt = last ? Math.min((now - last) / 1000,.1) : 0;
-      last = now; painted = now; sim.advance(dt,state); roomLife.advance(dt); bowl.advance(dt);
+      last = now; painted = now; sim.advance(dt,state); roomLife.advance(dt); bowl.advance(dt); boat.advance(dt);
       if (workspace.monitor) typing = Math.min(12,typing + dt);
       render();
+      paintDuration = performance.now() - paintStart;
     }
+    quality.sample(frameDuration, paintDuration);
+    if (canvas.dataset.effectDetail !== quality.detail) canvas.dataset.effectDetail = quality.detail;
     if (needsMotion()) frame = requestAnimationFrame(loop);
   }
   function restart() {
-    cancelAnimationFrame(frame); frame = 0; last = 0; painted = 0;
+    cancelAnimationFrame(frame); frame = 0; last = 0; painted = 0; sampled = 0; quality.resetSampling();
+    boat.setEnabled(Boolean(ctx) && !dead && !document.hidden && animateView && !reduced.matches);
     if (dead || document.hidden) return;
     render();
     if (ctx && animateView && !reduced.matches && needsMotion()) frame = requestAnimationFrame(loop);
@@ -216,6 +233,7 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
   reduced.addEventListener('change', restart, { signal: abort.signal });
   initialPlate?.addEventListener?.('load', restart, { signal: abort.signal });
   return {
+    get effectDetail() { return quality.detail; },
     update(next: ClimateState) { state = next; if (state.weather !== 'clear' || state.time !== 'night') sim.meteor = null; restart(); },
     setPlate(image: HTMLImageElement, outside: HTMLImageElement = image) { plate = image; exterior = outside; restart(); },
     setWorkspace(next: WorkspaceState) { if (!workspace.monitor && next.monitor) typing = 0; workspace = { ...next }; restart(); },
@@ -224,6 +242,6 @@ export function mountPenthouseEffects(canvas: HTMLCanvasElement, initialPlate: H
     scentDiffuser() { roomLife.scentDiffuser(reduced.matches || !animateView); restart(); },
     strikeBowl() { bowl.strike(reduced.matches || !animateView); restart(); },
     setPreview(next: HTMLCanvasElement | null, screen: HTMLCanvasElement | null = null) { preview = next; screenPreview = screen; if (screenPreview) { screenPreview.width = SCREEN_SIZE[0]; screenPreview.height = SCREEN_SIZE[1]; } if (preview) { preview.width = WORKSPACE_CROP[2]; preview.height = WORKSPACE_CROP[3]; } render(); },
-    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); roomLife.clear(); bowl.clear(); screen.clear(); loungeLight.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const object of objects) { object.image.src = ''; object.texture = undefined; } },
+    destroy() { dead = true; abort.abort(); cancelAnimationFrame(frame); boat.destroy(); roomLife.clear(); bowl.clear(); screen.clear(); loungeLight.clear(); frame = 0; preview = null; screenPreview = null; plate = null; exterior = null; for (const object of objects) { object.image.src = ''; object.texture = undefined; } },
   };
 }
