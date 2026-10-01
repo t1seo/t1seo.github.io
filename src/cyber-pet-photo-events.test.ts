@@ -23,6 +23,7 @@ test('availability refreshes an already mounted drawer after the base art become
 test('sleep art readiness updates the dependent photo capability', async t => {
   // Given base art ready but the optional sleep artwork pending.
   const f = setup(); t.after(f.restore); await f.loadAll();
+  await f.loadRest(['sit', 'drowsy']);
   const availability: boolean[] = [];
   f.controller.subscribePhotoMotions(event => {
     if (event.type === 'availability') availability.push(f.controller.canPhotoMotion('sleepy-peek'));
@@ -36,7 +37,7 @@ test('sleep art readiness updates the dependent photo capability', async t => {
 
 test('a failed rest image removes its photo capability through the subscription', async t => {
   // Given a previously available sleep-dependent action.
-  const f = setup(); t.after(f.restore); await f.loadAll(); await f.loadRest(['sleep']);
+  const f = setup(); t.after(f.restore); await f.loadAll(); await f.loadRest(['sit', 'drowsy', 'sleep']);
   const availability: boolean[] = [];
   f.controller.subscribePhotoMotions(event => {
     if (event.type === 'availability') availability.push(f.controller.canPhotoMotion('sleepy-peek'));
