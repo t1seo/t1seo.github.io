@@ -1,0 +1,6 @@
+Use case: identity-preserve
+Asset type: a second precisely registered transparent full-body animation frame for Milky.
+Input image 1 is the exact edit target, the already generated very slight head tilt. Input image 2 is the original idle artwork, for identity, size and unchanged body registration only.
+Change ONLY head and natural upper-neck articulation: increase this gentle curious CLOCKWISE head tilt to approximately 12 degrees from upright (roughly 6 degrees further than input 1). Keep the same bright attentive eyes, friendly slightly open mouth and warm detailed white fur. The pose should feel like a real Maltese listening to its owner, subtle and affectionate.
+LOCK EVERYTHING BELOW THE NECK: body, four legs, paws, fur contours, curly raised tail, x/y location and scale. Same exact head size and ears, no enlarging, no new breed or generic dog. Do not rotate the entire dog.
+Keep landscape 1536x1024 RGBA canvas and exact paw registration: rear paws around (340,950),(560,910), front paws (1060,970),(1210,930), virtual ground anchor (795,970). Full entire dog visible with matching transparent margins. Genuine transparent alpha background, no added floor/shadow/backdrop/halo, no text. This will alternate with the previous frame so preserve anatomy, material, lighting and registration with exceptional fidelity.

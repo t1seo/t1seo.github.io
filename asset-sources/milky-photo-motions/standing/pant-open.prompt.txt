@@ -1,0 +1,6 @@
+Use case: identity-preserve
+Asset type: second adjacent transparent full-body frame for a gentle finite breathing animation after Milky plays.
+Input image 1 is the EXACT edit target, pant-soft. Input image 2 is original forward-idle artwork used only to preserve character identity.
+Change ONLY the lower jaw and small tongue: open the lower jaw by a subtle 8 to 10 pixels on this 1536x1024 canvas, and extend the soft pink tongue about 12 to 16 pixels lower, rounding the tip naturally. This represents ONE relaxed breath. Keep it small and cheerful, not a giant tongue or panting in distress. No saliva.
+Everything else is locked: eye and nose coordinates, head silhouette and size, ears, neck, trunk, back, four legs and paw shapes/coordinates, curled tail, all white-fur highlights and lighting. Do not move or rescale the dog; do not change fur style or photographic/painterly appearance. Match the previous frame extremely closely.
+Output exact landscape 1536x1024 RGBA, entire dog inside, genuine transparent background. Keep physical paw anchors unchanged near rear(340,950),(560,910),front(1060,970),(1210,930); virtual ground anchor(795,970). No floor, props, text, artificial checkerboard, backdrop or new halo. High-quality clean alpha edges.

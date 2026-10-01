@@ -1,0 +1,393 @@
+{
+  "version": 1,
+  "date": "2026-10-02",
+  "purpose": "Additive identity-preserving head-tilt and gentle post-play breath frames. Existing Milky art is unchanged.",
+  "export": {
+    "method": "@napi-rs/canvas drawImage at exactly 0.5 scale and WebP quality 95",
+    "sourceEdit": "Built-in imagegen only; no procedural silhouette deformation, alpha cleanup, recentering, rotation, cropping or body normalization.",
+    "runtimeScale": "Restore logical1536x1024 geometry when using these768x512 exports; same baseline registration as existing idle."
+  },
+  "measurement": {
+    "units": "1536x1024 logical source pixels",
+    "method": "Alpha≥200 in fixed paw ROIs. Contact x averages bottom6 rows; y is lowest alpha≥200 pixel. Far-front ROI excludes near paw.",
+    "virtualGroundAnchorNote": "Common renderer origin; not a literal body pixel or center-of-mass estimate.",
+    "rois": {
+      "rearNear": [
+        260,
+        820,
+        420,
+        1023
+      ],
+      "rearFar": [
+        480,
+        820,
+        680,
+        1023
+      ],
+      "frontNear": [
+        980,
+        820,
+        1150,
+        1023
+      ],
+      "frontFar": [
+        1180,
+        820,
+        1310,
+        1023
+      ]
+    }
+  },
+  "baselines": {
+    "camera": {
+      "path": "public/assets/cyberpunk/milky-v4-idle.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha": {
+        "minimum": 0,
+        "maximum": 254,
+        "zeroPixels": 909163,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "paws": {
+        "rearNear": [
+          346,
+          952
+        ],
+        "rearFar": [
+          574,
+          915
+        ],
+        "frontNear": [
+          1071,
+          968
+        ],
+        "frontFar": [
+          1212,
+          931
+        ]
+      }
+    },
+    "forward": {
+      "path": "public/assets/cyberpunk/milky-forward-idle.webp",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha": {
+        "minimum": 0,
+        "maximum": 254,
+        "zeroPixels": 932048,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "paws": {
+        "rearNear": [
+          348,
+          952
+        ],
+        "rearFar": [
+          578,
+          915
+        ],
+        "frontNear": [
+          1073,
+          969
+        ],
+        "frontFar": [
+          1215,
+          931
+        ]
+      }
+    }
+  },
+  "frames": [
+    {
+      "name": "tilt-near",
+      "source": "asset-sources/milky-photo-motions/standing/tilt-near.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/tilt-near.webp",
+      "prompt": "asset-sources/milky-photo-motions/standing/tilt-near.prompt.txt",
+      "generation": {
+        "tool": "image_gen.imagegen (built-in)",
+        "output": "exec-5c1ffb6f-4231-47c2-b769-ec8c1fbfda73.png",
+        "references": [
+          "public/assets/cyberpunk/milky-v4-idle.webp",
+          "public/assets/penthouse/milky-album/photos/17.webp"
+        ]
+      },
+      "sourceSha256": "8bccfa7303faf24e71c6aec2777c65b9299a45622627e972c528e00fb06b71e1",
+      "runtimeSha256": "122c95908ec17bb433e590bf382f6eacd74c65a12882bc97324f4ef2bbdccb97",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "runtimeBytes": 92010,
+      "logicalCanvas": [
+        1536,
+        1024
+      ],
+      "virtualGroundAnchor": [
+        795,
+        970
+      ],
+      "physicalSupportAnchors": {
+        "rearNear": [
+          346,
+          952
+        ],
+        "rearFar": [
+          575,
+          915
+        ],
+        "frontNear": [
+          1071,
+          968
+        ],
+        "frontFar": [
+          1215,
+          930
+        ]
+      },
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "alpha": {
+        "minimum": 0,
+        "maximum": 254,
+        "zeroPixels": 906092,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "tilt-full",
+      "source": "asset-sources/milky-photo-motions/standing/tilt-full.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/tilt-full.webp",
+      "prompt": "asset-sources/milky-photo-motions/standing/tilt-full.prompt.txt",
+      "generation": {
+        "tool": "image_gen.imagegen (built-in)",
+        "output": "exec-864c2832-535a-47af-9443-5323ee8bf177.png",
+        "references": [
+          "asset-sources/milky-photo-motions/standing/tilt-near.png",
+          "public/assets/cyberpunk/milky-v4-idle.webp"
+        ]
+      },
+      "sourceSha256": "928373f35d817f6138b9cd4a758f5ad6aa17640ac5adb1c4a39cbd3d9cef6189",
+      "runtimeSha256": "b29eadcafca02c75de63a6eec8112fb65d3fb158ed42f9a4276d9b179b3ef47a",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "runtimeBytes": 93974,
+      "logicalCanvas": [
+        1536,
+        1024
+      ],
+      "virtualGroundAnchor": [
+        795,
+        970
+      ],
+      "physicalSupportAnchors": {
+        "rearNear": [
+          347,
+          952
+        ],
+        "rearFar": [
+          576,
+          915
+        ],
+        "frontNear": [
+          1070,
+          969
+        ],
+        "frontFar": [
+          1215,
+          931
+        ]
+      },
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "alpha": {
+        "minimum": 0,
+        "maximum": 254,
+        "zeroPixels": 921010,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "pant-soft",
+      "source": "asset-sources/milky-photo-motions/standing/pant-soft.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/pant-soft.webp",
+      "prompt": "asset-sources/milky-photo-motions/standing/pant-soft.prompt.txt",
+      "generation": {
+        "tool": "image_gen.imagegen (built-in)",
+        "output": "exec-54357288-ba1f-48a8-b838-2226952e29aa.png",
+        "references": [
+          "public/assets/cyberpunk/milky-forward-idle.webp",
+          "public/assets/penthouse/milky-album/photos/20.webp"
+        ]
+      },
+      "sourceSha256": "e18d7cab9edff7feaa8c5251e904653958964597edcad40cfbb3ec34c851812a",
+      "runtimeSha256": "0ab2cdbf898187696f1f2f77151ec60f004263e03bac2bd49695113fc37b50e9",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "runtimeBytes": 89114,
+      "logicalCanvas": [
+        1536,
+        1024
+      ],
+      "virtualGroundAnchor": [
+        795,
+        970
+      ],
+      "physicalSupportAnchors": {
+        "rearNear": [
+          349,
+          952
+        ],
+        "rearFar": [
+          579,
+          916
+        ],
+        "frontNear": [
+          1076,
+          969
+        ],
+        "frontFar": [
+          1216,
+          932
+        ]
+      },
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "alpha": {
+        "minimum": 0,
+        "maximum": 254,
+        "zeroPixels": 959137,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "pant-open",
+      "source": "asset-sources/milky-photo-motions/standing/pant-open.png",
+      "runtime": "public/assets/cyberpunk/milky-photo-motions/pant-open.webp",
+      "prompt": "asset-sources/milky-photo-motions/standing/pant-open.prompt.txt",
+      "generation": {
+        "tool": "image_gen.imagegen (built-in)",
+        "output": "exec-b4e96d1a-b9e8-4012-be48-30cd76347bb3.png",
+        "references": [
+          "asset-sources/milky-photo-motions/standing/pant-soft.png",
+          "public/assets/cyberpunk/milky-forward-idle.webp"
+        ]
+      },
+      "sourceSha256": "78a21e855ceed131341ac731525f44dcf897575952a0480b8d811dda1fa23a1d",
+      "runtimeSha256": "a14866186567d18b08eab2f3533a28c7c2a55a004d72dd3d5783605c6ac16426",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "runtimeDimensions": [
+        768,
+        512
+      ],
+      "runtimeBytes": 90086,
+      "logicalCanvas": [
+        1536,
+        1024
+      ],
+      "virtualGroundAnchor": [
+        795,
+        970
+      ],
+      "physicalSupportAnchors": {
+        "rearNear": [
+          349,
+          953
+        ],
+        "rearFar": [
+          578,
+          917
+        ],
+        "frontNear": [
+          1078,
+          970
+        ],
+        "frontFar": [
+          1217,
+          933
+        ]
+      },
+      "registrationTranslation": [
+        0,
+        0
+      ],
+      "alpha": {
+        "minimum": 0,
+        "maximum": 254,
+        "zeroPixels": 958281,
+        "corners": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "qa": {
+    "contactSheet": "asset-sources/milky-photo-motions/standing/contact-sheet.png",
+    "sceneScaleSheet": "asset-sources/milky-photo-motions/standing/scene-scale-contact-sheet.png",
+    "inspection": "Inspected native source artwork and six-frame same-registration comparisons on light and dark grounds. Scene-scale dog visible width approximately140px. No whole-body rotation or head/body rescaling. Fine source-fur variance remains between generated drawings.",
+    "browser": "No browser claim; image registration diagnostics only.",
+    "recommendedPlayback": "Finite eased frame holds, camera-idle → tilt-near → tilt-full → tilt-near → camera-idle; forward-idle → pant-soft/pant-open for a few gentle breaths → forward-idle. Use existing animation scheduler; do not pulse whole-body scale.",
+    "independentReview": {
+      "reviewer": "photo_motion_art_qa",
+      "result": "Accepted; no art regeneration blocker. Near-front runtime contact484px on baseline/tilt/soft, pant-open485px. Torso alpha-weighted fixed ROI shifts<0.6px. Zero translation recommended.",
+      "evidence": "/tmp/t1seo-photo-motion-art-qa/standing-metrics.json"
+    }
+  }
+}
