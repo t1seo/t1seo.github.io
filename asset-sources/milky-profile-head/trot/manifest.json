@@ -1,0 +1,232 @@
+{
+  "tool": "built-in image_gen",
+  "operation": "Local head enlargement approximately 11%, preserving four original trot poses. Full generated PNGs and exact prompts retained.",
+  "normalization": "1536x1024 to768x512 Lanczos, WebP quality95 method6 exact alpha, atomic file replacement.",
+  "inspection": "Actual-alpha flat-background proof inspected; no visible halo. Feet and airborne heights checked against originals. Subtle1-3px silhouette changes remain in some paw tips from image generation. Frame0 second candidate retained but unselected; first selected to match parent visual approval.",
+  "frames": [
+    {
+      "frame": 0,
+      "source": "asset-sources/milky-profile-head/trot/trot-0-generated.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/trot/trot-0-prompt.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-0.webp",
+      "runtime_bytes": 101230,
+      "runtime_sha256": "2426fbee6c3706e64584fe38f2924db65f6e771c5e0b57585636ed68e12c3cbe",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "original_geometry": {
+        "opaque_bbox": [
+          106,
+          60,
+          699,
+          472
+        ],
+        "back_paws_crop_x0_y360": [
+          120,
+          0,
+          367,
+          95
+        ],
+        "front_paws_crop_x400_y350": [
+          14,
+          0,
+          286,
+          122
+        ]
+      },
+      "result_geometry": {
+        "opaque_bbox": [
+          111,
+          46,
+          720,
+          472
+        ],
+        "back_paws_crop_x0_y360": [
+          120,
+          0,
+          366,
+          95
+        ],
+        "front_paws_crop_x400_y350": [
+          10,
+          0,
+          285,
+          122
+        ]
+      }
+    },
+    {
+      "frame": 1,
+      "source": "asset-sources/milky-profile-head/trot/trot-1-generated-2.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/trot/trot-1-prompt-2.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-1.webp",
+      "runtime_bytes": 98104,
+      "runtime_sha256": "ebcd3f1297c0d6dd044d89d73b193235ededd1372d30572d759bc3dfce2c3c44",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "original_geometry": {
+        "opaque_bbox": [
+          64,
+          55,
+          712,
+          430
+        ],
+        "back_paws_crop_x0_y360": [
+          64,
+          0,
+          382,
+          65
+        ],
+        "front_paws_crop_x400_y350": [
+          32,
+          0,
+          312,
+          80
+        ]
+      },
+      "result_geometry": {
+        "opaque_bbox": [
+          63,
+          54,
+          729,
+          430
+        ],
+        "back_paws_crop_x0_y360": [
+          63,
+          0,
+          382,
+          64
+        ],
+        "front_paws_crop_x400_y350": [
+          31,
+          0,
+          312,
+          80
+        ]
+      }
+    },
+    {
+      "frame": 2,
+      "source": "asset-sources/milky-profile-head/trot/trot-2-generated-2.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/trot/trot-2-prompt-2.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-2.webp",
+      "runtime_bytes": 90168,
+      "runtime_sha256": "e109a90df651cb520c3e6b670b358c10ba347d0062b536dbb1cd8a025a87f1a1",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "original_geometry": {
+        "opaque_bbox": [
+          102,
+          59,
+          700,
+          471
+        ],
+        "back_paws_crop_x0_y360": [
+          102,
+          0,
+          373,
+          111
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          287,
+          120
+        ]
+      },
+      "result_geometry": {
+        "opaque_bbox": [
+          101,
+          52,
+          727,
+          471
+        ],
+        "back_paws_crop_x0_y360": [
+          101,
+          0,
+          375,
+          111
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          290,
+          121
+        ]
+      }
+    },
+    {
+      "frame": 3,
+      "source": "asset-sources/milky-profile-head/trot/trot-3-generated.png",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "prompt": "asset-sources/milky-profile-head/trot/trot-3-prompt.txt",
+      "runtime": "public/assets/cyberpunk/milky-trot-3.webp",
+      "runtime_bytes": 90518,
+      "runtime_sha256": "55203101d685d3aa5551aa20a465f1943fd4c0b8912ca3db4ad3d4f5285ab717",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "original_geometry": {
+        "opaque_bbox": [
+          104,
+          59,
+          699,
+          448
+        ],
+        "back_paws_crop_x0_y360": [
+          104,
+          0,
+          380,
+          75
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          290,
+          98
+        ]
+      },
+      "result_geometry": {
+        "opaque_bbox": [
+          103,
+          59,
+          722,
+          448
+        ],
+        "back_paws_crop_x0_y360": [
+          103,
+          0,
+          382,
+          75
+        ],
+        "front_paws_crop_x400_y350": [
+          0,
+          0,
+          291,
+          98
+        ]
+      }
+    }
+  ]
+}
