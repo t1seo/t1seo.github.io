@@ -25,6 +25,7 @@ export interface CyberPetController {
   play(): void;
   /** A brisk trot across the floor: the distance-linked gait at a faster cadence. */
   run(): void;
+  setAnimated(enabled: boolean): void;
   setActive(active: boolean): void;
   destroy(): void;
 }
@@ -245,6 +246,7 @@ export function mountCyberPet(
   });
 
   let active = true;
+  let animated = true;
   let destroyed = false;
   let version: MilkyArtVersion = 'v4';
   let idleDecoded = false;
@@ -285,7 +287,8 @@ export function mountCyberPet(
   // verified v3 set keeps its historical behavior (idle first, walking gated on the gait).
   const displayReady = () => idleDecoded && (version !== 'v4' || gaitReady);
   const available = () => active && !destroyed && !page.hidden && floorVisible && displayReady();
-  const canWalk = () => available() && primaryArtwork && gaitReady && !reducedMotion.matches;
+  const motionStopped = () => !animated || reducedMotion.matches;
+  const canWalk = () => available() && primaryArtwork && gaitReady && !motionStopped();
   const passiveAvailable = () => canWalk() && !keyboardFocused && studio?.dataset.intro !== 'visible';
   const bound = (point: MilkyPoint) => placeMilky(host.getBoundingClientRect(), scene.getBoundingClientRect(), point, floorBounds);
   const poseReady = (name: MilkyPoseName) => version === 'v4' && (poses.find((entry) => entry.name === name)?.ready ?? false);
@@ -387,7 +390,7 @@ export function mountCyberPet(
     const entry = prop('ball');
     if (!toyOptions || !entry?.target) return;
     const ready = available() && !idleFailed && primaryArtwork && gaitReady && propReady('ball') && activityReady('play-bow') && activityReady('play-reach');
-    entry.target.disabled = !ready || (bed.active && reducedMotion.matches);
+    entry.target.disabled = !ready || (bed.active && motionStopped());
     entry.target.hidden = !ready;
     entry.wrap.dataset.visible = String(ready);
     if (!ready) return;
@@ -435,7 +438,7 @@ export function mountCyberPet(
       // Rarely, a pause turns playful — a short ball game or a quick trot — but rest and
       // ordinary wandering stay the common rhythm, and feeding remains explicit only.
       const spark = Math.random();
-      if (spark < .05 && propReady('ball') && activityReady('play-bow') && activityReady('play-reach') && !reducedMotion.matches) {
+      if (spark < .05 && propReady('ball') && activityReady('play-bow') && activityReady('play-reach') && !motionStopped()) {
         cancelAction();
         beginPlay(true);
         return;
@@ -477,7 +480,7 @@ export function mountCyberPet(
   // Blinks and glances belong to genuine rest. They swap raster poses only; the body,
   // its floor anchor and its scale never move, so nothing here counts as movement.
   function queueLife() {
-    if (lifeTimer !== undefined || !available() || reducedMotion.matches || version !== 'v4') return;
+    if (lifeTimer !== undefined || !available() || motionStopped() || version !== 'v4') return;
     if (button.dataset.motion !== 'idle' || button.dataset.pose !== 'idle') return;
     // Micro-poses are camera-look art; they never blink a front face onto a forward gaze.
     if (button.dataset.gaze === 'forward') return;
@@ -486,7 +489,7 @@ export function mountCyberPet(
     lifeTimer = setTimeout(() => { lifeTimer = undefined; playMoment(moment); }, moment.delay);
   }
   function playMoment(moment: MilkyIdleMoment, second = false) {
-    if (!available() || reducedMotion.matches || button.dataset.motion !== 'idle' || !poseReady(moment.kind)) return;
+    if (!available() || motionStopped() || button.dataset.motion !== 'idle' || !poseReady(moment.kind)) return;
     button.dataset.pose = moment.kind;
     lifeTimer = setTimeout(() => {
       lifeTimer = undefined;
@@ -517,7 +520,7 @@ export function mountCyberPet(
   type MilkyPoseStep = { pose: string; hold: number; motion?: string };
   const bedWakeStretch = (fromSleep: boolean) => planMilkyBedWakeStretch({
     enabled: toyOptions?.transitions === true, onBed: button.dataset.bed === 'true', fromSleep,
-    playBowReady: activityReady('play-bow'), reducedMotion: reducedMotion.matches,
+    playBowReady: activityReady('play-bow'), reducedMotion: motionStopped(),
   });
   function playPoseSteps(steps: MilkyPoseStep[], index: number, revision: number, done: () => void) {
     if (revision !== actionRevision || destroyed) return;
@@ -561,7 +564,7 @@ export function mountCyberPet(
     const fromPose = button.dataset.pose ?? 'idle';
     cancelAction();
     clearSession();
-    if (reducedMotion.matches) {
+    if (motionStopped()) {
       // A still posture change on explicit request only: no timers, no auto-progression.
       button.dataset.pose = deepest;
       button.dataset.motion = deepest === 'sleep' ? 'sleeping' : 'resting';
@@ -587,7 +590,7 @@ export function mountCyberPet(
     const fromSleep = button.dataset.pose === 'sleep';
     cancelAction();
     if (ball && !ball.resting) ensureTick();
-    if (reducedMotion.matches) { showIdle(); button.dataset.motion = 'idle'; onFloor(); return; }
+    if (motionStopped()) { showIdle(); button.dataset.motion = 'idle'; onFloor(); return; }
     const revision = actionRevision;
     const steps: MilkyPoseStep[] = fromSleep && restReady('wake')
       ? [{ pose: 'wake', hold: milkyRestTransitionHold('wake') }]
@@ -606,7 +609,7 @@ export function mountCyberPet(
       }, milkyStandHold());
     });
   }
-  const gentleSettle = () => { if (busyPoseActive() && !reducedMotion.matches) wakeThenRun(() => settle()); else settle(); };
+  const gentleSettle = () => { if (busyPoseActive() && !motionStopped()) wakeThenRun(() => settle()); else settle(); };
   function finishWalk() {
     const done = walk?.onDone;
     walk = undefined;
@@ -616,7 +619,7 @@ export function mountCyberPet(
     button.dataset.motion = 'settling';
     showIdle();
     const arrival = !done ? planMilkyWalkArrival({
-      enabled: toyOptions?.transitions === true, reducedMotion: reducedMotion.matches,
+      enabled: toyOptions?.transitions === true, reducedMotion: motionStopped(),
       cameraIdleReady: primaryArtwork && displayReady(), attendShipped: shippedPoses.includes('attend'), attendReady: poseReady('attend'),
     }) : undefined;
     if (arrival) { button.dataset.gaze = arrival.gaze; button.dataset.pose = arrival.pose; }
@@ -726,7 +729,7 @@ export function mountCyberPet(
     cancelAction();
     clearSession();
     const muzzleReach = (depthY: number) => reachAhead(MUZZLE_AHEAD_NATIVE, depthY);
-    if (reducedMotion.matches) {
+    if (motionStopped()) {
       // Static explicit posture with static food and no forced movement: the dog stays
       // put, so the bowl must appear under her actual lowered muzzle, not a walk away.
       const reach = muzzleReach(position.y);
@@ -794,7 +797,7 @@ export function mountCyberPet(
     };
     showProp('ball', ballSpot);
     renderBall();
-    if (reducedMotion.matches) {
+    if (motionStopped()) {
       setFacing(direction);
       button.dataset.pose = 'play-bow';
       button.dataset.motion = 'playing';
@@ -958,10 +961,11 @@ export function mountCyberPet(
   }
   function syncActivity() {
     button.dataset.active = String(available());
+    button.dataset.animated = String(!motionStopped());
     button.disabled = !available() || idleFailed;
     // Until the atomic set decodes, no art is exposed at all — not even a still v4 idle.
     button.hidden = !floorVisible || idleFailed || !displayReady();
-    if (!available() || reducedMotion.matches) settle();
+    if (!available() || motionStopped()) settle();
     else if (button.dataset.motion === 'idle' && !bed.resume()) { queueRoam(); queueLife(); }
     syncToy();
   }
@@ -1240,6 +1244,7 @@ export function mountCyberPet(
     feed,
     play,
     run,
+    setAnimated(enabled) { if (!destroyed && animated !== enabled) { animated = enabled; syncActivity(); } },
     setActive(nextActive) { if (!destroyed) { active = nextActive; syncActivity(); } },
     destroy() {
       if (destroyed) return;

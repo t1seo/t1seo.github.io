@@ -27,8 +27,9 @@ export function mountMilkyToyDrag(target: HTMLButtonElement, runtime: MilkyDragR
     if (dragging) runtime.cancel();
   }
   target.addEventListener('pointerdown', (event) => {
-    if (gesture || event.button !== 0 || !event.isPrimary || target.disabled || !runtime.available()) return;
+    if (gesture || event.button !== 0 || !event.isPrimary || target.disabled) return;
     target.dataset.dragged = 'false';
+    if (!runtime.available()) return;
     gesture = { pointer: event.pointerId, x: event.clientX, y: event.clientY, dragging: false };
     target.setPointerCapture(event.pointerId);
   }, { signal });

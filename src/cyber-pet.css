@@ -137,8 +137,8 @@
 @keyframes milky-sleep-breathing { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.006); } }
 @media (prefers-reduced-motion: no-preference) {
   /* Micro- and rest poses keep breathing on the same clock so a swap cannot restart it. */
-  .cyber-pet-button:is([data-pose='idle'], [data-pose='blink'], [data-pose='attend'], [data-pose='sniff'], [data-pose='sit'], [data-pose='drowsy'], [data-pose='sitdown'], [data-pose='wake'], [data-pose='eat-low'], [data-pose='eat-lift'], [data-pose='play-bow'], [data-pose='play-reach'])[data-active='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-breathing 5.4s ease-in-out infinite; }
-  .cyber-pet-button[data-pose='sleep'][data-active='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-sleep-breathing 4.2s ease-in-out infinite; }
+  .cyber-pet-button:is([data-pose='idle'], [data-pose='blink'], [data-pose='attend'], [data-pose='sniff'], [data-pose='sit'], [data-pose='drowsy'], [data-pose='sitdown'], [data-pose='wake'], [data-pose='eat-low'], [data-pose='eat-lift'], [data-pose='play-bow'], [data-pose='play-reach'])[data-active='true'][data-animated='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-breathing 5.4s ease-in-out infinite; }
+  .cyber-pet-button[data-pose='sleep'][data-active='true'][data-animated='true'][data-artwork='photo'] .cyber-pet-figure { animation: milky-sleep-breathing 4.2s ease-in-out infinite; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cyber-pet-figure { animation: none; }
