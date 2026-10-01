@@ -72,7 +72,7 @@ export class RoomLife {
         width: 1.65 + Math.sin(phase) ** 2 * .35,
         height: 36 + index * 5 + Math.sin(phase) * 3 + Math.min(age, 2) * 4,
         bend: 8 + Math.sin(phase * .8) * 7,
-        opacity: fade * (.055 + Math.sin(phase) ** 2 * .015),
+        opacity: fade * (.092 + Math.sin(phase) ** 2 * .028),
       };
     });
   }

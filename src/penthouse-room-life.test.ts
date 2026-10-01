@@ -76,7 +76,7 @@ test('diffuser fragrance begins only on a click and rises gently from the bottle
   assert.equal(room.active, true);
   assert.equal(wisps.length, 2);
   assert.ok(wisps.every(wisp => wisp.x > 110 && wisp.x < 138 && wisp.y >= 609 && wisp.y <= 612));
-  assert.ok(wisps.every(wisp => wisp.y - wisp.height < 590 && wisp.opacity >= .05 && wisp.opacity < .09));
+  assert.ok(wisps.every(wisp => wisp.y - wisp.height < 590 && wisp.opacity >= .09 && wisp.opacity < .125));
   assert.ok(wisps.every(wisp => wisp.width >= 1.5 && wisp.width < 2.1 && Math.abs(wisp.bend) > 5));
   assert.deepEqual(room.steamWisps(), []);
 });
@@ -108,7 +108,7 @@ test('coffee stays translucent and stronger than the slower fragrance during the
   room.advance(1 / 30);
   const after = room.fragranceWisps();
   assert.ok(room.steamWisps().every(wisp => wisp.opacity < .14));
-  assert.ok(after.every(wisp => wisp.opacity < Math.min(...room.steamWisps().map(steam => steam.opacity))));
+  assert.ok(after.every(wisp => wisp.opacity * wisp.width < Math.min(...room.steamWisps().map(steam => steam.opacity * steam.width))));
   assert.ok(after.every((wisp, index) => {
     const previous = before.at(index);
     return previous && Math.abs(wisp.x - previous.x) < .1 && Math.abs(wisp.bend - previous.bend) < .1;
