@@ -1,0 +1,241 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "generatedOn": "2026-10-01",
+  "purpose": "Small static hand-painted seasonal interior changes for the existing room, without regenerating any room plate.",
+  "coordinateSpace": {
+    "width": 1672,
+    "height": 941
+  },
+  "placements": {
+    "textile": {
+      "sourceRect": [
+        236,
+        596,
+        88,
+        112
+      ],
+      "runtimeDimensions": [
+        352,
+        448
+      ],
+      "contact": "Folded over the right lounge seat/arm edge; hangs within the chair silhouette."
+    },
+    "vignette": {
+      "sourceRect": [
+        1530,
+        445,
+        52,
+        110
+      ],
+      "runtimeDimensions": [
+        208,
+        440
+      ],
+      "contact": "On the right walnut console immediately left of the existing black vase."
+    }
+  },
+  "seasons": {
+    "spring": {
+      "textile": "Sage linen with a narrow blush stripe",
+      "vignette": "Sparse cherry blossom branches in chalk-white ceramic"
+    },
+    "summer": {
+      "textile": "Ivory linen with a narrow desaturated blue stripe",
+      "vignette": "Fresh green sprigs in pale sand ceramic"
+    },
+    "autumn": {
+      "textile": "Cinnamon wool with a narrow cream stripe",
+      "vignette": "Dried branches with a few amber leaves"
+    },
+    "winter": {
+      "textile": "Cream knit with a restrained burgundy stripe",
+      "vignette": "Miniature festive evergreen with warm gold lights and a small gift"
+    }
+  },
+  "pathConvention": {
+    "source": "asset-sources/seoul-studio/seasonal-accents/{season}/{textile|vignette}.png",
+    "runtime": "public/assets/penthouse/seasonal-accents/{season}-{textile|vignette}.webp",
+    "generationRecord": "asset-sources/seoul-studio/seasonal-accents/{season}-generation.json"
+  },
+  "integration": {
+    "render": "Two static transparent images in source-space coordinates; no animation or per-frame canvas rendering is required.",
+    "lighting": "Runtime may apply the same subdued time-of-day brightness and saturation to both current-season images.",
+    "accessibility": "Decorative only, empty alt and no pointer or keyboard interaction."
+  },
+  "invariants": [
+    "Full room plates are unchanged.",
+    "Existing lamps, monitor, speaker, clock, calendar, bowl, diffuser and books remain visible.",
+    "Milky and the bed remain unchanged.",
+    "No labels, logos or text are embedded in the artwork."
+  ],
+  "inspection": "Use actual RGBA alpha compositing for visual review: hidden RGB in completely transparent pixels can look misleading in standalone image viewers.",
+  "assetValidation": {
+    "spring": {
+      "textile": {
+        "dimensions": [
+          352,
+          448
+        ],
+        "bytes": 26478,
+        "sha256": "d8ef9f0d6906b899f0c696ca4f688be1ef42f4a090408133aed5f828c2de7f63",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "vignette": {
+        "dimensions": [
+          208,
+          440
+        ],
+        "bytes": 28930,
+        "sha256": "b0c62c3e94148754401548a37f453096999503c0a2dbf8c4393138182aba69a7",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "summer": {
+      "textile": {
+        "dimensions": [
+          352,
+          448
+        ],
+        "bytes": 33932,
+        "sha256": "a549cbf51918af6aecc6ebfa1b0215c6d0b77c07a600a69b98f0e263e3d1470b",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "vignette": {
+        "dimensions": [
+          208,
+          440
+        ],
+        "bytes": 34106,
+        "sha256": "368aa9cd05c34337618eadd3ffa1ca9dfba77e05cd2c7665be0dbcbe17b0a7ab",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "autumn": {
+      "textile": {
+        "dimensions": [
+          352,
+          448
+        ],
+        "bytes": 29082,
+        "sha256": "96814dc520fbe26ea6fd88b62b49cb966025662e7a10db1b7f0a0d6b80b31986",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "vignette": {
+        "dimensions": [
+          208,
+          440
+        ],
+        "bytes": 33066,
+        "sha256": "de07a6c7236ca43c3d79994861828f4d278d2b9ee0704c1e6f3fb924e177593b",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "winter": {
+      "textile": {
+        "dimensions": [
+          352,
+          448
+        ],
+        "bytes": 36768,
+        "sha256": "6a0dff3f6e7ac892151afcb5cecf878c2dacff2bb3fa98cb2a38342cdfd68c1a",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "vignette": {
+        "dimensions": [
+          208,
+          440
+        ],
+        "bytes": 48426,
+        "sha256": "705d7e1014d652568e93157451d3b0d2985f527bdae637f4073c274b05660e38",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornersAlpha": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "diagnosticReview": {
+    "contactSheet": "/tmp/t1seo-seasonal-accents-all-qa.jpg",
+    "rows": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "columns": [
+      "Noon chair and console",
+      "Night chair and console, using runtime .69 brightness and .8 saturation"
+    ],
+    "method": "Actual RGBA composition on each season’s current room plate; diagnostic only, no source/runtime edits."
+  }
+}
