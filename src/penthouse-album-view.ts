@@ -12,13 +12,13 @@ function button(label: string, className: string) {
 export function createAlbumView() {
   const dialog = document.createElement('dialog');
   dialog.className = 'ph-album-dialog';
-  dialog.setAttribute('aria-label', '2011-2026 Milky photo album');
+  dialog.setAttribute('aria-label', 'Milky’s Photo Album');
   const shell = document.createElement('div');
   shell.className = 'ph-album-shell';
   const header = document.createElement('header');
   header.className = 'ph-album-header';
   const title = document.createElement('h1');
-  title.textContent = '2011-2026 Milky';
+  title.textContent = 'Milky’s Photo Album';
   const coverLink = button('Cover', 'ph-album-cover-link');
   const close = button('×', 'ph-album-close');
   close.setAttribute('aria-label', 'Close photo album');
@@ -42,13 +42,10 @@ export function createAlbumView() {
     cover.setAttribute('aria-label', 'Open Milky’s photo album');
     const inscription = document.createElement('span');
     inscription.className = 'ph-album-inscription';
-    const years = document.createElement('span');
-    years.className = 'ph-album-cover-years';
-    years.textContent = '2011-2026 ';
     const name = document.createElement('span');
     name.className = 'ph-album-cover-name';
     name.textContent = 'Milky';
-    inscription.append(years, name);
+    inscription.append(name);
     const invitation = document.createElement('span');
     invitation.className = 'ph-album-invitation';
     invitation.textContent = 'Open album';
@@ -65,13 +62,56 @@ export function createAlbumView() {
     cover.append(binding, frame, inscription, ornament, invitation);
     cover.addEventListener('click', onOpen);
     stage.replaceChildren(cover);
-    stage.classList.remove('ph-album-stage--open');
+    stage.classList.remove('ph-album-stage--open', 'ph-album-stage--letter');
     coverLink.hidden = true;
     previous.disabled = true;
     next.disabled = false;
     next.textContent = 'Open album →';
     counter.textContent = 'Photo album';
     return cover;
+  }
+
+  function showLetter() {
+    const letter = document.createElement('article');
+    letter.className = 'ph-album-letter';
+    letter.tabIndex = 0;
+    letter.setAttribute('aria-labelledby', 'ph-album-letter-title');
+    const flower = document.createElement('img');
+    flower.className = 'ph-album-letter-flower';
+    flower.alt = '';
+    flower.width = 160;
+    flower.height = 160;
+    flower.decoding = 'async';
+    flower.draggable = false;
+    flower.addEventListener('error', () => { flower.hidden = true; }, { once: true });
+    flower.src = albumStickerSource('flower-sprig');
+    const greeting = document.createElement('h2');
+    greeting.id = 'ph-album-letter-title';
+    greeting.textContent = 'Dear Milky,';
+    letter.append(flower, greeting);
+    for (const text of [
+      'You were my family and my very best friend. Thank you for always being by my side.',
+      'I hope you are happy and at peace, wherever you are. I will keep you close in my heart until the day we meet again.',
+      'With all my love, always.',
+    ]) {
+      const paragraph = document.createElement('p');
+      paragraph.textContent = text;
+      letter.append(paragraph);
+    }
+    const signature = document.createElement('footer');
+    signature.className = 'ph-album-letter-signature';
+    signature.textContent = 'Milky 2011-2026';
+    letter.append(signature);
+    stage.replaceChildren(letter);
+    stage.classList.remove('ph-album-stage--open');
+    stage.classList.add('ph-album-stage--letter');
+    coverLink.hidden = false;
+    previous.disabled = false;
+    previous.textContent = '← Previous';
+    next.disabled = true;
+    next.textContent = 'The end';
+    counter.textContent = 'A letter to Milky';
+    return letter;
   }
 
   function showMessage(message: string, retry?: () => void) {
@@ -87,14 +127,14 @@ export function createAlbumView() {
       card.append(action);
     }
     stage.replaceChildren(card);
-    stage.classList.remove('ph-album-stage--open');
+    stage.classList.remove('ph-album-stage--open', 'ph-album-stage--letter');
     previous.disabled = true;
     next.disabled = true;
     coverLink.hidden = true;
     counter.textContent = '';
   }
 
-  return { dialog, stage, close, coverLink, previous, next, counter, showCover, showMessage };
+  return { dialog, stage, close, coverLink, previous, next, counter, showCover, showLetter, showMessage };
 }
 
 export function createAlbumPage(photo: AlbumPhoto, number: number) {

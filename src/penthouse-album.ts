@@ -3,6 +3,8 @@ import { albumPage, loadAlbumManifest, AlbumLoadError } from './penthouse-album-
 import type { AlbumPhoto } from './penthouse-album-data';
 import { createAlbumImages } from './penthouse-album-images';
 import { createAlbumPage, createAlbumView } from './penthouse-album-view';
+import { albumDestination } from './penthouse-album-navigation';
+import type { AlbumPosition } from './penthouse-album-navigation';
 
 type AlbumOptions = {
   readonly host?: HTMLElement;
@@ -20,7 +22,7 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
   let session: AbortController | undefined;
   let trigger: HTMLElement | undefined;
   let photos: readonly AlbumPhoto[] = [];
-  let position: number | null = null;
+  let position: AlbumPosition = null;
   let revision = 0;
   let manifestRevision = 0;
   let animation: Animation | undefined;
@@ -47,14 +49,30 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
 
   function close() { if (view.dialog.open) view.dialog.close(); finish(); }
 
+  function turn(element: HTMLElement, direction: number) {
+    if (!direction || reduced.matches || options.isStill?.() || document.hidden) return;
+    animation = element.animate([
+      { opacity: .35, transform: `perspective(1400px) rotateY(${direction * -5}deg) translateX(${direction * 10}px)` },
+      { opacity: 1, transform: 'perspective(1400px) rotateY(0deg) translateX(0)' },
+    ], { duration: 380, easing: 'cubic-bezier(.2,.65,.25,1)' });
+  }
+
   function render(direction = 0) {
     if (!session || !photos.length) return;
     revision += 1;
     animation?.cancel();
+    const restorePageFocus = view.stage.contains(document.activeElement);
     if (position === null) {
       images.clear();
       const cover = view.showCover(() => { position = 0; render(1); view.next.focus({ preventScroll: true }); });
-      if (document.activeElement === view.previous || document.activeElement === view.coverLink) cover.focus({ preventScroll: true });
+      if (restorePageFocus || document.activeElement === view.previous || document.activeElement === view.coverLink) cover.focus({ preventScroll: true });
+      return;
+    }
+    if (position === 'letter') {
+      images.clear();
+      const letter = view.stage.querySelector<HTMLElement>('.ph-album-letter') ?? view.showLetter();
+      if (direction || restorePageFocus || document.activeElement === view.next) letter.focus({ preventScroll: true });
+      turn(letter, direction);
       return;
     }
     const current = revision;
@@ -82,28 +100,23 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
     }
     for (const index of page.next) { const photo = photos[index]; if (photo) void images.load(photo); }
     view.stage.replaceChildren(spread);
+    view.stage.classList.remove('ph-album-stage--letter');
     view.stage.classList.add('ph-album-stage--open');
     view.coverLink.hidden = false;
     view.previous.disabled = false;
     view.previous.textContent = page.previous === null ? '← Cover' : '← Previous';
-    view.next.disabled = page.following === null;
-    view.next.textContent = 'Next →';
+    view.next.disabled = false;
+    view.next.textContent = page.following === null ? 'Read letter →' : 'Next →';
     view.counter.textContent = `${page.indices.length === 1 ? 'Photo' : 'Photos'} ${range} of ${photos.length}`;
-    if (view.next.disabled && document.activeElement === view.next) view.previous.focus({ preventScroll: true });
-    if (direction && !reduced.matches && !options.isStill?.() && !document.hidden) {
-      animation = spread.animate([
-        { opacity: .35, transform: `perspective(1400px) rotateY(${direction * -5}deg) translateX(${direction * 10}px)` },
-        { opacity: 1, transform: 'perspective(1400px) rotateY(0deg) translateX(0)' },
-      ], { duration: 380, easing: 'cubic-bezier(.2,.65,.25,1)' });
-    }
+    if (restorePageFocus) view.next.focus({ preventScroll: true });
+    turn(spread, direction);
   }
 
   function move(forward: boolean) {
     if (!photos.length || !session) return;
-    if (position === null) { if (forward) { position = 0; render(1); } return; }
-    const page = albumPage(position, photos.length, narrow.matches ? 1 : 2);
-    if (forward && page.following === null) return;
-    position = forward ? page.following : page.previous;
+    const destination = albumDestination(position, forward, photos.length, narrow.matches ? 1 : 2);
+    if (destination === position) return;
+    position = destination;
     render(forward ? 1 : -1);
   }
 
@@ -154,7 +167,7 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
       case 'ArrowRight': move(true); break;
       case 'ArrowLeft': move(false); break;
       case 'Home': position = 0; render(-1); break;
-      case 'End': position = photos.length - 1; render(1); break;
+      case 'End': position = 'letter'; render(1); break;
     }
   }, events);
   view.stage.addEventListener('pointerdown', event => {

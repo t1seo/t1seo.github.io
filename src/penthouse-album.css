@@ -36,7 +36,6 @@
 .ph-album-cover-frame::before { left: 5px; top: 5px; border-right: 0; border-bottom: 0; }
 .ph-album-cover-frame::after { right: 5px; bottom: 5px; border-left: 0; border-top: 0; }
 .ph-album-inscription { position: relative; display: flex; flex-direction: column; align-items: center; padding-left: 8px; color: #805246; text-shadow: 0 1px #fff0d5aa, 0 -1px #86543c35; }
-.ph-album-cover-years { display: block; margin-bottom: 18px; color: #674739; font-size: clamp(9px, 1.7cqh, 11px); font-weight: 500; line-height: 1.5; letter-spacing: .25em; }
 .ph-album-cover-name { display: block; font: 400 clamp(54px, 12cqh, 91px)/.9 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: -.04em; }
 .ph-album-ornament { position: relative; display: block; width: 24px; height: 43px; margin: 32px 0 0 15px; border-left: 1px solid #9b6a5a79; transform: rotate(15deg); pointer-events: none; }
 .ph-album-ornament > span { position: absolute; width: 10px; height: 16px; left: -10px; top: 3px; border: 1px solid #9b6a5a7d; border-radius: 1px 90% 1px 90%; transform: rotate(-17deg); box-shadow: inset 1px 0 #fff0d561; }
@@ -116,6 +115,14 @@
 .ph-album-next { justify-self: end; }
 .ph-album-counter { margin: 0; font-size: 10px; letter-spacing: .1em; color: #ada28e; text-align: center; font-variant-numeric: tabular-nums; }
 .ph-album-message { max-width: 290px; text-align: center; color: #c5b9a7; font-size: 14px; line-height: 1.7; }
+.ph-album-stage--letter { padding: 5px 18px 16px; }
+.ph-album-letter { width: min(100%, 640px); height: 100%; max-height: 695px; min-height: 0; margin: 0; padding: clamp(34px, 5cqh, 52px) clamp(30px, 6cqw, 66px); overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #b89983 transparent; color: #674b40; border: 7px solid #c7a498; border-radius: 3px 5px 5px 3px; background: repeating-linear-gradient(8deg, #bb986b0a 0 .6px, transparent .6px 4px), repeating-linear-gradient(94deg, #9d734b06 0 .5px, transparent .5px 3px), linear-gradient(102deg, #faf2e3, #f4e8d4); box-shadow: 0 2px #f2e4cf, 0 4px #c7b69c, 0 6px #eee2ca, 0 8px #aa8172, 0 23px 35px -12px #0009; font: 600 clamp(25px, 3.1cqw, 29px)/1.42 'Album Handwriting', 'Bradley Hand', cursive; }
+.ph-album-letter:focus-visible { outline: 2px solid #e5c896; outline-offset: 5px; }
+.ph-album-letter h2 { margin: 0 0 25px; font: 600 1.34em/1.2 'Album Handwriting', 'Bradley Hand', cursive; color: #745045; }
+.ph-album-letter p { margin: 0 0 24px; max-width: 36ch; }
+.ph-album-letter p:last-of-type { margin-top: 30px; margin-bottom: 32px; }
+.ph-album-letter-flower { float: right; width: 58px; height: 58px; margin: -9px -12px 12px 14px; object-fit: contain; transform: rotate(9deg); }
+.ph-album-letter-signature { clear: both; width: fit-content; margin-top: 12px; padding-top: 16px; border-top: 1px solid #a9876b66; font: 500 20px/1.3 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .055em; color: #78584b; }
 .ph-album-retry { min-height: 44px; border: 1px solid #c4b79b66; border-radius: 3px; background: #d8c8aa08; padding: 11px 20px; margin-top: 8px; }
 @media (hover: hover) {
   .ph-album-dialog button:not(:disabled):hover { color: #fff4de; }
@@ -128,11 +135,13 @@
   .ph-album-shell { gap: 12px; }
   .ph-album-header { gap: 14px; padding: 0 2px; }
   .ph-album-header h1 { font-size: 20px; }
+  .ph-album-letter { padding: 29px 26px 34px; border-width: 5px; font-size: 25px; }
+  .ph-album-letter h2 { margin-bottom: 22px; }
+  .ph-album-letter-flower { width: 48px; height: 48px; margin-right: -8px; }
   .ph-album-stage, .ph-album-stage--open { padding: 3px 7px 15px; }
   .ph-album-cover { width: min(420px, 84cqh, calc(100cqw - 20px)); padding: 10% 8% 10% 12%; }
   .ph-album-cover-frame { inset: 22px 19px 22px 31px; }
   .ph-album-binding { width: 22px; }
-  .ph-album-cover-years { margin-bottom: 14px; }
   .ph-album-cover-name { font-size: clamp(52px, 15cqw, 78px); }
   .ph-album-ornament { margin-top: 23px; transform: rotate(15deg) scale(.85); }
   .ph-album-invitation { bottom: 37px; font-size: 8px; }
@@ -151,8 +160,10 @@
 }
 @media (max-width: 360px) {
   .ph-album-header h1 { font-size: 18px; }
+  .ph-album-header { gap: 9px; }
+  .ph-album-letter { padding: 26px 23px 30px; font-size: 24px; }
+  .ph-album-letter-flower { width: 42px; height: 42px; }
   .ph-album-cover-name { font-size: 57px; }
-  .ph-album-cover-years { margin-bottom: 12px; font-size: 9px; }
   .ph-album-ornament { height: 34px; margin-top: 19px; transform: rotate(15deg) scale(.75); }
   .ph-album-invitation { bottom: 34px; }
   .ph-album-page, .ph-album-page:first-child { padding: 24px 18px 43px; }
@@ -164,10 +175,10 @@
   .ph-album-dialog { height: calc(100dvh - 16px); }
   .ph-album-shell { gap: 4px; }
   .ph-album-header { min-height: 44px; }
+  .ph-album-letter { max-width: 650px; padding: 24px 38px 30px; font-size: 25px; }
   .ph-album-stage { padding-block: 5px 13px; }
   .ph-album-cover { width: min(390px, 84cqh); padding: 20px; }
   .ph-album-cover-frame { inset: 15px 12px 15px 23px; }
-  .ph-album-cover-years { font-size: 8px; margin-bottom: 9px; }
   .ph-album-cover-name { font-size: clamp(30px, 20cqh, 61px); }
   .ph-album-ornament { height: 21px; margin-top: 12px; transform: rotate(15deg) scale(.55); transform-origin: top center; }
   .ph-album-invitation { bottom: 26px; font-size: 7px; }
