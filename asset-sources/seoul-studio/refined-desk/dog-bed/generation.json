@@ -1,0 +1,68 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "intent": "precise-object-edit",
+  "generationDate": "2026-10-01",
+  "initialPrompt": "Use case: precise-object-edit.\nAsset type: a single transparent hand-painted dog-bed sprite for the warm illustrated room in reference 2.\nInput images: Image 1 is the SHAPE AND SOFT MATERIAL reference for the fluffy donut dog bed only. Image 2 is STYLE AND PERSPECTIVE reference only for a detailed softly painted 2.5D room.\nPrimary request: turn the round fluffy dog bed from the first reference into a beautiful refined hand-painted cream and pale camel donut pet bed. This is an EMPTY bed for a small white Maltese to sleep in later. Preserve the cozy thick raised circular bolster and clearly visible recessed soft inner cushion. Remove every part of the mustard yellow chair or wall behind the reference bed.\nShape and composition: perspective ellipse seen from a low three-quarter frontal view, mildly above, matching a pet bed sitting on the floor at the front-right corner of the reference room. Bed is about 1.83 times as wide as its total visible height. The back bolster is visible behind the open center, side bolsters curve forward, and the FRONT bolster is LOW enough that a small sleeping dog added later could be seen naturally inside. The interior cushion is a generous clearly visible broad soft oval, centered at 50% width and about 49% total image height. Entire bed and its lower edge are visible, with about 3–5% transparent padding, filling nearly the whole canvas. No dramatic top-down view.\nMaterials and style: soft warm ivory cream shaggy plush, subtle pale camel shading in the creases, small hand-painted tufts and delicately irregular fuzzy silhouette; tactile illustrated brushwork matching the existing room, NOT a photographic furry product cutout or a cartoon icon. Restrained painted details that remain readable at 260×142 pixels.\nLighting: gentle neutral daylight from upper-left and warm reflected room light. A very soft thin transparent contact shadow directly beneath the bed, with real alpha fading to zero, no hard floor.\nConstraints: GENUINELY TRANSPARENT alpha background, no painted checkerboard, no white rectangle. No dog or other animal. No person, chair, yellow curved shell, wall, floor plane, furniture, bowl, blanket, paw print, logo, writing, watermark, label, or objects inside the bed. Never crop the bed or fluffy edges. The bed should be creamy neutral rather than canary yellow.",
+  "refinementPrompt": "Edit the provided dog-bed image to make it a production-ready TRANSPARENT sprite for the painterly room reference. Keep the single empty fluffy cream round donut pet bed, visible interior cushion, and no animal.\n1. Completely remove the huge beige luminous halo/background around the entire bed. Outside the fur silhouette must be PURE TRANSPARENCY with alpha 0. No white or beige aura, no glow, no mist, no rectangle, no checkerboard, no floor surface. Only a very thin subtle neutral soft alpha contact shadow below the lowest edge, no more than 2 percent image height. The bed itself must be fully opaque.\n2. Change the finish from photographic long individual hair strands to delicately hand-painted clustered brush tufts, matching the soft detailed 2.5D room in image 2. Softer matte painterly shading, slightly larger purposeful tufts, still refined and tactile, no cartoon outline. Neutral warm ivory/cream, restrained light camel in folds, no orange cast.\n3. Lower the camera slightly: the bed should look wider and lower, overall image and object aspect about 1.83:1, a flattened ellipse with front bolster of modest height. Preserve a generous visible recessed interior cushion. Interior center at 50 percent width and 49 percent image height. Full silhouette visible within 4 percent transparent padding, no cropping.\nOnly one empty bed. No logos, text, dogs, furniture or background. Genuine RGBA transparency. Most important: absolutely NO glowing haze around the silhouette and NO floor.",
+  "alphaCleanupPrompt": "Use case: background-extraction. Produce a clean premium transparent PNG sprite of this exact one empty cream hand-painted donut dog bed, same composition, materials, shape and 1.83:1 landscape aspect ratio. Keep the bed fully opaque. \nPrecisely clean its transparent silhouette: remove ALL stray flecks/dots above or beside the bed, remove ALL white outlines/white matte/fringes, remove yellow/red edge colors, and remove the dark painted ground strip. Edges should be only the natural cream fur tips with a short clean antialiased alpha transition. Outside the actual fur must be perfectly clean transparent alpha 0, without haze or any pixels scattered in blank areas. Include 4 percent entirely transparent margin all around the full bed. No cast shadow at all this time; the app adds its own contact shadow.\nKeep the warm ivory softly painted brushwork (not orange), the low elliptical shape, the visible inside cushion, and low front bolster exactly like this input. Do not add another object or animal. Absolutely no background color, floor, white halo, checkerboard, writing, watermark or logo. This output is an isolated cutout game sprite, not a scene.",
+  "references": [
+    {
+      "role": "shape and fluffy material reference",
+      "source": "user-supplied dog-bed photograph; private reference not bundled"
+    },
+    {
+      "role": "illustration and floor perspective reference",
+      "source": "public/assets/penthouse/seoul/autumn/noon.webp"
+    }
+  ],
+  "selectedSource": "milky-bed.png",
+  "sourceDimensions": [
+    1697,
+    927
+  ],
+  "sourceBytes": 1731119,
+  "runtimeAsset": "public/assets/penthouse/objects/milky-bed.webp",
+  "runtimeDimensions": [
+    1040,
+    568
+  ],
+  "runtimeBytes": 96890,
+  "runtimeAlphaBounds": [
+    17,
+    39,
+    1030,
+    539
+  ],
+  "runtimeAlphaRange": [
+    0,
+    255
+  ],
+  "intendedRect": [
+    1334,
+    788,
+    260,
+    142
+  ],
+  "placement": {
+    "innerCushionCenter": [
+      1464,
+      859
+    ],
+    "suggestedSleepContact": [
+      1464,
+      865
+    ],
+    "frontBolsterInnerRimAtCenterY": 882,
+    "foregroundLayer": "Reuse the same full-bed image with a curved CSS clip over the lower front bolster; no separate image or extra network asset required.",
+    "suggestedForegroundClip": "polygon(0% 56%, 14% 51%, 26% 58%, 38% 65%, 50% 67%, 62% 65%, 74% 58%, 86% 51%, 100% 56%, 100% 100%, 0% 100%)"
+  },
+  "conversion": {
+    "resize": "Pillow proportional Lanczos downscale to 1040x568; premultiplied-alpha aware RGBA resizing",
+    "encode": "Pillow WebP quality 91, method 6; no hand painting, alpha-keying or content changes"
+  },
+  "validation": {
+    "fourCornersAlpha": 0,
+    "inspection": "Final original and runtime inspected. Clean empty cream bed with a broad recessed cushion and lower foreground bolster, no halo or scattered background flecks. Contact shadow deliberately omitted from final generation; can be supplied as one static runtime CSS shadow."
+  }
+}
