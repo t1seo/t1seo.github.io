@@ -1,11 +1,6 @@
 {
   "tool": "image_gen.imagegen",
   "mode": "built-in",
-  "version": 2,
-  "premiumRefinementPrompt": "Use case: precise-object-edit.\nInput images: Image 1 is the speaker to refine; image 2 is the hand-painted room STYLE AND MATERIAL REFERENCE ONLY. Output one speaker only on genuine transparent alpha.\nPrimary request: redesign this petite tabletop speaker to feel like beautifully engineered premium audio equipment, while preserving its compact 1.75:1 overall width-to-height, front-facing angle with a little top visible, and small horizontal form. The current overly thick black rim, coarse grille and big knob make it look toy-like; correct all three.\nDesign: very slim precision charcoal anodized aluminum shell, gently softened rectangular corners (smaller corner radii), thin softly brushed chamfer along its edges with one restrained warm silver highlight. The front should be almost entirely one beautiful warm greige acoustic textile panel, woven at a VERY FINE scale with subtle dimensional depth, no obvious giant woven loops and no large dark outlines. A discreet champagne-metal rotary dial in the upper-right corner, neatly FLUSH with the panel, approximately ONE THIRD of the current knob's diameter and without a black ring. Two tiny carefully shaped recessed walnut feet, no big wood blocks. Precision joints, subtle recessed grille, tiny material changes communicate quality. No logo or writing.\nStyle: sophisticated delicately hand-painted 2.5D miniature matching the warm architectural room. Painterly matte finish and naturally softened illustrative shading, not a glossy hard 3D render, not a product photograph, not a vector cartoon. Form and material hierarchy should remain readable when the sprite is 66 by 38 screen pixels.\nLighting: gentle neutral daylight from upper-left with warm reflected light, restrained material depth, no dramatic reflections.\nComposition: complete speaker centered with consistent 4 percent transparent padding on all sides, no clipping, no change to overall compact aspect ratio, front view with only a small amount of top surface visible; keep feet resting on a shared horizontal baseline.\nTransparency: outside the speaker silhouette is genuine fully transparent alpha, clean antialiased edges, no white matte, colored outline, haze, checkerboard, ground plane or cast shadow. The object itself fully opaque. No extra objects, cable, room, text or watermark.",
-  "dialRefinementPrompt": "Use case: precise-object-edit. Keep this speaker identical in every respect EXCEPT the control dial. Replace the current upper-right large projecting bronze knob with a tiny flush champagne-metal circular dial HALF its current diameter, very nearly flat within the fabric panel. No dark ring or thick bezel around it. A delicate tiny radial brushed highlight is enough to show it is a dial. The dial diameter should be only 3% of the entire front panel width. This is a premium restrained custom audio speaker, not a radio. Preserve the existing beautiful thin dark anodized aluminum case and soft chamfer, fine warm-greige woven grille, tiny walnut feet, front camera angle, compact shape, 1.75:1 canvas, painterly material texture, and transparent alpha. Do not enlarge or stretch the object, remove feet, or add anything. Outside the speaker is perfectly clean fully transparent alpha with no white matte, yellow fringe, glow, shadow, floor, lettering or background. Keep full object centered and visible.",
-  "previousSource": "petite-speaker-v1.png",
-  "previousGenerationRecord": "generation-v1.json",
   "intent": "precise-object-edit",
   "generationDate": "2026-10-01",
   "initialPrompt": "Use case: precise-object-edit.\nAsset type: one isolated transparent-background illustration sprite for a hand-painted 2.5D room.\nInput images: Image 1 is the current wide oak-slat desktop speaker to redesign completely. Image 2 is STYLE REFERENCE ONLY for the painted room, warm walnut, and soft matte illustration finish; do not include the room.\nPrimary request: replace the wide speaker with a beautiful much smaller compact tabletop speaker. One custom unbranded horizontal rounded rectangle, about 1.75 times as wide as it is tall, matte charcoal shell, front warm-grey fine woven textile grille, a single very small satin bronze volume knob in the upper right of the grille, a shallow walnut plinth or two tiny walnut feet. Quiet premium minimal industrial design. No long vertical wooden slats.\nComposition: straight-on front view with just a little top surface visible, matching the forward-facing monitor and desk in the reference room. Entire speaker visible, centered, with only 4–6% transparent padding. Subject fills most of the width and height. The visible top should be only about 10% of the overall height, with very little side surface. Feet rest on a common horizontal baseline.\nStyle/medium: delicately hand-painted digital illustration, warm material texture and softened painterly edges matching the reference room; subtle brush-grain on charcoal edges, restrained textile weave, tiny warm highlight on bronze knob. Readable at an eventual 66 by 38 pixel scene size. A crafted painted miniature, not a glossy photoreal product render or flat vector icon.\nLighting: soft neutral daylight from front-left; restrained natural shadows on the object, neutral enough to accept time-of-day tint. No cast floor plane or separate contact shadow extending outside the speaker.\nConstraints: GENUINELY TRANSPARENT background with alpha, not a checkerboard drawn in pixels. No room, tabletop, cable, plants, text, lettering, logo, watermark, labels, decorative border, reflection, or second object. Preserve only a single complete speaker on transparency.",
@@ -14,12 +9,12 @@
     "public/assets/penthouse/objects/horizontal-speaker.webp",
     "public/assets/penthouse/seoul/autumn/noon.webp"
   ],
-  "selectedSource": "petite-speaker.png",
+  "selectedSource": "petite-speaker-v1.png",
   "runtimeAsset": "public/assets/penthouse/objects/petite-speaker.webp",
   "sourceDimensions": [1659, 948],
   "runtimeDimensions": [528, 302],
-  "runtimeBytes": 44262,
-  "runtimeAlphaBounds": [49, 34, 479, 262],
+  "runtimeBytes": 44122,
+  "runtimeAlphaBounds": [42, 21, 486, 277],
   "intendedRect": [
     718,
     522,
@@ -27,7 +22,7 @@
     38
   ],
   "conversion": {
-    "resize": "Pillow Lanczos proportional downscale to 528x302; RGBA alpha preserved",
+    "resize": "FFmpeg Lanczos proportional downscale to width 528",
     "encode": "Pillow WebP quality 92, method 6; source alpha preserved"
   }
 }
