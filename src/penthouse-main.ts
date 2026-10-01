@@ -4,6 +4,7 @@ import { roomMarkup } from './penthouse-room-markup';
 import { mountPersonalTools } from './penthouse-personal-ui';
 import { mountFocusSession } from './penthouse-focus-ui';
 import { mountFireworksControl } from './penthouse-fireworks-ui';
+import { mountAutomaticFireworks } from './penthouse-fireworks-auto';
 import { mountSoundMixer } from './penthouse-sound-ui';
 import { createGuestbookPanel } from './penthouse-guestbook-panel';
 import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type ClimateState, type LocalClimateInfo } from './cyber-climate';
@@ -74,7 +75,12 @@ const stopOpeningCredits = mountOpeningCredits(opening, opening.querySelectorAll
   isBlocked: () => dialog.open || albumOpen || albumLoading || scene.fireworksActive,
   isStill: () => !animated,
 });
-const stopFireworksCredits = scene.subscribeFireworks(() => stopOpeningCredits.resetIdle());
+const automaticFireworks = mountAutomaticFireworks({
+  isEligible: () => studio.dataset.time === 'night' && animated && !dialog.open && !albumOpen && !albumLoading && !scene.fireworksActive,
+  start: scene.startFireworks,
+});
+function updateWindowAvailability() { stopOpeningCredits.resetIdle(); automaticFireworks.refresh(); }
+const stopFireworksCredits = scene.subscribeFireworks(updateWindowAvailability);
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, undefined, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
@@ -92,7 +98,7 @@ const personal = mountPersonalTools(root, {
     animated = snapshot.climate.animated;
     scene.setAnimated(animated);
     pet.setAnimated(animated);
-    stopOpeningCredits.resetIdle();
+    updateWindowAvailability();
     climate.setAtmosphere(snapshot.climate);
     updateClimatePanel();
     void sound.setMix(snapshot.sound, true).catch((error: unknown) => {
@@ -115,6 +121,7 @@ function applyClimate(state: ClimateState) {
   sound.setClimate(state);
   sound.setRain(state.weather === 'rain');
   studio.dataset.time = state.time;
+  automaticFireworks.refresh();
   updateClimatePanel();
 }
 
@@ -143,14 +150,14 @@ function cancelAlbumLoad() {
   root.querySelectorAll('[data-action="album"][aria-busy]').forEach(button => button.removeAttribute('aria-busy'));
   $('[data-album-status]').textContent = '';
   if (!albumOpen) { if (!destroyed) albumMusic?.close(); albumMusic = undefined; }
-  if (wasLoading && !destroyed) stopOpeningCredits.resetIdle();
+  if (wasLoading && !destroyed) updateWindowAvailability();
 }
 async function openAlbum(trigger: HTMLElement) {
   if (albumOpen) return;
   cancelAlbumLoad();
   const request = albumRequest;
   albumLoading = true;
-  stopOpeningCredits.resetIdle();
+  updateWindowAvailability();
   trigger.setAttribute('aria-busy', 'true');
   $('[data-album-status]').textContent = 'Opening Milky’s album…';
   albumMusic = sound.beginMusicSession(MILKY_ALBUM_MUSIC_TRACK);
@@ -160,8 +167,8 @@ async function openAlbum(trigger: HTMLElement) {
     albumViewer ??= module.createMilkyAlbum({
       host: root, isStill: () => !animated,
       music: { isEnabled: sound.isEnabled, toggle: () => { void sound.setEnabled(!sound.isEnabled()); } },
-      onOpen: () => { albumLoading = false; albumOpen = true; pet.setActive(false); stopOpeningCredits.resetIdle(); },
-      onClose: () => { albumOpen = false; albumMusic?.close(); albumMusic = undefined; if (!destroyed) { pet.setActive(!dialog.open); stopOpeningCredits.resetIdle(); } },
+      onOpen: () => { albumLoading = false; albumOpen = true; pet.setActive(false); updateWindowAvailability(); },
+      onClose: () => { albumOpen = false; albumMusic?.close(); albumMusic = undefined; if (!destroyed) { pet.setActive(!dialog.open); updateWindowAvailability(); } },
     });
     albumViewer.open(trigger);
   } catch {
@@ -196,7 +203,7 @@ function openPanel(name: string, trigger: HTMLElement) {
   personal.refresh();
   focusSession.refresh();
   if (!dialog.open) dialog.showModal();
-  stopOpeningCredits.resetIdle();
+  updateWindowAvailability();
   const heading = content.querySelector<HTMLElement>('h2');
   heading?.setAttribute('tabindex', '-1');
   heading?.focus({ preventScroll: true });
@@ -274,7 +281,7 @@ root.addEventListener('click', event => {
 content.addEventListener('change', event => {
   const input = event.target;
   if (!(input instanceof HTMLInputElement)) return;
-  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); pet.setAnimated(animated); stopOpeningCredits.resetIdle(); }
+  if (input.name === 'animated') { animated = input.checked; scene.setAnimated(animated); pet.setAnimated(animated); updateWindowAvailability(); }
   if (input.name === 'auto') climate.setAuto(input.checked);
   const season = CYBER_SEASONS.find(value => value === input.value);
   const time = CYBER_TIMES.find(value => value === input.value);
@@ -283,7 +290,7 @@ content.addEventListener('change', event => {
   if (input.name === 'time' && time) climate.setTime(time);
   if (input.name === 'weather' && weather) climate.setWeather(weather);
 }, options);
-dialog.addEventListener('close', () => { cancelAlbumLoad(); panel = ''; guestbook.close(); scene.setPreview(null); pet.setActive(!albumOpen); stopOpeningCredits.resetIdle(); if (!albumOpen) (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
+dialog.addEventListener('close', () => { cancelAlbumLoad(); panel = ''; guestbook.close(); scene.setPreview(null); pet.setActive(!albumOpen); updateWindowAvailability(); if (!albumOpen) (studio.dataset.focus === 'true' ? $('.ph-restore') : roomFocusTarget()).focus(); }, options);
 dialog.addEventListener('click', event => {
   if (event.target !== dialog) return;
   const r = dialog.getBoundingClientRect();
@@ -304,7 +311,7 @@ function destroy() {
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
   cancelAlbumLoad(); albumViewer?.destroy();
   focusSession.destroy(); fireworks.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
-  stopFireworksCredits(); stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
+  automaticFireworks.destroy(); stopFireworksCredits(); stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);
 if (import.meta.hot) import.meta.hot.dispose(destroy);
