@@ -1,6 +1,7 @@
+@font-face { font-family: 'Album Letter Hand'; src: url('/assets/penthouse/milky-album/fonts/nothing-you-could-do-latin-400.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Album Handwriting'; src: url('/assets/badge/caveat-600.woff') format('woff'); font-style: normal; font-weight: 600; font-display: swap; }
 .ph-album-dialog {
-  --album-paper: #f6ecdc; --album-ink: #6e514a; --album-gold: #825b4f; --album-cloth: #d8c5b8;
+  --album-paper: #f6f0e5; --album-ink: #624c43; --album-gold: #725639; --album-cloth: #d9c8bd;
   width: min(1100px, calc(100vw - 56px)); height: min(880px, calc(100dvh - 40px));
   max-width: none; max-height: none; margin: auto; padding: 0; border: 0;
   background: transparent; color: #e5ddcf; overflow: visible; color-scheme: dark;
@@ -13,58 +14,58 @@
 .ph-album-dialog button:disabled { opacity: .27; cursor: default; }
 .ph-album-shell { height: 100%; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 20px; }
 .ph-album-header { display: flex; align-items: center; gap: 22px; min-height: 44px; padding: 0 8px; }
-.ph-album-header h1 { margin: 0 auto 0 0; font: 400 21px/1.2 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .035em; color: #cabeaa; }
+.ph-album-header h1 { min-width: 0; margin: 0 auto 0 0; font: 400 23px/1.2 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .025em; text-wrap: balance; color: #d1c5b1; }
 .ph-album-cover-link { min-width: 44px; min-height: 44px; padding: 10px 4px; background: transparent; border: 0; font-size: 11px !important; letter-spacing: .035em; color: #c0b4a1 !important; }
 .ph-album-close { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0 0 4px; border: 1px solid #cec2ac38; border-radius: 50%; background: #cec2ac06; font-size: 28px !important; font-weight: 200 !important; }
 .ph-album-stage { min-height: 0; position: relative; display: grid; place-items: center; padding: 8px 18px 17px; touch-action: pan-y pinch-zoom; container-type: size; }
 .ph-album-cover {
   position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  width: min(490px, 84cqh, calc(100cqw - 28px)); height: auto; aspect-ratio: .94;
-  padding: 12% 9% 12% 11%; border: 1px solid #f1ddca; border-radius: 4px 7px 7px 4px;
-  isolation: isolate; color: var(--album-gold) !important; transform: rotate(-.8deg);
-  background:
-    repeating-linear-gradient(3deg, #96725815 0 .65px, #fff0da1c .65px 1.5px, transparent 1.5px 3px),
-    repeating-linear-gradient(91deg, #fff5df33 0 .65px, #90604f16 .65px 1.2px, transparent 1.2px 3px),
-    linear-gradient(108deg, #f2dfc8a6, #dec7b612 26%, #bb948833 90%), var(--album-cloth);
-  box-shadow: inset 0 1px 1px #fff5df9c, inset -1px -1px 2px #9969534a, 18px 27px 38px -12px #0009, 2px 3px 8px #0003;
-}
-.ph-album-cover::before { content: ''; position: absolute; z-index: -1; inset: 7px -7px -5px auto; width: 7px; border: 1px solid #b5aa8e; border-radius: 1px 4px 4px 1px; background: repeating-linear-gradient(0deg, #f0e9d6 0 1px, #cec6af 1px 2px, #e8dfc9 2px 3px); }
-.ph-album-cover::after { content: ''; position: absolute; z-index: -2; inset: auto -10px -9px 5px; height: 7px; border-radius: 0 0 5px 4px; background: #a37d70; border: 1px solid #d8b5a4; box-shadow: 1px 2px 2px #151c1366; }
-.ph-album-binding { position: absolute; inset: -1px auto -1px -1px; width: 27px; border-radius: 5px 0 0 5px; background: linear-gradient(90deg, #96726261, #f8e5ce36 18%, #c4a18f3b 44%, #9462503b 72%, #fff0da7d 82%, #b8876f26 90%, transparent); border-right: 1px solid #93665436; box-shadow: 2px 0 1px #ffead449; pointer-events: none; }
-.ph-album-cover-frame { position: absolute; inset: 30px 29px 30px 41px; border: 1px solid #a2716380; border-radius: 2px; box-shadow: inset 0 1px #fff0d980, 0 1px #fff0d980; pointer-events: none; }
-.ph-album-cover-frame::before, .ph-album-cover-frame::after { content: ''; position: absolute; width: 15px; height: 15px; border: 1px solid #a2716352; }
+  width: min(485px, 84cqh, calc(100cqw - 32px)); height: auto; aspect-ratio: .94;
+  padding: 12% 9% 12% 11%; border: 1px solid #d3c0aa; border-radius: 5px 7px 7px 5px;
+  isolation: isolate; color: var(--album-gold) !important; transform: rotate(-1deg);
+  background-color: var(--album-cloth);
+  background-image: linear-gradient(103deg, #f9eddd66, transparent 26%, #a57d6312 76%, #fff4df33 96%, #9a73582e), url('/assets/penthouse/milky-album/materials/linen.webp');
+  background-size: auto, 256px 256px;
+  box-shadow: inset 0 1px 1px #fff5e6bf, inset -2px -2px 3px #8a684551, inset 4px 0 6px #78573e33, 1px 2px 1px #7e634c, 19px 31px 37px -17px #000b, 3px 5px 12px #0004;
+ }
+.ph-album-cover::before { content: ''; position: absolute; z-index: -1; inset: 8px -10px -5px auto; width: 10px; border: 1px solid #b8aa91; border-radius: 1px 4px 4px 1px; background: repeating-linear-gradient(0deg, #f4eddf 0 1px, #cbbfa6 1px 1.5px, #e9dfcc 1.5px 3px); box-shadow: inset -2px 0 2px #88786140; }
+.ph-album-cover::after { content: ''; position: absolute; z-index: -2; inset: auto -12px -10px 5px; height: 8px; border-radius: 0 0 5px 4px; background: linear-gradient(#d4bfb0, #baa18e 45%, #a48972); border: 1px solid #d8c7b4; box-shadow: 1px 3px 3px #17100b66; }
+.ph-album-binding { position: absolute; inset: -1px auto -1px -1px; width: 31px; border-radius: 5px 0 0 5px; background: linear-gradient(90deg, #785a453b, #f8edda69 14%, #c6b19a15 43%, #9a7c5e38 69%, #8060444d 80%, #f9ecdbb0 87%, #b3927229 96%, transparent); border-right: 1px solid #8d705440; box-shadow: 2px 0 2px #fff0db7a, -1px 0 1px #ab927846; pointer-events: none; }
+.ph-album-cover-frame { position: absolute; inset: 34px 32px 34px 47px; border: 1px solid #9b7e526b; border-radius: 1px; box-shadow: inset 0 1px #fff5e6b3, 0 1px #fff5e6a1; pointer-events: none; }
+.ph-album-cover-frame::before, .ph-album-cover-frame::after { content: ''; position: absolute; width: 12px; height: 12px; border: 1px solid #9b7e5261; }
 .ph-album-cover-frame::before { left: 5px; top: 5px; border-right: 0; border-bottom: 0; }
 .ph-album-cover-frame::after { right: 5px; bottom: 5px; border-left: 0; border-top: 0; }
-.ph-album-inscription { position: relative; display: flex; flex-direction: column; align-items: center; padding-left: 8px; color: #805246; text-shadow: 0 1px #fff0d5aa, 0 -1px #86543c35; }
-.ph-album-cover-name { display: block; font: 400 clamp(54px, 12cqh, 91px)/.9 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: -.04em; }
+.ph-album-inscription { position: relative; display: flex; flex-direction: column; align-items: center; padding-left: 10px; color: #735537; text-shadow: 0 1px #fff5e4d9, 0 -1px #7152355c; }
+.ph-album-cover-name { display: block; font: 400 clamp(54px, 11.6cqh, 88px)/.95 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: -.025em; }
 .ph-album-ornament { position: relative; display: block; width: 24px; height: 43px; margin: 32px 0 0 15px; border-left: 1px solid #9b6a5a79; transform: rotate(15deg); pointer-events: none; }
 .ph-album-ornament > span { position: absolute; width: 10px; height: 16px; left: -10px; top: 3px; border: 1px solid #9b6a5a7d; border-radius: 1px 90% 1px 90%; transform: rotate(-17deg); box-shadow: inset 1px 0 #fff0d561; }
 .ph-album-ornament > span:nth-child(2) { left: 0; top: 12px; transform: scaleX(-1) rotate(-17deg); }
 .ph-album-ornament > span:nth-child(3) { top: 24px; width: 8px; height: 12px; left: -8px; }
-.ph-album-invitation { position: absolute; bottom: 52px; left: 35px; right: 24px; font-size: 9px; line-height: 1.5; letter-spacing: .17em; text-transform: uppercase; color: #65483a; text-shadow: 0 1px #fff0d58c; }
+.ph-album-invitation { position: absolute; bottom: 53px; left: 39px; right: 24px; font-size: 9px; line-height: 1.5; letter-spacing: .2em; text-transform: uppercase; color: #604a36; text-shadow: 0 1px #fff4dfb3; }
 .ph-album-stage--open { padding: 5px 14px 15px; }
 .ph-album-spread {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; height: 100%; max-width: 1040px; max-height: 655px;
-  position: relative; border-radius: 3px 5px 5px 3px; background: #be978b; border: 8px solid #be978b;
-  box-shadow: inset 0 1px #f0d7c7, 0 1px #f0d7c7, 0 3px #b4aa90, 0 4px #eee6d2, 0 6px #c6bca3, 0 8px #e6dec8, 0 10px #a77d70, 0 11px #d5b09e, 0 26px 40px -10px #0009;
-}
-.ph-album-spread::after { content: ''; position: absolute; z-index: 2; top: 0; bottom: 0; left: calc(50% - 21px); width: 42px; pointer-events: none; background: linear-gradient(90deg, transparent, #76674a08 17%, #5c4f3521 36%, #6653314a 48%, #fff8e657 51%, #4d412328 57%, #8b7a5710 80%, transparent); }
+  position: relative; border-radius: 4px 6px 6px 4px; border: 6px solid #b89f8b; background: #c5ac96 url('/assets/penthouse/milky-album/materials/linen.webp') center / 256px 256px;
+  box-shadow: 0 1px #e8dac5, 0 2px #b9ac93, 0 3px #f0e9db, 0 4px #b7aa93, 0 5px #eee7d7, 0 6px #cbbfa7, 0 7px #f0e7d6, 0 9px #ae947b, 0 10px #d1b99f, 1px 13px 8px -7px #0009, 0 29px 37px -14px #000b;
+ }
+.ph-album-spread::after { content: ''; position: absolute; z-index: 2; top: 0; bottom: 0; left: calc(50% - 34px); width: 68px; pointer-events: none; background: linear-gradient(90deg, transparent, #6e5b4008 12%, #705b4021 34%, #4d3c273d 46%, #3125163d 49%, #fffdf393 50%, #95836333 54%, #b29b731c 72%, transparent); box-shadow: inset 0 1px #fff9ed59; }
 .ph-album-page {
   --print-turn: -2.3deg; --print-offset: -10px; --tape-turn: -8deg; --tape-color: #b476638f;
   min-width: 0; min-height: 0; margin: 0; padding: clamp(35px, 5.6cqh, 60px) clamp(24px, 4cqw, 44px) clamp(43px, 6.4cqh, 61px);
   position: relative; display: grid; place-items: center; color: var(--album-ink); overflow: hidden; isolation: isolate;
-  background: radial-gradient(ellipse at 20% 15%, #fffdf247, transparent 70%), repeating-linear-gradient(9deg, #bb986b0d 0 .6px, transparent .6px 4px), repeating-linear-gradient(94deg, #9d734b09 0 .5px, transparent .5px 3px), linear-gradient(100deg, #f9f0e0, #f1e5d0 90%, #e9dbc1);
-}
+  background-color: var(--album-paper); background-image: linear-gradient(100deg, #fffdf529, transparent 48%, #a28d6529 95%, #82704c33), url('/assets/penthouse/milky-album/materials/cotton-paper.webp'); background-size: auto, 384px 384px;
+  box-shadow: inset 0 1px #fffdf5, inset 1px 0 #fffdf58c, inset 0 -1px #b9a78b61;
+ }
 .ph-album-page:first-child { padding-right: clamp(32px, 4.8cqw, 53px); border-radius: 1px 0 0 2px; }
-.ph-album-page:nth-child(2) { padding-left: clamp(32px, 4.8cqw, 53px); padding-top: clamp(42px, 7cqh, 74px); padding-bottom: clamp(31px, 4.5cqh, 47px); background-color: var(--album-paper); background-image: repeating-linear-gradient(9deg, #bb986b0d 0 .6px, transparent .6px 4px), repeating-linear-gradient(94deg, #9d734b09 0 .5px, transparent .5px 3px), linear-gradient(88deg, #e8d9c0, #f7eddd 13%, #f8efdf 85%, #f2e4ce); border-radius: 0 1px 2px 0; }
+.ph-album-page:nth-child(2) { padding-left: clamp(32px, 4.8cqw, 53px); padding-top: clamp(42px, 7cqh, 74px); padding-bottom: clamp(31px, 4.5cqh, 47px); background-image: linear-gradient(88deg, #99815b2e, #a4926d0d 16%, #fffdf51f 42%, transparent 80%, #baa78317), url('/assets/penthouse/milky-album/materials/cotton-paper.webp'); border-radius: 0 2px 3px 0; }
 .ph-album-page[data-collage='1'] { --print-turn: 1.8deg; --print-offset: 13px; --tape-turn: 13deg; --tape-color: #c889779c; }
 .ph-album-page[data-collage='2'] { --print-turn: 1.1deg; --print-offset: -5px; --tape-turn: -13deg; --tape-color: #a471659c; }
 .ph-album-page[data-collage='3'] { --print-turn: -1.6deg; --print-offset: 8px; --tape-turn: 7deg; --tape-color: #bf958397; }
-.ph-album-page.ph-album-page--noted { padding-bottom: 109px; }
-.ph-album-note { position: absolute; z-index: 2; left: 32px; right: 103px; bottom: 38px; margin: 0; max-width: 29ch; color: #715147; font: 600 clamp(21px, 2.3cqw, 26px)/1.15 'Album Handwriting', 'Bradley Hand', cursive; text-wrap: balance; transform: rotate(-2deg); }
-.ph-album-page[data-collage='1'] .ph-album-note { left: 41px; transform: rotate(1.5deg); }
+.ph-album-page.ph-album-page--noted { grid-template-rows: minmax(0, 1fr) auto; row-gap: 17px; padding-bottom: 40px; }
+.ph-album-note { position: relative; z-index: 2; grid-row: 2; justify-self: start; width: calc(100% - 62px); margin: 0; color: #684b40; font: 600 clamp(21px, 2.3cqw, 26px)/1.35 'Album Handwriting', 'Bradley Hand', cursive; text-wrap: pretty; transform: rotate(-2deg); }
+.ph-album-page[data-collage='1'] .ph-album-note { transform: rotate(1.5deg); }
 .ph-album-page[data-collage='2'] .ph-album-note { transform: rotate(-1deg); }
-.ph-album-page[data-collage='3'] .ph-album-note { left: 36px; transform: rotate(2deg); }
+.ph-album-page[data-collage='3'] .ph-album-note { transform: rotate(2deg); }
 .ph-album-sticker { position: absolute; object-fit: contain; user-select: none; pointer-events: none; }
 .ph-album-sticker--primary { right: 19px; bottom: 34px; width: 68px; height: 68px; transform: rotate(9deg); }
 .ph-album-sticker--secondary { left: 20px; top: 18px; width: 43px; height: 43px; transform: rotate(-13deg); }
@@ -77,8 +78,8 @@
 .ph-album-page--noted .ph-album-stamp { display: none; }
 .ph-album-collage { position: absolute; inset: 0; pointer-events: none; }
 .ph-album-scrap { position: absolute; display: block; }
-.ph-album-scrap--rose { width: 46%; height: 57%; left: -5%; top: 13%; background: repeating-linear-gradient(12deg, #f6d8c51a 0 .8px, transparent .8px 3px), #c59b8c; opacity: .8; transform: rotate(-6deg); clip-path: polygon(2% 0, 96% 2%, 98% 14%, 95% 27%, 99% 40%, 95% 53%, 98% 65%, 96% 77%, 100% 88%, 96% 100%, 0 97%); }
-.ph-album-scrap--grid { width: 53%; height: 39%; right: 2%; bottom: 7%; border: 1px solid #b59e8152; background: repeating-linear-gradient(0deg, transparent 0 12px, #b988772e 12px 13px), repeating-linear-gradient(90deg, transparent 0 12px, #b988772e 12px 13px), #f2e2cc; transform: rotate(6deg); box-shadow: 1px 2px 3px #684d321a; }
+.ph-album-scrap--rose { width: 46%; height: 57%; left: -5%; top: 13%; background: linear-gradient(#c9a494d9, #c6a08cdb), url('/assets/penthouse/milky-album/materials/cotton-paper.webp') center / 256px 256px; opacity: .82; transform: rotate(-6deg); clip-path: polygon(2% 0, 96% 2%, 98% 14%, 95% 27%, 99% 40%, 95% 53%, 98% 65%, 96% 77%, 100% 88%, 96% 100%, 0 97%); }
+.ph-album-scrap--grid { width: 53%; height: 39%; right: 2%; bottom: 7%; border: 1px solid #bba7904d; background: repeating-linear-gradient(0deg, transparent 0 12px, #b9887724 12px 13px), repeating-linear-gradient(90deg, transparent 0 12px, #b9887724 12px 13px), #f1e8d8; transform: rotate(6deg); box-shadow: 1px 2px 3px #684d3221, inset 0 1px #fff7e480; }
 .ph-album-scrap--note { width: 34%; height: 23%; right: 7%; top: 5%; background: repeating-linear-gradient(0deg, transparent 0 17px, #a884641f 17px 18px), #e8cfb5; transform: rotate(8deg); opacity: .9; clip-path: polygon(2% 1%, 98% 0, 100% 97%, 91% 100%, 82% 97%, 73% 100%, 64% 98%, 54% 100%, 45% 96%, 34% 100%, 22% 96%, 13% 100%, 0 98%); }
 .ph-album-page[data-collage='1'] .ph-album-scrap--rose { left: auto; right: -6%; top: -2%; width: 55%; height: 41%; transform: rotate(10deg); background-color: #bf8e82; }
 .ph-album-page[data-collage='1'] .ph-album-scrap--grid { left: -4%; right: auto; bottom: 13%; width: 55%; height: 52%; transform: rotate(-7deg); }
@@ -94,7 +95,7 @@
 .ph-album-stamp::after { content: ''; position: absolute; left: 17px; top: 11px; width: 14px; height: 28px; border: 1px solid #775547ad; border-radius: 90% 0 90% 0; transform: rotate(-12deg); box-shadow: inset 1px 0 #ecd9b778; }
 .ph-album-page[data-collage='1'] .ph-album-stamp, .ph-album-page[data-collage='2'] .ph-album-stamp { left: auto; right: 6%; bottom: 9%; transform: rotate(10deg); }
 .ph-album-photo-mount { min-width: 0; min-height: 0; width: 100%; height: 100%; display: grid; place-items: center; position: relative; z-index: 1; container-type: size; }
-.ph-album-print { position: relative; display: grid; place-items: start center; width: min(var(--print-width), calc(100cqw - 26px), calc((100cqh - 32px) * var(--print-ratio))); aspect-ratio: var(--print-ratio); padding: 10px 10px 38px; border: 1px solid #d0c2af87; background: linear-gradient(102deg, #fffcf4, #f8f2e7); transform: translateY(var(--print-offset)) rotate(var(--print-turn)); box-shadow: 0 1px 1px #72533738, 2px 7px 9px -4px #72533747; }
+.ph-album-print { position: relative; display: grid; place-items: start center; width: min(var(--print-width), calc(100cqw - 26px), calc((100cqh - 32px) * var(--print-ratio))); aspect-ratio: var(--print-ratio); padding: 10px 10px 38px; border: 1px solid #d3cbbb; background: linear-gradient(105deg, #fffdf7, #fcf9ef 74%, #f0ebdf); transform: translateY(var(--print-offset)) rotate(var(--print-turn)); box-shadow: 0 1px 1px #6d594a52, 2px 5px 5px -3px #5b463647, 3px 12px 14px -8px #5b463659, inset 0 1px #fffefb; }
 .ph-album-photo-mount img { position: relative; z-index: 3; display: block; width: 100%; height: 100%; object-fit: contain; user-select: none; }
 .ph-album-tape { position: absolute; z-index: 2; top: -13px; left: 33%; width: 37%; max-width: 118px; height: 23px; background: repeating-linear-gradient(0deg, #fff2dc2b 0 5px, transparent 5px 10px), repeating-linear-gradient(90deg, #fff2dc45 0 5px, transparent 5px 10px), var(--tape-color); border-block: 1px solid #b2837045; opacity: .9; transform: rotate(var(--tape-turn)); clip-path: polygon(2% 0, 99% 1%, 98% 15%, 100% 32%, 98% 51%, 100% 73%, 98% 100%, 0 99%, 2% 82%, 0 66%, 2% 49%, 0 29%); pointer-events: none; }
 .ph-album-paperclip { display: none; position: absolute; z-index: 2; right: -7px; top: -19px; width: 16px; height: 55px; border: 2px solid #887061; border-radius: 10px 10px 9px 9px; transform: rotate(8deg); box-shadow: inset 1px 0 #e7d5b9, 1px 1px 1px #7056424d; pointer-events: none; }
@@ -116,18 +117,27 @@
 .ph-album-counter { margin: 0; font-size: 10px; letter-spacing: .1em; color: #ada28e; text-align: center; font-variant-numeric: tabular-nums; }
 .ph-album-message { max-width: 290px; text-align: center; color: #c5b9a7; font-size: 14px; line-height: 1.7; }
 .ph-album-stage--letter { padding: 5px 18px 16px; }
-.ph-album-letter { width: min(100%, 820px); height: 100%; max-height: 695px; min-height: 0; margin: 0; padding: clamp(34px, 5cqh, 52px) clamp(30px, 6cqw, 66px); overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #b89983 transparent; color: #674b40; border: 7px solid #c7a498; border-radius: 3px 5px 5px 3px; background: repeating-linear-gradient(8deg, #bb986b0a 0 .6px, transparent .6px 4px), repeating-linear-gradient(94deg, #9d734b06 0 .5px, transparent .5px 3px), linear-gradient(102deg, #faf2e3, #f4e8d4); box-shadow: 0 2px #f2e4cf, 0 4px #c7b69c, 0 6px #eee2ca, 0 8px #aa8172, 0 23px 35px -12px #0009; font: 600 clamp(25px, 3.1cqw, 29px)/1.42 'Album Handwriting', 'Bradley Hand', cursive; }
+.ph-album-letter {
+  position: relative; width: min(100%, 760px); height: 100%; max-height: 740px; min-height: 0; margin: 0;
+  padding: clamp(28px, 4.4cqh, 38px) clamp(29px, 6.4cqw, 66px) 28px; overflow: auto; overscroll-behavior: contain;
+  scrollbar-width: thin; scrollbar-color: #b5a58c transparent; color: #594b40; border: 1px solid #ebe4d6; border-radius: 2px 3px 1px 2px;
+  background-color: #f5f0e5;
+  background-image: linear-gradient(90deg, transparent 49.5%, #9c876810 49.9%, #fffef554 50.1%, transparent 50.6%), linear-gradient(0deg, transparent 65.8%, #ad967013 66.1%, #fffdf759 66.4%, transparent 66.9%), url('/assets/penthouse/milky-album/materials/cotton-paper.webp');
+  background-size: auto, auto, 384px 384px;
+  box-shadow: inset 0 1px #fffef7, inset 1px 0 #fffef7ab, inset -1px 0 #c9bca336, 0 1px #c4b79e, 0 2px #e8dfcc, 1px 4px 5px #0002, 0 22px 36px -15px #000a;
+  font: 400 clamp(23px, 2.5cqw, 26px)/1.55 'Album Letter Hand', 'Bradley Hand', cursive; font-synthesis: none;
+ }
 .ph-album-letter:focus-visible { outline: 2px solid #e5c896; outline-offset: 5px; }
-.ph-album-letter h2 { margin: 0 0 25px; font: 600 1.34em/1.2 'Album Handwriting', 'Bradley Hand', cursive; color: #745045; }
-.ph-album-letter p { margin: 0 0 24px; max-width: 36ch; }
-.ph-album-letter p:last-of-type { margin-top: 30px; margin-bottom: 32px; }
-.ph-album-letter-keepsake { position: relative; width: min(100%, 280px); min-height: 64px; margin: 10px auto 26px; }
-.ph-album-letter-cutout { width: min(154px, 60%); margin: 0 auto; transform: rotate(2deg); }
+.ph-album-letter h2 { margin: 0 0 18px; font: inherit; font-size: 1.25em; line-height: 1.25; color: #59493e; }
+.ph-album-letter p { margin: 0 0 16px; max-width: 54ch; text-wrap: pretty; }
+.ph-album-letter p:last-of-type { margin-top: 22px; margin-bottom: 10px; }
+.ph-album-letter-keepsake { position: relative; width: min(100%, 246px); min-height: 58px; margin: 8px auto 12px; }
+.ph-album-letter-cutout { width: min(124px, 60%); margin: 0 auto; transform: rotate(2deg); }
 .ph-album-letter-cutout img { display: block; width: 100%; height: auto; object-fit: contain; user-select: none; filter: drop-shadow(2px 3px 2px #76574029); }
 .ph-album-letter-sticker { position: absolute; height: auto; object-fit: contain; user-select: none; pointer-events: none; }
-.ph-album-letter-sticker--flower-sprig { width: 50px; left: 0; bottom: 12%; transform: rotate(-12deg); }
-.ph-album-letter-sticker--rose-heart { width: 38px; right: 0; top: 23%; transform: rotate(13deg); }
-.ph-album-letter-signature { width: fit-content; margin-top: 12px; padding-top: 16px; border-top: 1px solid #a9876b66; font: 500 20px/1.3 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .055em; color: #78584b; }
+.ph-album-letter-sticker--flower-sprig { width: 46px; left: 0; bottom: 12%; transform: rotate(-12deg); }
+.ph-album-letter-sticker--rose-heart { width: 34px; right: 0; top: 23%; transform: rotate(13deg); }
+.ph-album-letter-signature { width: fit-content; margin: 6px auto 0; padding-top: 9px; font: 400 20px/1.3 'Opening Cormorant', 'Iowan Old Style', Georgia, serif; letter-spacing: .045em; text-align: center; color: #6b5847; }
 .ph-album-retry { min-height: 44px; border: 1px solid #c4b79b66; border-radius: 3px; background: #d8c8aa08; padding: 11px 20px; margin-top: 8px; }
 @media (hover: hover) {
   .ph-album-dialog button:not(:disabled):hover { color: #fff4de; }
@@ -140,9 +150,9 @@
   .ph-album-shell { gap: 12px; }
   .ph-album-header { gap: 14px; padding: 0 2px; }
   .ph-album-header h1 { font-size: 20px; }
-  .ph-album-letter { padding: 29px 26px 34px; border-width: 5px; font-size: 25px; }
-  .ph-album-letter h2 { margin-bottom: 22px; }
-  .ph-album-letter-keepsake { margin-block: 8px 25px; }
+  .ph-album-letter { padding: 28px 25px 28px; font-size: 24px; }
+  .ph-album-letter h2 { margin-bottom: 17px; }
+  .ph-album-letter-keepsake { margin-block: 9px 14px; }
   .ph-album-letter-sticker--flower-sprig { width: 42px; }
   .ph-album-letter-sticker--rose-heart { width: 32px; }
   .ph-album-stage, .ph-album-stage--open { padding: 3px 7px 15px; }
@@ -155,8 +165,8 @@
   .ph-album-spread { grid-template-columns: minmax(0, 1fr); max-width: 490px; max-height: 720px; border-width: 6px; }
   .ph-album-spread::after { left: 0; width: 20px; background: linear-gradient(90deg, #6c5d3f29, #8b7a5710 35%, transparent); }
   .ph-album-page, .ph-album-page:first-child { padding: 30px 24px 51px; }
-  .ph-album-page.ph-album-page--noted { --print-offset: 0px; padding-bottom: 98px; }
-  .ph-album-page[data-collage] .ph-album-note { left: 25px; right: 84px; bottom: 35px; font-size: 22px; }
+  .ph-album-page.ph-album-page--noted { --print-offset: 0px; row-gap: 14px; padding-bottom: 40px; }
+  .ph-album-page[data-collage] .ph-album-note { width: calc(100% - 52px); font-size: 22px; }
   .ph-album-page[data-collage] .ph-album-sticker--primary { width: 55px; height: 55px; right: 18px; bottom: 33px; }
   .ph-album-page[data-collage] .ph-album-sticker--secondary { width: 35px; height: 35px; top: 13px; }
   .ph-album-print { width: min(var(--print-width), calc(100cqw - 20px), calc((100cqh - 27px) * var(--print-ratio))); }
@@ -168,12 +178,12 @@
 @media (max-width: 360px) {
   .ph-album-header h1 { font-size: 18px; }
   .ph-album-header { gap: 9px; }
-  .ph-album-letter { padding: 26px 23px 30px; font-size: 24px; }
+  .ph-album-letter { padding: 26px 22px 27px; font-size: 24px; }
   .ph-album-cover-name { font-size: 57px; }
   .ph-album-ornament { height: 34px; margin-top: 19px; transform: rotate(15deg) scale(.75); }
   .ph-album-invitation { bottom: 34px; }
   .ph-album-page, .ph-album-page:first-child { padding: 24px 18px 43px; }
-  .ph-album-page[data-collage] .ph-album-note { left: 20px; right: 75px; font-size: 21px; }
+  .ph-album-page[data-collage] .ph-album-note { width: calc(100% - 46px); font-size: 21px; }
   .ph-album-page[data-collage] .ph-album-sticker--primary { width: 49px; height: 49px; right: 15px; bottom: 35px; }
   .ph-album-folio { left: 20px; bottom: 16px; }
 }
@@ -181,7 +191,7 @@
   .ph-album-dialog { height: calc(100dvh - 16px); }
   .ph-album-shell { gap: 4px; }
   .ph-album-header { min-height: 44px; }
-  .ph-album-letter { max-width: 650px; padding: 24px 38px 30px; font-size: 25px; }
+  .ph-album-letter { max-width: 650px; padding: 25px 38px 28px; font-size: 24px; }
   .ph-album-stage { padding-block: 5px 13px; }
   .ph-album-cover { width: min(390px, 84cqh); padding: 20px; }
   .ph-album-cover-frame { inset: 15px 12px 15px 23px; }
@@ -189,8 +199,8 @@
   .ph-album-ornament { height: 21px; margin-top: 12px; transform: rotate(15deg) scale(.55); transform-origin: top center; }
   .ph-album-invitation { bottom: 26px; font-size: 7px; }
   .ph-album-page, .ph-album-page:first-child { padding: 17px 29px 29px; }
-  .ph-album-page.ph-album-page--noted { padding-bottom: 53px; }
-  .ph-album-page[data-collage] .ph-album-note { bottom: 11px; left: 31px; right: 64px; font-size: 19px; line-height: 1.1; }
+  .ph-album-page.ph-album-page--noted { row-gap: 7px; padding-bottom: 18px; }
+  .ph-album-page[data-collage] .ph-album-note { width: calc(100% - 36px); font-size: 19px; line-height: 1.3; }
   .ph-album-page[data-collage] .ph-album-sticker--primary { width: 34px; height: 34px; bottom: 8px; right: 17px; }
   .ph-album-page[data-collage] .ph-album-sticker--secondary { width: 28px; height: 28px; top: 6px; }
   .ph-album-page--noted .ph-album-folio { display: none; }
@@ -202,6 +212,6 @@
   .ph-album-footer { min-height: 44px; }
 }
 @media (forced-colors: active) {
-  .ph-album-cover, .ph-album-spread, .ph-album-print { border: 1px solid CanvasText; }
+  .ph-album-cover, .ph-album-spread, .ph-album-print, .ph-album-letter { border: 1px solid CanvasText; }
   .ph-album-cover::before, .ph-album-cover::after, .ph-album-binding, .ph-album-ornament, .ph-album-collage, .ph-album-tape, .ph-album-paperclip { display: none; }
 }
