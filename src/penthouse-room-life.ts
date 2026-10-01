@@ -3,13 +3,14 @@ import { isGlass, seededRandom } from './penthouse-atmosphere.ts';
 export type CupSpot = 'desk' | 'lounge';
 export type SteamWisp = { readonly x: number; readonly y: number; readonly width: number; readonly height: number; readonly opacity: number; readonly bend: number };
 
-const CUP_RIMS = { desk: [605, 520], lounge: [122, 642] } as const;
+const COFFEE_RIM = [605, 520] as const;
+const DIFFUSER_NECK = [122, 612] as const;
 const FACADES = [[244,260,28,45],[320,254,37,48],[419,258,30,50],[554,248,36,59],[718,214,20,90],[964,244,29,60],[1205,260,35,47],[1280,211,25,92],[1358,244,32,63],[1439,245,27,60]] as const;
 const softStep = (value: number) => value * value * (3 - 2 * value);
 const LIGHT_CELL = 16, LIGHT_COLUMNS = 16, LIGHT_PADDING = 6;
 
 export class RoomLife {
-  private readonly cups = new Map<CupSpot, number>();
+  private readonly vapors = new Map<CupSpot, number>();
   private cityLights: OffscreenCanvas | null | undefined;
   private readonly windows = (() => {
     const random = seededRandom(301026);
@@ -21,37 +22,58 @@ export class RoomLife {
     }))).filter(window => isGlass(window.x, window.y));
   })();
 
-  get active(): boolean { return this.cups.size > 0; }
-  savorCoffee(kind: CupSpot, still = false): void {
-    if (still && this.cups.has(kind)) this.cups.delete(kind);
-    else this.cups.set(kind, 0);
+  get active(): boolean { return this.vapors.size > 0; }
+  savorCoffee(kind: CupSpot, still = false): void { this.activateVapor(kind, still); }
+  scentDiffuser(still = false): void { this.activateVapor('lounge', still); }
+  private activateVapor(kind: CupSpot, still: boolean): void {
+    if (still && this.vapors.has(kind)) this.vapors.delete(kind);
+    else this.vapors.set(kind, 0);
   }
-  clear(): void { this.cups.clear(); this.cityLights = undefined; }
+  clear(): void { this.vapors.clear(); this.cityLights = undefined; }
 
   advance(seconds: number): void {
     const dt = Math.max(0, Math.min(seconds, .1));
-    for (const [kind, age] of this.cups) {
-      if (age + dt >= 7) this.cups.delete(kind);
-      else this.cups.set(kind, age + dt);
+    for (const [kind, age] of this.vapors) {
+      if (age + dt >= 7) this.vapors.delete(kind);
+      else this.vapors.set(kind, age + dt);
     }
   }
 
   steamWisps(still = false): readonly SteamWisp[] {
-    return [...this.cups].flatMap(([kind, elapsed]) => {
-      const age = still ? 1.6 : elapsed;
-      const [x,y] = CUP_RIMS[kind];
-      const fade = softStep(Math.min(age / .3, 1)) * softStep(Math.max(0, Math.min((7 - age) / 2, 1)));
-      return [0, 1, 2].map(index => {
-        const phase = age * .8 + index * 2.1;
-        return {
-          x: x + (index - 1) * 5 + Math.sin(phase) * 1.8,
-          y: y - 1 - Math.sin(phase * .65) ** 2 * 2,
-          width: 2.4 + Math.sin(phase * .7) ** 2 * 1.8,
-          height: 27 + index * 5 + Math.sin(phase) * 5 + Math.min(age, 2) * 4,
-          bend: Math.sin(phase * .7 + index) * 5,
-          opacity: fade * (.065 + Math.sin(phase * .6) ** 2 * .035),
-        };
-      });
+    const elapsed = this.vapors.get('desk');
+    if (elapsed === undefined) return [];
+    const age = still ? 1.6 : elapsed;
+    const [x,y] = COFFEE_RIM;
+    const fade = softStep(Math.min(age / .3, 1)) * softStep(Math.max(0, Math.min((7 - age) / 2, 1)));
+    return [0, 1, 2].map(index => {
+      const phase = age * .8 + index * 2.1;
+      return {
+        x: x + (index - 1) * 5 + Math.sin(phase) * 1.8,
+        y: y - 1 - Math.sin(phase * .65) ** 2 * 2,
+        width: 2.4 + Math.sin(phase * .7) ** 2 * 1.8,
+        height: 27 + index * 5 + Math.sin(phase) * 5 + Math.min(age, 2) * 4,
+        bend: Math.sin(phase * .7 + index) * 5,
+        opacity: fade * (.065 + Math.sin(phase * .6) ** 2 * .035),
+      };
+    });
+  }
+
+  fragranceWisps(still = false): readonly SteamWisp[] {
+    const elapsed = this.vapors.get('lounge');
+    if (elapsed === undefined) return [];
+    const age = still ? 1.8 : elapsed;
+    const [x,y] = DIFFUSER_NECK;
+    const fade = softStep(Math.min(age / .6, 1)) * softStep(Math.max(0, Math.min((7 - age) / 2.4, 1)));
+    return [0, 1].map(index => {
+      const phase = age * .42 + index * .28;
+      return {
+        x: x + (index - .5) * 8 + Math.sin(phase) * 3,
+        y: y - .5 - Math.sin(phase) ** 2 * .8,
+        width: 1.15 + Math.sin(phase) ** 2 * .25,
+        height: 32 + index * 5 + Math.sin(phase) * 3 + Math.min(age, 2) * 4,
+        bend: 8 + Math.sin(phase * .8) * 7,
+        opacity: fade * (.02 + Math.sin(phase) ** 2 * .008),
+      };
     });
   }
 
@@ -97,7 +119,7 @@ export class RoomLife {
 
   drawSteam(ctx: CanvasRenderingContext2D, still: boolean): void {
     ctx.save();
-    for (const wisp of this.steamWisps(still)) {
+    for (const wisp of [...this.steamWisps(still), ...this.fragranceWisps(still)]) {
       for (let dab = 0; dab < 10; dab++) {
         const progress = (dab + .5) / 10;
         const x = wisp.x + Math.sin(progress * Math.PI) * wisp.bend;

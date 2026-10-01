@@ -25,26 +25,27 @@ test('coffee steam completely expires after seven visible seconds', () => {
   assert.deepEqual(room.steamWisps(), []);
 });
 
-test('repeated cup clicks restart a bounded effect independently for both cups', () => {
+test('repeated coffee and diffuser clicks restart separate bounded effects', () => {
   const room = new RoomLife();
   room.savorCoffee('desk');
   advance(room, 6);
   for (let click = 0; click < 100; click++) room.savorCoffee('desk');
-  room.savorCoffee('lounge');
+  for (let click = 0; click < 100; click++) room.scentDiffuser();
   advance(room, 2);
   assert.equal(room.active, true);
-  assert.ok(room.steamWisps().length <= 6);
-  assert.ok(room.steamWisps().some(wisp => wisp.x < 150));
+  assert.equal(room.steamWisps().length, 3);
+  assert.equal(room.fragranceWisps().length, 2);
+  assert.ok(room.fragranceWisps().every(wisp => wisp.x < 150));
   assert.ok(room.steamWisps().some(wisp => wisp.x > 580));
 });
 
-test('still steam responds immediately without requiring a simulation tick', () => {
+test('still diffuser fragrance responds immediately without requiring a simulation tick', () => {
   const room = new RoomLife();
-  room.savorCoffee('lounge');
-  const pose = room.steamWisps(true);
+  room.scentDiffuser(true);
+  const pose = room.fragranceWisps(true);
   assert.ok(pose.some(wisp => wisp.opacity > 0));
-  assert.deepEqual(room.steamWisps(true), pose);
-  assert.ok(pose.every(wisp => wisp.x > 106 && wisp.x < 138 && wisp.y <= 642));
+  assert.deepEqual(room.fragranceWisps(true), pose);
+  assert.ok(pose.every(wisp => wisp.x > 110 && wisp.x < 138 && wisp.y <= 612));
 });
 
 test('a stalled frame cannot consume the full coffee interaction', () => {
@@ -55,12 +56,45 @@ test('a stalled frame cannot consume the full coffee interaction', () => {
   assert.ok(room.steamWisps().some(wisp => wisp.opacity > 0));
 });
 
-test('a still interaction can be dismissed without moving or consuming the other cup', () => {
+test('still coffee and diffuser interactions can be dismissed independently', () => {
   const room = new RoomLife();
   room.savorCoffee('desk', true);
-  room.savorCoffee('lounge', true);
+  room.scentDiffuser(true);
   room.savorCoffee('desk', true);
-  assert.ok(room.steamWisps(true).every(wisp => wisp.x < 150));
-  room.savorCoffee('lounge', true);
+  assert.deepEqual(room.steamWisps(true), []);
+  assert.ok(room.fragranceWisps(true).every(wisp => wisp.opacity > 0));
+  room.scentDiffuser(true);
   assert.equal(room.active, false);
+});
+
+test('diffuser fragrance begins only on a click and rises gently from the bottle neck', () => {
+  const room = new RoomLife();
+  assert.deepEqual(room.fragranceWisps(), []);
+  room.scentDiffuser();
+  advance(room, 1.5);
+  const wisps = room.fragranceWisps();
+  assert.equal(room.active, true);
+  assert.equal(wisps.length, 2);
+  assert.ok(wisps.every(wisp => wisp.x > 110 && wisp.x < 138 && wisp.y >= 609 && wisp.y <= 612));
+  assert.ok(wisps.every(wisp => wisp.y - wisp.height < 590 && wisp.opacity > 0 && wisp.opacity < .04));
+  assert.ok(wisps.every(wisp => wisp.width < 2 && Math.abs(wisp.bend) > 5));
+  assert.deepEqual(room.steamWisps(), []);
+});
+
+test('diffuser fragrance completely expires after seven visible seconds', () => {
+  const room = new RoomLife();
+  room.scentDiffuser();
+  advance(room, 7.1);
+  assert.equal(room.active, false);
+  assert.deepEqual(room.fragranceWisps(), []);
+});
+
+test('clearing the room removes both coffee and diffuser effects', () => {
+  const room = new RoomLife();
+  room.scentDiffuser();
+  room.savorCoffee('desk');
+  room.clear();
+  assert.equal(room.active, false);
+  assert.deepEqual(room.fragranceWisps(), []);
+  assert.deepEqual(room.steamWisps(), []);
 });
