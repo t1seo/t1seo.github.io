@@ -100,6 +100,15 @@ export function createAlbumPage(photo: AlbumPhoto, number: number) {
   const page = document.createElement('figure');
   page.className = 'ph-album-page';
   page.dataset.photoId = photo.id;
+  page.dataset.collage = String((number - 1) % 4);
+  const collage = document.createElement('div');
+  collage.className = 'ph-album-collage';
+  collage.setAttribute('aria-hidden', 'true');
+  for (const className of ['ph-album-scrap ph-album-scrap--rose', 'ph-album-scrap ph-album-scrap--grid', 'ph-album-scrap ph-album-scrap--note', 'ph-album-stamp']) {
+    const scrap = document.createElement('span');
+    scrap.className = className;
+    collage.append(scrap);
+  }
   const mount = document.createElement('div');
   mount.className = 'ph-album-photo-mount';
   const loading = document.createElement('span');
@@ -110,7 +119,7 @@ export function createAlbumPage(photo: AlbumPhoto, number: number) {
   folio.className = 'ph-album-folio';
   folio.textContent = String(number).padStart(2, '0');
   folio.setAttribute('aria-hidden', 'true');
-  page.append(mount, folio);
+  page.append(collage, mount, folio);
   return {
     page,
     ready(url: string) {
@@ -118,10 +127,23 @@ export function createAlbumPage(photo: AlbumPhoto, number: number) {
       image.alt = photo.alt;
       image.width = photo.width;
       image.height = photo.height;
+      image.style.maxWidth = `${photo.width}px`;
+      image.style.maxHeight = `${photo.height}px`;
       image.decoding = 'async';
       image.draggable = false;
       image.src = url;
-      mount.replaceChildren(image);
+      const print = document.createElement('div');
+      print.className = 'ph-album-print';
+      print.style.setProperty('--print-width', `${photo.width + 22}px`);
+      print.style.setProperty('--print-ratio', String((photo.width + 22) / (photo.height + 50)));
+      const tape = document.createElement('span');
+      tape.className = 'ph-album-tape';
+      tape.setAttribute('aria-hidden', 'true');
+      const clip = document.createElement('span');
+      clip.className = 'ph-album-paperclip';
+      clip.setAttribute('aria-hidden', 'true');
+      print.append(image, tape, clip);
+      mount.replaceChildren(print);
     },
     failed(retry: () => void) {
       const action = button('Retry photograph', 'ph-album-photo-retry');
