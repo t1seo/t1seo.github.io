@@ -1,0 +1,160 @@
+{
+  "status": "Complete: all five spring source originals preserved and runtime WebP plates encoded.",
+  "season": "spring",
+  "generatedAt": "2026-10-01",
+  "assets": [
+    {
+      "time": "morning",
+      "mode": "built-in image_gen",
+      "prompt": "Use case: lighting-weather. Edit ONE full room illustration. Input Image 1 is the authoritative EDIT TARGET; Input Image 2 is only a spring season and time-of-day LIGHTING/EXTERIOR reference.\nChange ONLY the exterior foliage/sky/atmosphere and overall ambient time-of-day illumination of Image 1 to match Image 2. Keep the entire Image 1 room geometry, furniture, window frames, desktop objects and their EXACT PIXEL POSITIONS frozen. Final frame1672×941.\nExterior: turn Image 1's autumn orange trees into fresh spring green hills with abundant soft pink cherry blossoms exactly like Image 2. Match Image 2 sky, river reflections, city ambient light and time-of-day colors.\nCRITICAL geometric invariants: retain Image 1's tall graphite-bronze articulated desk lamp EXACTLY at its current position with no resizing/translation: base x1208..1262/y552..567, upright1235..1240/y449..557, shade1130..1178/y401..439. Retain the bronze singing bowl next to pencil pot x1058..1099/y535..562; retain amber reed diffuser on LEFT white side table x108..138/y623..663 with fine dark reeds x106..140/y580..633. Retain cream floor lampshade x153..252/y389..449. Keep black monitor, ivory keyboard, books, coffee, plant, room/city structures and floor unchanged.\nBOTH floor lamp and desk lamp must remain OFF, nonemissive shades and no direct artificial warm pool on chair/desk. The reference Image 2 has an old small desk lamp and a lounge teacup; DO NOT copy those obsolete objects or its glowing floor lamp. Preserve all Image 1 new objects instead. Leave desktop gap x1125..1187/y531..561 empty.\nNo clock, speaker, pet, bed or new object. No text. Match original painted soft 2.5D art. The edit is season and ambient lighting only; NEVER shift lamp or any object.\nDesired result: SPRING MORNING matching Image 2's blue dawn sky with peach-pink clouds and warm peach horizon; soft early morning ambience.",
+      "sourceTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/spring/morning.webp",
+      "output": "asset-sources/seoul-studio/refined-desk/spring/morning.png",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648 as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648/exec-0f8e589d-1912-4ed5-8581-6314d8f8d18b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "qa": "Visually reviewed full plate and runtime object crops: spring/time retained; tall desk lamp, bronze bowl and amber diffuser aligned to master; both lamps off; black monitor and empty clock gap.",
+      "runtime": "public/assets/penthouse/seoul/spring/morning.webp",
+      "encoding": {
+        "time": "morning",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceBytes": 2043231,
+        "sourceSha256": "18b8e0fa117812e3e2e4760361b9b49842618c98ebf77b27cd95e76a2c69408b",
+        "referenceSha256": "3541aac00c5ae57edbf6a4cf0fe8ff515c7b20fc2c9fc54c0a886cc10a9a4575",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 245856,
+        "runtimeSha256": "e83ec8e3ebf14d6d65c72c3238282ca930347814ea98aa466070ebdf2502d492",
+        "normalization": "none",
+        "encoding": "Pillow WebP quality=90 method=6"
+      }
+    },
+    {
+      "time": "noon",
+      "mode": "built-in image_gen",
+      "prompt": "Use case: lighting-weather. Edit ONE full room illustration. Input Image 1 is the authoritative EDIT TARGET; Input Image 2 is only a spring season and time-of-day LIGHTING/EXTERIOR reference.\nChange ONLY the exterior foliage/sky/atmosphere and overall ambient time-of-day illumination of Image 1 to match Image 2. Keep the entire Image 1 room geometry, furniture, window frames, desktop objects and their EXACT PIXEL POSITIONS frozen. Final frame1672×941.\nExterior: turn Image 1's autumn orange trees into fresh spring green hills with abundant soft pink cherry blossoms exactly like Image 2. Match Image 2 sky, river reflections, city ambient light and time-of-day colors.\nCRITICAL geometric invariants: retain Image 1's tall graphite-bronze articulated desk lamp EXACTLY at its current position with no resizing/translation: base x1208..1262/y552..567, upright1235..1240/y449..557, shade1130..1178/y401..439. Retain the bronze singing bowl next to pencil pot x1058..1099/y535..562; retain amber reed diffuser on LEFT white side table x108..138/y623..663 with fine dark reeds x106..140/y580..633. Retain cream floor lampshade x153..252/y389..449. Keep black monitor, ivory keyboard, books, coffee, plant, room/city structures and floor unchanged.\nBOTH floor lamp and desk lamp must remain OFF, nonemissive shades and no direct artificial warm pool on chair/desk. The reference Image 2 has an old small desk lamp and a lounge teacup; DO NOT copy those obsolete objects or its glowing floor lamp. Preserve all Image 1 new objects instead. Leave desktop gap x1125..1187/y531..561 empty.\nNo clock, speaker, pet, bed or new object. No text. Match original painted soft 2.5D art. The edit is season and ambient lighting only; NEVER shift lamp or any object.\nDesired result: SPRING NOON matching Image 2's bright clear blue sky and soft white cumulus clouds, fresh green hills and abundant pink cherry blossoms; neutral sunny daytime.",
+      "sourceTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/spring/noon.webp",
+      "output": "asset-sources/seoul-studio/refined-desk/spring/noon.png",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648 as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648/exec-31cd5366-5a48-4c70-8f1d-fce13cf03036.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "qa": "Visually reviewed full plate and runtime object crops: spring/time retained; tall desk lamp, bronze bowl and amber diffuser aligned to master; both lamps off; black monitor and empty clock gap.",
+      "runtime": "public/assets/penthouse/seoul/spring/noon.webp",
+      "encoding": {
+        "time": "noon",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceBytes": 2009995,
+        "sourceSha256": "70cc9bafd653d8708a5ec9450540131d25627ed6dfeb8254f84632fe454e06de",
+        "referenceSha256": "37d88ef1bbe59f5719f13ced5b74a12248ae50f93ffde11de70f9d6e8a22a9d1",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 248950,
+        "runtimeSha256": "a52f2972902f85615b8c8465441cbc7d2dfbea0e8bd705031912ca0004fff74e",
+        "normalization": "none",
+        "encoding": "Pillow WebP quality=90 method=6"
+      }
+    },
+    {
+      "time": "afternoon",
+      "mode": "built-in image_gen",
+      "prompt": "Use case: lighting-weather. Edit ONE full room illustration. Input Image 1 is the authoritative EDIT TARGET; Input Image 2 is only a spring season and time-of-day LIGHTING/EXTERIOR reference.\nChange ONLY the exterior foliage/sky/atmosphere and overall ambient time-of-day illumination of Image 1 to match Image 2. Keep the entire Image 1 room geometry, furniture, window frames, desktop objects and their EXACT PIXEL POSITIONS frozen. Final frame1672×941.\nExterior: turn Image 1's autumn orange trees into fresh spring green hills with abundant soft pink cherry blossoms exactly like Image 2. Match Image 2 sky, river reflections, city ambient light and time-of-day colors.\nCRITICAL geometric invariants: retain Image 1's tall graphite-bronze articulated desk lamp EXACTLY at its current position with no resizing/translation: base x1208..1262/y552..567, upright1235..1240/y449..557, shade1130..1178/y401..439. Retain the bronze singing bowl next to pencil pot x1058..1099/y535..562; retain amber reed diffuser on LEFT white side table x108..138/y623..663 with fine dark reeds x106..140/y580..633. Retain cream floor lampshade x153..252/y389..449. Keep black monitor, ivory keyboard, books, coffee, plant, room/city structures and floor unchanged.\nBOTH floor lamp and desk lamp must remain OFF, nonemissive shades and no direct artificial warm pool on chair/desk. The reference Image 2 has an old small desk lamp and a lounge teacup; DO NOT copy those obsolete objects or its glowing floor lamp. Preserve all Image 1 new objects instead. Leave desktop gap x1125..1187/y531..561 empty.\nNo clock, speaker, pet, bed or new object. No text. Match original painted soft 2.5D art. The edit is season and ambient lighting only; NEVER shift lamp or any object.\nDesired result: SPRING AFTERNOON matching Image 2's clear blue sky, golden warm late-afternoon sunlight and a few fine peach clouds. Golden sunlight touches room's left wall and floor naturally, while both actual lamps remain OFF. Pink cherry blossoms with spring green trees.",
+      "sourceTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "output": "asset-sources/seoul-studio/refined-desk/spring/afternoon.png",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648 as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648/exec-de7d4a91-c818-41fd-8b6e-88fb49d33682.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "correctionPrompt": "Precise tiny artifact removal in this full1672×941 hand-painted spring afternoon room. Preserve the image completely except ONE unwanted object: there is a tiny stray thin beige vertical post/stick on a flat base on the desktop at x1125..1153, y514..565 BETWEEN the bronze bowl and the large black window mullion. Erase that tiny beige stick and its little base. Replace just that tiny area with continuous empty walnut desktop below y550 and cherry blossom foliage above y550. That gap must be empty for a digital clock later. Keep the REAL tall graphite-bronze desk lamp at far right completely unchanged, including its stem around x1238 and its large dark base. Keep all colors, exactpositions, spring blossoms, afternoon sky, room, diffuser, bowl, keyboard and black monitor unchanged. Both existing lamps remain OFF. Do not add anything.",
+      "initialOutputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648 as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648/exec-f9ee041f-3345-4bdb-b214-cbe88f6bf963.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "qa": "Visually reviewed full plate and runtime object crops: spring/time retained; tall desk lamp, bronze bowl and amber diffuser aligned to master; both lamps off; black monitor and empty clock gap.",
+      "runtime": "public/assets/penthouse/seoul/spring/afternoon.webp",
+      "encoding": {
+        "time": "afternoon",
+        "sourceSize": [
+          1671,
+          941
+        ],
+        "sourceBytes": 1985872,
+        "sourceSha256": "825607411034105ded5e4e92949e9d85f1727859d22fbf3fe958c255e9bd6d89",
+        "referenceSha256": "796c1a4bd0429fbac950a1f32d69151a3d1a0e02cc8534149ebd5ff0a2e0f3ac",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 245950,
+        "runtimeSha256": "b0e3fad78380609d6b0829ef42248c2f43839337e5e8dacf01fc9b2e79f2f76c",
+        "normalization": "ffmpeg Lanczos 1671 to 1672 width only",
+        "encoding": "Pillow WebP quality=90 method=6"
+      }
+    },
+    {
+      "time": "evening",
+      "mode": "built-in image_gen",
+      "prompt": "Use case: lighting-weather. Edit ONE full room illustration. Input Image 1 is the authoritative EDIT TARGET; Input Image 2 is only a spring season and time-of-day LIGHTING/EXTERIOR reference.\nChange ONLY the exterior foliage/sky/atmosphere and overall ambient time-of-day illumination of Image 1 to match Image 2. Keep the entire Image 1 room geometry, furniture, window frames, desktop objects and their EXACT PIXEL POSITIONS frozen. Final frame1672×941.\nExterior: turn Image 1's autumn orange trees into fresh spring green hills with abundant soft pink cherry blossoms exactly like Image 2. Match Image 2 sky, river reflections, city ambient light and time-of-day colors.\nCRITICAL geometric invariants: retain Image 1's tall graphite-bronze articulated desk lamp EXACTLY at its current position with no resizing/translation: base x1208..1262/y552..567, upright1235..1240/y449..557, shade1130..1178/y401..439. Retain the bronze singing bowl next to pencil pot x1058..1099/y535..562; retain amber reed diffuser on LEFT white side table x108..138/y623..663 with fine dark reeds x106..140/y580..633. Retain cream floor lampshade x153..252/y389..449. Keep black monitor, ivory keyboard, books, coffee, plant, room/city structures and floor unchanged.\nBOTH floor lamp and desk lamp must remain OFF, nonemissive shades and no direct artificial warm pool on chair/desk. The reference Image 2 has an old small desk lamp and a lounge teacup; DO NOT copy those obsolete objects or its glowing floor lamp. Preserve all Image 1 new objects instead. Leave desktop gap x1125..1187/y531..561 empty.\nNo clock, speaker, pet, bed or new object. No text. Match original painted soft 2.5D art. The edit is season and ambient lighting only; NEVER shift lamp or any object.\nDesired result: SPRING EVENING matching Image 2's purple-blue upper sky grading into saturated rose-pink sunset horizon, dark green hills with cherry blossoms, golden city/bridge lights and reflected streaks across dark blue Han River. Match dusk room ambience from sky and shelf lights. BOTH actual lamp shades stay nonemissive and OFF. Do not import the short obsolete lamp anywhere in the empty clock gap.",
+      "sourceTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/spring/evening.webp",
+      "output": "asset-sources/seoul-studio/refined-desk/spring/evening.png",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648 as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648/exec-a512ce00-aded-4d79-99a2-bb5a0d9e0836.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "qa": "Visually reviewed full plate and runtime object crops: spring/time retained; tall desk lamp, bronze bowl and amber diffuser aligned to master; both lamps off; black monitor and empty clock gap.",
+      "runtime": "public/assets/penthouse/seoul/spring/evening.webp",
+      "encoding": {
+        "time": "evening",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceBytes": 2059338,
+        "sourceSha256": "d065e40193cf5457c6ffd746c5eb03f2d75de464f2465c65422c7b738e20c21a",
+        "referenceSha256": "1841936e1d5966efa30a096d7296888fe51ecf7c355591892df982b237d79e9a",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 255880,
+        "runtimeSha256": "22bb86f67f71cfb4f4c8e97be48f83aa9efcc347ce3f907db3037a8bc4343750",
+        "normalization": "none",
+        "encoding": "Pillow WebP quality=90 method=6"
+      }
+    },
+    {
+      "time": "night",
+      "mode": "built-in image_gen",
+      "prompt": "Use case: lighting-weather. Edit ONE full room illustration. Input Image 1 is the authoritative EDIT TARGET; Input Image 2 is only a spring season and time-of-day LIGHTING/EXTERIOR reference.\nChange ONLY the exterior foliage/sky/atmosphere and overall ambient time-of-day illumination of Image 1 to match Image 2. Keep the entire Image 1 room geometry, furniture, window frames, desktop objects and their EXACT PIXEL POSITIONS frozen. Final frame1672×941.\nExterior: turn Image 1's autumn orange trees into fresh spring green hills with abundant soft pink cherry blossoms exactly like Image 2. Match Image 2 sky, river reflections, city ambient light and time-of-day colors.\nCRITICAL geometric invariants: retain Image 1's tall graphite-bronze articulated desk lamp EXACTLY at its current position with no resizing/translation: base x1208..1262/y552..567, upright1235..1240/y449..557, shade1130..1178/y401..439. Retain the bronze singing bowl next to pencil pot x1058..1099/y535..562; retain amber reed diffuser on LEFT white side table x108..138/y623..663 with fine dark reeds x106..140/y580..633. Retain cream floor lampshade x153..252/y389..449. Keep black monitor, ivory keyboard, books, coffee, plant, room/city structures and floor unchanged.\nBOTH floor lamp and desk lamp must remain OFF, nonemissive shades and no direct artificial warm pool on chair/desk. The reference Image 2 has an old small desk lamp and a lounge teacup; DO NOT copy those obsolete objects or its glowing floor lamp. Preserve all Image 1 new objects instead. Leave desktop gap x1125..1187/y531..561 empty.\nNo clock, speaker, pet, bed or new object. No text. Match original painted soft 2.5D art. The edit is season and ambient lighting only; NEVER shift lamp or any object.\nDesired result: SPRING NIGHT matching Image 2's deep cobalt-blue sky with very subtle clouds, dark blue-green hills and pink cherry blossom groves; brilliant golden city/bridge lights reflected across deep blue Han River. Night ambience in the room comes only from shelf/ceiling/indirect architectural lights and exterior: desk lamp OFF, floor lamp OFF, cream lampshade muted and nonemissive, lounge chair without bright direct lamplight. Preserve Image 1 exact furniture/object silhouettes and registrations. Never import short obsolete desk LED lamp, old teacup or glowing floor shade from Image 2.",
+      "sourceTarget": "asset-sources/seoul-studio/refined-desk/autumn/noon.png",
+      "reference": "public/assets/penthouse/seoul/spring/night.webp",
+      "output": "asset-sources/seoul-studio/refined-desk/spring/night.png",
+      "outputHint": "Generated images are saved to /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648 as /Users/cillian/Library/Application Support/orca/codex-accounts/f2ae4d55-4afe-4e94-88a3-ace3a4ff86da/home/generated_images/01a0f727-8d70-7940-b721-f92b71599648/exec-b77010eb-c8d8-42e6-9af9-9408d99d828c.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "qa": "Visually reviewed full plate and runtime object crops: spring/time retained; tall desk lamp, bronze bowl and amber diffuser aligned to master; both lamps off; black monitor and empty clock gap.",
+      "runtime": "public/assets/penthouse/seoul/spring/night.webp",
+      "encoding": {
+        "time": "night",
+        "sourceSize": [
+          1672,
+          941
+        ],
+        "sourceBytes": 2023467,
+        "sourceSha256": "a3cdc79280ca3bb2f0679ade48d50e8873bcc716545f99b45d1d6d3ec2266944",
+        "referenceSha256": "8be366e10ad316d9174b22c0f45c148e3f978008fde828b8812eaa1a994f7f8e",
+        "runtimeSize": [
+          1672,
+          941
+        ],
+        "runtimeBytes": 256936,
+        "runtimeSha256": "6cd0c2a2931ac262bda7a13b49a463b8edf8aeb82113d1d8d71ec724175e62e1",
+        "normalization": "none",
+        "encoding": "Pillow WebP quality=90 method=6"
+      }
+    }
+  ],
+  "review": {
+    "geometry": "Desk lamp pole about x1238, foot around y559, shade about x1154/y420; diffuser bottle around x122/y648; bronze bowl around x1079/y549. Matched across five plates against approved autumn noon master.",
+    "lamps": "Desk lamp and floor lampshade nonemissive in source; ambient ceiling/shelf/time-of-day lighting retained.",
+    "originals": "Generated PNG originals are untouched. Afternoon source is 1671×941; runtime alone normalized to 1672×941 with Lanczos.",
+    "referenceRevision": "Reference hashes record old spring WebP plates before replacement; approved source master path is fixed in each record."
+  }
+}
