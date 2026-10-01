@@ -5,7 +5,7 @@ import { mountSeasonalDecor } from './penthouse-seasonal-decor.ts';
 
 const state = (season: Season, time: ClimateState['time'] = 'noon'): ClimateState => ({ season, time, weather: 'clear', auto: false });
 const flush = async () => { for (let i = 0; i < 5; i++) await Promise.resolve(); };
-const sources = (season: Season) => ['textile', 'vignette'].map(kind => `/assets/penthouse/seasonal-accents/${season}-${kind}.webp`);
+const sources = (season: Season) => [`/assets/penthouse/seasonal-accents/${season}-vignette.webp`];
 
 function setup(t: TestContext) {
   class ImageFixture {
@@ -52,48 +52,47 @@ function setup(t: TestContext) {
   } };
 }
 
-test('decor stays empty until both current-season images have decoded', async t => {
+test('decor stays empty until the current-season vignette has decoded', async t => {
   const f = setup(t);
   f.decor.update(state('spring'));
   assert.deepEqual(f.images.map(image => image.src), sources('spring'));
-  f.images[0].resolve(); await flush();
   assert.deepEqual(f.layer().shown, []);
-  f.images[1].resolve(); await flush();
+  f.images[0].resolve(); await flush();
   assert.deepEqual(f.layer().shown, [sources('spring')]);
   assert.equal(f.layer().attributes.get('aria-hidden'), 'true');
   assert.ok(f.images.every(image => image.alt === '' && !image.draggable));
 });
 
-test('changing time in the same season does not reload decorative images', async t => {
+test('changing time in the same season does not reload the vignette', async t => {
   const f = setup(t); await f.load('summer');
   f.decor.update(state('summer', 'night'));
-  assert.equal(f.images.length, 2);
+  assert.equal(f.images.length, 1);
   assert.deepEqual(f.layer().shown, [sources('summer')]);
 });
 
-test('a late season decode cannot replace a newer fully decoded pair', async t => {
+test('a late season decode cannot replace a newer fully decoded vignette', async t => {
   const f = setup(t); f.decor.update(state('spring')); f.decor.update(state('winter'));
-  f.images[2].resolve(); f.images[3].resolve(); await flush();
-  f.images[0].resolve(); f.images[1].resolve(); await flush();
+  f.images[1].resolve(); await flush();
+  f.images[0].resolve(); await flush();
   assert.deepEqual(f.layer().shown, [sources('winter')]);
-  assert.ok(f.images.slice(0, 2).every(image => image.src === ''));
+  assert.equal(f.images[0].src, '');
 });
 
 test('returning to the displayed season cancels the replacement without reloading', async t => {
   const f = setup(t); await f.load('autumn');
   f.decor.update(state('winter')); f.decor.update(state('autumn'));
-  f.images[2].resolve(); f.images[3].resolve(); await flush();
+  f.images[1].resolve(); await flush();
   assert.deepEqual(f.layer().shown, [sources('autumn')]);
-  assert.equal(f.images.length, 4);
-  assert.ok(f.images.slice(2).every(image => image.src === ''));
+  assert.equal(f.images.length, 2);
+  assert.equal(f.images[1].src, '');
 });
 
-test('a failed pair preserves the last decoration and permits retry', async t => {
+test('a failed vignette preserves the last decoration and permits retry', async t => {
   const f = setup(t); await f.load('autumn');
   f.decor.update(state('winter'));
-  f.images[2].resolve(); f.images[3].reject(new DOMException('Image failed to decode', 'EncodingError')); await flush();
+  f.images[1].reject(new DOMException('Image failed to decode', 'EncodingError')); await flush();
   assert.deepEqual(f.layer().shown, [sources('autumn')]);
-  assert.ok(f.images.slice(2).every(image => image.src === ''));
+  assert.equal(f.images[1].src, '');
   await f.load('winter');
   assert.deepEqual(f.layer().shown, [sources('autumn'), sources('winter')]);
 });
@@ -103,7 +102,7 @@ test('destroy clears pending images and prevents late swaps or new loads', async
   f.decor.destroy(); f.decor.update(state('winter'));
   f.images.forEach(image => image.resolve()); await flush();
   assert.ok(f.images.every(image => image.src === ''));
-  assert.equal(f.images.length, 2);
+  assert.equal(f.images.length, 1);
   assert.equal(f.layer().removed, true);
   assert.deepEqual(f.layer().shown.flat(), []);
 });
