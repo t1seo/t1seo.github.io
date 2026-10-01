@@ -68,6 +68,7 @@ export function mountPhotoMotionControls(view: MotionView, pet: MotionPet, isAni
       : unavailable ? 'That moment is not ready yet. Please try again.'
       : loading ? 'Getting this little moment ready…'
       : buttons.length > 0 && buttons.every(button => button.disabled) ? 'Milky’s moments are not available in this view yet.'
+      : !pet.canPhotoMotion('paws-rest') || !pet.canPhotoMotion('sleepy-peek') ? 'Some quiet moments are not ready yet. You can still enjoy the others.'
       : !pet.canPhotoMotion('chin-rest') || !pet.canPhotoMotion('belly-up') ? 'The two bed moments need Milky’s bed in view. Try a wider window.'
       : 'Small moments inspired by Milky’s photographs. The last two take place in the bed.';
   }

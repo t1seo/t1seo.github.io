@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { photoMotionButtonsMarkup, PHOTO_MOTION_ACTIONS } from './penthouse-photo-motions-ui.ts';
+import { mountPhotoMotionControls, photoMotionButtonsMarkup, PHOTO_MOTION_ACTIONS } from './penthouse-photo-motions-ui.ts';
 import { photoMotionUiFixture as fixture } from './penthouse-photo-motions-ui-test-fixture.ts';
 
 test('renders six named native buttons without replacing keyboard activation', () => {
@@ -42,6 +42,27 @@ test('keeps bed-only actions disabled when the cushion is outside the visible ro
   assert.deepEqual(f.buttons.filter(button => button.disabled).map(button => button.dataset.photoMotion), ['chin-rest', 'belly-up']);
   assert.match(f.status.textContent, /bed.*view/i);
 });
+
+for (const missing of ['paws-rest', 'sleepy-peek'] as const) {
+  test(`does not recommend a wider window while ${missing} is not ready`, t => {
+    // Given standing moments ready while a rest prerequisite is unavailable.
+    const f = fixture(t);
+    f.controls.destroy();
+    const controls = mountPhotoMotionControls({ buttons: () => f.buttons, status: () => f.status }, {
+      canPhotoMotion: kind => kind !== missing && kind !== 'chin-rest' && kind !== 'belly-up',
+      photoMotion: () => false,
+      subscribePhotoMotions: () => () => {},
+    }, () => true, () => {});
+    t.after(() => controls.destroy());
+    // When the Milky drawer refreshes.
+    controls.refresh();
+    // Then available moments remain usable and the guidance describes readiness.
+    assert.equal(f.buttons.find(button => button.dataset.photoMotion === 'tilt')?.disabled, false);
+    assert.equal(f.buttons.find(button => button.dataset.photoMotion === 'pant')?.disabled, false);
+    assert.match(f.status.textContent, /not ready yet/i);
+    assert.doesNotMatch(f.status.textContent, /wider window/i);
+  });
+}
 
 test('rechecks geometry before closing the drawer on a stale available button', t => {
   // Given an available button whose bed becomes cropped before the next refresh.
