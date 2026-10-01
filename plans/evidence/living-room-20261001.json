@@ -1,0 +1,200 @@
+{
+  "implementation": "808588f",
+  "baseline": "73a3ae1",
+  "automated": {
+    "unitTests": 390,
+    "failed": 0,
+    "typecheck": "passed",
+    "viteBuild": "passed",
+    "diffCheck": "passed",
+    "domIntegration": {
+      "passed": 12,
+      "checks": [
+        "mount has no music/rain autoplay",
+        "clock starts 25 minutes and moves focus to Pause",
+        "pause/resume preserves exact remaining time and keyboard focus",
+        "panel navigation mirrors countdown; cancel restores local clock and Start focus",
+        "50-minute completion is deferred while hidden and restores local clock exactly once",
+        "memo survives panel navigation, retains Korean text, renders markup as inert text",
+        "memo survives complete root remount through browser storage",
+        "memo Clear removes content and restores textarea focus",
+        "rain-only sound remains independent from music and survives panel navigation",
+        "preset names stay inert text; five-entry cap is enforced visibly",
+        "applying preset emits one atomic climate update, pauses Auto, restores lamps/monitor/still/pet/sound/UI",
+        "delete releases one preset slot and restores name-field focus"
+      ],
+      "limits": "Node happy-dom simulation of actual root wiring and actual UI/climate/storage/timer modules. Scene, pet and audio engine are boundary spies; no browser rendering, native focus trap, autoplay policy or audible output asserted."
+    }
+  },
+  "performance": {
+    "scope": "Native CPU Skia rendering benchmark; not a Chrome or whole-page FPS claim",
+    "methodology": "Matched 1672×941 decoded autumn/rain/night plate and real objects, seeded rain, monitor completed and both lamps ON. 600 50-ms RAF callbacks warm the simulation to 30 s and all 76 physical drops; compare next 180 rendered frames. RAF timestamps are input to adaptive pressure only; measurements are actual native Canvas draw + 1 px readback wall time. A separate 1800-callback 60 Hz run followed by 50-ms callbacks checks the normal-to-sustained-pressure transition. No GUI or browser debugging automation used.",
+    "limitations": [
+      "CPU Skia differs from Chrome GPU compositing and the complete DOM/pet workload.",
+      "Injected RAF intervals do not measure browser FPS.",
+      "The one scheduled rare boat wake is deliberately not fired in matched rain workload.",
+      "Exploratory trial 1 artifacts are excluded because they did not track global timers and predate final reflection spread."
+    ],
+    "before": {
+      "medianMs": 39.314250000003085,
+      "p95Ms": 84.84695899999497,
+      "samples": 180,
+      "beadRefractions": [
+        76
+      ],
+      "strokes": {
+        "min": 391,
+        "max": 401
+      },
+      "detail": "full-baseline"
+    },
+    "after": {
+      "medianMs": 23.730375000002823,
+      "p95Ms": 33.69916700000249,
+      "samples": 180,
+      "beadRefractions": [
+        35
+      ],
+      "strokes": {
+        "min": 170,
+        "max": 180
+      },
+      "detail": "quiet"
+    },
+    "change": {
+      "medianDecreasePercent": 39.639252942632865,
+      "p95DecreasePercent": 60.282410357212115,
+      "refractionDecreasePercent": 53.94736842105263
+    },
+    "lifecycle": {
+      "beforeDestroy": {
+        "frames": 1,
+        "boatTimers": 1
+      },
+      "afterDestroy": {
+        "frames": 0,
+        "boatTimers": 0
+      },
+      "steadyTextureAllocations": 0
+    },
+    "sourceHashes": {
+      "penthouse-effects.ts": "0b4596aa5d02a7c64051cb44f2097e3c660acbc48156cc0342e1e27a768798f2",
+      "penthouse-atmosphere.ts": "17a0f4fd8f614b057c789696284d24c10ab2bd3c25e5d8f354dd19fe56595c8d",
+      "penthouse-room-life.ts": "4d0034310704620f1b51fd90bd3d6f050f4bbed5789bc9d04459f996f7691d25",
+      "penthouse-objects.ts": "ac73aa109447d8ed2ed98ed4bc053bafe981856e42e968dfd4cda32cf3888d89",
+      "penthouse-quality.ts": "f513999c028154fa8fbe8b1401388efdaf93caff384afce581d0a34c0a9a7b91",
+      "penthouse-river-boat.ts": "5a2d7e77004ee08ae6b12df38092008a56600e38a9c32709e7493794b170ea2c"
+    }
+  },
+  "review": {
+    "result": "No release-blocking findings",
+    "fixed": "Keyboard focus moves to the next visible focus-timer control after each user action."
+  },
+  "chrome": {
+    "provider": "Official Codex Computer Use / @oai/sky / Chrome on macOS",
+    "passed": [
+      "25-minute Start shows 25:00",
+      "Pause retains24:39 across1.2seconds",
+      "Resume continues countdown",
+      "Room clock accessible label shows remaining time",
+      "Cancel restores local time",
+      "Memo input renders tags as text and survives close/reopen"
+    ],
+    "screenshots": [
+      "/tmp/t1seo-feature-focus-start.jpg",
+      "/tmp/t1seo-feature-focus-clock.jpg",
+      "/tmp/t1seo-feature-focus-cancel.jpg",
+      "/tmp/t1seo-feature-memo-input.jpg"
+    ],
+    "limitations": [
+      "Provider changed the selected Chrome window after reload; further GUI actions stopped to preserve user windows.",
+      "Preset, audio, drag, boat and portrait flows were not exercised in Chrome; their controller/integration coverage is recorded separately.",
+      "Memo reload persistence is covered by DOM integration; real localhost QA note <test>&text may remain because the known window could no longer be selected.",
+      "No measured Chrome FPS or audible-output claim."
+    ]
+  },
+  "preserved": {
+    "roomPlates": "unchanged",
+    "milkySprites": "unchanged",
+    "paintedBallBed": "unchanged",
+    "dependencies": "unchanged"
+  },
+  "boatRendering": {
+    "label": "Native Skia renderer artifact, not a browser screenshot or GUI fallback",
+    "method": "Actual mountPenthouseEffects and RiverBoat draw path, real autumn/noon and night plates; decoded real objects, deterministic boat direction and manually triggered actual scheduled wake; 60 Hz delivered RAF timestamps. Compositor glass/monitor masks remain intact. DOM overlays, Milky and clock/calendar HTML are outside this Canvas-only render.",
+    "crop": {
+      "source": [
+        190,
+        400,
+        1300,
+        120
+      ],
+      "output": [
+        2600,
+        240
+      ]
+    },
+    "sourceHashes": {
+      "penthouse-effects.ts": "0b4596aa5d02a7c64051cb44f2097e3c660acbc48156cc0342e1e27a768798f2",
+      "penthouse-river-boat.ts": "5a2d7e77004ee08ae6b12df38092008a56600e38a9c32709e7493794b170ea2c",
+      "penthouse-atmosphere.ts": "17a0f4fd8f614b057c789696284d24c10ab2bd3c25e5d8f354dd19fe56595c8d"
+    },
+    "reports": [
+      {
+        "time": "noon",
+        "pose": "mullion",
+        "boatX": 504.09523809523836,
+        "sceneElapsed": 9.683333333333394,
+        "detail": "full",
+        "fullPath": "/tmp/t1seo-living-effects-perf/boat-noon-mullion-native.png",
+        "riverPath": "/tmp/t1seo-living-effects-perf/boat-noon-mullion-river-native.png"
+      },
+      {
+        "time": "noon",
+        "pose": "visible",
+        "boatX": 598.5714285714268,
+        "sceneElapsed": 12.800000000000216,
+        "detail": "full",
+        "fullPath": "/tmp/t1seo-living-effects-perf/boat-noon-visible-native.png",
+        "riverPath": "/tmp/t1seo-living-effects-perf/boat-noon-visible-river-native.png"
+      },
+      {
+        "time": "noon",
+        "pose": "monitor",
+        "boatX": 914.5079365079448,
+        "sceneElapsed": 23.149999999999967,
+        "detail": "full",
+        "fullPath": "/tmp/t1seo-living-effects-perf/boat-noon-monitor-native.png",
+        "riverPath": "/tmp/t1seo-living-effects-perf/boat-noon-monitor-river-native.png"
+      },
+      {
+        "time": "night",
+        "pose": "mullion",
+        "boatX": 504.0952380952533,
+        "sceneElapsed": 9.683333333333394,
+        "detail": "full",
+        "fullPath": "/tmp/t1seo-living-effects-perf/boat-night-mullion-native.png",
+        "riverPath": "/tmp/t1seo-living-effects-perf/boat-night-mullion-river-native.png"
+      },
+      {
+        "time": "night",
+        "pose": "visible",
+        "boatX": 598.5714285714317,
+        "sceneElapsed": 12.800000000000216,
+        "detail": "full",
+        "fullPath": "/tmp/t1seo-living-effects-perf/boat-night-visible-native.png",
+        "riverPath": "/tmp/t1seo-living-effects-perf/boat-night-visible-river-native.png"
+      },
+      {
+        "time": "night",
+        "pose": "monitor",
+        "boatX": 913.9999999999628,
+        "sceneElapsed": 23.149999999999967,
+        "detail": "full",
+        "fullPath": "/tmp/t1seo-living-effects-perf/boat-night-monitor-native.png",
+        "riverPath": "/tmp/t1seo-living-effects-perf/boat-night-monitor-river-native.png"
+      }
+    ],
+    "inspected": "Root viewed actual noon and night river crops; small matte hull fits the painted water. Worker verified mullion and monitor occlusion. Not browser evidence."
+  }
+}
