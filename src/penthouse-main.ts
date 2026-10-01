@@ -7,6 +7,8 @@ import { mountSoundMixer } from './penthouse-sound-ui';
 import { createGuestbookPanel } from './penthouse-guestbook-panel';
 import { createCyberClimate, CYBER_SEASONS, CYBER_TIMES, CYBER_WEATHER, type ClimateState, type LocalClimateInfo } from './cyber-climate';
 import { createCyberSound, type CyberPlaybackState } from './cyber-sound';
+import { MILKY_ALBUM_MUSIC_TRACK } from './cyber-music-catalog';
+import type { MusicSession } from './cyber-music-session';
 import { mountCyberPet } from './cyber-pet';
 import { mountPenthouseScene } from './penthouse-scene';
 import { MILKY_STUDY_FLOOR } from './penthouse-atmosphere';
@@ -58,6 +60,7 @@ let albumViewer: ReturnType<typeof import('./penthouse-album').createMilkyAlbum>
 let albumLoad: Promise<typeof import('./penthouse-album')> | undefined;
 let albumRequest = 0;
 let albumOpen = false;
+let albumMusic: MusicSession | undefined;
 const workspace = { monitor: true, lamp: true, floorLamp: true };
 function toast(message: string) {
   clearTimeout(toastTimer);
@@ -91,6 +94,7 @@ const personal = mountPersonalTools(root, {
 });
 function updatePlayback(next: CyberPlaybackState) {
   playing = next;
+  albumViewer?.updateMusic(next.enabled);
   root.querySelectorAll('[data-action="music"]').forEach(button => button.setAttribute('aria-pressed', String(next.enabled)));
   $('[data-music-label]').textContent = next.enabled ? 'Pause music' : 'Play music';
   $('[data-track-status]').textContent = next.loading ? 'LOADING RECORD' : next.playing ? 'NOW PLAYING' : next.error ? 'PLAYBACK UNAVAILABLE' : 'MUSIC IS OFF';
@@ -128,19 +132,23 @@ function cancelAlbumLoad() {
   albumRequest++;
   root.querySelectorAll('[data-action="album"][aria-busy]').forEach(button => button.removeAttribute('aria-busy'));
   $('[data-album-status]').textContent = '';
+  if (!albumOpen) { if (!destroyed) albumMusic?.close(); albumMusic = undefined; }
 }
 async function openAlbum(trigger: HTMLElement) {
+  if (albumOpen) return;
   cancelAlbumLoad();
   const request = albumRequest;
   trigger.setAttribute('aria-busy', 'true');
   $('[data-album-status]').textContent = 'Opening Milky’s album…';
+  albumMusic = sound.beginMusicSession(MILKY_ALBUM_MUSIC_TRACK);
   try {
     const module = await (albumLoad ??= import('./penthouse-album'));
     if (destroyed || request !== albumRequest || !trigger.isConnected) return;
     albumViewer ??= module.createMilkyAlbum({
       host: root, isStill: () => !animated,
+      music: { isEnabled: sound.isEnabled, toggle: () => { void sound.setEnabled(!sound.isEnabled()); } },
       onOpen: () => { albumOpen = true; pet.setActive(false); },
-      onClose: () => { albumOpen = false; if (!destroyed) pet.setActive(!dialog.open); },
+      onClose: () => { albumOpen = false; albumMusic?.close(); albumMusic = undefined; if (!destroyed) pet.setActive(!dialog.open); },
     });
     albumViewer.open(trigger);
   } catch {

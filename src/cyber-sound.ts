@@ -1,5 +1,6 @@
 import { getCyberMusicTrack, type CyberMusicTrack, type MusicClimate } from './cyber-music-catalog.ts';
 import { createSoundMixer, normalizeAudioVolume, type CyberSoundMixer, type MixListener } from './cyber-sound-mix.ts';
+import { createMusicSession, type MusicSession } from './cyber-music-session.ts';
 export type { CyberSoundMix, CyberSoundMixer } from './cyber-sound-mix.ts';
 
 export interface CyberPlaybackState {
@@ -16,6 +17,8 @@ export type CyberSound = {
   isEnabled(): boolean;
   setClimate(climate: MusicClimate): void;
   getCurrentTrack(): CyberMusicTrack;
+  /** Call from the opening gesture, before lazy-loading its visual content. */
+  beginMusicSession(track: CyberMusicTrack): MusicSession;
   setRain(enabled: boolean): void;
   setMusicVolume(volume: number): void;
   playBowl(): Promise<void>;
@@ -59,6 +62,8 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
   let context: AudioContext | null = null;
   let climate: MusicClimate = { season: 'autumn', time: 'night', weather: 'clear' };
   let selected = getCyberMusicTrack(climate);
+  let selectedPosition = 0;
+  let seekSelected = false;
   let enabled = false;
   let musicVolume = .65;
   let playing = false;
@@ -75,6 +80,18 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
   let idleTimer: ReturnType<typeof setTimeout> | undefined;
   const decks = new Set<Deck>();
   const tones = new Set<Tone>();
+  const sessions = createMusicSession({
+    snapshot: () => ({ track: selected, enabled, position: activeDeck?.track.id === selected.id ? activeDeck.element.currentTime : selectedPosition }),
+    apply(bookmark) {
+      seekSelected = selected.id !== bookmark.track.id || activeDeck?.track.id !== bookmark.track.id;
+      selected = bookmark.track;
+      selectedPosition = bookmark.position;
+      enabled = bookmark.enabled;
+      error = null;
+      if (enabled) void startSelected();
+      else { stopMusic(); publish(); }
+    },
+  });
 
   function publish(): void {
     if (destroyed) return;
@@ -209,6 +226,8 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
     } };
     element.addEventListener('error', deck.onError);
     element.src = track.src;
+    // Before metadata this sets HTMLMediaElement's default playback start position.
+    if (selectedPosition > 0) element.currentTime = selectedPosition;
     decks.add(deck);
     return deck;
   }
@@ -225,7 +244,9 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
       const audio = audioContext();
       // Both permission-sensitive calls happen before the first await.
       const resumed = resumeContext(audio);
-      const next = activeDeck?.track.id === selected.id ? activeDeck : buildDeck(audio, selected);
+      const next = [...decks].find(deck => deck.track.id === selected.id) ?? buildDeck(audio, selected);
+      if (seekSelected) next.element.currentTime = selectedPosition;
+      seekSelected = false;
       if (next.stopTimer !== undefined) clearTimeout(next.stopTimer);
       next.stopTimer = undefined;
       pendingDeck = next;
@@ -241,7 +262,8 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
       }
       pendingDeck = null;
       for (const deck of decks) {
-        if (deck !== next && deck.stopTimer === undefined) retireAfterFade(deck, CROSSFADE_SECONDS);
+        if (deck !== next && deck !== activeDeck) retire(deck);
+        else if (deck !== next && deck.stopTimer === undefined) retireAfterFade(deck, CROSSFADE_SECONDS);
       }
       activeDeck = next;
       if (next.stopTimer !== undefined) clearTimeout(next.stopTimer);
@@ -331,11 +353,14 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
   return {
     isEnabled: () => enabled && !destroyed,
     getCurrentTrack: () => selected,
+    beginMusicSession: track => sessions.begin(track),
     async setEnabled(value): Promise<boolean> {
       if (destroyed) return false;
+      sessions.chooseEnabled(value);
       enabled = value;
       error = null;
       if (!value) {
+        if (activeDeck?.track.id === selected.id) selectedPosition = activeDeck.element.currentTime;
         stopMusic();
         publish();
         return false;
@@ -345,9 +370,11 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
     setClimate(value): void {
       if (destroyed) return;
       climate = { ...value };
+      if (sessions.isActive()) return;
       const next = getCyberMusicTrack(climate);
       const changed = selected.id !== next.id;
       selected = next;
+      if (changed) selectedPosition = 0;
       rainEnabled = !options.independentMix && climate.weather === 'rain';
       updateRain();
       if (changed && enabled) void startSelected();
@@ -368,6 +395,7 @@ function createCoupledSound(options: CyberSoundOptions): CyberSound {
     destroy(): void {
       if (destroyed) return;
       destroyed = true;
+      sessions.destroy();
       enabled = false;
       playing = false;
       revision++;

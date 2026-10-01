@@ -20,9 +20,11 @@ export function createAlbumView() {
   const title = document.createElement('h1');
   title.textContent = 'Milky’s Photo Album';
   const coverLink = button('Cover', 'ph-album-cover-link');
+  const music = button('Pause music', 'ph-album-music ph-album-cover-link');
+  music.hidden = true;
   const close = button('×', 'ph-album-close');
   close.setAttribute('aria-label', 'Close photo album');
-  header.append(title, coverLink, close);
+  header.append(title, coverLink, music, close);
   const stage = document.createElement('div');
   stage.className = 'ph-album-stage';
   const footer = document.createElement('footer');
@@ -154,7 +156,7 @@ export function createAlbumView() {
     counter.textContent = '';
   }
 
-  return { dialog, stage, close, coverLink, previous, next, counter, showCover, showLetter, showMessage };
+  return { dialog, stage, close, coverLink, music, previous, next, counter, showCover, showLetter, showMessage };
 }
 
 export function createAlbumPage(photo: AlbumPhoto, number: number) {

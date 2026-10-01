@@ -5,6 +5,7 @@ export type CyberMusicTrack = PaperMusicTrack;
 export type MusicClimate = Pick<ClimateState, 'season' | 'time' | 'weather'>;
 export const CYBER_MUSIC_CREDITS_URL = PAPER_MUSIC_CREDITS_URL;
 export const CYBER_MUSIC_TRACKS = PAPER_MUSIC_TRACKS;
+export const MILKY_ALBUM_MUSIC_TRACK = PAPER_MUSIC_TRACKS[2];
 
 // An editorial selection, not a shuffled playlist. Each row is morning → night.
 // Rain and mist favour piano/ambient recordings; the five winter recordings

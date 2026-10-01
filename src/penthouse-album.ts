@@ -11,6 +11,7 @@ type AlbumOptions = {
   readonly onOpen?: () => void;
   readonly onClose?: () => void;
   readonly isStill?: () => boolean;
+  readonly music?: { readonly isEnabled: () => boolean; readonly toggle: () => void };
 };
 
 export function createMilkyAlbum(options: AlbumOptions = {}) {
@@ -28,6 +29,14 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
   let animation: Animation | undefined;
   let pointer: { readonly x: number; readonly y: number; readonly id: number } | undefined;
   (options.host ?? document.body).append(view.dialog);
+
+  function updateMusic(enabled: boolean) {
+    view.music.hidden = !options.music;
+    view.music.textContent = enabled ? 'Pause music' : 'Play music';
+    view.music.setAttribute('aria-label', enabled ? 'Pause album music' : 'Play album music');
+    view.music.setAttribute('aria-pressed', String(enabled));
+  }
+  updateMusic(options.music?.isEnabled() ?? false);
 
   function finish(restore = true) {
     if (!session) return;
@@ -144,6 +153,7 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
     position = null;
     view.dialog.showModal();
     options.onOpen?.();
+    updateMusic(options.music?.isEnabled() ?? false);
     view.close.focus({ preventScroll: true });
     if (photos.length) render();
     else void loadManifest();
@@ -151,6 +161,7 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
 
   const events = { signal: lifetime.signal };
   view.close.addEventListener('click', close, events);
+  view.music.addEventListener('click', () => options.music?.toggle(), events);
   view.coverLink.addEventListener('click', () => { position = null; render(-1); }, events);
   view.previous.addEventListener('click', () => move(false), events);
   view.next.addEventListener('click', () => move(true), events);
@@ -187,5 +198,5 @@ export function createMilkyAlbum(options: AlbumOptions = {}) {
   reduced.addEventListener('change', () => { if (reduced.matches) animation?.cancel(); }, events);
   document.addEventListener('visibilitychange', () => { if (document.hidden) animation?.cancel(); }, events);
 
-  return { open, close, destroy() { finish(false); lifetime.abort(); view.dialog.remove(); } };
+  return { open, close, updateMusic, destroy() { finish(false); lifetime.abort(); view.dialog.remove(); } };
 }
