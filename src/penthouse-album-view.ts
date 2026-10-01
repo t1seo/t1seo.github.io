@@ -76,19 +76,25 @@ export function createAlbumView() {
     letter.className = 'ph-album-letter';
     letter.tabIndex = 0;
     letter.setAttribute('aria-labelledby', 'ph-album-letter-title');
-    const flower = document.createElement('img');
-    flower.className = 'ph-album-letter-flower';
-    flower.alt = '';
-    flower.width = 160;
-    flower.height = 160;
-    flower.decoding = 'async';
-    flower.draggable = false;
-    flower.addEventListener('error', () => { flower.hidden = true; }, { once: true });
-    flower.src = albumStickerSource('flower-sprig');
+    const cutout = document.createElement('figure');
+    cutout.className = 'ph-album-letter-cutout';
+    const photograph = document.createElement('img');
+    photograph.alt = 'Milky sitting and smiling.';
+    photograph.width = 427;
+    photograph.height = 600;
+    photograph.loading = 'lazy';
+    photograph.decoding = 'async';
+    photograph.draggable = false;
+    photograph.addEventListener('error', () => { cutout.hidden = true; }, { once: true });
+    photograph.src = '/assets/penthouse/milky-album/milky-letter-cutout.webp';
+    const tape = document.createElement('span');
+    tape.className = 'ph-album-letter-cutout-tape';
+    tape.setAttribute('aria-hidden', 'true');
+    cutout.append(photograph, tape);
     const greeting = document.createElement('h2');
     greeting.id = 'ph-album-letter-title';
     greeting.textContent = 'Dear Milky,';
-    letter.append(flower, greeting);
+    letter.append(cutout, greeting);
     for (const text of [
       'You were my family and my very best friend. Thank you for always being by my side.',
       'I hope you are happy and at peace, wherever you are. I will keep you close in my heart until the day we meet again.',
