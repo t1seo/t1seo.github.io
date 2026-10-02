@@ -11,7 +11,7 @@ import type { GroundedFoot, GroundPoint } from './cyber-pet-grounded-geometry.ts
 import { GROUNDED_PADS } from './cyber-pet-grounded-articulation.ts';
 import type { GroundedWalkAssets } from './cyber-pet-grounded-assets.ts';
 
-// Use the actual shipping reference, never a synthetic replacement or a
+// Use the actual candidate runtime reference, never a synthetic replacement or a
 // machine-specific research file that would silently conceal a missing asset.
 const referencePath = new URL('../public/assets/cyberpunk/milky-natural-motion/walk-cycle.json', import.meta.url);
 const referenceBytes = readFileSync(referencePath);

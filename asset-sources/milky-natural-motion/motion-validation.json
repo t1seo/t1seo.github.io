@@ -8,7 +8,7 @@
   },
   "implementation_sha256": {
     "cyber-pet-natural-motion.ts": "bb26c0a37083918f05a624ef8a4ba794dabf3e8392ec41c138a35a331af58738",
-    "cyber-pet-natural-render.ts": "a041eb4e120cfc8a52f01e94e775742c374fe66b8d63385c188d760e1f3c1b53"
+    "cyber-pet-natural-render.ts": "d61f7f0929c768266a9540a706ab4b11021439848c537203a3928ce21611111b"
   },
   "method": "Actual createNaturalMotion sampler and createNaturalPainter Canvas triangle submissions; no alternative gait or synthetic pose fixture.",
   "cycle_samples": 2049,
@@ -434,6 +434,201 @@
         },
         "missingFaceLandmarks": 0,
         "drawRejected": 0
+      },
+      "not_assessed": [
+        "Visual naturalness",
+        "Milky likeness",
+        "Raster color or palette preservation",
+        "Real Canvas rasterization/alpha coverage",
+        "Runtime routing and lifecycle"
+      ]
+    },
+    {
+      "schema_version": 1,
+      "status": "NUMERICAL_PASS_VISUAL_NOT_ASSESSED",
+      "reference": {
+        "path": "/Volumes/Nebula/Developer/Repositories/t1seo.github.io/public/assets/cyberpunk/milky-natural-motion/walk-cycle.json",
+        "sha256": "3c75b74a7a358d785b3a2e6b2720022ec69be4195da9f4433b08ce32f3868c0c",
+        "frames": 94
+      },
+      "implementation_sha256": {
+        "cyber-pet-natural-motion.ts": "bb26c0a37083918f05a624ef8a4ba794dabf3e8392ec41c138a35a331af58738",
+        "cyber-pet-natural-render.ts": "a041eb4e120cfc8a52f01e94e775742c374fe66b8d63385c188d760e1f3c1b53"
+      },
+      "method": "Actual createNaturalMotion sampler and createNaturalPainter Canvas triangle submissions; no alternative gait or synthetic pose fixture.",
+      "cycle_samples": 2049,
+      "duration": 1.04,
+      "stride": 370,
+      "limits": {
+        "boneLengthError": 0.000001,
+        "stanceWorldDrift": 0.00001,
+        "stanceWorldSpeed": 0.0001,
+        "seamPositionError": 0.0001,
+        "seamVelocityError": 0.01,
+        "faceDistanceError": 1e-7,
+        "minimumTriangleAreaRatio": 0.000001
+      },
+      "assertions": {
+        "finite": true,
+        "fixed_bone_lengths": true,
+        "reachable": true,
+        "fixed_world_stance": true,
+        "fixed_submitted_sole": true,
+        "continuous_contact_and_cycle_boundaries": true,
+        "no_triangle_folds": true,
+        "rigid_submitted_face": true
+      },
+      "measured": {
+        "boneLength": {
+          "value": 2.2737367544323206e-13,
+          "phase": 0.20458984375,
+          "detail": "farFore.segment1"
+        },
+        "reachMargin": {
+          "value": 0.530224147269962,
+          "phase": 0.435546875,
+          "detail": "nearFore"
+        },
+        "jointBendMargin": {
+          "value": 2837.5388978316623,
+          "phase": 0.435546875,
+          "detail": "nearFore"
+        },
+        "nonfinite": [],
+        "unreachable": [],
+        "stanceDrift": {
+          "value": 4.547473508864641e-13,
+          "phase": 0.7871875,
+          "detail": "nearFore"
+        },
+        "stanceSpeed": {
+          "value": 6.996113090560986e-10,
+          "phase": 0.7878125,
+          "detail": "nearFore"
+        },
+        "invalidStanceFlags": 0,
+        "seamPosition": {
+          "value": 0.000001262134560420236,
+          "phase": 1.425,
+          "detail": "nearFore.liftoff/nearFore.joint.x"
+        },
+        "seamVelocity": {
+          "value": 0.000016058265828178264,
+          "phase": 0.9410000000000001,
+          "detail": "farFore.liftoff/farFore.wrist.x"
+        },
+        "boundaries": [
+          {
+            "phase": 0,
+            "name": "cycle seam"
+          },
+          {
+            "phase": 0.473,
+            "name": "nearHind.touchdown"
+          },
+          {
+            "phase": 1.073,
+            "name": "nearHind.liftoff"
+          },
+          {
+            "phase": 0.785,
+            "name": "nearFore.touchdown"
+          },
+          {
+            "phase": 1.425,
+            "name": "nearFore.liftoff"
+          },
+          {
+            "phase": 0.989,
+            "name": "farHind.touchdown"
+          },
+          {
+            "phase": 1.589,
+            "name": "farHind.liftoff"
+          },
+          {
+            "phase": 0.301,
+            "name": "farFore.touchdown"
+          },
+          {
+            "phase": 0.9410000000000001,
+            "name": "farFore.liftoff"
+          },
+          {
+            "phase": 0.6506110236875,
+            "name": "observed internal paw-clamp regression"
+          }
+        ],
+        "area": {
+          "value": 0.2644677242926295,
+          "phase": 0.62646484375,
+          "detail": "painter inspection"
+        },
+        "maximumArea": {
+          "value": 2.410380525536316,
+          "phase": 0.95556640625,
+          "detail": "painter inspection"
+        },
+        "maximumFlips": {
+          "value": 0,
+          "phase": 0,
+          "detail": ""
+        },
+        "maximumDegenerate": {
+          "value": 0,
+          "phase": 0,
+          "detail": ""
+        },
+        "framesWithFolds": 0,
+        "minimumSubmittedArea": {
+          "value": 0.26446772429262944,
+          "phase": 0.62646484375,
+          "detail": "nearFore.triangle73"
+        },
+        "badTriangles": [],
+        "faceError": {
+          "value": 5.684341886080801e-13,
+          "phase": 0.47265625,
+          "detail": "all landmark pairs"
+        },
+        "rigidFaceError": {
+          "value": 4.687428401686771e-13,
+          "phase": 0.52978515625,
+          "detail": "rigid face transform"
+        },
+        "submittedFaceError": {
+          "value": 7.389644451905042e-13,
+          "phase": 0.41162109375,
+          "detail": "Canvas affine landmark pairs"
+        },
+        "submittedInspectionDifference": {
+          "value": 4.582862941503293e-13,
+          "phase": 0.0166015625,
+          "detail": "crown"
+        },
+        "missingFaceLandmarks": 0,
+        "drawRejected": 0,
+        "painterSoleError": {
+          "value": 4.687428401686771e-13,
+          "phase": 0.048828125,
+          "detail": "farFore"
+        },
+        "submittedSoleError": {
+          "value": 6.821210263296962e-13,
+          "phase": 0.28564453125,
+          "detail": "farFore"
+        },
+        "submittedStanceDrift": {
+          "value": 1.1368683772161603e-13,
+          "phase": 0.3349609375,
+          "detail": "farHind"
+        },
+        "submittedStanceSpeed": {
+          "value": 2.2387561889795155e-10,
+          "phase": 0.3349609375,
+          "detail": "farHind"
+        },
+        "missingSoleLandmarks": 0
       },
       "not_assessed": [
         "Visual naturalness",
