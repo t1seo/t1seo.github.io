@@ -25,6 +25,8 @@ export interface MilkyChinRimInput {
   /** Room pixels per native pixel: buttonWidth × depth × artScale / 1536. */
   readonly pixelsPerNative: number;
   readonly facing: 1 | -1;
+  /** Authored replacement art may need a different bounded contact correction. */
+  readonly maximumOffset?: number;
 }
 
 /**
@@ -40,6 +42,7 @@ export function milkyChinRimTranslation(input: MilkyChinRimInput): readonly [num
     + (input.chinPoint[1] - input.supportAnchor[1]) * input.pixelsPerNative;
   const dx = input.facing * (input.rimScreen.x - chinScreenX) / input.pixelsPerNative;
   const dy = (input.rimScreen.y - chinScreenY) / input.pixelsPerNative;
-  if (Math.abs(dx) > MILKY_CHIN_MAX_OFFSET || Math.abs(dy) > MILKY_CHIN_MAX_OFFSET) return undefined;
+  const maximum = input.maximumOffset ?? MILKY_CHIN_MAX_OFFSET;
+  if (Math.abs(dx) > maximum || Math.abs(dy) > maximum) return undefined;
   return [dx, dy];
 }

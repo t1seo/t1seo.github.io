@@ -15,10 +15,10 @@ import { throwMilkyBall, predictMilkyBallRest } from './cyber-pet-throw';
 import { planMilkyWalkArrival, planMilkyBedWakeStretch } from './cyber-pet-transitions';
 import { sampleMilkyBedHop, type MilkyBedHop } from './cyber-pet-hop';
 import {
-  createMilkyPhotoRuntime, milkyChinRimTranslation, MILKY_BED_RIM_FRACTION, MILKY_PHOTO_FRAMES,
+  createMilkyPhotoRuntime, milkyPhotoTranslate, milkyChinRimTranslation, MILKY_BED_RIM_FRACTION, MILKY_PHOTO_FRAMES,
   planMilkyTilt, planMilkyPant, planMilkyPawsRest, planMilkySleepyPeek, planMilkyChinRest, planMilkyBellyUp,
   planMilkyStandBridge,
-  type CyberPetPhotoOptions, type MilkyPhotoMotion, type MilkyPhotoRestContext, type MilkyPhotoStep,
+  type MilkyPhotoFrameName, type CyberPetPhotoOptions, type MilkyPhotoMotion, type MilkyPhotoRestContext, type MilkyPhotoStep,
 } from './cyber-pet-photo';
 
 export type { CyberPetPhotoOptions, MilkyPhotoMotion } from './cyber-pet-photo';
@@ -169,6 +169,8 @@ export function mountCyberPet(
   toyOptions?: MilkyToyOptions,
   photoOptions?: CyberPetPhotoOptions,
 ): CyberPetController {
+  const characterRoot = photoOptions?.artRoot ?? ASSET_ROOT;
+  const newArtwork = Boolean(photoOptions?.artRoot);
   const page = host.ownerDocument;
   const view = page.defaultView!;
   const listeners = new AbortController();
@@ -369,6 +371,7 @@ export function mountCyberPet(
   // art loads lazily on first intent and each frame registers onto the shared v4 floor
   // point exactly like the rest and activity sets. ----
   const photo = photoOptions?.photoMotions === true ? createMilkyPhotoRuntime({
+    assetPrefix: newArtwork ? `${characterRoot}photo/` : undefined,
     createImage(frame) {
       const image = spriteImage('cyber-pet-photo');
       image.dataset.variant = frame;
@@ -380,6 +383,10 @@ export function mountCyberPet(
     onGroupSettled: (kind, groupReady) => photoGroupSettled(kind, groupReady),
   }) : undefined;
   function registerPhotoArt(image: HTMLImageElement, translate: readonly [number, number]) {
+    if (newArtwork) {
+      const original = milkyPhotoTranslate(image.dataset.variant as MilkyPhotoFrameName);
+      translate = [translate[0] - original[0], translate[1] - original[1]];
+    }
     const v4 = MILKY_ART.v4;
     registerArt(image, `${v4.x + translate[0] / 1536 * v4.scale * 100}%`, `${v4.y + translate[1] / 1024 * v4.scale * 100}%`);
   }
@@ -402,9 +409,10 @@ export function mountCyberPet(
     const pixelsPerNative = width * milkyWidthRatio(floorBounds, portrait) * milkyDepthScale(point.y) * MILKY_ART.v4.scale / 1536;
     const room = host.getBoundingClientRect();
     const bedRect = bedOptions.element.getBoundingClientRect();
-    const frame = MILKY_PHOTO_FRAMES['chin-rest'];
+    const frame = newArtwork ? { supportAnchor: [795, 970] as const, chinPoint: [968, 950] as const } : MILKY_PHOTO_FRAMES['chin-rest'];
     return milkyChinRimTranslation({
       chinPoint: frame.chinPoint,
+      maximumOffset: newArtwork ? 220 : undefined,
       supportAnchor: frame.supportAnchor,
       dogScreen: { x: point.x * width, y: point.y * height },
       rimScreen: {
@@ -592,12 +600,12 @@ export function mountCyberPet(
     for (const [index, step] of steps.entries()) {
       step.ready = false;
       registerArt(step.image,
-        `${registration.x - registration.stepOffsetX[index] / 1536 * registration.scale * 100}%`,
-        `${registration.y + registration.stepOffsetY[index] / 1024 * registration.scale * 100}%`);
-      step.image.src = `${ASSET_ROOT}${stepAsset(version, index)}`;
+        `${registration.x - (newArtwork ? 0 : registration.stepOffsetX[index]) / 1536 * registration.scale * 100}%`,
+        `${registration.y + (newArtwork ? 0 : registration.stepOffsetY[index]) / 1024 * registration.scale * 100}%`);
+      step.image.src = `${characterRoot}${stepAsset(version, index)}`;
     }
     registerArt(idleImage);
-    idleImage.src = `${ASSET_ROOT}${idleAsset(version)}`;
+    idleImage.src = `${characterRoot}${idleAsset(version)}`;
   }
   function cancelAction(preserveGrounded = false) {
     if (!preserveGrounded) { grounded?.rest(); groundedIdle = false; }
@@ -1138,7 +1146,7 @@ export function mountCyberPet(
   function beginFeed() {
     cancelAction();
     clearSession();
-    const muzzleReach = (depthY: number) => reachAhead(MUZZLE_AHEAD_NATIVE, depthY);
+    const muzzleReach = (depthY: number) => reachAhead(newArtwork ? 360 : MUZZLE_AHEAD_NATIVE, depthY);
     if (motionStopped()) {
       // Static explicit posture with static food and no forced movement: the dog stays
       // put, so the bowl must appear under her actual lowered muzzle, not a walk away.
@@ -1219,7 +1227,7 @@ export function mountCyberPet(
   /** True only when the resting ball actually sits at the registered raised-paw tip. */
   function ballInPawContact(): boolean {
     if (!ball || !ball.resting) return false;
-    const reach = reachAhead(PAW_REACH_NATIVE, ball.y);
+    const reach = reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, ball.y);
     return Math.abs(Math.abs(ball.x - position.x) - reach) <= .006 && Math.abs(ball.y - position.y) <= .004;
   }
   function playRound(plan: ReturnType<typeof planMilkyPlay>, round: number, autonomous: boolean, tries = 0, waits = 0) {
@@ -1240,7 +1248,7 @@ export function mountCyberPet(
     // Stand where the registered raised paw tip actually meets the ball on contact. If
     // the natural side collapses to a no-walk step (a side-view dog cannot take a nearly
     // vertical step) or a wall clamps the stand off target, approach from the other side.
-    const reach = reachAhead(PAW_REACH_NATIVE, ball.y);
+    const reach = reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, ball.y);
     const offTarget = (point: MilkyPoint) =>
       Math.abs(Math.abs(ball!.x - point.x) - reach) > .004 || Math.abs(ball!.y - point.y) > .002;
     const approachDir = ball.x < position.x ? -1 : 1;
@@ -1280,7 +1288,7 @@ export function mountCyberPet(
         playPoseSteps([{ pose: 'play-reach', hold: plan.reachHold, motion: 'playing' }], 0, revision, () => {
           if (revision !== actionRevision || !ball) return;
           const chaseDir = ball.x < position.x ? -1 : 1;
-          walkTo({ x: ball.x - chaseDir * reachAhead(PAW_REACH_NATIVE, ball.y), y: ball.y }, { autonomous, cadence: 1.4, onDone: () => {
+          walkTo({ x: ball.x - chaseDir * reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, ball.y), y: ball.y }, { autonomous, cadence: 1.4, onDone: () => {
             if (round + 1 < plan.rounds) playRound(plan, round + 1, autonomous);
             // Only a genuinely completed session (real contact happened) may end in the
             // occasional photo-20 pant; the honest give-up path above never does.
@@ -1349,7 +1357,7 @@ export function mountCyberPet(
       if (!ball || !ballBounds) { settle(); return; }
       const landing = predictMilkyBallRest(ball, ballBounds);
       const direction = landing.x < position.x ? -1 : 1;
-      const target = { x: landing.x - direction * reachAhead(PAW_REACH_NATIVE, landing.y), y: landing.y };
+      const target = { x: landing.x - direction * reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, landing.y), y: landing.y };
       walkTo(target, { cadence: 1.4, onDone: () => playRound({ ...planMilkyPlay(), rounds: 1 }, 0, false) });
     });
   }
@@ -1633,34 +1641,34 @@ export function mountCyberPet(
   }, listeners.signal) : undefined;
   for (const entry of poses) {
     registerArt(entry.image);
-    entry.image.src = `${ASSET_ROOT}milky-v4-${entry.name}.webp`;
+    entry.image.src = `${characterRoot}milky-v4-${entry.name}.webp`;
   }
   for (const entry of rests) {
-    const [dx, dy] = REST_TRANSLATE[entry.name];
+    const [dx, dy] = newArtwork ? [0, 0] : REST_TRANSLATE[entry.name];
     const v4 = MILKY_ART.v4;
     registerArt(entry.image, `${v4.x + dx / 1536 * v4.scale * 100}%`, `${v4.y + dy / 1024 * v4.scale * 100}%`);
-    entry.image.src = `${ASSET_ROOT}milky-rest-${entry.name}.webp`;
+    entry.image.src = `${characterRoot}milky-rest-${entry.name}.webp`;
   }
   // Final per-pose registration from the delivered activity art measurements.
   for (const entry of activities) {
-    const [dx, dy] = ACTIVITY_TRANSLATE[entry.name];
+    const [dx, dy] = newArtwork ? [0, 0] : ACTIVITY_TRANSLATE[entry.name];
     const v4 = MILKY_ART.v4;
     registerArt(entry.image, `${v4.x + dx / 1536 * v4.scale * 100}%`, `${v4.y + dy / 1024 * v4.scale * 100}%`);
-    entry.image.src = `${ASSET_ROOT}milky-${entry.name}.webp`;
+    entry.image.src = `${characterRoot}milky-${entry.name}.webp`;
   }
   if (forwardIdle) {
     registerArt(forwardIdle.image);
-    forwardIdle.image.src = `${ASSET_ROOT}milky-forward-idle.webp`;
+    forwardIdle.image.src = `${characterRoot}milky-forward-idle.webp`;
   }
   forwardSteps.forEach((entry, index) => {
     const v4 = MILKY_ART.v4;
-    registerArt(entry.image, undefined, `${v4.y + FORWARD_STEP_OFFSET_Y[index] / 1024 * v4.scale * 100}%`);
-    entry.image.src = `${ASSET_ROOT}milky-forward-step-${index}.webp`;
+    registerArt(entry.image, undefined, `${v4.y + (newArtwork ? 0 : FORWARD_STEP_OFFSET_Y[index]) / 1024 * v4.scale * 100}%`);
+    entry.image.src = `${characterRoot}milky-forward-step-${index}.webp`;
   });
   trotSteps.forEach((entry, index) => {
     const v4 = MILKY_ART.v4;
-    registerArt(entry.image, undefined, `${v4.y + 28 / 1024 * v4.scale * 100}%`);
-    entry.image.src = `${ASSET_ROOT}milky-trot-${index}.webp`;
+    registerArt(entry.image, undefined, `${v4.y + (newArtwork ? 0 : 28) / 1024 * v4.scale * 100}%`);
+    entry.image.src = `${characterRoot}milky-trot-${index}.webp`;
   });
   for (const entry of propItems) entry.image.src = propOverrides[entry.name]?.src ?? `${ASSET_ROOT}milky-prop-${entry.name}.webp`;
   applyArtVersion();

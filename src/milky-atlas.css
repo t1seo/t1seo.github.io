@@ -1,0 +1,17 @@
+.milky-atlas { display: none; }
+.cyber-pet-button[data-atlas='ready'] .cyber-pet-figure > :not(.milky-atlas) { display: none; }
+.cyber-pet-button[data-atlas='ready'] .cyber-pet-figure { animation: none; }
+.cyber-pet-button[data-atlas='ready'] .milky-atlas {
+  display: block;
+  position: absolute;
+  height: 72.2%;
+  aspect-ratio: 192 / 208;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%) scale(var(--milky-atlas-scale, 1));
+  transform-origin: 50% 97.115385%;
+  background-image: url('/assets/penthouse/milky-pet/spritesheet.png');
+  background-size: 800% 1100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}

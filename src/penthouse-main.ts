@@ -1,3 +1,4 @@
+import { mountMilkyAtlas } from './milky-atlas';
 import './penthouse.css';
 import { panelMarkup } from './penthouse-panel-markup';
 import { roomMarkup } from './penthouse-room-markup';
@@ -85,7 +86,8 @@ const stopFireworksCredits = scene.subscribeFireworks(updateWindowAvailability);
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, MILKY_PHOTO_REST, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
-}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true }, { photoMotions: true, groundedWalk: true });
+}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true }, { photoMotions: true, artRoot: '/assets/penthouse/milky-pet/character/' });
+const milkyAtlas = mountMilkyAtlas($('[data-pet]'));
 const photoMoments = mountPhotoMotionControls({
   buttons: () => content.querySelectorAll<HTMLButtonElement>('[data-photo-motion]'),
   status: () => content.querySelector<HTMLElement>('[data-photo-motion-status]'),
@@ -323,7 +325,7 @@ function destroy() {
   destroyed = true; abort.abort(); visibleHotspots.disconnect(); clearTimeout(toastTimer); stopInfo();
   cancelAlbumLoad(); albumViewer?.destroy();
   focusSession.destroy(); fireworks.destroy(); photoMoments.destroy(); personal.destroy(); mixer?.destroy(); guestbook.close();
-  automaticFireworks.destroy(); stopFireworksCredits(); stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
+  automaticFireworks.destroy(); stopFireworksCredits(); stopOpeningCredits(); climate.destroy(); scene.destroy(); seasonalDecor.destroy(); milkyAtlas.destroy(); pet.destroy(); sound.destroy(); bowlSound.destroy();
 }
 window.addEventListener('pagehide', event => { if (!event.persisted) destroy(); }, options);
 if (import.meta.hot) import.meta.hot.dispose(destroy);

@@ -20,6 +20,7 @@ import {
 export type MilkyPhotoGroupState = 'idle' | 'loading' | 'ready' | 'failed';
 
 export interface MilkyPhotoLoaderHost {
+  readonly assetPrefix?: string;
   /** Creates (and mounts) the frame's image element, already registered to the floor. */
   readonly createImage: (frame: MilkyPhotoFrameName) => HTMLImageElement;
   readonly validRatio: (image: HTMLImageElement) => boolean;
@@ -92,7 +93,7 @@ export function createMilkyPhotoLoader(host: MilkyPhotoLoaderHost): MilkyPhotoLo
     entry.state = 'fetching';
     entry.attempt++;
     inFlight++;
-    const url = `${MILKY_PHOTO_PREFIX}${MILKY_PHOTO_FRAMES[frame].file}`;
+    const url = `${host.assetPrefix ?? MILKY_PHOTO_PREFIX}${MILKY_PHOTO_FRAMES[frame].file}`;
     if (!entry.image) {
       const image = host.createImage(frame);
       entry.image = image;
