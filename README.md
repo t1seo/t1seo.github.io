@@ -24,18 +24,20 @@ direction and the history of earlier iterations.
 | Milky, red ball and cushion | Say hello, walk, play, or rest; drag the ball to invite a chase |
 | Shelved photo album | Open **Milky’s Photo Album**, also available from the **Milky** panel |
 
-Milky walks with four continuously animated painted legs: planted paws stay at
-their floor contact while the body advances, with eased starts and stops. Run
-and ball chases use a faster stepping rhythm. After a completed walk, the final
-neutral pose stays still without switching to a different idle image. Her small
-hop into the cushion retains its drawn airborne poses. The new walking artwork
-loads as one complete three-part set, with the original sprites kept as a fallback.
+Milky's latest 2D walk retains the painted torso and leg layers. An authored
+canine skeleton drives the legs, body, head and tail through Three.js's
+AnimationMixer, while the visible result remains a 2D canvas. Ordinary movement
+uses the source Walk clip; running and ball chases use Gallop. Playback advances
+with travelled distance and blends into and out of the movement. After arrival,
+the final neutral drawing stays still. The drawn bed hop and photo moments remain.
 
-The gait uses measured canine pose curves, separate wrist/ankle and paw joints,
-weight transfer, and subtle neck/tail follow-through. Foot contacts remain fixed
-while the limb pose adapts around them. See the [research and implementation
-notes](asset-sources/milky-walk-kinematics/README.md) and [motion-data
-credits](public/assets/cyberpunk/milky-grounded-walk/CREDITS.md).
+The three painted layers and local motion file load together, with original
+sprites available if loading fails. There is no additional frame loop or 3D
+renderer. The source is Quaternius's CC0 animation, not a recording of Milky;
+foot sliding and 2D deformation remain limitations, and this interim release is
+not a claim of lifelike motion. See the [source and validation notes](asset-sources/milky-authored/README.md)
+and [credits](public/assets/cyberpunk/milky-authored/CREDITS.md). The previous
+contact-constrained gait is documented in [the kinematics archive](asset-sources/milky-walk-kinematics/README.md).
 
 With Milky focused, use the arrow keys to walk, **S** to sit and **N** to nap.
 The Desk panel provides a close-up when room objects are cropped on a narrow

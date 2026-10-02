@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-02",
+  "scope": "Latest 2D painted Milky driven by authored canine clips; full-3D experiment excluded",
+  "validation": {
+    "working_tree_tests": {
+      "passed": 761,
+      "failed": 0
+    },
+    "staged_release_tests": {
+      "passed": 751,
+      "failed": 0
+    },
+    "staged_release_build": "PASS: TypeScript and Vite, production guestbook URL retained",
+    "source_review": "No blocking functional or lifecycle issue found by independent read-only reviewer",
+    "diff_check": "PASS excluding byte-preserved upstream License.txt CRLF and whitespace",
+    "excluded_asset": "canine-model.glb absent from staged production output"
+  },
+  "browser": {
+    "backend": "Orca embedded browser via orca-cli",
+    "page_id": "c68a41ef-2022-42a9-be82-df3d0cc89891",
+    "observed": "2D authored Walk comparison loads, decodes the local motion file and draws a sampled pose at t=0.32s",
+    "screenshot_local": "tmp/milky-gait-qa/release-2d-frame.png",
+    "full_room_interaction": "NOT VERIFIED: current browser surface keeps the pet inactive/cropped; changing emulated viewport did not update room layout, and the fixed-size iframe reported hidden. No visibility or runtime gate was overridden. Integration cancellation/fallback/arrival covered by tests.",
+    "console": "Existing page history contains errors from rejected 3D shader experiments; no clean per-navigation console baseline was available."
+  },
+  "limitations": [
+    "Artist-authored Shiba animation is not recorded Milky motion.",
+    "Residual stance slide and 2D limb stretching remain.",
+    "Naturalness is not asserted by tests or the sampled screenshot."
+  ],
+  "deployment": "Pending commit and GitHub Pages workflow; record actual result separately."
+}

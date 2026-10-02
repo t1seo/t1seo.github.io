@@ -1,6 +1,7 @@
 import './cyber-pet.css';
 import { mountGroundedWalk } from './cyber-pet-grounded-walk';
-import { GROUNDED_ART, groundedStride } from './cyber-pet-grounded-geometry';
+import { GROUNDED_ART } from './cyber-pet-grounded-geometry';
+import { AUTHORED_STRIDE, AUTHORED_DURATION } from './cyber-pet-authored-controller';
 import { placeMilky, milkyHasVisibleFloor, milkyWidthRatio, DEFAULT_MILKY_FLOOR, type MilkyPoint } from './cyber-pet-geometry';
 import { createMilkyWalk, sampleMilkyWalk, milkyCanContinue, milkyDepthScale, milkyDistance, milkyStride, milkyGaitStride, milkyGaitFinishAdjustment, milkyGaitPhase, milkyGaitFrame, type MilkyWalk } from './cyber-pet-motion';
 import { chooseMilkyDestination, milkyKeyboardDestination, milkyRoamPause, type MilkyHeading } from './cyber-pet-roam';
@@ -1028,19 +1029,22 @@ export function mountCyberPet(
     const to = { x: target.x * width, y: target.y * height };
     const originY = position.y;
     const nativeScale = width * milkyWidthRatio(floorBounds, portrait) * MILKY_ART.v4.scale / GROUNDED_ART.width;
+    const authoredGait = (opts?.cadence ?? 1) > 1.25 ? 'run' : 'walk';
     const useGrounded = Boolean(!opts?.legacyContinuation && forwardActive() && grounded?.ready()
-      && grounded.begin({ from, to, scale: groundedScale(position), endScale: groundedScale(target), facing: facing < 0 ? -1 : 1,
+      && grounded.begin({ from, to, gait: authoredGait, scale: groundedScale(position), endScale: groundedScale(target), facing: facing < 0 ? -1 : 1,
         scaleAt: (progress) => nativeScale * Number(milkyDepthScale(originY + (target.y - originY) * progress).toFixed(4)),
       }, opts?.carryGrounded));
     if (!useGrounded && groundedIdle) grounded?.rest();
     groundedIdle = false;
-    const stride = useGrounded ? groundedStride(from, to) * groundedScale(position) / width
+    const stride = useGrounded ? AUTHORED_STRIDE[authoredGait] * groundedScale(position) / width
       : milkyGaitStride(milkyStride(bodyWidth), milkyDistance(position, target), gaitPhase);
-    // A compatible retarget may fit a slightly different stride. Never let that clamp the
-    // carried momentum: the cruise speed rises to meet it, keeping the join continuous,
-    // and frames stay distance-driven so a faster cadence cannot skate. A brisk cadence
-    // (run/chase) raises the cruise speed the same distance-linked way.
-    const speed = Math.max(stride / .72 * (opts?.cadence ?? 1), initialSpeed);
+    // Keep the asset's native cadence at cruise. The distance-driven mixer slows
+    // with the existing acceleration curve and uses Gallop for a chase.
+    const cadence = opts?.cadence ?? 1;
+    const cruise = useGrounded
+      ? stride / AUTHORED_DURATION[authoredGait] * (authoredGait === 'run' ? cadence / 1.48 : cadence)
+      : stride / .72 * cadence;
+    const speed = Math.max(cruise, initialSpeed);
     lastHeading = { x: target.x - position.x, y: target.y - position.y };
     const plan = createMilkyWalk(position, target, speed, initialSpeed);
     actionRevision++;

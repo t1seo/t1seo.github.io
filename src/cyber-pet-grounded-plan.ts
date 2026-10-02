@@ -6,6 +6,7 @@ export type GroundedRoute = {
   readonly from: GroundPoint; readonly to: GroundPoint; readonly scale: number;
   readonly endScale: number; readonly facing: 1 | -1;
   readonly scaleAt?: (progress: number) => number;
+  readonly gait?: 'walk' | 'run';
 };
 export type GroundedStep = {
   readonly lift: number; readonly land: number; readonly from: GroundPoint; readonly to: GroundPoint;

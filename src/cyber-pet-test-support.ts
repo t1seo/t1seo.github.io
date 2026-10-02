@@ -21,6 +21,7 @@ const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replaceAll("'./cyber-pet-grounded-walk.ts'", JSON.stringify(new URL('./cyber-pet-grounded-walk.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-grounded-walk'", JSON.stringify(new URL('./cyber-pet-grounded-walk.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-grounded-geometry'", JSON.stringify(new URL('./cyber-pet-grounded-geometry.ts', import.meta.url).href))
+  .replaceAll("'./cyber-pet-authored-controller'", JSON.stringify(new URL('./cyber-pet-authored-controller.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-photo'", JSON.stringify(new URL('./cyber-pet-photo.ts', import.meta.url).href));
 const { mountCyberPet, MILKY_PHOTO_REST } = await import(`data:text/javascript;base64,${Buffer.from(stripTypeScriptTypes(source)).toString('base64')}`) as typeof import('./cyber-pet');
 export { MILKY_PHOTO_REST };
@@ -118,6 +119,40 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
   }
   const previousImage = Object.getOwnPropertyDescriptor(globalThis, 'Image');
   Object.defineProperty(globalThis, 'Image', { configurable: true, value: DecoderImage });
+  const previousFetch = Object.getOwnPropertyDescriptor(globalThis, 'fetch');
+  type AuthoredRequest = {
+    url: string; signal: AbortSignal | null | undefined; settled: boolean;
+    respond: (status: number, bytes?: ArrayBuffer) => void; fail: (error: Error) => void;
+  };
+  const authoredRequests: AuthoredRequest[] = [];
+  Object.defineProperty(globalThis, 'fetch', { configurable: true, writable: true, value: (input: RequestInfo | URL, init?: RequestInit) => {
+    const url = input instanceof Request ? input.url : String(input);
+    assert.equal(url, '/assets/cyberpunk/milky-authored/canine-clips.glb', 'fixture never makes an unexpected network request');
+    const signal = init?.signal ?? (input instanceof Request ? input.signal : undefined);
+    return new Promise<Response>((resolve, reject) => {
+      const settle = (action: () => void) => {
+        if (request.settled) return;
+        request.settled = true;
+        signal?.removeEventListener('abort', abort);
+        action();
+      };
+      const abort = () => settle(() => reject(signal?.reason ?? new DOMException('Aborted', 'AbortError')));
+      const request: AuthoredRequest = {
+        url, signal, settled: false,
+        respond: (status, bytes) => settle(() => {
+          const file = bytes ?? (() => {
+            const data = readFileSync(new URL('../public/assets/cyberpunk/milky-authored/canine-clips.glb', import.meta.url));
+            return data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength);
+          })();
+          resolve(new Response(file, { status, headers: { 'Content-Type': 'model/gltf-binary' } }));
+        }),
+        fail: error => settle(() => reject(error)),
+      };
+      authoredRequests.push(request);
+      if (signal?.aborted) abort();
+      else signal?.addEventListener('abort', abort, { once: true });
+    });
+  } });
   const host = document.createElement('div');
   const scene = document.createElement('div');
   const studio = document.createElement('main');
@@ -176,12 +211,28 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     for (let frame = 0; frame < 8; frame++) await load(`milky-forward-step-${frame}.webp`, 768, 512);
   };
   const loadTrot = async (count = 4) => { for (let frame = 0; frame < count; frame++) await load(`milky-trot-${frame}.webp`, 768, 512); };
+  const loadAuthored = async (status = 200, bytes?: ArrayBuffer) => {
+    await flushMicrotasks();
+    const request = [...authoredRequests].reverse().find(request => !request.settled);
+    assert.ok(request, 'authored clip request is pending');
+    request.respond(status, bytes);
+    await flushMicrotasks();
+  };
+  const failAuthored = async () => {
+    await flushMicrotasks();
+    const request = [...authoredRequests].reverse().find(request => !request.settled);
+    assert.ok(request, 'authored clip request is pending');
+    request.fail(new TypeError('Network request failed'));
+    await flushMicrotasks();
+  };
   const loadGrounded = async () => {
+    await flushMicrotasks();
     await load('milky-grounded-walk/torso.webp');
     await load('milky-grounded-walk/foreleg.webp');
     await flushMicrotasks();
     await load('milky-grounded-walk/hindleg.webp');
     await flushMicrotasks();
+    if (authoredRequests.some(request => !request.settled)) await loadAuthored();
   };
   const propsLayer = () => host.children.find((child) => child.className === 'cyber-pet-props')!;
   const propEl = (name: string) => {
@@ -212,8 +263,11 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
     globalThis.MutationObserver = old.MutationObserver;
     if (previousImage) Object.defineProperty(globalThis, 'Image', previousImage);
     else Reflect.deleteProperty(globalThis, 'Image');
+    for (const request of authoredRequests) if (!request.settled) request.fail(new DOMException('Fixture restored', 'AbortError'));
+    if (previousFetch) Object.defineProperty(globalThis, 'fetch', previousFetch);
+    else Reflect.deleteProperty(globalThis, 'fetch');
   }
   const intro = (visible: boolean) => { studio.dataset.intro = visible ? 'visible' : 'hidden'; observed.filter((o) => o.mutation).forEach((o) => o.callback()); };
   const resize = () => observed.filter((entry) => !entry.mutation).forEach((entry) => entry.callback());
-  return { controller, button, document, media, tasks, host, scene, bed, resize, asset, load, loadAll, loadV3, loadPoses, loadRest, loadActivity, loadForward, loadTrot, loadGrounded, decoderImages, painting, flushMicrotasks, propEl, propsLayer, advance, key, intro, restore, disconnected: () => observersDisconnected };
+  return { controller, button, document, media, tasks, host, scene, bed, resize, asset, load, loadAll, loadV3, loadPoses, loadRest, loadActivity, loadForward, loadTrot, loadGrounded, loadAuthored, failAuthored, authoredRequests, decoderImages, painting, flushMicrotasks, propEl, propsLayer, advance, key, intro, restore, disconnected: () => observersDisconnected };
 }

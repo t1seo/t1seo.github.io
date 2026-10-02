@@ -8,6 +8,12 @@ research:
 
 # Taewon Seo — Seoul Studio
 
+## Interim 2D authored walk release · latest, 2026-10-02
+
+The user requests deployment of the latest improved 2D Milky before planning a custom model. Keep the existing painted Maltese artwork and Canvas renderer. Drive the full articulated silhouette from the local CC0 Quaternius Walk/Gallop clips with distance-linked playback and entry/exit blending. Three.js is used for skeleton sampling only; the rejected Shiba-based full-3D prototype is not active or part of this release. Preserve scale, bed hop, ball interactions, photo moments and the existing lifecycle gates. Retain the final neutral drawing at arrival and original sprites on preparation failure. Cap triangle seam expansion to avoid spikes in thin bent triangles.
+
+This supersedes the procedural walking details below for the active penthouse. The source animation has inconsistent stance velocity and the 2D retarget deforms limb lengths, so residual sliding and silhouette distortion are known limitations. Do not call the gait physically accurate or the likeness/motion approved. Source, extraction and limits: `asset-sources/milky-authored/README.md`. A separately researched custom-Milky proposal will not replace this runtime without implementation and review.
+
 ## Milky's photograph-inspired moments and walking · latest, 2026-10-02
 
 Keep Milky's familiar white coat, face and restrained head/body proportions. Add six quiet performances drawn from the album: a curious head tilt, forepaws stretched out, a sleepy peek, a gentle pant after exertion, a chin resting on the real bed rim, and a relaxed roll on the cushion. The two cushion performances require a real approach, low hop and landing. Use authored lowering, rolling and rising poses in both directions; a new action must let a lying dog rise before walking or turning. Each motion is also available through the English `Little moments` controls in Milky, with no caption added over the room.

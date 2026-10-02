@@ -1,0 +1,27 @@
+{
+  "creator": "Quaternius",
+  "pack": "Ultimate Animated Animal Pack",
+  "officialSource": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+  "officialDownload": "https://drive.google.com/uc?export=download&id=1XWUVbmMbiG9E90OqrumueD_pBdnYdyHZ",
+  "downloadNote": "Official archive was quota-limited; original ShibaInu.gltf and accompanying License.txt retrieved from a public pack mirror.",
+  "retrievedFrom": "https://raw.githubusercontent.com/agentkaerf/FreeModels/main/Ultimate%20Animated%20Animals%20-%20July%202021/glTF/ShibaInu.gltf",
+  "license": "CC0 1.0 Universal",
+  "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "sourceSha256": "3236979b94a840eb72d9ce091b1361da327a96f5ce068e666680297480f30f6b",
+  "sourceBytes": 2894445,
+  "output": "public/assets/cyberpunk/milky-authored/canine-clips.glb",
+  "outputSha256": "eb9af129b6f6c8b2752b9228b5fb7e208140ab4c4725cda37781491069202d56",
+  "outputBytes": 369004,
+  "clips": [
+    "Walk",
+    "Gallop",
+    "Idle"
+  ],
+  "nodeCount": 47,
+  "modifications": [
+    "Remove mesh node, meshes, skin, materials, textures, and images",
+    "Keep original node hierarchy and all three selected clips with original keyframes and interpolation",
+    "Remap container indices and deduplicate identical accessor payloads",
+    "Pack retained animation bytes in a self-contained GLB"
+  ]
+}

@@ -46,6 +46,7 @@ test('the archive controller creates no grounded canvas or requests', async () =
     // Then the ordinary visible sprite walk remains independent of the new renderer.
     assert.equal(figure(f).children.some(element => element.tagName === 'CANVAS'), false);
     assert.equal(f.decoderImages.length, 0);
+    assert.equal(f.authoredRequests.length, 0);
     assert.equal(f.button.dataset.pose, 'side');
   } finally { f.restore(); }
 });
@@ -60,6 +61,7 @@ test('the opted-in renderer stays hidden and makes no requests before movement i
     // Then the grounded rig has only a hidden surface and no eager image requests.
     assert.equal(canvas(f).hidden, true);
     assert.equal(f.decoderImages.length, 0);
+    assert.equal(f.authoredRequests.length, 0);
     assert.equal(f.painting.draws, 0);
   } finally { f.restore(); }
 });
@@ -68,7 +70,7 @@ test('art arriving during a sprite walk only activates on the next leg', async (
   // Given a first leg that started before its optional art decoded.
   const f = setup();
   try {
-    await ready(f); f.key('ArrowRight');
+    await ready(f); f.key('ArrowRight'); await f.flushMicrotasks();
     until(f, () => f.button.dataset.motion === 'walking');
     assert.equal(f.decoderImages.length, 2);
     // When the complete rig arrives during that leg.
@@ -168,9 +170,10 @@ test('an image failure leaves the sprite walk usable and retries only on later m
   // Given a movement intent whose first optional image fails.
   const f = setup();
   try {
-    await ready(f); f.key('ArrowRight');
+    await ready(f); f.key('ArrowRight'); await f.flushMicrotasks();
     f.asset('milky-grounded-walk/torso.webp').dispatchEvent(new Event('error'));
     await f.load('milky-grounded-walk/foreleg.webp'); await f.flushMicrotasks();
+    await f.loadAuthored();
     until(f, () => f.button.dataset.motion === 'walking');
     assert.equal(canvas(f).hidden, true);
     assert.equal(f.button.dataset.pose, 'side');
@@ -183,6 +186,41 @@ test('an image failure leaves the sprite walk usable and retries only on later m
     assert.equal(canvas(f).hidden, false);
     assert.equal(f.decoderImages.length, 5);
   } finally { f.restore(); }
+});
+
+for (const failure of ['http', 'network', 'invalid glb'] as const) test(`an authored clip ${failure} failure keeps sprite movement usable and retries on new intent`, async () => {
+  const f = setup();
+  try {
+    await ready(f); f.key('ArrowRight'); await f.flushMicrotasks();
+    assert.equal(f.authoredRequests.length, 1);
+    if (failure === 'http') await f.loadAuthored(503);
+    else if (failure === 'network') await f.failAuthored();
+    else await f.loadAuthored(200, new Uint8Array([0, 1, 2, 3]).buffer);
+    await f.loadGrounded();
+    until(f, () => f.button.dataset.motion === 'walking');
+    assert.equal(canvas(f).hidden, true);
+    assert.equal(f.button.dataset.pose, 'side');
+    assert.equal(f.painting.draws, 0);
+    until(f, () => f.button.dataset.motion === 'idle');
+    f.advance(300);
+    assert.equal(f.authoredRequests.length, 1, 'a failed optional clip does not start a background retry');
+
+    f.key('ArrowLeft'); await f.flushMicrotasks();
+    assert.equal(f.authoredRequests.length, 2, 'the next movement explicitly retries the clip');
+    await f.loadAuthored();
+    until(f, () => f.button.dataset.motion === 'walking'); f.advance(16);
+    assert.equal(canvas(f).hidden, false);
+    assert.equal(f.decoderImages.length, 3, 'successful painted layers remain cached during a clip retry');
+    assert.ok(f.painting.draws > 0);
+  } finally { f.restore(); }
+});
+
+test('the mounted authored clip fixture restores the original fetch property', () => {
+  const previous = Object.getOwnPropertyDescriptor(globalThis, 'fetch');
+  const f = setup();
+  try { assert.notEqual(globalThis.fetch, previous?.value); }
+  finally { f.restore(); }
+  assert.deepEqual(Object.getOwnPropertyDescriptor(globalThis, 'fetch'), previous);
 });
 
 test('an explicit photo moment hides the grounded drawing before its authored poses appear', async () => {
@@ -271,15 +309,36 @@ for (const boundary of boundaries) {
     // Given a cold load associated with a pending walk.
     const f = setup();
     try {
-      await ready(f); f.key('ArrowRight');
+      await ready(f); f.key('ArrowRight'); await f.flushMicrotasks();
       const pending = [...f.decoderImages];
       assert.equal(pending.length, 2);
       // When the lifecycle cancels before the two images finish.
       boundary.stop(f);
+      assert.equal(f.authoredRequests[0].signal?.aborted, true, 'the outstanding animation fetch is cancelled with the image load');
       for (const image of pending) image.dispatchEvent(new Event('load'));
       await f.flushMicrotasks(); f.advance(500);
       // Then the final image is never requested and the stale rig never becomes visible.
       assert.equal(f.decoderImages.length, 2);
+      assert.equal(canvas(f).hidden, true);
+      assert.equal(f.painting.draws, 0);
+      assert.equal(frames(f), 0);
+    } finally { f.restore(); }
+  });
+  test(`${boundary.name} cancels an animation fetch after all painted layers are ready`, async () => {
+    const f = setup();
+    try {
+      await ready(f); f.key('ArrowRight'); await f.flushMicrotasks();
+      await f.load('milky-grounded-walk/torso.webp');
+      await f.load('milky-grounded-walk/foreleg.webp'); await f.flushMicrotasks();
+      await f.load('milky-grounded-walk/hindleg.webp'); await f.flushMicrotasks();
+      assert.equal(f.authoredRequests.length, 1);
+      const request = f.authoredRequests[0];
+      assert.equal(request.settled, false);
+      boundary.stop(f);
+      assert.equal(request.signal?.aborted, true);
+      assert.equal(request.settled, true);
+      request.respond(200); // Simulate the transport trying to resolve after cancellation.
+      await f.flushMicrotasks(); f.advance(500);
       assert.equal(canvas(f).hidden, true);
       assert.equal(f.painting.draws, 0);
       assert.equal(frames(f), 0);

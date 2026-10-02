@@ -1,6 +1,7 @@
 import { GROUNDED_ART, GROUNDED_JOINTS } from './cyber-pet-grounded-geometry.ts';
 import { createGroundedSkeleton, GROUNDED_BODY_PIVOT, GROUNDED_PADS, solveGroundedSkeleton } from './cyber-pet-grounded-articulation.ts';
 import type { GroundedFoot, GroundPoint } from './cyber-pet-grounded-geometry.ts';
+import type { GroundedSkeleton } from './cyber-pet-grounded-articulation.ts';
 import type { GroundedPose } from './cyber-pet-grounded-plan.ts';
 import type { GroundedWalkAssets } from './cyber-pet-grounded-assets.ts';
 type Surface = { readonly source: Float64Array; readonly target: Float64Array; readonly triangles: Uint16Array };
@@ -38,7 +39,8 @@ function surface(xs: readonly number[], ys: readonly number[]): Surface {
 export function createGroundedPainter(context: CanvasRenderingContext2D, assets: GroundedWalkAssets) {
   const meshes = { nearHind: mesh('hind'), nearFore: mesh('fore'), farHind: mesh('hind'), farFore: mesh('fore') };
   const torso = surface([0, 200, 320, 440, 560, 760, 920, 1040, 1160, 1360, 1536], [0, 200, 340, 420, 500, 580, 720, 1024]);
-  const skeleton = createGroundedSkeleton();
+  const fallbackSkeleton = createGroundedSkeleton();
+  let skeleton = fallbackSkeleton;
   const fade = (v: number) => { const u = Math.max(0, Math.min(1, v)); return u * u * (3 - 2 * u); };
   function transformTorso(): void {
     const { x: px, y: py } = GROUNDED_BODY_PIVOT;
@@ -63,16 +65,26 @@ export function createGroundedPainter(context: CanvasRenderingContext2D, assets:
     const a = Math.atan2(joint.y - root.y, joint.x - root.x) - Math.atan2(source[1].y - source[0].y, source[1].x - source[0].x);
     const b = Math.atan2(wrist.y - joint.y, wrist.x - joint.x) - Math.atan2(source[2].y - source[1].y, source[2].x - source[1].x);
     const ac = Math.cos(a), as = Math.sin(a), bc = Math.cos(b), bs = Math.sin(b);
+    const retarget = (x: number, y: number, start: {x:number;y:number}, end: {x:number;y:number}, target: {x:number;y:number}, tip: {x:number;y:number}): [number,number] => {
+      const vx=end.x-start.x, vy=end.y-start.y, length=Math.hypot(vx,vy), ux=vx/length, uy=vy/length;
+      const tx=tip.x-target.x, ty=tip.y-target.y, targetLength=Math.hypot(tx,ty), along=((x-start.x)*ux+(y-start.y)*uy)/length, across=-(x-start.x)*uy+(y-start.y)*ux;
+      return [target.x+tx*along-ty/targetLength*across,target.y+ty*along+tx/targetLength*across];
+    };
     const pc = Math.cos(pawAngle), ps = Math.sin(pawAngle);
     const dc = Math.cos(distalAngle), ds = Math.sin(distalAngle);
     for (let index = 0; index < part.source.length; index += 2) {
       const x = coordinate(part.source, index), y = coordinate(part.source, index + 1);
-      const ax = root.x + (x - source[0].x) * ac - (y - source[0].y) * as;
-      const ay = root.y + (x - source[0].x) * as + (y - source[0].y) * ac;
-      const bx = joint.x + (x - source[1].x) * bc - (y - source[1].y) * bs;
-      const by = joint.y + (x - source[1].x) * bs + (y - source[1].y) * bc;
-      const cx = wrist.x + (x - source[2].x) * dc - (y - source[2].y) * ds;
-      const cy = wrist.y + (x - source[2].x) * ds + (y - source[2].y) * dc;
+      let ax = root.x + (x - source[0].x) * ac - (y - source[0].y) * as;
+      let ay = root.y + (x - source[0].x) * as + (y - source[0].y) * ac;
+      let bx = joint.x + (x - source[1].x) * bc - (y - source[1].y) * bs;
+      let by = joint.y + (x - source[1].x) * bs + (y - source[1].y) * bc;
+      let cx = wrist.x + (x - source[2].x) * dc - (y - source[2].y) * ds;
+      let cy = wrist.y + (x - source[2].x) * ds + (y - source[2].y) * dc;
+      if (skeleton !== fallbackSkeleton) {
+        [ax, ay] = retarget(x,y,source[0],source[1],root,joint);
+        [bx, by] = retarget(x,y,source[1],source[2],joint,wrist);
+        [cx, cy] = retarget(x,y,source[2],sourcePad,wrist,pad);
+      }
       const dx = pad.x + (x - sourcePad.x) * pc - (y - sourcePad.y) * ps;
       const dy = pad.y + (x - sourcePad.x) * ps + (y - sourcePad.y) * pc;
       if (y < source[1].y + 45) {
@@ -107,7 +119,11 @@ export function createGroundedPainter(context: CanvasRenderingContext2D, assets:
       const my = (ei * coordinate(t, i + 1) + ej * coordinate(t, j + 1) + ek * coordinate(t, k + 1)) / perimeter;
       const radius = Math.abs((coordinate(t, j) - coordinate(t, i)) * (coordinate(t, k + 1) - coordinate(t, i + 1)) - (coordinate(t, k) - coordinate(t, i)) * (coordinate(t, j + 1) - coordinate(t, i + 1))) / perimeter;
       if (radius < 1e-5) continue;
-      const expansion = 1 + padding / radius;
+      // Near edge-on bends can make a triangle arbitrarily thin. Expanding by
+      // its inradius alone then sends the acute tip thousands of pixels away,
+      // pulling stray fur into a spike. Keep seam coverage below one device
+      // pixel at every vertex, including while a joint crosses this thin pose.
+      const expansion = 1 + Math.min(padding / radius, 2 * padding / Math.max(ei, ej, ek));
       context.save(); context.beginPath();
       for (let corner = 0; corner < 3; corner++) {
         const p = coordinate(part.triangles, index + corner);
@@ -120,10 +136,11 @@ export function createGroundedPainter(context: CanvasRenderingContext2D, assets:
     }
   }
   return {
-    draw(sample: GroundedRenderSample, deviceScale?: number): boolean {
+    draw(sample: GroundedRenderSample, deviceScale?: number, authored?: GroundedSkeleton): boolean {
       const scale = deviceScale ?? Math.abs(context.getTransform().a);
       const padding = .45 / Math.max(.01, scale);
-      if (!solveGroundedSkeleton(sample, skeleton)) return false;
+      skeleton = authored ?? fallbackSkeleton;
+      if (!authored && !solveGroundedSkeleton(sample, skeleton)) return false;
       for (const name of ORDER) transform(meshes[name], name);
       for (const name of ORDER) {
         const part = meshes[name];
