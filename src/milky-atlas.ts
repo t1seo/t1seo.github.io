@@ -1,6 +1,6 @@
 import './milky-atlas.css';
 
-const SOURCE = '/assets/penthouse/milky-pet/spritesheet.png';
+const SOURCE = '/assets/penthouse/milky-pet/spritesheet.png?v=longlegs-2';
 const COUNTS = [6, 8, 8, 4, 5, 8, 6, 6, 6, 8, 8] as const;
 /** The Pets sheet is presentation only: the room keeps its existing movement/lifecycle. */
 export function mountMilkyAtlas(host: HTMLElement) {

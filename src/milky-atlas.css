@@ -10,7 +10,7 @@
   bottom: 4%;
   transform: translateX(-50%) scale(var(--milky-atlas-scale, 1));
   transform-origin: 50% 97.115385%;
-  background-image: url('/assets/penthouse/milky-pet/spritesheet.png');
+  background-image: url('/assets/penthouse/milky-pet/spritesheet.png?v=longlegs-2');
   background-size: 800% 1100%;
   background-repeat: no-repeat;
   pointer-events: none;
