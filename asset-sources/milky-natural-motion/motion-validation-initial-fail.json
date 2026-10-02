@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "status": "FAIL",
+  "reference": {
+    "path": "/Volumes/Nebula/Developer/Repositories/t1seo.github.io/public/assets/cyberpunk/milky-natural-motion/walk-cycle.json",
+    "sha256": "3c75b74a7a358d785b3a2e6b2720022ec69be4195da9f4433b08ce32f3868c0c",
+    "frames": 94
+  },
+  "implementation_sha256": {
+    "cyber-pet-natural-motion.ts": "1c3d41a7cb5a7c759698878ce6f900a47ad6ce83cd29b656a72bea44b9e3fe83",
+    "cyber-pet-natural-render.ts": "4b8643b0c37aa3ad0014c5b9791f91223bef51c90de06f39bf6f77e7e0f7a9f9"
+  },
+  "method": "Actual createNaturalMotion sampler and createNaturalPainter Canvas triangle submissions; no alternative gait or synthetic pose fixture.",
+  "cycle_samples": 2049,
+  "duration": 1.04,
+  "stride": 370,
+  "limits": {
+    "boneLengthError": 0.000001,
+    "stanceWorldDrift": 0.00001,
+    "stanceWorldSpeed": 0.0001,
+    "seamPositionError": 0.0001,
+    "seamVelocityError": 0.01,
+    "faceDistanceError": 1e-7,
+    "minimumTriangleAreaRatio": 0.000001
+  },
+  "assertions": {
+    "finite": true,
+    "fixed_bone_lengths": true,
+    "reachable": true,
+    "fixed_world_stance": true,
+    "continuous_contact_and_cycle_boundaries": true,
+    "no_triangle_folds": false,
+    "rigid_submitted_face": true
+  },
+  "measured": {
+    "boneLength": {
+      "value": 2.2737367544323206e-13,
+      "phase": 0.01220703125,
+      "detail": "farFore.segment0"
+    },
+    "reachMargin": {
+      "value": 4.448766816671991,
+      "phase": 0.42822265625,
+      "detail": "nearFore"
+    },
+    "jointBendMargin": {
+      "value": 8090.427213784722,
+      "phase": 0.42822265625,
+      "detail": "nearFore"
+    },
+    "nonfinite": [],
+    "unreachable": [],
+    "stanceDrift": {
+      "value": 4.547473508864641e-13,
+      "phase": 0.7871875,
+      "detail": "nearFore"
+    },
+    "stanceSpeed": {
+      "value": 6.996113090560986e-10,
+      "phase": 0.7878125,
+      "detail": "nearFore"
+    },
+    "invalidStanceFlags": 0,
+    "seamPosition": {
+      "value": 0.0000012156664297435782,
+      "phase": 1.425,
+      "detail": "nearFore.liftoff/nearFore.joint.x"
+    },
+    "seamVelocity": {
+      "value": 0.000018556096826216617,
+      "phase": 1.425,
+      "detail": "nearFore.liftoff/nearFore.joint.x"
+    },
+    "boundaries": [
+      {
+        "phase": 0,
+        "name": "cycle seam"
+      },
+      {
+        "phase": 0.473,
+        "name": "nearHind.touchdown"
+      },
+      {
+        "phase": 1.073,
+        "name": "nearHind.liftoff"
+      },
+      {
+        "phase": 0.785,
+        "name": "nearFore.touchdown"
+      },
+      {
+        "phase": 1.425,
+        "name": "nearFore.liftoff"
+      },
+      {
+        "phase": 0.989,
+        "name": "farHind.touchdown"
+      },
+      {
+        "phase": 1.589,
+        "name": "farHind.liftoff"
+      },
+      {
+        "phase": 0.301,
+        "name": "farFore.touchdown"
+      },
+      {
+        "phase": 0.9410000000000001,
+        "name": "farFore.liftoff"
+      }
+    ],
+    "area": {
+      "value": -1.379744699207858,
+      "phase": 0.62939453125,
+      "detail": "painter inspection"
+    },
+    "maximumArea": {
+      "value": 2.6304543151216757,
+      "phase": 0.169921875,
+      "detail": "painter inspection"
+    },
+    "maximumFlips": {
+      "value": 7,
+      "phase": 0.11669921875,
+      "detail": "triangles per frame"
+    },
+    "maximumDegenerate": {
+      "value": 0,
+      "phase": 0,
+      "detail": ""
+    },
+    "framesWithFolds": 2008,
+    "minimumSubmittedArea": {
+      "value": -1.379744699207858,
+      "phase": 0.62939453125,
+      "detail": "nearFore.triangle45"
+    },
+    "badTriangles": [
+      {
+        "phase": 0.6259765625,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.378977037054123,
+        "sourceCentroid": {
+          "x": 984.3808041628245,
+          "y": 875.1540552980226
+        }
+      },
+      {
+        "phase": 0.62646484375,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.3791917197515122,
+        "sourceCentroid": {
+          "x": 984.3830521058661,
+          "y": 875.1541351041623
+        }
+      },
+      {
+        "phase": 0.626953125,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.379372109725267,
+        "sourceCentroid": {
+          "x": 984.3853832486519,
+          "y": 875.1542183387388
+        }
+      },
+      {
+        "phase": 0.62744140625,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.379517790605753,
+        "sourceCentroid": {
+          "x": 984.3877968804022,
+          "y": 875.1543049066973
+        }
+      },
+      {
+        "phase": 0.6279296875,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.379628334631853,
+        "sourceCentroid": {
+          "x": 984.3902922739202,
+          "y": 875.1543947130828
+        }
+      },
+      {
+        "phase": 0.62841796875,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.379703302749519,
+        "sourceCentroid": {
+          "x": 984.3928686859812,
+          "y": 875.1544876631127
+        }
+      },
+      {
+        "phase": 0.62890625,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.3797422447157084,
+        "sourceCentroid": {
+          "x": 984.3955253577196,
+          "y": 875.1545836622454
+        }
+      },
+      {
+        "phase": 0.62939453125,
+        "layer": "nearFore",
+        "index": 45,
+        "areaRatio": -1.379744699207858,
+        "sourceCentroid": {
+          "x": 984.398261515025,
+          "y": 875.1546826162512
+        }
+      }
+    ],
+    "faceError": {
+      "value": 5.684341886080801e-13,
+      "phase": 0.11376953125,
+      "detail": "all landmark pairs"
+    },
+    "rigidFaceError": {
+      "value": 4.687428401686771e-13,
+      "phase": 0.2646484375,
+      "detail": "rigid face transform"
+    },
+    "submittedFaceError": {
+      "value": 7.389644451905042e-13,
+      "phase": 0.82666015625,
+      "detail": "Canvas affine landmark pairs"
+    },
+    "submittedInspectionDifference": {
+      "value": 4.582862941503293e-13,
+      "phase": 0.0556640625,
+      "detail": "nose"
+    },
+    "missingFaceLandmarks": 0,
+    "drawRejected": 0
+  },
+  "not_assessed": [
+    "Visual naturalness",
+    "Milky likeness",
+    "Raster color or palette preservation",
+    "Real Canvas rasterization/alpha coverage",
+    "Runtime routing and lifecycle"
+  ]
+}
