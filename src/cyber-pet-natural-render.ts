@@ -33,6 +33,9 @@ export type NaturalPainterInspection = {
   /** Ratios describe supplied skeleton lengths; the painter never stretches a bone. */
   segmentLengthRatios: Record<GroundedFoot, readonly [number, number, number]>;
   maxSegmentLengthError: number;
+  /** Actual affine-mesh sole landmarks, not the analytical skeleton alone. */
+  soles: Record<GroundedFoot, { expected: GroundPoint; rendered: GroundPoint; error: number }>;
+  maxSoleError: number;
   face: {
     transform: Affine;
     landmarks: ReadonlyArray<{ name: string; source: GroundPoint; target: GroundPoint }>;
@@ -74,7 +77,29 @@ function limbMesh(kind: 'fore' | 'hind'): LimbMesh {
     joints[1].y - 65, joints[1].y - 35, joints[1].y, joints[1].y + 35, joints[1].y + 65,
     joints[2].y - 40, joints[2].y, joints[2].y + 40,
     pad.y - 110, pad.y - 80, pad.y - 45, pad.y - 20, pad.y, 990])].sort((a, b) => a - b);
-  return { ...surface(kind === 'fore' ? [895, 1040, 1185] : [240, 442.5, 645], ys), kind };
+  // Measured source-alpha envelopes with an 8-unit guard band. Verified to
+  // retain every nonzero-alpha pixel inside the previous rectangular mesh.
+  const widths = kind === 'fore' ? [
+    [944,1157],[934,1174],[934,1174],[930,1170],[927,1147],[904,1140],
+    [904,1127],[906,1110],[921,1104],[941,1104],[948,1111],[948,1111],
+    [951,1147],[953,1164],[953,1167],[957,1170],[957,1170],[965,1167],
+  ] : [
+    [362,628],[349,633],[349,633],[355,630],[357,611],[342,594],
+    [301,572],[274,551],[272,517],[272,476],[271,458],[269,435],
+    [256,423],[255,428],[253,451],[253,458],[253,459],[262,459],
+  ];
+  const result = surface([0, .25, .5, .75, 1], ys);
+  for (let row = 0; row < ys.length; row++) {
+    const [left, right] = widths[row];
+    for (let col = 0; col < 5; col++) result.source[(row * 5 + col) * 2] = left + (right - left) * col / 4;
+  }
+  // Use a consistent diagonal that follows the narrow wrist's contour.
+  // It stays fixed for the whole clip: no per-frame triangle switches.
+  for (let i = 0; i < result.triangles.length; i += 6) {
+    const q = result.triangles, b = q[i + 1], c = q[i + 2], d = q[i + 5];
+    q[i + 2] = d; q[i + 3] = b; q[i + 4] = c;
+  }
+  return { ...result, kind };
 }
 
 function rigid(origin: GroundPoint, destination: GroundPoint, angle: number): Affine {
@@ -90,9 +115,6 @@ function compose(parent: Affine, child: Affine): Affine {
     c: parent.a * child.c + parent.c * child.d, d: parent.b * child.c + parent.d * child.d,
     e: parent.a * child.e + parent.c * child.f + parent.e, f: parent.b * child.e + parent.d * child.f + parent.f,
   };
-}
-function bone(source: GroundPoint, tip: GroundPoint, target: GroundPoint, end: GroundPoint): Affine {
-  return rigid(source, target, Math.atan2(end.y - target.y, end.x - target.x) - Math.atan2(tip.y - source.y, tip.x - source.x));
 }
 function area(points: Float64Array, a: number, b: number, c: number): number {
   return (points[b] - points[a]) * (points[c + 1] - points[a + 1]) - (points[c] - points[a]) * (points[b + 1] - points[a + 1]);
@@ -125,6 +147,9 @@ export function createNaturalPainter(context: CanvasRenderingContext2D, assets: 
   };
   let draws = 0, minAreaRatio = 1, maxAreaRatio = 1, flippedTriangles = 0, degenerateTriangles = 0, finite = true;
   let faceTransform = rigid(HEAD, HEAD, 0);
+  const expectedSoles: Record<GroundedFoot, GroundPoint> = {
+    nearFore: { x: 0, y: 0 }, farFore: { x: 0, y: 0 }, nearHind: { x: 0, y: 0 }, farHind: { x: 0, y: 0 },
+  };
 
   function transformTorso(skeleton: NaturalSkeleton): void {
     let deformation = skeleton.deformation;
@@ -160,21 +185,48 @@ export function createNaturalPainter(context: CanvasRenderingContext2D, assets: 
   function transformLimb(part: LimbMesh, name: GroundedFoot, skeleton: NaturalSkeleton): void {
     const source = GROUNDED_JOINTS[part.kind], sourcePad = GROUNDED_PADS[part.kind];
     const limb = skeleton.limbs[name];
-    const transforms = [bone(source[0], source[1], limb.root, limb.joint),
-      bone(source[1], source[2], limb.joint, limb.wrist),
-      bone(source[2], sourcePad, limb.wrist, limb.pad), rigid(sourcePad, limb.pad, limb.pawAngle)];
+    const angle = (a: GroundPoint, b: GroundPoint) => Math.atan2(b.y - a.y, b.x - a.x);
+    const wrap = (value: number) => Math.atan2(Math.sin(value), Math.cos(value));
+    const upper = wrap(angle(limb.root, limb.joint) - angle(source[0], source[1]));
+    const lower = wrap(angle(limb.joint, limb.wrist) - angle(source[1], source[2]));
+    const distal = wrap(angle(limb.wrist, limb.pad) - angle(source[2], sourcePad));
+    const root = rigid(source[0], limb.root, upper);
+    const paw = rigid(sourcePad, limb.pad, limb.pawAngle);
+    // Interpolate polar direction around the joint instead of averaging two
+    // opposing affine matrices. The latter collapses the inner wrist when a
+    // paw folds. The two angular sectors preserve their direction ordering;
+    // the radial falloff leaves distant upstream attachments alone.
+    const bend = (pivot: GroundPoint, previous: GroundPoint, next: GroundPoint, rotation: number, radius: number) => {
+      const tau = Math.PI * 2, mod = (v: number) => ((v % tau) + tau) % tau;
+      const start = angle(pivot, previous), arc = mod(angle(pivot, next) - start);
+      return (point: GroundPoint): GroundPoint => {
+        const dx = point.x - pivot.x, dy = point.y - pivot.y, r = Math.hypot(dx, dy);
+        if (r < 1e-9) return { ...pivot };
+        const theta = mod(Math.atan2(dy, dx) - start);
+        const weight = theta <= arc ? theta / arc : (tau - theta) / (tau - arc);
+        const fade = 1 - smooth((r - radius * .65) / (radius * .35));
+        const turn = rotation * weight * fade;
+        const c = Math.cos(turn), s = Math.sin(turn);
+        return { x: pivot.x + dx * c - dy * s, y: pivot.y + dx * s + dy * c };
+      };
+    };
+    const bendPaw = bend(sourcePad, source[2], source[3], wrap(limb.pawAngle - distal), distance(sourcePad, source[1]) * .94);
+    const bendWrist = bend(source[2], source[1], sourcePad, wrap(distal - lower), distance(source[2], source[0]) * .94);
+    const bendElbow = bend(source[1], source[0], source[2], wrap(lower - upper), 1000);
+    expectedSoles[name] = apply(paw, source[3].x, source[3].y);
     lengthRatios[name][0] = distance(limb.root, limb.joint) / distance(source[0], source[1]);
     lengthRatios[name][1] = distance(limb.joint, limb.wrist) / distance(source[1], source[2]);
     lengthRatios[name][2] = distance(limb.wrist, limb.pad) / distance(source[2], sourcePad);
     for (let i = 0; i < part.source.length; i += 2) {
-      const x = part.source[i], y = part.source[i + 1];
-      const upper = apply(transforms[0], x, y), lower = apply(transforms[1], x, y), distal = apply(transforms[2], x, y), paw = apply(transforms[3], x, y);
-      const elbow = smooth((y - source[1].y + 65) / 130), wrist = smooth((y - source[2].y + 40) / 80);
-      const sole = smooth((y - sourcePad.y + 110) / 110);
-      let tx = upper.x + (lower.x - upper.x) * elbow, ty = upper.y + (lower.y - upper.y) * elbow;
-      tx += (distal.x - tx) * wrist; ty += (distal.y - ty) * wrist;
-      part.target[i] = tx + (paw.x - tx) * sole;
-      part.target[i + 1] = ty + (paw.y - ty) * sole;
+      let point = { x: part.source[i], y: part.source[i + 1] };
+      point = bendElbow(bendWrist(bendPaw(point)));
+      point = apply(root, point.x, point.y);
+      // Reattach the broad painted foot over the lower-leg region. At and
+      // below its pad all vertices share the exact rigid contact transform.
+      const sole = smooth((part.source[i + 1] - sourcePad.y + 180) / 180);
+      const exactPaw = apply(paw, part.source[i], part.source[i + 1]);
+      part.target[i] = point.x + (exactPaw.x - point.x) * sole;
+      part.target[i + 1] = point.y + (exactPaw.y - point.y) * sole;
     }
   }
 
@@ -238,6 +290,10 @@ export function createNaturalPainter(context: CanvasRenderingContext2D, assets: 
     },
     inspect(): NaturalPainterInspection {
       const landmarks = FACE.map(point => ({ name: point.name, source: { x: point.x, y: point.y }, target: onMesh(torso, point) }));
+      const soles = Object.fromEntries(ORDER.map(name => {
+        const expected = expectedSoles[name], rendered = onMesh(limbs[name], GROUNDED_JOINTS[limbs[name].kind][3]);
+        return [name, { expected: { ...expected }, rendered, error: distance(expected, rendered) }];
+      })) as NaturalPainterInspection['soles'];
       let maxRigidError = 0, maxPairDistanceError = 0;
       for (const landmark of landmarks) {
         maxRigidError = Math.max(maxRigidError, distance(landmark.target, apply(faceTransform, landmark.source.x, landmark.source.y)));
@@ -248,6 +304,7 @@ export function createNaturalPainter(context: CanvasRenderingContext2D, assets: 
         minAreaRatio, maxAreaRatio, flippedTriangles, degenerateTriangles, finite,
         segmentLengthRatios: { farHind: [...lengthRatios.farHind], farFore: [...lengthRatios.farFore], nearHind: [...lengthRatios.nearHind], nearFore: [...lengthRatios.nearFore] },
         maxSegmentLengthError: Math.max(...Object.values(lengthRatios).flat().map(ratio => Math.abs(1 - ratio))),
+        soles, maxSoleError: Math.max(...Object.values(soles).map(sole => sole.error)),
         face: { transform: { ...faceTransform }, landmarks, maxRigidError, maxPairDistanceError },
       };
     },

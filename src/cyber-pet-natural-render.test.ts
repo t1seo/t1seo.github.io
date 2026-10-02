@@ -50,6 +50,7 @@ test('separate chest and pelvis motion keeps the painted face rigid in submitted
     assert.ok(report.face.maxRigidError < 1e-9, `face mesh deforms: ${report.face.maxRigidError}`);
     assert.ok(report.face.maxPairDistanceError < 1e-9, 'eyes, muzzle, mouth and ear preserve their spacing');
     assert.ok(report.maxSegmentLengthError < 1e-12, 'kinematic fixture preserves bone lengths');
+    assert.ok(report.maxSoleError < 1e-9, 'actual mesh soles match supplied rigid contact transforms');
     assert.equal(report.flippedTriangles, 0, `triangle inversion at phase ${phase}: ${report.minAreaRatio}`);
     assert.equal(report.degenerateTriangles, 0);
   }
