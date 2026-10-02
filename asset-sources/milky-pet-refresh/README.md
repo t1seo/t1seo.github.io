@@ -11,3 +11,5 @@ Profile gait needs a 1.42 scale correction because the wide body had been fitted
 The jump strip was regenerated with natural elbow and hindleg flexion to keep limb anatomy consistent. Its five frames retain a single 1.07 scale correction around the same floor anchor; body lift is authored in the strip and the existing bed hop trajectory. Chin contact uses measured native [968,950] and a 220-pixel bounded whole-frame translation for the newly registered art.
 
 Runtime WebP derivatives are 768×512 (logical 1536×1024), quality 92; generated full-resolution strips remain here for reproducibility.
+
+The final play reach uses a regenerated low forepaw contact at native [1140,958] (345 pixels ahead of the support anchor). The eating muzzle is 190 pixels ahead. These measured landmarks keep bowl and ball placement aligned with the replacement anatomy.

@@ -1146,7 +1146,7 @@ export function mountCyberPet(
   function beginFeed() {
     cancelAction();
     clearSession();
-    const muzzleReach = (depthY: number) => reachAhead(newArtwork ? 360 : MUZZLE_AHEAD_NATIVE, depthY);
+    const muzzleReach = (depthY: number) => reachAhead(newArtwork ? 190 : MUZZLE_AHEAD_NATIVE, depthY);
     if (motionStopped()) {
       // Static explicit posture with static food and no forced movement: the dog stays
       // put, so the bowl must appear under her actual lowered muzzle, not a walk away.
@@ -1227,7 +1227,7 @@ export function mountCyberPet(
   /** True only when the resting ball actually sits at the registered raised-paw tip. */
   function ballInPawContact(): boolean {
     if (!ball || !ball.resting) return false;
-    const reach = reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, ball.y);
+    const reach = reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, ball.y);
     return Math.abs(Math.abs(ball.x - position.x) - reach) <= .006 && Math.abs(ball.y - position.y) <= .004;
   }
   function playRound(plan: ReturnType<typeof planMilkyPlay>, round: number, autonomous: boolean, tries = 0, waits = 0) {
@@ -1248,7 +1248,7 @@ export function mountCyberPet(
     // Stand where the registered raised paw tip actually meets the ball on contact. If
     // the natural side collapses to a no-walk step (a side-view dog cannot take a nearly
     // vertical step) or a wall clamps the stand off target, approach from the other side.
-    const reach = reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, ball.y);
+    const reach = reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, ball.y);
     const offTarget = (point: MilkyPoint) =>
       Math.abs(Math.abs(ball!.x - point.x) - reach) > .004 || Math.abs(ball!.y - point.y) > .002;
     const approachDir = ball.x < position.x ? -1 : 1;
@@ -1288,7 +1288,7 @@ export function mountCyberPet(
         playPoseSteps([{ pose: 'play-reach', hold: plan.reachHold, motion: 'playing' }], 0, revision, () => {
           if (revision !== actionRevision || !ball) return;
           const chaseDir = ball.x < position.x ? -1 : 1;
-          walkTo({ x: ball.x - chaseDir * reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, ball.y), y: ball.y }, { autonomous, cadence: 1.4, onDone: () => {
+          walkTo({ x: ball.x - chaseDir * reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, ball.y), y: ball.y }, { autonomous, cadence: 1.4, onDone: () => {
             if (round + 1 < plan.rounds) playRound(plan, round + 1, autonomous);
             // Only a genuinely completed session (real contact happened) may end in the
             // occasional photo-20 pant; the honest give-up path above never does.
@@ -1357,7 +1357,7 @@ export function mountCyberPet(
       if (!ball || !ballBounds) { settle(); return; }
       const landing = predictMilkyBallRest(ball, ballBounds);
       const direction = landing.x < position.x ? -1 : 1;
-      const target = { x: landing.x - direction * reachAhead(newArtwork ? 430 : PAW_REACH_NATIVE, landing.y), y: landing.y };
+      const target = { x: landing.x - direction * reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, landing.y), y: landing.y };
       walkTo(target, { cadence: 1.4, onDone: () => playRound({ ...planMilkyPlay(), rounds: 1 }, 0, false) });
     });
   }

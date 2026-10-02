@@ -320,51 +320,6 @@
     }
   },
   {
-    "name": "milky-play-reach",
-    "strip": "activity",
-    "shared_scale": 1.7014314928425358,
-    "bbox": [
-      431,
-      141,
-      1159,
-      970
-    ],
-    "anchor": [
-      795,
-      970
-    ],
-    "despill": {
-      "algorithm": "edge-local-chroma-spill-suppression",
-      "strength": 1,
-      "edge_radius": 5,
-      "spill_tolerance": 0.15,
-      "minimum_saturation": 0.1,
-      "changed_pixels": 22226,
-      "decontaminated_pixels": 17505,
-      "spill_suppressed_pixels": 22226,
-      "rejected_pixels": 0,
-      "changed_by_cell": {
-        "r1c0": 3881,
-        "r0c1": 2367,
-        "r3c1": 2272,
-        "r3c0": 2265,
-        "r0c2": 2185,
-        "r2c0": 1895,
-        "r2c3": 1868,
-        "r2c2": 1624,
-        "r1c2": 1422,
-        "r0c0": 1052,
-        "r3c2": 824,
-        "r1c1": 330,
-        "r4c1": 131,
-        "r1c3": 68,
-        "r4c2": 38,
-        "r2c1": 4
-      },
-      "alpha_preserved": true
-    }
-  },
-  {
     "name": "photo/tilt-near",
     "strip": "face",
     "shared_scale": 1.3639344262295081,
@@ -979,6 +934,54 @@
         "r2c4": 101,
         "r1c1": 66,
         "r1c3": 1
+      },
+      "alpha_preserved": true
+    }
+  },
+  {
+    "name": "milky-play-reach",
+    "strip": "activity-reach",
+    "shared_scale": 1.7049180327868851,
+    "bbox": [
+      438,
+      153,
+      1152,
+      970
+    ],
+    "anchor": [
+      795,
+      970
+    ],
+    "despill": {
+      "algorithm": "edge-local-chroma-spill-suppression",
+      "strength": 1,
+      "edge_radius": 5,
+      "spill_tolerance": 0.15,
+      "minimum_saturation": 0.1,
+      "changed_pixels": 22876,
+      "decontaminated_pixels": 18298,
+      "spill_suppressed_pixels": 22876,
+      "rejected_pixels": 0,
+      "changed_by_cell": {
+        "r2c2": 2485,
+        "r1c3": 2211,
+        "r3c2": 1815,
+        "r4c5": 1748,
+        "r0c4": 1577,
+        "r4c4": 1353,
+        "r4c2": 1339,
+        "r3c5": 1301,
+        "r3c4": 1260,
+        "r1c2": 1248,
+        "r1c5": 1182,
+        "r4c3": 1123,
+        "r2c5": 1047,
+        "r2c3": 959,
+        "r3c3": 928,
+        "r0c3": 770,
+        "r2c4": 405,
+        "r1c4": 121,
+        "r0c5": 4
       },
       "alpha_preserved": true
     }
