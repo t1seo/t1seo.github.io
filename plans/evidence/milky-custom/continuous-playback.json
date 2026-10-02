@@ -1,0 +1,767 @@
+[
+  {
+    "elapsedMs": 0,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.04130014305113908,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 401.10000002384186,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.444600143051142,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 802.1000000238419,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.8468001430511388,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 1203.4000000357628,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 1.243500143051139,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 1605,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.24590016689299818,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 2006.300000011921,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.6494001668929976,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 2406.900000035763,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 1.052400166892997,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 2807.400000035763,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.04840019073485434,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 3208.199999988079,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.4506001907348552,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 3608.900000035763,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.8543001907348521,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 4009.400000035763,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 1.2504001907348534,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 4410,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.25330021457670854,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 4810.900000035763,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.6563002145767084,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 5212.199999988079,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 1.0523002145767077,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  },
+  {
+    "elapsedMs": 5613.199999988079,
+    "ready": true,
+    "disposed": false,
+    "error": null,
+    "playing": true,
+    "hidden": false,
+    "reducedMotion": false,
+    "view": "three-quarter",
+    "surface": "fur",
+    "clip": "Walk",
+    "clips": [
+      {
+        "name": "Idle",
+        "duration": 3.200000047683716
+      },
+      {
+        "name": "Walk",
+        "duration": 1.399999976158142
+      }
+    ],
+    "time": 0.05530023841856533,
+    "duration": 1.399999976158142,
+    "speed": 1,
+    "frameScheduled": true,
+    "meshes": 20,
+    "triangles": 62510,
+    "bones": 33,
+    "bounds": {
+      "min": [
+        -0.9289523263773549,
+        -0.007890161753395741,
+        -0.2756191170601536
+      ],
+      "max": [
+        1.0716948879485564,
+        1.2895846478807793,
+        0.2750466801923501
+      ]
+    },
+    "viewport": {
+      "width": 694,
+      "height": 797
+    },
+    "render": {
+      "calls": 42,
+      "triangles": 125022,
+      "geometries": 22,
+      "textures": 5
+    }
+  }
+]

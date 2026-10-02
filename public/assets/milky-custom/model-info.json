@@ -1,0 +1,86 @@
+{
+  "name": "Milky original photo-guided prototype",
+  "status": "local review, not deployed",
+  "vertices": 56379,
+  "polygons": 38037,
+  "bones": 33,
+  "glb_bytes": 3461092,
+  "animations": [
+    "Idle",
+    "Walk"
+  ],
+  "motion": {
+    "provenance": "Original analytic action authoring; no stock clips or captured Milky motion",
+    "fps": 60,
+    "coordinate_system": "Blender Z-up; +X nose; +Y left",
+    "clips": {
+      "Idle": {
+        "duration": 3.2,
+        "loop": true
+      },
+      "Walk": {
+        "duration": 1.4,
+        "stride": 0.46,
+        "speed": 0.3285714285714286,
+        "stance_fraction": 0.64,
+        "contacts": {
+          "hind.L": {
+            "start": 0.0,
+            "duration": 0.64
+          },
+          "fore.L": {
+            "start": 0.34,
+            "duration": 0.64
+          },
+          "hind.R": {
+            "start": 0.5,
+            "duration": 0.64
+          },
+          "fore.R": {
+            "start": 0.84,
+            "duration": 0.64
+          }
+        },
+        "root_distance": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            1.4,
+            0.46
+          ]
+        ],
+        "root_translation_baked": false,
+        "loop": true
+      }
+    },
+    "validation": {
+      "actions": {
+        "Idle": {
+          "frames": 193,
+          "duration_seconds": 3.2,
+          "maximum_bone_length_error": 1.4103519846431212e-07,
+          "maximum_baked_matrix_error": 7.152557373046875e-07,
+          "maximum_action_replay_matrix_error": 7.152557373046875e-07,
+          "maximum_half_frame_contact_error": 6.678979048435381e-07,
+          "loop_matrix_error": 0.0
+        },
+        "Walk": {
+          "frames": 85,
+          "duration_seconds": 1.4,
+          "maximum_bone_length_error": 1.603261684524071e-07,
+          "maximum_baked_matrix_error": 7.152557373046875e-07,
+          "maximum_action_replay_matrix_error": 7.152557373046875e-07,
+          "maximum_half_frame_contact_error": 0.0004468793263257899,
+          "loop_matrix_error": 0.0
+        }
+      },
+      "trajectory_samples": 2049,
+      "maximum_reach_error": 0.0,
+      "maximum_stance_speed_error": 5.929129464282701e-05,
+      "minimum_contact_bone_height": 0.04500000178813934,
+      "limits": "Numerical source-rig checks do not establish likeness, natural movement, mesh-floor clearance, or exported playback quality."
+    }
+  }
+}

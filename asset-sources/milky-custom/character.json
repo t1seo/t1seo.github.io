@@ -1,0 +1,441 @@
+{
+  "coordinate_system": "Blender Z-up; +X nose; +Y left",
+  "reference": "Local authorized Milky photos; trimmed-coat standing and front-face views. No source photos bundled.",
+  "bones": {
+    "root": {
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "tail": [
+        0,
+        0,
+        0.2
+      ],
+      "parent": null
+    },
+    "pelvis": {
+      "head": [
+        -0.42,
+        0,
+        0.7
+      ],
+      "tail": [
+        -0.13,
+        0,
+        0.73
+      ],
+      "parent": "root"
+    },
+    "spine": {
+      "head": [
+        -0.13,
+        0,
+        0.73
+      ],
+      "tail": [
+        0.15,
+        0,
+        0.76
+      ],
+      "parent": "pelvis"
+    },
+    "chest": {
+      "head": [
+        0.15,
+        0,
+        0.76
+      ],
+      "tail": [
+        0.4,
+        0,
+        0.81
+      ],
+      "parent": "spine"
+    },
+    "neck": {
+      "head": [
+        0.4,
+        0,
+        0.81
+      ],
+      "tail": [
+        0.6,
+        0,
+        1.04
+      ],
+      "parent": "chest"
+    },
+    "head": {
+      "head": [
+        0.6,
+        0,
+        1.04
+      ],
+      "tail": [
+        0.85,
+        0,
+        1.12
+      ],
+      "parent": "neck"
+    },
+    "jaw": {
+      "head": [
+        0.78,
+        0,
+        1.005
+      ],
+      "tail": [
+        1.0,
+        0,
+        0.975
+      ],
+      "parent": "head"
+    },
+    "scapula.L": {
+      "head": [
+        0.24,
+        0.165,
+        0.79
+      ],
+      "tail": [
+        0.4,
+        0.165,
+        0.67
+      ],
+      "parent": "chest"
+    },
+    "fore.upper.L": {
+      "head": [
+        0.4,
+        0.165,
+        0.67
+      ],
+      "tail": [
+        0.32,
+        0.165,
+        0.38
+      ],
+      "parent": "scapula.L"
+    },
+    "fore.lower.L": {
+      "head": [
+        0.32,
+        0.165,
+        0.38
+      ],
+      "tail": [
+        0.39,
+        0.165,
+        0.105
+      ],
+      "parent": "fore.upper.L"
+    },
+    "fore.paw.L": {
+      "head": [
+        0.39,
+        0.165,
+        0.105
+      ],
+      "tail": [
+        0.48,
+        0.165,
+        0.048
+      ],
+      "parent": "fore.lower.L"
+    },
+    "fore.toe.L": {
+      "head": [
+        0.48,
+        0.165,
+        0.048
+      ],
+      "tail": [
+        0.56,
+        0.165,
+        0.042
+      ],
+      "parent": "fore.paw.L"
+    },
+    "hind.upper.L": {
+      "head": [
+        -0.42,
+        0.165,
+        0.7
+      ],
+      "tail": [
+        -0.36,
+        0.165,
+        0.42
+      ],
+      "parent": "pelvis"
+    },
+    "hind.lower.L": {
+      "head": [
+        -0.36,
+        0.165,
+        0.42
+      ],
+      "tail": [
+        -0.49,
+        0.165,
+        0.21
+      ],
+      "parent": "hind.upper.L"
+    },
+    "hind.paw.L": {
+      "head": [
+        -0.49,
+        0.165,
+        0.21
+      ],
+      "tail": [
+        -0.48,
+        0.165,
+        0.045
+      ],
+      "parent": "hind.lower.L"
+    },
+    "hind.toe.L": {
+      "head": [
+        -0.48,
+        0.165,
+        0.045
+      ],
+      "tail": [
+        -0.39,
+        0.165,
+        0.04
+      ],
+      "parent": "hind.paw.L"
+    },
+    "ear.L": {
+      "head": [
+        0.65,
+        0.17655,
+        1.2
+      ],
+      "tail": [
+        0.61,
+        0.25575000000000003,
+        0.98
+      ],
+      "parent": "head"
+    },
+    "ear.tip.L": {
+      "head": [
+        0.61,
+        0.25575000000000003,
+        0.98
+      ],
+      "tail": [
+        0.65,
+        0.26070000000000004,
+        0.89
+      ],
+      "parent": "ear.L"
+    },
+    "scapula.R": {
+      "head": [
+        0.24,
+        -0.165,
+        0.79
+      ],
+      "tail": [
+        0.4,
+        -0.165,
+        0.67
+      ],
+      "parent": "chest"
+    },
+    "fore.upper.R": {
+      "head": [
+        0.4,
+        -0.165,
+        0.67
+      ],
+      "tail": [
+        0.32,
+        -0.165,
+        0.38
+      ],
+      "parent": "scapula.R"
+    },
+    "fore.lower.R": {
+      "head": [
+        0.32,
+        -0.165,
+        0.38
+      ],
+      "tail": [
+        0.39,
+        -0.165,
+        0.105
+      ],
+      "parent": "fore.upper.R"
+    },
+    "fore.paw.R": {
+      "head": [
+        0.39,
+        -0.165,
+        0.105
+      ],
+      "tail": [
+        0.48,
+        -0.165,
+        0.048
+      ],
+      "parent": "fore.lower.R"
+    },
+    "fore.toe.R": {
+      "head": [
+        0.48,
+        -0.165,
+        0.048
+      ],
+      "tail": [
+        0.56,
+        -0.165,
+        0.042
+      ],
+      "parent": "fore.paw.R"
+    },
+    "hind.upper.R": {
+      "head": [
+        -0.42,
+        -0.165,
+        0.7
+      ],
+      "tail": [
+        -0.36,
+        -0.165,
+        0.42
+      ],
+      "parent": "pelvis"
+    },
+    "hind.lower.R": {
+      "head": [
+        -0.36,
+        -0.165,
+        0.42
+      ],
+      "tail": [
+        -0.49,
+        -0.165,
+        0.21
+      ],
+      "parent": "hind.upper.R"
+    },
+    "hind.paw.R": {
+      "head": [
+        -0.49,
+        -0.165,
+        0.21
+      ],
+      "tail": [
+        -0.48,
+        -0.165,
+        0.045
+      ],
+      "parent": "hind.lower.R"
+    },
+    "hind.toe.R": {
+      "head": [
+        -0.48,
+        -0.165,
+        0.045
+      ],
+      "tail": [
+        -0.39,
+        -0.165,
+        0.04
+      ],
+      "parent": "hind.paw.R"
+    },
+    "ear.R": {
+      "head": [
+        0.65,
+        -0.17655,
+        1.2
+      ],
+      "tail": [
+        0.61,
+        -0.25575000000000003,
+        0.98
+      ],
+      "parent": "head"
+    },
+    "ear.tip.R": {
+      "head": [
+        0.61,
+        -0.25575000000000003,
+        0.98
+      ],
+      "tail": [
+        0.65,
+        -0.26070000000000004,
+        0.89
+      ],
+      "parent": "ear.R"
+    },
+    "tail.01": {
+      "head": [
+        -0.59,
+        0,
+        0.82
+      ],
+      "tail": [
+        -0.77,
+        0,
+        0.9109999999999999
+      ],
+      "parent": "pelvis"
+    },
+    "tail.02": {
+      "head": [
+        -0.77,
+        0,
+        0.9109999999999999
+      ],
+      "tail": [
+        -0.82,
+        0,
+        1.002
+      ],
+      "parent": "tail.01"
+    },
+    "tail.03": {
+      "head": [
+        -0.82,
+        0,
+        1.002
+      ],
+      "tail": [
+        -0.64,
+        0,
+        1.0539999999999998
+      ],
+      "parent": "tail.02"
+    },
+    "tail.04": {
+      "head": [
+        -0.64,
+        0,
+        1.0539999999999998
+      ],
+      "tail": [
+        -0.47,
+        0,
+        1.002
+      ],
+      "parent": "tail.03"
+    }
+  },
+  "walk": {
+    "duration": 1.4,
+    "stride": 0.46,
+    "stance": 0.64,
+    "clearance": 0.07
+  }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="color-scheme" content="light" />
+    <title>Milky · Character study</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="study">
+      <header class="heading">
+        <div><p class="eyebrow">CHARACTER STUDY / 01</p><h1>Milky</h1></div>
+        <p class="status-tag">Local prototype <span aria-hidden="true">·</span> Not deployed</p>
+      </header>
+
+      <section class="workspace" aria-label="Milky model review">
+        <div class="stage" id="stage">
+          <p class="stage-caption" id="stage-caption">Original model · Three-quarter view</p>
+          <div id="viewport" role="img" aria-label="Interactive three-dimensional model of Milky. Drag to orbit and scroll to zoom."></div>
+          <p class="loading" id="loading" role="status">Loading Milky’s model…</p>
+          <p class="orbit-hint">Drag to orbit <span aria-hidden="true">/</span> Scroll to zoom</p>
+          <p class="room-note" id="room-note" hidden>Backdrop comparison only — room scale and integration are not final.</p>
+        </div>
+
+        <aside class="tools" aria-label="Review controls">
+          <section class="control-section">
+            <p class="section-index">01 / FORM</p>
+            <h2>Look from every angle.</h2>
+            <div class="button-grid" role="group" aria-label="Camera view">
+              <button type="button" data-view="three-quarter" aria-pressed="true">Three-quarter</button>
+              <button type="button" data-view="side" aria-pressed="false">Side</button>
+              <button type="button" data-view="front" aria-pressed="false">Front</button>
+              <button type="button" data-view="rear" aria-pressed="false">Rear</button>
+            </div>
+            <label class="field" for="surface">Surface
+              <select id="surface"><option value="fur">Original coat</option><option value="gray">Clay study</option><option value="wire">Wireframe</option></select>
+            </label>
+            <button class="quiet-button" id="fit" type="button">Reset framing <span aria-hidden="true">↗</span></button>
+          </section>
+
+          <section class="control-section">
+            <p class="section-index">02 / MOVEMENT</p>
+            <h2>Follow the whole body.</h2>
+            <label class="field" for="clip">Animation
+              <select id="clip" disabled><option>Loading…</option></select>
+            </label>
+            <div class="play-row">
+              <button type="button" id="play" class="play-button" disabled>Play</button>
+              <label class="speed-label" for="speed">Speed
+                <select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select>
+              </label>
+            </div>
+            <label class="timeline-label" for="timeline">Animation time <output id="time-readout" for="timeline">0.00 / 0.00 s</output></label>
+            <input id="timeline" type="range" min="0" max="1" value="0" step="0.001" disabled />
+            <p class="microcopy" id="motion-note">Scrubbing pauses playback for a closer look.</p>
+          </section>
+
+          <section class="control-section backdrop-section">
+            <p class="section-index">03 / CONTEXT</p>
+            <label class="toggle-row" for="room"><span>Room backdrop</span><input id="room" type="checkbox" /></label>
+            <p class="microcopy">A visual material comparison, separate from the live website.</p>
+          </section>
+          <p id="model-details" class="model-details" aria-live="polite">Model information will appear here.</p>
+        </aside>
+      </section>
+      <footer><span>A work in progress, made for Milky.</span><span>Review shape first, then movement.</span></footer>
+    </main>
+    <script type="module" src="./preview.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-02T06:54:31.215Z",
+  "model": {
+    "path": "public/assets/milky-custom/milky.glb",
+    "sha256": "71ee3fe847659acbf0e7b5942565b6109326d028ea5d0da923c3b134c06d667f",
+    "bytes": 3461092
+  },
+  "character_config_sha256": "9629dd3e9e8e69d96d9666be00d0176264416f4a64ff5b304fcb4fa58eca7e64",
+  "method": "Actual GLB loaded with Three.js GLTFLoader; AnimationMixer sampled at 120 Hz; all exported skinned vertices evaluated at 60 Hz on CPU.",
+  "excluded": [
+    "Images/materials are removed in memory only: no texture, alpha, lighting or visual likeness check.",
+    "Floor bounds include geometry vertices, not visibility after alpha testing.",
+    "Finite geometry and correct contact trajectories do not establish natural-looking movement."
+  ],
+  "counts": {
+    "skinned_meshes": 20,
+    "vertices": 57190,
+    "triangles": 62510,
+    "unique_bones": 33,
+    "maximum_loaded_weight_sum_error": 4.470348358154297e-8,
+    "unweighted_vertices": 0,
+    "maximum_raw_weight_sum_error": 1.35740265250206e-7
+  },
+  "clips": {
+    "Idle": {
+      "duration": 3.200000047683716,
+      "tracks": 99,
+      "pose_samples": 385,
+      "all_vertex_samples": 193,
+      "nonfinite_skinned_vertices": 0,
+      "maximum_vertex_loop_seam": 1.910642567911359e-7,
+      "maximum_expected_contact_error": 7.6152950237504e-7,
+      "maximum_stance_velocity_error": 0.000028193816964754347,
+      "maximum_connected_bone_span_error": 3.046329787870228e-7,
+      "skinned_bounds": {
+        "minimum": [
+          -0.9302058018212782,
+          -0.007902272611597514,
+          -0.27617949394654845
+        ],
+        "maximum": [
+          1.072295158562134,
+          1.289734398140524,
+          0.2755906264295804
+        ]
+      },
+      "minimum_y_by_mesh": {
+        "Milky connected body": 0.005004704839470341,
+        "Milky curved tail": 0.7765201023279269,
+        "Milky drop ear L": 0.9758151097673944,
+        "Milky drop ear R": 0.9758148164356459,
+        "Milky eye -1": 1.1027195454352967,
+        "Milky eye 1": 1.1027195130368341,
+        "Milky fur body": -0.007902272611597514,
+        "Milky fur ear": 0.9307564895665995,
+        "Milky fur ear.001": 0.9389014652573195,
+        "Milky fur tail": 0.6514081107003338,
+        "Milky nose": 0.994561491981419,
+        "Nostril": 1.029539529425827,
+        "Nostril.001": 1.029539525193968,
+        "Philtrum": 0.9764832071057779,
+        "Quiet mouth line": 0.9716087852732677,
+        "Quiet mouth line.001": 0.9716087511719734,
+        "Upper eyelid": 1.1544890927383948,
+        "Upper eyelid.001": 1.1544890525113092,
+        "Warm ear inset L": 1.0405897949289173,
+        "Warm ear inset R": 1.04058971534059
+      },
+      "minimum_y_by_paw_region": {
+        "hind.L": 0.005193482621039512,
+        "fore.L": 0.005004962301290764,
+        "hind.R": 0.005193483742054636,
+        "fore.R": 0.005004704839470341
+      },
+      "stance_paw_bottom_ranges": {
+        "hind.L": {
+          "minimum": 0.005193482621039512,
+          "maximum": 0.005200227696116387,
+          "vertices": 446
+        },
+        "fore.L": {
+          "minimum": 0.005004962301290764,
+          "maximum": 0.005037907356757351,
+          "vertices": 478
+        },
+        "hind.R": {
+          "minimum": 0.005193483742054636,
+          "maximum": 0.005200252982353223,
+          "vertices": 450
+        },
+        "fore.R": {
+          "minimum": 0.005004704839470341,
+          "maximum": 0.005037638335915539,
+          "vertices": 482
+        }
+      }
+    },
+    "Walk": {
+      "duration": 1.399999976158142,
+      "tracks": 99,
+      "pose_samples": 169,
+      "all_vertex_samples": 85,
+      "nonfinite_skinned_vertices": 0,
+      "maximum_vertex_loop_seam": 1.4623915130326147e-7,
+      "maximum_expected_contact_error": 0.00044673459129873915,
+      "maximum_stance_velocity_error": 0.0029886424400477818,
+      "maximum_connected_bone_span_error": 2.261379715706724e-7,
+      "skinned_bounds": {
+        "minimum": [
+          -0.938195436705475,
+          -0.010621114289884836,
+          -0.28865657883622725
+        ],
+        "maximum": [
+          1.073366351463377,
+          1.2726751619383965,
+          0.2880054338453967
+        ]
+      },
+      "minimum_y_by_mesh": {
+        "Milky connected body": 0.00305228453424407,
+        "Milky curved tail": 0.7497611940779582,
+        "Milky drop ear L": 0.9483499598409519,
+        "Milky drop ear R": 0.9483498293170423,
+        "Milky eye -1": 1.0722159895125178,
+        "Milky eye 1": 1.0722159780056628,
+        "Milky fur body": -0.010621114289884836,
+        "Milky fur ear": 0.9034320271577847,
+        "Milky fur ear.001": 0.9118523903208309,
+        "Milky fur tail": 0.6250730467840183,
+        "Milky nose": 0.964557366721634,
+        "Nostril": 0.9996029470492815,
+        "Nostril.001": 0.9996029435561291,
+        "Philtrum": 0.9464107933761589,
+        "Quiet mouth line": 0.9414584280639992,
+        "Quiet mouth line.001": 0.9414584219021319,
+        "Upper eyelid": 1.1239843965381844,
+        "Upper eyelid.001": 1.1239843822508633,
+        "Warm ear inset L": 1.011332424380776,
+        "Warm ear inset R": 1.011332541670925
+      },
+      "minimum_y_by_paw_region": {
+        "hind.L": 0.003052413924941208,
+        "fore.L": 0.004945810965739841,
+        "hind.R": 0.00305228453424407,
+        "fore.R": 0.004946032522291938
+      },
+      "stance_paw_bottom_ranges": {
+        "hind.L": {
+          "minimum": 0.003062593276380756,
+          "maximum": 0.00535301702924183,
+          "vertices": 446
+        },
+        "fore.L": {
+          "minimum": 0.004945810965739841,
+          "maximum": 0.007824756659137769,
+          "vertices": 478
+        },
+        "hind.R": {
+          "minimum": 0.00306252609118182,
+          "maximum": 0.005352726248512579,
+          "vertices": 450
+        },
+        "fore.R": {
+          "minimum": 0.004946032522291938,
+          "maximum": 0.007825051823008486,
+          "vertices": 482
+        }
+      }
+    }
+  },
+  "tolerances": {
+    "duration_seconds": 0.00001,
+    "maximum_contact_position_error": 0.002,
+    "maximum_walk_stance_velocity_error": 0.01,
+    "maximum_idle_stance_velocity_error": 0.001,
+    "maximum_vertex_loop_seam": 0.00001
+  },
+  "problems": [],
+  "warnings": [],
+  "status": "PASS"
+}

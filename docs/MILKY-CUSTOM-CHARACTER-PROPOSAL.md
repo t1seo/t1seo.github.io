@@ -2,6 +2,10 @@
 
 Date: 2026-10-02 · Status: researched proposal, not an implemented character
 
+Implementation update: a [first local custom-character study](MILKY-CUSTOM-PROTOTYPE.md)
+now exists. The proposal below is preserved as the original research/plan;
+its statements about missing future artifacts describe the time it was written.
+
 ## Recommendation
 
 Build an original, small Maltese model around Milky's existing photographs, author its whole-body movement in Blender, and render only the character with Three.js inside the existing illustrated room. Keep the newly released 2D version available until the replacement looks like Milky and has the required actions.
