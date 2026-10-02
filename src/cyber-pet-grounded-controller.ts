@@ -8,6 +8,8 @@ export type GroundedWalkFrame = {
   readonly wrapperWidth: number; readonly pixelRatio: number;
 };
 export type GroundedWalk = {
+  /** Optional authored cycle metrics, in logical art units and seconds. */
+  readonly metrics?: () => { readonly stride: number; readonly duration: number; readonly routeDuration?: number } | undefined;
   readonly prepare: () => Promise<boolean>;
   readonly ready: () => boolean;
   readonly begin: (route: GroundedRoute, carry?: boolean) => boolean;

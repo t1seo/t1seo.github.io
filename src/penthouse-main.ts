@@ -85,7 +85,10 @@ const stopFireworksCredits = scene.subscribeFireworks(updateWindowAvailability);
 const seasonalDecor = mountSeasonalDecor($('.ph-room'));
 const pet = mountCyberPet($('[data-pet]'), undefined, MILKY_PHOTO_REST, undefined, undefined, undefined, {
   ball: { src: '/assets/penthouse/objects/milky-ball.webp', anchor: [256, 419] },
-}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true }, { photoMotions: true, groundedWalk: true });
+}, MILKY_STUDY_FLOOR, { element: $('.ph-bed'), anchor: { x: 1440 / 1672, y: 865 / 941 } }, { ballHome: { x: .52, y: .977 }, drag: true, transitions: true }, {
+  photoMotions: true, groundedWalk: true,
+  locomotion: new URLSearchParams(location.search).get('milky') === 'natural' ? 'natural' : undefined,
+});
 const photoMoments = mountPhotoMotionControls({
   buttons: () => content.querySelectorAll<HTMLButtonElement>('[data-photo-motion]'),
   status: () => content.querySelector<HTMLElement>('[data-photo-motion-status]'),

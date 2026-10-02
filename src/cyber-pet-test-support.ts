@@ -20,6 +20,7 @@ const source = readFileSync(new URL('./cyber-pet.ts', import.meta.url), 'utf8')
   .replace("'./cyber-pet-hop'", JSON.stringify(new URL('./cyber-pet-hop.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-grounded-walk.ts'", JSON.stringify(new URL('./cyber-pet-grounded-walk.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-grounded-walk'", JSON.stringify(new URL('./cyber-pet-grounded-walk.ts', import.meta.url).href))
+  .replaceAll("'./cyber-pet-natural-walk'", JSON.stringify(new URL('./cyber-pet-natural-walk.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-grounded-geometry'", JSON.stringify(new URL('./cyber-pet-grounded-geometry.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-authored-controller'", JSON.stringify(new URL('./cyber-pet-authored-controller.ts', import.meta.url).href))
   .replaceAll("'./cyber-pet-photo'", JSON.stringify(new URL('./cyber-pet-photo.ts', import.meta.url).href));
@@ -127,7 +128,7 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
   const authoredRequests: AuthoredRequest[] = [];
   Object.defineProperty(globalThis, 'fetch', { configurable: true, writable: true, value: (input: RequestInfo | URL, init?: RequestInit) => {
     const url = input instanceof Request ? input.url : String(input);
-    assert.equal(url, '/assets/cyberpunk/milky-authored/canine-clips.glb', 'fixture never makes an unexpected network request');
+    assert.ok(['/assets/cyberpunk/milky-authored/canine-clips.glb', '/assets/cyberpunk/milky-natural-motion/walk-cycle.json'].includes(url), 'fixture never makes an unexpected network request');
     const signal = init?.signal ?? (input instanceof Request ? input.signal : undefined);
     return new Promise<Response>((resolve, reject) => {
       const settle = (action: () => void) => {
@@ -141,7 +142,7 @@ export function fixture(seed = 7829, shipped: readonly string[] | null = POSES, 
         url, signal, settled: false,
         respond: (status, bytes) => settle(() => {
           const file = bytes ?? (() => {
-            const data = readFileSync(new URL('../public/assets/cyberpunk/milky-authored/canine-clips.glb', import.meta.url));
+            const data = readFileSync(new URL(`../public${url}`, import.meta.url));
             return data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength);
           })();
           resolve(new Response(file, { status, headers: { 'Content-Type': 'model/gltf-binary' } }));
