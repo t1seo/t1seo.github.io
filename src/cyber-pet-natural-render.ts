@@ -2,7 +2,7 @@ import { GROUNDED_ART, GROUNDED_JOINTS } from './cyber-pet-grounded-geometry.ts'
 import { GROUNDED_BODY_PIVOT, GROUNDED_PADS } from './cyber-pet-grounded-articulation.ts';
 import type { GroundedFoot, GroundPoint } from './cyber-pet-grounded-geometry.ts';
 import type { GroundedSkeleton } from './cyber-pet-grounded-articulation.ts';
-import type { GroundedWalkAssets } from './cyber-pet-grounded-assets.ts';
+import type { GroundedWalkAssets, GroundedWalkImage } from './cyber-pet-grounded-assets.ts';
 
 type BodyTransform = { x: number; y: number; angle: number };
 export type NaturalSkeleton = GroundedSkeleton & {
@@ -30,6 +30,7 @@ export type NaturalPainterInspection = {
   flippedTriangles: number;
   degenerateTriangles: number;
   finite: boolean;
+  farLimbShadeCached: boolean;
   /** Ratios describe supplied skeleton lengths; the painter never stretches a bone. */
   segmentLengthRatios: Record<GroundedFoot, readonly [number, number, number]>;
   maxSegmentLengthError: number;
@@ -135,6 +136,30 @@ function onMesh(mesh: Surface, point: GroundPoint): GroundPoint {
   return { x: NaN, y: NaN };
 }
 
+/** Shade only the original painted pixels, once; their alpha is unchanged. */
+function cacheFarLimbShade(asset: GroundedWalkImage): CanvasImageSource {
+  const { image, width, height } = asset;
+  if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) return image;
+  try {
+    const canvas = typeof OffscreenCanvas === 'function' ? new OffscreenCanvas(width, height)
+      : typeof document !== 'undefined' ? document.createElement('canvas') : null;
+    if (!canvas) return image;
+    canvas.width = width; canvas.height = height;
+    const paint = canvas.getContext('2d') as CanvasRenderingContext2D | OffscreenCanvasRenderingContext2D | null;
+    if (!paint) return image;
+    paint.drawImage(image, 0, 0, width, height);
+    // A restrained warm occlusion cue separates overlapping near/far legs.
+    // source-atop preserves the original alpha, including soft fur fringes.
+    paint.globalCompositeOperation = 'source-atop';
+    paint.fillStyle = 'rgba(91, 79, 64, 0.13)';
+    paint.fillRect(0, 0, width, height);
+    return canvas;
+  } catch {
+    // Non-browser tests and unavailable canvas backends retain the source art.
+    return image;
+  }
+}
+
 export function createNaturalPainter(context: CanvasRenderingContext2D, assets: GroundedWalkAssets) {
   const torso = surface([190, 280, 380, 485, 620, 795, 900, 975, 1050, 1120, 1230, 1360, 1450],
     [80, 180, 280, 360, 430, 485, 545, 610, 680, 750]);
@@ -142,6 +167,8 @@ export function createNaturalPainter(context: CanvasRenderingContext2D, assets: 
     nearHind: limbMesh('hind'), nearFore: limbMesh('fore'), farHind: limbMesh('hind'), farFore: limbMesh('fore'),
   };
   const surfaces = [...ORDER.map(name => limbs[name]), torso];
+  const farImages = { fore: cacheFarLimbShade(assets.foreleg), hind: cacheFarLimbShade(assets.hindleg) };
+  const farLimbShadeCached = farImages.fore !== assets.foreleg.image && farImages.hind !== assets.hindleg.image;
   const lengthRatios: Record<GroundedFoot, [number, number, number]> = {
     farHind: [1, 1, 1], farFore: [1, 1, 1], nearHind: [1, 1, 1], nearFore: [1, 1, 1],
   };
@@ -283,7 +310,12 @@ export function createNaturalPainter(context: CanvasRenderingContext2D, assets: 
       if (!finite || Number.isNaN(deviceScale) || deviceScale <= 0) return false;
       const padding = .45 / Math.max(.01, deviceScale);
       context.save(); context.globalAlpha = 1;
-      for (const name of ORDER) drawSurface(limbs[name], limbs[name].kind === 'fore' ? assets.foreleg.image : assets.hindleg.image, padding);
+      for (const name of ORDER) {
+        const kind = limbs[name].kind;
+        const image = name === 'farFore' || name === 'farHind' ? farImages[kind]
+          : kind === 'fore' ? assets.foreleg.image : assets.hindleg.image;
+        drawSurface(limbs[name], image, padding);
+      }
       drawSurface(torso, assets.torso.image, padding);
       context.restore(); draws++;
       return true;
@@ -301,7 +333,7 @@ export function createNaturalPainter(context: CanvasRenderingContext2D, assets: 
       }
       return {
         draws, triangles: surfaces.reduce((count, mesh) => count + mesh.triangles.length / 3, 0),
-        minAreaRatio, maxAreaRatio, flippedTriangles, degenerateTriangles, finite,
+        minAreaRatio, maxAreaRatio, flippedTriangles, degenerateTriangles, finite, farLimbShadeCached,
         segmentLengthRatios: { farHind: [...lengthRatios.farHind], farFore: [...lengthRatios.farFore], nearHind: [...lengthRatios.nearHind], nearFore: [...lengthRatios.nearFore] },
         maxSegmentLengthError: Math.max(...Object.values(lengthRatios).flat().map(ratio => Math.abs(1 - ratio))),
         soles, maxSoleError: Math.max(...Object.values(soles).map(sole => sole.error)),
