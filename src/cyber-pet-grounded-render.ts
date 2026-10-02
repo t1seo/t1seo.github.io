@@ -1,13 +1,16 @@
-import { GROUNDED_ART, GROUNDED_JOINTS, GROUNDED_LIMBS, solveGroundJoint } from './cyber-pet-grounded-geometry.ts';
+import { GROUNDED_ART, GROUNDED_JOINTS } from './cyber-pet-grounded-geometry.ts';
+import { createGroundedSkeleton, GROUNDED_BODY_PIVOT, GROUNDED_PADS, solveGroundedSkeleton } from './cyber-pet-grounded-articulation.ts';
 import type { GroundedFoot, GroundPoint } from './cyber-pet-grounded-geometry.ts';
 import type { GroundedPose } from './cyber-pet-grounded-plan.ts';
 import type { GroundedWalkAssets } from './cyber-pet-grounded-assets.ts';
-type Mesh = { readonly source: Float64Array; readonly target: Float64Array; readonly triangles: Uint16Array; readonly kind: 'fore' | 'hind' };
+type Surface = { readonly source: Float64Array; readonly target: Float64Array; readonly triangles: Uint16Array };
+type Mesh = Surface & { readonly kind: 'fore' | 'hind' };
 export type GroundedRenderSample = {
   readonly root: GroundPoint; readonly scale: number; readonly facing: 1 | -1;
   readonly load: number; readonly feet: Readonly<GroundedPose>;
 };
 const ORDER = ['farHind', 'farFore', 'nearHind', 'nearFore'] as const;
+const PAW_BLEND = 140;
 function coordinate(values: ArrayLike<number>, index: number): number {
   const value = values[index];
   if (value === undefined) throw new RangeError('Grounded mesh coordinate is outside its fixed buffer');
@@ -15,8 +18,12 @@ function coordinate(values: ArrayLike<number>, index: number): number {
 }
 function mesh(kind: 'fore' | 'hind'): Mesh {
   const joints = GROUNDED_JOINTS[kind];
-  const ys = [0, joints[1].y - 60, joints[1].y - 30, joints[1].y, joints[1].y + 30, joints[1].y + 60, joints[2].y - 45, joints[2].y, joints[2].y + 45, 1024].sort((a, b) => a - b);
+  const pad = GROUNDED_PADS[kind];
+  const ys = [...new Set([0, joints[1].y - 60, joints[1].y - 30, joints[1].y, joints[1].y + 30, joints[1].y + 60, joints[2].y - 30, joints[2].y, joints[2].y + 30, pad.y - PAW_BLEND, pad.y - PAW_BLEND * .75, pad.y - PAW_BLEND * .5, pad.y - PAW_BLEND * .25, pad.y, 1024])].sort((a, b) => a - b);
   const xs = kind === 'fore' ? [850, 980, 1110, 1240] : [180, 360, 540, 720];
+  return { ...surface(xs, ys), kind };
+}
+function surface(xs: readonly number[], ys: readonly number[]): Surface {
   const source = new Float64Array(xs.length * ys.length * 2);
   const indices: number[] = [];
   for (const [row, y] of ys.entries()) for (const [col, x] of xs.entries()) {
@@ -26,39 +33,64 @@ function mesh(kind: 'fore' | 'hind'): Mesh {
       indices.push(a, b, c, a, c, d);
     }
   }
-  return { source, target: new Float64Array(source.length), triangles: new Uint16Array(indices), kind };
+  return { source, target: new Float64Array(source.length), triangles: new Uint16Array(indices) };
 }
 export function createGroundedPainter(context: CanvasRenderingContext2D, assets: GroundedWalkAssets) {
   const meshes = { nearHind: mesh('hind'), nearFore: mesh('fore'), farHind: mesh('hind'), farFore: mesh('fore') };
-  const root = { x: 0, y: 0 }, wrist = { x: 0, y: 0 }, joint = { x: 0, y: 0, reachable: false };
-  function transform(part: Mesh, name: GroundedFoot, sample: GroundedRenderSample): boolean {
-    const limb = GROUNDED_LIMBS[name], source = GROUNDED_JOINTS[part.kind];
-    root.x = limb.root.x; root.y = limb.root.y + sample.load;
-    const foot = sample.feet[name];
-    wrist.x = (foot.x - sample.root.x) / sample.scale * sample.facing + GROUNDED_ART.anchorX - (source[3].x - source[2].x);
-    wrist.y = (foot.y - sample.root.y) / sample.scale + GROUNDED_ART.anchorY - (source[3].y - source[2].y);
-    solveGroundJoint(root, wrist, Math.hypot(source[1].x - source[0].x, source[1].y - source[0].y), Math.hypot(source[2].x - source[1].x, source[2].y - source[1].y), part.kind === 'fore' ? 1 : -1, joint);
+  const torso = surface([0, 200, 320, 440, 560, 760, 920, 1040, 1160, 1360, 1536], [0, 200, 340, 420, 500, 580, 720, 1024]);
+  const skeleton = createGroundedSkeleton();
+  const fade = (v: number) => { const u = Math.max(0, Math.min(1, v)); return u * u * (3 - 2 * u); };
+  function transformTorso(): void {
+    const { x: px, y: py } = GROUNDED_BODY_PIVOT;
+    const { y: load, pitch, head, tail } = skeleton.body;
+    const c = Math.cos(pitch), s = Math.sin(pitch);
+    const hc = Math.cos(head), hs = Math.sin(head), tc = Math.cos(tail), ts = Math.sin(tail);
+    for (let i = 0; i < torso.source.length; i += 2) {
+      const x = coordinate(torso.source, i), y = coordinate(torso.source, i + 1);
+      // Fully rigid face and tail tips; weights vary only at neck/tail roots.
+      const neck = fade((x - 920) / 180) * fade((580 - y) / 180);
+      const wag = fade((560 - x) / 180) * fade((580 - y) / 180);
+      const dx = x + ((x - 1080) * (hc - 1) - (y - 480) * hs) * neck + ((x - 380) * (tc - 1) - (y - 500) * ts) * wag;
+      const dy = y + ((x - 1080) * hs + (y - 480) * (hc - 1)) * neck + ((x - 380) * ts + (y - 500) * (tc - 1)) * wag;
+      torso.target[i] = px + (dx - px) * c - (dy - py) * s;
+      torso.target[i + 1] = py + (dx - px) * s + (dy - py) * c + load;
+    }
+  }
+  function transform(part: Mesh, name: GroundedFoot): void {
+    const source = GROUNDED_JOINTS[part.kind];
+    const { root, wrist, joint, pad, pawAngle, distalAngle } = skeleton.limbs[name];
+    const sourcePad = GROUNDED_PADS[part.kind];
     const a = Math.atan2(joint.y - root.y, joint.x - root.x) - Math.atan2(source[1].y - source[0].y, source[1].x - source[0].x);
     const b = Math.atan2(wrist.y - joint.y, wrist.x - joint.x) - Math.atan2(source[2].y - source[1].y, source[2].x - source[1].x);
     const ac = Math.cos(a), as = Math.sin(a), bc = Math.cos(b), bs = Math.sin(b);
+    const pc = Math.cos(pawAngle), ps = Math.sin(pawAngle);
+    const dc = Math.cos(distalAngle), ds = Math.sin(distalAngle);
     for (let index = 0; index < part.source.length; index += 2) {
       const x = coordinate(part.source, index), y = coordinate(part.source, index + 1);
       const ax = root.x + (x - source[0].x) * ac - (y - source[0].y) * as;
       const ay = root.y + (x - source[0].x) * as + (y - source[0].y) * ac;
       const bx = joint.x + (x - source[1].x) * bc - (y - source[1].y) * bs;
       const by = joint.y + (x - source[1].x) * bs + (y - source[1].y) * bc;
-      const cx = wrist.x + x - source[2].x, cy = wrist.y + y - source[2].y;
+      const cx = wrist.x + (x - source[2].x) * dc - (y - source[2].y) * ds;
+      const cy = wrist.y + (x - source[2].x) * ds + (y - source[2].y) * dc;
+      const dx = pad.x + (x - sourcePad.x) * pc - (y - sourcePad.y) * ps;
+      const dy = pad.y + (x - sourcePad.x) * ps + (y - sourcePad.y) * pc;
       if (y < source[1].y + 45) {
         const v = Math.max(0, Math.min(1, (y - source[1].y + 45) / 90)), u = v * v * (3 - 2 * v);
         part.target[index] = ax + (bx - ax) * u; part.target[index + 1] = ay + (by - ay) * u;
       } else {
-        const v = Math.max(0, Math.min(1, (y - source[2].y + 45) / 90)), u = v * v * (3 - 2 * v);
+        const v = Math.max(0, Math.min(1, (y - source[2].y + 30) / 60)), u = v * v * (3 - 2 * v);
         part.target[index] = bx + (cx - bx) * u; part.target[index + 1] = by + (cy - by) * u;
       }
+      // Share ankle flexion with the lower leg instead of pinching a wide furry
+      // paw through a 24-unit strip. Compose the overlapping blend zones, so
+      // their boundaries stay continuous; the pad and sole remain fully rigid.
+      const v = Math.max(0, Math.min(1, (y - sourcePad.y + PAW_BLEND) / PAW_BLEND)), u = v * v * (3 - 2 * v);
+      part.target[index] += (dx - part.target[index]) * u;
+      part.target[index + 1] += (dy - part.target[index + 1]) * u;
     }
-    return joint.reachable;
   }
-  function drawPart(part: Mesh, image: CanvasImageSource, padding: number): void {
+  function drawPart(part: Surface, image: CanvasImageSource, padding: number): void {
     const s = part.source, t = part.target;
     for (let index = 0; index < part.triangles.length; index += 3) {
       const i = coordinate(part.triangles, index), j = coordinate(part.triangles, index + 1), k = coordinate(part.triangles, index + 2);
@@ -91,17 +123,17 @@ export function createGroundedPainter(context: CanvasRenderingContext2D, assets:
     draw(sample: GroundedRenderSample, deviceScale?: number): boolean {
       const scale = deviceScale ?? Math.abs(context.getTransform().a);
       const padding = .45 / Math.max(.01, scale);
-      let reachable = true;
-      for (const name of ORDER) reachable = transform(meshes[name], name, sample) && reachable;
-      if (!reachable) return false;
+      if (!solveGroundedSkeleton(sample, skeleton)) return false;
+      for (const name of ORDER) transform(meshes[name], name);
       for (const name of ORDER) {
         const part = meshes[name];
         context.globalAlpha = 1;
         drawPart(part, part.kind === 'fore' ? assets.foreleg.image : assets.hindleg.image, padding);
       }
       context.globalAlpha = 1;
-      context.drawImage(assets.torso.image, 0, sample.load, GROUNDED_ART.width, GROUNDED_ART.height);
-      return reachable;
+      transformTorso();
+      drawPart(torso, assets.torso.image, padding);
+      return true;
     },
   };
 }

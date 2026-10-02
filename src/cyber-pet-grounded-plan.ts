@@ -1,5 +1,7 @@
-import { GROUNDED_ART, GROUNDED_FEET, GROUNDED_LIMBS } from './cyber-pet-grounded-geometry.ts';
+import { GROUNDED_ART, GROUNDED_FEET, GROUNDED_LIMBS, groundedStride } from './cyber-pet-grounded-geometry.ts';
 import type { GroundPoint, GroundedFoot } from './cyber-pet-grounded-geometry.ts';
+import { CANINE_STANCE } from './cyber-pet-canine-data.ts';
+import { canineSwing, canineSwingPeak } from './cyber-pet-canine-profile.ts';
 export type GroundedRoute = {
   readonly from: GroundPoint; readonly to: GroundPoint; readonly scale: number;
   readonly endScale: number; readonly facing: 1 | -1;
@@ -16,11 +18,12 @@ export type GroundedPlan = {
 // Mutable sampling buffers carry world contact, lift and distance derivatives through retargets.
 export interface GroundedFootSample {
   x: number; y: number; contact: boolean; lift: number;
+  phase: number;
   velocityX: number; velocityY: number; liftVelocity: number; nextLift: number; untilLand: number;
 }
 export type GroundedPose = Record<GroundedFoot, GroundedFootSample>;
 export function createGroundedPose(): GroundedPose {
-  const foot = () => ({ x: 0, y: 0, contact: true, lift: 0, velocityX: 0, velocityY: 0, liftVelocity: 0, nextLift: 0, untilLand: 0 });
+  const foot = () => ({ x: 0, y: 0, contact: true, lift: 0, phase: 0, velocityX: 0, velocityY: 0, liftVelocity: 0, nextLift: 0, untilLand: 0 });
   return { nearHind: foot(), nearFore: foot(), farHind: foot(), farFore: foot() };
 }
 const smooth = (u: number) => u * u * u * (10 + u * (-15 + u * 6));
@@ -49,7 +52,7 @@ export function createGroundedPlan(route: GroundedRoute, carried?: Readonly<Grou
     const target = final ? endpoint : point(name, land, GROUNDED_LIMBS[name].touchX - GROUNDED_LIMBS[name].idle.x - 80 * descent - 40 * entry);
     const to = { x: route.facing * Math.min(route.facing * target.x, route.facing * endpoint.x), y: target.y };
     steps[name].push({ lift, land, from, to,
-      height: Math.min(55 * route.scale, Math.hypot(to.x - from.x, to.y - from.y) * .20),
+      height: Math.min(canineSwingPeak(GROUNDED_LIMBS[name].kind) * 585 * route.scale, Math.hypot(to.x - from.x, to.y - from.y) * .20),
       initialLift: first ? state.lift : 0,
       velocity: { x: first ? state.velocityX : 0, y: first ? state.velocityY + state.liftVelocity : 0 },
       liftVelocity: first ? state.liftVelocity : 0 });
@@ -84,7 +87,7 @@ export function createGroundedPlan(route: GroundedRoute, carried?: Readonly<Grou
   const remaining = distance - start;
   if (remaining > 0) {
     const edge = (route.to.y < route.from.y ? 200 : 240) * Math.min(route.scale, route.endScale);
-    const stride = route.to.y < route.from.y ? 240 : GROUNDED_ART.stride;
+    const stride = groundedStride(route.from, route.to);
     const middleCount = Math.max(0, Math.ceil((remaining - 2 * edge) / (stride * Math.min(route.scale, route.endScale))));
     const edgeLength = remaining <= edge ? remaining : Math.min(edge, (remaining - middleCount * 180 * route.scale) / 2);
     const shortApproach = route.to.y < route.from.y && remaining > 20 * route.scale && remaining <= edge;
@@ -93,8 +96,8 @@ export function createGroundedPlan(route: GroundedRoute, carried?: Readonly<Grou
       const final = cycle === cycles.length - 1;
       const depthEntry = route.to.y < route.from.y && cycle === 0 && !final;
       const depthArrival = final && (route.to.y - route.from.y) / distance > .3;
-      const phases = depthArrival ? { nearHind: 0, nearFore: .25, farHind: .6, farFore: .85 } : depthEntry ? { nearHind: 0, nearFore: .005, farHind: .26, farFore: .35 } : { nearHind: 0, nearFore: .25, farHind: .5, farFore: .75 };
-      const swings = depthArrival ? { nearHind: .6, nearFore: .65, farHind: .25, farFore: .15 } : depthEntry ? { nearHind: .25, nearFore: .25, farHind: .25, farFore: .375 } : { nearHind: .375, nearFore: .375, farHind: .375, farFore: .375 };
+      const phases = depthArrival ? { nearHind: 0, nearFore: .25, farHind: .6, farFore: .85 } : depthEntry ? { nearHind: 0, nearFore: .005, farHind: .26, farFore: .35 } : final ? { nearHind: 0, nearFore: .25, farHind: .5, farFore: .75 } : { nearHind: 0, nearFore: .14, farHind: .5, farFore: .64 };
+      const swings = depthArrival ? { nearHind: .6, nearFore: .65, farHind: .25, farFore: .15 } : depthEntry ? { nearHind: .25, nearFore: .25, farHind: .25, farFore: .375 } : { nearHind: .4, nearFore: .4, farHind: .4, farFore: .4 };
       for (const [index, name] of GROUNDED_FEET.entries()) {
         const phase = phases[name], swing = swings[name];
         const lift = start + length * phase;
@@ -125,19 +128,25 @@ export function sampleGroundedPlan(plan: GroundedPlan, travelled: number, out: G
     const result = out[name];
     Object.assign(result, plan.initial[name]);
     if (d === 0) continue;
-    for (const step of plan.steps[name]) {
+    let previousLand = 0;
+    for (const [index, step] of plan.steps[name].entries()) {
       result.nextLift = Math.max(0, step.lift - d); result.untilLand = 0;
       if (d <= step.lift) {
+        const startPhase = index === 0 ? plan.initial[name].phase : 0;
+        result.phase = startPhase + (CANINE_STANCE - startPhase) * (d - previousLand) / Math.max(1e-8, step.lift - previousLand);
         result.x = step.from.x; result.y = step.from.y; result.contact = true; result.lift = 0;
         result.velocityX = 0; result.velocityY = 0; result.liftVelocity = 0; break;
       }
       if (d < step.land) {
         const span = step.land - step.lift, u = (d - step.lift) / span, eased = smooth(u), speed = slope(u) / span;
         const carry = tangent(u) * span, carrySpeed = tangentSlope(u);
-        const liftShape = step.initialLift * (1 + 3 * u + 6 * u * u) + step.liftVelocity * span * u * (1 + 3 * u) + 64 * step.height * u ** 3;
-        const liftSlope = step.initialLift * (3 + 12 * u) + step.liftVelocity * span * (1 + 6 * u) + 192 * step.height * u * u;
-        const lift = (1 - u) ** 3 * liftShape;
-        const liftVelocity = ((1 - u) ** 3 * liftSlope - 3 * (1 - u) ** 2 * liftShape) / span;
+        const startPhase = index === 0 && !plan.initial[name].contact ? plan.initial[name].phase : CANINE_STANCE;
+        result.phase = startPhase + (1 - startPhase) * u;
+        const liftShape = step.initialLift * (1 + 3 * u + 6 * u * u) + step.liftVelocity * span * u * (1 + 3 * u);
+        const liftSlope = step.initialLift * (3 + 12 * u) + step.liftVelocity * span * (1 + 6 * u);
+        const kind = GROUNDED_LIMBS[name].kind, arc = canineSwing(kind, u), amplitude = step.height / canineSwingPeak(kind);
+        const lift = (1 - u) ** 3 * liftShape + arc.height * amplitude;
+        const liftVelocity = ((1 - u) ** 3 * liftSlope - 3 * (1 - u) ** 2 * liftShape + arc.velocity * amplitude) / span;
         result.x = step.from.x + (step.to.x - step.from.x) * eased + step.velocity.x * carry;
         result.y = step.from.y + (step.to.y - step.from.y) * eased + step.velocity.y * carry - lift;
         result.velocityX = (step.to.x - step.from.x) * speed + step.velocity.x * carrySpeed;
@@ -145,6 +154,8 @@ export function sampleGroundedPlan(plan: GroundedPlan, travelled: number, out: G
         result.contact = false; result.lift = lift; result.liftVelocity = liftVelocity; result.untilLand = step.land - d; break;
       }
       result.x = step.to.x; result.y = step.to.y; result.contact = true; result.lift = 0;
+      result.phase = 0;
+      previousLand = step.land;
       result.velocityX = 0; result.velocityY = 0; result.liftVelocity = 0;
     }
   }

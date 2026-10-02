@@ -3,19 +3,22 @@ import { test } from 'node:test';
 import { createGroundedPlan, createGroundedPose, sampleGroundedPlan, sampleGroundedLoad } from './cyber-pet-grounded-plan.ts';
 import type { GroundedPlan, GroundedPose } from './cyber-pet-grounded-plan.ts';
 import { GROUNDED_ART, GROUNDED_FEET, GROUNDED_LIMBS, GROUNDED_JOINTS } from './cyber-pet-grounded-geometry.ts';
+import { createGroundedSkeleton, GROUNDED_PADS, solveGroundedSkeleton } from './cyber-pet-grounded-articulation.ts';
 import { milkyDepthScale } from './cyber-pet-motion.ts';
 function assertPhysicalReach(plan: GroundedPlan, pose: GroundedPose, u: number): void {
   const route = plan.route, scale = route.scaleAt?.(u) ?? route.scale + (route.endScale - route.scale) * u;
-  const load = sampleGroundedLoad(plan, plan.distance * u);
+  const root = { x: route.from.x + (route.to.x - route.from.x) * u, y: route.from.y + (route.to.y - route.from.y) * u };
+  const skeleton = createGroundedSkeleton();
+  assert.ok(solveGroundedSkeleton({ root, scale, facing: route.facing, feet: pose, load: sampleGroundedLoad(plan, plan.distance * u) }, skeleton), `three-segment reach at ${u}`);
   for (const name of GROUNDED_FEET) {
-    const limb = GROUNDED_LIMBS[name], joints = GROUNDED_JOINTS[limb.kind];
-    const x = (pose[name].x - (route.from.x + (route.to.x - route.from.x) * u)) / scale * route.facing + GROUNDED_ART.anchorX;
-    const y = (pose[name].y - (route.from.y + (route.to.y - route.from.y) * u)) / scale + GROUNDED_ART.anchorY;
-    const wrist = { x: x - joints[3].x + joints[2].x, y: y - joints[3].y + joints[2].y };
-    const upper = Math.hypot(joints[1].x - joints[0].x, joints[1].y - joints[0].y), lower = Math.hypot(joints[2].x - joints[1].x, joints[2].y - joints[1].y);
-    const reach = Math.hypot(wrist.x - limb.root.x, wrist.y - limb.root.y - load);
-    assert.ok(reach <= upper + lower + 1e-8 && reach >= Math.abs(upper - lower) - 1e-8,
-      `${name}, distance ${plan.distance}, fraction ${u}: reach excess ${reach - upper - lower}`);
+    const kind = GROUNDED_LIMBS[name].kind, source = GROUNDED_JOINTS[kind], pad = GROUNDED_PADS[kind];
+    const limb = skeleton.limbs[name];
+    const pairs = [[limb.root, limb.joint, source[0], source[1]], [limb.joint, limb.wrist, source[1], source[2]], [limb.wrist, limb.pad, source[2], pad]] as const;
+    for (const [a, b, c, d] of pairs) assert.ok(Math.abs(Math.hypot(b.x - a.x, b.y - a.y) - Math.hypot(d.x - c.x, d.y - c.y)) < 1e-6, `${name} bone length at ${u}`);
+    const c = Math.cos(limb.pawAngle), s = Math.sin(limb.pawAngle), dx = source[3].x - pad.x, dy = source[3].y - pad.y;
+    const x = limb.pad.x + dx * c - dy * s, y = limb.pad.y + dx * s + dy * c;
+    assert.ok(Math.abs(root.x + (x - GROUNDED_ART.anchorX) * scale * route.facing - pose[name].x) < 1e-7);
+    assert.ok(Math.abs(root.y + (y - GROUNDED_ART.anchorY) * scale - pose[name].y) < 1e-7);
   }
 }
 for (const facing of [1, -1] as const) test(`locks world contacts through scale and speed changes facing ${facing}`, () => {

@@ -31,6 +31,12 @@ neutral pose stays still without switching to a different idle image. Her small
 hop into the cushion retains its drawn airborne poses. The new walking artwork
 loads as one complete three-part set, with the original sprites kept as a fallback.
 
+The gait uses measured canine pose curves, separate wrist/ankle and paw joints,
+weight transfer, and subtle neck/tail follow-through. Foot contacts remain fixed
+while the limb pose adapts around them. See the [research and implementation
+notes](asset-sources/milky-walk-kinematics/README.md) and [motion-data
+credits](public/assets/cyberpunk/milky-grounded-walk/CREDITS.md).
+
 With Milky focused, use the arrow keys to walk, **S** to sit and **N** to nap.
 The Desk panel provides a close-up when room objects are cropped on a narrow
 screen.

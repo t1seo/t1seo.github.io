@@ -1,6 +1,6 @@
 import './cyber-pet.css';
 import { mountGroundedWalk } from './cyber-pet-grounded-walk';
-import { GROUNDED_ART } from './cyber-pet-grounded-geometry';
+import { GROUNDED_ART, groundedStride } from './cyber-pet-grounded-geometry';
 import { placeMilky, milkyHasVisibleFloor, milkyWidthRatio, DEFAULT_MILKY_FLOOR, type MilkyPoint } from './cyber-pet-geometry';
 import { createMilkyWalk, sampleMilkyWalk, milkyCanContinue, milkyDepthScale, milkyDistance, milkyStride, milkyGaitStride, milkyGaitFinishAdjustment, milkyGaitPhase, milkyGaitFrame, type MilkyWalk } from './cyber-pet-motion';
 import { chooseMilkyDestination, milkyKeyboardDestination, milkyRoamPause, type MilkyHeading } from './cyber-pet-roam';
@@ -1034,7 +1034,7 @@ export function mountCyberPet(
       }, opts?.carryGrounded));
     if (!useGrounded && groundedIdle) grounded?.rest();
     groundedIdle = false;
-    const stride = useGrounded ? GROUNDED_ART.stride * groundedScale(position) / width
+    const stride = useGrounded ? groundedStride(from, to) * groundedScale(position) / width
       : milkyGaitStride(milkyStride(bodyWidth), milkyDistance(position, target), gaitPhase);
     // A compatible retarget may fit a slightly different stride. Never let that clamp the
     // carried momentum: the cruise speed rises to meet it, keeping the join continuous,

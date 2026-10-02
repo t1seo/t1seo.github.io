@@ -1,0 +1,58 @@
+{
+  "source": "https://doi.org/10.1371/journal.pone.0133936.s001",
+  "authors": [
+    "Giovanna Catavitello",
+    "Yuri P. Ivanenko",
+    "Francesco Lacquaniti"
+  ],
+  "year": 2015,
+  "license": "CC BY 4.0",
+  "subjectCount": 6,
+  "strideCounts": {
+    "fore": 30,
+    "hind": 30
+  },
+  "subjects": [
+    {
+      "file": "DogA.mat",
+      "sha256": "c6d586d22426e62c671c121c6c34592607dbb583963c3a93565d27253822764d"
+    },
+    {
+      "file": "DogG.mat",
+      "sha256": "c2b6755b313dfd7ca9fe08101b6056e248062c5a548147ac98bc020d48863d87"
+    },
+    {
+      "file": "DogK.mat",
+      "sha256": "0a9d9534d07a2b9075e79118840b34eba8d771f25a8717a54f986aca997f80fc"
+    },
+    {
+      "file": "DogM.mat",
+      "sha256": "4a17f3452cbe958240033faa0e8ad64ef13fea5eb8eea7d9d57ef5abf84e4b3e"
+    },
+    {
+      "file": "DogR.mat",
+      "sha256": "b72b9768d6541869624cd427d7d99a98daaefbd6e9dc081a21ef45993b38aba0"
+    },
+    {
+      "file": "DogS.mat",
+      "sha256": "6ec972f5c7d7a6c2ca122ce2a6bbdb3df04dc2cd7badd6eb10ce70bc351ac3f3"
+    }
+  ],
+  "resampledStance": 0.6,
+  "samplesPerCurve": 33,
+  "swingSamples": 33,
+  "swingRounding": 0.0001,
+  "units": {
+    "angles": "degrees from downward vertical; positive forward",
+    "ROOT_Y": "mean trunk lengths; positive up",
+    "swingClearance": "mean trunk lengths above interpolated toe-off/touchdown baseline"
+  },
+  "modifications": [
+    "stance/swing time normalization",
+    "linear endpoint detrending",
+    "root height centering and mean SCA-GTR length normalization",
+    "DPF/DPH toe-marker swing clearance extraction",
+    "equal-subject averaging",
+    "rounding segment channels to 0.001 and swing clearance to 0.0001"
+  ]
+}
