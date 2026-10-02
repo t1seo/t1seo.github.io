@@ -1,0 +1,13 @@
+{
+  "name": "poseidon-local-studies",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5174 --strictPort",
+    "build": "vite build",
+    "test": "node --test soundtrack.test.js"
+  },
+  "dependencies": {
+    "three": "0.184.0"
+  }
+}

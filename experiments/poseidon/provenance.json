@@ -1,0 +1,32 @@
+{
+  "source": "https://github.com/owenyuwono/poseidon",
+  "revision": "671053b812fcbffe8ecc4668eaa6ab7ffeb63287",
+  "license": "MIT",
+  "adaptation": "Ocean shader modules preserved; only the two panorama URL paths changed in params.js. Independent local UI, lifecycle and soundtrack.",
+  "assets": {
+    "sky": "Skybox 131 by FreeStylized; source https://freestylized.com/skybox/sky_131/; source describes commercial/non-commercial royalty-free use; upstream describes custom CC0.",
+    "music": "Reverie by Scott Buckley, https://www.scottbuckley.com.au/library/reverie/, CC BY 4.0. Reused existing normalized 112 kbps full recording (spring-night.mp3).",
+    "font": "Cormorant Garamond, Cormorant Project Authors, SIL Open Font License 1.1."
+  },
+  "sha256": {
+    "vendor/ocean/Ocean.js": "13db2f3f25e7ace97502da8fb922586bcc6eada555c9312f397f3a54fa1c8628",
+    "vendor/ocean/OceanCascade.js": "91fffde4ceb1e7c9cb494d21c79d7c0da9b8528243cd4d6c9aa66a78d8e8648a",
+    "vendor/ocean/atmosphere.js": "20bb64f257b90c4a6e770c695caef8e350db51b7d6307e7bd4b9019087328f0c",
+    "vendor/ocean/detailTexture.js": "98e0080aed7f78f36ebcc90ae61397616a20187bb0c94d9b5939964457f2786d",
+    "vendor/ocean/fft.js": "2f8e95db5137c26880ba4d505338610e0125f9cfe04c97b6b261637ea5712418",
+    "vendor/ocean/gaussianNoise.js": "315120cb6d9c6fb6bb5495e763b2e7e2c2ca600cd26a5b478c126bf694db6281",
+    "vendor/ocean/maps.js": "cd212dd58482250a0055496c01a6d56867eda33bb2f7c6152248805e10635598",
+    "vendor/ocean/oceanGrid.js": "06c42608882e20743814e98479841463fd3f74c000a0528872a59cecc2c9f423",
+    "vendor/ocean/oceanSurfaceMaterial.js": "38bef2d8073819f807014daa85b0a62defd0a1305c662b82a0010f89ec0febb2",
+    "vendor/ocean/params.js": "faf268460396e0e588151ef149d2d896b9ece104868542f2bcf648387f1908a8",
+    "vendor/ocean/sky.js": "ee43631db135a74a2c0ae18570997ff4cd278b6ec3f7cbd06a755c22900b5371",
+    "vendor/ocean/spectrum.js": "69a9b7a98f827aa24c2492af61245124467f5c2ef8d9f37c0d7d22cfda7daba1",
+    "vendor/ocean/water.js": "6889a78c24ff4e73dc16c62e878bf18ae4743c3aa4cd87dc361476a88e0e7b38",
+    "assets/CC-BY-4.0.txt": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+    "assets/CormorantGaramond-OFL.txt": "6f5a41d57400577a50aae88475b11f292f3d7de78ee7d5113c69577331d8ad31",
+    "assets/cormorant-garamond-latin.woff2": "5d618c462b7a5b74f442e1548880086af71764d9cc7d35c16ab45353da934621",
+    "assets/reverie.mp3": "a7fed21cfb59f15147824267a52f6ade7c998bb3370cc973bbf079e4e4de145b",
+    "assets/sky_131_2k.png": "06551bf4c554567ff424de117c76b52a65173ab53355909fa488c6740aa5929e",
+    "assets/sky_midday_2k.png": "a9932acbc5931bac98f6d65e26eba3cae4b8b3ba529db91e0b01c645cb657a6c"
+  }
+}

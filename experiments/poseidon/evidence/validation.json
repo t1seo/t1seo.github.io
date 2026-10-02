@@ -1,0 +1,128 @@
+{
+  "browser": "Orca embedded browser, official CLI",
+  "page": "c68a41ef-2022-42a9-be82-df3d0cc89891",
+  "latest": {
+    "heading": {
+      "bottom": 468.3515625,
+      "height": 65.890625,
+      "left": 319.9375,
+      "right": 736.046875,
+      "top": 402.4609375,
+      "width": 416.109375,
+      "x": 319.9375,
+      "y": 402.4609375
+    },
+    "overflow": [
+      false,
+      false
+    ],
+    "state": {
+      "audio": {
+        "duration": 223.672925,
+        "error": null,
+        "playing": true,
+        "readyState": 4,
+        "time": 18.267862,
+        "volume": 0.28
+      },
+      "camera": {
+        "position": [
+          0,
+          16,
+          68
+        ],
+        "quaternion": [
+          -0.07880258138185012,
+          0,
+          0,
+          0.996890241284143
+        ]
+      },
+      "error": null,
+      "fft": {
+        "err1": 0,
+        "err2": 2.9739473106360492e-08,
+        "pass": true
+      },
+      "frames": 53,
+      "mode": "whitecaps",
+      "ready": true,
+      "running": true,
+      "time": 44.29186666666649
+    },
+    "viewport": [
+      1056,
+      2419
+    ]
+  },
+  "cameraChecks": {
+    "drag": {
+      "before": [
+        -0.07880258138185012,
+        0,
+        0,
+        0.996890241284143
+      ],
+      "after": [
+        -0.09895753144012052,
+        -0.18496676458897268,
+        -0.018723819968056474,
+        0.9775705199803076
+      ],
+      "method": "Orca mouse move/down/move/up"
+    },
+    "reset": "Orca click restored original position and quaternion"
+  },
+  "checks": {
+    "soundtrackTests": "6 passed",
+    "build": "passed; expected Three.js chunk-size warning"
+  },
+  "consoleErrors": [],
+  "limits": "Final visual check used the native host viewport. Earlier viewport emulation produced capture/layout mismatches; no separate mobile or desktop visual pass is claimed. Keyboard travel was not independently verified in the browser.",
+  "earlierCenteredNameMeasurements": {
+    "browser": "Orca embedded browser, official CLI",
+    "page": "c68a41ef-2022-42a9-be82-df3d0cc89891",
+    "desktop": {
+      "state": {
+        "mode": "whitecaps",
+        "ready": true,
+        "fft": {
+          "pass": true,
+          "err1": 0,
+          "err2": 2.9739473106360492e-08
+        },
+        "frames": 1097,
+        "time": 49.32626666666514,
+        "running": false,
+        "error": null,
+        "audio": {
+          "playing": true,
+          "time": 20.865559,
+          "duration": 223.672925,
+          "volume": 0.28,
+          "readyState": 4,
+          "error": null
+        }
+      },
+      "viewport": [
+        1440,
+        900
+      ],
+      "overflow": [
+        false,
+        false
+      ],
+      "heading": {
+        "x": 436.25,
+        "y": 405.0625,
+        "width": 567.5,
+        "height": 89.859375,
+        "top": 405.0625,
+        "right": 1003.75,
+        "bottom": 494.921875,
+        "left": 436.25
+      }
+    },
+    "consoleErrors": []
+  }
+}
