@@ -1,0 +1,31 @@
+{
+  "continuousPlaybackBeforeScrub": {
+    "ready": true,
+    "time": 1.7199999999999458,
+    "replay": 7,
+    "playing": true,
+    "draws": 3395
+  },
+  "capture": "32 deterministic poses from final shaded Orca Canvas; GIF is sampled, not real-time screen recording",
+  "duration": 1.04,
+  "page": "http://127.0.0.1:5173/experiments/milky-motion/index.html",
+  "slowPlaybackBeforeFinalCapture": {
+    "ready": true,
+    "time": 2.931500000000006,
+    "replay": 1,
+    "playing": true,
+    "speed": 0.25,
+    "draws": 3488,
+    "shade": true
+  },
+  "finalActualSizePlayback": {
+    "ready": true,
+    "focused": true,
+    "playing": true,
+    "artWidth": 132,
+    "speed": 1,
+    "replay": 6,
+    "time": 1.3967059999999485,
+    "draws": 2900
+  }
+}

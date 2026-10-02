@@ -66,6 +66,9 @@ function stop() {
   handle = 0;
   lastFrame = 0;
   playButton.textContent = 'Play';
+  if (ready && !disposed) $('status').textContent = reducedMotion.matches
+    ? 'Reduced motion: use the timeline to inspect poses.'
+    : 'Paused for review. Candidate is a work in progress.';
 }
 
 function requestFrame() {
@@ -77,6 +80,7 @@ function setPlaying(value: boolean) {
   playing = true;
   lastFrame = 0;
   playButton.textContent = 'Pause';
+  $('status').textContent = 'Playing the comparison. Candidate is a work in progress.';
   requestFrame();
 }
 
