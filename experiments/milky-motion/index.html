@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Milky · 2D motion comparison</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <header><div><p class="eyebrow">LOCAL REVIEW · NOT DEPLOYED</p><h1>Milky — 2D motion</h1></div><p id="status" role="status">Loading shared artwork and motion…</p></header>
+      <section class="controls" aria-label="Playback and comparison controls">
+        <button id="play" type="button" disabled>Play</button>
+        <label>Speed <select id="speed"><option value="1">1×</option><option value="0.25">0.25×</option></select></label>
+        <label>Art width <select id="size"><option value="132" selected>132 px</option><option value="350">350 px</option></select></label>
+        <label>View <select id="mode"><option value="travelling">Travelling</option><option value="treadmill">Treadmill</option></select></label>
+        <label class="checkbox"><input id="feet" type="checkbox" /> Foot markers</label>
+        <label class="checkbox"><input id="diagnostics" type="checkbox" /> Painter diagnostics</label>
+      </section>
+      <section class="timeline" aria-label="Three-stride timeline">
+        <label for="time">Time <output id="time-label">0.00 / 0.00 s</output></label>
+        <input id="time" type="range" min="0" max="1" value="0" step="0.001" disabled />
+        <p id="route-label">A route contains three strides, then resets to its starting position.</p>
+      </section>
+      <div class="comparison">
+        <section class="row" aria-labelledby="released-heading">
+          <div class="row-heading"><h2 id="released-heading">A · Released motion</h2><p>Existing rig and painter · matched cadence</p></div>
+          <div class="canvas-scroll"><canvas id="released" aria-label="Released 2D Milky motion"></canvas></div>
+          <p class="diagnostic-output" id="released-diagnostics" hidden>No mesh diagnostics are exposed by the released painter.</p>
+        </section>
+        <section class="row" aria-labelledby="candidate-heading">
+          <div class="row-heading"><h2 id="candidate-heading">B · Candidate</h2><p>Work in progress</p></div>
+          <div class="canvas-scroll"><canvas id="candidate" aria-label="Candidate 2D Milky motion, work in progress"></canvas></div>
+          <p class="diagnostic-output" id="candidate-diagnostics" hidden></p>
+        </section>
+      </div>
+      <footer><p>Both views use the same artwork, art width, cycle duration and root speed.</p><p id="marker-note" hidden>Dots mark painted sole anchors, including paw rotation. Candidate: green = planned stance, amber = swing. Released: gray = contact state unavailable.</p><p>Travelling shows movement over fixed ground; treadmill keeps the root fixed. The route reset is separate from the gait cycle.</p></footer>
+    </main>
+    <script type="module" src="./preview.ts"></script>
+  </body>
+</html>
