@@ -313,6 +313,7 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && studio.dataset.focus === 'true') $<HTMLButtonElement>('.ph-restore').click();
 }, options);
 
+climate.setAuto();
 applyClimate(climate.getState());
 updateWorkspace();
 if (!playing) $('[data-track-title]').textContent = 'Make yourself at home.';

@@ -146,7 +146,8 @@ are clipped to the window and surrounding objects. Effects reduce their detail
 under sustained rendering load; hidden tabs stop visual work. A failed room-art
 request keeps the current view in place.
 
-Auto follows each visitor's device timezone immediately. The Atmosphere panel's
+Auto starts enabled on every visit and follows each visitor's device timezone
+immediately. The Atmosphere panel's
 **Use my location** action asks for browser permission. With permission, the room follows the
 location's timezone, northern/southern calendar seasons, sunrise/sunset, and
 [Open-Meteo current conditions](https://open-meteo.com/en/docs). Weather updates
@@ -155,7 +156,9 @@ not a sensor measurement at the visitor's exact position.
 
 Denied location or unavailable weather leaves the clock and room usable; the
 Atmosphere panel explains the state and offers a retry. A manual time, season or
-weather choice pauses Auto and persists across visits. Re-enable Auto to resume.
+weather choice pauses Auto for the current visit. Re-enable Auto to resume, or
+reload to return to automatic local time. Save a named atmosphere preset to reuse
+a favorite manual scene.
 Coordinates are rounded to two decimal places, sent only to Open-Meteo after
 browser permission, and kept in memory only. Weather needs no API key or backend.
 
