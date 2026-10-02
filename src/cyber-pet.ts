@@ -1,6 +1,5 @@
 import './cyber-pet.css';
 import { mountGroundedWalk } from './cyber-pet-grounded-walk';
-import { mountNaturalWalk } from './cyber-pet-natural-walk';
 import { GROUNDED_ART } from './cyber-pet-grounded-geometry';
 import { AUTHORED_STRIDE, AUTHORED_DURATION } from './cyber-pet-authored-controller';
 import { placeMilky, milkyHasVisibleFloor, milkyWidthRatio, DEFAULT_MILKY_FLOOR, type MilkyPoint } from './cyber-pet-geometry';
@@ -195,8 +194,7 @@ export function mountCyberPet(
   const figure = page.createElement('span');
   figure.className = 'cyber-pet-figure';
   button.append(shadow, figure);
-  const naturalLocomotion = photoOptions?.locomotion === 'natural';
-  const grounded = naturalLocomotion ? mountNaturalWalk(figure) : photoOptions?.groundedWalk ? mountGroundedWalk(figure) : undefined;
+  const grounded = photoOptions?.groundedWalk ? mountGroundedWalk(figure) : undefined;
   const spriteImage = (className: string) => {
     const image = page.createElement('img');
     image.className = className;
@@ -319,7 +317,6 @@ export function mountCyberPet(
   let walk: { plan: MilkyWalk; started: number; basePhase: number; adjust: number; stride: number; autonomous: boolean; grounded: boolean; sceneDistance: number; onDone?: () => void } | undefined;
   let groundedIdle = false;
   let groundedRequested = false;
-  let queuedNaturalWalk: { target: MilkyPoint; autonomous: boolean; greeting: boolean } | undefined;
   const groundedFrame = { travelled: 0, root: { x: 0, y: 0 }, scale: 0, wrapperWidth: 0, pixelRatio: 1 };
   let hop: { readonly plan: MilkyBedHop; readonly started: number; readonly autonomous: boolean; readonly onLand: () => void; readonly onDone: () => void; landed: boolean } | undefined;
   let ball: MilkyBallState | undefined;
@@ -603,7 +600,6 @@ export function mountCyberPet(
     idleImage.src = `${ASSET_ROOT}${idleAsset(version)}`;
   }
   function cancelAction(preserveGrounded = false) {
-    queuedNaturalWalk = undefined;
     if (!preserveGrounded) { grounded?.rest(); groundedIdle = false; }
     groundedRequested = false;
     actionRevision++;
@@ -743,10 +739,7 @@ export function mountCyberPet(
       position = sample.position;
       renderPosition();
       spriteFrame(milkyGaitFrame(gaitPhase, currentFrames));
-      if (walk.grounded && !drawGrounded(sample.done ? walk.sceneDistance : walk.sceneDistance * sample.distance / walk.plan.distance)) {
-        if (naturalLocomotion) { settle(); return; }
-        walk.grounded = false;
-      }
+      if (walk.grounded && !drawGrounded(walk.sceneDistance * sample.distance / walk.plan.distance)) walk.grounded = false;
       if (sample.done) finishWalk();
       else more = true;
     }
@@ -1003,12 +996,9 @@ export function mountCyberPet(
   const gentleSettle = () => { if (busyPoseActive() && !motionStopped()) wakeThenRun(() => settle()); else settle(); };
   function finishWalk() {
     const done = walk?.onDone;
-    const redirect = queuedNaturalWalk;
-    queuedNaturalWalk = undefined;
     groundedIdle = Boolean(walk?.grounded && grounded?.finish());
     walk = undefined;
     currentSpeed = 0;
-    if (redirect) { requestWalk(redirect.target, redirect.autonomous, redirect.greeting); return; }
     // Keep the final painted stance at rest. The legacy idle has a different leg contour.
     button.dataset.motion = 'settling';
     button.dataset.gaze = forwardActive() ? 'forward' : 'camera';
@@ -1026,15 +1016,9 @@ export function mountCyberPet(
       else settle(true);
     }, arrival?.hold ?? (done ? 200 : 320));
   }
-  async function startWalk(target: MilkyPoint, autonomous: boolean, initialSpeed = 0, opts?: { cadence?: number; onDone?: () => void; carryGrounded?: boolean; legacyContinuation?: boolean }) {
+  function startWalk(target: MilkyPoint, autonomous: boolean, initialSpeed = 0, opts?: { cadence?: number; onDone?: () => void; carryGrounded?: boolean; legacyContinuation?: boolean }) {
     if (!canWalk() || (autonomous && !passiveAvailable())) { settle(); return; }
     if (milkyDistance(position, target) < .002 || Math.abs(target.x - position.x) < .008) { settle(); return; }
-    if (naturalLocomotion && grounded && !grounded.ready()) {
-      const revision = actionRevision;
-      const ready = await grounded.prepare();
-      if (revision !== actionRevision) return;
-      if (!ready || !canWalk() || (autonomous && !passiveAvailable())) { settle(); return; }
-    }
     const bodyWidth = milkyWidthRatio(floorBounds, portrait) * .66 * milkyDepthScale(position.y);
     // Phase 4 begins from the planted hind-paw position closest to the standing photo.
     // A same-heading continuation keeps its accumulated phase so no limb jumps.
@@ -1045,28 +1029,20 @@ export function mountCyberPet(
     const to = { x: target.x * width, y: target.y * height };
     const originY = position.y;
     const nativeScale = width * milkyWidthRatio(floorBounds, portrait) * MILKY_ART.v4.scale / GROUNDED_ART.width;
-    const authoredGait = !naturalLocomotion && (opts?.cadence ?? 1) > 1.25 ? 'run' : 'walk';
+    const authoredGait = (opts?.cadence ?? 1) > 1.25 ? 'run' : 'walk';
     const useGrounded = Boolean(!opts?.legacyContinuation && forwardActive() && grounded?.ready()
       && grounded.begin({ from, to, gait: authoredGait, scale: groundedScale(position), endScale: groundedScale(target), facing: facing < 0 ? -1 : 1,
         scaleAt: (progress) => nativeScale * Number(milkyDepthScale(originY + (target.y - originY) * progress).toFixed(4)),
       }, opts?.carryGrounded));
-    // This explicit research option must not appear successful by silently
-    // showing the released fallback when its own preparation or route fails.
-    if (naturalLocomotion && !useGrounded) { settle(); return; }
     if (!useGrounded && groundedIdle) grounded?.rest();
     groundedIdle = false;
-    const metrics = useGrounded ? grounded?.metrics?.() : undefined;
-    const normalizedDistance = milkyDistance(position, target);
-    const sceneDistance = Math.hypot(to.x - from.x, to.y - from.y);
-    const stride = useGrounded ? (metrics?.stride ?? AUTHORED_STRIDE[authoredGait]) * groundedScale(position)
-      * (naturalLocomotion ? normalizedDistance / sceneDistance : 1 / width)
+    const stride = useGrounded ? AUTHORED_STRIDE[authoredGait] * groundedScale(position) / width
       : milkyGaitStride(milkyStride(bodyWidth), milkyDistance(position, target), gaitPhase);
     // Keep the asset's native cadence at cruise. The distance-driven mixer slows
     // with the existing acceleration curve and uses Gallop for a chase.
-    const cadence = naturalLocomotion ? Math.min(opts?.cadence ?? 1, 1.2) : opts?.cadence ?? 1;
+    const cadence = opts?.cadence ?? 1;
     const cruise = useGrounded
-      ? (metrics?.routeDuration ? normalizedDistance / metrics.routeDuration : stride / (metrics?.duration ?? AUTHORED_DURATION[authoredGait]))
-        * (authoredGait === 'run' ? cadence / 1.48 : cadence)
+      ? stride / AUTHORED_DURATION[authoredGait] * (authoredGait === 'run' ? cadence / 1.48 : cadence)
       : stride / .72 * cadence;
     const speed = Math.max(cruise, initialSpeed);
     lastHeading = { x: target.x - position.x, y: target.y - position.y };
@@ -1084,12 +1060,9 @@ export function mountCyberPet(
     // Aim within the support frame before settling, subject to the cadence adjustment cap.
     walk = { plan, started: view.performance.now(), basePhase: gaitPhase,
       adjust: useGrounded ? 0 : milkyGaitFinishAdjustment(gaitPhase, plan.distance, stride, currentFrames), stride, autonomous,
-      grounded: useGrounded, sceneDistance, onDone: opts?.onDone };
+      grounded: useGrounded, sceneDistance: Math.hypot(to.x - from.x, to.y - from.y), onDone: opts?.onDone };
     spriteFrame(milkyGaitFrame(gaitPhase, currentFrames));
-    if (walk.grounded && !drawGrounded(0)) {
-      if (naturalLocomotion) { settle(); return; }
-      walk.grounded = false;
-    }
+    if (walk.grounded && !drawGrounded(0)) walk.grounded = false;
     if (!useGrounded) prepareGrounded();
     ensureTick();
   }
@@ -1119,12 +1092,6 @@ export function mountCyberPet(
   }
   function requestWalk(destination: MilkyPoint, autonomous: boolean, greeting = false) {
     const target = bound(destination);
-    // A new floor destination waits for the current four-foot landing. Do not
-    // turn an airborne paw into a fake stance contact during a retarget.
-    if (naturalLocomotion && walk?.grounded && !walk.onDone && canWalk()) {
-      queuedNaturalWalk = { target, autonomous, greeting };
-      return;
-    }
     const carry = walk && milkyCanContinue(walk.plan, position, target) ? currentSpeed : 0;
     const carryGrounded = carry > 0 && walk?.grounded === true;
     const turning = (target.x < position.x ? -1 : 1) !== facing;

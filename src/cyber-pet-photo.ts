@@ -24,12 +24,7 @@ export {
 } from './cyber-pet-photo-plan.ts';
 
 /** Opt-in flag for the photo-motion runtime; archived rooms simply omit it. */
-export interface CyberPetPhotoOptions {
-  readonly photoMotions: true;
-  readonly groundedWalk?: true;
-  /** Local research candidate. Omitted for the released authored walk. */
-  readonly locomotion?: 'natural';
-}
+export interface CyberPetPhotoOptions { readonly photoMotions: true; readonly groundedWalk?: true }
 
 export interface MilkyPhotoRuntimeHost {
   /** Creates the frame's image element inside the pet figure (class cyber-pet-photo). */
