@@ -73,5 +73,6 @@
 - Winter must visibly change the interior into Christmas: decorated dimensional tree, fairy lights, gifts, winter textiles. All other seasons also change actual interior decor.
 - Plain TypeScript, CSS and Vite. Keep dependencies minimal. Respect reduced motion and keyboard access.
 - In Orca, use its embedded browser for previews and UI verification by default. An explicit request for native Codex Computer Use overrides that default and uses Chrome for web previews. Outside Orca, retain the current host workflow and Chrome browser preference. Do not use Safari unless the user explicitly changes that preference.
+- For web QA in Orca, follow the `orca-cli` skill: reuse the page ID/server, inspect snapshots/DOM/console/network, use element-based interactions and condition waits, and group independent reads. Keep real interaction paths and visual checks for animation/Canvas/WebGL. Reserve Computer Use for browser-unsupported UI; an explicit native Codex Computer Use request still takes priority. Clean up owned QA resources afterward.
 - The calendar/settings dialog must be entirely in English. The monitor starts on with completed code; toggling it off and on explicitly replays the typewriter interaction.
 - Commit your scoped work and report the commit SHA and concrete checks. Root integrates worker commits.
