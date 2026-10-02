@@ -21,12 +21,123 @@
     "observed": "2D authored Walk comparison loads, decodes the local motion file and draws a sampled pose at t=0.32s",
     "screenshot_local": "tmp/milky-gait-qa/release-2d-frame.png",
     "full_room_interaction": "NOT VERIFIED: current browser surface keeps the pet inactive/cropped; changing emulated viewport did not update room layout, and the fixed-size iframe reported hidden. No visibility or runtime gate was overridden. Integration cancellation/fallback/arrival covered by tests.",
-    "console": "Existing page history contains errors from rejected 3D shader experiments; no clean per-navigation console baseline was available."
+    "console": "Existing page history contains errors from rejected 3D shader experiments; no clean per-navigation console baseline was available.",
+    "production": "Orca loaded https://t1seo.github.io/ with expected title and 2D canvas. Pet remains inactive in current portrait surface, so full interactive motion is still NOT VERIFIED."
   },
   "limitations": [
     "Artist-authored Shiba animation is not recorded Milky motion.",
     "Residual stance slide and 2D limb stretching remain.",
     "Naturalness is not asserted by tests or the sampled screenshot."
   ],
-  "deployment": "Pending commit and GitHub Pages workflow; record actual result separately."
+  "deployment": {
+    "commit": "1e4c7ae3a673f03efce27524bb087082f2ddca7b",
+    "url": "https://t1seo.github.io/",
+    "workflow": "https://github.com/t1seo/t1seo.github.io/actions/runs/36974332585",
+    "result": "success",
+    "jobs": {
+      "build": "success",
+      "guestbook": "success",
+      "deploy": "success"
+    },
+    "verified_at": "2026-10-02T06:38:02.145634+00:00",
+    "production_assets": [
+      {
+        "path": "index.html",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "sha256": "fe99b83009943c7cf808e5153cfa079a41fb00128d4356529981cf4d356441cf",
+        "matches": true
+      },
+      {
+        "path": "assets/cyber-climate-BEiKPOQJ.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "54001abb7860a9a2f853a29af20ddf8817d07bb2a5f6a13f8f3a96674445c527",
+        "matches": true
+      },
+      {
+        "path": "assets/penthouse-album-DhWZNz8i.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "2d796146812d27af02b1835527a350f9a700b4e33888158ef1dea00d0ab86555",
+        "matches": true
+      },
+      {
+        "path": "assets/penthouse-main-8vgy46h7.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "8b0f6f01d80c9d87fcd8fd83f772384fe0641b9d1200dd54d85ec091a1296969",
+        "matches": true
+      },
+      {
+        "path": "assets/penthouse-guestbook-FYHC-nl8.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "56778e0d3b54d4e77c4abe4623a173fe48aeae5f75e46e8cb75cdbdee335e20c",
+        "matches": true
+      },
+      {
+        "path": "assets/cyber-main-Bvcq1aGi.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "44262a294ebf83f10693d1e26b984fd36e92d09bd26e9c3346b747293274a660",
+        "matches": true
+      },
+      {
+        "path": "assets/index-BtRBulTs.js",
+        "status": 200,
+        "content_type": "application/javascript; charset=utf-8",
+        "sha256": "c81005ccc23adcf215c41ff9562c28354836fa9028bdff389f0beaa9402ecad5",
+        "matches": true
+      },
+      {
+        "path": "assets/cyber-climate-B4jCPwGQ.css",
+        "status": 200,
+        "content_type": "text/css; charset=utf-8",
+        "sha256": "75563f235168cf504895adf8934647383aba447a56fa3504a5bdaf3e26e4df4c",
+        "matches": true
+      },
+      {
+        "path": "assets/cyber-main-DhZ1q8gG.css",
+        "status": 200,
+        "content_type": "text/css; charset=utf-8",
+        "sha256": "2a4db92667966fc796aaae76341aa7ee4fa67933cfb400412909cb67a351f7f8",
+        "matches": true
+      },
+      {
+        "path": "assets/penthouse-guestbook-ADYDu9Iv.css",
+        "status": 200,
+        "content_type": "text/css; charset=utf-8",
+        "sha256": "6f08f09dac5ef43a7bc0b5a7c8d4681064445891c12111e8894bf261f223c02b",
+        "matches": true
+      },
+      {
+        "path": "assets/penthouse-album-sZll8a1y.css",
+        "status": 200,
+        "content_type": "text/css; charset=utf-8",
+        "sha256": "e681ced4c1ee7c621e4206cac197923c5744cd866bf7865e8c2bc55ef6dfed53",
+        "matches": true
+      },
+      {
+        "path": "assets/penthouse-main-D-3LZMCg.css",
+        "status": 200,
+        "content_type": "text/css; charset=utf-8",
+        "sha256": "e69d24fa1d31f90e5fdd3eb0aa52dc32ef7a96f2dbb2fde1d1abcd8ac2bc7a02",
+        "matches": true
+      },
+      {
+        "path": "assets/cyberpunk/milky-authored/canine-clips.glb",
+        "status": 200,
+        "content_type": "model/gltf-binary",
+        "sha256": "eb9af129b6f6c8b2752b9228b5fb7e208140ab4c4725cda37781491069202d56",
+        "matches": true
+      }
+    ]
+  },
+  "cleanup": {
+    "release_copy": "Removed own 783 MB staged QA/build copy after production hash verification.",
+    "temporary_logs": "Removed own logs and temporary hash manifests after preserving results here.",
+    "preserved": "Existing source experiments and small local screenshot preserved. Existing Orca tab now shows production; no new browser was created.",
+    "preview_server": "Own Vite PID 90636 and npm parent 90618 exited; no TCP 5173 listener remains."
+  }
 }
