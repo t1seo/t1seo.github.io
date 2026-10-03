@@ -14,7 +14,7 @@ import { planMilkyPhotoRise, type MilkyPhotoRestContext, type MilkyPhotoRisePlan
 import type { MilkyRandom } from './cyber-pet-roam.ts';
 
 export type { MilkyPhotoFrameName, MilkyPhotoMotion } from './cyber-pet-photo-art.ts';
-export { MILKY_BED_RIM_FRACTION, MILKY_PHOTO_FRAMES, MILKY_PHOTO_GROUPS, MILKY_PHOTO_KINDS } from './cyber-pet-photo-art.ts';
+export { milkyPhotoTranslate, MILKY_BED_RIM_FRACTION, MILKY_PHOTO_FRAMES, MILKY_PHOTO_GROUPS, MILKY_PHOTO_KINDS } from './cyber-pet-photo-art.ts';
 export { milkyChinRimTranslation, MILKY_CHIN_MAX_OFFSET } from './cyber-pet-photo-geometry.ts';
 export type { MilkyPhotoGroupState } from './cyber-pet-photo-loader.ts';
 export {
@@ -24,9 +24,10 @@ export {
 } from './cyber-pet-photo-plan.ts';
 
 /** Opt-in flag for the photo-motion runtime; archived rooms simply omit it. */
-export interface CyberPetPhotoOptions { readonly photoMotions: true; readonly groundedWalk?: true }
+export interface CyberPetPhotoOptions { readonly photoMotions: true; readonly groundedWalk?: true; readonly artRoot?: string }
 
 export interface MilkyPhotoRuntimeHost {
+  readonly assetPrefix?: string;
   /** Creates the frame's image element inside the pet figure (class cyber-pet-photo). */
   readonly createImage: (frame: MilkyPhotoFrameName) => HTMLImageElement;
   /** Applies the native-pixel registration translation onto the shared floor point. */
@@ -69,6 +70,7 @@ const CHIN_FRAMES: readonly MilkyPhotoFrameName[] = ['chin-lower', 'chin-rest'];
 
 export function createMilkyPhotoRuntime(host: MilkyPhotoRuntimeHost): MilkyPhotoRuntime {
   const loader = createMilkyPhotoLoader({
+    assetPrefix: host.assetPrefix,
     createImage(frame) {
       const image = host.createImage(frame);
       host.register(image, milkyPhotoTranslate(frame));

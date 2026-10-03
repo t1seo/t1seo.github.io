@@ -1,0 +1,173 @@
+{
+  "scale_basis": "one scale for all authored gait frames, matching existing frontal head/shoulder and full body height; no per-frame anatomy scaling",
+  "frames": [
+    {
+      "frame": 0,
+      "source_bbox": [
+        4,
+        4,
+        252,
+        218
+      ],
+      "scale": 0.64,
+      "offset": [
+        14,
+        62
+      ],
+      "final_bbox": [
+        14,
+        62,
+        178,
+        204
+      ],
+      "floor": 202
+    },
+    {
+      "frame": 1,
+      "source_bbox": [
+        5,
+        4,
+        253,
+        217
+      ],
+      "scale": 0.64,
+      "offset": [
+        13,
+        63
+      ],
+      "final_bbox": [
+        14,
+        63,
+        177,
+        204
+      ],
+      "floor": 202
+    },
+    {
+      "frame": 2,
+      "source_bbox": [
+        5,
+        4,
+        244,
+        215
+      ],
+      "scale": 0.64,
+      "offset": [
+        16,
+        64
+      ],
+      "final_bbox": [
+        17,
+        64,
+        175,
+        204
+      ],
+      "floor": 202
+    },
+    {
+      "frame": 3,
+      "source_bbox": [
+        5,
+        4,
+        234,
+        216
+      ],
+      "scale": 0.64,
+      "offset": [
+        20,
+        64
+      ],
+      "final_bbox": [
+        21,
+        64,
+        172,
+        204
+      ],
+      "floor": 202
+    },
+    {
+      "frame": 4,
+      "source_bbox": [
+        5,
+        5,
+        244,
+        218
+      ],
+      "scale": 0.64,
+      "offset": [
+        16,
+        62
+      ],
+      "final_bbox": [
+        17,
+        63,
+        175,
+        204
+      ],
+      "floor": 202
+    },
+    {
+      "frame": 5,
+      "source_bbox": [
+        5,
+        5,
+        231,
+        217
+      ],
+      "scale": 0.64,
+      "offset": [
+        20,
+        63
+      ],
+      "final_bbox": [
+        21,
+        64,
+        170,
+        205
+      ],
+      "floor": 202
+    },
+    {
+      "frame": 6,
+      "source_bbox": [
+        5,
+        5,
+        242,
+        217
+      ],
+      "scale": 0.64,
+      "offset": [
+        17,
+        63
+      ],
+      "final_bbox": [
+        18,
+        64,
+        174,
+        205
+      ],
+      "floor": 202
+    },
+    {
+      "frame": 7,
+      "source_bbox": [
+        5,
+        5,
+        236,
+        222
+      ],
+      "scale": 0.64,
+      "offset": [
+        19,
+        60
+      ],
+      "final_bbox": [
+        20,
+        61,
+        173,
+        204
+      ],
+      "floor": 202
+    }
+  ]
+}
