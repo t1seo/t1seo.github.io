@@ -1,16 +1,20 @@
 .milky-atlas { display: none; }
 .cyber-pet-button[data-atlas='ready'] .cyber-pet-figure > :not(.milky-atlas) { display: none; }
-.cyber-pet-button[data-atlas='ready'] .cyber-pet-figure { animation: none; }
+/* Override the legacy high-specificity breathing selectors, but preserve the
+   figure's physical hop transform. The atlas provides its own idle frames. */
+.cyber-pet-button[data-atlas='ready'] .cyber-pet-figure { animation: none !important; }
 .cyber-pet-button[data-atlas='ready'] .milky-atlas {
   display: block;
   position: absolute;
-  height: 72.2%;
+  /* Global site calibration: 72.2% × (196/128) preserves the previous idle
+     silhouette height. The same factor applies to every state and direction. */
+  height: var(--milky-atlas-height, 110.55625%);
   aspect-ratio: 192 / 208;
   left: 50%;
-  bottom: 4%;
-  transform: translateX(-50%) scale(var(--milky-atlas-scale, 1));
-  transform-origin: 50% 97.115385%;
-  background-image: url('/assets/penthouse/milky-pet/spritesheet.png?v=longlegs-2');
+  /* The shared 184/208 source floor lands on the button's 94% world floor.
+     Percentage translation is relative to this sprite, independent of its height. */
+  top: var(--milky-atlas-floor);
+  transform: translate(-50%, calc(var(--milky-atlas-floor-shift) + var(--milky-atlas-hop-offset, 0%)));
   background-size: 800% 1100%;
   background-repeat: no-repeat;
   pointer-events: none;

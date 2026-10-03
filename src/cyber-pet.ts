@@ -130,6 +130,21 @@ const ACTIVITY_TRANSLATE: Record<MilkyActivityPoseName, readonly [number, number
 };
 const MUZZLE_AHEAD_NATIVE = 1474 - 795;
 const PAW_REACH_NATIVE = 1511.5 - 795;
+// Astra v1 supplemental exports, logical 1536×1024 registration at (795,970).
+// Source: work/milky-astra-restart-20261003/run-01/qa/site-export/registration.json.
+// Global display factor 1.53125: measured muzzle x1145.3803 and paw x1332.2498.
+// Confirmed chin (740,960) scales about (795,970) to (710.78125,954.6875).
+// The new muzzle sits left of the support origin, so contact uses the local
+// front lip beneath it rather than the legacy artwork's farther-right rim point.
+const MILKY_REFRESH_CONTACTS = {
+  muzzleReach: 350,
+  pawReach: 537,
+  supportAnchor: [795, 970] as const,
+  chinPoint: [711, 955] as const,
+  rimFraction: { x: .47, y: .665 },
+  maximumChinOffset: 220,
+} as const;
+
 // Prop ground anchors measured on the 512² canvases (bowl base (257.5, 506), ball bottom
 // (255, 406)): the image shifts so that point sits on the wrapper's floor origin.
 const PROP_ANCHOR: Record<(typeof PROP_NAMES)[number], readonly [number, number]> = {
@@ -409,15 +424,16 @@ export function mountCyberPet(
     const pixelsPerNative = width * milkyWidthRatio(floorBounds, portrait) * milkyDepthScale(point.y) * MILKY_ART.v4.scale / 1536;
     const room = host.getBoundingClientRect();
     const bedRect = bedOptions.element.getBoundingClientRect();
-    const frame = newArtwork ? { supportAnchor: [795, 970] as const, chinPoint: [968, 950] as const } : MILKY_PHOTO_FRAMES['chin-rest'];
+    const frame = newArtwork ? MILKY_REFRESH_CONTACTS : MILKY_PHOTO_FRAMES['chin-rest'];
+    const rim = newArtwork ? MILKY_REFRESH_CONTACTS.rimFraction : MILKY_BED_RIM_FRACTION;
     return milkyChinRimTranslation({
       chinPoint: frame.chinPoint,
-      maximumOffset: newArtwork ? 220 : undefined,
+      maximumOffset: newArtwork ? MILKY_REFRESH_CONTACTS.maximumChinOffset : undefined,
       supportAnchor: frame.supportAnchor,
       dogScreen: { x: point.x * width, y: point.y * height },
       rimScreen: {
-        x: bedRect.left - room.left + MILKY_BED_RIM_FRACTION.x * bedRect.width,
-        y: bedRect.top - room.top + MILKY_BED_RIM_FRACTION.y * bedRect.height,
+        x: bedRect.left - room.left + rim.x * bedRect.width,
+        y: bedRect.top - room.top + rim.y * bedRect.height,
       },
       pixelsPerNative,
       facing: face < 0 ? -1 : 1,
@@ -637,6 +653,10 @@ export function mountCyberPet(
   }
   function showIdle() { button.dataset.pose = 'idle'; }
   function spriteFrame(frame: number) {
+    // Atlas gait always has eight phases, even when the fallback trot has four.
+    // This runs on the existing movement clock; write only actual phase changes.
+    const atlasFrame = String(milkyGaitFrame(gaitPhase, 8));
+    if (button.dataset.atlasFrame !== atlasFrame) button.dataset.atlasFrame = atlasFrame;
     const image = currentSteps[frame].image;
     if (shownStep !== image) {
       if (shownStep) shownStep.dataset.visible = 'false';
@@ -1146,7 +1166,7 @@ export function mountCyberPet(
   function beginFeed() {
     cancelAction();
     clearSession();
-    const muzzleReach = (depthY: number) => reachAhead(newArtwork ? 190 : MUZZLE_AHEAD_NATIVE, depthY);
+    const muzzleReach = (depthY: number) => reachAhead(newArtwork ? MILKY_REFRESH_CONTACTS.muzzleReach : MUZZLE_AHEAD_NATIVE, depthY);
     if (motionStopped()) {
       // Static explicit posture with static food and no forced movement: the dog stays
       // put, so the bowl must appear under her actual lowered muzzle, not a walk away.
@@ -1227,7 +1247,7 @@ export function mountCyberPet(
   /** True only when the resting ball actually sits at the registered raised-paw tip. */
   function ballInPawContact(): boolean {
     if (!ball || !ball.resting) return false;
-    const reach = reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, ball.y);
+    const reach = reachAhead(newArtwork ? MILKY_REFRESH_CONTACTS.pawReach : PAW_REACH_NATIVE, ball.y);
     return Math.abs(Math.abs(ball.x - position.x) - reach) <= .006 && Math.abs(ball.y - position.y) <= .004;
   }
   function playRound(plan: ReturnType<typeof planMilkyPlay>, round: number, autonomous: boolean, tries = 0, waits = 0) {
@@ -1248,7 +1268,7 @@ export function mountCyberPet(
     // Stand where the registered raised paw tip actually meets the ball on contact. If
     // the natural side collapses to a no-walk step (a side-view dog cannot take a nearly
     // vertical step) or a wall clamps the stand off target, approach from the other side.
-    const reach = reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, ball.y);
+    const reach = reachAhead(newArtwork ? MILKY_REFRESH_CONTACTS.pawReach : PAW_REACH_NATIVE, ball.y);
     const offTarget = (point: MilkyPoint) =>
       Math.abs(Math.abs(ball!.x - point.x) - reach) > .004 || Math.abs(ball!.y - point.y) > .002;
     const approachDir = ball.x < position.x ? -1 : 1;
@@ -1288,7 +1308,7 @@ export function mountCyberPet(
         playPoseSteps([{ pose: 'play-reach', hold: plan.reachHold, motion: 'playing' }], 0, revision, () => {
           if (revision !== actionRevision || !ball) return;
           const chaseDir = ball.x < position.x ? -1 : 1;
-          walkTo({ x: ball.x - chaseDir * reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, ball.y), y: ball.y }, { autonomous, cadence: 1.4, onDone: () => {
+          walkTo({ x: ball.x - chaseDir * reachAhead(newArtwork ? MILKY_REFRESH_CONTACTS.pawReach : PAW_REACH_NATIVE, ball.y), y: ball.y }, { autonomous, cadence: 1.4, onDone: () => {
             if (round + 1 < plan.rounds) playRound(plan, round + 1, autonomous);
             // Only a genuinely completed session (real contact happened) may end in the
             // occasional photo-20 pant; the honest give-up path above never does.
@@ -1357,7 +1377,7 @@ export function mountCyberPet(
       if (!ball || !ballBounds) { settle(); return; }
       const landing = predictMilkyBallRest(ball, ballBounds);
       const direction = landing.x < position.x ? -1 : 1;
-      const target = { x: landing.x - direction * reachAhead(newArtwork ? 345 : PAW_REACH_NATIVE, landing.y), y: landing.y };
+      const target = { x: landing.x - direction * reachAhead(newArtwork ? MILKY_REFRESH_CONTACTS.pawReach : PAW_REACH_NATIVE, landing.y), y: landing.y };
       walkTo(target, { cadence: 1.4, onDone: () => playRound({ ...planMilkyPlay(), rounds: 1 }, 0, false) });
     });
   }

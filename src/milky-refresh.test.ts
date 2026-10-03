@@ -41,3 +41,27 @@ test('refreshed photo moments remain lazy and a late decode cannot revive a canc
     assert.equal(f.button.dataset.animated, 'false');
   } finally { f.restore(); }
 });
+
+
+test('refreshed chin contact is reachable on the actual lip and rejects distant geometry', async () => {
+  const f = fixture(7829, POSES, RESTS, true,
+    { left: .35, right: .66, top: .965, bottom: .99, footerInset: 0, desktopWidth: .12, portraitWidth: .11 },
+    { x: 1440 / 1672, y: 865 / 941 },
+    { transitions: true, ballHome: { x: .52, y: .977 } },
+    { photoMotions: true, artRoot: root });
+  try {
+    await f.loadAll(); await f.loadRest();
+    assert.equal(f.controller.canPhotoMotion('chin-rest'), true,
+      'the left-of-origin chin reaches the corresponding front lip with a bounded correction');
+    assert.equal(f.document.images.some(image => image.src.includes('/photo/')), false,
+      'contact capability does not eagerly fetch photo artwork');
+    const left = f.bed.bounds.left;
+    f.bed.bounds.left -= 500;
+    assert.equal(f.controller.canPhotoMotion('chin-rest'), false, 'distant rim still fails the native correction bound');
+    f.bed.bounds.left = left;
+    f.controller.setAnimated(false);
+    assert.equal(f.controller.canPhotoMotion('chin-rest'), false, 'still mode retains the lifecycle gate');
+    f.controller.setAnimated(true);
+    assert.equal(f.controller.canPhotoMotion('chin-rest'), true);
+  } finally { f.restore(); }
+});
